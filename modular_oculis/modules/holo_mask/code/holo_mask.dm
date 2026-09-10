@@ -27,8 +27,8 @@
 /obj/item/clothing/mask/holo_mask
 	name = "holo mask"
 	desc = "An emitter that allows for the projection of various holographic masks that obscure the face, surely these will only be used with the best of intentions"
-	icon = 'modular_oculis/modules/clothes/icons/obj/holo_masks_icon.dmi'
-	worn_icon = 'modular_oculis/modules/clothes/icons/mob/holo_mask_worn.dmi'
+	icon = 'modular_oculis/modules/holo_mask/icons/obj/holo_masks_icon.dmi'
+	worn_icon = 'modular_oculis/modules/holo_mask/icons/mob/holo_mask_worn.dmi'
 	icon_state = "emitter"
 	inhand_icon_state = null
 	interaction_flags_click = NEED_DEXTERITY
@@ -49,7 +49,7 @@
 		return
 
 	if(!user.incapacitated)
-		switch(emitter_on) 
+		switch(emitter_on)
 			if(0) //turns mask off and reveals face
 				flags_inv = initial(flags_inv)
 				icon_state = "emitter"
