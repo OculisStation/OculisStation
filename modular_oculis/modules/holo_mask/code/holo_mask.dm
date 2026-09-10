@@ -64,8 +64,7 @@
 				worn_icon_state = "blank"
 				emitter_on = 0
 
-		user.update_clothing(slot_flags)
-		user.update_body()
+		user.update_clothing(ITEM_SLOT_MASK)
 
 /obj/item/clothing/mask/holo_mask/click_alt_secondary(mob/user)
 	alternate_worn_layer = (alternate_worn_layer == initial(alternate_worn_layer) ? NONE : initial(alternate_worn_layer))
