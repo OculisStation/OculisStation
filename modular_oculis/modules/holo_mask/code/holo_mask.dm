@@ -65,7 +65,7 @@
 				emitter_on = 0
 
 		user.update_clothing(slot_flags)
-		user.update_appearance()
+		user.update_body()
 
 /obj/item/clothing/mask/holo_mask/click_alt_secondary(mob/user)
 	alternate_worn_layer = (alternate_worn_layer == initial(alternate_worn_layer) ? NONE : initial(alternate_worn_layer))
