@@ -51,7 +51,7 @@
 	if(!user.incapacitated)
 		switch(emitter_on)
 			if(0) //turns mask off and reveals face
-				flags_inv = initial(flags_inv)
+				flags_inv = NONE
 				icon_state = "emitter"
 				to_chat(user, span_notice("You turn off the emitter"))
 				worn_icon_state = "emitter"
