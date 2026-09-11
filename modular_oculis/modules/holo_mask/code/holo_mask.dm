@@ -35,7 +35,7 @@
 	alternate_worn_layer = BACK_LAYER
 	w_class = WEIGHT_CLASS_SMALL
 	post_init_icon_state = "emitter"
-	var/emitter_on = 0 // 0 = off, 1 = on
+	var/emitter_on = 0 // 0 = FALSE, 1 = TRUE
 	actions_types = list(/datum/action/item_action/toggle)
 
 /obj/item/clothing/mask/holo_mask/setup_reskins()
@@ -49,15 +49,14 @@
 		return
 
 	if(!user.incapacitated)
-		switch(emitter_on)
-			if(0) //turns mask off and reveals face
+			if(emitter_on == o) //turns mask off and reveals face
 				flags_inv = NONE
 				icon_state = "emitter"
 				to_chat(user, span_notice("You turn off the emitter"))
 				worn_icon_state = "emitter"
 				emitter_on = 1
 
-			if(1) //turns mask on and hides face
+			else //turns mask on and hides face
 				flags_inv = HIDEFACIALHAIR|HIDESNOUT|HIDEFACE
 				icon_state = "blank"
 				to_chat(user, span_notice("You turn on the emitter."))
