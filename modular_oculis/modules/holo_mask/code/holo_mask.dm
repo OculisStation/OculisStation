@@ -49,19 +49,19 @@
 		return
 
 	if(!user.incapacitated)
-			if(emitter_on == o) //turns mask off and reveals face
-				flags_inv = NONE
-				icon_state = "emitter"
-				to_chat(user, span_notice("You turn off the emitter"))
-				worn_icon_state = "emitter"
-				emitter_on = 1
+		if(emitter_on == 0) //turns mask off and reveals face
+			flags_inv = NONE
+			icon_state = "emitter"
+			to_chat(user, span_notice("You turn off the emitter"))
+			worn_icon_state = "emitter"
+			emitter_on = 1
 
-			else //turns mask on and hides face
-				flags_inv = HIDEFACIALHAIR|HIDESNOUT|HIDEFACE
-				icon_state = "blank"
-				to_chat(user, span_notice("You turn on the emitter."))
-				worn_icon_state = "blank"
-				emitter_on = 0
+		else //turns mask on and hides face
+			flags_inv = HIDEFACIALHAIR|HIDESNOUT|HIDEFACE
+			icon_state = "blank"
+			to_chat(user, span_notice("You turn on the emitter."))
+			worn_icon_state = "blank"
+			emitter_on = 0
 
 		user.update_clothing(ITEM_SLOT_MASK)
 
