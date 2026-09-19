@@ -81,3 +81,6 @@
       and within the flavor of Oculis.
   - balance: Halves the intensity of the fire hallucination, makes it more believable
       and less disruptive.
+2026-09-18:
+  Shroopy:
+  - balance: Reverted MODsuit control units slowing you when worn.
