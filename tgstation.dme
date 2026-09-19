@@ -10456,6 +10456,7 @@
 #include "modular_oculis\modules\mod_saddle\designs.dm"
 #include "modular_oculis\modules\mod_saddle\module.dm"
 #include "modular_oculis\modules\modular_rolling\code\dice.dm"
+#include "modular_oculis\modules\modular_vending\code\autodrobe.dm"
 #include "modular_oculis\modules\modular_vending\code\clothing.dm"
 #include "modular_oculis\modules\modular_vending\code\games.dm"
 #include "modular_oculis\modules\modular_vending\code\vending.dm"

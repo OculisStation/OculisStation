@@ -224,13 +224,11 @@
 	name = "Fitted Wetsuit"
 	item_path = /obj/item/clothing/under/wetsuit_norm
 	ckeywhitelist = list("ChillyLobster")
-*/ // OCULIS EDIT REMOVAL END
 
 /datum/loadout_item/mask/wolf_mask
 	name = "Wolf Mask"
 	item_path = /obj/item/clothing/mask/animal/wolf
 
-/* // OCULIS EDIT REMOVAL START
 /datum/loadout_item/head/drake_skull
 	name = "Skull of an ashdrake"
 	item_path = /obj/item/clothing/head/drake_skull
