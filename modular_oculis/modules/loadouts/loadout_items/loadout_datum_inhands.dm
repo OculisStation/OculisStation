@@ -3,7 +3,7 @@
 	item_path = /obj/item/storage/toolbox/guncase/nova/green
 
 /datum/loadout_item/inhand/guncase_small/green
-	name = "Empty Gun Case (Black, Small)"
+	name = "Empty Gun Case (Green, Small)"
 	item_path = /obj/item/storage/toolbox/guncase/nova/green/pistol
 
 /datum/loadout_item/inhand/guncase_large/red
