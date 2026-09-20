@@ -199,7 +199,7 @@
 	pixel_y = -2
 	},
 /turf/open/floor/grass{
-	icon_state = "grass3";
+	icon_state = "grass3"
 	},
 /area/ruin/space/has_grav/nova/des_two/security/lawyer)
 "aax" = (
@@ -211,7 +211,7 @@
 	atom_integrity = 17.5
 	},
 /turf/open/floor/grass{
-	icon_state = "grass1";
+	icon_state = "grass1"
 	},
 /area/ruin/space/has_grav/nova/des_two/security/lawyer)
 "aay" = (
@@ -431,7 +431,7 @@
 	icon_state = "rock2"
 	},
 /turf/open/floor/grass{
-	icon_state = "grass0";
+	icon_state = "grass0"
 	},
 /area/ruin/space/has_grav/nova/des_two/security/lawyer)
 "abd" = (
@@ -440,7 +440,7 @@
 	color = "#5d341f"
 	},
 /turf/open/floor/grass{
-	icon_state = "grass2";
+	icon_state = "grass2"
 	},
 /area/ruin/space/has_grav/nova/des_two/security/lawyer)
 "abe" = (
@@ -751,16 +751,6 @@
 /obj/machinery/light/floor,
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/nova/des_two)
-"abB" = (
-/turf/open/floor/plating/airless,
-/area/ruin/space/has_grav/nova/des_two)
-"abC" = (
-/obj/structure/window/reinforced/tinted/spawner/directional/south,
-/obj/machinery/power/shuttle_engine/heater{
-	dir = 1
-	},
-/turf/open/floor/plating/airless,
-/area/ruin/space/has_grav/nova/des_two)
 "abD" = (
 /obj/structure/flora/bush/large/style_random{
 	icon_state = "bush2"
@@ -770,7 +760,7 @@
 	},
 /obj/structure/marker_beacon/yellow,
 /turf/open/floor/grass{
-	icon_state = "grass1";
+	icon_state = "grass1"
 	},
 /area/ruin/space/has_grav/nova/des_two/security/lawyer)
 "abE" = (
@@ -797,7 +787,7 @@
 	amount = 1
 	},
 /turf/open/floor/grass{
-	icon_state = "grass0";
+	icon_state = "grass0"
 	},
 /area/ruin/space/has_grav/nova/des_two/security/lawyer)
 "abF" = (
@@ -920,10 +910,6 @@
 	icon_state = "12_4";
 	name = "blue air supply pipe"
 	},
-/turf/open/floor/iron/dark/small,
-/area/ruin/space/has_grav/nova/des_two/security/prison)
-"abM" = (
-/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark/small,
 /area/ruin/space/has_grav/nova/des_two/security/prison)
 "abN" = (
@@ -1134,31 +1120,10 @@
 	},
 /turf/open/floor/wood/large,
 /area/ruin/space/has_grav/nova/des_two/security/lawyer)
-"ach" = (
-/turf/open/floor/iron/dark/small,
-/area/ruin/space/has_grav/nova/des_two/security/prison)
 "aci" = (
 /obj/machinery/light/cold/directional/east{
 	icon_state = "tube_emergency"
 	},
-/turf/open/floor/iron/dark/small,
-/area/ruin/space/has_grav/nova/des_two/security/prison)
-"acj" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	color = "#0000ff";
-	dir = 4;
-	icon = 'icons/obj/pipes_n_cables/!pipes_bitmask.dmi';
-	icon_state = "12_4";
-	name = "blue air supply pipe"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	color = "#ff0000";
-	dir = 4;
-	icon = 'icons/obj/pipes_n_cables/!pipes_bitmask.dmi';
-	icon_state = "12_2";
-	name = "red scrubbers pipe"
-	},
-/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark/small,
 /area/ruin/space/has_grav/nova/des_two/security/prison)
 "ack" = (
@@ -1402,9 +1367,6 @@
 	pixel_y = 4
 	},
 /turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/service/dorms)
-"acG" = (
-/turf/open/floor/carpet/neon/simple/red/nodots,
 /area/ruin/space/has_grav/nova/des_two/service/dorms)
 "acH" = (
 /obj/structure/girder/reinforced{
@@ -1719,10 +1681,6 @@
 	},
 /turf/open/floor/carpet/neon/simple/red/nodots,
 /area/ruin/space/has_grav/nova/des_two/service/dorms)
-"adg" = (
-/obj/structure/table/wood/fancy/red,
-/turf/open/floor/carpet/neon/simple/red/nodots,
-/area/ruin/space/has_grav/nova/des_two/service/dorms)
 "adh" = (
 /obj/structure/girder/reinforced,
 /turf/open/floor/plating,
@@ -1734,16 +1692,6 @@
 	pixel_y = -1;
 	amount = 4
 	},
-/turf/open/floor/carpet/neon/simple/red/nodots,
-/area/ruin/space/has_grav/nova/des_two/service/dorms)
-"adj" = (
-/obj/structure/chair/comfy/brown{
-	color = "#596479"
-	},
-/turf/open/floor/carpet/neon/simple/red/nodots,
-/area/ruin/space/has_grav/nova/des_two/service/dorms)
-"adk" = (
-/obj/structure/table/wood/fancy/red,
 /turf/open/floor/carpet/neon/simple/red/nodots,
 /area/ruin/space/has_grav/nova/des_two/service/dorms)
 "adl" = (
@@ -1915,23 +1863,6 @@
 	name = "curtain control";
 	pixel_y = 24;
 	id = "DS2cell1"
-	},
-/turf/open/floor/iron/dark,
-/area/ruin/space/has_grav/nova/des_two/security/prison)
-"adx" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	color = "#0000ff";
-	dir = 8;
-	icon = 'icons/obj/pipes_n_cables/!pipes_bitmask.dmi';
-	icon_state = "72_4";
-	name = "blue air supply pipe"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	color = "#ff0000";
-	dir = 4;
-	icon = 'icons/obj/pipes_n_cables/!pipes_bitmask.dmi';
-	icon_state = "12_2";
-	name = "red scrubbers pipe"
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/security/prison)
@@ -2224,10 +2155,6 @@
 	piping_layer = 2;
 	pipe_color = "#FF0000"
 	},
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/service/dorms)
-"adX" = (
-/obj/structure/girder/reinforced,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/service/dorms)
 "adY" = (
@@ -2568,9 +2495,6 @@
 	},
 /turf/open/floor/carpet/neon/simple/red/nodots,
 /area/ruin/space/has_grav/nova/des_two/service/dorms)
-"aet" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/service/dorms)
 "aeu" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	color = "#ff0000";
@@ -2652,7 +2576,7 @@
 /obj/item/restraints/legcuffs/beartrap/prearmed,
 /obj/item/restraints/legcuffs/beartrap/prearmed,
 /turf/open/floor/grass{
-	icon_state = "grass2";
+	icon_state = "grass2"
 	},
 /area/ruin/space/has_grav/nova/des_two/security)
 "aeC" = (
@@ -3016,9 +2940,6 @@
 "afc" = (
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/nova/des_two/security)
-"afd" = (
-/turf/open/floor/mineral/plastitanium,
-/area/ruin/space/has_grav/nova/des_two/security)
 "afe" = (
 /obj/machinery/door/firedoor{
 	icon_state = "door_closed";
@@ -3048,9 +2969,6 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/open/floor/mineral/plastitanium,
-/area/ruin/space/has_grav/nova/des_two/security)
-"afi" = (
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/nova/des_two/security)
 "afj" = (
@@ -3581,9 +3499,6 @@
 "afI" = (
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/security/intel)
-"afJ" = (
-/turf/open/floor/mineral/plastitanium,
-/area/ruin/space/has_grav/nova/des_two/security)
 "afK" = (
 /obj/structure/cable{
 	color = "#ffff00";
@@ -3935,26 +3850,6 @@
 	icon_state = "3_2";
 	name = "red scrubbers pipe"
 	},
-/turf/open/floor/mineral/plastitanium,
-/area/ruin/space/has_grav/nova/des_two/security)
-"afZ" = (
-/obj/structure/cable{
-	color = "#ffff00";
-	icon_state = "l2-1-2"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	color = "#0000ff";
-	icon = 'icons/obj/pipes_n_cables/!pipes_bitmask.dmi';
-	icon_state = "3_4";
-	name = "blue air supply pipe"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	color = "#ff0000";
-	icon = 'icons/obj/pipes_n_cables/!pipes_bitmask.dmi';
-	icon_state = "3_2";
-	name = "red scrubbers pipe"
-	},
-/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/nova/des_two/security)
 "aga" = (
@@ -4326,7 +4221,7 @@
 	amount = 1
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/security/intel)
 "agu" = (
@@ -4857,12 +4752,6 @@
 	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/service/dorms)
-"aha" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/security/intel)
-"ahb" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/security/intel)
 "ahc" = (
 /obj/item/stack/cable_coil{
 	color = "#ffff00";
@@ -5012,9 +4901,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/nova/des_two/security/maa)
-"ahl" = (
-/turf/open/floor/mineral/plastitanium,
-/area/ruin/space/has_grav/nova/des_two/security)
 "ahm" = (
 /obj/structure/cable{
 	color = "#ffff00";
@@ -5241,9 +5127,6 @@
 	icon = 'modular_nova/master_files/icons/obj/machines/status_display.dmi'
 	},
 /turf/open/floor/wood,
-/area/ruin/space/has_grav/nova/des_two/security/intel)
-"ahI" = (
-/turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/security/intel)
 "ahJ" = (
 /obj/structure/cable{
@@ -5541,14 +5424,6 @@
 /obj/machinery/light/cold/directional/west,
 /turf/open/floor/engine/bz,
 /area/ruin/space/has_grav/nova/des_two/engineering)
-"aii" = (
-/obj/structure/window/reinforced/tinted/spawner/directional/south,
-/obj/machinery/power/shuttle_engine/heater{
-	dir = 1
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating/airless,
-/area/ruin/space/has_grav/nova/des_two)
 "aij" = (
 /obj/item/wallframe/button,
 /obj/item/assembly/control/curtain,
@@ -5829,13 +5704,7 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/nova/des_two/security)
-"aiu" = (
-/turf/open/floor/mineral/plastitanium/red,
-/area/ruin/space/has_grav/nova/des_two/security)
 "aiv" = (
-/turf/open/floor/carpet/royalblack,
-/area/ruin/space/has_grav/nova/des_two/security/maa)
-"aiw" = (
 /turf/open/floor/carpet/royalblack,
 /area/ruin/space/has_grav/nova/des_two/security/maa)
 "aix" = (
@@ -6079,10 +5948,6 @@
 /obj/item/stack/sheet/mineral/plastitanium,
 /turf/open/floor/carpet/neon/simple/red/nodots,
 /area/ruin/space/has_grav/nova/des_two/service/dorms)
-"aiU" = (
-/obj/structure/girder/reinforced,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/service/dorms)
 "aiV" = (
 /obj/machinery/vending/wardrobe/sec_wardrobe{
 	icon_state = "secdrobe-broken";
@@ -6112,9 +5977,6 @@
 	name = "blue air supply pipe";
 	atom_integrity = 18
 	},
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/service/dorms)
-"aiX" = (
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/service/dorms)
 "aiY" = (
@@ -6288,12 +6150,6 @@
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/nova/des_two/security)
-"ajm" = (
-/turf/open/floor/mineral/plastitanium/red,
-/area/ruin/space/has_grav/nova/des_two/security)
-"ajn" = (
-/turf/open/floor/mineral/plastitanium/red,
-/area/ruin/space/has_grav/nova/des_two/security)
 "ajo" = (
 /obj/machinery/atmospherics/pipe/layer_manifold/cyan{
 	color = "#00ffff";
@@ -6359,15 +6215,6 @@
 /obj/structure/window/reinforced/plasma/plastitanium,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/engineering)
-"aju" = (
-/obj/machinery/power/shuttle_engine/large{
-	dir = 1
-	},
-/turf/open/floor/plating/airless,
-/area/ruin/space/has_grav/nova/des_two)
-"ajv" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/service/dorms)
 "ajw" = (
 /obj/structure/cable{
 	color = "#ffff00";
@@ -6452,15 +6299,8 @@
 	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/service/dorms)
-"ajC" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/service/dorms)
 "ajD" = (
 /turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
-/area/ruin/space/has_grav/nova/des_two/security/intel)
-"ajE" = (
-/obj/structure/girder/reinforced,
-/turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/security/intel)
 "ajF" = (
 /obj/machinery/cryopod{
@@ -6471,12 +6311,6 @@
 "ajG" = (
 /obj/machinery/computer/cryopod/directional/west,
 /obj/structure/table,
-/turf/open/floor/iron/diagonal,
-/area/ruin/space/has_grav/nova/des_two/halls)
-"ajH" = (
-/obj/machinery/cryopod{
-	dir = 4
-	},
 /turf/open/floor/iron/diagonal,
 /area/ruin/space/has_grav/nova/des_two/halls)
 "ajI" = (
@@ -6777,21 +6611,12 @@
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "ake" = (
-/obj/machinery/atmospherics/components/binary/valve/digital{
-	dir = 4;
-	icon_state = "dvalve_off-1";
-	on = 1
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/layer_manifold/purple{
 	dir = 4;
 	icon_state = "manifoldlayer_center";
 	name = "purple layer adaptor"
 	},
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"akf" = (
-/obj/machinery/light/warm/directional/west,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "akg" = (
@@ -6820,12 +6645,12 @@
 	atom_integrity = 296.3
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "akk" = (
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "akl" = (
@@ -6836,18 +6661,13 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "akm" = (
 /obj/machinery/camera/directional/west,
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 4;
-	},
-/area/ruin/space/has_grav/nova/des_two/halls)
-"akn" = (
-/turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "ako" = (
@@ -6877,7 +6697,7 @@
 	atom_integrity = 163
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "akp" = (
@@ -6887,7 +6707,7 @@
 	name = "Syndicate deepspace sales pad (Machine Board)"
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "akq" = (
@@ -6896,7 +6716,7 @@
 	icon_state = "rods-1"
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "akr" = (
@@ -6908,17 +6728,7 @@
 	id_tag = "49HAp"
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 4;
-	},
-/area/ruin/space/has_grav/nova/des_two/halls)
-"aks" = (
-/turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 4;
-	},
-/area/ruin/space/has_grav/nova/des_two/halls)
-"akt" = (
-/turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "aku" = (
@@ -6929,7 +6739,7 @@
 	id_tag = "dWQbe"
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "akv" = (
@@ -6940,17 +6750,7 @@
 	color = "#008B8B"
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 4;
-	},
-/area/ruin/space/has_grav/nova/des_two/halls)
-"akw" = (
-/turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 4;
-	},
-/area/ruin/space/has_grav/nova/des_two/halls)
-"akx" = (
-/turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "aky" = (
@@ -6960,24 +6760,19 @@
 	id_tag = "vrBf5"
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 4;
-	},
-/area/ruin/space/has_grav/nova/des_two/halls)
-"akz" = (
-/turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "akA" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "akB" = (
 /obj/effect/decal/cleanable/blood/gibs/core,
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "akC" = (
@@ -6987,23 +6782,7 @@
 	id_tag = "wmpEj"
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 4;
-	},
-/area/ruin/space/has_grav/nova/des_two/halls)
-"akD" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 4;
-	},
-/area/ruin/space/has_grav/nova/des_two/halls)
-"akE" = (
-/turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 4;
-	},
-/area/ruin/space/has_grav/nova/des_two/halls)
-"akF" = (
-/turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "akG" = (
@@ -7014,7 +6793,7 @@
 	id_tag = "PsGYU"
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "akH" = (
@@ -7053,12 +6832,7 @@
 	amount = 1
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 4;
-	},
-/area/ruin/space/has_grav/nova/des_two/halls)
-"akI" = (
-/turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "akJ" = (
@@ -7088,12 +6862,7 @@
 	atom_integrity = 56
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 4;
-	},
-/area/ruin/space/has_grav/nova/des_two/halls)
-"akK" = (
-/turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "akL" = (
@@ -7598,7 +7367,7 @@
 	},
 /obj/effect/spawner/random/contraband/landmine,
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 8;
+	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "als" = (
@@ -7728,7 +7497,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 8;
+	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "alw" = (
@@ -7751,7 +7520,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 8;
+	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "alx" = (
@@ -7773,7 +7542,7 @@
 	name = "blue air supply pipe"
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 8;
+	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "aly" = (
@@ -7798,7 +7567,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/components/trinary/mixer/on,
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 8;
+	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "alz" = (
@@ -7825,7 +7594,7 @@
 	},
 /obj/effect/decal/cleanable/blood/gibs/torso,
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 8;
+	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "alA" = (
@@ -7850,29 +7619,7 @@
 	name = "blue air supply pipe"
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 8;
-	},
-/area/ruin/space/has_grav/nova/des_two/halls)
-"alB" = (
-/obj/structure/cable{
-	color = "#ffff00";
-	icon_state = "l2-1-2"
-	},
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	color = "#ff0000";
-	icon = 'icons/obj/pipes_n_cables/!pipes_bitmask.dmi';
-	icon_state = "3_2";
-	name = "red scrubbers pipe"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	color = "#0000ff";
-	icon = 'icons/obj/pipes_n_cables/!pipes_bitmask.dmi';
-	icon_state = "3_4";
-	name = "blue air supply pipe"
-	},
-/turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 8;
+	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "alC" = (
@@ -7895,7 +7642,7 @@
 	name = "blue air supply pipe"
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 8;
+	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "alD" = (
@@ -7919,7 +7666,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 8;
+	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "alE" = (
@@ -8032,7 +7779,7 @@
 	atom_integrity = 125
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 8;
+	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "alI" = (
@@ -8059,7 +7806,7 @@
 	atom_integrity = 187
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 8;
+	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "alJ" = (
@@ -8088,7 +7835,7 @@
 	atom_integrity = 73
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 8;
+	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "alK" = (
@@ -8125,7 +7872,7 @@
 	pixel_y = 3
 	},
 /turf/open/floor/plating{
-	dir = 8;
+	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "alL" = (
@@ -8266,9 +8013,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/engineering)
-"alS" = (
-/turf/open/floor/iron/dark,
-/area/ruin/space/has_grav/nova/des_two/engineering)
 "alT" = (
 /obj/structure/cable{
 	color = "#ffff00";
@@ -8301,20 +8045,8 @@
 	},
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/space/has_grav/nova/des_two/engineering)
-"alW" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
 "alX" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"alY" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"alZ" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"ama" = (
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "amb" = (
@@ -8429,7 +8161,7 @@
 	dir = 1
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 8;
+	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "amm" = (
@@ -8437,7 +8169,7 @@
 	atom_integrity = 237
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 8;
+	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "amn" = (
@@ -8471,7 +8203,7 @@
 	pixel_x = 32
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 8;
+	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "amo" = (
@@ -8484,7 +8216,7 @@
 	dir = 1
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 8;
+	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "amp" = (
@@ -8510,7 +8242,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 8;
+	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "amq" = (
@@ -8577,12 +8309,6 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/bridge/cl)
 "amx" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/research/robotics)
-"amy" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/research/robotics)
-"amz" = (
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/research/robotics)
 "amA" = (
@@ -8664,7 +8390,7 @@
 	icon_state = "l2-1-4-8"
 	},
 /turf/open/floor/plating{
-	dir = 1;
+	dir = 1
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "amI" = (
@@ -8674,7 +8400,7 @@
 "amJ" = (
 /obj/structure/rack,
 /turf/open/floor/iron/dark/side{
-	dir = 8;
+	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "amK" = (
@@ -8701,7 +8427,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark/side{
-	dir = 8;
+	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "amL" = (
@@ -8747,26 +8473,6 @@
 	name = "blue air supply pipe"
 	},
 /turf/open/floor/catwalk_floor/iron_dark,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"amP" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"amQ" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"amR" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"amS" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"amT" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"amU" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "amV" = (
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
@@ -8990,9 +8696,6 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/research/robotics)
-"anq" = (
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/space/has_grav/nova/des_two/research/robotics)
 "anr" = (
 /obj/machinery/rnd/production/circuit_imprinter/offstation,
 /turf/open/floor/iron/dark,
@@ -9085,7 +8788,7 @@
 	atom_integrity = 168
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 1;
+	dir = 1
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "anz" = (
@@ -9116,21 +8819,6 @@
 	pixel_x = 5;
 	id_tag = "OgD4q"
 	},
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"anD" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"anE" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"anF" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"anG" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"anH" = (
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "anI" = (
@@ -9209,6 +8897,7 @@
 	name = "syndicate cyborg showcase";
 	pixel_x = -6
 	},
+/obj/effect/decal/cleanable/blood/oil/slippery,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/nova/des_two/bridge)
 "anP" = (
@@ -9298,9 +8987,6 @@
 /obj/structure/table_frame/wood,
 /turf/open/floor/wood/large,
 /area/ruin/space/has_grav/nova/des_two/bridge/cl)
-"anV" = (
-/turf/open/floor/wood/large,
-/area/ruin/space/has_grav/nova/des_two/bridge/cl)
 "anW" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin/carbon{
@@ -9339,14 +9025,14 @@
 "aob" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/half{
-	dir = 8;
+	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/research)
 "aoc" = (
 /obj/effect/decal/cleanable/dirt,
 /mob/living/basic/spider/giant/ogre,
 /turf/open/floor/iron/half{
-	dir = 8;
+	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/research)
 "aod" = (
@@ -9412,7 +9098,7 @@
 	atom_integrity = 164
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 1;
+	dir = 1
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "aoi" = (
@@ -9464,30 +9150,6 @@
 	name = "blue air supply pipe"
 	},
 /turf/open/floor/catwalk_floor/iron_dark,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"aop" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"aoq" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"aor" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"aos" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"aot" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"aou" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"aov" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "aow" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -9678,20 +9340,20 @@
 /area/ruin/space/has_grav/nova/des_two/bridge/cl)
 "aoL" = (
 /turf/open/floor/iron/stairs/left{
-	dir = 8;
+	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/research/robotics)
 "aoM" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/stairs/medium{
-	dir = 8;
+	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/research/robotics)
 "aoN" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/spawner/random/contraband/landmine,
 /turf/open/floor/iron/stairs/right{
-	dir = 8;
+	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/research/robotics)
 "aoO" = (
@@ -9764,7 +9426,7 @@
 /obj/effect/decal/cleanable/blood,
 /mob/living/basic/spider/giant/ogre,
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 1;
+	dir = 1
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "aoW" = (
@@ -9813,39 +9475,6 @@
 	pixel_y = -6
 	},
 /turf/open/floor/iron/dark/textured_large,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"apb" = (
-/obj/structure/cable{
-	color = "#ffff00";
-	icon_state = "l2-4-8"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	color = "#0000ff";
-	dir = 4;
-	icon = 'icons/obj/pipes_n_cables/!pipes_bitmask.dmi';
-	icon_state = "12_4";
-	name = "blue air supply pipe"
-	},
-/turf/open/floor/catwalk_floor/iron_dark,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"apc" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"apd" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"ape" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"apf" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"apg" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "aph" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -9954,6 +9583,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/effect/decal/cleanable/blood/oil/slippery,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/nova/des_two/bridge)
 "apo" = (
@@ -10052,9 +9682,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark/side,
 /area/ruin/space/has_grav/nova/des_two/research/robotics)
-"apv" = (
-/turf/open/floor/iron/half,
-/area/ruin/space/has_grav/nova/des_two/research)
 "apw" = (
 /obj/machinery/rnd/destructive_analyzer,
 /turf/open/floor/iron/dark,
@@ -10064,9 +9691,6 @@
 	dir = 4
 	},
 /turf/open/floor/iron/dark,
-/area/ruin/space/has_grav/nova/des_two/research)
-"apy" = (
-/turf/open/floor/iron/half,
 /area/ruin/space/has_grav/nova/des_two/research)
 "apz" = (
 /obj/machinery/autolathe/hacked,
@@ -10103,7 +9727,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 1;
+	dir = 1
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "apC" = (
@@ -10120,13 +9744,6 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/space/has_grav/nova/des_two/halls)
 "apE" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/iron/dark/brick,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"apF" = (
-/turf/open/floor/iron/dark/brick,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"apG" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark/brick,
 /area/ruin/space/has_grav/nova/des_two/engineering)
@@ -10155,22 +9772,6 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/catwalk_floor/iron_dark,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"apK" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"apL" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"apM" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"apN" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"apO" = (
-/turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "apP" = (
 /turf/open/floor/iron/dark/textured_large,
@@ -10226,12 +9827,6 @@
 	icon_state = "scrub_on";
 	id_tag = "pvyvY"
 	},
-/obj/structure/closet/supplypod/centcompod{
-	icon_state = "darkpod";
-	name = "blood-red supply pod";
-	pixel_x = -13;
-	opened = 1
-	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/nova/des_two/bridge)
 "apW" = (
@@ -10268,7 +9863,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark/brick_aligned_corner_vertical{
-	dir = 8;
+	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/bridge)
 "apY" = (
@@ -10352,7 +9947,7 @@
 "aqe" = (
 /obj/structure/closet/secure_closet/des_two/robotics,
 /turf/open/floor/iron/dark/side{
-	dir = 1;
+	dir = 1
 	},
 /area/ruin/space/has_grav/nova/des_two/research/robotics)
 "aqf" = (
@@ -10435,10 +10030,6 @@
 	},
 /turf/open/floor/iron/half,
 /area/ruin/space/has_grav/nova/des_two/research)
-"aqm" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/iron/dark/brick_aligned_half_vertical,
-/area/ruin/space/has_grav/nova/des_two/halls)
 "aqn" = (
 /obj/structure/cable{
 	color = "#ffff00";
@@ -10462,11 +10053,8 @@
 	name = "blue air supply pipe"
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 1;
+	dir = 1
 	},
-/area/ruin/space/has_grav/nova/des_two/halls)
-"aqo" = (
-/turf/open/floor/iron/dark/smooth_large,
 /area/ruin/space/has_grav/nova/des_two/halls)
 "aqp" = (
 /obj/machinery/recharge_station,
@@ -10475,7 +10063,7 @@
 "aqq" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/stairs/left{
-	dir = 8;
+	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "aqr" = (
@@ -10486,7 +10074,7 @@
 	id = "ds2engineering"
 	},
 /turf/open/floor/iron/stairs/right{
-	dir = 8;
+	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "aqs" = (
@@ -10505,23 +10093,6 @@
 	name = "blue air supply pipe"
 	},
 /turf/open/floor/catwalk_floor/iron_dark,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"aqt" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"aqu" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"aqv" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"aqw" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"aqx" = (
-/turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "aqy" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -10594,9 +10165,6 @@
 /obj/effect/decal/cleanable/blood{
 	color = "#008B8B"
 	},
-/turf/open/floor/mineral/plastitanium/red,
-/area/ruin/space/has_grav/nova/des_two/bridge)
-"aqE" = (
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/nova/des_two/bridge)
 "aqF" = (
@@ -10697,7 +10265,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark/side{
-	dir = 1;
+	dir = 1
 	},
 /area/ruin/space/has_grav/nova/des_two/research/robotics)
 "aqM" = (
@@ -10743,12 +10311,6 @@
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/space/has_grav/nova/des_two/research/robotics)
-"aqQ" = (
-/turf/open/floor/iron/half,
-/area/ruin/space/has_grav/nova/des_two/research)
-"aqR" = (
-/turf/open/floor/iron/half,
-/area/ruin/space/has_grav/nova/des_two/research)
 "aqS" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	color = "#ff0000";
@@ -10850,9 +10412,6 @@
 	},
 /turf/open/floor/iron/dark/brick,
 /area/ruin/space/has_grav/nova/des_two/engineering)
-"ard" = (
-/turf/open/floor/iron/dark/brick,
-/area/ruin/space/has_grav/nova/des_two/engineering)
 "are" = (
 /obj/machinery/door/poddoor/shutters/radiation/preopen{
 	id = "ds2engineering"
@@ -10864,36 +10423,6 @@
 "arf" = (
 /obj/machinery/light/cold/directional/west,
 /turf/open/floor/iron/dark/textured_large,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"arg" = (
-/obj/structure/cable{
-	color = "#ffff00";
-	icon_state = "l2-4-8"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	color = "#0000ff";
-	dir = 4;
-	icon = 'icons/obj/pipes_n_cables/!pipes_bitmask.dmi';
-	icon_state = "12_4";
-	name = "blue air supply pipe"
-	},
-/turf/open/floor/catwalk_floor/iron_dark,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"arh" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"ari" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"arj" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"ark" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"arl" = (
-/turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "arm" = (
 /obj/machinery/button/door{
@@ -10945,16 +10474,6 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/bridge)
-"arr" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/closet/supplypod/centcompod{
-	icon_state = "darkpod";
-	name = "blood-red supply pod";
-	pixel_x = -9;
-	opened = 1
-	},
-/turf/open/floor/mineral/plastitanium/red,
-/area/ruin/space/has_grav/nova/des_two/bridge)
 "ars" = (
 /obj/structure/cable{
 	color = "#ffff00";
@@ -10979,9 +10498,6 @@
 	name = "Old Admiral's Laptop";
 	desc = "A relatively low-end but sturdy laptop computer, good for taking notes or making internet searches. In contrast to the battered exterior, the drive is nearly a clean slate. Across the many scratches, you can faintly make out an intentional marking... \"A+█\""
 	},
-/turf/open/floor/mineral/plastitanium/red,
-/area/ruin/space/has_grav/nova/des_two/bridge)
-"art" = (
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/nova/des_two/bridge)
 "aru" = (
@@ -11095,7 +10611,7 @@
 	dir = 1
 	},
 /turf/open/floor/iron/dark/side{
-	dir = 1;
+	dir = 1
 	},
 /area/ruin/space/has_grav/nova/des_two/research/robotics)
 "arA" = (
@@ -11168,9 +10684,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/nova/des_two/research)
-"arI" = (
-/turf/open/floor/iron/dark/brick_aligned_half_vertical,
-/area/ruin/space/has_grav/nova/des_two/halls)
 "arJ" = (
 /obj/structure/cable{
 	color = "#ffff00";
@@ -11224,22 +10737,6 @@
 	name = "red scrubbers pipe"
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/mineral/plastitanium/red,
-/area/ruin/space/has_grav/nova/des_two/halls)
-"arM" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	color = "#0000ff";
-	icon = 'icons/obj/pipes_n_cables/!pipes_bitmask.dmi';
-	icon_state = "3_4";
-	name = "blue air supply pipe"
-	},
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	color = "#ff0000";
-	icon = 'icons/obj/pipes_n_cables/!pipes_bitmask.dmi';
-	icon_state = "3_2";
-	name = "red scrubbers pipe"
-	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/nova/des_two/halls)
 "arN" = (
@@ -11333,25 +10830,6 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/engineering)
-"arS" = (
-/obj/machinery/door/airlock/hatch{
-	req_access = list("syndicate")
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	color = "#0000ff";
-	icon = 'icons/obj/pipes_n_cables/!pipes_bitmask.dmi';
-	icon_state = "3_4";
-	name = "blue air supply pipe"
-	},
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	color = "#ff0000";
-	icon = 'icons/obj/pipes_n_cables/!pipes_bitmask.dmi';
-	icon_state = "3_2";
-	name = "red scrubbers pipe"
-	},
-/turf/open/floor/iron/dark/smooth_large,
-/area/ruin/space/has_grav/nova/des_two/engineering)
 "arT" = (
 /obj/structure/disposalpipe/segment{
 	dir = 5
@@ -11375,24 +10853,6 @@
 	name = "red scrubbers pipe"
 	},
 /turf/open/floor/catwalk_floor/iron_dark,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"arU" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"arV" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"arW" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"arX" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"arY" = (
-/turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "arZ" = (
 /obj/structure/disposalpipe/segment{
@@ -11420,20 +10880,11 @@
 	pixel_y = 7
 	},
 /obj/item/paper{
-    name = "lost diary entry";
-    default_raw_text = "The radar pings are nearly every day. What are they searching for? Us? They shouldn't know we're here. Have we been sending too many sorties? Have I not been careful enough? Is it too late to even do anything to save ourselves? \n I'd never tell the rest of the crew, but we can't win a head-on fight. We just can't. We can fight to our last, make them work for it, make them bleed for it, but we can't take a straight-up fight no matter how confident everyone is. We just can't. There's too many of them, too little of us, and they have far more resources to work with than us. \n It's gonna be like this over and over and over again. I get comfortable, I make friends, we make some kind of progress against NT. And then they find us. They kick the doors down. And we scatter. Why do I even let myself get comfortable? It hurts so much to break that comfort, and I know it's coming. I hurt too much already because of them to take more pain. \n I guess if I never got comfortable, I wouldn't have found you, love. That's easily worth it. \n \n Goodnight."
-    },
+	name = "lost diary entry";
+	default_raw_text = "The radar pings are nearly every day. What are they searching for? Us? They shouldn't know we're here. Have we been sending too many sorties? Have I not been careful enough? Is it too late to even do anything to save ourselves? \n I'd never tell the rest of the crew, but we can't win a head-on fight. We just can't. We can fight to our last, make them work for it, make them bleed for it, but we can't take a straight-up fight no matter how confident everyone is. We just can't. There's too many of them, too little of us, and they have far more resources to work with than us. \n It's gonna be like this over and over and over again. I get comfortable, I make friends, we make some kind of progress against NT. And then they find us. They kick the doors down. And we scatter. Why do I even let myself get comfortable? It hurts so much to break that comfort, and I know it's coming. I hurt too much already because of them to take more pain. \n I guess if I never got comfortable, I wouldn't have found you, love. That's easily worth it. \n \n Goodnight."
+	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark/textured_half,
-/area/ruin/space/has_grav/nova/des_two/bridge)
-"asc" = (
-/obj/structure/closet/supplypod/centcompod{
-	icon_state = "darkpod";
-	name = "blood-red supply pod";
-	pixel_x = -11;
-	opened = 1
-	},
-/turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/nova/des_two/bridge)
 "asd" = (
 /obj/structure/cable{
@@ -11553,7 +11004,7 @@
 	},
 /obj/machinery/mecha_part_fabricator,
 /turf/open/floor/iron/dark/side{
-	dir = 1;
+	dir = 1
 	},
 /area/ruin/space/has_grav/nova/des_two/research/robotics)
 "asm" = (
@@ -11873,22 +11324,6 @@
 	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/engineering)
-"asF" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"asG" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"asH" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"asI" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"asJ" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
 "asK" = (
 /obj/structure/disposalpipe/segment{
 	dir = 6
@@ -11987,39 +11422,6 @@
 	},
 /turf/open/floor/iron/dark/textured_half,
 /area/ruin/space/has_grav/nova/des_two/bridge)
-"asR" = (
-/obj/structure/closet/supplypod/centcompod{
-	icon_state = "darkpod";
-	name = "blood-red supply pod";
-	pixel_x = -17;
-	opened = 1
-	},
-/turf/open/floor/mineral/plastitanium/red,
-/area/ruin/space/has_grav/nova/des_two/bridge)
-"asS" = (
-/obj/structure/cable{
-	color = "#ffff00";
-	icon_state = "l2-4-8"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	color = "#ff0000";
-	dir = 4;
-	icon = 'icons/obj/pipes_n_cables/!pipes_bitmask.dmi';
-	icon_state = "12_2";
-	name = "red scrubbers pipe"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	color = "#0000ff";
-	dir = 4;
-	icon = 'icons/obj/pipes_n_cables/!pipes_bitmask.dmi';
-	icon_state = "12_4";
-	name = "blue air supply pipe"
-	},
-/obj/effect/decal/cleanable/blood{
-	color = "#008B8B"
-	},
-/turf/open/floor/mineral/plastitanium/red,
-/area/ruin/space/has_grav/nova/des_two/bridge)
 "asT" = (
 /turf/open/floor/iron/dark/brick_aligned_corner_vertical,
 /area/ruin/space/has_grav/nova/des_two/bridge)
@@ -12037,7 +11439,7 @@
 	},
 /obj/item/toy/figure/syndie,
 /turf/open/floor/iron/dark/brick_aligned_corner_vertical_inverse{
-	dir = 1;
+	dir = 1
 	},
 /area/ruin/space/has_grav/nova/des_two/bridge)
 "asV" = (
@@ -12105,7 +11507,7 @@
 "asZ" = (
 /obj/structure/closet/l3closet/scientist,
 /turf/open/floor/iron/dark/side{
-	dir = 1;
+	dir = 1
 	},
 /area/ruin/space/has_grav/nova/des_two/research/robotics)
 "ata" = (
@@ -12140,10 +11542,6 @@
 	pixel_y = 3
 	},
 /turf/open/floor/iron/half,
-/area/ruin/space/has_grav/nova/des_two/research/robotics)
-"atc" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/iron/dark/side,
 /area/ruin/space/has_grav/nova/des_two/research/robotics)
 "atd" = (
 /obj/machinery/announcement_system,
@@ -12232,7 +11630,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 1;
+	dir = 1
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "atk" = (
@@ -12350,20 +11748,6 @@
 	name = "red scrubbers pipe"
 	},
 /turf/open/floor/catwalk_floor/iron_dark,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"atr" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"ats" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"att" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"atu" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "atv" = (
 /obj/structure/disposalpipe/segment{
@@ -12542,9 +11926,6 @@
 	},
 /turf/open/floor/iron/half,
 /area/ruin/space/has_grav/nova/des_two/research/robotics)
-"atG" = (
-/turf/open/floor/iron/dark/side,
-/area/ruin/space/has_grav/nova/des_two/research/robotics)
 "atH" = (
 /obj/structure/cable{
 	color = "#ffff00";
@@ -12610,7 +11991,7 @@
 	pixel_x = -2
 	},
 /turf/open/floor/plating{
-	dir = 1;
+	dir = 1
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "atN" = (
@@ -12679,9 +12060,6 @@
 	},
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/space/has_grav/nova/des_two/engineering)
-"atU" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
 "atV" = (
 /obj/item/stack/marker_beacon{
 	dir = 8;
@@ -12689,9 +12067,6 @@
 	pixel_x = -2;
 	pixel_y = -5
 	},
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"atW" = (
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "atX" = (
@@ -12960,9 +12335,6 @@
 	},
 /turf/open/floor/iron/half,
 /area/ruin/space/has_grav/nova/des_two/research)
-"auo" = (
-/turf/open/floor/iron/half,
-/area/ruin/space/has_grav/nova/des_two/research)
 "aup" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/half,
@@ -12972,35 +12344,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/research)
-"aur" = (
-/turf/open/floor/iron/dark/brick_aligned_half_vertical,
-/area/ruin/space/has_grav/nova/des_two/halls)
-"aus" = (
-/obj/structure/cable{
-	color = "#ffff00";
-	icon_state = "l2-4-8"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	color = "#ff0000";
-	dir = 4;
-	icon = 'icons/obj/pipes_n_cables/!pipes_bitmask.dmi';
-	icon_state = "12_2";
-	name = "red scrubbers pipe"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	color = "#0000ff";
-	dir = 4;
-	icon = 'icons/obj/pipes_n_cables/!pipes_bitmask.dmi';
-	icon_state = "12_4";
-	name = "blue air supply pipe"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 1;
-	},
-/area/ruin/space/has_grav/nova/des_two/halls)
 "aut" = (
 /obj/machinery/atmospherics/components/binary/pump/off/scrubbers/visible/layer2{
 	color = null;
@@ -13028,9 +12371,6 @@
 /obj/structure/closet/secure_closet/des_two/engie_locker,
 /obj/machinery/light/cold/directional/north,
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/iron/dark/brick,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"auw" = (
 /turf/open/floor/iron/dark/brick,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "aux" = (
@@ -13097,13 +12437,6 @@
 	amount = 1
 	},
 /turf/open/floor/catwalk_floor/iron_dark,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"auD" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"auE" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "auF" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
@@ -13282,9 +12615,6 @@
 	},
 /turf/open/floor/iron/half,
 /area/ruin/space/has_grav/nova/des_two/research/robotics)
-"auU" = (
-/turf/open/floor/iron/dark/side,
-/area/ruin/space/has_grav/nova/des_two/research/robotics)
 "auV" = (
 /obj/structure/table/optable,
 /obj/machinery/light/cold/directional/south{
@@ -13293,19 +12623,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/research/robotics)
-"auW" = (
-/obj/structure/cable{
-	color = "#ffff00";
-	icon_state = "l2-4-8"
-	},
-/turf/open/floor/iron/half,
-/area/ruin/space/has_grav/nova/des_two/research)
-"auX" = (
-/turf/open/floor/iron/half,
-/area/ruin/space/has_grav/nova/des_two/research)
-"auY" = (
-/turf/open/floor/iron/half,
-/area/ruin/space/has_grav/nova/des_two/research)
 "auZ" = (
 /obj/machinery/chem_master/fullupgrade,
 /turf/open/floor/iron/dark,
@@ -13344,12 +12661,12 @@
 	dir = 4
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 1;
+	dir = 1
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "avc" = (
 /obj/machinery/portable_atmospherics/scrubber{
-	icon_state = "scrubber_0";
+	icon_state = "scrubber_0"
 	},
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
 	color = "#ff0000";
@@ -13362,7 +12679,7 @@
 /area/ruin/space/has_grav/nova/des_two/halls)
 "avd" = (
 /obj/machinery/portable_atmospherics/pump{
-	icon_state = "siphon_0";
+	icon_state = "siphon_0"
 	},
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
 	color = "#0000ff";
@@ -13376,12 +12693,6 @@
 "ave" = (
 /obj/structure/closet/secure_closet/des_two/electrical_supplies,
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/iron/dark/brick,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"avf" = (
-/turf/open/floor/iron/dark/brick,
-/area/ruin/space/has_grav/nova/des_two/engineering)
-"avg" = (
 /turf/open/floor/iron/dark/brick,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "avh" = (
@@ -13711,9 +13022,6 @@
 	},
 /turf/open/floor/iron/half,
 /area/ruin/space/has_grav/nova/des_two/research/robotics)
-"avF" = (
-/turf/open/floor/iron/half,
-/area/ruin/space/has_grav/nova/des_two/research/robotics)
 "avG" = (
 /obj/item/storage/medkit/advanced{
 	dir = 4
@@ -13828,12 +13136,12 @@
 /obj/item/restraints/legcuffs/beartrap/prearmed,
 /obj/item/restraints/legcuffs/beartrap/prearmed,
 /turf/open/floor/plating{
-	dir = 1;
+	dir = 1
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "avO" = (
 /obj/machinery/portable_atmospherics/scrubber{
-	icon_state = "scrubber_0";
+	icon_state = "scrubber_0"
 	},
 /obj/machinery/atmospherics/components/unary/portables_connector/visible/layer2{
 	dir = 8;
@@ -13844,7 +13152,7 @@
 /area/ruin/space/has_grav/nova/des_two/halls)
 "avP" = (
 /obj/machinery/portable_atmospherics/pump{
-	icon_state = "siphon_0";
+	icon_state = "siphon_0"
 	},
 /obj/machinery/atmospherics/components/unary/portables_connector/visible/layer4{
 	dir = 8;
@@ -14221,7 +13529,7 @@
 	},
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 1;
+	dir = 1
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "awr" = (
@@ -14229,7 +13537,7 @@
 /area/ruin/space/has_grav/nova/des_two/cargo)
 "aws" = (
 /turf/open/floor/iron/dark/textured_half{
-	dir = 1;
+	dir = 1
 	},
 /area/ruin/space/has_grav/nova/des_two/cargo)
 "awt" = (
@@ -14238,13 +13546,13 @@
 	},
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/iron/dark/textured_half{
-	dir = 1;
+	dir = 1
 	},
 /area/ruin/space/has_grav/nova/des_two/cargo)
 "awu" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark/textured_half{
-	dir = 1;
+	dir = 1
 	},
 /area/ruin/space/has_grav/nova/des_two/cargo)
 "awv" = (
@@ -14376,6 +13684,7 @@
 	name = "red scrubbers pipe"
 	},
 /obj/structure/disposalpipe/junction,
+/obj/effect/decal/cleanable/blood/oil/slippery,
 /turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/nova/des_two/service/lounge)
 "awL" = (
@@ -14491,8 +13800,9 @@
 	},
 /obj/structure/disposalpipe/junction/flip,
 /obj/effect/decal/cleanable/blood/footprints,
+/obj/effect/decal/cleanable/blood/oil/slippery,
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "awQ" = (
@@ -14525,7 +13835,7 @@
 	color = "#008B8B"
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "awR" = (
@@ -14552,7 +13862,7 @@
 	color = "#008B8B"
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "awS" = (
@@ -14577,7 +13887,7 @@
 /obj/structure/disposalpipe/junction,
 /obj/effect/decal/cleanable/blood/footprints,
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "awT" = (
@@ -14607,7 +13917,7 @@
 	color = "#008B8B"
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "awU" = (
@@ -14637,7 +13947,7 @@
 	color = "#008B8B"
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "awV" = (
@@ -14691,7 +14001,7 @@
 	color = "#008B8B"
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "awW" = (
@@ -14723,7 +14033,7 @@
 	color = "#008B8B"
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "awX" = (
@@ -14750,7 +14060,7 @@
 	color = "#008B8B"
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "awY" = (
@@ -14873,7 +14183,7 @@
 	color = "#008B8B"
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "axc" = (
@@ -14905,7 +14215,7 @@
 	pixel_y = 1
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "axd" = (
@@ -14939,7 +14249,7 @@
 	id_tag = "fzJHL"
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "axe" = (
@@ -14982,7 +14292,7 @@
 	atom_integrity = 128
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "axf" = (
@@ -15012,8 +14322,9 @@
 	pixel_x = -2;
 	pixel_y = 2
 	},
+/obj/effect/decal/cleanable/blood/oil/slippery,
 /turf/open/floor/plating{
-	dir = 1;
+	dir = 1
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "axg" = (
@@ -15043,7 +14354,7 @@
 	},
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/plating{
-	dir = 1;
+	dir = 1
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "axh" = (
@@ -15300,7 +14611,7 @@
 	name = "loader MOD control unit"
 	},
 /turf/open/floor/iron/dark/textured_half{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/cargo)
 "axs" = (
@@ -15428,13 +14739,7 @@
 "axE" = (
 /obj/effect/decal/cleanable/blood/footprints,
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 8;
-	},
-/area/ruin/space/has_grav/nova/des_two/halls)
-"axF" = (
-/obj/effect/decal/cleanable/blood/footprints,
-/turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 8;
+	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "axG" = (
@@ -15445,7 +14750,7 @@
 	},
 /obj/effect/decal/cleanable/blood/footprints,
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 8;
+	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "axH" = (
@@ -15472,21 +14777,22 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 8;
+	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "axI" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 8;
+	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "axJ" = (
 /obj/structure/sign/flag/syndicate/directional/east,
 /obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/blood/oil/slippery,
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 8;
+	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "axK" = (
@@ -15497,7 +14803,7 @@
 	},
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 8;
+	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "axL" = (
@@ -15521,7 +14827,7 @@
 	},
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 8;
+	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "axM" = (
@@ -15534,7 +14840,7 @@
 	color = "#008B8B"
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 8;
+	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "axN" = (
@@ -15544,7 +14850,7 @@
 	color = "#008B8B"
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 8;
+	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "axO" = (
@@ -15558,7 +14864,7 @@
 	color = "#008B8B"
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 8;
+	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "axP" = (
@@ -15595,7 +14901,7 @@
 	color = "#008B8B"
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 8;
+	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "axR" = (
@@ -15607,7 +14913,7 @@
 	color = "#008B8B"
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 8;
+	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "axS" = (
@@ -15619,7 +14925,7 @@
 	},
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 8;
+	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "axT" = (
@@ -15642,7 +14948,7 @@
 	color = "#008B8B"
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 8;
+	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "axU" = (
@@ -15650,7 +14956,7 @@
 	color = "#008B8B"
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 8;
+	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "axV" = (
@@ -15662,7 +14968,7 @@
 /obj/item/restraints/legcuffs/beartrap/prearmed,
 /obj/item/restraints/legcuffs/beartrap/prearmed,
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 8;
+	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "axW" = (
@@ -15692,14 +14998,14 @@
 	atom_integrity = 130
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
-	dir = 8;
+	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "axX" = (
 /obj/item/restraints/legcuffs/beartrap/prearmed,
 /obj/item/restraints/legcuffs/beartrap/prearmed,
 /turf/open/floor/plating{
-	dir = 8;
+	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "axY" = (
@@ -15711,8 +15017,9 @@
 	pixel_x = -1;
 	pixel_y = -1
 	},
+/obj/effect/decal/cleanable/blood/oil/slippery,
 /turf/open/floor/plating{
-	dir = 1;
+	dir = 1
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
 "axZ" = (
@@ -15722,6 +15029,7 @@
 	pixel_y = 2;
 	amount = 7
 	},
+/obj/effect/decal/cleanable/blood/oil/slippery,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/cargo)
 "aya" = (
@@ -15732,6 +15040,7 @@
 	icon_state = "light-on";
 	name = "light switch (DS-2 Warehouse)"
 	},
+/obj/effect/decal/cleanable/blood/oil/slippery,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/cargo)
 "ayb" = (
@@ -16217,14 +15526,6 @@
 	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/service/library)
-"ayH" = (
-/obj/structure/girder/reinforced,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/service/library)
-"ayI" = (
-/obj/structure/girder/reinforced,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/service/library)
 "ayJ" = (
 /turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
 /area/ruin/space/has_grav/nova/des_two/service/dorms/fitness)
@@ -16432,7 +15733,7 @@
 	amount = 4
 	},
 /turf/open/floor/iron/dark/textured_half{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/cargo)
 "ayU" = (
@@ -16541,7 +15842,7 @@
 	dir = 8
 	},
 /turf/open/floor/iron/kitchen{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "azd" = (
@@ -16551,7 +15852,7 @@
 	icon_state = "l2-1-2"
 	},
 /turf/open/floor/iron/kitchen{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "aze" = (
@@ -16578,7 +15879,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/kitchen{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "azf" = (
@@ -16613,12 +15914,6 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/bridge/vault)
-"azi" = (
-/obj/structure/girder/reinforced{
-	atom_integrity = 340
-	},
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/service/library)
 "azj" = (
 /obj/machinery/power/terminal{
 	dir = 1;
@@ -16782,10 +16077,6 @@
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/cargo)
 "azw" = (
-/obj/effect/decal/cleanable/blood,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/cargo)
-"azx" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/cargo)
@@ -17038,7 +16329,7 @@
 	pixel_y = 9
 	},
 /turf/open/floor/iron/kitchen{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "azQ" = (
@@ -17048,7 +16339,7 @@
 	id_tag = "JGtJr"
 	},
 /turf/open/floor/iron/kitchen{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "azR" = (
@@ -17072,7 +16363,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/kitchen{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "azS" = (
@@ -17080,7 +16371,7 @@
 	name = "BrewMaster 3000"
 	},
 /turf/open/floor/iron/kitchen{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "azT" = (
@@ -17256,10 +16547,6 @@
 	atom_integrity = 26;
 	amount = 2
 	},
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/cargo)
-"aAj" = (
-/obj/effect/decal/cleanable/blood,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/cargo)
 "aAk" = (
@@ -17689,7 +16976,7 @@
 	},
 /obj/item/rag,
 /turf/open/floor/iron/kitchen{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "aAF" = (
@@ -17699,7 +16986,7 @@
 	pixel_y = -7
 	},
 /turf/open/floor/iron/kitchen{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "aAG" = (
@@ -17712,7 +16999,7 @@
 	pixel_y = 11
 	},
 /turf/open/floor/iron/kitchen{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "aAH" = (
@@ -17735,7 +17022,7 @@
 	name = "red scrubbers pipe"
 	},
 /turf/open/floor/iron/kitchen{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "aAI" = (
@@ -17759,7 +17046,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/kitchen{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "aAJ" = (
@@ -17778,7 +17065,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/kitchen{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "aAK" = (
@@ -17889,9 +17176,6 @@
 "aAQ" = (
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/service/library)
-"aAR" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/service/library)
 "aAS" = (
 /obj/item/stack/sheet/mineral/plastitanium{
 	dir = 4
@@ -17900,9 +17184,6 @@
 /area/ruin/space/has_grav/nova/des_two/service/library)
 "aAT" = (
 /turf/open/floor/iron,
-/area/ruin/space/has_grav/nova/des_two/service/dorms/fitness)
-"aAU" = (
-/turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/service/dorms/fitness)
 "aAV" = (
 /obj/structure/cable{
@@ -17932,19 +17213,12 @@
 	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/nova/des_two/service/dorms/fitness)
-"aAW" = (
-/turf/open/floor/iron,
-/area/ruin/space/has_grav/nova/des_two/service/dorms/fitness)
 "aAX" = (
 /obj/structure/reagent_dispensers/water_cooler{
 	atom_integrity = 123
 	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/nova/des_two/service/dorms/fitness)
-"aAY" = (
-/obj/effect/decal/cleanable/blood,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/cargo)
 "aAZ" = (
 /obj/item/solar_assembly{
 	atom_integrity = 140
@@ -18140,15 +17414,6 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/cargo)
-"aBg" = (
-/obj/effect/decal/cleanable/blood,
-/obj/effect/decal/cleanable/blood/gibs/torso,
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/space/has_grav/nova/des_two/cargo)
-"aBh" = (
-/obj/effect/decal/cleanable/blood,
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/space/has_grav/nova/des_two/cargo)
 "aBi" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8;
@@ -18156,18 +17421,6 @@
 	atom_integrity = 176;
 	id_tag = "MizF6"
 	},
-/obj/effect/decal/cleanable/blood,
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/space/has_grav/nova/des_two/cargo)
-"aBj" = (
-/obj/effect/decal/cleanable/blood,
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/space/has_grav/nova/des_two/cargo)
-"aBk" = (
-/obj/effect/decal/cleanable/blood,
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/space/has_grav/nova/des_two/cargo)
-"aBl" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/cargo)
@@ -18263,7 +17516,7 @@
 "aBu" = (
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/iron/kitchen{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "aBv" = (
@@ -18272,18 +17525,18 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/kitchen{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "aBw" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/kitchen{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "aBx" = (
 /turf/open/floor/iron/kitchen{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "aBy" = (
@@ -18301,11 +17554,6 @@
 	dir = 8
 	},
 /turf/open/floor/iron/dark/smooth_large,
-/area/ruin/space/has_grav/nova/des_two/service/diner)
-"aBz" = (
-/turf/open/floor/iron/kitchen{
-	dir = 4;
-	},
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "aBA" = (
 /obj/structure/cable{
@@ -18327,13 +17575,13 @@
 	name = "red scrubbers pipe"
 	},
 /turf/open/floor/iron/kitchen{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "aBB" = (
 /obj/structure/table,
 /turf/open/floor/iron/kitchen{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "aBC" = (
@@ -18436,9 +17684,6 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/service/library)
-"aBI" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/service/library)
 "aBJ" = (
 /obj/item/stack/sheet/mineral/plastitanium{
 	dir = 1
@@ -18539,20 +17784,12 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/cargo)
-"aBR" = (
-/obj/effect/decal/cleanable/blood,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/cargo)
 "aBS" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/storage/toolbox/electrical{
 	dir = 4;
 	atom_integrity = 177.5
 	},
-/obj/effect/decal/cleanable/blood,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/cargo)
-"aBT" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/cargo)
@@ -18586,30 +17823,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/gibs/torso,
 /turf/open/floor/catwalk_floor/iron_dark,
-/area/ruin/space/has_grav/nova/des_two/cargo)
-"aBW" = (
-/obj/effect/decal/cleanable/blood,
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/space/has_grav/nova/des_two/cargo)
-"aBX" = (
-/obj/effect/decal/cleanable/blood,
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/space/has_grav/nova/des_two/cargo)
-"aBY" = (
-/obj/effect/decal/cleanable/blood,
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/space/has_grav/nova/des_two/cargo)
-"aBZ" = (
-/obj/effect/decal/cleanable/blood,
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/space/has_grav/nova/des_two/cargo)
-"aCa" = (
-/obj/effect/decal/cleanable/blood,
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/space/has_grav/nova/des_two/cargo)
-"aCb" = (
-/obj/effect/decal/cleanable/blood,
-/turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/cargo)
 "aCc" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/east{
@@ -18670,7 +17883,7 @@
 "aCj" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /turf/open/floor/iron/kitchen{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "aCk" = (
@@ -18678,7 +17891,7 @@
 	icon_state = "tube_emergency"
 	},
 /turf/open/floor/iron/kitchen{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "aCl" = (
@@ -18687,37 +17900,7 @@
 	req_access = list("syndicate")
 	},
 /turf/open/floor/iron/kitchen{
-	dir = 4;
-	},
-/area/ruin/space/has_grav/nova/des_two/service/diner)
-"aCm" = (
-/obj/structure/cable{
-	color = "#ffff00";
-	icon_state = "l2-4-8"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	color = "#0000ff";
-	dir = 4;
-	icon = 'icons/obj/pipes_n_cables/!pipes_bitmask.dmi';
-	icon_state = "12_4";
-	name = "blue air supply pipe"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	color = "#ff0000";
-	dir = 4;
-	icon = 'icons/obj/pipes_n_cables/!pipes_bitmask.dmi';
-	icon_state = "12_2";
-	name = "red scrubbers pipe"
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/iron/kitchen{
-	dir = 4;
-	},
-/area/ruin/space/has_grav/nova/des_two/service/diner)
-"aCn" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/iron/kitchen{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "aCo" = (
@@ -18726,7 +17909,7 @@
 	},
 /obj/structure/table,
 /turf/open/floor/iron/kitchen{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "aCp" = (
@@ -18771,10 +17954,6 @@
 	pixel_y = -3;
 	atom_integrity = 0
 	},
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/service/library)
-"aCt" = (
-/obj/structure/girder/reinforced,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/service/library)
 "aCu" = (
@@ -18904,38 +18083,8 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/cargo)
-"aCD" = (
-/obj/structure/closet/supplypod/centcompod{
-	name = "Sectorial Command supply pod";
-	pixel_x = -13;
-	opened = 1
-	},
-/obj/effect/decal/cleanable/blood,
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/space/has_grav/nova/des_two/cargo)
-"aCE" = (
-/obj/structure/closet/supplypod/centcompod{
-	name = "Sectorial Command supply pod";
-	pixel_x = -11;
-	opened = 1
-	},
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/space/has_grav/nova/des_two/cargo)
-"aCF" = (
-/obj/structure/closet/supplypod/centcompod{
-	name = "Sectorial Command supply pod";
-	pixel_x = -18;
-	opened = 1
-	},
-/obj/effect/decal/cleanable/blood,
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/space/has_grav/nova/des_two/cargo)
 "aCG" = (
 /obj/effect/decal/cleanable/blood,
-/obj/effect/decal/cleanable/blood,
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/space/has_grav/nova/des_two/cargo)
-"aCH" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/cargo)
@@ -18959,10 +18108,6 @@
 /obj/structure/window/reinforced/tinted/spawner/directional/north,
 /obj/machinery/power/shuttle_engine/heater,
 /obj/structure/window/reinforced/tinted/spawner/directional/west,
-/turf/open/floor/plating/airless,
-/area/ruin/space/has_grav/nova/des_two)
-"aCL" = (
-/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/nova/des_two)
 "aCM" = (
@@ -19001,26 +18146,26 @@
 	id_tag = "a0xu9"
 	},
 /turf/open/floor/iron/kitchen{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "aCR" = (
 /obj/machinery/deepfryer,
 /turf/open/floor/iron/kitchen{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "aCS" = (
 /obj/machinery/grill,
 /turf/open/floor/iron/kitchen{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "aCT" = (
 /obj/machinery/icecream_vat,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/kitchen{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "aCU" = (
@@ -19137,9 +18282,6 @@
 	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/nova/des_two/service/library)
-"aDa" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/service/dorms/fitness)
 "aDb" = (
 /obj/item/pipe/quaternary{
 	color = "#ff0000";
@@ -19340,27 +18482,6 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/space/has_grav/nova/des_two/cargo)
-"aDk" = (
-/obj/structure/cable{
-	color = "#ffff00";
-	icon_state = "l2-1-2"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	color = "#ff0000";
-	icon = 'icons/obj/pipes_n_cables/!pipes_bitmask.dmi';
-	icon_state = "3_2";
-	name = "red scrubbers pipe"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	color = "#0000ff";
-	icon = 'icons/obj/pipes_n_cables/!pipes_bitmask.dmi';
-	icon_state = "3_4";
-	name = "blue air supply pipe"
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/blood,
-/turf/open/floor/catwalk_floor/iron_dark,
-/area/ruin/space/has_grav/nova/des_two/cargo)
 "aDl" = (
 /obj/structure/cable{
 	color = "#ffff00";
@@ -19500,11 +18621,6 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/cargo)
-"aDp" = (
-/obj/structure/window/reinforced/tinted/spawner/directional/north,
-/obj/machinery/power/shuttle_engine/heater,
-/turf/open/floor/plating/airless,
-/area/ruin/space/has_grav/nova/des_two)
 "aDq" = (
 /obj/machinery/power/shuttle_engine/propulsion/left{
 	dir = 1
@@ -19536,7 +18652,7 @@
 	pixel_y = 2
 	},
 /turf/open/floor/iron/kitchen{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "aDu" = (
@@ -19546,13 +18662,13 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/kitchen{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "aDv" = (
 /obj/machinery/vending/boozeomat/syndicate,
 /turf/open/floor/iron/kitchen{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "aDw" = (
@@ -19562,7 +18678,7 @@
 	pixel_y = 4
 	},
 /turf/open/floor/iron/kitchen{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "aDx" = (
@@ -19571,15 +18687,7 @@
 	icon_state = "tube_emergency"
 	},
 /turf/open/floor/iron/kitchen{
-	dir = 4;
-	},
-/area/ruin/space/has_grav/nova/des_two/service/diner)
-"aDy" = (
-/obj/machinery/light/cold/directional/south{
-	icon_state = "tube_emergency"
-	},
-/turf/open/floor/iron/kitchen{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "aDz" = (
@@ -19764,10 +18872,6 @@
 	},
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/space/has_grav/nova/des_two/cargo)
-"aDS" = (
-/obj/effect/decal/cleanable/blood,
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/space/has_grav/nova/des_two/cargo)
 "aDT" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/iron/dark,
@@ -19801,7 +18905,7 @@
 /obj/structure/hedge,
 /obj/structure/curtain/cloth/fancy,
 /turf/open/floor/iron/kitchen{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "aDY" = (
@@ -19809,7 +18913,7 @@
 /obj/structure/curtain/cloth/fancy,
 /obj/machinery/camera/xray/directional/south,
 /turf/open/floor/iron/kitchen{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "aDZ" = (
@@ -19819,7 +18923,7 @@
 	pixel_y = 5
 	},
 /turf/open/floor/iron/kitchen{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "aEa" = (
@@ -19939,24 +19043,6 @@
 	name = "blue air supply pipe"
 	},
 /turf/open/floor/iron/white/small,
-/area/ruin/space/has_grav/nova/des_two/service/restroom)
-"aEj" = (
-/obj/machinery/door/airlock/bathroom{
-	name = "Toilet"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	color = "#ff0000";
-	icon = 'icons/obj/pipes_n_cables/!pipes_bitmask.dmi';
-	icon_state = "3_2";
-	name = "red scrubbers pipe"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	color = "#0000ff";
-	icon = 'icons/obj/pipes_n_cables/!pipes_bitmask.dmi';
-	icon_state = "3_4";
-	name = "blue air supply pipe"
-	},
-/turf/open/floor/iron/white/textured_large,
 /area/ruin/space/has_grav/nova/des_two/service/restroom)
 "aEk" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -20222,7 +19308,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/kitchen{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "aEG" = (
@@ -20245,7 +19331,7 @@
 	name = "red scrubbers pipe"
 	},
 /turf/open/floor/iron/kitchen{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "aEH" = (
@@ -20256,7 +19342,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/kitchen{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "aEI" = (
@@ -20288,7 +19374,7 @@
 	pixel_y = -5
 	},
 /turf/open/floor/grass{
-	icon_state = "grass2";
+	icon_state = "grass2"
 	},
 /area/ruin/space/has_grav/nova/des_two/service/sauna)
 "aEM" = (
@@ -20626,11 +19712,6 @@
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/space/has_grav/nova/des_two/service/diner)
-"aFj" = (
-/turf/open/floor/iron/kitchen{
-	dir = 4;
-	},
-/area/ruin/space/has_grav/nova/des_two/service/diner)
 "aFk" = (
 /obj/machinery/biogenerator,
 /obj/machinery/door/firedoor{
@@ -20903,7 +19984,7 @@
 /obj/machinery/camera/xray/directional/north,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark/textured_half{
-	dir = 1;
+	dir = 1
 	},
 /area/ruin/space/has_grav/nova/des_two/cargo/hangar)
 "aFF" = (
@@ -20959,7 +20040,7 @@
 	icon_state = "l2-2-8"
 	},
 /turf/open/floor/iron/dark/textured_half{
-	dir = 1;
+	dir = 1
 	},
 /area/ruin/space/has_grav/nova/des_two/cargo/hangar)
 "aFK" = (
@@ -20969,7 +20050,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark/textured_half{
-	dir = 1;
+	dir = 1
 	},
 /area/ruin/space/has_grav/nova/des_two/cargo/hangar)
 "aFL" = (
@@ -20984,18 +20065,12 @@
 	},
 /obj/machinery/power/terminal,
 /turf/open/floor/iron/dark/textured_corner{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/cargo/hangar)
 "aFM" = (
 /turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
 /area/ruin/space/has_grav/nova/des_two/cargo/hangar)
-"aFN" = (
-/obj/structure/window/reinforced/tinted/spawner/directional/north,
-/obj/machinery/power/shuttle_engine/heater,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating/airless,
-/area/ruin/space/has_grav/nova/des_two)
 "aFO" = (
 /obj/structure/chair/sofa/corner{
 	color = "#3d3c38"
@@ -21051,7 +20126,7 @@
 /obj/machinery/gibber,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/kitchen{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "aFW" = (
@@ -21074,7 +20149,7 @@
 	name = "red scrubbers pipe"
 	},
 /turf/open/floor/iron/kitchen{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "aFX" = (
@@ -21098,7 +20173,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/kitchen{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "aFY" = (
@@ -21192,9 +20267,6 @@
 /turf/open/floor/iron/white/diagonal,
 /area/ruin/space/has_grav/nova/des_two/service/hydroponics)
 "aGd" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/service/hydroponics)
-"aGe" = (
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/service/hydroponics)
 "aGf" = (
@@ -21367,16 +20439,6 @@
 	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/cargo/hangar)
-"aGt" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/cargo/hangar)
-"aGu" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/cargo/hangar)
-"aGv" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/cargo/hangar)
 "aGw" = (
 /obj/structure/marker_beacon/burgundy{
 	atom_integrity = 44.4
@@ -21384,12 +20446,9 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/cargo/hangar)
-"aGx" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/cargo/hangar)
 "aGy" = (
 /turf/open/floor/iron/dark/textured_half{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/cargo/hangar)
 "aGz" = (
@@ -21432,7 +20491,7 @@
 /obj/machinery/vending/dinnerware,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/kitchen{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "aGD" = (
@@ -21451,7 +20510,7 @@
 	name = "blue air supply pipe"
 	},
 /turf/open/floor/iron/kitchen{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "aGE" = (
@@ -21496,9 +20555,6 @@
 	icon_state = "12_4";
 	name = "blue air supply pipe"
 	},
-/turf/open/floor/iron/white/diagonal,
-/area/ruin/space/has_grav/nova/des_two/service/hydroponics)
-"aGH" = (
 /turf/open/floor/iron/white/diagonal,
 /area/ruin/space/has_grav/nova/des_two/service/hydroponics)
 "aGI" = (
@@ -21656,11 +20712,11 @@
 /area/ruin/space/has_grav/nova/des_two/service/restroom)
 "aGW" = (
 /obj/effect/decal/cleanable/blood/footprints,
-/obj/effect/decal/cleanable/blood/gibs/body,
+/obj/effect/gibspawner,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/cargo/hangar)
 "aGX" = (
-/obj/effect/decal/cleanable/blood/gibs/body,
+/obj/effect/decal/cleanable/blood/gibs/down,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/cargo/hangar)
 "aGY" = (
@@ -21671,14 +20727,6 @@
 	atom_integrity = 29;
 	amount = 3
 	},
-/obj/effect/decal/cleanable/blood/gibs/body,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/cargo/hangar)
-"aGZ" = (
-/obj/effect/decal/cleanable/blood/gibs/body,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/cargo/hangar)
-"aHa" = (
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/cargo/hangar)
 "aHb" = (
@@ -21761,19 +20809,6 @@
 	},
 /turf/open/floor/iron/white/diagonal,
 /area/ruin/space/has_grav/nova/des_two/service/hydroponics)
-"aHf" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	color = "#0000ff";
-	dir = 4;
-	icon = 'icons/obj/pipes_n_cables/!pipes_bitmask.dmi';
-	icon_state = "12_4";
-	name = "blue air supply pipe"
-	},
-/turf/open/floor/iron/white/diagonal,
-/area/ruin/space/has_grav/nova/des_two/service/hydroponics)
-"aHg" = (
-/turf/open/floor/iron/white/diagonal,
-/area/ruin/space/has_grav/nova/des_two/service/hydroponics)
 "aHh" = (
 /obj/machinery/hydroponics/constructable{
 	name = "hydroponics tray (Tower Caps)";
@@ -21788,15 +20823,6 @@
 	},
 /turf/open/floor/iron/dark/small,
 /area/ruin/space/has_grav/nova/des_two/service/hydroponics)
-"aHj" = (
-/turf/open/floor/iron/dark/small,
-/area/ruin/space/has_grav/nova/des_two/service/hydroponics)
-"aHk" = (
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/space/has_grav/nova/des_two/service/sauna)
-"aHl" = (
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/space/has_grav/nova/des_two/service/sauna)
 "aHm" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	color = "#ff0000";
@@ -21852,12 +20878,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/wood/large,
 /area/ruin/space/has_grav/nova/des_two/service/restroom)
-"aHr" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/cargo/hangar)
-"aHs" = (
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/cargo/hangar)
 "aHt" = (
 /obj/machinery/light/warm/directional/south,
 /turf/open/floor/plating,
@@ -21939,12 +20959,6 @@
 	icon_state = "vent_out";
 	id_tag = "hkMup"
 	},
-/turf/open/floor/iron/white/diagonal,
-/area/ruin/space/has_grav/nova/des_two/service/hydroponics)
-"aHB" = (
-/turf/open/floor/iron/white/diagonal,
-/area/ruin/space/has_grav/nova/des_two/service/hydroponics)
-"aHC" = (
 /turf/open/floor/iron/white/diagonal,
 /area/ruin/space/has_grav/nova/des_two/service/hydroponics)
 "aHD" = (
@@ -22034,7 +21048,7 @@
 	icon_state = "bench_middle"
 	},
 /turf/open/floor/iron{
-	dir = 8;
+	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/service/sauna)
 "aHK" = (
@@ -22048,7 +21062,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron{
-	dir = 8;
+	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/service/sauna)
 "aHL" = (
@@ -22057,7 +21071,7 @@
 	},
 /obj/structure/flora/rock/pile/jungle/style_5,
 /turf/open/floor/grass{
-	icon_state = "grass1";
+	icon_state = "grass1"
 	},
 /area/ruin/space/has_grav/nova/des_two/service/sauna)
 "aHM" = (
@@ -22093,10 +21107,6 @@
 	dir = 8
 	},
 /area/ruin/space/has_grav/nova/des_two/service/restroom)
-"aHQ" = (
-/obj/effect/decal/cleanable/blood/gibs/body,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/cargo/hangar)
 "aHR" = (
 /obj/machinery/light/cold/directional/north{
 	icon_state = "tube_emergency"
@@ -22149,9 +21159,6 @@
 	req_access = list("syndicate");
 	id = "ds2-hydroponics-room"
 	},
-/turf/open/floor/iron/white/diagonal,
-/area/ruin/space/has_grav/nova/des_two/service/hydroponics)
-"aHW" = (
 /turf/open/floor/iron/white/diagonal,
 /area/ruin/space/has_grav/nova/des_two/service/hydroponics)
 "aHX" = (
@@ -22267,7 +21274,7 @@
 "aIg" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron{
-	dir = 1;
+	dir = 1
 	},
 /area/ruin/space/has_grav/nova/des_two/service/sauna)
 "aIh" = (
@@ -22283,7 +21290,7 @@
 	},
 /obj/structure/flora/rock/pile/jungle/style_5,
 /turf/open/floor/grass{
-	icon_state = "grass2";
+	icon_state = "grass2"
 	},
 /area/ruin/space/has_grav/nova/des_two/service/sauna)
 "aIk" = (
@@ -22305,10 +21312,6 @@
 "aIn" = (
 /turf/open/floor/iron/pool/cobble/side,
 /area/ruin/space/has_grav/nova/des_two/service/restroom)
-"aIo" = (
-/obj/machinery/light/warm/directional/south,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/cargo/hangar)
 "aIp" = (
 /turf/closed/wall/r_wall/plastitanium/syndicate,
 /area/ruin/space/has_grav/nova/des_two/service/diner)
@@ -22340,7 +21343,7 @@
 	},
 /obj/structure/flora/rock/pile/jungle/style_3,
 /turf/open/floor/grass{
-	icon_state = "grass2";
+	icon_state = "grass2"
 	},
 /area/ruin/space/has_grav/nova/des_two/service/sauna)
 "aIu" = (
@@ -22378,7 +21381,7 @@
 	color = "#5d341f"
 	},
 /turf/open/floor/grass{
-	icon_state = "grass0";
+	icon_state = "grass0"
 	},
 /area/ruin/space/has_grav/nova/des_two/service/sauna)
 "aIy" = (
@@ -22398,7 +21401,7 @@
 	icon_state = "bench_middle"
 	},
 /turf/open/floor/iron{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/sauna)
 "aIA" = (
@@ -22411,13 +21414,13 @@
 	icon_state = "bench_left"
 	},
 /turf/open/floor/iron{
-	dir = 4;
+	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/sauna)
 "aIB" = (
 /obj/structure/flora/rock/pile/jungle/style_5,
 /turf/open/floor/grass{
-	icon_state = "grass3";
+	icon_state = "grass3"
 	},
 /area/ruin/space/has_grav/nova/des_two/service/sauna)
 "aIC" = (
@@ -22520,6 +21523,11 @@
 "aIN" = (
 /turf/open/floor/engine/hull,
 /area/space/nearstation)
+"bNR" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/gibspawner,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/nova/des_two/cargo/hangar)
 "ckx" = (
 /turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
 /area/ruin/space/has_grav/nova/des_two/bridge)
@@ -22527,18 +21535,9 @@
 /obj/structure/sign/poster/contraband/c20r,
 /turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
 /area/ruin/space/has_grav/nova/des_two/security/maa)
-"cwi" = (
-/obj/effect/decal/cleanable/blood/gibs/body,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/cargo/hangar)
 "dpu" = (
 /turf/closed/wall/r_wall/plastitanium,
 /area/ruin/space/has_grav/nova/des_two/service/dorms)
-"dvQ" = (
-/obj/effect/decal/cleanable/blood/footprints,
-/obj/effect/decal/cleanable/blood/gibs/body,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/cargo/hangar)
 "flm" = (
 /obj/structure/lattice,
 /turf/open/space/basic,
@@ -22551,10 +21550,26 @@
 /obj/effect/decal/cleanable/blood,
 /turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
 /area/ruin/space/has_grav/nova/des_two/cargo)
+"hRW" = (
+/obj/structure/cable{
+	color = "#ffff00";
+	icon_state = "l2-4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/oil/slippery,
+/turf/open/floor/wood/parquet,
+/area/ruin/space/has_grav/nova/des_two/service/lounge)
 "ifb" = (
 /mob/living/basic/spider/giant/hunter/scrawny,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/service/library)
+"iGU" = (
+/obj/effect/decal/cleanable/blood/oil/slippery,
+/turf/open/floor/iron/half,
+/area/ruin/space/has_grav/nova/des_two/research/robotics)
 "iRZ" = (
 /obj/structure/transit_tube{
 	dir = 8
@@ -22580,6 +21595,10 @@
 /mob/living/basic/spider/giant/hunter/scrawny,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/security/lawyer)
+"mwJ" = (
+/obj/effect/gibspawner,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/nova/des_two/cargo/hangar)
 "mxQ" = (
 /obj/effect/decal/cleanable/blood,
 /turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
@@ -22589,6 +21608,31 @@
 /obj/structure/marker_beacon/burgundy,
 /turf/open/space/basic,
 /area/space/nearstation)
+"mVc" = (
+/obj/structure/cable{
+	color = "#ffff00";
+	icon_state = "l2-4-8"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	color = "#ff0000";
+	dir = 4;
+	icon = 'icons/obj/pipes_n_cables/!pipes_bitmask.dmi';
+	icon_state = "12_2";
+	name = "red scrubbers pipe"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	color = "#0000ff";
+	dir = 4;
+	icon = 'icons/obj/pipes_n_cables/!pipes_bitmask.dmi';
+	icon_state = "12_4";
+	name = "blue air supply pipe"
+	},
+/obj/effect/decal/cleanable/blood{
+	color = "#008B8B"
+	},
+/obj/effect/decal/cleanable/blood/oil/slippery,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/nova/des_two/bridge)
 "mXI" = (
 /obj/effect/spawner/random/contraband/landmine,
 /turf/open/floor/plating,
@@ -22609,11 +21653,6 @@
 /obj/effect/decal/cleanable/blood,
 /turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
 /area/ruin/space/has_grav/nova/des_two/engineering)
-"oqE" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/blood/gibs/body,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/cargo/hangar)
 "pjW" = (
 /mob/living/basic/spider/giant/hunter/scrawny,
 /turf/open/floor/plating,
@@ -22640,21 +21679,23 @@
 /mob/living/basic/spider/giant/scout,
 /turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
 /area/ruin/space/has_grav/nova/des_two/service/changing_room)
+"sBC" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/oil/slippery,
+/turf/open/floor/iron/dark/side,
+/area/ruin/space/has_grav/nova/des_two/research/robotics)
 "sRB" = (
 /mob/living/basic/spider/giant/hunter/scrawny,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/nova/des_two/security)
-"tkm" = (
-/mob/living/basic/spider/giant/hunter/scrawny,
-/turf/open/floor/mineral/plastitanium,
-/area/ruin/space/has_grav/nova/des_two/security)
-"tnH" = (
-/obj/effect/decal/cleanable/blood/gibs/core,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/cargo/hangar)
+"sXI" = (
+/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/blood/gibs/down,
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/space/has_grav/nova/des_two/cargo)
 "tFX" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/blood/gibs/core,
+/obj/effect/decal/cleanable/blood/gibs/down,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/cargo/hangar)
 "uKR" = (
@@ -22666,6 +21707,7 @@
 /mob/living/basic/spider/giant/hunter/scrawny,
 /turf/open/floor/iron/dark/small,
 /area/ruin/space/has_grav/nova/des_two/security/prison)
+
 (1,1,1) = {"
 aaa
 aaa
@@ -23157,8 +22199,8 @@ aaa
 aaa
 aaa
 aaY
-abB
-abC
+aaY
+abb
 aav
 abD
 abE
@@ -23171,7 +22213,7 @@ abJ
 aaP
 abK
 abL
-abM
+aaP
 aao
 abL
 aao
@@ -23235,15 +22277,15 @@ ace
 acf
 acg
 aav
-ach
+aao
 aci
-abM
-acj
+aaP
+abO
 ack
 aaP
 abO
 aci
-ach
+aao
 acl
 aab
 aab
@@ -23356,11 +22398,11 @@ aaa
 add
 ade
 adf
-adg
+acA
 adh
 adi
-adj
-adk
+adf
+acA
 adl
 abZ
 adm
@@ -23380,7 +22422,7 @@ adv
 adu
 aab
 adw
-adx
+adu
 aab
 ady
 adz
@@ -23432,8 +22474,8 @@ adT
 adU
 adV
 adW
-acG
-adX
+acB
+adh
 adY
 adZ
 aea
@@ -23493,8 +22535,8 @@ aad
 aeq
 aer
 aes
-aet
-acG
+abZ
+acB
 aeu
 aev
 aew
@@ -23576,25 +22618,25 @@ afa
 afb
 aav
 afc
-afd
+afc
 afe
-afd
-afd
-afd
+afc
+afc
+afc
 aff
-afd
+afc
 sRB
-afd
+afc
 afg
 afh
-afi
+afc
 afj
 nNg
-afi
-tkm
+afc
+sRB
 afk
-afi
-afi
+afc
+afc
 afl
 afm
 afn
@@ -23642,7 +22684,7 @@ afF
 afG
 afH
 afI
-afJ
+afc
 afK
 afL
 afM
@@ -23659,7 +22701,7 @@ afW
 afX
 afY
 afY
-afZ
+afQ
 aga
 afW
 afY
@@ -23690,9 +22732,9 @@ aaa
 aaa
 aaa
 aaa
-abB
+aaY
 aba
-abC
+abb
 aad
 agk
 agl
@@ -23728,11 +22770,11 @@ agC
 agF
 agG
 agH
-afi
+afc
 agI
-afi
-afi
-afi
+afc
+afc
+afc
 agJ
 aeo
 agK
@@ -23759,8 +22801,8 @@ aaa
 aaa
 aaa
 agR
-abB
-abC
+aaY
+abb
 agS
 agT
 agU
@@ -23774,8 +22816,8 @@ abZ
 abZ
 abZ
 abZ
-aha
-ahb
+afI
+afI
 ahc
 ahd
 ahe
@@ -23787,7 +22829,7 @@ ahi
 ahj
 ahk
 agx
-ahl
+afc
 ahm
 agD
 ahn
@@ -23796,9 +22838,9 @@ agC
 ahp
 ahq
 ahr
-afi
+afc
 agI
-afi
+afc
 ahs
 aht
 ahu
@@ -23843,7 +22885,7 @@ ahF
 ahF
 ahG
 ahH
-ahI
+afI
 ahJ
 ahK
 ahL
@@ -23864,7 +22906,7 @@ agC
 ahW
 ahX
 ahX
-afi
+afc
 ahY
 ahZ
 aia
@@ -23895,12 +22937,12 @@ aaa
 aaa
 aaa
 aaZ
-abB
-aii
+aaY
+aau
 agS
 aij
 aik
-acG
+acB
 abZ
 ail
 aim
@@ -23916,10 +22958,10 @@ aiq
 air
 ais
 ait
-aiu
+agd
 pSI
 aiv
-aiw
+aiv
 aix
 aiy
 agx
@@ -23969,10 +23011,10 @@ aad
 aiR
 aiS
 aiT
-aiU
+adh
 aiV
 aiW
-aiX
+abZ
 aiY
 aiZ
 abZ
@@ -23991,11 +23033,11 @@ ajh
 aji
 ajj
 agx
-ahl
+afc
 ajk
 ajl
-ajm
-ajn
+agd
+agd
 ahu
 ahu
 ahu
@@ -24030,29 +23072,29 @@ aaa
 aaa
 aaa
 aaa
-abB
-aju
+aaY
+aba
 abb
 aad
 abY
 abY
 abY
 abY
-ajv
+abZ
 ajw
 ajx
 ajy
 ajz
 ajA
 ajB
-ajC
+abZ
 ajD
 ajD
-ajE
+aje
 ajD
 ajF
 ajG
-ajH
+ajF
 agx
 ajI
 ajJ
@@ -24079,7 +23121,7 @@ akb
 akc
 akd
 ake
-akf
+akb
 akd
 akg
 akd
@@ -24106,30 +23148,30 @@ akj
 akk
 akl
 akm
-akn
+akk
 ako
 akp
 akq
 akr
-aks
-akt
+akk
+akk
 aku
 akv
-akw
-akx
+akk
+akk
 aky
-akz
+akk
 akA
 akB
 akC
-akD
-akE
-akF
+akA
+akk
+akk
 akG
 akH
-akI
+akk
 akJ
-akK
+akk
 akL
 akM
 akN
@@ -24188,7 +23230,7 @@ alx
 aly
 alz
 alA
-alB
+alx
 alC
 alD
 alE
@@ -24205,16 +23247,16 @@ alO
 alP
 alQ
 alR
-alS
+ajZ
 akR
 alT
 alU
 alV
-alW
+akd
 alX
-alY
-alZ
-ama
+akd
+akd
+akd
 akd
 akd
 amb
@@ -24257,8 +23299,8 @@ amw
 amv
 amt
 amx
-amy
-amz
+amx
+amx
 amA
 amB
 amB
@@ -24278,12 +23320,12 @@ amM
 amN
 ahu
 amO
-amP
-amQ
-amR
-amS
-amT
-amU
+akd
+akd
+akd
+alX
+akd
+alX
 amV
 amW
 amX
@@ -24326,7 +23368,7 @@ ann
 amt
 ano
 anp
-anq
+ano
 amA
 anr
 ans
@@ -24347,11 +23389,11 @@ ahu
 ahu
 anB
 anC
-anD
-anE
-anF
-anG
-anH
+akd
+akd
+akd
+akd
+akd
 anI
 anJ
 anK
@@ -24388,7 +23430,7 @@ anS
 anT
 amt
 anU
-anV
+anl
 anl
 anW
 amt
@@ -24414,14 +23456,14 @@ aom
 ahu
 aon
 aoo
-aop
-aoq
-aor
-aos
-aot
-aou
+alX
 akd
-aov
+akd
+akd
+alX
+akd
+akd
+alX
 aow
 aox
 aoy
@@ -24481,12 +23523,12 @@ aok
 aoZ
 ahu
 apa
-apb
-apc
-apd
-ape
-apf
-apg
+aoo
+akd
+alX
+alX
+alX
+alX
 akd
 akd
 akd
@@ -24532,10 +23574,10 @@ aps
 apt
 apu
 amA
-apv
+aoO
 apw
 apx
-apy
+aoO
 apz
 aoT
 apA
@@ -24544,20 +23586,20 @@ apC
 apD
 ahu
 apE
-apF
-apG
+aok
+apE
 apH
 ahu
 apI
 apJ
-apK
-apL
-apM
-apN
-apO
-aov
 akd
-aov
+alX
+akd
+akd
+akd
+alX
+akd
+alX
 aph
 apP
 apQ
@@ -24606,9 +23648,9 @@ aqk
 aql
 amB
 amB
-aqm
+aoU
 aqn
-aqo
+anz
 aqp
 ahu
 ahu
@@ -24618,11 +23660,11 @@ ahu
 ahu
 ahu
 aqs
-aqt
-aqu
-aqv
-aqw
-aqx
+alX
+akd
+akd
+alX
+akd
 akd
 akd
 akd
@@ -24653,7 +23695,7 @@ aqA
 aqB
 aqC
 aqD
-aqE
+aqC
 aqF
 amr
 aqG
@@ -24668,8 +23710,8 @@ aqM
 aqN
 aqO
 aqP
-aqQ
-aqR
+aoO
+aoO
 aqS
 aqT
 aqU
@@ -24681,16 +23723,16 @@ aqZ
 ara
 arb
 arc
-ard
+aok
 are
 arf
 are
-arg
-arh
-ari
-arj
-ark
-arl
+aoo
+alX
+akd
+akd
+akd
+akd
 akd
 akd
 akd
@@ -24719,9 +23761,9 @@ flm
 apS
 arp
 arq
-arr
+ase
 ars
-art
+aqC
 aru
 amr
 arv
@@ -24732,7 +23774,7 @@ amt
 ary
 amt
 arz
-arA
+iGU
 arB
 arC
 amA
@@ -24742,25 +23784,25 @@ arF
 arG
 amB
 arH
-arI
+aog
 arJ
 arK
 arL
-arM
+arK
 arN
 arO
 arP
 arQ
 arR
-arS
+arQ
 arT
-arU
-arV
-arW
-arX
-arY
-amU
-aov
+alX
+akd
+alX
+alX
+akd
+alX
+alX
 akd
 aph
 api
@@ -24787,7 +23829,7 @@ ajf
 apS
 asa
 asb
-asc
+aqC
 asd
 ase
 asf
@@ -24823,11 +23865,11 @@ asC
 are
 asD
 asE
-asF
-asG
-asH
-asI
-asJ
+akd
+akd
+akd
+alX
+akd
 akd
 akd
 asK
@@ -24855,8 +23897,8 @@ ajf
 apS
 asP
 asQ
-asR
-asS
+aqC
+mVc
 asT
 asU
 amr
@@ -24870,7 +23912,7 @@ amt
 asZ
 ata
 atb
-atc
+sBC
 amA
 atd
 ate
@@ -24892,12 +23934,12 @@ ahu
 ato
 atp
 atq
-atr
-ats
-att
-atu
+alX
 akd
-aov
+akd
+alX
+akd
+alX
 atv
 ahu
 ahu
@@ -24938,7 +23980,7 @@ amt
 amt
 atE
 atF
-atG
+aqh
 amA
 jnL
 atH
@@ -24960,12 +24002,12 @@ ahu
 ahu
 ahu
 atT
-atU
-atV
-atW
-aqx
 akd
-aov
+atV
+akd
+akd
+akd
+alX
 atX
 ahu
 ahu
@@ -25010,17 +24052,17 @@ aul
 aum
 jnL
 aun
-auo
+aoO
 aup
 auq
 aoT
-aur
-aus
+aog
+atj
 aut
 auu
 ahu
 auv
-auw
+aok
 aux
 auy
 ahu
@@ -25028,9 +24070,9 @@ auz
 auA
 auB
 auC
-auD
-att
-auE
+akd
+akd
+alX
 akd
 akd
 auF
@@ -25074,12 +24116,12 @@ auR
 amt
 auS
 auT
-auU
+aqh
 auV
 amB
-auW
-auX
-auY
+aun
+aoO
+aoO
 auZ
 aoT
 ava
@@ -25088,8 +24130,8 @@ avc
 avd
 ahu
 ave
-avf
-avg
+aok
+aok
 avh
 avi
 avj
@@ -25141,7 +24183,7 @@ avC
 avD
 amt
 avE
-avF
+arA
 avG
 avH
 amB
@@ -25323,20 +24365,20 @@ aaa
 aaa
 aaa
 adN
-aju
-aii
+aba
+aau
 aad
 axA
 axB
 rBQ
-axC
+hRW
 awh
 awh
 awh
 nzA
 axD
 axE
-axF
+axE
 axG
 axH
 axI
@@ -25417,8 +24459,8 @@ ayD
 ayE
 ayF
 ayG
-ayH
-ayI
+ayE
+ayE
 ayJ
 ayJ
 ayK
@@ -25480,7 +24522,7 @@ awv
 azg
 azh
 ayC
-azi
+ayG
 azj
 azk
 azl
@@ -25496,7 +24538,7 @@ azu
 awr
 azv
 azw
-azx
+azw
 azy
 azz
 azA
@@ -25562,7 +24604,7 @@ aAf
 aAg
 aAh
 aAi
-aAj
+azw
 aAk
 aAl
 aAm
@@ -25621,16 +24663,16 @@ aAN
 aAO
 aAP
 aAQ
-aAR
+aAQ
 aAS
 aAT
-aAU
+aAg
 aAV
-aAW
-aAW
+aAT
+aAT
 aAX
 awr
-aAY
+azw
 aAZ
 aBa
 aBb
@@ -25638,12 +24680,12 @@ aBc
 aBd
 aBe
 aBf
-aBg
-aBh
+aBe
+aBf
 aBi
-aBj
-aBk
-aBl
+aBf
+aBf
+aBf
 awz
 aBm
 aBn
@@ -25676,9 +24718,9 @@ aBv
 aBw
 aBx
 aBy
-aBz
+aBx
 aBA
-aBz
+aBx
 aBB
 awv
 aBC
@@ -25695,21 +24737,21 @@ aBL
 aBM
 aBN
 aBO
-aAW
+aAT
 aBP
 awr
 aBQ
-aBR
+azw
 aBS
-aBT
+azw
 aBU
 aBV
-aBW
-aBX
-aBY
-aBZ
-aCa
-aCb
+sXI
+aBf
+sXI
+aBf
+aBf
+aBf
 aCc
 aCd
 aCe
@@ -25745,8 +24787,8 @@ aBx
 aCk
 ayx
 aCl
-aCm
-aCn
+azR
+aBw
 aCo
 awv
 awv
@@ -25758,7 +24800,7 @@ aCq
 aCr
 aCq
 aCs
-aCt
+ayE
 aCu
 aCv
 aCw
@@ -25773,16 +24815,16 @@ aCA
 awr
 aCB
 aCC
-aCD
-aCE
-aCF
+aBf
+aDM
+aBf
 aCG
-aCH
+aBf
 aCI
 aCJ
 awr
 aCK
-aCL
+aar
 aar
 axz
 aaa
@@ -25814,8 +24856,8 @@ aBw
 ayx
 aCQ
 aBA
-aCn
-aBz
+aBw
+aBx
 aCR
 aCS
 aCT
@@ -25824,10 +24866,10 @@ aCU
 aCV
 aCW
 aCX
-aBI
+aAQ
 aCY
 aCZ
-aDa
+aAg
 aDb
 aDc
 ayJ
@@ -25842,15 +24884,15 @@ awr
 aDh
 aDi
 aDj
-aDk
+aDj
 aDl
 aDm
 aDn
-aDS
+aBf
 aDo
 awr
-aDp
-abB
+aaX
+aaY
 aar
 adN
 aaa
@@ -25881,12 +24923,12 @@ aDv
 aDw
 ayx
 aDx
-aCm
-aCn
-aBz
-aBz
-aBz
-aDy
+azR
+aBw
+aBx
+aBx
+aBx
+aCk
 ayC
 aDz
 aDA
@@ -25894,7 +24936,7 @@ aDB
 aDC
 aDD
 aDC
-aBI
+aAQ
 aDE
 aDF
 aDE
@@ -25914,12 +24956,12 @@ aDO
 aDP
 aDQ
 aDR
-aDS
+aBf
 aDT
 awr
 aaX
 aaY
-aCL
+aar
 aaY
 aaa
 aaa
@@ -25950,11 +24992,11 @@ aDY
 ayx
 aDZ
 aBA
-aBz
-aBz
-aBz
-aBz
-aBz
+aBx
+aBx
+aBx
+aBx
+aBx
 ayC
 ayC
 ayC
@@ -25971,7 +25013,7 @@ aEg
 sxc
 aEh
 aEi
-aEj
+aDe
 aEk
 aEl
 aEm
@@ -25985,8 +25027,8 @@ aEs
 aEt
 aEu
 aEv
-aDp
-abB
+aaX
+aaY
 abA
 aaa
 aaa
@@ -26084,9 +25126,9 @@ aFh
 aFh
 aFh
 aFi
-aFj
-aCm
-aBz
+aBx
+azR
+aBx
 aFk
 aFl
 aFm
@@ -26121,8 +25163,8 @@ aFJ
 aFK
 aFL
 aFM
-aFN
-abB
+aaq
+aaY
 aiQ
 aaa
 aaa
@@ -26161,7 +25203,7 @@ aGa
 aGb
 aGc
 aGd
-aGe
+aGd
 aEa
 aGf
 aGg
@@ -26180,13 +25222,13 @@ awv
 aGo
 aGp
 aGq
-aGr
+tFX
 aGs
-aGt
-aGu
-aGv
+aGp
+aGp
+aGr
 aGw
-aGx
+aGp
 aGy
 aFM
 aaX
@@ -26221,12 +25263,12 @@ ayx
 ayx
 ayx
 aGC
-aBz
+aBx
 aGD
 aGE
 aGF
 aGG
-aGH
+aGc
 aGI
 aGJ
 aGK
@@ -26249,12 +25291,12 @@ aGp
 ndq
 uKR
 ndq
-dvQ
 aGW
-aGX
+aGp
+aGp
 aGY
-aGZ
-aHa
+mwJ
+aGp
 aad
 aad
 aad
@@ -26284,8 +25326,8 @@ aaa
 aaa
 aaa
 adN
-aju
-aii
+aba
+aau
 ayx
 aHb
 aHc
@@ -26293,13 +25335,13 @@ ayx
 aHd
 aEI
 aHe
-aHf
-aHg
+aGG
+aGc
 aHh
 aHi
-aHj
-aHk
-aHl
+aGK
+aFs
+aFs
 aGN
 aHm
 aHn
@@ -26313,15 +25355,15 @@ aHo
 aHp
 aHq
 aCA
+mwJ
 aGp
 aGp
 aGp
-cwi
+aGX
 aGp
 aGp
 aGp
-aHr
-aHs
+aGX
 aHt
 aad
 aaX
@@ -26363,8 +25405,8 @@ aEI
 aHy
 aHz
 aHA
-aHB
-aHC
+aGc
+aGc
 aHD
 aHE
 aHF
@@ -26382,15 +25424,15 @@ aHO
 aHP
 aCA
 aGr
-tnH
 aGp
+aGX
 aGp
-aGp
+mwJ
 tFX
+mwJ
 aGp
 aGp
-aHQ
-cwi
+aGX
 aad
 aaq
 aaY
@@ -26421,7 +25463,7 @@ aaa
 aaa
 aaa
 aat
-aii
+aau
 ayx
 aHR
 aHS
@@ -26429,7 +25471,7 @@ aHT
 aHU
 aEI
 aHV
-aHW
+aGc
 aHX
 aHY
 aHZ
@@ -26451,14 +25493,14 @@ aIn
 aCA
 aGr
 aGp
+bNR
+bNR
 aGr
 aGr
 aGr
-oqE
-oqE
-cwi
-cwi
-aIo
+aGp
+aGp
+aHt
 aad
 aaX
 aaY
@@ -26519,9 +25561,9 @@ aIE
 aCA
 aIF
 aGr
-cwi
-cwi
-oqE
+aGp
+aGp
+aGr
 aGp
 aGr
 aGr
