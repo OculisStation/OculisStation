@@ -54,6 +54,7 @@
 /obj/structure/slime_crystal/Initialize(mapload)
 	. = ..()
 	name =  "[colour] slimic pylon"
+	var/itemcolor
 	switch(colour)
 		if(SLIME_TYPE_ORANGE)
 			itemcolor = COLOR_SLIME_ORANGE
@@ -511,32 +512,12 @@
 	change_colour()
 
 /obj/structure/slime_crystal/pyrite/proc/change_colour()
-	var/list/color_list = list(
-		"#FFA500",
-		"#B19CD9",
-		"#ADD8E6",
-		"#7E7E7E",
-		"#FFFF00",
-		"#551A8B",
-		"#0000FF",
-		"#D3D3D3",
-		"#32CD32",
-		"#704214",
-		"#2956B2",
-		"#FAFAD2",
-		"#FF0000",
-		"#00FF00",
-		"#FF69B4",
-		"#FFD700",
-		"#505050",
-		"#FFB6C1",
-		"#008B8B",
-	)
 	var/turf/center = get_turf(src)
 	if(!center)
 		return
 	for(var/turf/T as anything in RANGE_TURFS(4, center))
-		T.add_atom_colour(pick(color_list), FIXED_COLOUR_PRIORITY)
+		var/new_color = rgb(rand(0, 360), 100, 50, space = COLORSPACE_HSL)
+		T.add_atom_colour(color_transition_filter(new_color, SATURATION_OVERRIDE), FIXED_COLOUR_PRIORITY)
 
 	addtimer(CALLBACK(src,PROC_REF(change_colour)),rand(0.75 SECONDS,1.25 SECONDS))
 
