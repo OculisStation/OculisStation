@@ -2037,10 +2037,12 @@
 	icon_state = "tube_emergency"
 	},
 /obj/item/clothing/shoes/sneakers/crimson{
+	icon = 'tmp/gags/icons/gags-sneakers-#992300#ffffff.dmi';
 	icon_state = "sneakers";
 	pixel_x = -4
 	},
 /obj/item/clothing/shoes/sneakers/crimson{
+	icon = 'tmp/gags/icons/gags-sneakers-#992300#ffffff.dmi';
 	icon_state = "sneakers";
 	pixel_x = 4
 	},
@@ -2049,13 +2051,16 @@
 	id_tag = "vS0Pq"
 	},
 /obj/item/clothing/under/rank/prisoner/syndicate{
+	icon = 'tmp/gags/icons/gags-jumpsuit-prison-#992300.dmi';
 	icon_state = "jumpsuit"
 	},
 /obj/item/clothing/under/rank/prisoner/syndicate{
+	icon = 'tmp/gags/icons/gags-jumpsuit-prison-#992300.dmi';
 	icon_state = "jumpsuit";
 	pixel_y = 4
 	},
 /obj/item/clothing/under/rank/prisoner/syndicate{
+	icon = 'tmp/gags/icons/gags-jumpsuit-prison-#992300.dmi';
 	icon_state = "jumpsuit";
 	pixel_y = 8
 	},
@@ -2710,7 +2715,9 @@
 /area/ruin/space/has_grav/nova/des_two/security/prison)
 "aeG" = (
 /obj/structure/table/reinforced,
-/obj/item/wirecutters,
+/obj/item/wirecutters{
+	icon = 'tmp/gags/icons/gags-wirecutters-#a05212.dmi'
+	},
 /obj/machinery/syndicatebomb/training{
 	icon_state = "training-bomb-inactive"
 	},
@@ -4160,16 +4167,19 @@
 	pipe_color = "#EEEEEE"
 	},
 /obj/item/clothing/shoes/jester_shoes{
+	icon = 'tmp/gags/icons/gags-jester_shoes-#00ff00#ff0000.dmi';
 	icon_state = "jester_map";
 	pixel_x = 4;
 	pixel_y = 2
 	},
 /obj/item/clothing/neck/maid_neck_cover{
+	icon = 'tmp/gags/icons/gags-maid_neck_cover-#7b9ab5#edf9ff.dmi';
 	icon_state = "maid_neck_cover"
 	},
 /obj/item/clothing/head/costume/shrine_wig,
 /obj/item/clothing/suit/jacket/tailcoat/british,
 /obj/item/clothing/head/maid_headband{
+	icon = 'tmp/gags/icons/gags-maid_costume_headband-#edf9ff.dmi';
 	icon_state = "maid_headband";
 	pixel_x = 4;
 	pixel_y = 1
@@ -4737,6 +4747,7 @@
 	},
 /obj/item/clothing/suit/patho/miraculist,
 /obj/item/clothing/mask/masquerade/two_colors/feathered{
+	icon = 'tmp/gags/icons/gags-masquerade_mask-#ececec#333333#9b1e1e.dmi';
 	icon_state = "maskerade_two_colors_feather";
 	pixel_x = -1
 	},
@@ -4810,6 +4821,7 @@
 	},
 /obj/item/clothing/head/beret/sec/syndicate{
 	dir = 1;
+	icon = 'tmp/gags/icons/gags-beret_badge-#3F3C40#DB2929.dmi';
 	icon_state = "beret_badge"
 	},
 /obj/item/electronics/airlock{
@@ -5587,6 +5599,7 @@
 	},
 /obj/item/clothing/under/rank/security/nova/formal/blue{
 	dir = 8;
+	icon = 'tmp/gags/icons/gags-depgag_formal-#39393F#EBEBEB#3F6E9E#39393F.dmi';
 	icon_state = "depgag_formal"
 	},
 /obj/item/stack/cable_coil{
@@ -5614,21 +5627,26 @@
 	pixel_y = 6
 	},
 /obj/item/clothing/head/beret/sec/syndicate{
+	icon = 'tmp/gags/icons/gags-beret_badge-#3F3C40#DB2929.dmi';
 	icon_state = "beret_badge"
 	},
 /obj/item/clothing/shoes/combat,
 /obj/item/clothing/under/syndicate/nova/tactical/skirt,
 /obj/item/clothing/under/syndicate/nova/overalls/skirt,
 /obj/item/clothing/suit/hooded/wintercoat/security/depgag/depgag_vested_jacket/blue{
+	icon = 'tmp/gags/icons/gags-depgag_vested_jacket-#3F6E9E#39393F#EBEBEB.dmi';
 	icon_state = "depgag_vested_jacket"
 	},
 /obj/item/clothing/under/rank/security/nova/miniskirt{
+	icon = 'tmp/gags/icons/gags-depgag_mini-#A52F29#39393F.dmi';
 	icon_state = "depgag_mini"
 	},
 /obj/item/clothing/under/rank/security/nova/depgag_pantsuit/blue{
+	icon = 'tmp/gags/icons/gags-depgag_pantsuit-#3F6E9E#39393F#39393F#39393F.dmi';
 	icon_state = "depgag_pantsuit"
 	},
 /obj/item/clothing/suit/hooded/wintercoat/security/depgag/bomber{
+	icon = 'tmp/gags/icons/gags-depgag_bomber-#A52F29#39393F.dmi';
 	icon_state = "depgag_bomber"
 	},
 /obj/item/stack/tile/carpet/red{
@@ -5654,6 +5672,7 @@
 	},
 /obj/item/clothing/under/rank/security/nova/modskin/blue{
 	dir = 8;
+	icon = 'tmp/gags/icons/gags-modskin-#39393F#3F6E9E.dmi';
 	icon_state = "modskin"
 	},
 /obj/item/pipe/directional/scrubber{
@@ -5665,18 +5684,22 @@
 	},
 /obj/item/clothing/under/rank/security/nova/plainskirt{
 	dir = 8;
+	icon = 'tmp/gags/icons/gags-depgag_skirt_plain-#A52F29#39393F#39393F#A52F29.dmi';
 	icon_state = "depgag_skirt_plain"
 	},
 /obj/item/clothing/under/rank/security/nova/skirt{
 	dir = 8;
+	icon = 'tmp/gags/icons/gags-depgag_skirt-#A52F29#39393F#39393F#A52F29.dmi';
 	icon_state = "depgag_skirt"
 	},
 /obj/item/clothing/neck/security_cape/armplate_caped{
 	dir = 8;
+	icon = 'tmp/gags/icons/gags-depgag_caped_gauntlet-#A52F29.dmi';
 	icon_state = "depgag_gauntlet"
 	},
 /obj/item/clothing/suit/hooded/wintercoat/security/depgag{
 	dir = 8;
+	icon = 'tmp/gags/icons/gags-depgag_winter_coat-#A52F29#CEC8BF#39393F#39393F.dmi';
 	icon_state = "depgag_winter_coat"
 	},
 /obj/item/storage/backpack/duffelbag/sec/blue{
@@ -5684,22 +5707,27 @@
 	},
 /obj/item/clothing/under/rank/security/nova/turtleneck/blue{
 	dir = 8;
+	icon = 'tmp/gags/icons/gags-depgag_turtleneck-#3F6E9E#39393F#39393F.dmi';
 	icon_state = "depgag_turtleneck"
 	},
 /obj/item/clothing/head/beret/sec/depgag{
 	dir = 8;
+	icon = 'tmp/gags/icons/gags-beret_badge-#A52F29#F2F2F2.dmi';
 	icon_state = "beret_badge"
 	},
 /obj/item/clothing/under/rank/security/nova/dress/blue{
 	dir = 8;
+	icon = 'tmp/gags/icons/gags-depgag_dress-#3F6E9E#39393F#3F6E9E.dmi';
 	icon_state = "depgag_dress"
 	},
 /obj/item/clothing/neck/security_cape/shoulder{
 	dir = 8;
+	icon = 'tmp/gags/icons/gags-depgag_cape-#A52F29#39393F.dmi';
 	icon_state = "depgag_cape"
 	},
 /obj/item/clothing/under/rank/security/nova/formal{
 	dir = 8;
+	icon = 'tmp/gags/icons/gags-depgag_formal-#39393F#EBEBEB#A52F29#39393F.dmi';
 	icon_state = "depgag_formal"
 	},
 /turf/open/floor/plating,
@@ -6022,6 +6050,7 @@
 "aiR" = (
 /obj/item/clothing/accessory/nova/acc_medal/neckpin/syndicate{
 	dir = 1;
+	icon = 'tmp/gags/icons/gags-medals-neckpins-#262626#9c0000.dmi';
 	icon_state = "syndipin"
 	},
 /obj/item/clothing/under/syndicate/nova/overalls{
@@ -6735,6 +6764,7 @@
 "ajY" = (
 /obj/structure/frame/machine/secured,
 /obj/item/circuitboard/machine/smes{
+	icon = 'tmp/gags/icons/gags-circuit-#F8D700.dmi';
 	name = "SMES (Machine Board)"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -6884,6 +6914,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/frame/machine/secured,
 /obj/item/circuitboard/machine/ghostpad/syndicate{
+	icon = 'tmp/gags/icons/gags-circuit-#9A151E.dmi';
 	name = "Syndicate deepspace sales pad (Machine Board)"
 	},
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
@@ -7324,6 +7355,7 @@
 	name = "cyan pipe"
 	},
 /obj/machinery/meter{
+	icon = 'tmp/gags/icons/gags-meter-#808080.dmi';
 	icon_state = "meter0"
 	},
 /obj/item/restraints/legcuffs/beartrap/prearmed,
@@ -7353,6 +7385,7 @@
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "ald" = (
 /obj/machinery/meter{
+	icon = 'tmp/gags/icons/gags-meter-#808080.dmi';
 	icon_state = "meter0"
 	},
 /obj/machinery/atmospherics/pipe/smart/simple/dark/visible{
@@ -8335,6 +8368,7 @@
 	name = "green pipe"
 	},
 /obj/machinery/meter{
+	icon = 'tmp/gags/icons/gags-meter-#808080.dmi';
 	icon_state = "meter0"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -8343,6 +8377,7 @@
 "amd" = (
 /obj/machinery/atmospherics/components/unary/thermomachine/freezer{
 	dir = 1;
+	icon = 'tmp/gags/icons/gags-thermomachine-#00FF00.dmi';
 	icon_state = "thermo_base"
 	},
 /obj/item/paper{
@@ -8787,6 +8822,7 @@
 	name = "red scrubbers pipe"
 	},
 /obj/machinery/meter{
+	icon = 'tmp/gags/icons/gags-meter-#00FF00.dmi';
 	icon_state = "meter0"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -8804,6 +8840,7 @@
 	name = "green layer adaptor"
 	},
 /obj/machinery/meter{
+	icon = 'tmp/gags/icons/gags-meter-#808080.dmi';
 	icon_state = "meter0"
 	},
 /turf/open/floor/plating,
@@ -9895,6 +9932,7 @@
 	},
 /obj/item/circuitboard/machine/turbine_stator{
 	dir = 4;
+	icon = 'tmp/gags/icons/gags-circuit-#F8D700.dmi';
 	name = "Turbine - Turbine Outlet (Machine Board)";
 	pixel_x = -1;
 	pixel_y = -6
@@ -12256,6 +12294,7 @@
 	anchored = 1
 	},
 /obj/item/circuitboard/machine/cyborgrecharger{
+	icon = 'tmp/gags/icons/gags-circuit-#BC4A9B.dmi';
 	name = "Cyborg Recharger (Machine Board)"
 	},
 /obj/item/stock_parts/capacitor{
@@ -15278,6 +15317,7 @@
 	anchored = 1
 	},
 /obj/item/circuitboard/machine/suit_storage_unit{
+	icon = 'tmp/gags/icons/gags-circuit-#F8D700.dmi';
 	name = "Suit Storage Unit (Machine Board)"
 	},
 /obj/item/stack/sheet/glass{
@@ -15838,6 +15878,7 @@
 	anchored = 1
 	},
 /obj/item/circuitboard/machine/suit_storage_unit{
+	icon = 'tmp/gags/icons/gags-circuit-#F8D700.dmi';
 	name = "Suit Storage Unit (Machine Board)"
 	},
 /obj/item/stack/sheet/glass{
@@ -16353,6 +16394,7 @@
 	dir = 4
 	},
 /obj/item/circuitboard/machine/vendor{
+	icon = 'tmp/gags/icons/gags-circuit-#1A7A13.dmi';
 	name = "Solar's Best Hot Drinks Vendor"
 	},
 /obj/item/vending_refill/coffee{
@@ -17972,6 +18014,7 @@
 /area/ruin/space/has_grav/nova/des_two/cargo)
 "aBa" = (
 /obj/item/circuitboard/machine/space_heater{
+	icon = 'tmp/gags/icons/gags-circuit-#1A7A13.dmi';
 	name = "Space Heater (Machine Board)"
 	},
 /obj/item/stack/cable_coil{
@@ -17999,6 +18042,7 @@
 	atom_integrity = 137
 	},
 /obj/item/circuitboard/computer/solar_control{
+	icon = 'tmp/gags/icons/gags-circuit-#F8D700.dmi';
 	name = "Solar Control (Computer Board)";
 	pixel_x = -8;
 	pixel_y = 5;
@@ -18176,16 +18220,19 @@
 	atom_integrity = 16.3
 	},
 /obj/item/circuitboard/machine/bci_implanter{
+	icon = 'tmp/gags/icons/gags-circuit-#BC4A9B.dmi';
 	name = "Brain-Computer Interface Manipulation Chamber (Machine Board)";
 	pixel_y = -4;
 	atom_integrity = 192.5
 	},
 /obj/item/circuitboard/machine/flatpacker{
+	icon = 'tmp/gags/icons/gags-circuit-#F8D700.dmi';
 	name = "Flatpacker (Machine Board)";
 	pixel_y = -2;
 	atom_integrity = 192.5
 	},
 /obj/item/circuitboard/machine/scrubber{
+	icon = 'tmp/gags/icons/gags-circuit-#F8D700.dmi';
 	name = "Portable Air Scrubber (Machine Board)";
 	atom_integrity = 192.5
 	},
@@ -18200,9 +18247,11 @@
 	},
 /obj/machinery/light/cold/directional/east,
 /obj/item/circuitboard/machine/pacman{
+	icon = 'tmp/gags/icons/gags-circuit-#F8D700.dmi';
 	name = "PACMAN-type Generator (Machine Board)"
 	},
 /obj/item/circuitboard/machine/pacman{
+	icon = 'tmp/gags/icons/gags-circuit-#F8D700.dmi';
 	name = "PACMAN-type Generator (Machine Board)";
 	pixel_y = 2
 	},
@@ -21508,6 +21557,7 @@
 	anchored = 1
 	},
 /obj/item/circuitboard/machine/hydroponics{
+	icon = 'tmp/gags/icons/gags-circuit-#92DCBA.dmi';
 	name = "Hydroponics Tray (Machine Board)"
 	},
 /obj/item/stack/sheet/glass{
@@ -21581,6 +21631,7 @@
 "aGP" = (
 /obj/structure/chair/sofa/bench/right{
 	dir = 8;
+	icon = 'tmp/gags/icons/gags-bench_right-#af7d28.dmi';
 	icon_state = "bench_right"
 	},
 /obj/structure/closet/generic/wall/empty{
@@ -21594,6 +21645,7 @@
 "aGQ" = (
 /obj/structure/chair/sofa/bench{
 	dir = 8;
+	icon = 'tmp/gags/icons/gags-bench_middle-#af7d28.dmi';
 	icon_state = "bench_middle"
 	},
 /obj/machinery/light/warm/directional/east{
@@ -21607,6 +21659,7 @@
 "aGR" = (
 /obj/structure/chair/sofa/bench/left{
 	dir = 8;
+	icon = 'tmp/gags/icons/gags-bench_left-#af7d28.dmi';
 	icon_state = "bench_left"
 	},
 /obj/structure/closet/generic/wall/empty{
@@ -22023,6 +22076,7 @@
 	},
 /obj/structure/chair/sofa/bench/left{
 	dir = 4;
+	icon = 'tmp/gags/icons/gags-bench_left-#af7d28.dmi';
 	icon_state = "bench_left"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -22031,6 +22085,7 @@
 "aHJ" = (
 /obj/structure/chair/sofa/bench{
 	dir = 4;
+	icon = 'tmp/gags/icons/gags-bench_middle-#af7d28.dmi';
 	icon_state = "bench_middle"
 	},
 /turf/open/floor/iron{
@@ -22044,6 +22099,7 @@
 	},
 /obj/structure/chair/sofa/bench/right{
 	dir = 4;
+	icon = 'tmp/gags/icons/gags-bench_right-#af7d28.dmi';
 	icon_state = "bench_right"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -22170,6 +22226,7 @@
 	},
 /obj/item/circuitboard/machine/hydroponics{
 	dir = 4;
+	icon = 'tmp/gags/icons/gags-circuit-#92DCBA.dmi';
 	name = "Hydroponics Tray (Machine Board)"
 	},
 /turf/open/floor/iron/white/diagonal,
@@ -22388,6 +22445,7 @@
 	},
 /obj/structure/chair/sofa/bench/right{
 	dir = 8;
+	icon = 'tmp/gags/icons/gags-bench_right-#af7d28.dmi';
 	icon_state = "bench_right"
 	},
 /turf/open/floor/iron,
@@ -22395,6 +22453,7 @@
 "aIz" = (
 /obj/structure/chair/sofa/bench{
 	dir = 8;
+	icon = 'tmp/gags/icons/gags-bench_middle-#af7d28.dmi';
 	icon_state = "bench_middle"
 	},
 /turf/open/floor/iron{
@@ -22408,6 +22467,7 @@
 	},
 /obj/structure/chair/sofa/bench/left{
 	dir = 8;
+	icon = 'tmp/gags/icons/gags-bench_left-#af7d28.dmi';
 	icon_state = "bench_left"
 	},
 /turf/open/floor/iron{
