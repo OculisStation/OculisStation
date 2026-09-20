@@ -54,7 +54,6 @@
 /obj/structure/slime_crystal/Initialize(mapload)
 	. = ..()
 	name =  "[colour] slimic pylon"
-	var/itemcolor = "#FFFFFF"
 	switch(colour)
 		if(SLIME_TYPE_ORANGE)
 			itemcolor = COLOR_SLIME_ORANGE
@@ -96,8 +95,14 @@
 			itemcolor = COLOR_SLIME_LIGHT_PINK
 		if(SLIME_TYPE_ADAMANTINE)
 			itemcolor = COLOR_SLIME_ADAMANTINE
+		if(SLIME_TYPE_RAINBOW)
+			rainbow_effect()
+		else
+			itemcolor = "#FFFFFF"
 
-	add_atom_colour(color_transition_filter(itemcolor), FIXED_COLOUR_PRIORITY) // OCULIS EDIT - ORIGINAL: add_atom_colour(itemcolor, FIXED_COLOUR_PRIORITY)
+	// rainbow does its own thing instead
+	if(itemcolor)
+		add_atom_colour(color_transition_filter(itemcolor), FIXED_COLOUR_PRIORITY)
 	if(uses_process)
 		START_PROCESSING(SSobj, src)
 
