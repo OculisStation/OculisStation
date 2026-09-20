@@ -97,7 +97,7 @@
 		if(SLIME_TYPE_ADAMANTINE)
 			itemcolor = COLOR_SLIME_ADAMANTINE
 
-	add_atom_colour(itemcolor, FIXED_COLOUR_PRIORITY)
+	add_atom_colour(color_transition_filter(itemcolor), FIXED_COLOUR_PRIORITY) // OCULIS EDIT - ORIGINAL: add_atom_colour(itemcolor, FIXED_COLOUR_PRIORITY)
 	if(uses_process)
 		START_PROCESSING(SSobj, src)
 
