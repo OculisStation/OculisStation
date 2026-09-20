@@ -10977,7 +10977,7 @@
 /obj/item/restraints/legcuffs/beartrap/prearmed,
 /obj/item/modular_computer/laptop{
 	name = "Old Admiral's Laptop";
-	desc = "A relatively low-end but sturdy laptop computer, good for taking notes or making internet searches. In contrast to the battered exterior, the drive is nearly a clean slate. Across the many scratches, you can faintly make out an intentional marking... \"A+█\""
+	desc = "A relatively low-end but sturdy laptop computer, good for taking notes or making internet searches. In contrast to the battered exterior, the drive is nearly a clean slate. Across the many scratches, you can faintly make out an intentional marking... "A+█"
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/nova/des_two/bridge)
