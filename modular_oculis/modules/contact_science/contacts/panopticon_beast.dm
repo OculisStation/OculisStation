@@ -239,7 +239,7 @@
 	armor_flag = ENERGY
 
 /datum/ai_controller/basic_controller/panbeast
-	behavior_tree_json = "modular_oculis/modules/contact_science/ai/panbeast_ai.json"
+	behavior_tree_json = "modular_oculis/modules/contact_science/ai/panbeast_ai.bt.json"
 	blackboard = list(
 		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic,
 		BB_TARGET_MINIMUM_STAT = HARD_CRIT,
