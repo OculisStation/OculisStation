@@ -983,6 +983,11 @@ GLOBAL_LIST_INIT(slime_extract_auto_activate_reactions, init_slime_auto_activate
 	if(SEND_SIGNAL(interacting_with, COMSIG_SPEED_POTION_APPLIED, src, user) & SPEED_POTION_STOP)
 		return ITEM_INTERACT_SUCCESS
 
+	// OCULIS EDIT ADDITION START - don't speed potion tables lol. this is BELOW the signal, so that if a structure or whatever WANTS to implement a custom interaction, they can
+	if((isstructure(interacting_with) || ismachinery(interacting_with)) && (interacting_with.anchored || interacting_with.drag_slowdown <= 0))
+		return NONE
+	// OCULIS EDIT ADDITION END
+
 	if(isitem(interacting_with))
 		var/obj/item/apply_to = interacting_with
 		apply_to.slowdown = 0
