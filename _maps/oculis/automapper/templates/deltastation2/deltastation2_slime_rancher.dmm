@@ -167,6 +167,7 @@
 /obj/effect/turf_decal/tile/neutral/anticorner/contrasted{
 	dir = 8
 	},
+/obj/effect/landmark/start/scientist,
 /turf/open/floor/iron,
 /area/station/science/xenobiology)
 "sU" = (
@@ -178,6 +179,7 @@
 /obj/structure/chair/office/light,
 /obj/machinery/newscaster/directional/east,
 /obj/effect/turf_decal/tile/neutral/anticorner/contrasted,
+/obj/effect/landmark/start/scientist,
 /turf/open/floor/iron,
 /area/station/science/xenobiology)
 "ty" = (

@@ -370,6 +370,7 @@
 	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/landmark/start/scientist,
 /turf/open/floor/iron/dark,
 /area/station/science/xenobiology)
 

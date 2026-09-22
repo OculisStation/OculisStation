@@ -61,6 +61,7 @@
 "ko" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/structure/cable,
+/obj/effect/landmark/start/scientist,
 /turf/open/floor/iron/white,
 /area/station/science/xenobiology)
 "ks" = (
@@ -497,6 +498,7 @@
 	dir = 1
 	},
 /obj/structure/cable,
+/obj/effect/landmark/start/scientist,
 /turf/open/floor/iron/white,
 /area/station/science/xenobiology)
 "Is" = (

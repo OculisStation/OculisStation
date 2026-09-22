@@ -14,6 +14,7 @@
 /obj/structure/chair/comfy/black{
 	dir = 1
 	},
+/obj/effect/landmark/start/scientist,
 /turf/open/floor/iron/white,
 /area/station/science/xenobiology)
 "aE" = (
@@ -708,6 +709,7 @@
 /obj/structure/chair/comfy/black{
 	dir = 1
 	},
+/obj/effect/landmark/start/scientist,
 /turf/open/floor/iron/white,
 /area/station/science/xenobiology)
 "Za" = (

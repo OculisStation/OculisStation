@@ -437,6 +437,11 @@
 	dir = 8
 	},
 /area/station/science/xenobiology)
+"SB" = (
+/obj/effect/turf_decal/tile/purple/opposingcorners,
+/obj/effect/landmark/start/scientist,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
 "VD" = (
 /obj/effect/turf_decal/tile/green/fourcorners,
 /turf/open/floor/iron,
@@ -589,7 +594,7 @@ GM
 GM
 GM
 iT
-iT
+SB
 gj
 qW
 GM
