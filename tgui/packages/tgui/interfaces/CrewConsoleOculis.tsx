@@ -295,7 +295,7 @@ const CrewTableEntry = (props: CrewTableEntryProps) => {
     <Table.Row className="candystripe" m={COMFY_MARGIN}>
       <Table.Cell bold={jobIsHead(ijob)} color={jobToColor(ijob)}>
         <Box inline width={1.5}>
-          <Icon name={icon} />
+          <Icon name={icon || 'question'} />
         </Box>
         {name}
         {assignment !== undefined ? ` (${assignment})` : ''}
