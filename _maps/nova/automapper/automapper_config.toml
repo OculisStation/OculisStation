@@ -169,7 +169,7 @@ trait_name = "Station"
 map_files = ["oceanpubby_slime_rancher.dmm"]
 directory = "_maps/oculis/automapper/templates/oceanpubby/"
 required_map = "oceanpubby.dmm"
-coordinates = [172, 111, 1]
+coordinates = [172, 110, 1]
 trait_name = "Station"
 
 # catwalkstation_2023_slime_rancher
