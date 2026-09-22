@@ -103,8 +103,7 @@
 
 	// rainbow, bluespace, and gold do their own thing instead
 	if(itemcolor)
-		// the pylon sprite is pure grey, so color_transition_filter's saturation multiply left every pylon grey
-		// paint it flat instead: our hue and saturation, sprite shading pulled up toward our lightness
+		// custom gradient needed so it doesn't look like ass
 		var/list/hsl = rgb2num(itemcolor, COLORSPACE_HSL)
 		var/list/paint = list(
 			0, 0, 0,
