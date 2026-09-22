@@ -1,3 +1,5 @@
+#define SLIME_CRYSTAL_RANGE 3
+
 /obj/item/slimecross/crystalline
 	name = "crystalline extract"
 	desc = "It's crystalline,"
@@ -17,7 +19,7 @@
 
 	var/user_turf = get_turf(user)
 
-	if(!do_after(user, 15 SECONDS, src))
+	if(!do_after(user, 7.5 SECONDS, src))
 		return
 
 	// check after in case someone placed a crystal in the meantime (im watching you aramix)
@@ -33,7 +35,8 @@
 	desc = "Glassy, pure, transparent. Powerful artifact that relays the slimecore's influence onto space around it."
 	max_integrity = 5
 	anchored = TRUE
-	density = TRUE
+	density = FALSE
+	layer = ABOVE_MOB_LAYER
 	icon = 'modular_iris/modules/research/icons/slimecrossing.dmi'
 	icon_state = "slime_pylon"
 	resistance_flags = FIRE_PROOF | ACID_PROOF
@@ -43,101 +46,110 @@
 	var/colour
 	///Does it use process?
 	var/uses_process = TRUE
+	///Does it watch the living mobs in range, and run on_mob_enter/effect/leave on them?
+	var/tracks_mobs = FALSE
+	var/datum/proximity_monitor/advanced/slime_crystal/mob_tracker
 
-/obj/structure/slime_crystal/New(loc, obj/structure/slime_crystal/master_crystal, ...)
+/obj/structure/slime_crystal/Initialize(mapload, obj/structure/slime_crystal/master_crystal)
 	. = ..()
+	name =  "[colour] slimic pylon"
 	if(master_crystal) // This is for rainbow pylons if ya were wondering
 		invisibility = INVISIBILITY_MAXIMUM
 		max_integrity = 1000
 		atom_integrity = 1000
+	else
+		var/itemcolor
+		switch(colour)
+			if(SLIME_TYPE_ORANGE)
+				itemcolor = COLOR_SLIME_ORANGE
+			if(SLIME_TYPE_PURPLE)
+				itemcolor = COLOR_SLIME_PURPLE
+			if(SLIME_TYPE_BLUE)
+				itemcolor = COLOR_SLIME_BLUE
+			if(SLIME_TYPE_METAL)
+				itemcolor = COLOR_SLIME_METAL
+			if(SLIME_TYPE_YELLOW)
+				itemcolor = COLOR_SLIME_YELLOW
+			if(SLIME_TYPE_DARK_PURPLE)
+				itemcolor = COLOR_SLIME_DARK_PURPLE
+			if(SLIME_TYPE_DARK_BLUE)
+				itemcolor = COLOR_SLIME_DARK_BLUE
+			if(SLIME_TYPE_SILVER)
+				itemcolor = COLOR_SLIME_SILVER
+			if(SLIME_TYPE_BLUESPACE)
+				add_visual_effect(/obj/effect/abstract/visual_effect/bluespace)
+			if(SLIME_TYPE_SEPIA)
+				itemcolor = COLOR_SLIME_SEPIA
+			if(SLIME_TYPE_CERULEAN)
+				itemcolor = COLOR_SLIME_CERULEAN
+			if(SLIME_TYPE_PYRITE)
+				itemcolor = COLOR_SLIME_PYRITE
+			if(SLIME_TYPE_RED)
+				itemcolor = COLOR_SLIME_RED
+			if(SLIME_TYPE_GREEN)
+				itemcolor = COLOR_SLIME_GREEN
+			if(SLIME_TYPE_PINK)
+				itemcolor = COLOR_SLIME_PINK
+			if(SLIME_TYPE_GOLD)
+				add_visual_effect(/obj/effect/abstract/visual_effect/gold)
+			if(SLIME_TYPE_OIL)
+				add_visual_effect(/obj/effect/abstract/visual_effect/oil)
+			if(SLIME_TYPE_BLACK)
+				add_visual_effect(/obj/effect/abstract/visual_effect/black)
+			if(SLIME_TYPE_LIGHT_PINK)
+				itemcolor = COLOR_SLIME_LIGHT_PINK
+			if(SLIME_TYPE_ADAMANTINE)
+				itemcolor = COLOR_SLIME_ADAMANTINE
+			if(SLIME_TYPE_RAINBOW)
+				add_visual_effect(/obj/effect/abstract/visual_effect/rainbow)
+			else
+				itemcolor = "#FFFFFF"
 
-/obj/structure/slime_crystal/Initialize(mapload)
-	. = ..()
-	name =  "[colour] slimic pylon"
-	var/itemcolor
-	switch(colour)
-		if(SLIME_TYPE_ORANGE)
-			itemcolor = COLOR_SLIME_ORANGE
-		if(SLIME_TYPE_PURPLE)
-			itemcolor = COLOR_SLIME_PURPLE
-		if(SLIME_TYPE_BLUE)
-			itemcolor = COLOR_SLIME_BLUE
-		if(SLIME_TYPE_METAL)
-			itemcolor = COLOR_SLIME_METAL
-		if(SLIME_TYPE_YELLOW)
-			itemcolor = COLOR_SLIME_YELLOW
-		if(SLIME_TYPE_DARK_PURPLE)
-			itemcolor = COLOR_SLIME_DARK_PURPLE
-		if(SLIME_TYPE_DARK_BLUE)
-			itemcolor = COLOR_SLIME_DARK_BLUE
-		if(SLIME_TYPE_SILVER)
-			itemcolor = COLOR_SLIME_SILVER
-		if(SLIME_TYPE_BLUESPACE)
-			add_visual_effect(/obj/effect/abstract/visual_effect/bluespace)
-		if(SLIME_TYPE_SEPIA)
-			itemcolor = COLOR_SLIME_SEPIA
-		if(SLIME_TYPE_CERULEAN)
-			itemcolor = COLOR_SLIME_CERULEAN
-		if(SLIME_TYPE_PYRITE)
-			itemcolor = COLOR_SLIME_PYRITE
-		if(SLIME_TYPE_RED)
-			itemcolor = COLOR_SLIME_RED
-		if(SLIME_TYPE_GREEN)
-			itemcolor = COLOR_SLIME_GREEN
-		if(SLIME_TYPE_PINK)
-			itemcolor = COLOR_SLIME_PINK
-		if(SLIME_TYPE_GOLD)
-			add_visual_effect(/obj/effect/abstract/visual_effect/gold)
-		if(SLIME_TYPE_OIL)
-			add_visual_effect(/obj/effect/abstract/visual_effect/oil)
-		if(SLIME_TYPE_BLACK)
-			add_visual_effect(/obj/effect/abstract/visual_effect/black)
-		if(SLIME_TYPE_LIGHT_PINK)
-			itemcolor = COLOR_SLIME_LIGHT_PINK
-		if(SLIME_TYPE_ADAMANTINE)
-			itemcolor = COLOR_SLIME_ADAMANTINE
-		if(SLIME_TYPE_RAINBOW)
-			add_visual_effect(/obj/effect/abstract/visual_effect/rainbow)
-		else
-			itemcolor = "#FFFFFF"
-
-	// the ones with their own visual effect do their own thing instead
-	if(itemcolor)
-		// custom gradient needed so it doesn't look like ass
-		var/list/hsl = rgb2num(itemcolor, COLORSPACE_HSL)
-		var/list/paint = list(
-			0, 0, 0,
-			0, 0, 0,
-			0, 0, 0.55,
-			hsl[1] / 360, hsl[2] / 100, hsl[3] / 100 * 0.55,
-		)
-		add_atom_colour(color_matrix_filter(paint, FILTER_COLOR_HSL), FIXED_COLOUR_PRIORITY)
+		// the ones with their own visual effect do their own thing instead
+		if(itemcolor)
+			// custom gradient needed so it doesn't look like ass
+			var/list/hsl = rgb2num(itemcolor, COLORSPACE_HSL)
+			var/list/paint = list(
+				0, 0, 0,
+				0, 0, 0,
+				0, 0, 0.55,
+				hsl[1] / 360, hsl[2] / 100, hsl[3] / 100 * 0.55,
+			)
+			add_atom_colour(color_matrix_filter(paint, FILTER_COLOR_HSL), FIXED_COLOUR_PRIORITY)
 	if(uses_process)
 		START_PROCESSING(SSobj, src)
+	if(tracks_mobs)
+		mob_tracker = new(src, SLIME_CRYSTAL_RANGE)
 
 /obj/structure/slime_crystal/Destroy()
-	if(uses_process)
-		STOP_PROCESSING(SSobj, src)
-	for(var/X in affected_mobs)
-		on_mob_leave(X)
+	STOP_PROCESSING(SSobj, src)
+	for(var/mob/living/affected_mob as anything in affected_mobs)
+		remove_affected_mob(affected_mob)
+	QDEL_NULL(mob_tracker)
 	return ..()
 
 /obj/structure/slime_crystal/process()
-	var/list/current_mobs = get_valid_targets()
-	for(var/mob/living/mob_in_range in current_mobs)
-		if(!(mob_in_range in affected_mobs))
-			on_mob_enter(mob_in_range)
-			affected_mobs[mob_in_range] = 0
+	for(var/mob/living/affected_mob as anything in affected_mobs)
+		affected_mobs[affected_mob]++
+		on_mob_effect(affected_mob)
 
-		affected_mobs[mob_in_range]++
-		on_mob_effect(mob_in_range)
+/obj/structure/slime_crystal/proc/add_affected_mob(mob/living/arrived)
+	if(arrived in affected_mobs)
+		return
+	affected_mobs[arrived] = 0
+	RegisterSignal(arrived, COMSIG_QDELETING, PROC_REF(on_affected_mob_deleted))
+	on_mob_enter(arrived)
 
-	for(var/M in affected_mobs - current_mobs)
-		on_mob_leave(M)
-		affected_mobs -= M
+/obj/structure/slime_crystal/proc/remove_affected_mob(mob/living/gone)
+	if(!(gone in affected_mobs))
+		return
+	affected_mobs -= gone
+	UnregisterSignal(gone, COMSIG_QDELETING)
+	on_mob_leave(gone)
 
-/obj/structure/slime_crystal/proc/get_valid_targets()
-	return range(3, src)
+/obj/structure/slime_crystal/proc/on_affected_mob_deleted(mob/living/source)
+	SIGNAL_HANDLER
+	remove_affected_mob(source)
 
 /obj/structure/slime_crystal/proc/master_crystal_destruction()
 	qdel(src)
@@ -151,20 +163,54 @@
 /obj/structure/slime_crystal/proc/on_mob_leave(mob/living/affected_mob)
 	return
 
+/datum/proximity_monitor/advanced/slime_crystal
+	edge_is_a_field = TRUE
+
+/datum/proximity_monitor/advanced/slime_crystal/New(atom/_host, range, _ignore_if_not_on_turf = TRUE)
+	. = ..()
+	recalculate_field(full_recalc = TRUE)
+
+/datum/proximity_monitor/advanced/slime_crystal/setup_field_turf(turf/target)
+	. = ..()
+	var/obj/structure/slime_crystal/crystal = host
+	for(var/mob/living/standing_there in target)
+		crystal.add_affected_mob(standing_there)
+
+/datum/proximity_monitor/advanced/slime_crystal/cleanup_field_turf(turf/target)
+	. = ..()
+	var/obj/structure/slime_crystal/crystal = host
+	for(var/mob/living/standing_there in target)
+		crystal.remove_affected_mob(standing_there)
+
+/datum/proximity_monitor/advanced/slime_crystal/field_turf_crossed(atom/movable/movable, turf/old_location, turf/new_location)
+	. = ..()
+	if(!isliving(movable))
+		return
+	var/obj/structure/slime_crystal/crystal = host
+	crystal.add_affected_mob(movable)
+
+/datum/proximity_monitor/advanced/slime_crystal/field_turf_uncrossed(atom/movable/movable, turf/old_location, turf/new_location)
+	. = ..()
+	if(!isliving(movable))
+		return
+	if(isturf(movable.loc) && get_dist(movable, host) <= current_range)
+		return
+	var/obj/structure/slime_crystal/crystal = host
+	crystal.remove_affected_mob(movable)
+
 /obj/item/slimecross/crystalline/grey
 	crystal_type = /obj/structure/slime_crystal/grey
 	colour = SLIME_TYPE_GREY
 
 /obj/structure/slime_crystal/grey
 	colour = SLIME_TYPE_GREY
-
-/obj/structure/slime_crystal/grey/get_valid_targets()
-	return view(3, src)
+	tracks_mobs = TRUE
 
 /obj/structure/slime_crystal/grey/on_mob_effect(mob/living/basic/slime/affected_mob)
-	if(!istype(affected_mob))
+	if(!istype(affected_mob) || !can_see(src, affected_mob, SLIME_CRYSTAL_RANGE))
 		return
 	affected_mob.adjust_nutrition(2)
+	affected_mob.feed_passive_ranch_progress(0.5)
 
 /obj/item/slimecross/crystalline/orange
 	crystal_type = /obj/structure/slime_crystal/orange
@@ -172,12 +218,10 @@
 
 /obj/structure/slime_crystal/orange
 	colour = SLIME_TYPE_ORANGE
-
-/obj/structure/slime_crystal/orange/get_valid_targets()
-	return view(3, src)
+	tracks_mobs = TRUE
 
 /obj/structure/slime_crystal/orange/on_mob_effect(mob/living/affected_mob)
-	if(!istype(affected_mob, /mob/living/carbon))
+	if(!istype(affected_mob, /mob/living/carbon) || !can_see(src, affected_mob, SLIME_CRYSTAL_RANGE))
 		return
 	var/mob/living/carbon/carbon_mob = affected_mob
 	carbon_mob.adjust_fire_stacks(1)
@@ -198,6 +242,7 @@
 
 /obj/structure/slime_crystal/purple
 	colour = SLIME_TYPE_PURPLE
+	tracks_mobs = TRUE
 	var/heal_amount = 2
 
 /obj/structure/slime_crystal/purple/on_mob_effect(mob/living/affected_mob)
@@ -248,6 +293,7 @@
 
 /obj/structure/slime_crystal/metal
 	colour = SLIME_TYPE_METAL
+	tracks_mobs = TRUE
 	var/heal_amount = 3
 
 /obj/structure/slime_crystal/metal/on_mob_effect(mob/living/affected_mob)
@@ -339,7 +385,6 @@
 
 /obj/structure/slime_crystal/bluespace
 	colour = SLIME_TYPE_BLUESPACE
-	density = FALSE
 	uses_process = FALSE
 	var/static/list/slime_pylons = null
 	///Is it in use?
@@ -399,6 +444,8 @@
 
 /obj/structure/slime_crystal/sepia
 	colour = SLIME_TYPE_SEPIA
+	tracks_mobs = TRUE
+	uses_process = FALSE
 
 /obj/structure/slime_crystal/sepia/on_mob_enter(mob/living/affected_mob)
 	affected_mob.add_traits(list(TRAIT_NOBREATH, TRAIT_NOCRITDAMAGE, TRAIT_RESISTLOWPRESSURE, TRAIT_RESISTHIGHPRESSURE, TRAIT_NOSOFTCRIT, TRAIT_NOHARDCRIT), type)
@@ -591,6 +638,7 @@
 
 /obj/structure/slime_crystal/green
 	colour = SLIME_TYPE_GREEN
+	tracks_mobs = TRUE
 	var/datum/mutation/stored_mutation
 
 /obj/structure/slime_crystal/green/examine(mob/user)
@@ -628,8 +676,9 @@
 		var/datum/mutation/t_mutation = X
 		secondary_list += t_mutation.type
 
-	var/datum/mutation/mutation = pick(secondary_list)
-	carbon_mob.dna.remove_mutation(mutation)
+	if(length(secondary_list))
+		var/datum/mutation/mutation = pick(secondary_list)
+		carbon_mob.dna.remove_mutation(mutation)
 
 /obj/structure/slime_crystal/green/on_mob_leave(mob/living/affected_mob)
 	if(!iscarbon(affected_mob) || !affected_mob.has_dna())
@@ -643,6 +692,8 @@
 
 /obj/structure/slime_crystal/pink
 	colour = SLIME_TYPE_PINK
+	tracks_mobs = TRUE
+	uses_process = FALSE
 
 /obj/structure/slime_crystal/pink/on_mob_enter(mob/living/affected_mob)
 	ADD_TRAIT(affected_mob, TRAIT_PACIFISM, type)
@@ -656,17 +707,8 @@
 
 /obj/structure/slime_crystal/gold
 	colour = SLIME_TYPE_GOLD
-
-/obj/structure/slime_crystal/gold/process()
-	var/list/current_mobs = get_valid_targets()
-	for(var/M in affected_mobs - current_mobs)
-		on_mob_leave(M)
-		affected_mobs -= M
-
-	for(var/mob/living/M in affected_mobs)
-		if(M.stat == DEAD)
-			on_mob_leave(M)
-			affected_mobs -= M
+	tracks_mobs = TRUE
+	uses_process = FALSE
 
 /obj/structure/slime_crystal/gold/attack_hand(mob/living/carbon/human/user, list/modifiers)
 	. = ..()
@@ -684,7 +726,6 @@
 	))
 	chosen_pet = new chosen_pet(get_turf(user))
 	chosen_pet.apply_status_effect(/datum/status_effect/shapechange_mob, user, user)
-	affected_mobs += chosen_pet
 
 /obj/structure/slime_crystal/gold/on_mob_leave(mob/living/affected_mob)
 	affected_mob.remove_status_effect(/datum/status_effect/shapechange_mob)
@@ -706,6 +747,7 @@
 
 /obj/structure/slime_crystal/black
 	colour = SLIME_TYPE_BLACK
+	tracks_mobs = TRUE
 
 /obj/structure/slime_crystal/black/on_mob_effect(mob/living/affected_mob)
 	if(!ishuman(affected_mob) || isjellyperson(affected_mob))
@@ -723,6 +765,8 @@
 
 /obj/structure/slime_crystal/lightpink
 	colour = SLIME_TYPE_LIGHT_PINK
+	tracks_mobs = TRUE
+	uses_process = FALSE
 
 /mob/living/basic/lightgeist/slime
 	name = "crystalline lightgeist"
@@ -731,7 +775,6 @@
 	. = ..()
 	var/mob/living/basic/lightgeist/slime/L = new(get_turf(src))
 	L.ckey = user.ckey
-	affected_mobs[L] = 0
 	ADD_TRAIT(L, TRAIT_MUTE, type)
 	ADD_TRAIT(L, TRAIT_EMOTEMUTE, type)
 
@@ -746,6 +789,8 @@
 
 /obj/structure/slime_crystal/adamantine
 	colour = SLIME_TYPE_ADAMANTINE
+	tracks_mobs = TRUE
+	uses_process = FALSE
 
 /obj/structure/slime_crystal/adamantine/on_mob_enter(mob/living/affected_mob)
 	if(!ishuman(affected_mob))
@@ -775,16 +820,21 @@
 	for(var/X in subtypesof(/obj/item/slimecross/crystalline) - /obj/item/slimecross/crystalline/rainbow)
 		inserted_cores[X] = FALSE
 
-/obj/structure/slime_crystal/rainbow/attacked_by(obj/item/slimecross/crystalline/slimecross, mob/living/user)
-	. = ..()
-	if(!istype(slimecross) || istype(slimecross, /obj/item/slimecross/crystalline/rainbow))
-		return
-
+/obj/structure/slime_crystal/rainbow/proc/insert_core(obj/item/slimecross/crystalline/slimecross)
 	if(inserted_cores[slimecross.type])
 		return
-
-	inserted_cores[slimecross.type] = new slimecross.crystal_type(get_turf(src), src)
+	var/obj/structure/slime_crystal/core = new slimecross.crystal_type(get_turf(src), src)
+	inserted_cores[slimecross.type] = core
+	RegisterSignal(core, COMSIG_QDELETING, PROC_REF(on_core_deleted))
 	qdel(slimecross)
+
+/obj/structure/slime_crystal/rainbow/proc/on_core_deleted(obj/structure/slime_crystal/source)
+	SIGNAL_HANDLER
+	// keyed by the extract's type, not the pylon's, so there's nothing to look it up by
+	for(var/extract_type in inserted_cores)
+		if(inserted_cores[extract_type] == source)
+			inserted_cores[extract_type] = FALSE
+			return
 
 /obj/structure/slime_crystal/rainbow/Destroy()
 	for(var/X in inserted_cores)
@@ -800,9 +850,15 @@
 			SC.attack_hand(user)
 	return ..()
 
-/obj/structure/slime_crystal/rainbow/attacked_by(obj/item/I, mob/living/user)
+/obj/structure/slime_crystal/rainbow/attacked_by(obj/item/attacking_item, mob/living/user)
+	if(istype(attacking_item, /obj/item/slimecross/crystalline) && !istype(attacking_item, /obj/item/slimecross/crystalline/rainbow))
+		insert_core(attacking_item)
+		return
+
 	for(var/X in inserted_cores)
 		if(inserted_cores[X])
 			var/obj/structure/slime_crystal/SC = inserted_cores[X]
-			SC.attacked_by(user)
+			SC.attacked_by(attacking_item, user)
 	return ..()
+
+#undef SLIME_CRYSTAL_RANGE

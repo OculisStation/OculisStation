@@ -51,6 +51,15 @@
 	playsound(src, 'sound/effects/splat.ogg', 50, TRUE)
 	EVLOG_TEXT(src, EVLOG_CATEGORY_SLIMES, "produced an extract via ranching ([ranch_progress] progress left over)")
 
+/// Ranch progress from something other than a meal, like a grey slimic pylon. Never feeds a primed split.
+/mob/living/basic/slime/proc/feed_passive_ranch_progress(amount)
+	if(stat == DEAD || life_stage != SLIME_LIFE_STAGE_ADULT)
+		return
+	if(primed_split_cost || pending_ranch_mutation)
+		return
+	ranch_progress += amount
+	try_ranch_outcome()
+
 /// Starts the wind-up for the mutation we already rolled.
 /mob/living/basic/slime/proc/start_ranch_mutation()
 	queued_mutation = pending_ranch_mutation
