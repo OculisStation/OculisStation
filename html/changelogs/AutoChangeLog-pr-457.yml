@@ -1,6 +1,0 @@
-author: "Shroopy"
-delete-after: True
-changes:
-  - qol: "Tweaked the tiers of a lot of hallucinations; made less believable and more disruptive hallucinations rarer or outright disabled for RDS, and made more believable and less disruptive hallucinations more common."
-  - qol: "Reworks radio chatter hallucinations, makes them hopefully more believable and within the flavor of Oculis."
-  - balance: "Halves the intensity of the fire hallucination, makes it more believable and less disruptive."

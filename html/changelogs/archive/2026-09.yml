@@ -68,3 +68,19 @@
   - rscadd: Cybernetic fangs, unlocked via the Cybernetics tech node.
   sqnztb:
   - rscadd: Underwear can now be adjusted via the ctrl-shift-click interaction menu.
+2026-09-15:
+  Shroopy:
+  - rscadd: Adds Backstage OOC, an OOC channel shared between security and antagonists.
+  - rscadd: Adds Blueshields to SOOC.
+  - bugfix: Fixed corrections officers not being notified if SOOC is toggled.
+  - bugfix: Fixed toggling SOOC logging as toggling AOOC.
+  - qol: Tweaked the tiers of a lot of hallucinations; made less believable and more
+      disruptive hallucinations rarer or outright disabled for RDS, and made more
+      believable and less disruptive hallucinations more common.
+  - qol: Reworks radio chatter hallucinations, makes them hopefully more believable
+      and within the flavor of Oculis.
+  - balance: Halves the intensity of the fire hallucination, makes it more believable
+      and less disruptive.
+2026-09-18:
+  Shroopy:
+  - balance: Reverted MODsuit control units slowing you when worn.
