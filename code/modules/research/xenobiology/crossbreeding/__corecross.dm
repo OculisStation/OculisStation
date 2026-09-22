@@ -81,9 +81,9 @@ To add a crossbreed:
 		if(SLIME_TYPE_GOLD)
 			add_visual_effect(/obj/effect/abstract/visual_effect/gold) // OCULIS EDIT - gold crossbreed effects - ORIGINAL: itemcolor = COLOR_GOLD
 		if(SLIME_TYPE_OIL)
-			itemcolor = "#505050"
+			add_visual_effect(/obj/effect/abstract/visual_effect/oil) // OCULIS EDIT - oil crossbreed effects - ORIGINAL: itemcolor = "#505050"
 		if(SLIME_TYPE_BLACK)
-			itemcolor = COLOR_BLACK
+			add_visual_effect(/obj/effect/abstract/visual_effect/black) // OCULIS EDIT - black crossbreed effects - ORIGINAL: itemcolor = COLOR_BLACK
 		if(SLIME_TYPE_LIGHT_PINK)
 			itemcolor = "#FFB6C1"
 		if(SLIME_TYPE_ADAMANTINE)
@@ -94,7 +94,7 @@ To add a crossbreed:
 		else
 			itemcolor = COLOR_WHITE
 		// OCULIS EDIT ADDITION END
-	if(itemcolor) // OCULIS EDIT ADDITION - fancy effects for rainbow, bluespace, and gold
+	if(itemcolor) // OCULIS EDIT ADDITION - the slimes with their own visual effect set no itemcolor
 		add_atom_colour(itemcolor, FIXED_COLOUR_PRIORITY)
 
 /obj/item/slimecrossbeaker //To be used as a result for extract reactions that make chemicals.

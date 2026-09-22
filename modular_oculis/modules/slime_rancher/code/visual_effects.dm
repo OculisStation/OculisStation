@@ -19,6 +19,14 @@
 	icon_state = "gold"
 	alpha = 210
 
+/obj/effect/abstract/visual_effect/oil
+	icon_state = "oil"
+	alpha = 210
+
+/obj/effect/abstract/visual_effect/black
+	icon_state = "black"
+	alpha = 210
+
 /atom/movable/proc/add_visual_effect(effect_type)
 	if(!ispath(effect_type, /obj/effect/abstract/visual_effect))
 		CRASH("tried to pass invalid type ([effect_type]) to add_visual_effect!")

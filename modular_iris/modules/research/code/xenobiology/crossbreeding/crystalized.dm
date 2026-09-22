@@ -89,9 +89,9 @@
 		if(SLIME_TYPE_GOLD)
 			add_visual_effect(/obj/effect/abstract/visual_effect/gold)
 		if(SLIME_TYPE_OIL)
-			itemcolor = COLOR_SLIME_OIL
+			add_visual_effect(/obj/effect/abstract/visual_effect/oil)
 		if(SLIME_TYPE_BLACK)
-			itemcolor = COLOR_SLIME_BLACK
+			add_visual_effect(/obj/effect/abstract/visual_effect/black)
 		if(SLIME_TYPE_LIGHT_PINK)
 			itemcolor = COLOR_SLIME_LIGHT_PINK
 		if(SLIME_TYPE_ADAMANTINE)
@@ -101,15 +101,15 @@
 		else
 			itemcolor = "#FFFFFF"
 
-	// rainbow, bluespace, and gold do their own thing instead
+	// the ones with their own visual effect do their own thing instead
 	if(itemcolor)
 		// custom gradient needed so it doesn't look like ass
 		var/list/hsl = rgb2num(itemcolor, COLORSPACE_HSL)
 		var/list/paint = list(
 			0, 0, 0,
 			0, 0, 0,
-			0, 0, 0.9,
-			hsl[1] / 360, hsl[2] / 100, hsl[3] / 100 * 0.45,
+			0, 0, 0.55,
+			hsl[1] / 360, hsl[2] / 100, hsl[3] / 100 * 0.55,
 		)
 		add_atom_colour(color_matrix_filter(paint, FILTER_COLOR_HSL), FIXED_COLOUR_PRIORITY)
 	if(uses_process)
