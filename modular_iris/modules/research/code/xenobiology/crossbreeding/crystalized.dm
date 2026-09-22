@@ -245,27 +245,28 @@
 	tracks_mobs = TRUE
 	var/heal_amount = 2
 
-/obj/structure/slime_crystal/purple/on_mob_effect(mob/living/affected_mob)
-	if(!istype(affected_mob, /mob/living/carbon))
+/obj/structure/slime_crystal/purple/on_mob_effect(mob/living/carbon/affected_mob)
+	if(!iscarbon(affected_mob))
 		return
-	var/mob/living/carbon/carbon_mob = affected_mob
 	var/rand_dam_type = rand(0, 10)
 
-	new /obj/effect/temp_visual/heal(get_turf(affected_mob), "#e180ff")
-
+	var/healed = FALSE
 	switch(rand_dam_type)
 		if(0)
-			carbon_mob.adjust_brute_loss(-heal_amount)
+			healed = affected_mob.adjust_brute_loss(-heal_amount)
 		if(1)
-			carbon_mob.adjust_fire_loss(-heal_amount)
+			healed = affected_mob.adjust_fire_loss(-heal_amount)
 		if(2)
-			carbon_mob.adjust_oxy_loss(-heal_amount)
+			healed = affected_mob.adjust_oxy_loss(-heal_amount)
 		if(3)
-			carbon_mob.adjust_tox_loss(-heal_amount, forced = TRUE)
+			healed = affected_mob.adjust_tox_loss(-heal_amount, forced = TRUE)
 		if(5)
-			carbon_mob.adjust_stamina_loss(-heal_amount)
+			healed = affected_mob.adjust_stamina_loss(-heal_amount)
 		if(6 to 10)
-			carbon_mob.adjust_organ_loss(pick(ORGAN_SLOT_BRAIN,ORGAN_SLOT_HEART,ORGAN_SLOT_LIVER,ORGAN_SLOT_LUNGS), -heal_amount)
+			healed = affected_mob.adjust_organ_loss(pick(ORGAN_SLOT_BRAIN,ORGAN_SLOT_HEART,ORGAN_SLOT_LIVER,ORGAN_SLOT_LUNGS), -heal_amount)
+
+	if(healed)
+		new /obj/effect/temp_visual/heal(get_turf(affected_mob), "#e180ff")
 
 /obj/item/slimecross/crystalline/blue
 	crystal_type = /obj/structure/slime_crystal/blue
@@ -386,18 +387,16 @@
 /obj/structure/slime_crystal/bluespace
 	colour = SLIME_TYPE_BLUESPACE
 	uses_process = FALSE
-	var/static/list/slime_pylons = null
+	var/static/list/slime_pylons
 	///Is it in use?
 	var/in_use = FALSE
 
 /obj/structure/slime_crystal/bluespace/Initialize(mapload)
 	. = ..()
-	if(isnull(slime_pylons))
-		slime_pylons = list()
-	slime_pylons += src
+	LAZYADD(slime_pylons, src)
 
 /obj/structure/slime_crystal/bluespace/Destroy()
-	slime_pylons -= src
+	LAZYREMOVE(slime_pylons, src)
 	return ..()
 
 /obj/structure/slime_crystal/bluespace/attack_hand(mob/user, list/modifiers)
