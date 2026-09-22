@@ -1,7 +1,0 @@
-author: "Shroopy"
-delete-after: True
-changes:
-  - rscadd: "Adds Backstage OOC, an OOC channel shared between security and antagonists."
-  - rscadd: "Adds Blueshields to SOOC."
-  - bugfix: "Fixed corrections officers not being notified if SOOC is toggled."
-  - bugfix: "Fixed toggling SOOC logging as toggling AOOC."
