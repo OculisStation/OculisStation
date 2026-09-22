@@ -1,7 +1,7 @@
 // yoinked from monkestation's slimecore
 /obj/effect/abstract/visual_effect
 	name = ""
-	alpha = 150
+	alpha = 210
 	anchored = TRUE
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	icon = 'modular_oculis/modules/slime_rancher/icons/visual_effects.dmi'
@@ -10,22 +10,19 @@
 
 /obj/effect/abstract/visual_effect/rainbow
 	icon_state = "rainbow"
+	alpha = 150
 
 /obj/effect/abstract/visual_effect/bluespace
 	icon_state = "bluespace"
-	alpha = 210
 
 /obj/effect/abstract/visual_effect/gold
 	icon_state = "gold"
-	alpha = 210
 
 /obj/effect/abstract/visual_effect/oil
 	icon_state = "oil"
-	alpha = 210
 
 /obj/effect/abstract/visual_effect/black
 	icon_state = "black"
-	alpha = 210
 
 /atom/movable/proc/add_visual_effect(effect_type)
 	if(!ispath(effect_type, /obj/effect/abstract/visual_effect))
