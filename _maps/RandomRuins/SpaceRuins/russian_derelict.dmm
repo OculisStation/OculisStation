@@ -2637,6 +2637,10 @@
 	pixel_y = 6
 	},
 /obj/item/circuitboard/machine/protolathe/offstation,
+/obj/item/circuitboard/machine/bluespace_miner{
+	pixel_x = -3;
+	pixel_y = 3
+	},
 /obj/item/circuitboard/machine/ai_law_rack,
 /turf/open/floor/circuit/red/off,
 /area/ruin/space/ks13/ai/corridor)
@@ -7778,6 +7782,9 @@
 /obj/item/stack/sheet/mineral/silver{
 	amount = 15
 	},
+/obj/item/stack/sheet/bluespace_crystal,
+/obj/item/stack/sheet/bluespace_crystal,
+/obj/item/stack/sheet/bluespace_crystal,
 /turf/open/floor/circuit/red/airless,
 /area/ruin/space/ks13/ai/vault)
 "WO" = (
