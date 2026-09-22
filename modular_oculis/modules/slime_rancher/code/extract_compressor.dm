@@ -202,7 +202,7 @@
 		return null
 	var/fill_state = length(tank)
 	var/list/extract_color = extract_color_lookup[tank[1].type]
-	var/static/list/custom_fill_types = list(SLIME_TYPE_RAINBOW, SLIME_TYPE_BLUESPACE, SLIME_TYPE_GOLD, SLIME_TYPE_PYRITE)
+	var/static/list/custom_fill_types = list(SLIME_TYPE_RAINBOW, SLIME_TYPE_BLUESPACE, SLIME_TYPE_GOLD, SLIME_TYPE_PYRITE, SLIME_TYPE_OIL, SLIME_TYPE_BLACK)
 	if(extract_color?[1] in custom_fill_types)
 		return mutable_appearance(icon, "[base_icon_state]_[side]_[fill_state]_[extract_color[1]]")
 	var/mutable_appearance/fill = mutable_appearance(icon, "[base_icon_state]_[side]_[fill_state]")
