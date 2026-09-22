@@ -83,7 +83,7 @@
 	))
 		ai_controller.clear_blackboard_key(stale_key)
 	refresh_wanted_targets()
-	balloon_alert_to_viewers("shakes [p_their()]self off")
+	balloon_alert_to_viewers("shakes [p_themselves()] off")
 
 /// Drops a chase exclusion we set, unless something longer-lived (a friend peeling us off) overwrote it since.
 /datum/ai_controller/basic_controller/slime/proc/expire_chase_exclusion(atom/target, expires_at)
