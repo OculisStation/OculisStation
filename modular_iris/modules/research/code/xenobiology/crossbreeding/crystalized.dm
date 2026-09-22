@@ -73,7 +73,7 @@
 		if(SLIME_TYPE_SILVER)
 			itemcolor = COLOR_SLIME_SILVER
 		if(SLIME_TYPE_BLUESPACE)
-			itemcolor = COLOR_SLIME_BLUESPACE
+			add_visual_effect(/obj/effect/abstract/visual_effect/bluespace)
 		if(SLIME_TYPE_SEPIA)
 			itemcolor = COLOR_SLIME_SEPIA
 		if(SLIME_TYPE_CERULEAN)
@@ -87,7 +87,7 @@
 		if(SLIME_TYPE_PINK)
 			itemcolor = COLOR_SLIME_PINK
 		if(SLIME_TYPE_GOLD)
-			itemcolor = COLOR_SLIME_GOLD
+			add_visual_effect(/obj/effect/abstract/visual_effect/gold)
 		if(SLIME_TYPE_OIL)
 			itemcolor = COLOR_SLIME_OIL
 		if(SLIME_TYPE_BLACK)
@@ -97,13 +97,22 @@
 		if(SLIME_TYPE_ADAMANTINE)
 			itemcolor = COLOR_SLIME_ADAMANTINE
 		if(SLIME_TYPE_RAINBOW)
-			rainbow_effect()
+			add_visual_effect(/obj/effect/abstract/visual_effect/rainbow)
 		else
 			itemcolor = "#FFFFFF"
 
-	// rainbow does its own thing instead
+	// rainbow, bluespace, and gold do their own thing instead
 	if(itemcolor)
-		add_atom_colour(color_transition_filter(itemcolor), FIXED_COLOUR_PRIORITY)
+		// the pylon sprite is pure grey, so color_transition_filter's saturation multiply left every pylon grey
+		// paint it flat instead: our hue and saturation, sprite shading pulled up toward our lightness
+		var/list/hsl = rgb2num(itemcolor, COLORSPACE_HSL)
+		var/list/paint = list(
+			0, 0, 0,
+			0, 0, 0,
+			0, 0, 0.9,
+			hsl[1] / 360, hsl[2] / 100, hsl[3] / 100 * 0.45,
+		)
+		add_atom_colour(color_matrix_filter(paint, FILTER_COLOR_HSL), FIXED_COLOUR_PRIORITY)
 	if(uses_process)
 		START_PROCESSING(SSobj, src)
 

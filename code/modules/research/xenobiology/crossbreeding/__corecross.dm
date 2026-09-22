@@ -46,7 +46,7 @@ To add a crossbreed:
 /obj/item/slimecross/Initialize(mapload)
 	. = ..()
 	name = effect + " " + colour + " extract"
-	var/itemcolor = COLOR_WHITE
+	var/itemcolor  // OCULIS EDIT - fancy effects - ORIGINAL: var/itemcolor = COLOR_WHITE
 	switch(colour)
 		if(SLIME_TYPE_ORANGE)
 			itemcolor = "#FFA500"
@@ -65,7 +65,7 @@ To add a crossbreed:
 		if(SLIME_TYPE_SILVER)
 			itemcolor = "#D3D3D3"
 		if(SLIME_TYPE_BLUESPACE)
-			itemcolor = COLOR_LIME
+			add_visual_effect(/obj/effect/abstract/visual_effect/bluespace) // OCULIS EDIT - bluespace crossbreed effects - ORIGINAL: itemcolor = COLOR_LIME
 		if(SLIME_TYPE_SEPIA)
 			itemcolor = "#704214"
 		if(SLIME_TYPE_CERULEAN)
@@ -79,7 +79,7 @@ To add a crossbreed:
 		if(SLIME_TYPE_PINK)
 			itemcolor = "#FF69B4"
 		if(SLIME_TYPE_GOLD)
-			itemcolor = COLOR_GOLD
+			add_visual_effect(/obj/effect/abstract/visual_effect/gold) // OCULIS EDIT - gold crossbreed effects - ORIGINAL: itemcolor = COLOR_GOLD
 		if(SLIME_TYPE_OIL)
 			itemcolor = "#505050"
 		if(SLIME_TYPE_BLACK)
@@ -88,11 +88,14 @@ To add a crossbreed:
 			itemcolor = "#FFB6C1"
 		if(SLIME_TYPE_ADAMANTINE)
 			itemcolor = "#008B8B"
-		// OCULIS EDIT ADDITION START - rainbow crossbreeds actually look rainbow instead of sitting there grey
+		// OCULIS EDIT ADDITION START - fancy effects
 		if(SLIME_TYPE_RAINBOW)
-			rainbow_effect()
+			add_visual_effect(/obj/effect/abstract/visual_effect/rainbow)
+		else
+			itemcolor = COLOR_WHITE
 		// OCULIS EDIT ADDITION END
-	add_atom_colour(itemcolor, FIXED_COLOUR_PRIORITY)
+	if(itemcolor) // OCULIS EDIT ADDITION - fancy effects for rainbow, bluespace, and gold
+		add_atom_colour(itemcolor, FIXED_COLOUR_PRIORITY)
 
 /obj/item/slimecrossbeaker //To be used as a result for extract reactions that make chemicals.
 	name = "result extract"
