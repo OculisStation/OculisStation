@@ -1,4 +1,4 @@
-GLOBAL_LIST_INIT(already_upgraded)
+GLOBAL_LIST_INIT(already_upgraded, list())
 
 /mob/living/simple_animal/formic/forgotten_forge
 	name = "Forgotten Forge"
