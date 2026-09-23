@@ -10410,6 +10410,7 @@
 #include "modular_oculis\modules\contact_science\contacts\divine_congealment.dm"
 #include "modular_oculis\modules\contact_science\contacts\forgotten_forge.dm"
 #include "modular_oculis\modules\contact_science\contacts\olivers_scarecrow.dm"
+#include "modular_oculis\modules\contact_science\contacts\ozymandian_wreckage.dm"
 #include "modular_oculis\modules\contact_science\contacts\panopticon_beast.dm"
 #include "modular_oculis\modules\contact_science\contacts\resonance_form.dm"
 #include "modular_oculis\modules\contact_science\equipment\contact_designs.dm"
