@@ -1,3 +1,5 @@
+GLOBAL_LIST_INIT(already_upgraded)
+
 /mob/living/simple_animal/formic/forgotten_forge
 	name = "Forgotten Forge"
 	desc = "An ever-beating heart bearing an unblinking eye. Various bits of clockwork and brass are sticking out of it."
@@ -27,7 +29,6 @@
 	var/loyalty = 0 //goes up by 1 with each augmentation, similar to Philosopher's Camera.
 	var/loyalty_threshold = 4 //at the threshold, breach. randomized a bit when initialized
 	var/firstaugment = TRUE //after first augment, unlock new echoes
-	var/list/already_upgraded = list()
 
 /mob/living/simple_animal/formic/forgotten_forge/Initialize(mapload)
 	. = ..()
@@ -54,7 +55,7 @@
 	var is_success = FALSE
 	var/obj/item/upgrading_item = last_speaker.get_active_held_item()
 	var/upgrade_type = rand(1,3)
-	if(!already_upgraded.Find(upgrading_item)) //if not in the list of things already upgraded
+	if(!GLOB.already_upgraded.Find(upgrading_item)) //if not in the list of things already upgraded
 		if(istype(upgrading_item, /obj/item/gun))
 			var/obj/item/gun/upgrading_gun = upgrading_item
 			if(upgrade_type == 1) //make weapon more accurate and improve its projectile speed
@@ -96,7 +97,7 @@
 	if(is_success)
 		loyalty += 1
 		var/limb_to_hit = last_speaker.get_bodypart(last_speaker.get_random_valid_zone(even_weights = TRUE))
-		already_upgraded += upgrading_item
+		GLOB.already_upgraded += upgrading_item
 		last_speaker.apply_damage(loyalty * 5, BRUTE, limb_to_hit, wound_bonus=CANT_WOUND)
 		last_speaker.add_splatter_floor(get_turf(last_speaker), FALSE)
 		to_chat(last_speaker, span_warning("An ache creeps around your body, like a serpent searching for a point to sink its teeth into."))
