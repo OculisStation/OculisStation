@@ -1,9 +1,33 @@
-// Void Raptor: merged on Aug 27, 2022 (#14937 of Skyrat-SS13/Skyrat-tg)
-/obj/structure/plaque/static_plaque/golden/commission/voidraptor
-	name = "Commission Plaque"
-	desc = "Eidolon Sector Station SS-13\n'Void Raptor' Class Outpost\nCommissioned 27/08/2562\n'Until Greater Times Arise'" // OCULIS EDIT
+/* // OCULIS EDIT RERMOVAL START
+/// NSV Blueshift: merged on Oct 1, 2021 (https://github.com/Skyrat-SS13/Skyrat-tg/pull/8124)
+/obj/structure/plaque/static_plaque/golden/commission/blueshift
+	desc = "Nova Sector Ship SS-13\n'Blueshift' Class Vessel\n\
+			Commissioned 12/09/2561\n\
+			Recommissioned 26/10/2563\n\
+			'Adventures Ahoy'"
+*/ // OCULIS EDIT REMOVAL END
 
-// Ouroboros: merged on Apr 14, 2024 (#773 of NovaSector/NovaSector)
+/// Void Raptor: merged on Aug 27, 2022 (https://github.com/Skyrat-SS13/Skyrat-tg/pull/14937)
+/obj/structure/plaque/static_plaque/golden/commission/voidraptor
+	desc = "Eidolon Sector Ship SS-13\n'Void Raptor' Class Vessel\n\
+			Commissioned 27/08/2562\n\
+			'Until Greater Times Arise'" // OCULIS EDIT - Nova Sector > Eidolon Sector
+
+/* // OCULIS EDIT RERMOVAL START
+/// Ouroboros: merged on Apr 14, 2024 (https://github.com/NovaSector/NovaSector/pull/773)
 /obj/structure/plaque/static_plaque/golden/commission/ouroboros
-	name = "Commission Plaque"
-	desc = "Eidolon Sector Station SS-13\n'Ouroboros' Class Outpost\nCommissioned 14/04/2564\n'To Restless Research'" // OCULIS EDIT
+	desc = "Eidolon Sector Station SS-13\n'Ouroboros' Class Outpost\n\
+			Commissioned 14/04/2564\n\
+			'To Restless Research'"
+
+/// NorthStar:
+/// - first added on the 13th of April, 2023 (https://github.com/tgstation/tgstation/pull/74371)
+/// - first removed on the 25th of November, 2024 (https://github.com/tgstation/tgstation/pull/87937)
+/// - re-implemented on Nova on the 11th of September, 2026 (https://github.com/NovaSector/NovaSector/pull/7818)
+/obj/structure/plaque/static_plaque/golden/commission/northstar
+	desc = "Eidolon Sector Ship SS-13\n'North Star' Class Vessel\n\
+			Commissioned 13/04/2563\n\
+			Decommissioned 25/11/2564\n\
+			Recommissioned 11/09/2566\n\
+			'New Opportunities'"
+*/ // OCULIS EDIT REMOVAL END
