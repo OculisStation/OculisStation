@@ -27,6 +27,7 @@
 	var/loyalty = 0 //goes up by 1 with each augmentation, similar to Philosopher's Camera.
 	var/loyalty_threshold = 4 //at the threshold, breach. randomized a bit when initialized
 	var/firstaugment = TRUE //after first augment, unlock new echoes
+	var/list/already_upgraded = list()
 
 /mob/living/simple_animal/formic/forgotten_forge/Initialize(mapload)
 	. = ..()
@@ -51,52 +52,53 @@
 
 /mob/living/simple_animal/formic/forgotten_forge/proc/give_upgrades() //for both hands, find weapons and give them random upgrades
 	var is_success = FALSE
-	for(var/obj/item/upgrading_item in last_speaker.held_items)
-		var/upgrade_type = rand(1,3)
-		if(!findtext(upgrading_item.name, "brass-")) //if not already augmented, simply works off of name
-			if(istype(upgrading_item, /obj/item/gun))
-				var/obj/item/gun/upgrading_gun = upgrading_item
-				if(upgrade_type == 1) //make weapon more accurate and improve its projectile speed
-					upgrading_gun.projectile_speed_multiplier += 0.25
-					upgrading_gun.spread *= 0.5
-					to_chat(last_speaker, span_notice("The " + upgrading_gun.name + " becomes more accurate. You feel like you could hit anything."))
-					upgrading_gun.name = "brass-accurized " + upgrading_gun.name
-					is_success = TRUE
-				if(upgrade_type == 2) //make weapon suppressed, also increases damage a bit so that it's still an upgrade for already-suppressed weapons
-					upgrading_gun.suppressed = SUPPRESSED_QUIET
-					upgrading_gun.can_unsuppress = FALSE
-					upgrading_gun.projectile_damage_multiplier += 0.1
-					to_chat(last_speaker, span_notice("The " + upgrading_gun.name + " becomes suppressed. It feels deadlier in your hands."))
-					upgrading_gun.name = "brass-suppressed " + upgrading_gun.name
-					is_success = TRUE
-				if(upgrade_type == 3) //make weapon light, allowing it to be one-handed. also reduces dual wield spread
-					upgrading_gun.weapon_weight = WEAPON_LIGHT
-					upgrading_gun.dual_wield_spread *= 0.5
-					to_chat(last_speaker, span_notice("The " + upgrading_gun.name + " becomes lightened. Its burdens are removed."))
-					upgrading_gun.name = "brass-lightened " + upgrading_gun.name
-					is_success = TRUE
-			else if(istype(upgrading_item, /obj/item) && upgrading_item.force > 10) //only upgrades if the item has enough force for it to consider the item a melee weapon. yes toolboxes apply
-				var/obj/item/upgrading_melee = upgrading_item
-				if(upgrade_type == 1) //make weapon better at blocking
-					upgrading_melee.block_chance += 20
-					to_chat(last_speaker, span_notice("The " + upgrading_melee.name + "'s guarding is improved. You feel safer wielding it."))
-					upgrading_melee.name = "brass-guarding " + upgrading_melee.name
-					is_success = TRUE
-				if(upgrade_type == 2) //make weapon better at penetrating armor
-					upgrading_melee.armour_penetration += 20
-					balloon_alert(last_speaker, "armor penetration improved!")
-					to_chat(last_speaker, span_notice("The " + upgrading_melee.name + "'s armor penetration is improved. No matter its sharpness, it feels sharper in your hands."))
-					upgrading_melee.name = "brass-piercing " + upgrading_melee.name
-					is_success = TRUE
-				if(upgrade_type == 3) //give weapon more force
-					upgrading_melee.force += 3
-					to_chat(last_speaker, span_notice("The " + upgrading_melee.name + "'s force is improved. Somehow, the weapon feels... guilty?"))
-					upgrading_melee.name = "brass-striking " + upgrading_melee.name
-					is_success = TRUE
+	var/obj/item/upgrading_item = last_speaker.get_active_held_item()
+	var/upgrade_type = rand(1,3)
+	if(!already_upgraded.Find(upgrading_item)) //if not in the list of things already upgraded
+		if(istype(upgrading_item, /obj/item/gun))
+			var/obj/item/gun/upgrading_gun = upgrading_item
+			if(upgrade_type == 1) //make weapon more accurate and improve its projectile speed
+				upgrading_gun.projectile_speed_multiplier += 0.25
+				upgrading_gun.spread *= 0.5
+				to_chat(last_speaker, span_notice("The " + upgrading_gun.name + " becomes more accurate. You feel like you could hit anything."))
+				upgrading_gun.name = "brass-accurized " + upgrading_gun.name
+				is_success = TRUE
+			if(upgrade_type == 2) //make weapon suppressed, also increases damage a bit so that it's still an upgrade for already-suppressed weapons
+				upgrading_gun.suppressed = SUPPRESSED_QUIET
+				upgrading_gun.can_unsuppress = FALSE
+				upgrading_gun.projectile_damage_multiplier += 0.1
+				to_chat(last_speaker, span_notice("The " + upgrading_gun.name + " becomes suppressed. It feels deadlier in your hands."))
+				upgrading_gun.name = "brass-suppressed " + upgrading_gun.name
+				is_success = TRUE
+			if(upgrade_type == 3) //make weapon light, allowing it to be one-handed. also reduces dual wield spread
+				upgrading_gun.weapon_weight = WEAPON_LIGHT
+				upgrading_gun.dual_wield_spread *= 0.5
+				to_chat(last_speaker, span_notice("The " + upgrading_gun.name + " becomes lightened. Its burdens are removed."))
+				upgrading_gun.name = "brass-lightened " + upgrading_gun.name
+				is_success = TRUE
+		else if(istype(upgrading_item, /obj/item) && upgrading_item.force > 10) //only upgrades if the item has enough force for it to consider the item a melee weapon. yes toolboxes apply
+			var/obj/item/upgrading_melee = upgrading_item
+			if(upgrade_type == 1) //make weapon better at blocking
+				upgrading_melee.block_chance += 20
+				to_chat(last_speaker, span_notice("The " + upgrading_melee.name + "'s guarding is improved. You feel safer wielding it."))
+				upgrading_melee.name = "brass-guarding " + upgrading_melee.name
+				is_success = TRUE
+			if(upgrade_type == 2) //make weapon better at penetrating armor
+				upgrading_melee.armour_penetration += 20
+				to_chat(last_speaker, span_notice("The " + upgrading_melee.name + "'s armor penetration is improved. No matter its original sharpness, it somehow feels sharper."))
+				upgrading_melee.name = "brass-piercing " + upgrading_melee.name
+				is_success = TRUE
+			if(upgrade_type == 3) //give weapon more force
+				upgrading_melee.force += 3
+				to_chat(last_speaker, span_notice("The " + upgrading_melee.name + "'s force is improved. Somehow, the weapon feels... guilty?"))
+				upgrading_melee.name = "brass-striking " + upgrading_melee.name
+				is_success = TRUE
 	if(is_success)
 		loyalty += 1
 		var/limb_to_hit = last_speaker.get_bodypart(last_speaker.get_random_valid_zone(even_weights = TRUE))
+		already_upgraded += upgrading_item
 		last_speaker.apply_damage(loyalty * 5, BRUTE, limb_to_hit, wound_bonus=CANT_WOUND)
+		last_speaker.add_splatter_floor(get_turf(last_speaker), FALSE)
 		to_chat(last_speaker, span_warning("An ache creeps around your body, like a serpent searching for a point to sink its teeth into."))
 		playsound(last_speaker, 'sound/effects/magic/staff_healing.ogg', 50)
 		if(firstaugment) //different lines if first upgrade, also first upgrade unlocks echoes
@@ -153,9 +155,9 @@
 /mob/living/simple_animal/hostile/megafauna/clockwork_defender/true
 	name = "true clockwork defender"
 	desc = "So this is what it was preparing you for."
-	health = 350
-	maxHealth = 350
-	speed = 4
+	health = 650
+	maxHealth = 650
+	speed = 5
 	ranged = TRUE
 	ranged_cooldown_time = 120
 	melee_damage_lower = 15
