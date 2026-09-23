@@ -52,6 +52,9 @@
 	AddElement(/datum/element/noticable_organ, "%PRONOUN_Their teeth are big and sharp.", BODY_ZONE_PRECISE_MOUTH)
 	AddElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/carp)
 
+/* // OCULIS EDIT REMOVAL START - Carp infusion no longer blocks masks
+
+
 /obj/item/organ/fangs/carp/on_mob_insert(mob/living/carbon/fangs_owner, special, movement_flags)
 	. = ..()
 	if(!ishuman(fangs_owner))
@@ -71,6 +74,8 @@
 		return
 	var/datum/species/rec_species = human_receiver.dna.species
 	rec_species.update_no_equip_flags(fangs_owner, initial(rec_species.no_equip_flags))
+
+*/ // OCULIS EDIT REMOVAL END
 
 /obj/item/organ/fangs/carp/on_life(seconds_per_tick)
 	. = ..()
