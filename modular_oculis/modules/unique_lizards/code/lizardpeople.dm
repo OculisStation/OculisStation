@@ -42,12 +42,12 @@
 
 /datum/species/lizard/on_species_gain(mob/living/carbon/human/lizard, datum/species/old_species, pref_load, regenerate_icons, replace_missing)
 	. = ..()
-	lizard.physiology.tox_mod = 1.25 //note that this only affects damage, not chems that apply tox
+	MODIFY_PHYSIOLOGY(lizard, TOX, 1.25) //note that this only affects damage, not chems that apply tox
 	lizard.add_surgery_speed_mod(type, 1.15)
 
 /datum/species/lizard/on_species_loss(mob/living/carbon/human/former_lizard, datum/species/new_species, pref_load)
 	. = ..()
-	former_lizard.physiology.tox_mod = 1
+	MODIFY_PHYSIOLOGY(former_lizard, TOX, 0.8)
 	former_lizard.remove_surgery_speed_mod(type)
 
 /datum/species/lizard/create_pref_unique_perks()
