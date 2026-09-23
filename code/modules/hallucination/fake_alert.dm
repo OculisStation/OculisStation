@@ -2,7 +2,7 @@
 /datum/hallucination/fake_alert
 	abstract_hallucination_parent = /datum/hallucination/fake_alert
 	random_hallucination_weight = 1
-	hallucination_tier = HALLUCINATION_TIER_COMMON
+	hallucination_tier = HALLUCINATION_TIER_UNCOMMON // OCULIS EDIT, ORIGINAL: hallucination_tier = HALLUCINATION_TIER_COMMON
 
 	var/del_timer_id
 	/// The duration of the alert being thrown.
@@ -47,10 +47,12 @@
 /datum/hallucination/fake_alert/need_plasma
 	alert_category = ALERT_NOT_ENOUGH_PLASMA
 	alert_type = /atom/movable/screen/alert/not_enough_plas
+	hallucination_tier = HALLUCINATION_TIER_VERYSPECIAL // OCULIS EDIT ADDITION - obviously fake for 99% of characters
 
 /datum/hallucination/fake_alert/need_co2
 	alert_category = ALERT_NOT_ENOUGH_CO2
 	alert_type = /atom/movable/screen/alert/not_enough_co2
+	hallucination_tier = HALLUCINATION_TIER_VERYSPECIAL // OCULIS EDIT ADDITION - obviously fake for 99% of characters
 
 /datum/hallucination/fake_alert/bad_oxygen
 	alert_category = ALERT_TOO_MUCH_OXYGEN
@@ -90,15 +92,19 @@
 /datum/hallucination/fake_alert/law
 	alert_category = ALERT_NEW_LAW
 	alert_type = /atom/movable/screen/alert/newlaw
+	hallucination_tier = HALLUCINATION_TIER_VERYSPECIAL // OCULIS EDIT ADDITION
 
 /datum/hallucination/fake_alert/locked
 	alert_category = ALERT_LOCKED
 	alert_type = /atom/movable/screen/alert/locked
+	hallucination_tier = HALLUCINATION_TIER_VERYSPECIAL // OCULIS EDIT ADDITION
 
 /datum/hallucination/fake_alert/hacked
 	alert_category = ALERT_HACKED
 	alert_type = /atom/movable/screen/alert/hacked
+	hallucination_tier = HALLUCINATION_TIER_VERYSPECIAL // OCULIS EDIT ADDITION
 
 /datum/hallucination/fake_alert/need_charge
 	alert_category = ALERT_CHARGE
 	alert_type = /atom/movable/screen/alert/emptycell
+	hallucination_tier = HALLUCINATION_TIER_VERYSPECIAL // OCULIS EDIT ADDITION

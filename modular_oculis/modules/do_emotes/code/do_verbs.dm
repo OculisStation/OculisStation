@@ -54,10 +54,12 @@ GAME_VERB(/mob, do_verb, "Do", "IC")
 		return FALSE
 
 	if(!params)
+		user.client.start_thinking()
 		message = tgui_input_text(user, "Write your do emote.", "Do Emote", null, max_length = MAX_MESSAGE_LEN, multiline = TRUE)
 	else
 		message = params
 
+	user.client.stop_thinking()
 	if(!message)
 		return
 

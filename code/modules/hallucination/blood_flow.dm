@@ -1,6 +1,6 @@
 /datum/hallucination/blood_flow
 	random_hallucination_weight = 3
-	hallucination_tier = HALLUCINATION_TIER_COMMON
+	hallucination_tier = HALLUCINATION_TIER_UNCOMMON // OCULIS EDIT, ORIGINAL: hallucination_tier = HALLUCINATION_TIER_COMMON
 	/// The bleeding hallucination's image
 	var/image/bleeding
 	/// Ref to the bleeding bodypart, necessary to unregister signals

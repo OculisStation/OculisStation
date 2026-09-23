@@ -70,6 +70,7 @@
 		"Apprentice Explorer",
 		"Union Explorer",
 	)
+	tgui_icon = FA_ICON_USER_ASTRONAUT // OCULIS ADDITION: Fixes Explorers bluescreening the Crew Monitor
 
 /datum/outfit/job/explorer
 	name = "Explorer"

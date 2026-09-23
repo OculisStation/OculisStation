@@ -109,12 +109,6 @@
 	},
 /turf/closed/wall/r_wall/plastitanium/syndicate,
 /area/misc/operative_barracks/robotics)
-"bZ" = (
-/obj/structure/closet/crate/bin,
-/obj/item/grown/bananapeel,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/carpet/grimey,
-/area/misc/operative_barracks/dorm)
 "cb" = (
 /obj/effect/turf_decal/nova_decals/syndicate/bottom/left,
 /obj/effect/turf_decal/siding/dark_blue{
@@ -567,21 +561,6 @@
 	},
 /turf/open/floor/iron/dark/small,
 /area/misc/operative_barracks/hangar)
-"iM" = (
-/obj/item/card/id/advanced/chameleon/black{
-	pixel_y = 4
-	},
-/obj/structure/table/reinforced,
-/obj/item/radio/headset/chameleon/advanced{
-	pixel_x = -5;
-	pixel_y = -3
-	},
-/obj/item/encryptionkey/syndicate{
-	pixel_x = 7;
-	pixel_y = 3
-	},
-/turf/open/floor/mineral/plastitanium/red,
-/area/misc/operative_barracks/mission_briefing)
 "iN" = (
 /obj/machinery/door/airlock/bathroom,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
@@ -640,7 +619,17 @@
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks)
-"jB" = (
+"jD" = (
+/obj/item/flashlight/lamp{
+	pixel_y = 2;
+	pixel_x = -5;
+	start_on = 0
+	},
+/obj/structure/table,
+/obj/item/reagent_containers/cup/glass/drinkingglass/filled/half_full{
+	pixel_x = 9;
+	pixel_y = 2
+	},
 /turf/open/floor/carpet/grimey,
 /area/misc/operative_barracks/dorm)
 "jF" = (
@@ -675,6 +664,12 @@
 "kf" = (
 /turf/open/floor/plating,
 /area/misc/operative_barracks/hangar)
+"kj" = (
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 1
+	},
+/turf/open/floor/carpet/grimey,
+/area/misc/operative_barracks/dorm)
 "kl" = (
 /obj/structure/railing/unbreakable{
 	dir = 8
@@ -955,6 +950,12 @@
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/misc/operative_barracks/hangar)
+"mX" = (
+/obj/item/kirbyplants/organic/plant19,
+/obj/structure/sign/poster/contraband/blood_geometer/directional/south,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/carpet/grimey,
+/area/misc/operative_barracks/dorm)
 "mY" = (
 /obj/machinery/skill_station/plasmaglass,
 /obj/effect/turf_decal/tile/dark_red{
@@ -1219,16 +1220,14 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating,
 /area/misc/operative_barracks/hangar)
+"pT" = (
+/obj/structure/fluff/fake_scrubber,
+/turf/open/floor/iron/white/small,
+/area/misc/operative_barracks/bathroom)
 "pW" = (
 /obj/effect/turf_decal/siding/white,
 /turf/open/floor/mineral/titanium/tiled,
 /area/misc/operative_barracks/armoury)
-"qd" = (
-/obj/item/kirbyplants/organic/plant19,
-/obj/structure/sign/poster/contraband/blood_geometer/directional/south,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/carpet/grimey,
-/area/misc/operative_barracks/dorm)
 "qh" = (
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
 /obj/structure/sign/directions/evac/directional/north{
@@ -1311,7 +1310,13 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/mineral/plastitanium/red,
 /area/misc/operative_barracks/hangar)
-"qz" = (
+"qH" = (
+/obj/structure/mannequin/operative_barracks/chameleon,
+/turf/open/floor/light{
+	currentcolor = "#E1E17D"
+	},
+/area/misc/operative_barracks/mission_briefing)
+"qJ" = (
 /obj/item/trash/chips{
 	pixel_y = -9;
 	pixel_x = 14
@@ -1319,12 +1324,6 @@
 /obj/structure/fluff/fake_vent,
 /turf/open/floor/carpet/grimey,
 /area/misc/operative_barracks/dorm)
-"qH" = (
-/obj/structure/mannequin/operative_barracks/chameleon,
-/turf/open/floor/light{
-	currentcolor = "#E1E17D"
-	},
-/area/misc/operative_barracks/mission_briefing)
 "qN" = (
 /turf/closed/indestructible/syndicate,
 /area/misc/operative_barracks/robotics)
@@ -1466,12 +1465,23 @@
 	},
 /turf/open/floor/plating,
 /area/misc/operative_barracks/hangar)
-"sR" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 1
+"sG" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mapping_helpers/atom_injector/element_injector{
+	target_type = /obj/machinery/vending;
+	element_type = /datum/element/voucher_redeemer;
+	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/supplies, /datum/voucher_set/traitor/supplies/science)
 	},
-/turf/open/floor/carpet/grimey,
-/area/misc/operative_barracks/dorm)
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/vending/robotics{
+	onstation_override = 1
+	},
+/obj/item/stack/medical/wrap/sticky_tape/pointy/super{
+	pixel_x = 3;
+	pixel_y = 17
+	},
+/turf/open/floor/mineral/titanium/tiled,
+/area/misc/operative_barracks/robotics)
 "sU" = (
 /obj/machinery/door/window/brigdoor/right/directional/east,
 /obj/machinery/door/window/brigdoor/left/directional/west,
@@ -1895,19 +1905,6 @@
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/misc/operative_barracks)
-"xp" = (
-/obj/item/flashlight/lamp{
-	pixel_y = 2;
-	pixel_x = -5;
-	start_on = 0
-	},
-/obj/structure/table,
-/obj/item/reagent_containers/cup/glass/drinkingglass/filled/half_full{
-	pixel_x = 9;
-	pixel_y = 2
-	},
-/turf/open/floor/carpet/grimey,
-/area/misc/operative_barracks/dorm)
 "xt" = (
 /obj/effect/turf_decal/siding/dark/corner,
 /obj/effect/turf_decal/vg_decals/numbers/nine,
@@ -2112,22 +2109,10 @@
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/misc/operative_barracks/robotics)
-"Aa" = (
-/obj/structure/bed{
-	dir = 1
-	},
-/obj/item/bedsheet/syndie{
-	dir = 4
-	},
-/obj/effect/spawner/random/entertainment/plushie_delux{
-	pixel_y = 6;
-	pixel_x = -7
-	},
-/obj/effect/landmark/start/midround_traitor,
-/obj/structure/sign/poster/contraband/cybersun_six_hundred/directional/west,
-/obj/effect/turf_decal/siding/wood{
-	dir = 1
-	},
+"Ac" = (
+/obj/structure/closet/crate/bin,
+/obj/item/grown/bananapeel,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/carpet/grimey,
 /area/misc/operative_barracks/dorm)
 "Ad" = (
@@ -2641,6 +2626,9 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron,
 /area/misc/operative_barracks)
+"Hy" = (
+/turf/open/floor/carpet/grimey,
+/area/misc/operative_barracks/dorm)
 "HC" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
@@ -2846,6 +2834,12 @@
 /obj/effect/turf_decal/siding/dark,
 /turf/open/floor/plating,
 /area/misc/operative_barracks/hangar)
+"KC" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/turf/open/floor/carpet/grimey,
+/area/misc/operative_barracks/dorm)
 "KE" = (
 /obj/structure/railing/corner/end/unbreakable{
 	dir = 1
@@ -2950,6 +2944,13 @@
 /obj/effect/light_emitter/thunderdome,
 /turf/open/floor/plating,
 /area/misc/operative_barracks/hangar)
+"LH" = (
+/obj/structure/fluff/fake_scrubber,
+/obj/effect/turf_decal/siding/wood{
+	dir = 9
+	},
+/turf/open/floor/carpet/grimey,
+/area/misc/operative_barracks/dorm)
 "LK" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 6
@@ -3343,6 +3344,24 @@
 /obj/machinery/digital_clock/directional/south,
 /turf/open/floor/mineral/titanium/tiled/white,
 /area/misc/operative_barracks/surgery)
+"Rz" = (
+/obj/structure/bed{
+	dir = 1
+	},
+/obj/item/bedsheet/syndie{
+	dir = 4
+	},
+/obj/effect/spawner/random/entertainment/plushie_delux{
+	pixel_y = 6;
+	pixel_x = -7
+	},
+/obj/effect/landmark/start/midround_traitor,
+/obj/structure/sign/poster/contraband/cybersun_six_hundred/directional/west,
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/turf/open/floor/carpet/grimey,
+/area/misc/operative_barracks/dorm)
 "RA" = (
 /obj/structure/railing/unbreakable{
 	dir = 1
@@ -3390,22 +3409,12 @@
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/mission_briefing)
-"Se" = (
-/obj/structure/fluff/fake_scrubber,
-/turf/open/floor/iron/white/small,
-/area/misc/operative_barracks/bathroom)
 "Sg" = (
 /obj/structure/railing/unbreakable,
 /obj/effect/turf_decal/siding/dark,
 /obj/item/kirbyplants/organic/plant1,
 /turf/open/floor/mineral/plastitanium/red,
 /area/misc/operative_barracks/hangar)
-"Sl" = (
-/obj/effect/turf_decal/siding/wood/corner{
-	dir = 1
-	},
-/turf/open/floor/carpet/grimey,
-/area/misc/operative_barracks/dorm)
 "Sm" = (
 /obj/effect/turf_decal/siding/dark/corner{
 	dir = 8
@@ -3738,23 +3747,6 @@
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/misc/operative_barracks/mission_briefing)
-"Ws" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/mapping_helpers/atom_injector/element_injector{
-	target_type = /obj/machinery/vending;
-	element_type = /datum/element/voucher_redeemer;
-	element_args = list(/obj/item/paper/paperslip/corporate/syndicate/traitor/supplies, /datum/voucher_set/traitor/supplies/science)
-	},
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/vending/robotics{
-	onstation_override = 1
-	},
-/obj/item/stack/medical/wrap/sticky_tape/pointy/super{
-	pixel_x = 3;
-	pixel_y = 17
-	},
-/turf/open/floor/mineral/titanium/tiled,
-/area/misc/operative_barracks/robotics)
 "Wu" = (
 /obj/structure/toilet{
 	dir = 8;
@@ -3827,13 +3819,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/misc/operative_barracks/hangar)
-"XW" = (
-/obj/structure/fluff/fake_scrubber,
-/obj/effect/turf_decal/siding/wood{
-	dir = 9
-	},
-/turf/open/floor/carpet/grimey,
-/area/misc/operative_barracks/dorm)
 "XX" = (
 /obj/structure/fluff/fake_firedoor,
 /obj/machinery/door/airlock/public{
@@ -3927,6 +3912,21 @@
 /obj/structure/mirror/directional/west,
 /turf/open/floor/iron/white/small,
 /area/misc/operative_barracks/bathroom)
+"Zj" = (
+/obj/structure/table/reinforced,
+/obj/item/card/id/advanced/chameleon/elite/black{
+	pixel_y = 8
+	},
+/obj/item/radio/headset/chameleon/advanced{
+	pixel_x = -5;
+	pixel_y = -3
+	},
+/obj/item/encryptionkey/syndicate{
+	pixel_x = 7;
+	pixel_y = 3
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/operative_barracks/mission_briefing)
 "Zk" = (
 /obj/machinery/light/floor,
 /obj/effect/turf_decal/siding/dark/corner{
@@ -4722,7 +4722,7 @@ VC
 PR
 Qf
 ah
-Ws
+sG
 up
 No
 vB
@@ -4925,15 +4925,15 @@ Ie
 aH
 uO
 vD
-iM
+Zj
 se
 If
 ZG
 kd
 WH
-Aa
-xp
-qd
+Rz
+jD
+mX
 Ne
 TP
 "}
@@ -4958,9 +4958,9 @@ HH
 wA
 GS
 nv
-XW
-Sl
-qz
+LH
+kj
+qJ
 Ne
 Ne
 TP
@@ -4986,9 +4986,9 @@ FN
 eG
 Ne
 sl
-sR
-jB
-bZ
+KC
+Hy
+Ac
 DL
 TP
 TP
@@ -5069,7 +5069,7 @@ ql
 SA
 ub
 Zf
-Se
+pT
 Kw
 Cs
 VE

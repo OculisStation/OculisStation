@@ -88,7 +88,7 @@
 	SIGNAL_HANDLER
 
 	if(istype(gathered_ore) && gathered_ore.refined_type)
-		points += gathered_ore.points * point_upgrade * gathered_ore.amount
+		points += round(gathered_ore.points * point_upgrade * gathered_ore.amount, 1) // OCULIS EDIT - round points because decimals annoys me - ORIGINAL: points += gathered_ore.points * point_upgrade * gathered_ore.amount
 
 /// Returns the amount of a specific alloy design, based on the accessible materials
 /obj/machinery/mineral/ore_redemption/proc/can_smelt_alloy(datum/design/design)

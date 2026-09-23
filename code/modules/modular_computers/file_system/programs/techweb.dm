@@ -71,7 +71,8 @@
 		if (stored_research.hidden_nodes[node_path])
 			continue
 
-		var/mob/node_queuer = stored_research.research_queue_nodes[node_path]
+		var/datum/weakref/node_queuer_weakref = stored_research?.research_queue_nodes[node_path] // OCULIS EDIT ADDITION
+		var/mob/node_queuer = node_queuer_weakref?.resolve() // OCULIS EDIT, ORIGINAL: var/mob/node_queuer = stored_research.research_queue_nodes[node_path]
 		var/enqueued_by_user = !isnull(node_queuer) && node_queuer == user
 
 		data["nodes"] += list(list(

@@ -54,6 +54,7 @@
 
 /datum/hallucination/fake_sound/normal/boom
 	sound_type = list('sound/effects/explosion/explosion1.ogg', 'sound/effects/explosion/explosion2.ogg')
+	hallucination_tier = HALLUCINATION_TIER_RARE // OCULIS EDIT ADDITION
 
 /datum/hallucination/fake_sound/normal/distant_boom
 	sound_type = 'sound/effects/explosion/explosionfar.ogg'
@@ -64,6 +65,7 @@
 /datum/hallucination/fake_sound/normal/alarm
 	volume = 70
 	sound_type = 'sound/announcer/alarm/nuke_alarm.ogg'
+	hallucination_tier = HALLUCINATION_TIER_RARE // OCULIS EDIT ADDITION
 
 /datum/hallucination/fake_sound/normal/beepsky
 	volume = 35
@@ -151,6 +153,7 @@
 	random_hallucination_weight = 2 // "it's revs"
 	volume = 90
 	sound_type = 'sound/items/weapons/flash.ogg'
+	hallucination_tier = HALLUCINATION_TIER_UNCOMMON // OCULIS EDIT ADDITION
 
 /datum/hallucination/fake_sound/normal/ringtone
 	volume = 50
@@ -208,12 +211,13 @@
 	sound_vary = FALSE
 	no_source = TRUE
 	sound_type = 'sound/music/antag/monkey.ogg'
+	hallucination_tier = HALLUCINATION_TIER_RARE // OCULIS EDIT ADDITION
 
 /datum/hallucination/fake_sound/weird/colossus
 	sound_type = 'sound/effects/magic/clockwork/invoke_general.ogg'
 
 /datum/hallucination/fake_sound/weird/creepy
-	hallucination_tier = HALLUCINATION_TIER_COMMON
+	hallucination_tier = HALLUCINATION_TIER_UNCOMMON // OCULIS EDIT, ORIGINAL: hallucination_tier = HALLUCINATION_TIER_COMMON
 
 /datum/hallucination/fake_sound/weird/creepy/New(mob/living/hallucinator)
 	. = ..()
@@ -229,7 +233,7 @@
 /datum/hallucination/fake_sound/weird/game_over
 	sound_vary = FALSE
 	sound_type = 'sound/machines/compiler/compiler-failure.ogg'
-	hallucination_tier = HALLUCINATION_TIER_RARE
+	hallucination_tier = HALLUCINATION_TIER_VERYSPECIAL // OCULIS EDIT, ORIGINAL: hallucination_tier = HALLUCINATION_TIER_RARE
 
 /datum/hallucination/fake_sound/weird/hallelujah
 	sound_vary = FALSE
@@ -244,7 +248,7 @@
 	sound_vary = FALSE
 	no_source = TRUE
 	sound_type = 'sound/runtime/hyperspace/hyperspace_begin.ogg'
-	hallucination_tier = HALLUCINATION_TIER_COMMON
+	hallucination_tier = HALLUCINATION_TIER_UNCOMMON // OCULIS EDIT, ORIGINAL: hallucination_tier = HALLUCINATION_TIER_COMMON
 
 /datum/hallucination/fake_sound/weird/laugher
 	hallucination_tier = HALLUCINATION_TIER_COMMON
@@ -258,7 +262,7 @@
 	volume = 15
 	sound_vary = FALSE
 	sound_type = 'sound/items/weapons/ring.ogg'
-	hallucination_tier = HALLUCINATION_TIER_RARE
+	hallucination_tier = HALLUCINATION_TIER_UNCOMMON // OCULIS EDIT, ORIGINAL: hallucination_tier = HALLUCINATION_TIER_RARE
 
 /datum/hallucination/fake_sound/weird/phone/play_fake_sound(turf/source, sound_to_play)
 	for(var/next_ring in 1 to 3)
@@ -317,9 +321,11 @@
 	no_source = TRUE
 	sound_vary = FALSE
 	sound_type = 'sound/effects/hallucinations/radio_static.ogg'
+	hallucination_tier = HALLUCINATION_TIER_RARE // OCULIS EDIT ADDITION
 
 /datum/hallucination/fake_sound/weird/ice_crack
 	random_hallucination_weight = 0
 	volume = 100
 	no_source = TRUE
 	sound_type = 'sound/effects/ice_shovel.ogg'
+	hallucination_tier = HALLUCINATION_TIER_RARE // OCULIS EDIT ADDITION

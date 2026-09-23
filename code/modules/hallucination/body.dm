@@ -127,7 +127,7 @@
 /datum/hallucination/body/weird
 	random_hallucination_weight = 0.1 // These are very uncommon
 	abstract_hallucination_parent = /datum/hallucination/body/weird
-	hallucination_tier = HALLUCINATION_TIER_RARE
+	hallucination_tier = HALLUCINATION_TIER_UNCOMMON // OCULIS EDIT, ORIGINAL: hallucination_tier = HALLUCINATION_TIER_RARE
 
 /datum/hallucination/body/weird/alien
 	body_image_file = 'icons/mob/nonhuman-player/alien.dmi'
