@@ -256,6 +256,7 @@ GLOBAL_LIST_INIT(global_resforms, subtypesof(/mob/living/simple_animal/formic))
 	drop_sound = 'sound/items/handling/gas_analyzer/gas_analyzer_drop.ogg'
 
 	var/scan_distance = 5
+	var/last_scanned
 
 /obj/item/contactanalyzer/ranged_interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	if(istype(interacting_with, /mob/living/simple_animal/formic) && can_see(user, interacting_with, scan_distance) && do_after(user, 2 SECONDS, src))
@@ -284,6 +285,7 @@ GLOBAL_LIST_INIT(global_resforms, subtypesof(/mob/living/simple_animal/formic))
 
 	to_chat(user, boxed_message(jointext(message, "\n")), type = MESSAGE_TYPE_INFO)
 	analyzed_form.establish_link(user)
+	last_scanned = analyzed_form
 
 /obj/item/contactresonator
 	name = "contact resonator"
