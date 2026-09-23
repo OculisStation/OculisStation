@@ -16,13 +16,16 @@
 	natural_spawn = FALSE
 
 /datum/sprite_accessory/fluff/moth/is_hidden(mob/living/carbon/human/human, datum/bodypart_overlay/mutant/bodypart_overlay)
-	if((human.head?.flags_inv & HIDEHAIR) || (human.wear_mask?.flags_inv & HIDEHAIR))
-		return TRUE
+	. = ..()
+	if(.)
+		return
+
 	// OCULIS EDIT ADDITION START
 	if(key in human.try_hide_mutant_parts)
 		return TRUE
 	// OCULIS EDIT ADDITION END
-	return FALSE
+
+	return !!(human.obscured_slots & HIDEHAIR)
 
 /datum/sprite_accessory/fluff/moth/plain
 	name = "Plain"
