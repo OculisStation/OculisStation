@@ -80,13 +80,13 @@
 
 /datum/species/polysmorph/on_species_gain(mob/living/carbon/human/polysmorph, datum/species/old_species, pref_load, regenerate_icons = TRUE)
 	. = ..()
-	polysmorph.physiology.armor = polysmorph.physiology.armor.add_other_armor(/datum/armor/polysmorph)
+	polysmorph.add_inner_armor(/datum/armor/polysmorph)
 	polysmorph.add_movespeed_modifier(/datum/movespeed_modifier/polysmorph)
 	polysmorph.add_actionspeed_modifier(/datum/actionspeed_modifier/polysmorph)
 
 /datum/species/polysmorph/on_species_loss(mob/living/carbon/human/polysmorph, datum/species/new_species, pref_load)
 	. = ..()
-	polysmorph.physiology.armor = polysmorph.physiology.armor.subtract_other_armor(/datum/armor/polysmorph)
+	polysmorph.remove_inner_armor(/datum/armor/polysmorph)
 	polysmorph.remove_movespeed_modifier(/datum/movespeed_modifier/polysmorph)
 	polysmorph.remove_actionspeed_modifier(/datum/actionspeed_modifier/polysmorph)
 

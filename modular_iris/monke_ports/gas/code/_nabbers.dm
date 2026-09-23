@@ -83,7 +83,7 @@
 	camouflage.Grant(nabber)
 	//threat_mod = new(nabber)
 	//threat_mod.Grant(nabber)
-	nabber.physiology.armor = nabber.physiology.armor.add_other_armor(/datum/armor/nabbers)
+	nabber.add_inner_armor(/datum/armor/nabbers)
 	RegisterSignal(nabber, COMSIG_LIVING_LIFE, PROC_REF(on_life))
 
 /datum/species/nabber/get_species_description()
@@ -103,7 +103,7 @@
 	. = ..()
 	qdel(arms)
 	qdel(camouflage)
-	C.physiology.armor = C.physiology.armor.subtract_other_armor(/datum/armor/nabbers)
+	C.remove_inner_armor(/datum/armor/nabbers)
 	//threat_mod.Destroy()
 	UnregisterSignal(C, COMSIG_LIVING_LIFE)
 
