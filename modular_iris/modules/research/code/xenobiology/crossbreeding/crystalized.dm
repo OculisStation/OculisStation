@@ -758,14 +758,14 @@
 		return
 
 	var/mob/living/carbon/human/human = affected_mob
-	human.physiology.damage_resistance += 10
+	human.damage_resistance += 10
 
 /obj/structure/slime_crystal/adamantine/on_mob_leave(mob/living/affected_mob)
 	if(!ishuman(affected_mob))
 		return
 
 	var/mob/living/carbon/human/human = affected_mob
-	human.physiology.damage_resistance -= 10
+	human.damage_resistance -= 10
 
 /obj/item/slimecross/crystalline/rainbow
 	crystal_type = /obj/structure/slime_crystal/rainbow
