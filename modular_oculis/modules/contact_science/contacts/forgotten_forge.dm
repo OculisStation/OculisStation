@@ -138,6 +138,7 @@ GLOBAL_LIST_INIT(already_upgraded)
 		playsound(last_speaker, 'sound/effects/magic/staff_healing.ogg', 50)
 		last_speaker.apply_damage(loyalty * 5, BRUTE, chosen_implant.zone, wound_bonus=CANT_WOUND)
 		to_chat(last_speaker, span_warning("An ache festers within your body as a " + chosen_implant.name + " is inserted into you."))
+		last_speaker.add_splatter_floor(get_turf(last_speaker), FALSE)
 
 /mob/living/simple_animal/formic/forgotten_forge/Life(seconds_per_tick = SSMOBS_DT)
 	. = ..()
