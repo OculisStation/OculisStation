@@ -2133,7 +2133,7 @@
 "aAu" = (
 /obj/machinery/door/poddoor/ert{
 	id = "castor-trash-chasm";
-	name = "a really long fall"
+	name = "A Really Long Fall"
 	},
 /turf/open/floor/plating,
 /area/centcom/castor/arrivals)
@@ -15699,7 +15699,7 @@
 /area/centcom/holding/cafepark)
 "jEx" = (
 /obj/machinery/smartfridge/food,
-/turf/closed/indestructible/steel,
+/turf/open/floor/plating,
 /area/centcom/interlink)
 "jFn" = (
 /obj/structure/alien/weeds,
@@ -26893,10 +26893,18 @@
 	},
 /area/centcom/holding/cafe)
 "sCi" = (
-/obj/machinery/light/directional/east,
-/turf/open/space/basic,
-/turf/open/floor/wood/wood_10,
-/area/centcom/castor/arrivals)
+/obj/effect/turf_decal/box,
+/obj/effect/turf_decal/caution/stand_clear,
+/obj/machinery/door/firedoor,
+/obj/structure/fans/tiny/invisible,
+/obj/machinery/door/airlock/abductor{
+	desc = "What could possibly be in here?";
+	name = "Laboratory"
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "darkfull"
+	},
+/area/centcom/holding/cafe)
 "sCs" = (
 /obj/effect/turf_decal/siding/thinplating_new/light{
 	dir = 1
@@ -39346,7 +39354,7 @@ adw
 qaU
 agM
 idj
-sCi
+aNq
 xUe
 afr
 jvZ
@@ -75308,7 +75316,7 @@ eSG
 aGL
 ogK
 lwI
-pSZ
+sCi
 jGP
 jGP
 jGP
@@ -75824,7 +75832,7 @@ fGv
 fGv
 fGv
 fGv
-pSZ
+sCi
 fGv
 fGv
 fGv
@@ -76593,7 +76601,7 @@ ayI
 ayI
 ayI
 ayI
-pSZ
+sCi
 aGL
 mys
 xEn
