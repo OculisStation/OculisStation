@@ -87,11 +87,49 @@
 		langsay("Where?")
 		return
 	if(istype(to_check, /obj/item/clothing/neck/cloak/black_cat_coat))
-		langsay("Thanks. It is good to see a trace of her again...")
+		langsay("Thanks. It is good to see a trace of her again... take my words with you.")
 		last_speaker.adjust_organ_loss(ORGAN_SLOT_BRAIN, rand(help_damage_min, help_damage_max) * -10, 80)
-		to_chat(last_speaker, span_warning("Your mind is filled with clarity."))
+		to_chat(last_speaker, span_notice("Your mind is filled with clarity. Something appears at your feet."))
 		echoes -= "i have the cloak"
 		playsound(last_speaker, 'sound/effects/portal/portal_travel.ogg', 40)
+		var/obj/item/camera_hole/C = new /obj/item/camera_hole(get_turf(last_speaker))
+		C.ichor_words = associated_dialogue
+		C.ichor_words[/mob/living/simple_animal/formic/rabbit_hole] = "Me. Take a picture of others. I will continue providing my advice." //change dialogue for rabbit hole because it doesnt make sense in the context of the camera
 		qdel(to_check)
 	else
 		langsay("Where?")
+
+/obj/item/camera_hole
+	name = "Hole-In-The-Camera"
+	desc = "A small camera with a hole puncturing its systems. You would think this prevents its function, but the voice of the ichor disagrees."
+	icon = 'modular_oculis/modules/contact_science/icons/rabbit_hole.dmi'
+	icon_state = "camera"
+	w_class = WEIGHT_CLASS_SMALL
+	obj_flags = CONDUCTS_ELECTRICITY
+	item_flags = NOBLUDGEON
+	slot_flags = ITEM_SLOT_BELT
+	throwforce = 0
+	throw_speed = 3
+	throw_range = 7
+	custom_materials = list(/datum/material/iron=SMALL_MATERIAL_AMOUNT * 0.3, /datum/material/glass=SMALL_MATERIAL_AMOUNT * 0.2)
+	interaction_flags_click = ALLOW_RESTING
+
+	var/scan_distance = 9
+	var/list/ichor_words = list()
+
+/obj/item/camera_hole/ranged_interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	if(istype(interacting_with, /mob/living/simple_animal/formic) && can_see(user, interacting_with, scan_distance) && do_after(user, 1 SECONDS, src))
+		var/mob/living/simple_animal/formic/analyzed_mob = interacting_with
+		analyze_form(analyzed_mob, user)
+		return ITEM_INTERACT_SUCCESS
+
+/obj/item/camera_hole/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	if(istype(interacting_with, /mob/living/simple_animal/formic) && can_see(user, interacting_with, scan_distance) && do_after(user, 1 SECONDS, src))
+		var/mob/living/simple_animal/formic/analyzed_mob = interacting_with
+		analyze_form(analyzed_mob, user)
+		return ITEM_INTERACT_SUCCESS
+
+/obj/item/camera_hole/proc/analyze_form(mob/living/simple_animal/formic/analyzed_form, mob/living/user)
+	playsound(user, SFX_POLAROID, 60, TRUE, -2, TRUE, FALSE)
+	user.visible_message(span_notice("[user] captures the visage of [analyzed_form]."), span_notice("You capture the visage of [analyzed_form]."))
+	to_chat(user, boxed_message(ichor_words[analyzed_form.type]), type = MESSAGE_TYPE_INFO)
