@@ -310,6 +310,7 @@
 /obj/item/queen_bee/bought/Initialize(mapload)
 	. = ..()
 	queen = new(src)
+	queen.set_faction(list(FACTION_NEUTRAL)) // OCULIS EDIT ADDITION
 
 /obj/item/trash/bee
 	name = "bee"
