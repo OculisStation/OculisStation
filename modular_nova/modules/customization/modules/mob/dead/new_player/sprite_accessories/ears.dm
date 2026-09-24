@@ -653,13 +653,3 @@
 /datum/sprite_accessory/ears/external/fennecl/large/flatsharp
 	name = "Fennec Large Flat Sharp"
 	icon_state = "fennecl_large_flatsharp"
-
-/datum/sprite_accessory/ears/mutant/seth
-	icon = 'modular_oculis/modules/set_ears/icon/set_ears.dmi'
-/datum/sprite_accessory/ears/mutant/seth/set_one
-	name = "Set 1"
-	icon_state = "set_1"
-
-/datum/sprite_accessory/ears/mutant/seth/set_two
-	name = "Set 2"
-	icon_state = "set_2"
