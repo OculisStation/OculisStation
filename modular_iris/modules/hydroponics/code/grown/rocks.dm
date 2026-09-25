@@ -345,7 +345,7 @@
 /obj/item/food/grown/shell/dimantis
 	seed = /obj/item/seeds/dimantis
 	name = "dimantis drupe"
-	desc = "A fleshy fruid with a diamond core, Just peel it for a core."
+	desc = "A fleshy fruit with a diamond core, Just peel it for a core."
 	icon = 'modular_iris/modules/hydroponics/icons/harvest.dmi'
 	icon_state = "orefruit"
 	trash_type = /obj/item/stack/ore/diamond/dimantiscore
