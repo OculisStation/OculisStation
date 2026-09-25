@@ -120,17 +120,17 @@
 	desc = "A mutated variant of rockfruits; rough, course and now available everywhere. Just peel it for a core."
 	icon = 'modular_iris/modules/hydroponics/icons/harvest.dmi'
 	icon_state = "orefruit"
-	trash_type = /obj/item/stack/sheet/mineral/sandfruitcore
+	trash_type = /obj/item/stack/ore/glass/sandfruitcore
 	foodtypes = FRUIT
 	distill_reagent = /datum/reagent/silicon
 
-/obj/item/stack/sheet/mineral/sandfruitcore
+/obj/item/stack/ore/glass/sandfruitcore
 	name = "sandfruit core"
 	desc = "A very fragile sandfruit core, literally composed of dozens of particles of sand... don't store in pockets."
 	icon = 'modular_iris/modules/hydroponics/icons/harvest.dmi'
 	singular_name = "sandfruit core"
 	icon_state = "sandfruit"
-	merge_type = /obj/item/stack/sheet/mineral/sandfruitcore
+	merge_type = /obj/item/stack/ore/glass/sandfruitcore
 	max_amount = 10
 	mats_per_unit = list(/datum/material/glass=SHEET_MATERIAL_AMOUNT*0.2)
 
@@ -158,17 +158,17 @@
 	desc = "A mutated variant of rockfruits; you might not want to hold it for long... also not actually a berry! Just peel it for a core."
 	icon = 'modular_iris/modules/hydroponics/icons/harvest.dmi'
 	icon_state = "orefruit"
-	trash_type = /obj/item/stack/sheet/mineral/uraniberrycore
+	trash_type = /obj/item/stack/ore/uranium/uraniberrycore
 	foodtypes = FRUIT
 	distill_reagent = /datum/reagent/uranium
 
-/obj/item/stack/sheet/mineral/uraniberrycore
+/obj/item/stack/ore/uranium/uraniberrycore
 	name = "uraniberry core"
 	singular_name = "uraniberry core"
 	desc = "A very dense uraniberry core, don't store in pockets, unless you want extra limbs."
 	icon = 'modular_iris/modules/hydroponics/icons/harvest.dmi'
 	icon_state = "uraniberry"
-	merge_type = /obj/item/stack/sheet/mineral/uraniberrycore
+	merge_type = /obj/item/stack/ore/uranium/uraniberrycore
 	max_amount = 10
 	mats_per_unit =list(/datum/material/uranium=SHEET_MATERIAL_AMOUNT*0.2)
 
@@ -196,17 +196,17 @@
 	desc = "A mutated variant of rockfruits; Incredibly volatile... also not actually a plum! Just peel it for a core."
 	icon = 'modular_iris/modules/hydroponics/icons/harvest.dmi'
 	icon_state = "orefruit"
-	trash_type = /obj/item/stack/sheet/mineral/plasmaplumcore
+	trash_type = /obj/item/stack/ore/plasma/plasmaplumcore
 	foodtypes = FRUIT
 	distill_reagent = /datum/reagent/toxin/plasma
 
-/obj/item/stack/sheet/mineral/plasmaplumcore
+/obj/item/stack/ore/plasma/plasmaplumcore
 	name = "plasmaplum core"
 	singular_name = "plasmaplum core"
 	desc = "A very dense plasmaplum core, store in a cold, fire and spark free place."
 	icon = 'modular_iris/modules/hydroponics/icons/harvest.dmi'
 	icon_state = "plasmaplum"
-	merge_type = /obj/item/stack/sheet/mineral/plasmaplumcore
+	merge_type = /obj/item/stack/ore/plasma/plasmaplumcore
 	max_amount = 10
 	mats_per_unit = list(/datum/material/plasma=SHEET_MATERIAL_AMOUNT*0.2)
 
@@ -234,17 +234,17 @@
 	desc = "A mutated variant of rockfruits; Incredibly fragile... also not actually a drupe! Just peel it for a core."
 	icon = 'modular_iris/modules/hydroponics/icons/harvest.dmi'
 	icon_state = "orefruit"
-	trash_type = /obj/item/stack/sheet/mineral/bluegemdrupecore
+	trash_type = /obj/item/stack/ore/bluespace_crystal/bluegemdrupecore
 	foodtypes = FRUIT
 	distill_reagent = /datum/reagent/bluespace
 
-/obj/item/stack/sheet/mineral/bluegemdrupecore
+/obj/item/stack/ore/bluespace_crystal/bluegemdrupecore
 	name = "bluegem drupe core"
 	singular_name = "bluegem drupe core"
 	desc = "A very dense bluegem drupe core, dropping may incur teleportation in rare cases."
 	icon = 'modular_iris/modules/hydroponics/icons/harvest.dmi'
 	icon_state = "bluegemdrupe"
-	merge_type = /obj/item/stack/sheet/mineral/bluegemdrupecore
+	merge_type = /obj/item/stack/ore/bluespace_crystal/bluegemdrupecore
 	max_amount = 10
 	mats_per_unit = list(/datum/material/bluespace=SHEET_MATERIAL_AMOUNT*0.2)
 
@@ -272,17 +272,17 @@
 	desc = "Ag-bergine, get it AG? It's hilarious and valuable! Just peel it for a core."
 	icon = 'modular_iris/modules/hydroponics/icons/harvest.dmi'
 	icon_state = "orefruit"
-	trash_type = /obj/item/stack/sheet/mineral/agberginecore
+	trash_type = /obj/item/stack/ore/silver/agberginecore
 	foodtypes = FRUIT
 	distill_reagent = /datum/reagent/silver
 
-/obj/item/stack/sheet/mineral/agberginecore
+/obj/item/stack/ore/silver/agberginecore
 	name = "ag-bergine core"
 	singular_name = "ag-bergine core"
 	desc = "A dense agbergine core of solid, sterling silver."
 	icon = 'modular_iris/modules/hydroponics/icons/harvest.dmi'
 	icon_state = "agbergine"
-	merge_type = /obj/item/stack/sheet/mineral/agberginecore
+	merge_type = /obj/item/stack/ore/silver/agberginecore
 	max_amount = 10
 	mats_per_unit = list(/datum/material/silver=SHEET_MATERIAL_AMOUNT*0.2)
 
@@ -310,17 +310,17 @@
 	desc = "An aubergine; AU? Get it?!... My talents are wasted here! Just peel it for a core."
 	icon = 'modular_iris/modules/hydroponics/icons/harvest.dmi'
 	icon_state = "orefruit"
-	trash_type = /obj/item/stack/sheet/mineral/auberginecore
+	trash_type = /obj/item/stack/ore/gold/auberginecore
 	foodtypes = FRUIT
 	distill_reagent = /datum/reagent/gold
 
-/obj/item/stack/sheet/mineral/auberginecore
+/obj/item/stack/ore/gold/auberginecore
 	name = "au-bergine core"
 	singular_name = "au-bergine core"
 	desc = "A very dense au-bergine core, solid 24 karat goodness."
 	icon = 'modular_iris/modules/hydroponics/icons/harvest.dmi'
 	icon_state = "aubergine"
-	merge_type = /obj/item/stack/sheet/mineral/auberginecore
+	merge_type = /obj/item/stack/ore/gold/auberginecore
 	max_amount = 10
 	mats_per_unit = list(/datum/material/gold=SHEET_MATERIAL_AMOUNT*0.2)
 
@@ -348,17 +348,17 @@
 	desc = "A fleshy fruid with a diamond core, Just peel it for a core."
 	icon = 'modular_iris/modules/hydroponics/icons/harvest.dmi'
 	icon_state = "orefruit"
-	trash_type = /obj/item/stack/sheet/mineral/dimantiscore
+	trash_type = /obj/item/stack/ore/diamond/dimantiscore
 	foodtypes = FRUIT
 	distill_reagent = /datum/reagent/carbon
 
-/obj/item/stack/sheet/mineral/dimantiscore
+/obj/item/stack/ore/diamond/dimantiscore
 	name = "dimantis core"
 	singular_name = "dimantis core"
 	desc = "A very dense dimantis core, the way to a woman's heart, it could probably get through her ribcage..."
 	icon = 'modular_iris/modules/hydroponics/icons/harvest.dmi'
 	icon_state = "dimantis"
-	merge_type = /obj/item/stack/sheet/mineral/dimantiscore
+	merge_type = /obj/item/stack/ore/diamond/dimantiscore
 	max_amount = 10
 	mats_per_unit = list(/datum/material/diamond=SHEET_MATERIAL_AMOUNT*0.2)
 
@@ -386,17 +386,17 @@
 	desc = "Ferrotubers, fleshy shells with iron fillings! Just peel it for a core."
 	icon = 'modular_iris/modules/hydroponics/icons/harvest.dmi'
 	icon_state = "orefruit"
-	trash_type = /obj/item/stack/sheet/mineral/ferrotubercore
+	trash_type = /obj/item/stack/ore/iron/ferrotubercore
 	foodtypes = FRUIT
 	distill_reagent = /datum/reagent/iron
 
-/obj/item/stack/sheet/mineral/ferrotubercore
+/obj/item/stack/ore/iron/ferrotubercore
 	name = "ferrotuber core"
 	singular_name = "ferrotuber core"
 	desc = "A dense ferrotuber core of solid iron, slightly magnetic."
 	icon = 'modular_iris/modules/hydroponics/icons/harvest.dmi'
 	icon_state = "ferrotuber"
-	merge_type = /obj/item/stack/sheet/mineral/ferrotubercore
+	merge_type = /obj/item/stack/ore/iron/ferrotubercore
 	max_amount = 10
 	mats_per_unit = list(/datum/material/iron=SHEET_MATERIAL_AMOUNT*0.2)
 
@@ -423,16 +423,16 @@
 	desc = "soft fruits with incredibly sturdy cores, watch your teeth! Just peel it for a core."
 	icon = 'modular_iris/modules/hydroponics/icons/harvest.dmi'
 	icon_state = "orefruit"
-	trash_type = /obj/item/stack/sheet/mineral/titanitubercore
+	trash_type = /obj/item/stack/ore/titanium/titanitubercore
 	foodtypes = FRUIT
 
-/obj/item/stack/sheet/mineral/titanitubercore
+/obj/item/stack/ore/titanium/titanitubercore
 	name = "titanituber core"
 	singular_name = "titanituber core"
 	desc = "A very dense titanituber core, let's hope you didn't bite it!"
 	icon = 'modular_iris/modules/hydroponics/icons/harvest.dmi'
 	icon_state = "titanituber"
-	merge_type = /obj/item/stack/sheet/mineral/titanitubercore
+	merge_type = /obj/item/stack/ore/titanium/titanitubercore
 	max_amount = 10
 	mats_per_unit = list(/datum/material/titanium=SHEET_MATERIAL_AMOUNT*0.2)
 
@@ -459,16 +459,16 @@
 	desc = "Adam's apples, The garden Eden's bounty! Just peel it for a core."
 	icon = 'modular_iris/modules/hydroponics/icons/harvest.dmi'
 	icon_state = "orefruit"
-	trash_type = /obj/item/stack/sheet/mineral/adamapplecore
+	trash_type = /obj/item/stack/sheet/mineral/adamantine/adamapplecore
 	foodtypes = FRUIT
 
-/obj/item/stack/sheet/mineral/adamapplecore
+/obj/item/stack/sheet/mineral/adamantine/adamapplecore
 	name = "adam's apple core"
 	singular_name = "adam's apple core"
 	desc = "A dense adam's apple core of solid adamantine."
 	icon = 'modular_iris/modules/hydroponics/icons/harvest.dmi'
 	icon_state = "adamapple"
-	merge_type = /obj/item/stack/sheet/mineral/adamapplecore
+	merge_type = /obj/item/stack/sheet/mineral/adamantine/adamapplecore
 	max_amount = 10
 	mats_per_unit = list(/datum/material/adamantine=SHEET_MATERIAL_AMOUNT*0.2)
 
@@ -495,16 +495,16 @@
 	desc = "A fruit, usually grown in wild places where men would kill each other for gain."
 	icon = 'modular_iris/modules/hydroponics/icons/harvest.dmi'
 	icon_state = "orefruit"
-	trash_type = /obj/item/stack/sheet/mineral/runescoopercore
+	trash_type = /obj/item/stack/sheet/mineral/runite/runescoopercore
 	foodtypes = FRUIT
 
-/obj/item/stack/sheet/mineral/runescoopercore
+/obj/item/stack/sheet/mineral/runite/runescoopercore
 	name = "runescooper core"
 	singular_name = "runescooper core"
 	desc = "A very dense runite core, a few more of these and you might be able to make a scimitar to defeat your foes..."
 	icon = 'modular_iris/modules/hydroponics/icons/harvest.dmi'
 	icon_state = "runescooper"
-	merge_type = /obj/item/stack/sheet/mineral/runescoopercore
+	merge_type = /obj/item/stack/sheet/mineral/runite/runescoopercore
 	max_amount = 10
 	mats_per_unit = list(/datum/material/runite=SHEET_MATERIAL_AMOUNT*0.2)
 
@@ -532,16 +532,16 @@
 	desc = "holy honkmother... This fruit got a core of bananium, Just peel it!"
 	icon = 'modular_iris/modules/hydroponics/icons/harvest.dmi'
 	icon_state = "orefruit"
-	trash_type = /obj/item/stack/sheet/mineral/bananiumberrycore
+	trash_type = /obj/item/stack/ore/bananium/bananiumberrycore
 	foodtypes = FRUIT
 	distill_reagent = /datum/reagent/consumable/nutriment/soup/clown_tears
 
-/obj/item/stack/sheet/mineral/bananiumberrycore
+/obj/item/stack/ore/bananium/bananiumberrycore
 	name = "bananiumberry core"
 	singular_name = "bananiumberry core"
 	desc = "A very dense bananium core, the way to a clown's heart, it could probably get through their ribcage..."
 	icon = 'modular_iris/modules/hydroponics/icons/harvest.dmi'
 	icon_state = "bananiumberry"
-	merge_type = /obj/item/stack/sheet/mineral/bananiumberrycore
+	merge_type = /obj/item/stack/ore/bananium/bananiumberrycore
 	max_amount = 10
 	mats_per_unit = list(/datum/material/bananium=SHEET_MATERIAL_AMOUNT*0.2)
