@@ -5,7 +5,7 @@
 	///Flags for extra behavior (see AI_BEHAVIOR_* defines)
 	var/behavior_flags = NONE
 	///Cooldown between perform() calls; do not read directly  use get_cooldown()
-	var/time_between_perform = 0
+	var/time_between_perform = 1 SECONDS // OCULIS EDIT, ORIGINAL: var/time_between_perform = 0
 	/// TRUE after setup() has been called and before finish_action() completes.
 	var/running = FALSE
 	/// world.time when perform() may next be called.
@@ -104,7 +104,7 @@
 /datum/bt_node/ai_behavior/proc/start_async()
 	async_running = TRUE
 	INVOKE_ASYNC(src, PROC_REF(perform_async), owning_controller)
-	return AI_BEHAVIOR_DELAY
+	return handle_async() || AI_BEHAVIOR_DELAY
 
 ///Override this if you have sleeping behavior, be sure to implement the other async procs in perform()
 /datum/bt_node/ai_behavior/proc/perform_async(datum/ai_controller/controller)

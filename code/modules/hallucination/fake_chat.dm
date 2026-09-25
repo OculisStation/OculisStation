@@ -71,6 +71,20 @@
 	if(isnull(speaker))
 		return
 
+	// OCULIS EDIT ADDITION START
+	var/datum/mind/accused = pick(get_crewmember_minds())
+	var/accused_name = pick_weight(list(
+		first_name(accused.name) = 4,
+		last_name(accused.name) = 2,
+		accused.name = 1,
+	))
+	var/hallucinator_name = pick_weight(list(
+		first_name(hallucinator.name) = 4,
+		last_name(hallucinator.name) = 2,
+		hallucinator.name = 1,
+	))
+	// OCULIS EDIT ADDITION END
+
 	// Time to generate a message.
 	// Spans of our message
 	var/spans = list(speaker.speech_span)
@@ -80,6 +94,7 @@
 	// If we didn't have a preset one, let's make one up.
 	if(!chosen)
 		if(is_radio)
+			/* // OCULIS EDIT REMOVAL START
 			chosen = pick(list("Help!",
 				"Help [pick_list_replacements(HALLUCINATION_FILE, "location")][prob(50)?"!":"!!"]",
 				"[pick_list_replacements(HALLUCINATION_FILE, "people")] is [pick_list_replacements(HALLUCINATION_FILE, "accusations")]!",
@@ -90,10 +105,26 @@
 				"AI [pick("rogue", "is dead")]!!",
 				"Borgs rogue!",
 			))
+			*/ // OCULIS EDIT REMOVAL END
+			// OCULIS EDIT ADDITION START
+			chosen = pick_weight(list(
+				pick("Help!", "Help!!", "Help me!!") = 2,
+				pick("Help, [pick_list_replacements(HALLUCINATION_FILE, "location")][prob(50)?"!":"!!"]", "[pick_list_replacements(HALLUCINATION_FILE, "location")], help[prob(50)?"!":"!!"]") = 2,
+				"[accused_name] is [pick_list_replacements(HALLUCINATION_FILE, "accusations")][prob(50)?"!":"!!"]" = 2,
+				"[accused_name] has [pick_list_replacements(HALLUCINATION_FILE, "contraband")][prob(50)?"!":"!!"]" = 2,
+				"[pick_list_replacements(HALLUCINATION_FILE, "threat")] at [pick_list_replacements(HALLUCINATION_FILE, "location")][pick(".", "!", "!!")]" = 2,
+				"Where's [hallucinator_name]?" = 2,
+				"Arrest [hallucinator_name]!" = 1,
+				"[hallucinator_name]?" = 2,
+				"[hallucinator_name], got a [pick("sec", "second", "moment", "minute")]?" = 2,
+				pick("[pick("What'd", "What did")] you need again, [hallucinator_name]?", "[hallucinator_name], [pick("what'd", "what did")] you need again?") = 2,
+				"[prob(50)?uppertext(pick_list_replacements(HALLUCINATION_FILE, "swears")):pick_list_replacements(HALLUCINATION_FILE, "swears")][pick(".", "!", "!!")]" = 4,
+			))
+			// OCULIS EDIT ADDITION END
 		else
 			chosen = pick(list("[pick_list_replacements(HALLUCINATION_FILE, "suspicion")]",
 				"[pick_list_replacements(HALLUCINATION_FILE, "conversation")]",
-				"[pick_list_replacements(HALLUCINATION_FILE, "greetings")][first_name(hallucinator.name)]!",
+				"[pick_list_replacements(HALLUCINATION_FILE, "greetings")][hallucinator_name]!", // OCULIS EDIT, ORIGINAL: "[pick_list_replacements(HALLUCINATION_FILE, "greetings")][first_name(hallucinator.name)]!",
 				"[pick_list_replacements(HALLUCINATION_FILE, "getout")]",
 				"[pick_list_replacements(HALLUCINATION_FILE, "weird")]",
 				"[pick_list_replacements(HALLUCINATION_FILE, "didyouhearthat")]",
@@ -106,7 +137,7 @@
 
 		chosen = capitalize(chosen)
 
-	chosen = replacetext(chosen, "%TARGETNAME%", first_name(hallucinator.name))
+	chosen = replacetext(chosen, "%TARGETNAME%", hallucinator_name) // OCULIS EDIT, ORIGINAL: chosen = replacetext(chosen, "%TARGETNAME%", first_name(hallucinator.name))
 
 	// Log the message
 	feedback_details += "Type: [is_radio ? "Radio" : "Talk"], Source: [speaker.real_name], Message: [chosen]"

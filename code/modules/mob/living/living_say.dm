@@ -182,7 +182,7 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 			message_range = 1
 			// this is where deathgasping is processed
 			if(stat == HARD_CRIT)
-				var/health_diff = round(-HEALTH_THRESHOLD_DEAD + health)
+				var/health_diff = round(-dead_threshold + health)
 				// If we cut our message short, abruptly end it with a-..
 				var/message_len = length_char(message)
 				message = copytext_char(message, 1, health_diff) + "[message_len > health_diff ? "-.." : "..."]"
@@ -230,7 +230,8 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 
 	//Get which verb is prefixed to the message before radio but after most modifications
 	message_mods[SAY_MOD_VERB] ||= say_mod(message, message_mods)
-	message = autopunct_bare(message) // NOVA EDIT ADDITION START: autopunctuation - ensure EOL punctuation exists and that word-bounded 'i' are capitalized before we do anything else
+	if(client?.prefs?.read_preference(/datum/preference/toggle/autopunctuation)) //IRIS ADDITION: Can be turned off now
+		message = autopunct_bare(message) // NOVA EDIT ADDITION START: autopunctuation - ensure EOL punctuation exists and that word-bounded 'i' are capitalized before we do anything else
 
 	var/identifier = "invalid"
 	var/tts_message_to_use = tts_message || message
@@ -538,7 +539,7 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 	if(!tts_message)
 		tts_message = message
 
-	if(capitalize_message)
+	if(capitalize_message && client?.prefs?.read_preference(/datum/preference/toggle/autopunctuation)) // OCULIS EDIT, ORIGINAL: if(capitalize_message)
 		message = capitalize(message)
 		tts_message = capitalize(tts_message)
 

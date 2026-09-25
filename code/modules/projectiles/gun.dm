@@ -9,7 +9,7 @@
 	inhand_icon_state = "gun"
 	worn_icon_state = "gun"
 	abstract_type = /obj/item/gun
-	obj_flags = CONDUCTS_ELECTRICITY
+	obj_flags = CONDUCTS_ELECTRICITY|UNIQUE_RENAME|RENAME_NO_DESC // OCULIS EDIT, ORIGINAL: obj_flags = CONDUCTS_ELECTRICITY
 	appearance_flags = TILE_BOUND|PIXEL_SCALE|LONG_GLIDE|KEEP_TOGETHER
 	slot_flags = ITEM_SLOT_BELT
 	custom_materials = list(/datum/material/iron=SHEET_MATERIAL_AMOUNT)
