@@ -1,26 +1,26 @@
 {
 	"suspicion": [
-		"@pick(add_name)I know what you're doing",
+		"@pick(add_name)I know what you're doing.",
 		"@pick(add_name)I'm watching you...",
 		"@pick(add_name)what are you hiding?",
-		"I saw that",
-		"I'm watching you"
+		"I saw that.",
+		"I'm watching you."
 	],
 
 	"conversation": [
 		"But...",
-		"Hmm",
-		"Hold on",
-		"I doubt it",
-		"Nah",
-		"No",
+		"Hmm.",
+		"Hold on.",
+		"I doubt it.",
+		"Nah.",
+		"No.",
 		"Uh...",
-		"Weird",
+		"Weird.",
 		"Why?",
-		"Yeah, I know",
-		"Yeah",
-		"Yes",
-		"Yup"
+		"Yeah, I know.",
+		"Yeah.",
+		"Yes.",
+		"Yup."
 	],
 
 	"greetings": [
@@ -34,10 +34,10 @@
 	],
 
 	"getout": [
-		"@pick(add_name)fuck off",
+		"@pick(add_name)fuck off!",
 		"@pick(add_name)get out!",
-		"@pick(add_name)get out",
-		"@pick(add_name)go away",
+		"@pick(add_name)get out.",
+		"@pick(add_name)go away.",
 		"@pick(add_name)out!",
 		"OUT!"
 	],
@@ -46,7 +46,7 @@
 		"#@§*&£",
 		"EEEeeeeEEEE",
 		"H-hhhhh...",
-		"H**p m*",
+		"H**p m*.",
 		"Kchck-Chkck? Kchchck!",
 		"Kchckchk...",
 		"khhhhh"
@@ -63,8 +63,8 @@
 	"add_name": ["", "%TARGETNAME% ", "%TARGETNAME%, "],
 
 	"doubt": [
-		"@pick(add_name)hold on",
-		"@pick(add_name)wait",
+		"@pick(add_name)hold on.",
+		"@pick(add_name)wait.",
 		"Uh...",
 		"Wait, what?",
 		"What?",
