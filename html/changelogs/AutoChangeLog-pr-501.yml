@@ -1,6 +1,0 @@
-author: "Shroopy"
-delete-after: True
-changes:
-  - balance: "Removed the slowdown on security MODsuits."
-  - balance: "Increased the bullet protection of security MODsuits to match roundstart gear."
-  - balance: "Changed the default small storage modules in security MODsuits to full storage modules."
