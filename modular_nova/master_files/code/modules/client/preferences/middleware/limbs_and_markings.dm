@@ -124,6 +124,7 @@
 		AUGMENT_SLOT_EYES,
 		AUGMENT_SLOT_TONGUE,
 		AUGMENT_SLOT_MOUTH_IMPLANT,
+		AUGMENT_SLOT_FANGS, // OCULIS EDIT ADDITION: Supports fangs in loadout
 	)
 
 	// Bodypart augment slots

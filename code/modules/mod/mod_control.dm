@@ -743,11 +743,14 @@
 	for (var/module_slow in module_slowdowns)
 		total_slowdown += module_slow
 
-	for(var/datum/mod_part/part_datum as anything in get_part_datums(all = TRUE))
+	for(var/datum/mod_part/part_datum as anything in get_part_datums()) // OCULIS EDIT, ORIGINAL: for(var/datum/mod_part/part_datum as anything in get_part_datums(all = TRUE))
 		var/obj/item/part = part_datum.part_item
-		part.slowdown = total_slowdown / length(mod_parts)
+		part.slowdown = total_slowdown / (length(mod_parts) - 1) // OCULIS EDIT, ORIGINAL: part.slowdown = total_slowdown / length(mod_parts)
 		if (!part_datum.sealed)
 			part.slowdown = max(part.slowdown, 0)
+		if(istype(part, /obj/item/clothing/shoes/mod))
+			var/obj/item/clothing/shoes/mod/shoe_part = part
+			shoe_part.update_footstep_sounds()
 	wearer?.update_equipment_speed_mods()
 
 /obj/item/mod/control/proc/power_off()
