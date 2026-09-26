@@ -156,6 +156,126 @@ required_map = "DeltaStation2.dmm"
 coordinates = [148, 161, 1]
 trait_name = "Station"
 
+# Oculis - Metastation xenobiology
+[templates.metastation_slime_rancher]
+map_files = ["metastation_slime_rancher.dmm"]
+directory = "_maps/oculis/automapper/templates/metastation/"
+required_map = "MetaStation.dmm"
+coordinates = [168, 76, 1]
+trait_name = "Station"
+
+# Oculis - Pubby xenobiology
+[templates.oceanpubby_slime_rancher]
+map_files = ["oceanpubby_slime_rancher.dmm"]
+directory = "_maps/oculis/automapper/templates/oceanpubby/"
+required_map = "oceanpubby.dmm"
+coordinates = [172, 109, 1]
+trait_name = "Station"
+
+# catwalkstation_2023_slime_rancher
+[templates.catwalkstation_2023_slime_rancher]
+map_files = ["catwalkstation_2023_slime_rancher.dmm"]
+directory = "_maps/oculis/automapper/templates/catwalkstation_2023/"
+required_map = "CatwalkStation_2023.dmm"
+coordinates = [144, 87, 1]
+trait_name = "Station"
+
+# catwalkstation_2023_slime_rancher_2
+[templates.catwalkstation_2023_slime_rancher_2]
+map_files = ["catwalkstation_2023_slime_rancher_2.dmm"]
+directory = "_maps/oculis/automapper/templates/catwalkstation_2023/"
+required_map = "CatwalkStation_2023.dmm"
+coordinates = [146, 96, 2]
+trait_name = "Station"
+
+# deltastation2_slime_rancher
+[templates.deltastation2_slime_rancher]
+map_files = ["deltastation2_slime_rancher.dmm"]
+directory = "_maps/oculis/automapper/templates/deltastation2/"
+required_map = "DeltaStation2.dmm"
+coordinates = [82, 89, 1]
+trait_name = "Station"
+
+# iceboxstation_slime_rancher
+[templates.iceboxstation_slime_rancher]
+map_files = ["iceboxstation_slime_rancher.dmm"]
+directory = "_maps/oculis/automapper/templates/iceboxstation/"
+required_map = "IceBoxStation.dmm"
+coordinates = [165, 80, 2]
+trait_name = "Station"
+
+# iceboxstation_slime_rancher_2
+[templates.iceboxstation_slime_rancher_2]
+map_files = ["iceboxstation_slime_rancher_2.dmm"]
+directory = "_maps/oculis/automapper/templates/iceboxstation/"
+required_map = "IceBoxStation.dmm"
+coordinates = [169, 80, 3]
+trait_name = "Station"
+
+# kilostation_slime_rancher
+[templates.kilostation_slime_rancher]
+map_files = ["kilostation_slime_rancher.dmm"]
+directory = "_maps/oculis/automapper/templates/kilostation/"
+required_map = "KiloStation.dmm"
+coordinates = [139, 152, 1]
+trait_name = "Station"
+
+# nebulastation_slime_rancher
+[templates.nebulastation_slime_rancher]
+map_files = ["nebulastation_slime_rancher.dmm"]
+directory = "_maps/oculis/automapper/templates/nebulastation/"
+required_map = "NebulaStation.dmm"
+coordinates = [135, 140, 1]
+trait_name = "Station"
+
+# tramstation_slime_rancher
+[templates.tramstation_slime_rancher]
+map_files = ["tramstation_slime_rancher.dmm"]
+directory = "_maps/oculis/automapper/templates/tramstation/"
+required_map = "tramstation.dmm"
+coordinates = [167, 66, 1]
+trait_name = "Station"
+
+# serenitystation_slime_rancher
+[templates.serenitystation_slime_rancher]
+map_files = ["serenitystation_slime_rancher.dmm"]
+directory = "_maps/oculis/automapper/templates/serenitystation/"
+required_map = "SerenityStation.dmm"
+coordinates = [96, 193, 2]
+trait_name = "Station"
+
+# snowglobe_slime_rancher
+[templates.snowglobe_slime_rancher]
+map_files = ["snowglobe_slime_rancher.dmm"]
+directory = "_maps/oculis/automapper/templates/snowglobe/"
+required_map = "snowglobe.dmm"
+coordinates = [181, 100, 2]
+trait_name = "Station"
+
+# voidraptor_slime_rancher
+[templates.voidraptor_slime_rancher]
+map_files = ["voidraptor_slime_rancher.dmm"]
+directory = "_maps/oculis/automapper/templates/VoidRaptor/"
+required_map = "VoidRaptor.dmm"
+coordinates = [71, 171, 1]
+trait_name = "Station"
+
+# wawastation_slime_rancher
+[templates.wawastation_slime_rancher]
+map_files = ["wawastation_slime_rancher.dmm"]
+directory = "_maps/oculis/automapper/templates/wawastation/"
+required_map = "wawastation.dmm"
+coordinates = [192, 90, 1]
+trait_name = "Station"
+
+# wawastation_slime_rancher_2
+[templates.wawastation_slime_rancher_2]
+map_files = ["wawastation_slime_rancher_2.dmm"]
+directory = "_maps/oculis/automapper/templates/wawastation/"
+required_map = "wawastation.dmm"
+coordinates = [199, 94, 2]
+trait_name = "Station"
+
 # ICEBOX MAP EDITS
 # Icebox Arrivals
 [templates.icebox_arrivals]
