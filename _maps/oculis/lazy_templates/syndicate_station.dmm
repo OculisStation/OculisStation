@@ -75,6 +75,16 @@
 	},
 /turf/open/floor/catwalk_floor,
 /area/centcom/octavia)
+"bb" = (
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/structure/window/reinforced/spawner/directional/south,
+/turf/open/floor/engine/air,
+/area/space)
+"bg" = (
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/machinery/door/window/right/directional/north,
+/turf/open/floor/engine/air,
+/area/space)
 "bk" = (
 /obj/machinery/door/firedoor,
 /obj/structure/cable,
@@ -105,6 +115,10 @@
 	},
 /turf/open/floor/iron/large,
 /area/centcom/octavia)
+"bW" = (
+/obj/structure/cable,
+/turf/open/floor/mineral/plastitanium/red,
+/area/space)
 "ca" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 8
@@ -181,7 +195,13 @@
 /turf/open/floor/mineral/plastitanium,
 /area/centcom/octavia)
 "dl" = (
+/obj/structure/cable,
 /turf/open/floor/plating,
+/area/space)
+"dt" = (
+/obj/structure/cable,
+/obj/machinery/firealarm/directional/north,
+/turf/open/floor/mineral/plastitanium/red,
 /area/space)
 "dy" = (
 /obj/effect/turf_decal/tile/red/half{
@@ -233,6 +253,15 @@
 	},
 /turf/open/space/basic,
 /area/space)
+"eq" = (
+/obj/machinery/porta_turret/ai{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/space)
 "eu" = (
 /obj/effect/turf_decal/siding/thinplating/dark/corner{
 	dir = 4
@@ -243,6 +272,13 @@
 /obj/structure/cable,
 /turf/open/floor/carpet/red,
 /area/centcom/octavia)
+"ev" = (
+/obj/structure/cable,
+/obj/machinery/power/terminal{
+	dir = 4
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/space)
 "ew" = (
 /turf/open/floor/iron/dark/brick_aligned_corner_vertical_inverse{
 	dir = 1
@@ -281,6 +317,11 @@
 /obj/item/gun/ballistic/shotgun/doublebarrel,
 /turf/open/floor/iron/large,
 /area/centcom/octavia)
+"fd" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/structure/cable,
+/turf/open/floor/mineral/plastitanium,
+/area/centcom/octavia)
 "fk" = (
 /obj/effect/turf_decal/siding/thinplating/dark{
 	dir = 10
@@ -294,6 +335,11 @@
 /obj/machinery/vending/hydroseeds,
 /turf/open/floor/iron/white/diagonal,
 /area/centcom/octavia)
+"fp" = (
+/obj/machinery/power/apc/auto_name/directional/south,
+/obj/structure/cable,
+/turf/open/floor/mineral/plastitanium,
+/area/space)
 "fu" = (
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/structure/cable,
@@ -311,6 +357,15 @@
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/centcom/octavia)
+"fL" = (
+/obj/machinery/porta_turret/ai{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/end{
+	dir = 4
+	},
+/turf/open/floor/circuit/red,
+/area/space)
 "fT" = (
 /obj/structure/sink/directional/south,
 /obj/structure/mirror/directional/north,
@@ -338,6 +393,13 @@
 	},
 /turf/open/floor/iron,
 /area/centcom/octavia)
+"gq" = (
+/obj/structure/cable,
+/turf/open/floor/circuit/red,
+/area/space)
+"gu" = (
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/space)
 "gx" = (
 /obj/machinery/light/warm/directional/north,
 /turf/open/floor/mineral/plastitanium,
@@ -348,6 +410,10 @@
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/centcom/octavia)
+"gG" = (
+/obj/structure/transit_tube/crossing,
+/turf/open/space/basic,
+/area/space)
 "ho" = (
 /obj/machinery/light/warm/directional/north,
 /turf/open/floor/iron/dark/textured_large,
@@ -376,6 +442,10 @@
 /obj/structure/cable,
 /turf/open/floor/mineral/plastitanium,
 /area/centcom/octavia)
+"if" = (
+/obj/machinery/light/directional/west,
+/turf/open/floor/mineral/silver,
+/area/space)
 "ik" = (
 /obj/effect/turf_decal/siding/thinplating/dark/end{
 	dir = 1
@@ -383,6 +453,21 @@
 /obj/structure/cable,
 /turf/open/floor/carpet/red,
 /area/centcom/octavia)
+"io" = (
+/obj/structure/table/wood/fancy/blue,
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/machinery/door/window/right/directional/east{
+	name = "Core Modules";
+	req_access = list("ai_upload")
+	},
+/obj/effect/spawner/random/aimodule/harmless,
+/obj/item/ai_module/law/supplied/freeform{
+	pixel_x = -1;
+	pixel_y = 8
+	},
+/obj/item/ai_module/law/core/full/cybersun,
+/turf/open/floor/mineral/plastitanium,
+/area/space)
 "iu" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/effect/turf_decal/tile/red/anticorner,
@@ -390,6 +475,10 @@
 /obj/item/pen,
 /turf/open/floor/iron/dark/textured_large,
 /area/centcom/octavia)
+"iy" = (
+/obj/machinery/light/directional/east,
+/turf/open/floor/mineral/plastitanium,
+/area/space)
 "iD" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 8
@@ -402,12 +491,20 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/iron/dark/textured_large,
 /area/centcom/octavia)
+"iT" = (
+/obj/machinery/flasher/directional/west,
+/turf/open/floor/circuit/red,
+/area/space)
 "js" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 10
 	},
 /turf/open/floor/iron/smooth_large,
 /area/centcom/octavia)
+"jB" = (
+/obj/structure/transit_tube/diagonal/topleft,
+/turf/open/space/basic,
+/area/space)
 "jI" = (
 /obj/structure/cable,
 /turf/open/floor/catwalk_floor/iron_smooth,
@@ -445,6 +542,10 @@
 "ky" = (
 /turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
 /area/centcom/octavia)
+"kO" = (
+/obj/machinery/camera/autoname/directional/east,
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/space)
 "kQ" = (
 /obj/structure/chair/sofa/left{
 	color = "#3d3c38";
@@ -456,6 +557,15 @@
 /obj/machinery/nuclearbomb/selfdestruct,
 /turf/open/floor/iron/dark/textured_large,
 /area/centcom/octavia)
+"lf" = (
+/obj/structure/cable/layer3,
+/obj/machinery/light/directional/west,
+/turf/open/floor/mineral/plastitanium,
+/area/space)
+"lm" = (
+/obj/machinery/power/tracker,
+/turf/open/space/basic,
+/area/space)
 "lB" = (
 /obj/effect/turf_decal/tile/red/anticorner{
 	dir = 1
@@ -483,11 +593,30 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/centcom/octavia)
+"lU" = (
+/obj/structure/transit_tube/station/dispenser/reverse/flipped{
+	dir = 8
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/centcom/octavia)
+"lZ" = (
+/obj/machinery/holopad/secure,
+/turf/open/floor/mineral/plastitanium/red,
+/area/space)
+"ma" = (
+/obj/machinery/holopad/secure,
+/turf/open/floor/circuit/red,
+/area/space)
 "mp" = (
 /obj/effect/turf_decal/tile/bar/opposingcorners,
 /obj/machinery/disposal/bin,
 /turf/open/floor/iron,
 /area/centcom/octavia)
+"mv" = (
+/obj/structure/cable,
+/obj/machinery/power/tracker,
+/turf/open/floor/iron/solarpanel,
+/area/space)
 "mz" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 10
@@ -534,6 +663,15 @@
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/centcom/octavia)
+"nC" = (
+/obj/structure/transit_tube/station/dispenser/reverse/flipped,
+/turf/open/floor/mineral/plastitanium/red,
+/area/space)
+"nU" = (
+/obj/structure/lattice,
+/obj/structure/lattice,
+/turf/open/space/basic,
+/area/space)
 "og" = (
 /obj/effect/turf_decal/weather/snow,
 /obj/machinery/light/warm/directional/north,
@@ -552,6 +690,10 @@
 /obj/machinery/light/warm/directional/south,
 /turf/open/floor/iron/smooth_large,
 /area/centcom/octavia)
+"on" = (
+/obj/machinery/camera/autoname/directional/west,
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/space)
 "oo" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 1
@@ -561,6 +703,19 @@
 "oF" = (
 /turf/closed/indestructible/syndicate,
 /area/space)
+"oG" = (
+/obj/structure/cable,
+/obj/machinery/door/firedoor,
+/turf/open/floor/mineral/plastitanium,
+/area/space)
+"oN" = (
+/obj/machinery/door/airlock/external/glass,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 1
+	},
+/obj/structure/cable,
+/turf/open/floor/mineral/plastitanium,
+/area/centcom/octavia)
 "oO" = (
 /obj/effect/turf_decal/siding/thinplating{
 	dir = 5
@@ -590,6 +745,11 @@
 	},
 /turf/open/floor/iron/smooth_large,
 /area/centcom/octavia)
+"pg" = (
+/obj/machinery/light/directional/west,
+/obj/structure/sign/flag/syndicate/directional/west,
+/turf/open/floor/mineral/plastitanium,
+/area/space)
 "pp" = (
 /obj/structure/chair/bronze{
 	dir = 8
@@ -644,6 +804,29 @@
 /obj/structure/table/reinforced/plastitaniumglass,
 /turf/open/floor/iron,
 /area/centcom/octavia)
+"qU" = (
+/obj/machinery/door/airlock/multi_tile/metal,
+/obj/structure/cable,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "ai-sat-center"
+	},
+/obj/machinery/door/firedoor,
+/turf/open/space/basic,
+/area/space)
+"rm" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/structure/transit_tube/curved{
+	dir = 4
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/centcom/octavia)
+"rr" = (
+/mob/living/basic/bot/secbot/pingsky{
+	pixel_x = 16;
+	name = "Operative Blorbo"
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/space)
 "rz" = (
 /obj/machinery/door/firedoor,
 /turf/open/floor/iron/dark/brick_aligned_corner_vertical,
@@ -700,6 +883,15 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/centcom/octavia)
+"rQ" = (
+/obj/machinery/porta_turret/ai{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/end{
+	dir = 8
+	},
+/turf/open/floor/circuit/red,
+/area/space)
 "rS" = (
 /obj/effect/turf_decal/siding/thinplating{
 	dir = 10
@@ -717,6 +909,10 @@
 /obj/effect/turf_decal/syndicateemblem/top/middle,
 /turf/open/floor/mineral/plastitanium/red,
 /area/centcom/octavia)
+"sf" = (
+/obj/machinery/flasher/directional/east,
+/turf/open/floor/circuit/red,
+/area/space)
 "sh" = (
 /obj/structure/table,
 /obj/machinery/reagentgrinder{
@@ -783,6 +979,10 @@
 /obj/machinery/light/warm/directional/north,
 /turf/open/floor/iron/dark/textured_large,
 /area/centcom/octavia)
+"uj" = (
+/obj/structure/lattice,
+/turf/closed/indestructible/syndicate,
+/area/centcom/octavia)
 "ul" = (
 /obj/effect/turf_decal/syndicateemblem/bottom/left,
 /turf/open/floor/mineral/plastitanium/red,
@@ -792,6 +992,10 @@
 	dir = 1
 	},
 /turf/open/floor/iron/white/diagonal,
+/area/centcom/octavia)
+"uu" = (
+/obj/structure/sign/departments/aisat/directional/north,
+/turf/open/floor/mineral/plastitanium,
 /area/centcom/octavia)
 "uH" = (
 /obj/effect/turf_decal/tile/red{
@@ -806,10 +1010,28 @@
 /obj/machinery/vending/imported/tiziran,
 /turf/open/floor/iron/smooth_large,
 /area/centcom/octavia)
+"uN" = (
+/obj/structure/cable,
+/obj/machinery/door/airlock/hatch,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "ai-sat-center"
+	},
+/obj/machinery/door/firedoor,
+/turf/open/floor/mineral/plastitanium,
+/area/space)
+"uP" = (
+/obj/structure/table/reinforced/plastitaniumglass,
+/turf/open/floor/mineral/plastitanium/red,
+/area/space)
 "uU" = (
 /obj/structure/closet/secure_closet/bar,
 /turf/open/floor/iron/large,
 /area/centcom/octavia)
+"vl" = (
+/obj/structure/cable/layer3,
+/obj/structure/sign/flag/syndicate/directional/north,
+/turf/open/floor/mineral/plastitanium,
+/area/space)
 "vq" = (
 /obj/effect/turf_decal/tile/bar/opposingcorners,
 /obj/machinery/vending/boozeomat/syndicate,
@@ -829,6 +1051,16 @@
 /obj/structure/cable,
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/centcom/octavia)
+"vS" = (
+/obj/structure/cable,
+/obj/machinery/door/airlock/external{
+	name = "Satellite External Airlock"
+	},
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "ai-solar-panels"
+	},
+/turf/open/floor/plating,
+/area/space)
 "vV" = (
 /obj/machinery/chem_master/condimaster,
 /turf/open/floor/iron/kitchen,
@@ -883,6 +1115,10 @@
 "wH" = (
 /turf/closed/indestructible/opsglass,
 /area/space)
+"wN" = (
+/obj/structure/cable,
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/space)
 "wP" = (
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
 	dir = 1
@@ -905,6 +1141,11 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/centcom/octavia)
+"xi" = (
+/obj/structure/cable/layer3,
+/obj/machinery/light/directional/north,
+/turf/open/floor/mineral/plastitanium,
+/area/space)
 "xt" = (
 /obj/machinery/oven/range,
 /turf/open/floor/iron/kitchen,
@@ -913,11 +1154,20 @@
 /obj/machinery/holopad,
 /turf/open/floor/iron/kitchen,
 /area/centcom/octavia)
+"xO" = (
+/turf/open/floor/mineral/plastitanium/red,
+/area/space)
 "xQ" = (
 /obj/structure/cable,
 /obj/structure/cable,
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/centcom/octavia)
+"xT" = (
+/obj/structure/transit_tube/crossing,
+/obj/structure/lattice/catwalk,
+/obj/structure/cable,
+/turf/open/space/basic,
+/area/space)
 "xV" = (
 /obj/machinery/vending/tool,
 /turf/open/floor/iron/large,
@@ -951,6 +1201,17 @@
 	dir = 4
 	},
 /area/centcom/octavia)
+"yG" = (
+/obj/machinery/power/smes/full,
+/obj/structure/cable,
+/turf/open/floor/mineral/plastitanium,
+/area/space)
+"yH" = (
+/obj/structure/transit_tube/curved{
+	dir = 8
+	},
+/turf/closed/indestructible/syndicate,
+/area/space)
 "yK" = (
 /obj/effect/turf_decal/siding/red/corner{
 	dir = 1
@@ -965,10 +1226,15 @@
 	dir = 1
 	},
 /area/centcom/octavia)
+"zo" = (
+/obj/structure/cable/multilayer/connected,
+/turf/open/floor/mineral/plastitanium,
+/area/space)
 "zJ" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark/corner{
 	dir = 8
 	},
+/obj/structure/transit_tube/station/dispenser/reverse,
 /turf/open/floor/mineral/plastitanium,
 /area/centcom/octavia)
 "Ab" = (
@@ -981,6 +1247,10 @@
 /obj/machinery/light/warm/directional/east,
 /turf/open/floor/iron/dark/textured_large,
 /area/centcom/octavia)
+"Ac" = (
+/obj/structure/cable,
+/turf/open/floor/mineral/plastitanium,
+/area/space)
 "Ae" = (
 /obj/machinery/atmos_shield_gen{
 	dir = 4
@@ -1042,16 +1312,28 @@
 /obj/structure/fans/tiny/forcefield,
 /turf/open/floor/iron/smooth_large,
 /area/space)
+"AS" = (
+/turf/closed/indestructible/opshuttle,
+/area/space)
 "Bi" = (
 /obj/effect/turf_decal/siding/dark/corner{
 	dir = 4
 	},
 /turf/open/floor/iron/white/diagonal,
 /area/centcom/octavia)
+"Bz" = (
+/obj/machinery/door/firedoor,
+/turf/open/space/basic,
+/area/space)
 "BC" = (
 /obj/machinery/disposal/bin,
 /turf/open/floor/iron/kitchen,
 /area/centcom/octavia)
+"BF" = (
+/obj/machinery/light/directional/east,
+/obj/structure/sign/flag/syndicate/directional/north,
+/turf/open/floor/mineral/silver,
+/area/space)
 "BK" = (
 /obj/machinery/vending/dinnerware,
 /turf/open/floor/iron/kitchen,
@@ -1067,6 +1349,15 @@
 "Cn" = (
 /turf/open/floor/iron/dark/brick_aligned_corner_vertical,
 /area/centcom/octavia)
+"Co" = (
+/obj/machinery/porta_turret/ai{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/space)
 "Cs" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/toolbox/mechanical{
@@ -1077,6 +1368,15 @@
 	},
 /turf/open/floor/iron/large,
 /area/centcom/octavia)
+"Cz" = (
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/north,
+/turf/open/floor/mineral/plastitanium,
+/area/space)
+"CH" = (
+/obj/structure/transit_tube/curved/flipped,
+/turf/open/space/basic,
+/area/space)
 "CJ" = (
 /obj/structure/lattice,
 /turf/open/space/basic,
@@ -1136,12 +1436,22 @@
 	},
 /turf/open/floor/carpet/red,
 /area/centcom/octavia)
+"Et" = (
+/obj/machinery/recharge_station,
+/obj/machinery/light/directional/west,
+/turf/open/floor/mineral/plastitanium,
+/area/space)
 "EB" = (
 /obj/machinery/door/firedoor,
 /turf/open/floor/iron/dark/brick_aligned_corner_vertical{
 	dir = 8
 	},
 /area/centcom/octavia)
+"EN" = (
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/north,
+/turf/open/floor/mineral/plastitanium/red,
+/area/space)
 "ER" = (
 /obj/effect/turf_decal/siding/dark,
 /obj/machinery/holopad,
@@ -1165,6 +1475,12 @@
 /obj/machinery/recharger,
 /turf/open/floor/iron/dark/textured_large,
 /area/centcom/octavia)
+"FM" = (
+/obj/structure/transit_tube/station/dispenser/reverse{
+	dir = 1
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/space)
 "FW" = (
 /obj/machinery/door/firedoor,
 /turf/open/floor/iron/dark/brick_aligned_half_vertical{
@@ -1191,6 +1507,12 @@
 	},
 /turf/open/floor/iron/white/diagonal,
 /area/centcom/octavia)
+"Gf" = (
+/obj/structure/transit_tube/curved/flipped{
+	dir = 4
+	},
+/turf/closed/indestructible/syndicate,
+/area/space)
 "Gn" = (
 /turf/open/floor/iron/dark/brick_aligned_corner_vertical_inverse,
 /area/centcom/octavia)
@@ -1198,6 +1520,16 @@
 /obj/machinery/holopad,
 /turf/open/floor/iron/smooth_large,
 /area/centcom/octavia)
+"Gv" = (
+/obj/structure/cable/layer3,
+/obj/machinery/porta_turret/ai{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/space)
 "GE" = (
 /obj/effect/turf_decal/siding/red,
 /obj/item/toy/nuke{
@@ -1207,6 +1539,15 @@
 /obj/structure/table/reinforced/plastitaniumglass,
 /turf/open/floor/iron/dark/textured_large,
 /area/centcom/octavia)
+"GT" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/cable,
+/turf/open/space/basic,
+/area/space)
+"GW" = (
+/obj/structure/transit_tube/diagonal,
+/turf/open/space/basic,
+/area/space)
 "Hr" = (
 /turf/open/floor/circuit/red/alt/anim,
 /area/centcom/octavia)
@@ -1220,6 +1561,9 @@
 /obj/machinery/light/warm/directional/south,
 /turf/open/floor/iron/smooth_large,
 /area/centcom/octavia)
+"HT" = (
+/turf/open/floor/circuit/red,
+/area/space)
 "HW" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/effect/turf_decal/siding/white/corner{
@@ -1246,6 +1590,16 @@
 	},
 /turf/open/floor/carpet/red,
 /area/centcom/octavia)
+"IN" = (
+/obj/structure/sign/flag/syndicate/directional/north,
+/turf/open/floor/mineral/plastitanium,
+/area/space)
+"IV" = (
+/obj/machinery/door/airlock/external/glass,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper,
+/obj/structure/cable,
+/turf/open/floor/mineral/plastitanium,
+/area/centcom/octavia)
 "Jf" = (
 /obj/effect/turf_decal/siding/red{
 	dir = 1
@@ -1261,6 +1615,11 @@
 "Ji" = (
 /turf/open/floor/circuit/red/no_power,
 /area/centcom/octavia)
+"Ju" = (
+/obj/structure/cable,
+/obj/structure/sign/flag/syndicate/directional/north,
+/turf/open/floor/mineral/plastitanium/red,
+/area/space)
 "JA" = (
 /obj/effect/turf_decal/siding/thinplating/dark{
 	dir = 8
@@ -1328,6 +1687,12 @@
 	},
 /turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/centcom/octavia)
+"KR" = (
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/west,
+/obj/machinery/holopad/secure,
+/turf/open/floor/circuit/red,
+/area/space)
 "KU" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 4
@@ -1350,6 +1715,10 @@
 /obj/machinery/minimap_table,
 /turf/open/floor/circuit/red/no_power,
 /area/centcom/octavia)
+"Lj" = (
+/obj/machinery/light/directional/north,
+/turf/open/floor/mineral/plastitanium,
+/area/space)
 "Lm" = (
 /obj/effect/turf_decal/siding/dark/corner{
 	dir = 8
@@ -1430,6 +1799,11 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark/textured_large,
 /area/centcom/octavia)
+"Mu" = (
+/obj/effect/turf_decal/syndicateemblem/top/left,
+/obj/structure/cable,
+/turf/open/floor/mineral/plastitanium/red,
+/area/centcom/octavia)
 "My" = (
 /obj/structure/table,
 /turf/open/floor/iron/kitchen,
@@ -1452,6 +1826,15 @@
 /obj/machinery/vending/wardrobe/chef_wardrobe,
 /turf/open/floor/iron/kitchen,
 /area/centcom/octavia)
+"Nt" = (
+/obj/machinery/porta_turret/ai{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/space)
 "NO" = (
 /turf/open/floor/iron/smooth_large,
 /area/space)
@@ -1459,6 +1842,20 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/iron/dark/textured_large,
 /area/centcom/octavia)
+"Od" = (
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/east,
+/turf/open/floor/mineral/plastitanium,
+/area/space)
+"Of" = (
+/obj/structure/reagent_dispensers/fueltank,
+/turf/open/floor/mineral/plastitanium/red,
+/area/space)
+"OO" = (
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/machinery/recharger,
+/turf/open/floor/mineral/plastitanium/red,
+/area/space)
 "OQ" = (
 /obj/effect/turf_decal/tile/red/half{
 	dir = 8
@@ -1478,6 +1875,13 @@
 	},
 /turf/open/floor/iron/large,
 /area/centcom/octavia)
+"OU" = (
+/obj/machinery/ai_law_rack/base/core{
+	dir = 1
+	},
+/obj/machinery/light/directional/east,
+/turf/open/floor/mineral/plastitanium,
+/area/space)
 "Pa" = (
 /obj/effect/turf_decal/siding/thinplating{
 	dir = 9
@@ -1485,6 +1889,15 @@
 /obj/structure/reagent_dispensers/watertank/high,
 /turf/open/floor/iron/small,
 /area/centcom/octavia)
+"Pk" = (
+/obj/structure/cable,
+/obj/machinery/power/terminal,
+/turf/open/floor/mineral/plastitanium,
+/area/space)
+"Pp" = (
+/obj/machinery/light/directional/east,
+/turf/open/floor/mineral/silver,
+/area/space)
 "Ps" = (
 /obj/machinery/door/window/right/directional/south{
 	name = "Bar Deliveries";
@@ -1512,6 +1925,16 @@
 /obj/structure/cable,
 /turf/open/floor/mineral/plastitanium/red,
 /area/centcom/octavia)
+"PH" = (
+/obj/structure/ai_core{
+	pixel_x = 16;
+	pixel_y = -16
+	},
+/obj/structure/cable,
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/machinery/door/window/left/directional/north,
+/turf/open/floor/engine/air,
+/area/space)
 "PJ" = (
 /obj/effect/turf_decal/siding/thinplating/dark{
 	dir = 4
@@ -1534,12 +1957,26 @@
 /obj/structure/table/reinforced/plastitaniumglass,
 /turf/open/floor/iron/dark/textured_large,
 /area/centcom/octavia)
+"Qa" = (
+/obj/machinery/ai_slipper{
+	uses = 8
+	},
+/turf/open/floor/mineral/gold,
+/area/space)
 "Qk" = (
 /obj/machinery/light/warm/directional/east,
 /turf/open/floor/iron/dark/brick_aligned_corner_vertical{
 	dir = 8
 	},
 /area/centcom/octavia)
+"Qs" = (
+/obj/machinery/door/airlock/multi_tile/metal,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "ai-sat-center"
+	},
+/obj/machinery/door/firedoor,
+/turf/open/floor/mineral/plastitanium,
+/area/space)
 "Qx" = (
 /obj/structure/window/reinforced/spawner/directional/north,
 /obj/machinery/door/window/left/directional/east{
@@ -1581,6 +2018,14 @@
 /obj/structure/bookcase/random/adult,
 /turf/open/floor/iron/dark/textured_large,
 /area/centcom/octavia)
+"Rc" = (
+/obj/structure/cable/layer3,
+/turf/open/floor/mineral/plastitanium,
+/area/space)
+"Rd" = (
+/obj/machinery/power/smes/full,
+/turf/open/floor/mineral/plastitanium,
+/area/space)
 "Rf" = (
 /obj/machinery/disposal/bin,
 /obj/effect/turf_decal/siding/thinplating{
@@ -1629,6 +2074,12 @@
 /obj/structure/lattice/catwalk,
 /turf/open/space/basic,
 /area/space/nearstation)
+"RQ" = (
+/obj/structure/transit_tube/curved/flipped{
+	dir = 1
+	},
+/turf/closed/indestructible/opsglass,
+/area/centcom/octavia)
 "RU" = (
 /obj/effect/turf_decal/siding/thinplating/dark{
 	dir = 5
@@ -1693,7 +2144,26 @@
 /area/centcom/octavia)
 "TR" = (
 /obj/machinery/power/solar,
-/turf/open/floor/plating,
+/obj/structure/cable,
+/turf/open/floor/iron/solarpanel,
+/area/space)
+"TX" = (
+/obj/machinery/light/directional/west,
+/obj/structure/sign/flag/syndicate/directional/north,
+/turf/open/floor/mineral/silver,
+/area/space)
+"Ug" = (
+/obj/machinery/porta_turret/ai{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/space)
+"Um" = (
+/obj/structure/transit_tube/curved,
+/turf/open/space/basic,
 /area/space)
 "Ur" = (
 /obj/effect/turf_decal/tile/bar/opposingcorners,
@@ -1714,6 +2184,10 @@
 /obj/machinery/light/warm/directional/south,
 /turf/open/floor/iron/dark/textured_large,
 /area/centcom/octavia)
+"VG" = (
+/obj/structure/transit_tube/horizontal,
+/turf/closed/indestructible/syndicate,
+/area/space)
 "VL" = (
 /obj/structure/chair/comfy/black{
 	dir = 8
@@ -1735,6 +2209,9 @@
 /obj/structure/table/reinforced/plastitaniumglass,
 /turf/open/floor/iron/dark/textured_large,
 /area/centcom/octavia)
+"Wu" = (
+/turf/open/floor/mineral/plastitanium,
+/area/space)
 "Wy" = (
 /obj/effect/turf_decal/siding/thinplating/dark{
 	dir = 8
@@ -1804,6 +2281,25 @@
 /obj/structure/plasticflaps/kitchen,
 /turf/open/floor/iron/large,
 /area/centcom/octavia)
+"XO" = (
+/obj/structure/cable,
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/window/reinforced/spawner/directional/south,
+/turf/open/floor/engine/air,
+/area/space)
+"XQ" = (
+/obj/machinery/power/solar_control{
+	dir = 1;
+	id = "aisolar";
+	name = "AI Solar Control"
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/space)
+"YC" = (
+/obj/machinery/recharge_station,
+/turf/open/floor/mineral/plastitanium,
+/area/space)
 "Zb" = (
 /obj/item/wrench,
 /obj/item/stack/sheet/glass{
@@ -1850,6 +2346,12 @@
 	pixel_y = 5
 	},
 /turf/open/floor/iron/kitchen,
+/area/centcom/octavia)
+"Zv" = (
+/obj/structure/transit_tube/horizontal{
+	dir = 1
+	},
+/turf/closed/indestructible/opsglass,
 /area/centcom/octavia)
 "Zw" = (
 /obj/machinery/light/warm/directional/west,
@@ -7710,7 +8212,7 @@ Wz
 Wz
 Wz
 Wz
-Wz
+CJ
 oF
 Wz
 Wz
@@ -7861,7 +8363,7 @@ Wz
 Wz
 Wz
 Wz
-Wz
+CJ
 oF
 oF
 oF
@@ -8012,10 +8514,10 @@ Wz
 Wz
 Wz
 Wz
-Wz
-Wz
-Wz
-Wz
+CJ
+CJ
+CJ
+CJ
 Wz
 Wz
 Wz
@@ -8163,9 +8665,9 @@ Wz
 Wz
 Wz
 Wz
-Wz
-Wz
-Wz
+CJ
+CJ
+CJ
 Wz
 Wz
 Wz
@@ -8314,9 +8816,9 @@ Wz
 Wz
 Wz
 Wz
-Wz
-Wz
-Wz
+CJ
+CJ
+CJ
 Wz
 Wz
 Wz
@@ -8344,9 +8846,9 @@ oF
 oF
 oF
 oF
-oF
-oF
-oF
+Wz
+Wz
+Wz
 oF
 oF
 oF
@@ -8465,9 +8967,9 @@ Wz
 Wz
 Wz
 Wz
-Wz
-Wz
-Wz
+CJ
+CJ
+nU
 Wz
 Wz
 Wz
@@ -8616,9 +9118,9 @@ Wz
 Wz
 Wz
 Wz
-Wz
-Wz
-Wz
+CJ
+CJ
+CJ
 Wz
 Wz
 Wz
@@ -8767,9 +9269,9 @@ Wz
 Wz
 Wz
 Wz
-Wz
-Wz
-Wz
+CJ
+CJ
+CJ
 Wz
 Wz
 Wz
@@ -8918,9 +9420,9 @@ Wz
 Wz
 Wz
 Wz
-Wz
-Wz
-Wz
+CJ
+CJ
+CJ
 Wz
 Wz
 Wz
@@ -9069,9 +9571,9 @@ Wz
 Wz
 Wz
 Wz
-Wz
-Wz
-Wz
+CJ
+CJ
+CJ
 Wz
 Wz
 Wz
@@ -9220,9 +9722,9 @@ Wz
 Wz
 Wz
 Wz
-Wz
-Wz
-Wz
+CJ
+CJ
+CJ
 Wz
 Wz
 Wz
@@ -9370,10 +9872,10 @@ Wz
 TR
 dl
 TR
-Wz
-Wz
-Wz
-Wz
+CJ
+CJ
+CJ
+CJ
 Wz
 Wz
 Wz
@@ -9523,8 +10025,8 @@ dl
 dl
 TR
 TR
-Wz
-Wz
+CJ
+CJ
 Wz
 Wz
 Wz
@@ -9675,7 +10177,7 @@ dl
 TR
 dl
 dl
-Wz
+GT
 Wz
 Wz
 Wz
@@ -9827,7 +10329,7 @@ TR
 dl
 dl
 TR
-CJ
+GT
 CJ
 Wz
 Wz
@@ -9844,7 +10346,7 @@ CJ
 CJ
 LE
 oQ
-FD
+Sp
 Sp
 Sp
 Sp
@@ -9960,26 +10462,26 @@ dl
 TR
 dl
 dl
-oF
-oF
-oF
 dl
 dl
 dl
 dl
 dl
 dl
-oF
-oF
-oF
 dl
 dl
-TR
+dl
+dl
+dl
+dl
 dl
 dl
 TR
+dl
+dl
+TR
 CJ
-CJ
+GT
 CJ
 CJ
 CJ
@@ -9996,10 +10498,10 @@ CJ
 CJ
 Zd
 Zd
-Zd
-Zd
-Zd
-ZW
+uj
+uu
+Dc
+Sp
 cO
 ZL
 hU
@@ -10112,18 +10614,18 @@ dl
 dl
 TR
 oF
-Wz
-Wz
-Wz
 oF
 oF
 oF
 oF
 oF
 oF
-Wz
-Wz
-Wz
+vS
+oF
+oF
+oF
+oF
+oF
 oF
 TR
 dl
@@ -10131,7 +10633,7 @@ dl
 TR
 CJ
 CJ
-CJ
+GT
 Wz
 Wz
 Wz
@@ -10147,13 +10649,13 @@ Wz
 Wz
 CJ
 CJ
-CJ
-Wz
-Wz
-Wz
-ZW
-Xo
-mP
+GT
+IV
+vI
+vI
+oN
+fd
+Mu
 Dp
 ul
 oo
@@ -10263,47 +10765,47 @@ Wz
 TR
 dl
 oF
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
+oF
+Gv
+Rc
+lf
+Rc
+zo
+oF
+dl
+XQ
+oF
+Et
+YC
+oF
+oF
 oF
 dl
 TR
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-ZW
+Um
+gG
+gG
+xT
+xT
+xT
+xT
+xT
+xT
+xT
+xT
+xT
+xT
+xT
+xT
+xT
+xT
+xT
+xT
+xT
+Zv
+lU
+Dc
+Sp
 Xo
 sd
 PE
@@ -10413,25 +10915,25 @@ Wz
 Wz
 Wz
 Wz
+dl
 oF
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
 oF
-Wz
+Rc
+Wu
+Wu
+ev
+ev
+oF
+vS
+oF
+oF
+Wu
+Wu
+oF
+Of
+oF
+oF
+GW
 Wz
 Wz
 Wz
@@ -10565,24 +11067,24 @@ Wz
 Wz
 Wz
 Wz
+dl
 oF
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
+Gv
+Rc
+Wu
+Ac
+yG
+yG
 oF
+Pk
+Rd
+Ac
+Od
+Ac
+uN
+bW
+xO
+Gf
 Wz
 Wz
 Wz
@@ -10717,24 +11219,24 @@ Wz
 Wz
 Wz
 Wz
+dl
 oF
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
+vl
+Ac
+Ac
+Ac
+AS
+AS
+AS
+IN
+iy
+Wu
 oF
+oF
+oF
+Ju
+lZ
+VG
 Wz
 Wz
 Wz
@@ -10871,27 +11373,27 @@ TR
 TR
 dl
 oF
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
+xi
+Ac
+AS
+AS
+iT
+fL
+HT
+AS
+AS
 oF
-dl
-TR
-TR
-TR
-TR
-TR
+oF
+io
+oF
+EN
+xO
+VG
+oF
+Wz
+Wz
+Wz
+Wz
 Wz
 Wz
 Wz
@@ -11007,7 +11509,7 @@ Wz
 Wz
 Wz
 Wz
-Wz
+lm
 Wz
 Wz
 Wz
@@ -11023,28 +11525,28 @@ dl
 dl
 dl
 oF
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
+Rc
+Ac
+AS
+TX
+Qa
+gu
+on
+KR
+if
+wH
+pg
+Wu
 oF
-dl
-dl
-dl
-dl
-dl
-dl
-dl
+bW
+xO
+nC
+wH
+Wz
+Wz
+Wz
+Wz
+Wz
 Wz
 Wz
 Wz
@@ -11175,29 +11677,29 @@ TR
 TR
 dl
 oF
+Rc
+Ac
+qU
+gq
+wN
+PH
+XO
+wN
+HT
+wH
+Wu
+Wu
+Qs
+bW
+rr
+OO
+wH
 Wz
 Wz
 Wz
 Wz
 Wz
 Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-oF
-dl
-TR
-TR
-TR
-TR
-TR
-TR
-TR
 Wz
 Wz
 Wz
@@ -11327,29 +11829,29 @@ TR
 TR
 dl
 oF
+zo
+Wu
+Bz
+HT
+gu
+bg
+bb
+gu
+HT
+wH
+Wu
+Ac
+oG
+bW
+xO
+uP
+wH
 Wz
 Wz
 Wz
 Wz
 Wz
 Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-oF
-dl
-TR
-TR
-TR
-TR
-TR
-TR
-TR
 Wz
 Wz
 Wz
@@ -11479,28 +11981,28 @@ dl
 dl
 dl
 oF
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
+Cz
+Ac
+AS
+BF
+Qa
+gu
+kO
+ma
+Pp
+wH
+Wu
+fp
 oF
-dl
-dl
-dl
-dl
-dl
-dl
-dl
+bW
+xO
+FM
+wH
+Wz
+Wz
+Wz
+Wz
+Wz
 Wz
 Wz
 Wz
@@ -11624,34 +12126,34 @@ Wz
 Wz
 Wz
 Wz
-TR
+mv
 TR
 TR
 TR
 TR
 dl
 oF
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
+Lj
+Ac
+AS
+AS
+sf
+rQ
+HT
+AS
+AS
 oF
-dl
-TR
-TR
-TR
-TR
-TR
+OU
+Nt
+oF
+dt
+xO
+VG
+oF
+Wz
+Wz
+Wz
+Wz
 Wz
 Wz
 Wz
@@ -11781,24 +12283,24 @@ Wz
 Wz
 Wz
 Wz
+dl
 oF
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
+IN
+Ac
+Wu
+Ug
+AS
+AS
+AS
+IN
+Wu
 oF
+oF
+oF
+oF
+Ju
+lZ
+VG
 Wz
 Wz
 Wz
@@ -11933,24 +12435,24 @@ Wz
 Wz
 Wz
 Wz
+dl
 oF
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
+Co
+Ac
+Wu
+Wu
+Wu
+Wu
 oF
+Wu
+Wu
+Wu
+Wu
+Ac
+uN
+bW
+xO
+yH
 Wz
 Wz
 Wz
@@ -12085,25 +12587,25 @@ Wz
 Wz
 Wz
 Wz
+dl
 oF
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
 oF
-Wz
+Ac
+Ac
+Ac
+Ac
+Ac
+uN
+Ac
+Ac
+Ac
+Ac
+Ac
+oF
+xO
+oF
+oF
+jB
 Wz
 Wz
 Wz
@@ -12239,47 +12741,47 @@ Wz
 TR
 dl
 oF
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
+oF
+Co
+Wu
+iy
+Wu
+Wu
+oF
+Co
+Wu
+iy
+Wu
+eq
+oF
+oF
 oF
 dl
 TR
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-Wz
-ZW
+CH
+gG
+gG
+gG
+gG
+gG
+gG
+gG
+gG
+gG
+gG
+gG
+gG
+gG
+gG
+gG
+gG
+gG
+gG
+gG
+gG
+gG
+gG
+RQ
 Xo
 sd
 PE
@@ -12392,18 +12894,18 @@ dl
 dl
 TR
 oF
-Wz
-Wz
-Wz
 oF
 oF
 oF
 oF
 oF
 oF
-Wz
-Wz
-Wz
+oF
+oF
+oF
+oF
+oF
+oF
 oF
 TR
 dl
@@ -12432,7 +12934,7 @@ Wz
 Wz
 Wz
 ZW
-Xo
+rm
 PB
 fa
 Ve
@@ -12544,18 +13046,18 @@ dl
 TR
 dl
 dl
-oF
-oF
-oF
 dl
 dl
 dl
 dl
 dl
 dl
-oF
-oF
-oF
+dl
+dl
+dl
+dl
+dl
+dl
 dl
 dl
 TR
@@ -12867,7 +13369,7 @@ dl
 TR
 dl
 dl
-Wz
+CJ
 Wz
 Wz
 Wz
@@ -13019,7 +13521,7 @@ dl
 dl
 TR
 TR
-Wz
+CJ
 Wz
 Wz
 Wz
@@ -13170,9 +13672,9 @@ Wz
 TR
 dl
 TR
-Wz
-Wz
-Wz
+CJ
+CJ
+CJ
 Wz
 Wz
 Wz
@@ -13323,9 +13825,9 @@ Wz
 Wz
 Wz
 Wz
-Wz
-Wz
-Wz
+CJ
+CJ
+CJ
 Wz
 Wz
 Wz
@@ -13476,9 +13978,9 @@ Wz
 Wz
 Wz
 Wz
-Wz
-Wz
-Wz
+CJ
+CJ
+CJ
 Wz
 Wz
 Wz
@@ -13629,9 +14131,9 @@ Wz
 Wz
 Wz
 Wz
-Wz
-Wz
-Wz
+CJ
+CJ
+CJ
 Wz
 Wz
 Wz
@@ -13782,9 +14284,9 @@ Wz
 Wz
 Wz
 Wz
-Wz
-Wz
-Wz
+CJ
+CJ
+CJ
 Wz
 Wz
 Wz
@@ -13935,9 +14437,9 @@ Wz
 Wz
 Wz
 Wz
-Wz
-Wz
-Wz
+CJ
+CJ
+CJ
 Wz
 Wz
 Wz
@@ -14088,9 +14590,9 @@ Wz
 Wz
 Wz
 Wz
-Wz
-Wz
-Wz
+CJ
+CJ
+CJ
 Wz
 Wz
 Wz
@@ -14241,9 +14743,9 @@ Wz
 Wz
 Wz
 Wz
-Wz
-Wz
-Wz
+CJ
+nU
+CJ
 Wz
 Wz
 Wz
@@ -14394,9 +14896,9 @@ Wz
 Wz
 Wz
 Wz
-Wz
-Wz
-Wz
+CJ
+CJ
+CJ
 Wz
 Wz
 Wz
@@ -14547,9 +15049,9 @@ Wz
 Wz
 Wz
 Wz
-Wz
-Wz
-Wz
+CJ
+CJ
+CJ
 Wz
 Wz
 Wz
@@ -14700,9 +15202,9 @@ Wz
 Wz
 Wz
 Wz
-Wz
-Wz
-Wz
+CJ
+CJ
+CJ
 Wz
 Wz
 Wz
@@ -14853,9 +15355,9 @@ Wz
 Wz
 Wz
 Wz
-Wz
-Wz
-Wz
+CJ
+CJ
+CJ
 Wz
 Wz
 Wz
@@ -15005,7 +15507,7 @@ Wz
 Wz
 Wz
 Wz
-Wz
+CJ
 oF
 oF
 oF
@@ -15158,7 +15660,7 @@ Wz
 Wz
 Wz
 Wz
-Wz
+CJ
 oF
 Wz
 Wz
