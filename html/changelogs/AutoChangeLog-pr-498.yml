@@ -1,0 +1,4 @@
+author: "Shroopy"
+delete-after: True
+changes:
+  - balance: "Reverted the Affluent quirk taking money from the departmental budget."
