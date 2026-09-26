@@ -225,8 +225,6 @@
 	item_path = /obj/item/clothing/under/wetsuit_norm
 	ckeywhitelist = list("ChillyLobster")
 
-/datum/loadout_item/mask/wolf_mask
-	name = "Wolf Mask"
 */ // OCULIS EDIT REMOVAL END
 
 /datum/loadout_item/mask/wolf_mask
