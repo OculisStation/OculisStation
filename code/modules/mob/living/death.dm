@@ -212,6 +212,10 @@
 	// otherwise surgeons would be depressed and that would be too realistic
 	if(HAS_TRAIT(src, TRAIT_READY_TO_OPERATE))
 		return
+	// OCULIS EDIT ADDITION START - SLIME_RANCHER - monkeys in xenobio are food, don't make people sad about the buffet working
+	if(HAS_TRAIT(src, TRAIT_LESSER_HUMANOID) && HAS_TRAIT(src, TRAIT_WAS_SLIME_FOOD))
+		return
+	// OCULIS EDIT ADDITION END
 	. = ..()
 	add_memory_in_range(src, 7, (gibbed ? /datum/memory/witness_gib : /datum/memory/witnessed_death), protagonist = src)
 

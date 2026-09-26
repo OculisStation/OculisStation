@@ -381,7 +381,10 @@
 
 	var/core_count = min(count, cores)
 	for(var/i in 1 to core_count)
-		new slime_type.core_type(loc)
+		// OCULIS EDIT CHANGE START - SLIME_RANCHER - ORIGINAL: new slime_type.core_type(loc)
+		var/obj/item/slime_extract/core = new slime_type.core_type(loc)
+		core.fresh_from_slime = TRUE
+		// OCULIS EDIT CHANGE END
 		cores--
 
 	regenerate_icons()
