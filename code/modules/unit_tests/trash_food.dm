@@ -23,18 +23,18 @@
 		/obj/item/dice/fudge, // /obj/item/food/fudgedice
 		/obj/item/trash/vendor_trash, // base type because it's a joke subtype // NOVA EDIT ADDITION
 		// OCULIS EDIT ADDITION START
-		/obj/item/stack/sheet/mineral/sandfruitcore,
-		/obj/item/stack/sheet/mineral/uraniberrycore,
-		/obj/item/stack/sheet/mineral/plasmaplumcore,
-		/obj/item/stack/sheet/mineral/bluegemdrupecore,
-		/obj/item/stack/sheet/mineral/agberginecore,
-		/obj/item/stack/sheet/mineral/auberginecore,
-		/obj/item/stack/sheet/mineral/dimantiscore,
-		/obj/item/stack/sheet/mineral/ferrotubercore,
-		/obj/item/stack/sheet/mineral/titanitubercore,
-		/obj/item/stack/sheet/mineral/adamapplecore,
-		/obj/item/stack/sheet/mineral/runescoopercore,
-		/obj/item/stack/sheet/mineral/bananiumberrycore,
+		/obj/item/stack/ore/glass/sandfruitcore,
+		/obj/item/stack/ore/uranium/uraniberrycore,
+		/obj/item/stack/ore/plasma/plasmaplumcore,
+		/obj/item/stack/ore/bluespace_crystal/bluegemdrupecore,
+		/obj/item/stack/ore/silver/agberginecore,
+		/obj/item/stack/ore/gold/auberginecore,
+		/obj/item/stack/ore/diamond/dimantiscore,
+		/obj/item/stack/ore/iron/ferrotubercore,
+		/obj/item/stack/ore/titanium/titanitubercore,
+		/obj/item/stack/sheet/mineral/adamantine/adamapplecore,
+		/obj/item/stack/sheet/mineral/runite/runescoopercore,
+		/obj/item/stack/ore/bananium/bananiumberrycore,
 		// OCULIS EDIT ADDITION END
 	)
 
