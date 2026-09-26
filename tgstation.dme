@@ -10497,6 +10497,7 @@
 #include "modular_oculis\modules\quirks\code\scarred_eye.dm"
 #include "modular_oculis\modules\quirks\code\stowaway.dm"
 #include "modular_oculis\modules\radio\radio.dm"
+#include "modular_oculis\modules\radio_bell\code\radio_desk_bell.dm"
 #include "modular_oculis\modules\redaction\code\admin.dm"
 #include "modular_oculis\modules\redaction\code\checks.dm"
 #include "modular_oculis\modules\redaction\code\redaction_subsystem.dm"

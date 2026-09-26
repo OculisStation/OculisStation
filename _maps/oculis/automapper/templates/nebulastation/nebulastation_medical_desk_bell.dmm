@@ -1,0 +1,27 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/structure/table/reinforced,
+/obj/item/paper{
+	pixel_x = -4
+	},
+/obj/item/pen{
+	pixel_x = -4
+	},
+/obj/machinery/door/window/left/directional/west{
+	req_access = list("medical");
+	name = "Reception Desk"
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/window/spawner/directional/north,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "medbay"
+	},
+/obj/structure/desk_bell/department/medical{
+	pixel_x = 7
+	},
+/turf/open/floor/iron/white,
+/area/station/medical/medbay/lobby)
+
+(1,1,1) = {"
+a
+"}
