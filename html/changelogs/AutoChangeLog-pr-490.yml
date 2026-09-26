@@ -1,0 +1,4 @@
+author: "curiousbookshelf"
+delete-after: True
+changes:
+  - bugfix: "All jobs SHOULD now show the right job icons when using alternative job titles"
