@@ -1,0 +1,4 @@
+author: "Absolucy"
+delete-after: True
+changes:
+  - balance: "Having actual fangs now affects the damage, armor penetration, and wound chance of the venomous bites quirk."
