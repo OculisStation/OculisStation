@@ -32,8 +32,9 @@ Slimecrossing Mobs
 /mob/living/basic/slime/transformed_slime
 
 // Just in case.
-/mob/living/basic/slime/transformed_slime/reproduce()
-	to_chat(src, span_warning("I can't reproduce...")) // Mood
+/mob/living/basic/slime/transformed_slime/reproduce(feedback = TRUE) // OCULIS EDIT CHANGE - SLIME_RANCHER - ORIGINAL: /mob/living/basic/slime/transformed_slime/reproduce()
+	if(feedback) // OCULIS EDIT CHANGE - SLIME_RANCHER - ORIGINAL: to_chat(src, span_warning("I can't reproduce...")) // Mood
+		to_chat(src, span_warning("I can't reproduce...")) // Mood
 	return
 
 //Slime corgi - Chilling Pink

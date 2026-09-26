@@ -17,9 +17,6 @@
       are obscured due to walls or such (red).
   - qol: Ghost cafe players no longer count as "active" players, such as in the Plexora
       status or the top right stat panel.
-  Gboster-0:
-  - bugfix: borers now work with an ugly patchjob, awaiting a rework
-  - bugfix: Fixed the existence of borgs sometimes causing the orbit menu to crash.
   FalloutFalcon:
   - bugfix: sawnoff recoil is ADDED to existing recoil rather then setting it
   - code_imp: Adds support for pre-sawnoff guns and cleans up sawnoff behavoir
@@ -32,6 +29,9 @@
   - qol: deathsquaddies can no longer check security records with their eyes
   FlufflesTheDog:
   - bugfix: Stoat fangs properly exist
+  Gboster-0:
+  - bugfix: borers now work with an ugly patchjob, awaiting a rework
+  - bugfix: Fixed the existence of borgs sometimes causing the orbit menu to crash.
   Ghommie:
   - refactor: Refactored the code for damage and types of damage a little (also armor
       but not as much). Make sure to report any oddity with it.
@@ -58,9 +58,34 @@
   Melbert:
   - rscadd: Adds two item acts - one to portable wind turbines, and one to propeller
       hats - that does something when you act with the items. No spoilers.
+  PapaMichael:
+  - bugfix: Firefighting foam no longer immediately burns away in heat without getting
+      a chance to do its firefighting foam effects
+  - bugfix: Revenants are no longer immune to all damage
+  - bugfix: Cats no longer try to run away from themselves after losing a catfight,
+      instead running from the cat they actually lost to
+  - qol: The AI Malfunction UI now shows the number of currently hacked APCs
+  - bugfix: Chat should scroll properly on some messages that wrap now.
+  QuiteLiterallyAnything:
+  - rscadd: Added subtle tooltips to speaker names in chat in order to make distinguishing
+      gender over the radio easier.
   Richard Blonski:
   - server: Added a debug command to reload photocopier templates without restarting
       the server.
+  TheBoondock:
+  - rscadd: Added pillow lance and mattress shield
+  - rscadd: Pillow lance deals stamina damage and allows user to charge once wielded,
+      to charge simply contiously run in a direction and it consumes stamina the more
+      you run
+  - rscadd: Mattress shield deals stamina damage and allows user yto fortify, gaining
+      more  block chance and more stamina damage, the shield breaks easily as it is
+      still a mattress
+  - rscadd: You can now buy lance and mattress from toy vendor
+  - rscadd: Maintenance now have a chance to spawn lance and mattress shield
+  ZeWaka:
+  - bugfix: Fixed more TGUI window resize/white flashing
+  lelandkemble:
+  - bugfix: The greed of miners no longer clogs the runtime logs
   necromanceranne:
   - code_imp: Cleaned up atmos color adapter pipe code a tiny bit, report any oddities
   - bugfix: Atmos multi-z pipes rendering weirdly when connecting with omni-pipes
@@ -82,38 +107,13 @@
       own fangs.
   - code_imp: Vampire fangs now handle all vampire blood-draining effects.
   - rscadd: Cybernetic fangs, unlocked via the Cybernetics tech node.
-  PapaMichael:
-  - bugfix: Firefighting foam no longer immediately burns away in heat without getting
-      a chance to do its firefighting foam effects
-  - bugfix: Revenants are no longer immune to all damage
-  - bugfix: Cats no longer try to run away from themselves after losing a catfight,
-      instead running from the cat they actually lost to
-  - qol: The AI Malfunction UI now shows the number of currently hacked APCs
-  - bugfix: Chat should scroll properly on some messages that wrap now.
-  QuiteLiterallyAnything:
-  - rscadd: Added subtle tooltips to speaker names in chat in order to make distinguishing
-      gender over the radio easier.
-  TheBoondock:
-  - rscadd: Added pillow lance and mattress shield
-  - rscadd: Pillow lance deals stamina damage and allows user to charge once wielded,
-      to charge simply contiously run in a direction and it consumes stamina the more
-      you run
-  - rscadd: Mattress shield deals stamina damage and allows user yto fortify, gaining
-      more  block chance and more stamina damage, the shield breaks easily as it is
-      still a mattress
-  - rscadd: You can now buy lance and mattress from toy vendor
-  - rscadd: Maintenance now have a chance to spawn lance and mattress shield
-  ZeWaka:
-  - bugfix: Fixed more TGUI window resize/white flashing
-  lelandkemble:
-  - bugfix: The greed of miners no longer clogs the runtime logs
-  sqnztb:
-  - balance: Spears no longer break from overuse without repair.
   projectkepler-ru:
   - balance: .38 Truestrike now does 20 damage and has better AP.
   san7890:
   - bugfix: The pizza reward from the Bitrunning Pizzeria is now "edible", but it
       is a fool's errand to try and eat it.
+  sqnztb:
+  - balance: Spears no longer break from overuse without repair.
 2026-09-07:
   Maia-J:
   - bugfix: Pod dropped mobs no longer have broken AI that's stuck trying to resist
@@ -151,14 +151,14 @@
   - qol: Made Candela LoS checks a bit more forgiving
   TheBoondock:
   - code_imp: optimize compare() by adding total moles check
-  sqnztb:
-  - bugfix: buckled people can look around again.
   XeonMations:
   - bugfix: Disabling autopunctuation works again.
   - balance: Affluent quirk no longer spawns infinite money
   - bugfix: fixed longer do emotes not showing thinking indicator
   - bugfix: fixed AI mobs ignoring cooldowns
   - rscadd: Added the ability to rename guns with a pen.
+  sqnztb:
+  - bugfix: buckled people can look around again.
 2026-09-10:
   Absolucy:
   - bugfix: Slimes now properly pass down factions and allies to their babies.
@@ -282,3 +282,47 @@
 2026-09-18:
   Shroopy:
   - balance: Reverted MODsuit control units slowing you when worn.
+2026-09-26:
+  Absolucy:
+  - rscadd: Xenobiology is now literally slime rancher.
+  - rscadd: Added vacuum packs for xenobiology - they can suck up slimes, recycle
+      monkeys, spit out monkeys and creatures for the slimes to eat, and suck extracts
+      towards you!
+  - rscadd: Slime pens are now their own thing with cool barriers and such!
+  - rscadd: Slime scanners are now used to remotely scan a slime and stay up to date
+      on that specific slime's stats and such.
+  - rscadd: Instead of freezing and mulching slimes for extracts, slimes now produce
+      extracts when fed enough.
+  - rscadd: Slimes now need to eat specific items or creatures in order to unlock
+      specific mutations - the slime scanner will help you with this.
+  - rscadd: Slimes won't split on their own - instead, you need to feed them "breeding
+      pellets" from the biomass recycler, or if you are the slime's friend, order
+      them to do so, and they will split or mutate whenever they can instead. This
+      does not apply to "wild" slimes that haven't been in a pen recently, and player
+      slimes can still manually split whenever.
+  Shroopy:
+  - rscadd: Added dice tracking to the *roll emote. You can now see the individual
+      results for the dice you roll.
+  - rscadd: Added more colors of gun case to the loadout.
+  - balance: Removed the slowdown on security MODsuits.
+  - balance: Increased the bullet protection of security MODsuits to match roundstart
+      gear.
+  - balance: Changed the default small storage modules in security MODsuits to full
+      storage modules.
+  - bugfix: Fixed ricochet projectiles missing targets.
+  - balance: Buffed ricochet projectiles by making them actually hit targets.
+  - bugfix: Fixed some chat hallucinations missing periods.
+  - balance: Reverted the Affluent quirk taking money from the departmental budget.
+  SirNoobsworth:
+  - rscadd: 'two new ears labelled Set 1 and Set 2 that are colorable
+
+      :cl:
+
+      <!-- Both :cl:''s are required for the changelog to work! You can put your name
+      to the right of the first :cl: if you want to overwrite your GitHub username
+      as author ingame. -->
+
+      <!-- You can use multiple of the same prefix (they''re only used for the icon
+      ingame) and delete the unneeded ones. Despite some of the tags, changelogs should
+      generally represent how a player might be affected by the changes rather than
+      a summary of the PR''s contents. -->'

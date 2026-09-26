@@ -722,8 +722,8 @@ put up a rune with bluespace effects, lots of those runes are fluff or act as a 
 	I.wound_bonus = I.wound_bonus + 4
 	I.throwforce = clamp(I.throwforce + 4, 0, 30)
 	I.name = "brilliant [I.name]"
-	// Add a glowy colour
-	I.add_atom_colour(rgb(243, 227, 183), ADMIN_COLOUR_PRIORITY)
+	// Add a glowy color
+	I.add_atom_colour(color_transition_filter(rgb(243, 227, 183)), ADMIN_COLOUR_PRIORITY)
 	to_chat(user, span_notice("[I] glows with a brilliant light!"))
 
 /obj/item/slimecross/warping/lightpink
