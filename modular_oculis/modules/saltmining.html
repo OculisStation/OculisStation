@@ -1,0 +1,52 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><base href="../../"><link rel="stylesheet" href="dmdoc.css"><title>modular_oculis/modules/saltmining/readme.md - /tg/ Station 13</title></head><body><header><a href="index.html">/tg/ Station 13</a> - <a href="index.html#modules">Modules</a> - <a href="index.html#types">Types</a></header><main><h1>modular_oculis/modules/saltmining/readme.md <a href="https://github.com/OculisStation/OculisStation/blob/1669223aa86ba10add49a2c0f073f54d97fd45e2/modular_oculis/modules/saltmining/readme.md"><img src="git.png" width="16" height="16" title="modular_oculis/modules/saltmining/readme.md"></a></h1><table class="summary" cellspacing="0"><tr><td colspan="2"><p>https://github.com/OculisStation/OculisStation/pull/276
+//DONT FORGET TO GET THE PULL REQUEST ID LATER BOZO</p>
+<h2 id="salted-zens-mega-mining-items-port">Salted Zens Mega Mining Items Port</h2>
+<p>Module ID: SALTMINING</p>
+<h3 id="description-why-is-it-so-orange">Description: Why Is It So ORANGE</h3>
+<p>Adds a bunch of mining gear that I (Salted-Zen) created for monkestation
+and a change that nerfs them a little in pvp (by notghosti)</p>
+<p>Adds the following (summarized)</p>
+<p>Surplus Necropolis Crates (Purchaseable tendril crates)
+PKShockwave Rework (No more point blank)
+PKSMG (The first limited ammo weapon, full auto)
+PKShotgun rework (The slayer, the second limited ammo gun)
+Arsenal Upgrade (Large package that includes 3 crushers, 5 limited ammo guns, and 3 backpacks)</p>
+<p>Topped off with Ice-Types add fauna modifier to projectiles
+and notghosti's wasteland weapons less effective on non waste creatures (aka make fauna_mod do something)
+These are slightly modified in this module by me but the code is taken pretty much straight from these two so im giving them credit.</p>
+<h3 id="tg-proc-file-changes-help">TG Proc/File Changes: Help</h3><h3 id="modular-overrides-oh-god">Modular Overrides: Oh God</h3><h3 id="defines-we-got-alot">Defines: We got... alot</h3>
+<p>There is a new define added in a core file, due to its nature it was better to put it there.</p>
+<p>code/__DEFINES/computers.dm (Added the &quot;Wasteland Weapons&quot; Define for categories)
+Change is on lines 14 - This define is used in the core file for mining orders, please see below.</p>
+<p>modular_oculis/modules/saltmining/code/_saltmining.dm
+This one is in the module, but contains a ton of new defines to add a ton of extra ammo types exclusive for mining guns.
+The list is as follows
+MINER_SHOTGUN &quot;kinetic shotgun&quot; (Slayer / Goliath Hunter)
+CALIBER_GOV_MINING &quot;.45-70 Gov Mining&quot; (Duster / Venator)
+KINETIC_20G &quot;20 Gauge Mining Shell&quot; (Fenrir)
+CALIBER_A762_KINETIC &quot;7.65 Mining&quot; (Hellhound)
+CALIBER_MINER_950 &quot;.950 JDJ Lightning&quot; (Thor)</p>
+<h3 id="included-files-that-are-not-contained-in-this-module-please-read">Included files that are not contained in this module: Please Read</h3>
+<p>There are a few changes to core files due to the way things are coded, as to prevent errors.</p>
+<p>code/modules/projectiles/guns/energy/kinetic_accelerator.dm (Added a toggleble &quot;skillbased&quot; variable and modified the kinetic projectile to account for this variable)
+Changes are on lines 198 and 263</p>
+<p>code/modules/projectiles/projectile.dm (Added lavafauna_mod variable to allow adding a multiplier for damage versus lavaland fauna. Also added a portion of code that makes this actually work)
+Changes are on lines 275 and 409</p>
+<p>code/game/machinery/computer/orders/order_computer/mining_order.dm (Added the category &quot;Wasteland Weapons&quot; to the shaft miner console)
+Change is on lines 25, for the define please see above in defines.</p>
+<p>modular_nova/modules/mapping/code/interdyne_mining.dm (Added the category &quot;Wasteland Weapons&quot; to interdynes mining console)
+Change is on lines 18</p>
+<p>code/datums/storage/subtypes/belts.dm (added all the ammos and their boxes to the explorer webbing, giving webbing more utility as small ammo storage)
+Change is on lines 174 all the way to 197</p>
+<p>modular_nova/modules/mining_pka/code/projectiles.dm (Commented out old defunct shockwave ammo casing so it could be moved into this module)
+Change is on lines 17</p>
+<p>modular_nova/modules/mining_crushers/code/crusher_conversion_kit.dm (Added into the kit the pilebunker and sickle so they can be attained)
+Change is on lines 24 and 25</p>
+<p>code/game/objects/effects/spawners/random/mining_loot.dm (Replaced power miner shard with wolf cloak)
+Change is on lines 20</p>
+<p>modular_nova/modules/mining_crushers/code/miningweapons.dm (Upgraded machete to 15 base and removed the two handed component, also buffed block chance to 25% - These changes bring the machete more in line with how I originally designed and planned it to be. Also removes two handing on the claws for the same reason as machete)
+Change is on lines 25, 27, 53, and 218</p>
+<p>code/datums/status_effects/neutral.dm (Changed the status effect that tracks crusher damage to always start at 100,000 damage, thus making a single detonation give crusher drop eligability)
+Change is on lines 10</p>
+<h3 id="credits-salted-zen-made-mostly-everything-not-fauna-multipliers-notghosti-ice-type-made-the-code-for-fauna-multipliers-on-projectiles-dwasint-quad-shotgun-sounds-used-on-the-thor">Credits: Salted-Zen (made mostly everything, not fauna multipliers), notghosti, Ice-Type (Made the code for fauna multipliers on projectiles), Dwasint (Quad Shotgun sounds used on the Thor)</h3>
+<p>im cryin so many errors in here</p></td></tr></table></main><footer>tgstation.dme <a href="https://github.com/OculisStation/OculisStation/tree/1669223aa86ba10add49a2c0f073f54d97fd45e2">1669223</a> (master) — <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.11.0</a></footer></body></html>

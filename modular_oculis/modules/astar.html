@@ -1,0 +1,56 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><base href="../../"><link rel="stylesheet" href="dmdoc.css"><title>modular_oculis/modules/astar/readme.md - /tg/ Station 13</title></head><body><header><a href="index.html">/tg/ Station 13</a> - <a href="index.html#modules">Modules</a> - <a href="index.html#types">Types</a></header><main><h1>modular_oculis/modules/astar/readme.md <a href="https://github.com/OculisStation/OculisStation/blob/1669223aa86ba10add49a2c0f073f54d97fd45e2/modular_oculis/modules/astar/readme.md"><img src="git.png" width="16" height="16" title="modular_oculis/modules/astar/readme.md"></a></h1><table class="summary" cellspacing="0"><tr><td colspan="2"><p>https://github.com/OculisStation/OculisStation/pull/45</p>
+<h2 id="a-pathfinding-navigation">A* Pathfinding / Navigation</h2>
+<p>Module ID: ASTAR</p>
+<h3 id="description">Description:</h3>
+<p>Implements A* pathfinding, and reworks the Navigate verb/button to use it.</p>
+<p>A* works across Z-levels (it can go up/down stairs), and can also &quot;prefer&quot;
+specific areas and tiles, i.e preferring to go through hallways rather than maints.</p>
+<h3 id="tg-proc-file-changes">TG Proc/File Changes:</h3>
+<ul>
+<li><code>code/__HELPERS/paths/path.dm</code>
+<ul>
+<li>new var: <code>/datum/can_pass_info/multiz_checks</code></li>
+<li><code>/datum/can_pass_info/New</code>: added <code>multiz_checks</code> argument</li>
+</ul>
+</li>
+</ul>
+<h3 id="modular-overrides">Modular Overrides:</h3>
+<ul>
+<li><code>modular_oculis/master_files/code/game/turfs/open/openspace.dm</code>
+<ul>
+<li><code>/turf/open/openspace/can_cross_safely</code></li>
+<li><code>/turf/open/openspace/CanAStarPass</code></li>
+</ul>
+</li>
+<li><code>modular_oculis/master_files/code/game/turfs/turf.dm</code>
+<ul>
+<li><code>/turf/ChangeTurf</code></li>
+<li>new var: <code>/turf/astar_weight</code></li>
+</ul>
+</li>
+<li><code>modular_oculis/master_files/code/game/atoms_movable.dm</code>
+<ul>
+<li><code>/atom/movable/Initialize</code></li>
+<li><code>/atom/movable/Moved</code></li>
+<li>new var: <code>/atom/movable/astar_weight</code></li>
+</ul>
+</li>
+<li><code>modular_oculis/master_files/code/modules/mob/living/navigation.dm</code>
+<ul>
+<li><code>/mob/living/create_navigation</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="defines">Defines:</h3>
+<ul>
+<li><code>code/__DEFINES/~~oculis_defines/astar.dm</code>: <code>ASTAR_*</code> defines</li>
+<li><code>code/__HELPERS/~~oculis_helpers/_lists.dm</code>: <code>BINARY_INSERT_DEFINE_REVERSE</code></li>
+</ul>
+<h3 id="included-files-that-are-not-contained-in-this-module">Included files that are not contained in this module:</h3>
+<ul>
+<li><code>code/__DEFINES/~~oculis_defines/astar.dm</code></li>
+<li><code>code/__HELPERS/~~oculis_helpers/_lists.dm</code></li>
+<li><code>code/__HELPERS/~~oculis_helpers/mapping.dm</code></li>
+</ul>
+<h3 id="credits">Credits:</h3>
+<p>Absolucy, dwasint</p></td></tr></table></main><footer>tgstation.dme <a href="https://github.com/OculisStation/OculisStation/tree/1669223aa86ba10add49a2c0f073f54d97fd45e2">1669223</a> (master) — <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.11.0</a></footer></body></html>

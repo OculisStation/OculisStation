@@ -1,0 +1,38 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><base href="../../"><link rel="stylesheet" href="dmdoc.css"><title>modular_oculis/modules/belt_satchels/readme.md - /tg/ Station 13</title></head><body><header><a href="index.html">/tg/ Station 13</a> - <a href="index.html#modules">Modules</a> - <a href="index.html#types">Types</a></header><main><h1>modular_oculis/modules/belt_satchels/readme.md <a href="https://github.com/OculisStation/OculisStation/blob/1669223aa86ba10add49a2c0f073f54d97fd45e2/modular_oculis/modules/belt_satchels/readme.md"><img src="git.png" width="16" height="16" title="modular_oculis/modules/belt_satchels/readme.md"></a></h1><table class="summary" cellspacing="0"><tr><td colspan="2"><p>https://github.com/OculisStation/OculisStation/pull/312</p>
+<h2 id="belt-satchels">Belt Satchels</h2>
+<p>Module ID: BELT_SATCHELS</p>
+<h3 id="description">Description:</h3>
+<p>Allows satchels to be worn on the belt, in exchange for holding less and slowing you when paired with a backpack on your back.</p>
+<p>In specific, allows <code>/obj/item/storage/backpack/satchel/</code>s to be worn on the belt, and slows you when you have a <code>/obj/item/storage/backpack/</code> on both your belt and back.</p>
+<h3 id="tg-proc-file-changes">TG Proc/File Changes:</h3>
+<ul>
+<li>N/A</li>
+</ul>
+<h3 id="modular-overrides">Modular Overrides:</h3>
+<ul>
+<li><code>modular_oculis/master_files/code/game/objects/items/storage/backpack.dm</code>:
+<ul>
+<li><code>/obj/item/storage/backpack/proc/equipped</code></li>
+<li><code>/obj/item/storage/backpack/proc/dropped</code></li>
+<li><code>/obj/item/storage/backpack/satchel/proc/Initialize</code></li>
+<li><code>/obj/item/storage/backpack/satchel/var/slot_flags</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="defines">Defines:</h3>
+<ul>
+<li><code>code\__DEFINES\~~oculis_defines\storage.dm</code>:
+<ul>
+<li><code>PAIRED_STORAGE_DEFAULT_SLOWDOWN</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="included-files-that-are-not-contained-in-this-module">Included files that are not contained in this module:</h3>
+<ul>
+<li>N/A</li>
+</ul>
+<h3 id="credits">Credits:</h3>
+<ul>
+<li>Shroopy - module creator</li>
+<li><a href="https://github.com/Monkestation/Monkestation2.0">Monkestation</a> - original source of the ported belt satchel code</li>
+</ul></td></tr></table></main><footer>tgstation.dme <a href="https://github.com/OculisStation/OculisStation/tree/1669223aa86ba10add49a2c0f073f54d97fd45e2">1669223</a> (master) — <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.11.0</a></footer></body></html>

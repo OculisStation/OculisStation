@@ -1,0 +1,57 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><base href="../../../"><link rel="stylesheet" href="dmdoc.css"><title>/datum/controller/subsystem/plexora - /tg/ Station 13</title></head><body><header><a href="index.html">/tg/ Station 13</a> - <a href="index.html#modules">Modules</a> - <a href="index.html#types">Types</a> — <a href="datum/controller/subsystem/plexora.html#var">Var Details</a> - <a href="datum/controller/subsystem/plexora.html#proc">Proc Details</a></header><main><h1>plexora <aside>/<a href="datum.html">datum</a>/<a href="datum/controller/subsystem.html">controller/subsystem</a>/<a href="datum/controller/subsystem/plexora.html">plexora</a></aside> <a href="https://github.com/OculisStation/OculisStation/blob/1669223aa86ba10add49a2c0f073f54d97fd45e2/modular_oculis/modules/plexora/code/_plexora.dm#L18"><img src="git.png" width="16" height="16" title="modular_oculis/modules/plexora/code/_plexora.dm 18"></a></h1><table class="summary" cellspacing="0"><tr><td colspan="2"><h2>Vars</h2></td></tr><tr><th><a href="datum/controller/subsystem/plexora.html#var/plexora_is_alive">plexora_is_alive</a></th><td>This gets set to TRUE or FALSE during is_plexora_alive, it's just initially null to so logging works properly without spamming</td></tr><tr><th><a href="datum/controller/subsystem/plexora.html#var/reverify_cache">reverify_cache</a></th><td>People who have tried to verify this round already</td></tr><tr><td colspan="2"><h2>Procs</h2></td></tr><tr><th><a href="datum/controller/subsystem/plexora.html#proc/find_discord_link_by_ckey">find_discord_link_by_ckey</a></th><td>Find discord link entry by the passed in user ckey</td></tr><tr><th><a href="datum/controller/subsystem/plexora.html#proc/find_discord_link_by_discord_id">find_discord_link_by_discord_id</a></th><td>Find discord link entry by the passed in user ckey</td></tr><tr><th><a href="datum/controller/subsystem/plexora.html#proc/find_discord_link_by_token">find_discord_link_by_token</a></th><td>Find discord link entry by the passed in user token</td></tr><tr><th><a href="datum/controller/subsystem/plexora.html#proc/generate_one_time_token">generate_one_time_token</a></th><td>Generate a token for discord verification</td></tr><tr><th><a href="datum/controller/subsystem/plexora.html#proc/get_discord_id_from_mention">get_discord_id_from_mention</a></th><td>Extract a discord id from a mention string</td></tr><tr><th><a href="datum/controller/subsystem/plexora.html#proc/lookup_ckey">lookup_ckey</a></th><td>Given a discord id as a string, look up the ckey attached to that account, if any</td></tr><tr><th><a href="datum/controller/subsystem/plexora.html#proc/lookup_id">lookup_id</a></th><td>Given a ckey, look up the discord user id attached to the user, if any</td></tr><tr><th><a href="datum/controller/subsystem/plexora.html#proc/notify_signup">notify_signup</a></th><td>action must be one of PLEXORA_NOTIFYSIGNUP</td></tr><tr><th><a href="datum/controller/subsystem/plexora.html#proc/poll_ckey_for_verification">poll_ckey_for_verification</a></th><td>Given a ckey, polls a ckey for verification.
+Returns one of the values defined in __DEFINES/plexora.dm</td></tr></table><h2 id="var">Var Details</h2><h3 id="var/plexora_is_alive"><aside class="declaration">var </aside>plexora_is_alive <a href="https://github.com/OculisStation/OculisStation/blob/1669223aa86ba10add49a2c0f073f54d97fd45e2/modular_oculis/modules/plexora/code/_plexora.dm#L30"><img src="git.png" width="16" height="16" title="modular_oculis/modules/plexora/code/_plexora.dm 30"></a></h3><p>This gets set to TRUE or FALSE during is_plexora_alive, it's just initially null to so logging works properly without spamming</p><h3 id="var/reverify_cache"><aside class="declaration">var </aside>reverify_cache <aside>– /list</aside> <a href="https://github.com/OculisStation/OculisStation/blob/1669223aa86ba10add49a2c0f073f54d97fd45e2/modular_oculis/modules/plexora/code/_plexora.dm#L39"><img src="git.png" width="16" height="16" title="modular_oculis/modules/plexora/code/_plexora.dm 39"></a></h3><p>People who have tried to verify this round already</p><h2 id="proc">Proc Details</h2><h3 id="proc/find_discord_link_by_ckey"><aside class="declaration">proc </aside>find_discord_link_by_ckey<aside>(ckey, only_valid)  <a href="https://github.com/OculisStation/OculisStation/blob/1669223aa86ba10add49a2c0f073f54d97fd45e2/modular_oculis/modules/plexora/code/discord.dm#L126"><img src="git.png" width="16" height="16" title="modular_oculis/modules/plexora/code/discord.dm 126"></a></aside></h3><p>Find discord link entry by the passed in user ckey</p>
+<p>This will look into the discord link table and return the <em>first</em> entry that matches the given ckey</p>
+<p>Remember, multiple entries can exist</p>
+<p>Arguments:</p>
+<ul>
+<li>ckey the users ckey as a string</li>
+</ul>
+<p>Returns a <a href="datum/discord_link_record.html" title="/datum/discord_link_record">/datum/discord_link_record</a></p><h3 id="proc/find_discord_link_by_discord_id"><aside class="declaration">proc </aside>find_discord_link_by_discord_id<aside>(discord_id, only_valid)  <a href="https://github.com/OculisStation/OculisStation/blob/1669223aa86ba10add49a2c0f073f54d97fd45e2/modular_oculis/modules/plexora/code/discord.dm#L160"><img src="git.png" width="16" height="16" title="modular_oculis/modules/plexora/code/discord.dm 160"></a></aside></h3><p>Find discord link entry by the passed in user ckey</p>
+<p>This will look into the discord link table and return the <em>first</em> entry that matches the given ckey</p>
+<p>Remember, multiple entries can exist</p>
+<p>Arguments:</p>
+<ul>
+<li>discord_id The users discord id (string)</li>
+</ul>
+<p>Returns a <a href="datum/discord_link_record.html" title="/datum/discord_link_record">/datum/discord_link_record</a></p><h3 id="proc/find_discord_link_by_token"><aside class="declaration">proc </aside>find_discord_link_by_token<aside>(one_time_token)  <a href="https://github.com/OculisStation/OculisStation/blob/1669223aa86ba10add49a2c0f073f54d97fd45e2/modular_oculis/modules/plexora/code/discord.dm#L98"><img src="git.png" width="16" height="16" title="modular_oculis/modules/plexora/code/discord.dm 98"></a></aside></h3><p>Find discord link entry by the passed in user token</p>
+<p>This will look into the discord link table and return the <em>first</em> entry that matches the given one time token</p>
+<p>Remember, multiple entries can exist, as they are only guaranteed to be unique for their validity period</p>
+<p>Arguments:</p>
+<ul>
+<li>one_time_token the string of words representing the one time token</li>
+</ul>
+<p>Returns a <a href="datum/discord_link_record.html" title="/datum/discord_link_record">/datum/discord_link_record</a></p><h3 id="proc/generate_one_time_token"><aside class="declaration">proc </aside>generate_one_time_token<aside>(ckey_for)  <a href="https://github.com/OculisStation/OculisStation/blob/1669223aa86ba10add49a2c0f073f54d97fd45e2/modular_oculis/modules/plexora/code/discord.dm#L61"><img src="git.png" width="16" height="16" title="modular_oculis/modules/plexora/code/discord.dm 61"></a></aside></h3><p>Generate a token for discord verification</p>
+<p>This uses the common word list to generate a six word random token, this token can then be fed to a discord bot that has access
+to the same database, and it can use it to link a ckey to a discord id, with minimal user effort</p>
+<p>It returns the token to the calling proc, after inserting an entry into the discord_link table of the following form</p>
+<pre><code>(unique_id, ckey, null, the current time, the one time token generated)
+the null value will be filled out with the discord id by the integrated discord bot when a user verifies
+</code></pre>
+<p>Notes:</p>
+<ul>
+<li>The token is guaranteed to be unique during it's validity period</li>
+<li><del>The validity period is currently set at 4 hours</del></li>
+<li><del>a token may not be unique outside it's validity window (to reduce conflicts)</del></li>
+</ul>
+<p>Arguments:</p>
+<ul>
+<li>ckey_for a string representing the ckey this token is for</li>
+</ul>
+<p>Returns a string representing the one time token</p><h3 id="proc/get_discord_id_from_mention"><aside class="declaration">proc </aside>get_discord_id_from_mention<aside>(mention)  <a href="https://github.com/OculisStation/OculisStation/blob/1669223aa86ba10add49a2c0f073f54d97fd45e2/modular_oculis/modules/plexora/code/discord.dm#L192"><img src="git.png" width="16" height="16" title="modular_oculis/modules/plexora/code/discord.dm 192"></a></aside></h3><p>Extract a discord id from a mention string</p>
+<p>This will regex out the mention <a href="mailto:@num">@num</a> block to extract the discord id</p>
+<p>Arguments:</p>
+<ul>
+<li>discord_id The users discord mention string (string)</li>
+</ul>
+<p>Returns a text string with the discord id or null</p><h3 id="proc/lookup_ckey"><aside class="declaration">proc </aside>lookup_ckey<aside>(lookup_id)  <a href="https://github.com/OculisStation/OculisStation/blob/1669223aa86ba10add49a2c0f073f54d97fd45e2/modular_oculis/modules/plexora/code/discord.dm#L24"><img src="git.png" width="16" height="16" title="modular_oculis/modules/plexora/code/discord.dm 24"></a></aside></h3><p>Given a discord id as a string, look up the ckey attached to that account, if any</p>
+<p>This gets the most recent entry from the discord_link table that is associated with this discord id snowflake</p>
+<p>Arguments:</p>
+<ul>
+<li>lookup_id The discord id as a string</li>
+</ul><h3 id="proc/lookup_id"><aside class="declaration">proc </aside>lookup_id<aside>(lookup_ckey)  <a href="https://github.com/OculisStation/OculisStation/blob/1669223aa86ba10add49a2c0f073f54d97fd45e2/modular_oculis/modules/plexora/code/discord.dm#L11"><img src="git.png" width="16" height="16" title="modular_oculis/modules/plexora/code/discord.dm 11"></a></aside></h3><p>Given a ckey, look up the discord user id attached to the user, if any</p>
+<p>This gets the most recent entry from the discord link table that is associated with the given ckey</p>
+<p>Arguments:</p>
+<ul>
+<li>lookup_ckey A string representing the ckey to search on</li>
+</ul><h3 id="proc/notify_signup"><aside class="declaration">proc </aside>notify_signup<aside>(ckey, action)  <a href="https://github.com/OculisStation/OculisStation/blob/1669223aa86ba10add49a2c0f073f54d97fd45e2/modular_oculis/master_files/code/modules/discord/toggle_notify.dm#L5"><img src="git.png" width="16" height="16" title="modular_oculis/master_files/code/modules/discord/toggle_notify.dm 5"></a></aside></h3><p>action must be one of PLEXORA_NOTIFYSIGNUP</p><h3 id="proc/poll_ckey_for_verification"><aside class="declaration">proc </aside>poll_ckey_for_verification<aside>(ckey, required_roleid)  <a href="https://github.com/OculisStation/OculisStation/blob/1669223aa86ba10add49a2c0f073f54d97fd45e2/modular_oculis/modules/plexora/code/verification.dm#L18"><img src="git.png" width="16" height="16" title="modular_oculis/modules/plexora/code/verification.dm 18"></a></aside></h3><p>Given a ckey, polls a ckey for verification.
+Returns one of the values defined in __DEFINES/plexora.dm</p></main><footer>tgstation.dme <a href="https://github.com/OculisStation/OculisStation/tree/1669223aa86ba10add49a2c0f073f54d97fd45e2">1669223</a> (master) — <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.11.0</a></footer></body></html>

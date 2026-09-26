@@ -1,0 +1,113 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><base href="../../"><link rel="stylesheet" href="dmdoc.css"><title>modular_oculis/modules/plexora/readme.md - /tg/ Station 13</title></head><body><header><a href="index.html">/tg/ Station 13</a> - <a href="index.html#modules">Modules</a> - <a href="index.html#types">Types</a></header><main><h1>modular_oculis/modules/plexora/readme.md <a href="https://github.com/OculisStation/OculisStation/blob/1669223aa86ba10add49a2c0f073f54d97fd45e2/modular_oculis/modules/plexora/readme.md"><img src="git.png" width="16" height="16" title="modular_oculis/modules/plexora/readme.md"></a></h1><table class="summary" cellspacing="0"><tr><td colspan="2"><p><a href="https://github.com/OculisStation/OculisStation/pull/1">https://github.com/OculisStation/OculisStation/pull/<!--PR Number--></a></p>
+<h2 id="plexora-support">Plexora Support</h2>
+<p>Module ID: PLEXORA</p>
+<h3 id="description">Description:</h3>
+<p>Support for the Plexora discord bot, used for things such as server status, administration, etc.</p>
+<h3 id="tg-proc-file-changes">TG Proc/File Changes:</h3>
+<ul>
+<li><code>code/controllers/failsafe.dm</code>
+<ul>
+<li><code>/datum/controller/failsafe/proc/Loop()</code>: Plexora notifications for MC failure</li>
+<li><code>/proc/recover_all_SS_and_recreate_master()</code>: Plexora notifications for MC recreation</li>
+</ul>
+</li>
+<li><code>code/controllers/master.dm</code>
+<ul>
+<li><code>/datum/controller/master/Initialize()</code>: Plexora notifications for when MC finished init</li>
+</ul>
+</li>
+<li><code>code/datums/mocking/client.dm</code>
+<ul>
+<li><code>/datum/client_interface/New(key)</code>: added the <code>key</code> arg</li>
+</ul>
+</li>
+<li><code>code/datums/http.dm</code>
+<ul>
+<li><code>/datum/http_request/proc/prepare()</code>: Adds a default user-agent</li>
+</ul>
+</li>
+<li><code>code/datums/world_topic.dm</code>
+<ul>
+<li><code>/datum/world_topic/proc/TryRun()</code>: JSON support added</li>
+</ul>
+</li>
+<li><code>code/game/world.dm</code>
+<ul>
+<li><code>/world/Reboot()</code>: Plexora notification for server reboot</li>
+</ul>
+</li>
+<li><code>code/modules/admin/verbs/adminhelp.dm</code>
+<ul>
+<li><code>CHECK_AHELP_ACTIVE</code> macro</li>
+<li><code>/datum/admin_help_tickets/proc/ClientLogin()</code>: Plexora notification for when user in a ticket reconnects</li>
+<li><code>/datum/admin_help_tickets/proc/ClientLogout()</code>: Plexora notification for when user in a ticket disconnects</li>
+<li><code>/datum/admin_help/New()</code>: Notifying Plexora when a new ticket is created</li>
+<li><code>/datum/admin_help/proc/Reopen()</code>: Notifying Plexora when a ticket is reopened</li>
+<li><code>/datum/admin_help/proc/Action()</code>: Notifying Plexora of various ticket actions/state updates</li>
+</ul>
+</li>
+<li><code>code/modules/admin/verbs/adminpm.dm</code>
+<ul>
+<li><code>/client/proc/sends_adminpm_message()</code>: Plexora integration, and fixing some encode issues</li>
+</ul>
+</li>
+<li><code>code/modules/admin/verbs/adminsay.dm</code>
+<ul>
+<li><code>ADMIN_VERB(cmd_admin_say)</code>: Relaying asays through Plexora.</li>
+</ul>
+</li>
+<li><code>code/modules/admin/verbs/server.dm</code>
+<ul>
+<li><code>ADMIN_VERB(restart)</code>: Plexora notifications for admin-triggered server reboots.</li>
+</ul>
+</li>
+<li><code>code/modules/admin/chat_commands.dm</code>
+<ul>
+<li><code>/datum/tgs_chat_command/validated/Run()</code>: Change <code>SSdiscord.lookup_ckey</code> reference to <code>SSplexora.lookup_ckey</code></li>
+</ul>
+</li>
+<li><code>code/modules/admin/IsBanned.dm</code>
+<ul>
+<li><code>/world/IsBanned()</code>: Discord verification support.</li>
+</ul>
+</li>
+<li><code>code/modules/admin/sql_ban_system.dm</code>
+<ul>
+<li><code>/datum/admins/proc/create_ban()</code>: Plexora notifications for bans.</li>
+</ul>
+</li>
+<li><code>code/modules/admin/sql_message_system.dm</code>
+<ul>
+<li><code>/proc/create_message()</code>: Plexora notifications for notes.</li>
+</ul>
+</li>
+<li><code>code/modules/discord/accountlink.dm</code>: <strong>REMOVED</strong></li>
+<li><code>code/modules/discord/tgs_commands.dm</code>
+<ul>
+<li><code>/datum/tgs_chat_command/notify</code> <strong>REMOVED</strong>, as Plexora's functionality replaces it</li>
+</ul>
+</li>
+<li><code>code/modules/discord/toggle_notify.dm</code> <strong>REMOVED</strong></li>
+<li><code>code/modules/error_handler/error_handler.dm</code>: OOM notify call</li>
+<li><code>code/modules/interview/interview.dm</code>
+<ul>
+<li><code>/datum/interview/New()</code>, <code>/datum/interview/proc/approve()</code>, <code>/datum/interview/proc/deny()</code>: Plexora notifications for interviews.</li>
+</ul>
+</li>
+</ul>
+<h3 id="modular-overrides">Modular Overrides:</h3>
+<ul>
+<li>N/A</li>
+</ul>
+<h3 id="defines">Defines:</h3>
+<ul>
+<li><code>code/__DEFINES/~~oculis_defines/admin.dm</code>: <code>AHELP_CLOSETYPE_*</code> and <code>AHELP_CLOSEREASON_*</code> defines</li>
+<li><code>code/__DEFINES/~~oculis_defines/plexora.dm</code>: many <code>PLEXORA_*</code> defines</li>
+<li><code>code/__DEFINES/subsystems.dm</code>: <code>FIRE_PRIORITY_PLEXORA</code></li>
+</ul>
+<h3 id="included-files-that-are-not-contained-in-this-module">Included files that are not contained in this module:</h3>
+<ul>
+<li>N/A</li>
+</ul>
+<h3 id="credits">Credits:</h3>
+<p>Flleeppyy</p></td></tr></table></main><footer>tgstation.dme <a href="https://github.com/OculisStation/OculisStation/tree/1669223aa86ba10add49a2c0f073f54d97fd45e2">1669223</a> (master) — <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.11.0</a></footer></body></html>
