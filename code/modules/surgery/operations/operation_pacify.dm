@@ -67,4 +67,4 @@
 	success_sound = 'sound/items/taperecorder/taperecorder_close.ogg'
 	failure_sound = null
 	required_organ_flag = ORGAN_ROBOTIC
-	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC
+	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC | OPERATION_SELF_OPERABLE // OCULIS EDIT, ORIGINAL: operation_flags = parent_type::operation_flags | OPERATION_MECHANIC

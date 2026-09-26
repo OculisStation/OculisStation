@@ -91,4 +91,4 @@
 	name = "purge hydraulics"
 	rnd_name = "Hydraulics Purge (Blood Filtration)"
 	required_bodytype = BODYTYPE_ROBOTIC
-	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC
+	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC | OPERATION_SELF_OPERABLE // OCULIS EDIT, ORIGINAL: operation_flags = parent_type::operation_flags | OPERATION_MECHANIC

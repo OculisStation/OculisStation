@@ -106,7 +106,7 @@
 	preop_sound = 'sound/items/tools/ratchet.ogg'
 	success_sound = 'sound/machines/airlock/doorclick.ogg'
 	required_organ_flag = ORGAN_ROBOTIC
-	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC
+	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC | OPERATION_SELF_OPERABLE // OCULIS EDIT, ORIGINAL: operation_flags = parent_type::operation_flags | OPERATION_MECHANIC
 
 /datum/surgery_operation/organ/repair/hepatectomy
 	name = "remove damaged liver section"
@@ -171,7 +171,7 @@
 	preop_sound = 'sound/items/tools/ratchet.ogg'
 	success_sound = 'sound/machines/airlock/doorclick.ogg'
 	required_organ_flag = ORGAN_ROBOTIC
-	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC
+	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC | OPERATION_SELF_OPERABLE // OCULIS EDIT, ORIGINAL: operation_flags = parent_type::operation_flags | OPERATION_MECHANIC
 
 /datum/surgery_operation/organ/repair/coronary_bypass
 	name = "graft coronary bypass"
@@ -236,7 +236,7 @@
 	preop_sound = 'sound/items/tools/ratchet.ogg'
 	success_sound = 'sound/machines/airlock/doorclick.ogg'
 	required_organ_flag = ORGAN_ROBOTIC
-	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC
+	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC | OPERATION_SELF_OPERABLE // OCULIS EDIT, ORIGINAL: operation_flags = parent_type::operation_flags | OPERATION_MECHANIC
 
 /datum/surgery_operation/organ/repair/gastrectomy
 	name = "remove damaged stomach section"
@@ -310,7 +310,7 @@
 	preop_sound = 'sound/items/tools/ratchet.ogg'
 	success_sound = 'sound/machines/airlock/doorclick.ogg'
 	required_organ_flag = ORGAN_ROBOTIC
-	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC
+	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC | OPERATION_SELF_OPERABLE // OCULIS EDIT, ORIGINAL: operation_flags = parent_type::operation_flags | OPERATION_MECHANIC
 
 /datum/surgery_operation/organ/repair/ears
 	name = "ear surgery"
@@ -533,4 +533,4 @@
 	preop_sound = 'sound/items/taperecorder/tape_flip.ogg'
 	success_sound = 'sound/items/taperecorder/taperecorder_close.ogg'
 	required_organ_flag = ORGAN_ROBOTIC
-	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC
+	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC | OPERATION_SELF_OPERABLE // OCULIS EDIT, ORIGINAL: operation_flags = parent_type::operation_flags | OPERATION_MECHANIC
