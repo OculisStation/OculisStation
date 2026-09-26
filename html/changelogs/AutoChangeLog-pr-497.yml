@@ -1,5 +1,0 @@
-author: "Shroopy"
-delete-after: True
-changes:
-  - bugfix: "Fixed ricochet projectiles missing targets."
-  - balance: "Buffed ricochet projectiles by making them actually hit targets."
