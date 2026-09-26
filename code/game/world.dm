@@ -5,6 +5,16 @@
 #define OVERRIDE_LOG_DIRECTORY_PARAMETER "log-directory"
 /// Prevent the master controller from starting automatically
 #define NO_INIT_PARAMETER "no-init"
+/// Load dmeow, try to compile every proc, write the report, and exit.
+#define DMEOW_CENSUS_PARAMETER "dmeow-census"
+/// Skip the lobby, force-compile the atmos targets, run the standard burn-room
+/// A/B round unattended, write the report, and exit.
+#define DMEOW_BURN_PARAMETER "dmeow-burn"
+/// Read every air proc interpreted, force-compile them, read again, and diff the
+/// two exactly. Answers whether the JIT changes any air-code number.
+#define DMEOW_EQUIV_PARAMETER "dmeow-equiv"
+/// Immediately setup dmeow on world init.
+#define DMEOW_START_PARAMATER "dmeow"
 
 GLOBAL_VAR(restart_counter)
 
@@ -135,12 +145,47 @@ GLOBAL_VAR(restart_counter)
 
 	ConfigLoaded()
 
+#ifndef UNIT_TESTS
+	immediately_init_dmeow()
+#endif
+
+	if(DMEOW_CENSUS_PARAMETER in params)
+		run_dmeow_compile_census()
+		return
+
 	if(NO_INIT_PARAMETER in params)
 		return
+
+#ifdef UNIT_TESTS
+	if(DMEOW_START_PARAMATER in params)
+		immediately_init_dmeow()
+#endif
 
 	Master.Initialize(10, FALSE, TRUE)
 
 	RunUnattendedFunctions()
+
+/// no dmeow_perf_start() here on purpose. it wraps every proc call in a
+/// begin/end pair that takes the profiler's lock, and a normal round never reads
+/// the result - the shipping DLL doesn't even build dmeow_perf_report(). the
+/// panel's "start manual tracking" button turns it on when someone actually
+/// wants numbers.
+/world/proc/immediately_init_dmeow()
+	SEND_TEXT(world.log, "[DMEOW_START_PARAMATER] set, immediately initializing dmeow")
+	if(!dmeow_init())
+		SEND_TEXT(world.log, "failed to initialize dmeow :(")
+		return
+	SEND_TEXT(world.log, "dmeow loaded, yay!")
+	if(!dmeow_set_hooks(TRUE))
+		SEND_TEXT(world.log, "failed to enable dmeow hooks :(")
+		return
+	dmeow_enable_counting(DMEOW_PERF_DEFAULT_THRESHOLD)
+	dmeow_counting_threshold = DMEOW_PERF_DEFAULT_THRESHOLD
+	// not under unit tests: the suite runs on a fresh data/ every time, so it
+	// would record a capture on every single run and never skip.
+	#ifndef UNIT_TESTS
+	SEND_TEXT(world.log, "dmeow tracy: [dmeow_tracy_autostart()]")
+	#endif
 
 /// Initializes TGS and loads the returned revising info into GLOB.revdata
 /world/proc/InitTgs()
@@ -169,6 +214,36 @@ GLOBAL_VAR(restart_counter)
 		GLOB.restart_counter = text2num(trim(file2text(RESTART_COUNTER_PATH)))
 		fdel(RESTART_COUNTER_PATH)
 
+/**
+ * Headless dmeow compile sweep: load the DLL, try to compile every eligible
+ * proc, write the report, exit.
+ *
+ * Deliberately runs *instead of* `Master.Initialize`. Proc bytecode is present
+ * the moment the .dmb loads, and the sweep never executes any of the code it
+ * compiles, so a full round buys the measurement nothing and costs minutes.
+ *
+ * Primes the compile cache while it's at it - this sweep already touches
+ * every proc BYOND has, so it's the natural place to fill in the file a real
+ * round would otherwise have to re-learn from scratch.
+ *
+ * Writes to `data/dmeow/census/` and also to stdout, so a script that only has
+ * the console can still read the answer.
+ */
+/world/proc/run_dmeow_compile_census()
+	if(!dmeow_init())
+		log_world("DMEOW_CENSUS: dmeow failed to load, nothing measured")
+		shutdown()
+		return
+
+	var/report = dmeow_compile_census(TRUE)
+	var/filename = "data/dmeow/census/headless_[rustg_unix_timestamp()].txt"
+	var/census_file = file(filename)
+	census_file << report
+	log_world("DMEOW_CENSUS: wrote [filename]")
+	log_world(report)
+	dmeow_shutdown()
+	shutdown()
+
 /// Runs after the call to Master.Initialize, but before the delay kicks in. Used to turn the world execution into some single function then exit
 /world/proc/RunUnattendedFunctions()
 	#ifdef UNIT_TESTS
@@ -181,6 +256,14 @@ GLOBAL_VAR(restart_counter)
 
 	#ifdef PERFORMANCE_TESTS
 	queue_performance_tests()
+	#endif
+
+	#ifdef DMEOW_BURN_BUILD
+	if(DMEOW_BURN_PARAMETER in params)
+		queue_dmeow_burn_run()
+
+	if(DMEOW_EQUIV_PARAMETER in params)
+		queue_dmeow_equiv_run()
 	#endif
 
 /world/proc/HandleTestRun()
@@ -214,6 +297,166 @@ GLOBAL_VAR(restart_counter)
 	// (sample line by line) stat_tracking_export_to_csv_later("file_name.csv", GLOB.cost_list, GLOB.count_list)
 	SSticker.delay_end = FALSE
 	shutdown()
+
+#ifdef DMEOW_BURN_BUILD
+
+/world/proc/queue_dmeow_burn_run()
+	Master.sleep_offline_after_initializations = FALSE
+	SSticker.start_immediately = TRUE
+	// _addtimer() runs QDELETED() on the callback's object before it queues it,
+	// and world isn't a /datum - CALLBACK(src, ...) here would runtime on
+	// world.gc_destroyed. route through a GLOBAL_PROC wrapper instead, same as
+	// HandleTestRun()'s UNIT_TESTS branch.
+	var/datum/callback/cb = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(dmeow_burn_kickoff))
+	SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(_addtimer), cb, 10 SECONDS))
+
+/// world isn't a /datum, so a timer-bound callback can't target a /world/proc
+/// directly (see queue_dmeow_burn_run()). this is the GLOBAL_PROC indirection.
+/proc/dmeow_burn_kickoff()
+	world.run_dmeow_burn()
+
+/// same shape as queue_dmeow_burn_run(), for the air-equivalence probe. its
+/// kickoff wrapper lives next to the probe in equiv_probe.dm.
+/world/proc/queue_dmeow_equiv_run()
+	Master.sleep_offline_after_initializations = FALSE
+	SSticker.start_immediately = TRUE
+	var/datum/callback/cb = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(dmeow_equiv_kickoff))
+	SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(_addtimer), cb, 10 SECONDS))
+
+/// reads a burn-round param as a number, falling back to default_value if the
+/// param is missing or not a number.
+/world/proc/dmeow_burn_param(key, default_value)
+	var/raw = params[key]
+	if(!raw)
+		return default_value
+	var/num = text2num(raw)
+	return isnull(num) ? default_value : num
+
+/**
+ * standard burn-room A/B round, unattended. every abort logs one DMEOW_BURN:
+ * line and calls shutdown() instead of running out the clock on a round that
+ * measured nothing.
+ */
+/world/proc/run_dmeow_burn()
+	SSticker.delay_end = TRUE
+
+	var/warmup = dmeow_burn_param("dmeow-warmup", DMEOW_PERF_DEFAULT_WARMUP)
+	var/window = dmeow_burn_param("dmeow-window", DMEOW_PERF_DEFAULT_WINDOW)
+	var/cycles = dmeow_burn_param("dmeow-cycles", DMEOW_PERF_DEFAULT_CYCLES)
+	var/threshold = dmeow_burn_param("dmeow-threshold", DMEOW_PERF_DEFAULT_THRESHOLD)
+	var/sample_rate = dmeow_burn_param("dmeow-sample-rate", DMEOW_PERF_DEFAULT_SAMPLE_RATE)
+
+	// past this the DLL merges every further window into the last one and drops
+	// the per-proc arm totals, and the report still looks normal - so refuse
+	// rather than measure something that reads fine and is not what was asked
+	// for.
+	if(cycles * 2 > DMEOW_PERF_MAX_WINDOWS)
+		log_world("DMEOW_BURN: [cycles] cycles is [cycles * 2] windows, over the [DMEOW_PERF_MAX_WINDOWS] the DLL keeps - use [round(DMEOW_PERF_MAX_WINDOWS / 2)] or fewer")
+		shutdown()
+		return
+
+	// both rooms re-seed on the same period - it lives on the shared
+	// atmos_room parent - so a window that isn't a whole number of periods
+	// hands each arm a different amount of work whichever load is picked.
+	if(window % DMEOW_BURN_RESEED_PERIOD)
+		log_world("DMEOW_BURN: window must be a multiple of [DMEOW_BURN_RESEED_PERIOD]s to match the room's reseed period, got [window]s")
+		shutdown()
+		return
+
+	// an unrecognised name aborts rather than falling back to the burn room -
+	// a typo would otherwise quietly measure the wrong workload for a whole run.
+	var/load_name = params["dmeow-load"] || "burn"
+	var/load_type = dmeow_load_type(load_name)
+	if(!load_type)
+		log_world("DMEOW_BURN: unknown load '[load_name]' - expected 'burn', 'gradient' or 'path'")
+		shutdown()
+		return
+
+	// a size the map can't reserve fails in atmos_room/start(), which is checked
+	// below, so there's nothing to validate here.
+	var/room_size = dmeow_burn_param("dmeow-room-size", DMEOW_BURN_ROOM_SIZE)
+
+	if(!dmeow_init())
+		log_world("DMEOW_BURN: dmeow failed to load, nothing measured")
+		shutdown()
+		return
+
+	// the DLL stays loaded even when the JIT refuses to arm, so every hook keeps
+	// answering and a run here would silently measure the interpreter in both
+	// arms while looking like a normal report.
+	if(!dmeow_armed)
+		log_world("DMEOW_BURN: dmeow loaded but the JIT is disabled - a run would only measure the interpreter")
+		dmeow_shutdown()
+		shutdown()
+		return
+
+	for(var/proc_name in dmeow_atmos_target_procs())
+		log_world("DMEOW_BURN: [dmeow_compile(proc_name) ? "compiled" : "FAILED to compile"] [proc_name]")
+
+	// every breathing mob churns turfs outside the room for the whole round:
+	// breathe() calls remove_air() then assume_air() on its own turf, both of
+	// which re-activate it, the exhaled CO2 wakes the nearest scrubber and the
+	// missing pressure wakes the vent. none of that is the fixture, and it lands
+	// in the same /turf/open/process_cell bucket the room does. headless only -
+	// the admin panel builds the same session on a live server.
+	// The burn build loads CentCom_minimal and no space levels, so the world is
+	// only as big as runtimestation needs - 53x60, where a reservation level
+	// offers world.maxx - 2 * SHUTTLE_TRANSIT_BORDER and a 40x40 room wants 42
+	// plus a cordon. Growing the world here rather than at compile time because
+	// BYOND fixes world bounds from the compiled-in maps and ignores a code
+	// value below them. The reservation levels that already exist keep their old
+	// size, but request_turf_block_reservation() adds a fresh one sized off
+	// world.maxx when they cannot fit the room, which is the path this relies on.
+	var/wanted = room_size + DMEOW_BURN_WORLD_MARGIN
+	if(world.maxx < wanted || world.maxy < wanted)
+		log_world("DMEOW_BURN: growing world from [world.maxx]x[world.maxy] to fit a [room_size]x[room_size] room")
+		world.increase_max_x(max(world.maxx, wanted))
+		world.increase_max_y(max(world.maxy, wanted))
+
+	var/mobs_deleted = 0
+	for(var/mob/living/breather as anything in GLOB.mob_living_list)
+		if(breather.client)
+			continue
+		qdel(breather)
+		mobs_deleted++
+	log_world("DMEOW_BURN: deleted [mobs_deleted] clientless living mobs")
+
+	var/datum/dmeow_load/atmos_room/load = new load_type(room_size)
+	GLOB.dmeow_perf_session = new(threshold, sample_rate, warmup, window, cycles, load)
+	GLOB.dmeow_perf_session.on_finish = CALLBACK(src, PROC_REF(finish_dmeow_burn))
+	GLOB.dmeow_perf_session.quiet_station = TRUE
+	GLOB.dmeow_perf_session.mobs_deleted = mobs_deleted
+	GLOB.dmeow_perf_session.begin()
+
+	// atmos_room/start() records a failure and returns FALSE instead of
+	// stopping the session, so a full report can come out of a round with an
+	// empty room in it unless this is checked explicitly.
+	if(load.failure)
+		log_world("DMEOW_BURN: [load_name] room failed to start - [load.failure]")
+		dmeow_perf_session_stop()
+		dmeow_shutdown()
+		shutdown()
+		return
+
+	log_world("DMEOW_BURN: run started on a [room_size]x[room_size] [load_name] room, [warmup]s warmup then [cycles] x ([window]s JIT + [window]s interpreter), seed [num2text(Master.random_seed, 12)]")
+
+/// on_finish callback from the perf session - finish() already collected the
+/// report, so this only has to read it, flush the debug log, and shut down.
+/world/proc/finish_dmeow_burn()
+	var/list/summary = GLOB.dmeow_perf_session?.summary
+	if(summary)
+		log_world("DMEOW_BURN: wrote [summary["file"]] ([summary["compared"]] procs comparable)")
+	else
+		log_world("DMEOW_BURN: run finished but the profiler returned no report")
+
+	// flush before shutdown, or the tail of the run is missing from the JSONL.
+	dmeow_debug_flush()
+	dmeow_perf_session_stop()
+	dmeow_shutdown()
+	SSticker.delay_end = FALSE
+	shutdown()
+
+#endif
 
 /// Returns a list of data about the world state, don't clutter
 /world/proc/get_world_state_for_logging()
@@ -338,6 +581,9 @@ GLOBAL_VAR_INIT(last_maptick_time, 0)
 	// byond-tracy can't clean up itself, and thus we should always hard reboot if its enabled, to avoid an infinitely growing trace.
 	if(Tracy?.enabled)
 		return TRUE
+	// duh
+	if(dmeow_armed)
+		return TRUE
 	var/ruhr = CONFIG_GET(number/rounds_until_hard_restart)
 	switch(ruhr)
 		if(-1)
@@ -371,6 +617,7 @@ GLOBAL_VAR_INIT(last_maptick_time, 0)
 		shutdown_logging() // See comment below.
 		QDEL_NULL(Tracy)
 		QDEL_NULL(Debugger)
+		dmeow_shutdown()
 		TgsEndProcess()
 		return ..()
 
@@ -380,6 +627,7 @@ GLOBAL_VAR_INIT(last_maptick_time, 0)
 	shutdown_logging() // Past this point, no logging procs can be used, at risk of data loss.
 	QDEL_NULL(Tracy)
 	QDEL_NULL(Debugger)
+	dmeow_shutdown()
 
 	TgsReboot() // TGS can decide to kill us right here, so it's important to do it last
 
@@ -389,6 +637,7 @@ GLOBAL_VAR_INIT(last_maptick_time, 0)
 /world/Del()
 	QDEL_NULL(Tracy)
 	QDEL_NULL(Debugger)
+	dmeow_shutdown()
 	. = ..()
 
 /* NOVA EDIT REMOVAL - OVERRIDDEN
@@ -527,6 +776,10 @@ GLOBAL_VAR_INIT(last_maptick_time, 0)
 	if((command & PROFILE_STOP) || !global.config?.loaded || !CONFIG_GET(flag/forbid_all_profiling))
 		. = ..()
 
+#undef DMEOW_EQUIV_PARAMETER
+#undef DMEOW_START_PARAMATER
+#undef DMEOW_BURN_PARAMETER
+#undef DMEOW_CENSUS_PARAMETER
 #undef NO_INIT_PARAMETER
 #undef OVERRIDE_LOG_DIRECTORY_PARAMETER
 #undef USE_TRACY_PARAMETER

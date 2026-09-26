@@ -8,10 +8,16 @@
  */
 
 import fs from 'node:fs';
+import path from 'node:path';
 import Bun from 'bun';
 import Juke from './juke/index.js';
 import { bun } from './lib/bun';
-import { DreamDaemon, DreamMaker, NamedVersionFile } from './lib/byond';
+import {
+  DreamDaemon,
+  DreamDaemonConsole,
+  DreamMaker,
+  NamedVersionFile,
+} from './lib/byond';
 import { downloadFile } from './lib/download';
 import { formatDeps } from './lib/helpers';
 import { prependDefines } from './lib/tgs';
@@ -93,6 +99,73 @@ export const WarningParameter = new Juke.Parameter({
 export const NoWarningParameter = new Juke.Parameter({
   type: 'string[]',
   alias: 'I',
+});
+
+export const DmeowWarmupParameter = new Juke.Parameter({
+  type: 'string',
+  name: 'warmup',
+});
+
+export const DmeowWindowParameter = new Juke.Parameter({
+  type: 'string',
+  name: 'window',
+});
+
+export const DmeowCyclesParameter = new Juke.Parameter({
+  type: 'string',
+  name: 'cycles',
+});
+
+export const DmeowThresholdParameter = new Juke.Parameter({
+  type: 'string',
+  name: 'threshold',
+});
+
+export const DmeowSampleRateParameter = new Juke.Parameter({
+  type: 'string',
+  name: 'sample-rate',
+});
+
+// which synthetic workload the round drives: 'burn' (default), 'gradient', or
+// 'path' (a maze that measures the step-blocked check pathfinding uses).
+// an unrecognised name aborts the round in run_dmeow_burn() rather than falling
+// back, so a typo can't quietly measure the wrong thing for four minutes.
+export const DmeowLoadParameter = new Juke.Parameter({
+  type: 'string',
+  name: 'load',
+});
+
+// interior edge length of the room, in turfs. a size the map cannot reserve
+// aborts the round in atmos_room/start(), so there is no ceiling to enforce here.
+export const DmeowRoomSizeParameter = new Juke.Parameter({
+  type: 'string',
+  name: 'room-size',
+});
+
+// runs the equivalence probe instead of the A/B burn round. same build, same
+// launch, different world param - the two share everything except which
+// question the round answers, so cloning the target would duplicate all of it.
+export const DmeowEquivParameter = new Juke.Parameter({
+  type: 'boolean',
+  name: 'equiv',
+});
+
+// counts retired instructions per A/B window. windows has no in-process counter,
+// so crates/dmeow_pmc reads the hardware from outside and only learns this
+// thread's counters when it leaves a cpu - which is why it has to be dd.exe's
+// direct parent (it filters on one pid and does not follow children) and why the
+// dll needs DMEOW_PMC_MARKERS=1 to stamp a boundary the tracer can find.
+export const DmeowPmcParameter = new Juke.Parameter({
+  type: 'boolean',
+  name: 'pmc',
+});
+
+// samples the whole round with linux `perf record`. DMEOW_PERF_MAP=1 makes the
+// dll write /tmp/perf-<pid>.map, which is the only way perf can name JIT'd procs
+// instead of printing bare addresses. linux only - there is no perf on windows.
+export const DmeowPerfParameter = new Juke.Parameter({
+  type: 'boolean',
+  name: 'perf',
 });
 
 export const CutterTarget = new Juke.Target({
@@ -336,7 +409,11 @@ export const DmTestTarget = new Juke.Target({
       '-trusted',
       '-verbose',
       '-params',
-      'log-directory=ci',
+      // `dmeow` loads and arms the JIT before Master.Initialize, so the suite
+      // runs against compiled procs wherever the auto-tier promotes one. The
+      // sleep gate reads dmeow_sleep_verdicts.txt on its own; nothing here
+      // starts a tracy capture.
+      'log-directory=ci&dmeow',
     );
     Juke.rm('*.test.*');
     try {
@@ -493,6 +570,272 @@ export const ServerTarget = new Juke.Target({
       namedDmVersion: get(DmVersionParameter),
     };
     await DreamDaemon(options, port, '-trusted');
+  },
+});
+
+// where --pmc leaves the tracer's counter readings. a fixed name because the
+// round picks its own report stamp long after the launch, so the driver renames
+// this afterwards to match.
+const PMC_OUT = 'data/logs/dmeow-burn/dmeow/pmc.json';
+
+// where --perf records to, renamed after the round like PMC_OUT is
+const PERF_OUT = 'data/logs/dmeow-perf.data';
+// matches the '*.burn.*' cleanup at the end of the round
+const SLEEP_VERDICTS = `${DME_NAME}.burn.verdicts.txt`;
+
+// world-param keys read by run_dmeow_burn() in code/game/world.dm - keep in
+// sync if either side is renamed.
+const DMEOW_BURN_WORLD_PARAMS = [
+  [DmeowWarmupParameter, 'dmeow-warmup'],
+  [DmeowWindowParameter, 'dmeow-window'],
+  [DmeowCyclesParameter, 'dmeow-cycles'],
+  [DmeowThresholdParameter, 'dmeow-threshold'],
+  [DmeowSampleRateParameter, 'dmeow-sample-rate'],
+  [DmeowLoadParameter, 'dmeow-load'],
+  [DmeowRoomSizeParameter, 'dmeow-room-size'],
+] as const;
+
+function newestFileIn(dir: string): string | null {
+  if (!fs.existsSync(dir)) {
+    return null;
+  }
+  const entries = fs.readdirSync(dir).map((name) => {
+    const fullPath = `${dir}/${name}`;
+    return { fullPath, mtimeMs: fs.statSync(fullPath).mtimeMs };
+  });
+  if (entries.length === 0) {
+    return null;
+  }
+  entries.sort((a, b) => b.mtimeMs - a.mtimeMs);
+  return entries[0].fullPath;
+}
+
+export const DmeowBurnTarget = new Juke.Target({
+  parameters: [
+    DefineParameter,
+    DmVersionParameter,
+    WarningParameter,
+    NoWarningParameter,
+    DmeowWarmupParameter,
+    DmeowWindowParameter,
+    DmeowCyclesParameter,
+    DmeowThresholdParameter,
+    DmeowSampleRateParameter,
+    DmeowLoadParameter,
+    DmeowRoomSizeParameter,
+    DmeowEquivParameter,
+    DmeowPmcParameter,
+    DmeowPerfParameter,
+  ],
+  // mirrors DmTestTarget's dependencies, not BuildTarget's - this compiles its
+  // own .burn.dmb (below) rather than reusing the plain tgstation.dmb.
+  dependsOn: ({ get }) => [
+    get(DefineParameter).includes('ALL_MAPS') && DmMapsIncludeTarget,
+    IconCutterTarget,
+  ],
+  executes: async ({ get }) => {
+    // checked before the compile so a wrong-platform flag doesn't cost one
+    const perf = get(DmeowPerfParameter);
+    if (perf && process.platform === 'win32') {
+      Juke.logger.error('--perf needs linux perf; on windows use --pmc.');
+      throw new Juke.ExitCode(1);
+    }
+
+    if (!fs.existsSync('dmeow.dll') && !fs.existsSync('libdmeow.so')) {
+      Juke.logger.error(
+        'dmeow.dll (or libdmeow.so) not found next to the .dmb - the round would abort at dmeow_init() anyway, so failing here saves the wait.',
+      );
+      throw new Juke.ExitCode(1);
+    }
+
+    // dreamchecker writes the allowlist dmeow compiles from, so it has to see
+    // the same code dm.exe does - checked before the compile so a missing
+    // binary doesn't cost one.
+    const dreamchecker = process.env.DMEOW_DREAMCHECKER;
+    if (!dreamchecker) {
+      Juke.logger.error(
+        "DMEOW_DREAMCHECKER is unset - point it at dreamchecker from the Absolucy/SpacemanDMM fork (cargo build --release -p dreamchecker). Without its allowlist a compiled proc can end up above a sleep.",
+      );
+      throw new Juke.ExitCode(1);
+    }
+
+    // runtimestation is maps.txt's dedicated low-memory map. SKIP_LAVALAND,
+    // SKIP_SPACE_LEVELS and MINIMAL_CENTCOM exist to make the station quiet,
+    // not just to boot faster: the round refuses to measure while anything
+    // outside the benchmark room is on SSair's active list, and on 2026-09-11
+    // CentCom's engineering section and the space ruins were keeping 72-197
+    // turfs awake between them. SKIP_SPACE_LEVELS drops the ruin and
+    // empty-space z-levels (and with them setup_ruins() and the away
+    // missions); the reservation z-level the burn room needs is created after
+    // that block, so it still exists. DMEOW_BURN_BUILD is the odd one out - it
+    // pins the random seed and sets the world big enough to reserve a large
+    // room, both of which the three above would otherwise have taken away.
+    //
+    // Written into the .dme rather than passed as -D, so dreamchecker below
+    // reads the exact same defines.
+    const defines = [
+      'CBT',
+      'SKIP_LAVALAND',
+      'SKIP_SPACE_LEVELS',
+      'MINIMAL_CENTCOM',
+      'DMEOW_BURN_BUILD',
+      'FORCE_MAP="runtimestation"',
+      ...get(DefineParameter),
+    ];
+    const defineLines = defines
+      .map((define) => `#define ${define.replace('=', ' ')}\n`)
+      .join('');
+    fs.writeFileSync(
+      `${DME_NAME}.burn.dme`,
+      `${defineLines}\n${fs.readFileSync(`${DME_NAME}.dme`, 'utf8')}`,
+    );
+    await DreamMaker(`${DME_NAME}.burn.dme`, {
+      defines: [],
+      warningsAsErrors: get(WarningParameter).includes('error'),
+      ignoreWarningCodes: get(NoWarningParameter),
+      namedDmVersion: get(DmVersionParameter),
+    });
+
+    // After dm on purpose: dmeow ignores an allowlist that is not newer than
+    // the .dmb. --sleep-verdicts refuses analysis version 2, the default, so
+    // the burn gets its own copy of the config with 3 set. Exit 1 only means
+    // lint errors; no file is the failure.
+    fs.writeFileSync(
+      `${DME_NAME}.burn.toml`,
+      `${fs.readFileSync('SpacemanDMM.toml', 'utf8')}\n[dreamchecker]\nsleep_analysis_version = 3\n`,
+    );
+    Juke.rm(SLEEP_VERDICTS);
+    const checker = await Juke.exec(
+      dreamchecker,
+      [
+        '-c',
+        `${DME_NAME}.burn.toml`,
+        '-e',
+        `${DME_NAME}.burn.dme`,
+        '--sleep-verdicts',
+        SLEEP_VERDICTS,
+      ],
+      { throw: false, silent: true },
+    );
+    if (!fs.existsSync(SLEEP_VERDICTS)) {
+      Juke.logger.error(
+        `dreamchecker exited ${checker.code} without writing ${SLEEP_VERDICTS}:\n${checker.stderr}`,
+      );
+      throw new Juke.ExitCode(1);
+    }
+
+    const equiv = get(DmeowEquivParameter);
+    const burnParams: Record<string, string> = equiv
+      ? { 'dmeow-equiv': '1', 'log-directory': 'dmeow-equiv' }
+      : { 'dmeow-burn': '1', 'log-directory': 'dmeow-burn' };
+    // the equivalence probe takes no tunables - it is not a timed measurement,
+    // so warmup/window/cycles have nothing to tune.
+    if (!equiv) {
+      for (const [parameter, worldParamKey] of DMEOW_BURN_WORLD_PARAMS) {
+        const value = get(parameter);
+        if (value) {
+          burnParams[worldParamKey] = value;
+        }
+      }
+    }
+
+    const pmc = get(DmeowPmcParameter);
+    if (pmc && equiv) {
+      Juke.logger.error(
+        '--pmc with --equiv: the equivalence probe takes no A/B windows, so there is nothing to hang instruction counts on.',
+      );
+      throw new Juke.ExitCode(1);
+    }
+    const pmcExe = process.env.DMEOW_PMC_EXE;
+    if (pmc && !pmcExe) {
+      Juke.logger.error(
+        'DMEOW_PMC_EXE is unset - point it at byond-re\'s target/i686-pc-windows-msvc/release/dmeow_pmc.exe, or drive the whole thing with byond-re\'s scripts/dmeow_burn_pmc.py.',
+      );
+      throw new Juke.ExitCode(1);
+    }
+
+    const options = {
+      dmbFile: `${DME_NAME}.burn.dmb`,
+      namedDmVersion: get(DmVersionParameter),
+      // both halves come from the one flag: the tracer has to be dd.exe's
+      // parent, and the dll has to stamp boundaries it can find. set one
+      // without the other and the round runs fine and merges to nothing.
+      ...(pmc && {
+        wrapper: [pmcExe as string, 'run', '--out', PMC_OUT, '--'],
+      }),
+      ...(perf && {
+        wrapper: ['perf', 'record', '-F', '999', `--output=${PERF_OUT}`, '--'],
+      }),
+      env: {
+        DMEOW_SLEEP_VERDICTS: SLEEP_VERDICTS,
+        ...(pmc && { DMEOW_PMC_MARKERS: '1' }),
+        ...(perf && { DMEOW_PERF_MAP: '1' }),
+      },
+    };
+    if (perf) {
+      fs.mkdirSync(path.dirname(PERF_OUT), { recursive: true });
+    }
+    const launchedAt = Date.now();
+    await DreamDaemonConsole(
+      options,
+      '-close',
+      '-trusted',
+      '-verbose',
+      '-params',
+      new URLSearchParams(burnParams).toString(),
+    );
+    Juke.rm('*.burn.*');
+
+    const reportDir = equiv
+      ? 'data/logs/dmeow-equiv/dmeow/equiv'
+      : 'data/logs/dmeow-burn/dmeow/perf';
+    const newest = newestFileIn(reportDir);
+    // an aborted round writes nothing, so the newest file is the last round's.
+    // announcing it would describe a different run, and --perf would rename
+    // this profile over that round's.
+    const reportFile =
+      newest && fs.statSync(newest).mtimeMs >= launchedAt ? newest : null;
+    if (!reportFile) {
+      Juke.logger.error(
+        `Round finished but ${reportDir} has no report - check the world log for a DMEOW_${equiv ? 'EQUIV' : 'BURN'}: abort line.`,
+      );
+      throw new Juke.ExitCode(1);
+    }
+    Juke.logger.info(`Report: ${reportFile}`);
+    Juke.logger.info(
+      'Debug log: dmeow_debug.dmeowlog in the round log folder (data/logs/...), unless DMEOW_DEBUG_LOG was set',
+    );
+    if (pmc) {
+      Juke.logger.info(`Counter readings: ${PMC_OUT}`);
+      Juke.logger.info(
+        `Merge them in with (from byond-re): python scripts/dmeow_pmc_merge.py ${reportFile} ${PMC_OUT} -o merged.json`,
+      );
+    }
+    if (perf) {
+      // renamed to match the report so the next round can't overwrite it
+      const perfFile = `${path.dirname(path.dirname(reportFile))}/${path.parse(reportFile).name}.perf.data`;
+      fs.renameSync(PERF_OUT, perfFile);
+      Juke.logger.info(`Profile: ${perfFile}`);
+      Juke.logger.info(
+        `Read it with: perf report -i ${perfFile} --stdio -q -g none --no-inline --comms=DreamDaemon`,
+      );
+    }
+    if (!equiv) {
+      Juke.logger.info(
+        `Read it with (from byond-re): python scripts/dmeow_perf.py ${reportFile}`,
+      );
+      // derived from the report's own path rather than newestFileIn, so a round
+      // that died before writing its rows can't advertise a previous round's.
+      const turfFile = reportFile.replace(
+        '/dmeow/perf/',
+        '/dmeow/turfs/',
+      );
+      if (fs.existsSync(turfFile)) {
+        Juke.logger.info(
+          `Turf rows: python scripts/dmeow_turfs.py ${turfFile} ${reportFile}`,
+        );
+      }
+    }
   },
 });
 

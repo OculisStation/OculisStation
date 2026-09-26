@@ -54,6 +54,21 @@ SUBSYSTEM_DEF(air)
 	var/list/currentrun = list()
 	var/currentpart = SSAIR_PIPENETS
 
+#ifdef DMEOW_BURN_BUILD
+	/// Counts every fire(), paused ones included. The key for the dmeow per-fire
+	/// rows - times_fired can't be, it only counts runs that reached the end, so
+	/// every paused run shares the value of the one that eventually finished.
+	var/fire_runs = 0
+	/// Turfs process_active_turfs() got through on its last call.
+	var/turfs_processed_last = 0
+	/// Active turfs the current pass started with. Survives a pause, so a resumed
+	/// fire still reports the depth it is working off.
+	var/queue_at_pass_start = 0
+	/// Set by Recover(), which can't carry the three above. A round with this set
+	/// has a hole in its rows and should be thrown away.
+	var/recovered = FALSE
+#endif
+
 	var/map_loading = TRUE
 	var/list/queued_for_activation
 	var/display_all_groups = FALSE
@@ -107,6 +122,10 @@ SUBSYSTEM_DEF(air)
 
 /datum/controller/subsystem/air/fire(resumed = FALSE)
 	var/timer = TICK_USAGE_REAL
+#ifdef DMEOW_BURN_BUILD
+	fire_runs++
+	var/entry_part = currentpart
+#endif
 
 	//Rebuilds can happen at any time, so this needs to be done outside of the normal system
 	cost_rebuilds = 0
@@ -156,11 +175,27 @@ SUBSYSTEM_DEF(air)
 		currentpart = SSAIR_ACTIVETURFS
 
 	if(currentpart == SSAIR_ACTIVETURFS)
+#ifdef DMEOW_BURN_BUILD
+		// outside the timer on purpose - this walks active_turfs itself, and
+		// turf_delta has to stay the cost of process_active_turfs alone.
+		if(!resumed)
+			GLOB.dmeow_perf_session?.snapshot_foreign_turfs()
+		var/pass_fresh = !resumed
+#endif
 		timer = TICK_USAGE_REAL
 		if(!resumed)
 			cached_cost = 0
 		process_active_turfs(resumed)
-		cached_cost += TICK_USAGE_REAL - timer
+		// Own delta rather than cached_cost, which every phase shares and which
+		// isn't reset on a resume - summing that over a paused pass counts the
+		// first fire's time again in every later one.
+		var/turf_delta = TICK_USAGE_REAL - timer
+		cached_cost += turf_delta
+#ifdef DMEOW_BURN_BUILD
+		// Before the state check below, or a paused fire never records a row -
+		// and paused fires are the whole point of the measurement.
+		GLOB.dmeow_perf_session?.record_turf_row(entry_part, pass_fresh, turf_delta)
+#endif
 		if(state != SS_RUNNING)
 			return
 		cost_turfs = MC_AVERAGE(cost_turfs, TICK_DELTA_TO_MS(cached_cost))
@@ -248,6 +283,11 @@ SUBSYSTEM_DEF(air)
 	atom_process = SSair.atom_process
 	currentrun = SSair.currentrun
 	queued_for_activation = SSair.queued_for_activation
+#ifdef DMEOW_BURN_BUILD
+	// The dmeow counters aren't carried - fire_runs restarting at 0 would collide
+	// row keys - so flag the round as unusable instead of pretending otherwise.
+	recovered = TRUE
+#endif
 
 /datum/controller/subsystem/air/proc/process_adjacent_rebuild(init = FALSE)
 	var/list/queue = adjacent_rebuild
@@ -372,8 +412,26 @@ SUBSYSTEM_DEF(air)
 	var/fire_count = times_fired
 	if (!resumed)
 		src.currentrun = active_turfs.Copy()
+#ifdef DMEOW_BURN_BUILD
+		queue_at_pass_start = length(src.currentrun)
+#endif
 	//cache for sanic speed (lists are references anyways)
 	var/list/currentrun = src.currentrun
+#ifdef DMEOW_BURN_BUILD
+	// Counted inside the null guard, so it matches what the profiler counts for
+	// process_cell exactly and the two can be checked against each other.
+	var/processed = 0
+	while(currentrun.len)
+		var/turf/open/T = currentrun[currentrun.len]
+		currentrun.len--
+		if (T)
+			T.process_cell(fire_count)
+			processed++
+		if (MC_TICK_CHECK)
+			turfs_processed_last = processed
+			return
+	turfs_processed_last = processed
+#else
 	while(currentrun.len)
 		var/turf/open/T = currentrun[currentrun.len]
 		currentrun.len--
@@ -381,6 +439,7 @@ SUBSYSTEM_DEF(air)
 			T.process_cell(fire_count)
 		if (MC_TICK_CHECK)
 			return
+#endif
 
 /datum/controller/subsystem/air/proc/process_excited_groups(resumed = FALSE)
 	if (!resumed)
