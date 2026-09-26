@@ -1,6 +1,6 @@
 <!-- This should be copy-pasted into the root of your module folder as readme.md -->
 
-https://github.com/Monkestation/OculisStation/pull/367<!--PR Number-->
+https://github.com/OculisStation/OculisStation/pull/367<!--PR Number-->
 
 ## \<PK Anomaly Modkits> <!--Title of your addition.-->
 

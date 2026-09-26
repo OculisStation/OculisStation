@@ -1,6 +1,6 @@
 <!-- This should be copy-pasted into the root of your module folder as readme.md -->
 
-https://github.com/Monkestation/OculisStation/pull/<!--PR Number-->
+https://github.com/OculisStation/OculisStation/pull/<!--PR Number-->
 
 ## \<More Portal Storms> <!--Title of your addition.-->
 
