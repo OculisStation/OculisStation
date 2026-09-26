@@ -85,6 +85,7 @@
 	data["borerTransferAmounts"] = cortical_owner.injection_rates_unlocked
 	data["onCooldown"] = !COOLDOWN_FINISHED(cortical_owner, injection_cooldown)
 	data["notEnoughChemicals"] = ((cortical_owner.injection_rate_current * CHEMICALS_PER_UNIT) > cortical_owner.chemical_storage) ? TRUE : FALSE
+	data["reagent_holder"] = (cortical_owner.reagent_holder)
 
 	var/chemicals[0]
 	for(var/reagent in cortical_owner.known_chemicals)
@@ -130,6 +131,10 @@
 			cortical_owner.log_message(logging_text, LOG_GAME)
 			cortical_owner.human_host.log_message(logging_text, LOG_GAME)
 			. = TRUE
+		if("reaction_lookup")
+			if(!iscorticalborer(usr))
+				return
+			cortical_owner.reagent_holder.reagents.ui_interact(cortical_owner)
 
 /datum/action/cooldown/borer/inject_chemical/ui_state(mob/user)
 	return GLOB.always_state
@@ -673,7 +678,7 @@
 
 /datum/action/cooldown/borer/produce_offspring/proc/no_host_egg()
 	var/mob/living/basic/cortical_borer/cortical_owner = owner
-	cortical_owner.health = max(cortical_owner.health, 1, cortical_owner.health -= OUT_OF_HOST_EGG_COST)
+	cortical_owner.apply_damage(min(OUT_OF_HOST_EGG_COST, cortical_owner.health - 1), BRUTE)
 	produce_egg()
 	var/turf/borer_turf = get_turf(cortical_owner)
 	var/obj/effect/decal/cleanable/blood/splatter/new_splatter = new /obj/effect/decal/cleanable/blood/splatter(borer_turf)
