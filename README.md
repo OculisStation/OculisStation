@@ -1,9 +1,13 @@
 ## Oculis Station 13 (/tg/station Downstream)
 
-[![CI Suite](https://github.com/Monkestation/OculisStation/workflows/CI%20Suite/badge.svg)](https://github.com/Monkestation/OculisStation/actions?query=workflow%3A%22CI+Suite%22)
-[![Percentage of issues still open](https://isitmaintained.com/badge/open/Monkestation/OculisStation.svg)](https://isitmaintained.com/project/Monkestation/OculisStation "Percentage of issues still open")
-[![Average time to resolve an issue](https://isitmaintained.com/badge/resolution/Monkestation/OculisStation.svg)](https://isitmaintained.com/project/Monkestation/OculisStation "Average time to resolve an issue")
-![Coverage](https://img.shields.io/codecov/c/github/Monkestation/OculisStation)
+[![CI Suite](https://github.com/OculisStation/OculisStation/workflows/CI%20Suite/badge.svg)](https://github.com/OculisStation/OculisStation/actions?query=workflow%3A%22CI+Suite%22)
+[![Percentage of issues still open](https://isitmaintained.com/badge/open/OculisStation/OculisStation.svg)](https://isitmaintained.com/project/OculisStation/OculisStation "Percentage of issues still open")
+[![Average time to resolve an issue](https://isitmaintained.com/badge/resolution/OculisStation/OculisStation.svg)](https://isitmaintained.com/project/OculisStation/OculisStation "Average time to resolve an issue")
+![Coverage](https://img.shields.io/codecov/c/github/OculisStation/OculisStation)
+[![CI Suite](https://github.com/OculisStation/OculisStation/workflows/CI%20Suite/badge.svg)](https://github.com/OculisStation/OculisStation/actions?query=workflow%3A%22CI+Suite%22)
+[![Percentage of issues still open](https://isitmaintained.com/badge/open/OculisStation/OculisStation.svg)](https://isitmaintained.com/project/OculisStation/OculisStation "Percentage of issues still open")
+[![Average time to resolve an issue](https://isitmaintained.com/badge/resolution/OculisStation/OculisStation.svg)](https://isitmaintained.com/project/OculisStation/OculisStation "Average time to resolve an issue")
+![Coverage](https://img.shields.io/codecov/c/github/OculisStation/OculisStation)
 
 [![resentment](.github/images/badges/built-with-resentment.svg)](.github/images/comics/131-bug-free.png) [![technical debt](.github/images/badges/contains-technical-debt.svg)](.github/images/comics/106-tech-debt-modified.png) [![forinfinityandbyond](.github/images/badges/made-in-byond.gif)](https://www.reddit.com/r/SS13/comments/5oplxp/what_is_the_main_problem_with_byond_as_an_engine/dclbu1a)
 
@@ -13,7 +17,7 @@
 | Git / GitHub cheatsheet  | [https://www.notion.so/Git-GitHub-61bc81766b2e4c7d9a346db3078ce833](https://www.notion.so/Git-GitHub-61bc81766b2e4c7d9a346db3078ce833) |
 | Guide to Modularization  | [./modular_oculis/readme.md](./modular_oculis/readme.md)                                                                               |
 | Guide to Mirroring       | [./modular_oculis/mirroring_guide.md](./modular_oculis/mirroring_guide.md)                                                             |
-| Code                     | [https://github.com/Monkestation/OculisStation](https://github.com/Monkestation/OculisStation)                                         |
+| Code                     | [https://github.com/OculisStation/OculisStation](https://github.com/OculisStation/OculisStation)                                         |
 | Wiki                     | [https://oculis.miraheze.org/wiki/Main_Page](https://oculis.miraheze.org/wiki/Main_Page)                                               |
 | Nova's Codedocs          | [https://NovaSector.github.io/NovaSector/](https://NovaSector.github.io/NovaSector/)                                                   |
 | Oculis Station's Discord | [https://discord.gg/h77rMj2Eb8](https://discord.gg/h77rMj2Eb8)                                                                         |
