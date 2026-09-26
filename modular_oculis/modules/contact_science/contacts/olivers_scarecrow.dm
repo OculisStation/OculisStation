@@ -22,7 +22,6 @@
 	echoes = list(
 		"what are you"
 	)
-	one_time = TRUE
 
 	var/artifact_given = FALSE //it can only give one Oliver's Labyrinth
 

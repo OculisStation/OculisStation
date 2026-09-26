@@ -31,15 +31,15 @@
 	var/anchored_turf
 	var/breaching = FALSE
 	var/datum/language/spoken_lang = /datum/language/common
-	var/one_time = FALSE //whether or not this resform should only appear once per round
 
 /mob/living/simple_animal/formic/Initialize(mapload)
 	. = ..()
 	langsay(initial_line)
 	add_traits(list(TRAIT_GODMODE, TRAIT_IMMOBILIZED, TRAIT_AGENDER, TRAIT_NO_STAGGER), src)
 	anchored_turf = get_turf(src)
-	if(one_time)
-		GLOB.global_resforms -= src
+	GLOB.global_resforms -= src
+	if(GLOB.global_resforms.len < 1) //refill list
+		GLOB.global_resforms = subtypesof(/mob/living/simple_animal/formic)
 
 /mob/living/simple_animal/formic/Life(seconds_per_tick = SSMOBS_DT)
 	. = ..()
