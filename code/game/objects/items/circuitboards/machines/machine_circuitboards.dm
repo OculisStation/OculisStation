@@ -1387,6 +1387,7 @@
 		/datum/stock_part/servo = 1)
 	needs_anchored = FALSE
 
+/* // OCULIS EDIT REMOVAL START - SLIME RANCHER
 /obj/item/circuitboard/machine/processor/screwdriver_act(mob/living/user, obj/item/tool)
 	if(build_path == /obj/machinery/processor)
 		name = "Slime Processor"
@@ -1397,6 +1398,7 @@
 		build_path = /obj/machinery/processor
 		to_chat(user, span_notice("Defaulting name protocols."))
 	return TRUE
+*/ // OCULIS EDIT REMOVAL END - SLIME RANCHER
 
 /obj/item/circuitboard/machine/protolathe/department/service
 	name = "Departmental Protolathe - Service"
