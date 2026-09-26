@@ -1,0 +1,907 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aJ" = (
+/turf/closed/wall/r_wall,
+/area/station/science/xenobiology)
+"bF" = (
+/obj/effect/turf_decal/tile/blue/fourcorners,
+/obj/structure/slime_pen_post/premade{
+	dir = 10;
+	barrier_color = "#52B4E9"
+	},
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"cK" = (
+/obj/machinery/light/cold/directional/south,
+/obj/effect/turf_decal/tile/green/fourcorners,
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"dw" = (
+/obj/structure/table/reinforced,
+/obj/effect/turf_decal/tile/purple/half,
+/obj/item/radio/intercom/directional/south,
+/obj/item/stack/sheet/mineral/plasma/thirty{
+	pixel_x = -8;
+	pixel_y = 6
+	},
+/obj/machinery/reagentgrinder{
+	pixel_y = 9;
+	pixel_x = 5
+	},
+/turf/open/floor/iron/white/smooth_half,
+/area/station/science/xenobiology)
+"gj" = (
+/obj/effect/turf_decal/tile/purple/opposingcorners,
+/obj/structure/table/reinforced,
+/obj/item/toy/plush/slimeplushie{
+	desc = "An adorable stuffed toy that resembles a slime. A faded purple flower is embroidered beneath one of its many patches, alongside several tiny slips of paper that look suspiciously like overdue notices.";
+	name = "Tara"
+	},
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"gV" = (
+/obj/machinery/light/cold/directional/north,
+/obj/machinery/camera/autoname/directional/north,
+/obj/effect/turf_decal/tile/blue/fourcorners,
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"hW" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
+	},
+/turf/open/floor/iron/white/smooth_large,
+/area/station/science/xenobiology)
+"iQ" = (
+/obj/effect/turf_decal/tile/blue/fourcorners,
+/obj/structure/slime_pen_post/premade{
+	dir = 5
+	},
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"iT" = (
+/obj/effect/turf_decal/tile/purple/opposingcorners,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"kO" = (
+/obj/machinery/newscaster/directional/east,
+/obj/effect/turf_decal/tile/purple/fourcorners,
+/obj/structure/slime_pen_post/premade{
+	dir = 6
+	},
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"ls" = (
+/obj/structure/sign/warning/cold_temp,
+/turf/closed/wall/r_wall,
+/area/station/science/xenobiology)
+"ns" = (
+/obj/machinery/light/cold/directional/north,
+/obj/effect/turf_decal/tile/blue/fourcorners,
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"om" = (
+/obj/effect/turf_decal/tile/purple/half,
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/iron/white/smooth_half,
+/area/station/science/xenobiology)
+"on" = (
+/obj/machinery/camera/autoname/directional/west{
+	network = list("ss13","rd")
+	},
+/obj/machinery/light_switch/directional/west,
+/obj/effect/turf_decal/bot_white{
+	color = "#D381C9"
+	},
+/obj/machinery/smartfridge/petri/preloaded,
+/turf/open/floor/iron/dark,
+/area/station/science/xenobiology)
+"ph" = (
+/obj/structure/table/reinforced,
+/obj/effect/turf_decal/tile/purple/anticorner{
+	dir = 8
+	},
+/obj/item/reagent_containers/spray/cleaner{
+	pixel_y = 14;
+	pixel_x = -6
+	},
+/obj/structure/sign/xenobio_guide/directional/south,
+/obj/item/storage/box/monkeycubes{
+	pixel_x = 9;
+	pixel_y = 8
+	},
+/obj/item/storage/toolbox/mechanical{
+	pixel_x = 3
+	},
+/turf/open/floor/iron/white/smooth_corner{
+	dir = 4
+	},
+/area/station/science/xenobiology)
+"ql" = (
+/obj/effect/turf_decal/tile/green/fourcorners,
+/obj/structure/slime_pen_post/premade{
+	dir = 6
+	},
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"qw" = (
+/obj/effect/turf_decal/tile/purple/half{
+	dir = 4
+	},
+/obj/machinery/requests_console/auto_name/directional/east,
+/obj/effect/mapping_helpers/requests_console/supplies,
+/obj/effect/mapping_helpers/requests_console/assistance,
+/obj/structure/table/reinforced,
+/obj/item/vacuum_pack{
+	pixel_x = -5
+	},
+/obj/item/disk/vacuum_upgrade/printer{
+	pixel_x = 9;
+	pixel_y = 5
+	},
+/obj/item/slime_rancher_scanner{
+	pixel_y = -7;
+	pixel_x = 8
+	},
+/turf/open/floor/iron/white/smooth_half{
+	dir = 8
+	},
+/area/station/science/xenobiology)
+"qW" = (
+/obj/structure/table/reinforced,
+/obj/effect/turf_decal/tile/purple/half,
+/obj/machinery/newscaster/directional/south,
+/obj/item/screwdriver,
+/obj/item/wrench{
+	pixel_x = -1;
+	pixel_y = 6
+	},
+/obj/item/storage/box/monkeycubes{
+	pixel_y = 11;
+	pixel_x = 21
+	},
+/turf/open/floor/iron/white/smooth_half,
+/area/station/science/xenobiology)
+"rH" = (
+/obj/effect/turf_decal/tile/purple/half{
+	dir = 8
+	},
+/obj/machinery/extract_compressor,
+/turf/open/floor/iron/white/smooth_half{
+	dir = 8
+	},
+/area/station/science/xenobiology)
+"rO" = (
+/obj/effect/turf_decal/tile/purple/fourcorners,
+/obj/structure/slime_pen_post/premade{
+	dir = 6
+	},
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"rZ" = (
+/obj/effect/turf_decal/tile/purple/half,
+/obj/structure/table/reinforced,
+/obj/item/vacuum_pack{
+	pixel_x = -5
+	},
+/obj/item/disk/vacuum_upgrade/printer{
+	pixel_x = 9;
+	pixel_y = 5
+	},
+/obj/item/slime_rancher_scanner{
+	pixel_y = -7;
+	pixel_x = 8
+	},
+/turf/open/floor/iron/white/smooth_half,
+/area/station/science/xenobiology)
+"ty" = (
+/obj/effect/turf_decal/tile/purple/fourcorners,
+/obj/structure/slime_pen_post/premade{
+	dir = 10;
+	barrier_color = "#D381C9"
+	},
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"ud" = (
+/obj/effect/turf_decal/tile/purple/half{
+	dir = 8
+	},
+/obj/machinery/biomass_recycler,
+/obj/item/stack/biomass/twenty,
+/turf/open/floor/iron/white/smooth_half{
+	dir = 8
+	},
+/area/station/science/xenobiology)
+"up" = (
+/obj/effect/turf_decal/tile/blue/fourcorners,
+/obj/structure/slime_pen_post/premade{
+	dir = 9
+	},
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"uu" = (
+/obj/machinery/light/cold/directional/north,
+/obj/machinery/camera/autoname/directional/north,
+/obj/effect/turf_decal/tile/purple/fourcorners,
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"uB" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/purple/opposingcorners,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 4
+	},
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"vd" = (
+/obj/effect/turf_decal/tile/purple/fourcorners,
+/obj/structure/slime_pen_post/premade{
+	dir = 9
+	},
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"vO" = (
+/turf/open/floor/iron/white/smooth_large,
+/area/station/science/xenobiology)
+"wG" = (
+/obj/effect/turf_decal/tile/purple/half,
+/obj/machinery/light_switch/directional/south,
+/obj/structure/table/reinforced,
+/obj/item/storage/box/monkeycubes{
+	pixel_x = -1
+	},
+/turf/open/floor/iron/white/smooth_half,
+/area/station/science/xenobiology)
+"xW" = (
+/obj/effect/turf_decal/tile/green/fourcorners,
+/obj/structure/slime_pen_post/premade{
+	dir = 10;
+	barrier_color = "#9FED58"
+	},
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"zG" = (
+/obj/effect/turf_decal/tile/green/fourcorners,
+/obj/structure/slime_pen_post/premade{
+	dir = 9
+	},
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"Cf" = (
+/obj/machinery/door/firedoor,
+/turf/open/floor/iron/white/smooth_large,
+/area/station/science/xenobiology)
+"Dm" = (
+/mob/living/basic/slime,
+/obj/effect/turf_decal/tile/green/fourcorners,
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"FH" = (
+/obj/effect/turf_decal/tile/purple/full,
+/obj/machinery/firealarm/directional/east,
+/turf/open/floor/iron/white/smooth_large,
+/area/station/science/xenobiology)
+"FU" = (
+/obj/effect/turf_decal/tile/purple/full,
+/turf/open/floor/iron/white/smooth_large,
+/area/station/science/xenobiology)
+"GC" = (
+/obj/effect/turf_decal/tile/purple/fourcorners,
+/obj/structure/slime_pen_post/premade{
+	dir = 5
+	},
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"GM" = (
+/turf/template_noop,
+/area/template_noop)
+"Iu" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/purple/opposingcorners,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"Jb" = (
+/obj/machinery/camera/autoname/directional/north{
+	network = list("ss13","rd")
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/sign/warning/biohazard/directional/north,
+/turf/open/floor/iron/white/smooth_large,
+/area/station/science/xenobiology)
+"Jp" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/purple/opposingcorners,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"JK" = (
+/obj/effect/turf_decal/tile/purple/full,
+/obj/machinery/camera/autoname/directional/east{
+	network = list("ss13","rd")
+	},
+/turf/open/floor/iron/white/smooth_large,
+/area/station/science/xenobiology)
+"KF" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/station/science/xenobiology)
+"Lo" = (
+/obj/machinery/light/cold/directional/north,
+/obj/effect/turf_decal/tile/purple/fourcorners,
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"LH" = (
+/obj/machinery/light/cold/directional/north,
+/obj/machinery/camera/autoname/directional/north,
+/obj/effect/turf_decal/tile/green/fourcorners,
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"Mp" = (
+/obj/structure/closet/emcloset,
+/obj/effect/turf_decal/tile/purple/half{
+	dir = 4
+	},
+/obj/machinery/status_display/ai/directional/east,
+/turf/open/floor/iron/white/smooth_half{
+	dir = 8
+	},
+/area/station/science/xenobiology)
+"Mu" = (
+/obj/effect/turf_decal/tile/green/fourcorners,
+/obj/structure/slime_pen_post/premade{
+	dir = 5
+	},
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"MN" = (
+/obj/structure/table/reinforced,
+/obj/effect/turf_decal/tile/purple/anticorner,
+/obj/machinery/light_switch/directional/south,
+/obj/machinery/reagentgrinder{
+	pixel_y = 10;
+	pixel_x = 3
+	},
+/obj/structure/sign/warning/biohazard/directional/east,
+/turf/open/floor/iron/white/smooth_corner{
+	dir = 1
+	},
+/area/station/science/xenobiology)
+"NV" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/turf/open/floor/iron/white/smooth_large,
+/area/station/science/xenobiology)
+"On" = (
+/obj/machinery/light/cold/directional/south,
+/obj/effect/turf_decal/tile/blue/fourcorners,
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"OH" = (
+/obj/effect/turf_decal/tile/purple{
+	dir = 8
+	},
+/obj/machinery/smartfridge/extract,
+/turf/open/floor/iron/white/smooth_corner{
+	dir = 8
+	},
+/area/station/science/xenobiology)
+"OM" = (
+/obj/effect/turf_decal/tile/purple/fourcorners,
+/obj/machinery/airalarm/directional/east,
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"PB" = (
+/obj/effect/turf_decal/tile/purple/fourcorners,
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"Qk" = (
+/obj/machinery/light/cold/directional/south,
+/obj/effect/turf_decal/tile/purple/fourcorners,
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"Ri" = (
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/west,
+/obj/structure/closet/secure_closet/cytology,
+/obj/effect/turf_decal/bot_white{
+	color = "#D381C9"
+	},
+/turf/open/floor/iron/dark,
+/area/station/science/xenobiology)
+"RY" = (
+/obj/machinery/light/cold/directional/south,
+/obj/machinery/camera/autoname/directional/south,
+/obj/effect/turf_decal/tile/purple/fourcorners,
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"Sa" = (
+/obj/effect/turf_decal/tile/purple/opposingcorners,
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"Sl" = (
+/obj/machinery/light/cold/directional/south,
+/obj/machinery/camera/autoname/directional/south,
+/obj/effect/turf_decal/tile/green/fourcorners,
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"Su" = (
+/obj/machinery/light/directional/east,
+/obj/effect/turf_decal/tile/purple/half{
+	dir = 4
+	},
+/obj/structure/sign/xenobio_guide/directional/east,
+/obj/structure/table/reinforced,
+/obj/item/storage/box/beakers{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/turf/open/floor/iron/white/smooth_half{
+	dir = 8
+	},
+/area/station/science/xenobiology)
+"SB" = (
+/obj/effect/turf_decal/tile/purple/opposingcorners,
+/obj/effect/landmark/start/scientist,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"VD" = (
+/obj/effect/turf_decal/tile/green/fourcorners,
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"Xu" = (
+/obj/effect/turf_decal/tile/blue/fourcorners,
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"Zb" = (
+/obj/effect/turf_decal/tile/blue/fourcorners,
+/obj/structure/slime_pen_post/premade{
+	dir = 6
+	},
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"ZE" = (
+/mob/living/basic/slime,
+/obj/effect/turf_decal/tile/purple/fourcorners,
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+
+(1,1,1) = {"
+GM
+GM
+GM
+GM
+GM
+GM
+GM
+on
+Ri
+ph
+aJ
+GM
+GM
+GM
+GM
+"}
+(2,1,1) = {"
+GM
+GM
+GM
+GM
+GM
+GM
+GM
+iT
+Jp
+rZ
+KF
+GM
+GM
+GM
+GM
+"}
+(3,1,1) = {"
+GM
+GM
+GM
+GM
+GM
+GM
+GM
+iT
+Jp
+wG
+aJ
+GM
+GM
+GM
+GM
+"}
+(4,1,1) = {"
+GM
+GM
+GM
+GM
+GM
+GM
+GM
+GM
+uB
+dw
+aJ
+ls
+GM
+GM
+GM
+"}
+(5,1,1) = {"
+GM
+GM
+GM
+GM
+GM
+GM
+GM
+GM
+Iu
+OH
+rH
+ud
+GM
+GM
+GM
+"}
+(6,1,1) = {"
+GM
+GM
+GM
+GM
+GM
+GM
+GM
+GM
+GM
+iT
+iT
+iT
+GM
+GM
+GM
+"}
+(7,1,1) = {"
+GM
+GM
+GM
+GM
+GM
+GM
+GM
+GM
+GM
+GM
+GM
+Sa
+Sa
+om
+GM
+"}
+(8,1,1) = {"
+GM
+GM
+GM
+GM
+GM
+GM
+GM
+GM
+GM
+GM
+iT
+SB
+gj
+qW
+GM
+"}
+(9,1,1) = {"
+GM
+GM
+GM
+GM
+GM
+GM
+GM
+GM
+GM
+GM
+Mp
+Su
+qw
+MN
+GM
+"}
+(10,1,1) = {"
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+Jb
+GM
+Cf
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+"}
+(11,1,1) = {"
+aJ
+up
+Xu
+Xu
+Xu
+bF
+FU
+GM
+FU
+vd
+PB
+PB
+PB
+ty
+aJ
+"}
+(12,1,1) = {"
+aJ
+gV
+Xu
+Xu
+Xu
+Xu
+vO
+GM
+vO
+PB
+PB
+PB
+PB
+Qk
+aJ
+"}
+(13,1,1) = {"
+aJ
+iQ
+Xu
+Xu
+Xu
+Zb
+FU
+GM
+FU
+GC
+PB
+PB
+PB
+rO
+aJ
+"}
+(14,1,1) = {"
+aJ
+vd
+PB
+PB
+PB
+ty
+vO
+GM
+vO
+zG
+VD
+VD
+VD
+xW
+aJ
+"}
+(15,1,1) = {"
+aJ
+Lo
+ZE
+PB
+PB
+PB
+FU
+GM
+FU
+VD
+VD
+VD
+Dm
+Sl
+aJ
+"}
+(16,1,1) = {"
+aJ
+GC
+PB
+PB
+PB
+rO
+vO
+GM
+vO
+Mu
+VD
+VD
+VD
+ql
+aJ
+"}
+(17,1,1) = {"
+aJ
+zG
+VD
+VD
+VD
+xW
+FU
+GM
+FU
+up
+Xu
+Xu
+Xu
+bF
+aJ
+"}
+(18,1,1) = {"
+aJ
+LH
+Dm
+VD
+VD
+VD
+NV
+GM
+hW
+Xu
+Xu
+Xu
+Xu
+On
+aJ
+"}
+(19,1,1) = {"
+aJ
+Mu
+VD
+VD
+VD
+ql
+FU
+GM
+FU
+iQ
+Xu
+Xu
+Xu
+Zb
+aJ
+"}
+(20,1,1) = {"
+aJ
+up
+Xu
+Xu
+Xu
+bF
+vO
+GM
+vO
+vd
+PB
+PB
+PB
+ty
+aJ
+"}
+(21,1,1) = {"
+aJ
+ns
+Xu
+Xu
+Xu
+Xu
+FU
+GM
+FU
+PB
+PB
+PB
+PB
+RY
+aJ
+"}
+(22,1,1) = {"
+aJ
+iQ
+Xu
+Xu
+Xu
+Zb
+vO
+GM
+vO
+GC
+PB
+PB
+PB
+rO
+aJ
+"}
+(23,1,1) = {"
+aJ
+vd
+PB
+PB
+PB
+ty
+FU
+GM
+FU
+zG
+VD
+VD
+VD
+xW
+aJ
+"}
+(24,1,1) = {"
+aJ
+uu
+PB
+PB
+PB
+PB
+vO
+GM
+vO
+VD
+VD
+VD
+VD
+cK
+aJ
+"}
+(25,1,1) = {"
+aJ
+GC
+PB
+PB
+OM
+kO
+FH
+GM
+JK
+Mu
+VD
+VD
+VD
+ql
+aJ
+"}
+(26,1,1) = {"
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+GM
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+"}

@@ -893,9 +893,11 @@ GLOBAL_LIST_INIT(slime_extract_auto_activate_reactions, init_slime_auto_activate
 	icon_state = "potred"
 
 /obj/item/slimepotion/slime/steroid/interact_with_slime(mob/living/basic/slime/interacting_slime, mob/living/user, list/modifiers)
+	/* // OCULIS EDIT REMOVAL START - SLIME RANCHER
 	if(interacting_slime.life_stage == SLIME_LIFE_STAGE_ADULT) //Can't steroidify adults
 		to_chat(user, span_warning("Only baby slimes can use the steroid!"))
 		return ITEM_INTERACT_BLOCKING
+	*/ // OCULIS EDIT REMOVAL END - SLIME RANCHER
 	if(IS_UNCONSCIOUS_OR_CRIT(interacting_slime))
 		to_chat(user, span_warning("The slime is dead!"))
 		return ITEM_INTERACT_BLOCKING
@@ -972,7 +974,7 @@ GLOBAL_LIST_INIT(slime_extract_auto_activate_reactions, init_slime_auto_activate
 
 	if(isitem(interacting_with))
 		var/obj/item/apply_to = interacting_with
-		if(apply_to.slowdown <= 0 || (apply_to.item_flags & IMMUTABLE_SLOW) || HAS_TRAIT(apply_to, TRAIT_NO_SPEED_POTION))
+		if((apply_to.slowdown <= 0 && !istype(apply_to, /obj/item/mod/control)) || (apply_to.item_flags & IMMUTABLE_SLOW) || HAS_TRAIT(apply_to, TRAIT_NO_SPEED_POTION)) // OCULIS EDIT - temporary speed potion bugfix - ORIGINAL: if((apply_to.slowdown <= 0 && !istype(apply_to, /obj/item/mod/control)) || (apply_to.item_flags & IMMUTABLE_SLOW) || HAS_TRAIT(apply_to, TRAIT_NO_SPEED_POTION))
 			if(interacting_with.atom_storage)
 				return NONE // lets us put the potion in the bag
 			to_chat(user, span_warning("[apply_to] can't be made any faster!"))
@@ -980,6 +982,11 @@ GLOBAL_LIST_INIT(slime_extract_auto_activate_reactions, init_slime_auto_activate
 
 	if(SEND_SIGNAL(interacting_with, COMSIG_SPEED_POTION_APPLIED, src, user) & SPEED_POTION_STOP)
 		return ITEM_INTERACT_SUCCESS
+
+	// OCULIS EDIT ADDITION START - don't speed potion tables lol. this is BELOW the signal, so that if a structure or whatever WANTS to implement a custom interaction, they can
+	if((isstructure(interacting_with) || ismachinery(interacting_with)) && (interacting_with.anchored || interacting_with.drag_slowdown <= 0))
+		return NONE
+	// OCULIS EDIT ADDITION END
 
 	if(isitem(interacting_with))
 		var/obj/item/apply_to = interacting_with

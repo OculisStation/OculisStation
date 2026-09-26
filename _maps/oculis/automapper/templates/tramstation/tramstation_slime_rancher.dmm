@@ -1,0 +1,1783 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ai" = (
+/turf/template_noop,
+/area/template_noop)
+"ap" = (
+/obj/machinery/light/small/dim/directional/east,
+/obj/effect/turf_decal/tile/purple/fourcorners,
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"ay" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
+	},
+/obj/structure/chair/comfy/black{
+	dir = 1
+	},
+/obj/effect/landmark/start/scientist,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"aE" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/freezer,
+/area/station/science/lower)
+"bo" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
+	},
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"bS" = (
+/obj/machinery/light/small/dim/directional/west,
+/obj/effect/turf_decal/tile/green/fourcorners,
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"ct" = (
+/obj/machinery/camera/directional/north{
+	pixel_x = 21;
+	pixel_y = 0
+	},
+/obj/effect/turf_decal/tile/blue/fourcorners,
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"cB" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/station/science/xenobiology)
+"cR" = (
+/obj/effect/turf_decal/tile/green/fourcorners,
+/obj/structure/slime_pen_post/premade{
+	dir = 10;
+	barrier_color = "#9FED58"
+	},
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"cY" = (
+/obj/structure/railing/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/purple/filled/corner{
+	dir = 1
+	},
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"dA" = (
+/obj/effect/turf_decal/tile/blue/fourcorners,
+/obj/structure/slime_pen_post/premade{
+	dir = 10;
+	barrier_color = "#52B4E9"
+	},
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"ew" = (
+/obj/machinery/disposal/bin,
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	dir = 8
+	},
+/obj/structure/extinguisher_cabinet/directional/west,
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
+/obj/machinery/light/directional/west,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"ex" = (
+/turf/closed/wall/r_wall,
+/area/station/science/ordnance/storage)
+"eL" = (
+/obj/machinery/camera/directional/north,
+/obj/effect/turf_decal/tile/green/fourcorners,
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"fA" = (
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/simple/yellow/visible{
+	dir = 10
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron,
+/area/station/science/ordnance/storage)
+"fH" = (
+/obj/structure/railing/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/purple/filled/corner{
+	dir = 4
+	},
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"gf" = (
+/obj/structure/chair/sofa/left{
+	dir = 1
+	},
+/obj/item/radio/intercom/directional/south,
+/turf/open/floor/iron/cafeteria,
+/area/station/science/breakroom)
+"gw" = (
+/obj/effect/turf_decal/stripes/corner,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"gM" = (
+/obj/structure/table/glass,
+/obj/item/storage/box/syringes{
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/dropper,
+/obj/item/reagent_containers/dropper{
+	pixel_y = 7
+	},
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	dir = 4
+	},
+/obj/machinery/light/directional/east,
+/obj/item/storage/box/monkeycubes{
+	pixel_y = -4;
+	pixel_x = 6
+	},
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"gT" = (
+/obj/effect/turf_decal/tile/blue/fourcorners,
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"hd" = (
+/obj/effect/turf_decal/tile/green/fourcorners,
+/obj/structure/slime_pen_post/premade{
+	dir = 6
+	},
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"hj" = (
+/obj/machinery/computer/atmos_control/oxygen_tank{
+	atmos_chambers = list("o2ordance" = "Oxygen                                                                Supply")
+	},
+/obj/effect/turf_decal/stripes/line,
+/obj/machinery/airalarm/directional/north,
+/turf/open/floor/iron/dark,
+/area/station/science/ordnance/storage)
+"hR" = (
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	dir = 1
+	},
+/obj/machinery/firealarm/directional/north,
+/obj/machinery/camera/directional/north{
+	network = list("ss13","rd");
+	c_tag = "Science - Xenobiology North"
+	},
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"im" = (
+/obj/machinery/light/small/dim/directional/west,
+/obj/effect/turf_decal/tile/purple/fourcorners,
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"kb" = (
+/mob/living/basic/slime,
+/obj/effect/turf_decal/tile/blue/fourcorners,
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"kz" = (
+/obj/effect/turf_decal/vg_decals/numbers/seven,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"kY" = (
+/obj/machinery/camera/directional/south{
+	pixel_x = 21;
+	pixel_y = 0
+	},
+/obj/effect/turf_decal/tile/green/fourcorners,
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"lh" = (
+/obj/structure/disposalpipe/segment{
+	dir = 5
+	},
+/turf/closed/wall/r_wall,
+/area/station/science/xenobiology)
+"lB" = (
+/obj/machinery/light/small/dim/directional/south,
+/obj/machinery/camera/directional/south,
+/obj/effect/turf_decal/tile/blue/fourcorners,
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"mn" = (
+/obj/effect/turf_decal/vg_decals/numbers/three,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"mA" = (
+/obj/effect/turf_decal/tile/blue/fourcorners,
+/obj/structure/slime_pen_post/premade{
+	dir = 9
+	},
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"nO" = (
+/obj/effect/turf_decal/trimline/purple/filled/line,
+/obj/item/kirbyplants/random,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"pr" = (
+/obj/effect/turf_decal/tile/purple/fourcorners,
+/obj/structure/slime_pen_post/premade{
+	dir = 9
+	},
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"qp" = (
+/obj/effect/turf_decal/tile/blue/fourcorners,
+/obj/structure/slime_pen_post/premade{
+	dir = 6
+	},
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"qw" = (
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	dir = 4
+	},
+/obj/structure/extinguisher_cabinet/directional/east,
+/obj/machinery/light/directional/east,
+/obj/machinery/smartfridge/extract/preloaded,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"rB" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	dir = 8
+	},
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"rI" = (
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"rM" = (
+/obj/effect/turf_decal/trimline/purple/filled/line,
+/obj/structure/disposalpipe/segment{
+	dir = 5
+	},
+/obj/machinery/light/directional/south,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"rN" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 8
+	},
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"su" = (
+/obj/effect/turf_decal/vg_decals/numbers/two,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"sR" = (
+/obj/effect/turf_decal/tile/blue/fourcorners,
+/obj/structure/slime_pen_post/premade{
+	dir = 5
+	},
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"tA" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
+/obj/effect/turf_decal/trimline/purple/filled/corner,
+/obj/effect/turf_decal/trimline/purple/filled/corner{
+	dir = 8
+	},
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"tL" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/station/science/ordnance/storage)
+"tX" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/disposalpipe/segment{
+	dir = 5
+	},
+/obj/effect/landmark/event_spawn,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"uM" = (
+/obj/machinery/light/small/dim/directional/west,
+/obj/effect/turf_decal/tile/blue/fourcorners,
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"vA" = (
+/obj/effect/turf_decal/trimline/purple/filled/line,
+/obj/machinery/light/directional/south,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"vX" = (
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	dir = 4
+	},
+/obj/machinery/biomass_recycler,
+/obj/item/stack/biomass/twenty,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"wb" = (
+/obj/effect/turf_decal/tile/green/fourcorners,
+/obj/structure/slime_pen_post/premade{
+	dir = 9
+	},
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"wR" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
+	},
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"yr" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"yt" = (
+/obj/machinery/camera/directional/south,
+/obj/effect/turf_decal/tile/purple/fourcorners,
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"yA" = (
+/mob/living/basic/slime,
+/obj/effect/turf_decal/tile/green/fourcorners,
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"yS" = (
+/obj/machinery/newscaster/directional/west,
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
+/obj/machinery/disposal/bin,
+/turf/open/floor/iron/cafeteria,
+/area/station/science/breakroom)
+"yX" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/closed/wall/r_wall,
+/area/station/science/xenobiology)
+"zM" = (
+/obj/machinery/camera/directional/north{
+	pixel_x = 21;
+	pixel_y = 0
+	},
+/obj/effect/turf_decal/tile/purple/fourcorners,
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"Bp" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	dir = 4
+	},
+/obj/structure/ladder,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"BR" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/structure/closet/bombcloset,
+/turf/open/floor/iron/dark,
+/area/station/science/ordnance/storage)
+"CB" = (
+/obj/effect/turf_decal/tile/green/fourcorners,
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"CC" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"Dp" = (
+/obj/effect/landmark/event_spawn,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"Eh" = (
+/obj/effect/turf_decal/trimline/purple/filled/corner{
+	dir = 1
+	},
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"Er" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"Ex" = (
+/obj/effect/turf_decal/tile/green/fourcorners,
+/obj/structure/slime_pen_post/premade{
+	dir = 5
+	},
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"Fr" = (
+/obj/effect/turf_decal/vg_decals/numbers/five,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"Gu" = (
+/obj/effect/turf_decal/tile/purple/fourcorners,
+/obj/structure/slime_pen_post/premade{
+	dir = 10;
+	barrier_color = "#D381C9"
+	},
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"He" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 10
+	},
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"Ho" = (
+/obj/machinery/light/small/dim/directional/east,
+/obj/effect/turf_decal/tile/blue/fourcorners,
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"HH" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/vg_decals/numbers/four,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"Ij" = (
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	dir = 4
+	},
+/obj/machinery/extract_compressor,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"ID" = (
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	dir = 1
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron,
+/area/station/science/ordnance/storage)
+"IH" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/iron/cafeteria,
+/area/station/science/breakroom)
+"IN" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
+/obj/machinery/airalarm/directional/west,
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
+/turf/open/floor/iron/cafeteria,
+/area/station/science/breakroom)
+"Ka" = (
+/obj/machinery/atmospherics/components/unary/portables_connector/visible{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/effect/turf_decal/box,
+/turf/open/floor/iron/dark,
+/area/station/science/ordnance/storage)
+"LP" = (
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	dir = 1
+	},
+/obj/machinery/power/apc/auto_name/directional/north,
+/obj/structure/cable,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"LV" = (
+/obj/effect/turf_decal/vg_decals/numbers/one,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"Ng" = (
+/obj/effect/turf_decal/trimline/purple/filled/corner,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"Nz" = (
+/turf/closed/wall/r_wall,
+/area/station/science/xenobiology)
+"NO" = (
+/obj/effect/turf_decal/tile/purple/fourcorners,
+/obj/structure/slime_pen_post/premade{
+	dir = 5
+	},
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"NQ" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"Pc" = (
+/obj/machinery/camera/directional/south,
+/obj/effect/turf_decal/tile/blue/fourcorners,
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"PU" = (
+/obj/structure/extinguisher_cabinet/directional/east,
+/obj/machinery/camera/directional/east{
+	network = list("ss13","rd");
+	c_tag = "Science - Xenobiology East"
+	},
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"QE" = (
+/obj/machinery/light/small/dim/directional/east,
+/obj/effect/turf_decal/tile/green/fourcorners,
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"QI" = (
+/obj/effect/turf_decal/trimline/purple/filled/corner{
+	dir = 4
+	},
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"Rg" = (
+/obj/structure/sink/directional/west,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"Ru" = (
+/obj/effect/turf_decal/tile/purple/fourcorners,
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"Tb" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/corner,
+/obj/structure/extinguisher_cabinet/directional/south,
+/obj/machinery/camera/directional/south{
+	network = list("ss13","rd");
+	c_tag = "Science - Xenobiology South"
+	},
+/obj/structure/closet{
+	anchored = 1;
+	name = "Cold protection gear"
+	},
+/obj/item/clothing/shoes/winterboots,
+/obj/item/clothing/shoes/winterboots,
+/obj/item/clothing/suit/hooded/wintercoat/science,
+/obj/item/clothing/suit/hooded/wintercoat/science,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"Th" = (
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/simple/yellow/visible{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 10
+	},
+/turf/open/floor/iron,
+/area/station/science/ordnance/storage)
+"To" = (
+/mob/living/basic/slime,
+/obj/effect/turf_decal/tile/purple/fourcorners,
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"Tw" = (
+/obj/structure/sink/directional/east,
+/obj/machinery/airalarm/directional/west,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"TI" = (
+/obj/effect/turf_decal/trimline/purple/filled/corner{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 10
+	},
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"TZ" = (
+/obj/machinery/atmospherics/components/unary/portables_connector/visible{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/effect/turf_decal/box,
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/iron/dark,
+/area/station/science/ordnance/storage)
+"Us" = (
+/turf/closed/wall,
+/area/station/science/xenobiology)
+"UI" = (
+/obj/effect/turf_decal/vg_decals/numbers/six,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"UU" = (
+/turf/closed/mineral/random/stationside/asteroid/porus,
+/area/station/asteroid)
+"VH" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	dir = 1
+	},
+/obj/machinery/requests_console/directional/north{
+	name = "Xenobiology Requests Console";
+	department = "Xenobiology"
+	},
+/obj/effect/mapping_helpers/requests_console/ore_update,
+/obj/effect/mapping_helpers/requests_console/supplies,
+/obj/structure/rack,
+/obj/item/vacuum_pack{
+	pixel_x = -8
+	},
+/obj/item/vacuum_pack{
+	pixel_x = 8
+	},
+/obj/item/disk/vacuum_upgrade/printer{
+	pixel_x = -8;
+	pixel_y = -8
+	},
+/obj/item/disk/vacuum_upgrade/printer{
+	pixel_x = 8;
+	pixel_y = -8
+	},
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"Ww" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 4
+	},
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"WP" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"Yj" = (
+/obj/effect/turf_decal/tile/purple/fourcorners,
+/obj/structure/slime_pen_post/premade{
+	dir = 6
+	},
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"Yu" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	dir = 1
+	},
+/obj/item/radio/intercom/directional/north,
+/obj/structure/table/glass,
+/obj/item/slime_rancher_scanner{
+	pixel_x = -8;
+	pixel_y = -6
+	},
+/obj/item/slime_rancher_scanner{
+	pixel_x = 8;
+	pixel_y = -6
+	},
+/obj/item/toy/plush/slimeplushie{
+	pixel_y = 6;
+	desc = "An adorable stuffed toy that resembles a slime. A faded purple flower is embroidered beneath one of its many patches, alongside several tiny slips of paper that look suspiciously like overdue notices.";
+	name = "Tara"
+	},
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"YG" = (
+/obj/structure/mirror/directional/east,
+/obj/structure/sink/directional/west,
+/turf/open/floor/iron/freezer,
+/area/station/science/lower)
+"YU" = (
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"YW" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
+	},
+/obj/structure/chair/comfy/black{
+	dir = 1
+	},
+/obj/effect/landmark/start/scientist,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"Za" = (
+/obj/machinery/disposal/bin,
+/obj/structure/sign/warning/deathsposal/directional/west,
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
+/obj/machinery/camera/directional/west{
+	network = list("ss13","rd");
+	c_tag = "Science - Xenobiology West"
+	},
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"ZB" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/corner{
+	dir = 8
+	},
+/obj/structure/reagent_dispensers/watertank,
+/obj/item/extinguisher{
+	pixel_x = 4;
+	pixel_y = 3
+	},
+/obj/item/extinguisher,
+/obj/machinery/wall_healer/directional/south,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"ZS" = (
+/obj/machinery/door/airlock/research{
+	name = "Slime Euthanization Chamber";
+	opacity = 0;
+	glass = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
+/obj/effect/mapping_helpers/airlock/access/all/science/xenobio,
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	dir = 8
+	},
+/obj/structure/plasticflaps/kitchen,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+
+(1,1,1) = {"
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+Nz
+Nz
+Nz
+Nz
+Nz
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+"}
+(2,1,1) = {"
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+Nz
+mA
+uM
+dA
+Nz
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+"}
+(3,1,1) = {"
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+Nz
+gT
+gT
+Pc
+Nz
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+"}
+(4,1,1) = {"
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+Nz
+Nz
+Nz
+Nz
+Nz
+ai
+lh
+gT
+gT
+gT
+Nz
+ai
+Nz
+Nz
+Nz
+Nz
+Nz
+ai
+ai
+ai
+"}
+(5,1,1) = {"
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+Nz
+wb
+bS
+cR
+Nz
+Nz
+yX
+sR
+gT
+qp
+Nz
+Nz
+Nz
+pr
+im
+Gu
+Nz
+ai
+ai
+ai
+"}
+(6,1,1) = {"
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+Nz
+eL
+yA
+CB
+rI
+rI
+Za
+rI
+su
+rI
+Tw
+rI
+rI
+Ru
+To
+yt
+Nz
+ai
+ai
+ai
+"}
+(7,1,1) = {"
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+Nz
+CB
+CB
+CB
+LV
+rI
+rI
+rI
+rI
+rI
+rI
+rI
+mn
+Ru
+Ru
+Ru
+Nz
+ai
+ai
+ai
+"}
+(8,1,1) = {"
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+aE
+Nz
+Ex
+CB
+hd
+Ww
+WP
+WP
+WP
+WP
+WP
+WP
+WP
+bo
+NO
+Ru
+Yj
+Nz
+ai
+ai
+ai
+"}
+(9,1,1) = {"
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+YG
+Nz
+rI
+rI
+rI
+NQ
+Ng
+qw
+Ij
+vX
+gM
+QI
+rI
+rI
+rI
+rI
+Nz
+UU
+ai
+ai
+ai
+"}
+(10,1,1) = {"
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+Nz
+Nz
+Nz
+VH
+YW
+NQ
+vA
+Us
+cB
+cB
+Us
+ai
+Bp
+fH
+rN
+Tb
+Nz
+Nz
+Nz
+Nz
+Nz
+"}
+(11,1,1) = {"
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+Nz
+LP
+rI
+NQ
+nO
+cB
+ai
+ai
+ai
+ai
+ai
+ai
+rI
+YU
+mA
+gT
+gT
+dA
+Nz
+"}
+(12,1,1) = {"
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+tX
+tA
+ZS
+ai
+ai
+ai
+ai
+ai
+ai
+Dp
+HH
+gT
+gT
+gT
+lB
+Nz
+"}
+(13,1,1) = {"
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+Nz
+hR
+rI
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+rI
+YU
+sR
+gT
+gT
+qp
+Nz
+"}
+(14,1,1) = {"
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+Nz
+Nz
+Nz
+Nz
+Yu
+ay
+He
+rM
+ai
+ai
+ai
+ai
+ai
+rB
+cY
+gw
+ZB
+Nz
+Nz
+Nz
+Nz
+Nz
+"}
+(15,1,1) = {"
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+IN
+yS
+Nz
+rI
+rI
+rI
+Er
+TI
+ew
+ai
+ai
+ai
+Eh
+rI
+rI
+rI
+rI
+Nz
+UU
+ai
+ai
+ai
+"}
+(16,1,1) = {"
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+IH
+gf
+Nz
+mA
+gT
+dA
+yr
+CC
+CC
+CC
+ai
+CC
+CC
+CC
+wR
+wb
+CB
+cR
+Nz
+ai
+ai
+ai
+"}
+(17,1,1) = {"
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+Nz
+gT
+gT
+gT
+kz
+rI
+rI
+rI
+rI
+rI
+rI
+rI
+Fr
+CB
+CB
+CB
+Nz
+ai
+ai
+ai
+"}
+(18,1,1) = {"
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+Nz
+ct
+kb
+gT
+rI
+rI
+Rg
+rI
+UI
+rI
+PU
+rI
+rI
+CB
+yA
+kY
+Nz
+ai
+ai
+ai
+"}
+(19,1,1) = {"
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+Nz
+sR
+Ho
+qp
+Nz
+Nz
+Nz
+pr
+Ru
+Gu
+Nz
+Nz
+Nz
+Ex
+QE
+hd
+Nz
+ai
+ai
+ai
+"}
+(20,1,1) = {"
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+Nz
+Nz
+Nz
+Nz
+Nz
+ai
+Nz
+Ru
+Ru
+Ru
+Nz
+ai
+Nz
+Nz
+Nz
+Nz
+Nz
+ai
+ai
+ai
+"}
+(21,1,1) = {"
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+Nz
+zM
+Ru
+Ru
+Nz
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+"}
+(22,1,1) = {"
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+Nz
+NO
+ap
+Yj
+Nz
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+"}
+(23,1,1) = {"
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+Nz
+Nz
+Nz
+Nz
+Nz
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+"}
+(24,1,1) = {"
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+"}
+(25,1,1) = {"
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+"}
+(26,1,1) = {"
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+"}
+(27,1,1) = {"
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+"}
+(28,1,1) = {"
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+"}
+(29,1,1) = {"
+Ka
+TZ
+Th
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+"}
+(30,1,1) = {"
+ex
+hj
+fA
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+"}
+(31,1,1) = {"
+tL
+BR
+ID
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+"}

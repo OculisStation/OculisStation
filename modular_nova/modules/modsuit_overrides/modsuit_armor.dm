@@ -103,7 +103,7 @@
 
 /datum/armor/mod_theme_security
 	melee = 35
-	bullet = 20
+	bullet = 30 // OCULIS EDIT, ORIGINAL: bullet = 15
 	laser = 30
 	energy = 40
 	bomb = 25
