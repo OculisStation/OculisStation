@@ -10405,6 +10405,8 @@
 #include "modular_oculis\modules\belt_satchels\belt_satchels.dm"
 #include "modular_oculis\modules\birthday_opt_out\code\birthday_opt_out.dm"
 #include "modular_oculis\modules\blood_orders\blood_orders.dm"
+#include "modular_oculis\modules\candela_mods\module.dm"
+#include "modular_oculis\modules\candela_modules\candela_drone.dm"
 #include "modular_oculis\modules\castor\code\areas.dm"
 #include "modular_oculis\modules\castor\code\headsets.dm"
 #include "modular_oculis\modules\castor\code\id_cards.dm"

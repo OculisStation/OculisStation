@@ -469,7 +469,7 @@
 		lost when moving across standard terrain."
 	icon_state = "ash_accretion"
 	removable = FALSE
-	incompatible_modules = list(/obj/item/mod/module/ash_accretion)
+	incompatible_modules = list(/obj/item/mod/module/ash_accretion, /obj/item/mod/module/candela_retrieval) // OCULIS EDIT: Adds more tether integration + QoL to Mining | Originally `incompatible_modules = list(/obj/item/mod/module/ash_accretion)`
 	overlay_state_inactive = "module_ash"
 	use_mod_colors = TRUE
 	required_slots = list(ITEM_SLOT_HEAD|ITEM_SLOT_MASK, ITEM_SLOT_OCLOTHING|ITEM_SLOT_ICLOTHING, ITEM_SLOT_GLOVES, ITEM_SLOT_FEET)
