@@ -103,9 +103,13 @@
 	slime_owner.reproduce()
 
 ///Splits the slime into multiple children if possible
-/mob/living/basic/slime/proc/reproduce()
+/mob/living/basic/slime/proc/reproduce(feedback = TRUE) // OCULIS EDIT CHANGE - SLIME_RANCHER - automatic retries stay quiet - ORIGINAL: /mob/living/basic/slime/proc/reproduce()
 
 	if(IS_UNCONSCIOUS_OR_CRIT(src))
+		// OCULIS EDIT ADDITION START - SLIME_RANCHER
+		if(!feedback)
+			return FALSE
+		// OCULIS EDIT ADDITION END
 		if(stat == DEAD)
 			balloon_alert(src, "dead!")
 		else if(IS_UNCONSCIOUS(src))
@@ -114,15 +118,17 @@
 			balloon_alert(src, "in critical!")
 		return FALSE
 
-	if(!isopenturf(loc))
+	if(!isopenturf(loc) && feedback) // OCULIS EDIT CHANGE - SLIME_RANCHER - ORIGINAL: if(!isopenturf(loc))
 		balloon_alert(src, "not here!")
 
 	if(life_stage != SLIME_LIFE_STAGE_ADULT)
-		balloon_alert(src, "not adult!")
+		if(feedback) // OCULIS EDIT ADDITION - SLIME_RANCHER
+			balloon_alert(src, "not adult!")
 		return
 
 	if(amount_grown < SLIME_EVOLUTION_THRESHOLD)
-		balloon_alert(src, "need growth!")
+		if(feedback) // OCULIS EDIT ADDITION - SLIME_RANCHER
+			balloon_alert(src, "need growth!")
 		return
 
 	var/list/friends_list = list()
@@ -135,8 +141,37 @@
 
 	overcrowded = length(friends_list) >= SLIME_OVERCROWD_AMOUNT
 	if(overcrowded)
-		balloon_alert(src, "overcrowded!")
+		if(feedback) // OCULIS EDIT ADDITION - SLIME_RANCHER
+			balloon_alert(src, "overcrowded!")
 		return
+
+	// OCULIS EDIT ADDITION START - slime rancher rework - wind up first, split later
+	if(!isopenturf(loc))
+		if(feedback)
+			balloon_alert(src, "not here!")
+		return
+
+	queued_mutation = get_random_mutation()
+	apply_status_effect(/datum/status_effect/slime_reproducing, (queued_mutation == slime_type.type) ? SLIME_SPLIT_WINDUP : SLIME_MUTATE_WINDUP)
+
+///Does the actual splitting or recoloring, once the wind-up has run its course
+/mob/living/basic/slime/proc/finish_reproduce()
+	var/mutation_target = queued_mutation
+	queued_mutation = null
+
+	if(life_stage != SLIME_LIFE_STAGE_ADULT)
+		return
+
+	if(mutation_target != slime_type.type)
+		set_slime_type(mutation_target)
+		set_life_stage(SLIME_LIFE_STAGE_BABY)
+		set_nutrition(SLIME_STARTING_NUTRITION)
+		update_name()
+		regenerate_icons()
+		amount_grown = 0
+		mutator_used = FALSE
+		return
+	// OCULIS EDIT ADDITION END
 
 	var/new_nutrition = floor(nutrition * 0.9)
 	var/new_powerlevel = floor(powerlevel * 0.25)
@@ -151,25 +186,20 @@
 		slime_friends += possible_friend
 	var/our_faction = get_faction()
 
-//	for(var/i in 1 to 3) IRIS EDIT OLD
-	// IRIS EDIT NEW START
-	var/split_amount = 3
-	switch(transformative_effect)
-		if(SLIME_TYPE_GREY)
-			split_amount++
-
-		if(SLIME_TYPE_CERULEAN)
-			split_amount = 1
+	// OCULIS EDIT ADDITION
+	var/split_amount = 1
+	if(transformative_effect == SLIME_TYPE_GREY)
+		split_amount = 2
 
 	for(var/i in 1 to split_amount)
-	// IRIS EDIT NEW END
-		var/mob/living/basic/slime/baby = new(drop_loc, get_random_mutation())
+	// OCULIS EDIT NEW END
+		var/mob/living/basic/slime/baby = new(drop_loc, slime_type.type) // OCULIS EDIT CHANGE - slime rancher, ORIGINAL: var/mob/living/basic/slime/baby = new(drop_loc, get_random_mutation())
 		created_slimes += baby
 		baby.add_faction(our_faction)
 		for(var/slime_friend in slime_friends)
 			baby.befriend(slime_friend)
 
-		// IRIS ADDITION START
+		// OCULIS ADDITION START
 		if(transformative_effect)
 			baby.transformative_effect = transformative_effect
 			baby.transform_effect()
@@ -182,7 +212,9 @@
 				baby.update_name()
 				baby.regenerate_icons()
 				baby.set_nutrition(new_nutrition)
-		// IRIS ADDITION END
+
+		baby.cores = max(cores, baby.cores) // hopefully won't cause issues
+		// OCULIS ADDITION END
 		SSblackbox.record_feedback("tally", "slime_babies_born", 1, baby.slime_type.colour)
 		step_away(baby, src)
 
@@ -202,22 +234,14 @@
 	// IRIS EDIT NEW START
 	if(transformative_effect != SLIME_TYPE_CERULEAN)
 		set_life_stage(SLIME_LIFE_STAGE_BABY)
+		update_name()
+		regenerate_icons()
 	// IRIS EDIT NEW END
-//	set_slime_type(get_random_mutation()) // IRIS EDIT OLD -- Unique slimes
-	// IRIS EDIT NEW START
-	if(transformative_effect != SLIME_TYPE_BLUE)
-		set_slime_type(get_random_mutation())
-	// IRIS EDIT NEW END
+//	set_slime_type(get_random_mutation()) // OCULUS EDIT OLD -- Unique slimes and slime rancher
 	amount_grown = 0
 	mutator_used = FALSE
 
 /mob/living/basic/slime/proc/get_random_mutation()
-	// IRIS ADDITION START -- Unique slimes
-	if(transformative_effect == SLIME_TYPE_CERULEAN)
-		return slime_type.type
-	if(transformative_effect == SLIME_TYPE_PYRITE)
-		return pick(subtypesof(/datum/slime_type) - /datum/slime_type/rainbow - typesof(/datum/slime_type/unique))
-	// IRIS ADDITION END
 	if(mutation_chance >= 100)
 		return /datum/slime_type/rainbow
 	else if(prob(mutation_chance))

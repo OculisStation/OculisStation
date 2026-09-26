@@ -67,6 +67,9 @@
 		add_offsets(FEEDING_OFFSET, y_add = target_mob.mob_size <= MOB_SIZE_SMALL ? 0 : 3)
 		layer = MOB_ABOVE_PIGGYBACK_LAYER //appear above the target mob
 		target_mob.apply_status_effect(/datum/status_effect/slime_leech, src)
+		// OCULIS EDIT ADDITION START - SLIME_RANCHER - mark the meal here, so letting go early doesn't undo it
+		ADD_TRAIT(target_mob, TRAIT_WAS_SLIME_FOOD, TRAIT_GENERIC)
+		// OCULIS EDIT ADDITION END
 		target_mob.visible_message(
 			span_danger("[name] latches onto [target_mob]!"),
 			span_userdanger("[name] latches onto [target_mob]!"),
@@ -79,7 +82,7 @@
 
 ///The slime will stop feeding
 /mob/living/basic/slime/proc/stop_feeding(silent = FALSE)
-	if(!buckled)
+	if(!isliving(buckled)) // OCULIS EDIT CHANGE - SLIME_RANCHER - don't "let go of" a chair - ORIGINAL: if(!buckled)
 		return
 
 	if(!silent)
