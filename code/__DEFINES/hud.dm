@@ -188,6 +188,7 @@
 // OCULIS EDIT ADDITION START
 #define HUD_MAPVOTE "mapvote"
 #define HUD_SUNLIGHT "sunlight"
+#define HUD_TRANSMISSION "transmission"
 // OCULIS EDIT ADDITION END
 
 /*
