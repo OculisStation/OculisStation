@@ -1,0 +1,4 @@
+author: "desertmote"
+delete-after: True
+changes:
+  - rscadd: "Puts wolf mask in loadout"
