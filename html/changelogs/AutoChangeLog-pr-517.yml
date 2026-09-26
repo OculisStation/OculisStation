@@ -1,0 +1,6 @@
+author: "notghosti"
+delete-after: True
+changes:
+  - rscadd: "Cortical Borers can now access the reaction search panel from the chemical injector panel."
+  - bugfix: "Cortical Borer Produce Offspring II (No host egg) now deals damage to the Cortical borer"
+  - bugfix: "Cortical Borer health overlay now updates while healing inside a host."
