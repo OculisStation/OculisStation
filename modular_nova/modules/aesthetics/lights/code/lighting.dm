@@ -11,7 +11,7 @@
 	bulb_low_power_brightness_mul = 0.75
 	bulb_low_power_pow_min = 0.75
 	bulb_emergency_colour = LIGHT_COLOR_INTENSE_RED
-	bulb_major_emergency_brightness_mul = 0.9
+	bulb_major_emergency_brightness_mul = 0.4 // OCULIS EDIT, ORIGINAL: bulb_major_emergency_brightness_mul = 0.9
 	var/maploaded = FALSE //So we don't have a lot of stress on startup.
 	var/turning_on = FALSE //More stress stuff.
 	var/constant_flickering = FALSE // Are we always flickering?

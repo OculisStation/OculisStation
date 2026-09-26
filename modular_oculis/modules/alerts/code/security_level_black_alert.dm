@@ -49,3 +49,21 @@
 		shuttle.mode = SHUTTLE_IDLE
 	clearTradeBlockade("BLACK_ALERT")
 	clearHostileEnvironment("BLACK_ALERT")
+
+/obj/machinery/telecomms/receiver/check_receive_level(datum/signal/subspace/signal)
+	var/current_alert_level = SSsecurity_level.get_current_level_as_number()
+	if(current_alert_level == SEC_LEVEL_BLACK)
+		return FALSE // Can't get signals during black alert.
+	return ..()
+
+/obj/machinery/light/Initialize(mapload)
+	. = ..()
+	RegisterSignal(SSsecurity_level, COMSIG_SECURITY_LEVEL_CHANGED, PROC_REF(on_sec_level_change))
+
+/obj/machinery/light/proc/on_sec_level_change(datum/source, new_level)
+	SIGNAL_HANDLER
+
+	if(new_level == SEC_LEVEL_BLACK)
+		set_major_emergency_light()
+	else
+		unset_major_emergency_light()
