@@ -4,10 +4,6 @@
 [![Percentage of issues still open](https://isitmaintained.com/badge/open/OculisStation/OculisStation.svg)](https://isitmaintained.com/project/OculisStation/OculisStation "Percentage of issues still open")
 [![Average time to resolve an issue](https://isitmaintained.com/badge/resolution/OculisStation/OculisStation.svg)](https://isitmaintained.com/project/OculisStation/OculisStation "Average time to resolve an issue")
 ![Coverage](https://img.shields.io/codecov/c/github/OculisStation/OculisStation)
-[![CI Suite](https://github.com/OculisStation/OculisStation/workflows/CI%20Suite/badge.svg)](https://github.com/OculisStation/OculisStation/actions?query=workflow%3A%22CI+Suite%22)
-[![Percentage of issues still open](https://isitmaintained.com/badge/open/OculisStation/OculisStation.svg)](https://isitmaintained.com/project/OculisStation/OculisStation "Percentage of issues still open")
-[![Average time to resolve an issue](https://isitmaintained.com/badge/resolution/OculisStation/OculisStation.svg)](https://isitmaintained.com/project/OculisStation/OculisStation "Average time to resolve an issue")
-![Coverage](https://img.shields.io/codecov/c/github/OculisStation/OculisStation)
 
 [![resentment](.github/images/badges/built-with-resentment.svg)](.github/images/comics/131-bug-free.png) [![technical debt](.github/images/badges/contains-technical-debt.svg)](.github/images/comics/106-tech-debt-modified.png) [![forinfinityandbyond](.github/images/badges/made-in-byond.gif)](https://www.reddit.com/r/SS13/comments/5oplxp/what_is_the_main_problem_with_byond_as_an_engine/dclbu1a)
 
