@@ -955,7 +955,7 @@
 
 /datum/mod_theme/security
 	name = "security"
-	desc = "An Apadyne Technologies security suit, offering quicker speed at the cost of carrying capacity."
+	desc = "An Apadyne Technologies security suit, offering high speed at the cost of module capacity." // OCULIS EDIT, ORIGINAL: desc = "An Apadyne Technologies security suit, offering quicker speed at the cost of carrying capacity."
 	extended_desc = "An Apadyne Technologies classic, this model of MODsuit has been designed for quick response to \
 		hostile situations. These suits have been layered with plating worthy enough for fires or corrosive environments, \
 		and come with composite cushioning and an advanced honeycomb structure underneath the hull to ensure protection \
@@ -965,7 +965,7 @@
 	default_skin = "security"
 	armor_type = /datum/armor/mod_theme_security
 	complexity_max = DEFAULT_MAX_COMPLEXITY - 2
-	slowdown_deployed = 0.5
+	slowdown_deployed = 0 // OCULIS EDIT, ORIGINAL: slowdown_deployed = 0.5
 	hearing_protection = EAR_PROTECTION_NORMAL
 	allowed_suit_storage = list(
 		/obj/item/reagent_containers/spray/pepper,
@@ -1022,7 +1022,7 @@
 
 /datum/mod_theme/safeguard
 	name = "safeguard"
-	desc = "An Apadyne Technologies advanced security suit, offering greater speed and fire protection than the standard security model."
+	desc = "An Apadyne Technologies advanced security suit, offering high speed and greater capacity than the standard security model." // OCULIS EDIT, ORIGINAL: desc = "An Apadyne Technologies advanced security suit, offering greater speed and fire protection than the standard security model."
 	extended_desc = "An Apadyne Technologies advanced security suit, and their latest model. This variant has \
 		ditched the presence of a reinforced glass visor entirely, replacing it with a 'blast visor' utilizing a \
 		small camera on the left side to display the outside to the user. The plating on the suit has been \
@@ -1035,7 +1035,7 @@
 	max_heat_protection_temperature = FIRE_SUIT_MAX_TEMP_PROTECT
 	inbuilt_modules = list(/obj/item/mod/module/shove_blocker/locked)
 	hearing_protection = EAR_PROTECTION_NORMAL
-	slowdown_deployed = 0.25
+	slowdown_deployed = 0 // OCULIS EDIT, ORIGINAL: slowdown_deployed = 0.25
 	allowed_suit_storage = list(
 		/obj/item/reagent_containers/spray/pepper,
 		/obj/item/restraints/handcuffs,
