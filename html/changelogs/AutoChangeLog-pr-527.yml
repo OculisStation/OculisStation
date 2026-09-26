@@ -1,0 +1,4 @@
+author: "Shroopy"
+delete-after: True
+changes:
+  - balance: "Changed rockfruit cores to be subtypes of ores and materials rather than unique sheets. They can now be banked for mining points."
