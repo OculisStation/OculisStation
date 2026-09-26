@@ -10509,6 +10509,7 @@
 #include "modular_oculis\modules\saltmining\code\melee.dm"
 #include "modular_oculis\modules\saltmining\code\orderables.dm"
 #include "modular_oculis\modules\saltmining\code\surplus_mining_crate.dm"
+#include "modular_oculis\modules\set_ears\code\sprite_accessories.dm"
 #include "modular_oculis\modules\slime_luxpens\code\hypospray.dm"
 #include "modular_oculis\modules\slime_luxpens\code\medicine_reagents.dm"
 #include "modular_oculis\modules\slime_rancher\code\biomass_recycler.dm"
