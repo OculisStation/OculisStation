@@ -1,0 +1,10 @@
+author: "Absolucy"
+delete-after: True
+changes:
+  - rscadd: "Xenobiology is now literally slime rancher."
+  - rscadd: "Added vacuum packs for xenobiology - they can suck up slimes, recycle monkeys, spit out monkeys and creatures for the slimes to eat, and suck extracts towards you!"
+  - rscadd: "Slime pens are now their own thing with cool barriers and such!"
+  - rscadd: "Slime scanners are now used to remotely scan a slime and stay up to date on that specific slime's stats and such."
+  - rscadd: "Instead of freezing and mulching slimes for extracts, slimes now produce extracts when fed enough."
+  - rscadd: "Slimes now need to eat specific items or creatures in order to unlock specific mutations - the slime scanner will help you with this."
+  - rscadd: "Slimes won't split on their own - instead, you need to feed them \"breeding pellets\" from the biomass recycler, or if you are the slime's friend, order them to do so, and they will split or mutate whenever they can instead. This does not apply to \"wild\" slimes that haven't been in a pen recently, and player slimes can still manually split whenever."
