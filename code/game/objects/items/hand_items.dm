@@ -284,7 +284,7 @@
 			span_notice("You slap [slapped]!"),
 			span_hear("You hear a slap."),
 		)
-//OCULIS EDIT ADDITION START
+    //  OCULIS EDIT ADDITION START
 	var/obj/item/bodypart/thearm = user.get_bodypart(((user.get_held_index_of_item(src) % 2) ? BODY_ZONE_L_ARM : BODY_ZONE_R_ARM)) //sue me. please. i deserve it.
 	var/slapimplant = FALSE
 	for(var/thing in thearm.contents)
@@ -293,7 +293,7 @@
 	if(slapimplant)
 		slapped.adjust_stamina_loss(10)
 		slapped.adjust_staggered_up_to(STAGGERED_SLOWDOWN_LENGTH, 10 SECONDS)
-//OCULIS EDIT ADDITION END
+    //  OCULIS EDIT ADDITION END
 	playsound(slapped, 'sound/items/weapons/slap.ogg', slap_volume, TRUE, -1)
 	return
 
