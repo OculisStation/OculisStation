@@ -24,6 +24,11 @@
 /obj/effect/abstract/visual_effect/black
 	icon_state = "black"
 
+/obj/effect/abstract/visual_effect/spacey
+	icon = 'icons/mob/human/textures.dmi'
+	icon_state = "spacey"
+	alpha = 255
+
 /atom/movable/proc/add_visual_effect(effect_type)
 	if(!ispath(effect_type, /obj/effect/abstract/visual_effect))
 		CRASH("tried to pass invalid type ([effect_type]) to add_visual_effect!")
