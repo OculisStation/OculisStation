@@ -70,6 +70,12 @@
 	brainmob = new /mob/living/brain(src)
 	request_ghost()
 
+/mob/living/simple_animal/formic/verdant_growth/resonate_info()
+	var/list/message = list()
+	message += "Number of sins: [num_mistakes]"
+	message += "Sin threshold: [mistake_threshold]"
+	return message
+
 /mob/living/simple_animal/formic/verdant_growth/proc/request_ghost()
 	if(notify_cooldown <= world.time)
 		notify_ghosts(
