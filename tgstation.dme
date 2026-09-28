@@ -7395,7 +7395,6 @@
 #include "modular_iris\code\datums\ruins.dm"
 #include "modular_iris\code\datums\components\crafting\furniture.dm"
 #include "modular_iris\code\datums\mood_events\drug_events.dm"
-#include "modular_iris\code\datums\shuttles\pirate.dm"
 #include "modular_iris\code\game\area\areas\centcom.dm"
 #include "modular_iris\code\game\area\areas\ruins\space.dm"
 #include "modular_iris\code\game\objects\effects\landmarks.dm"
