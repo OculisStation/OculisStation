@@ -29,7 +29,6 @@
 		/mob/living/simple_animal/formic/panopticon_beast = "Surveillance. Do not let it starve. It sees through anything, as do its projectiles. Shut it off if you suspect a breach, do not wait until it is too late.",
 		/mob/living/simple_animal/formic/divine_congealment = "Slime. It holds something special... Radia, or disease. Slime of a new variety. Plasma or uranium create Radia.",
 		/mob/living/simple_animal/formic/olivers_scarecrow = "Maze. Something hidden... bring meson equipment. Old project of an old friend. Bring weapons as well. The dolls will kill you otherwise.",
-		/mob/living/simple_animal/formic/forgotten_forge = "Brass. The clockwork is gone, but its ghost remains. Do not be greedy unless you are ready to fight. Implantation may rip others out to take their place.",
 		/mob/living/simple_animal/formic/verdant_growth = "Rebirth. It will only progress once a spirit inhabits it. It draws, you decipher. Stand too close and time may feel strange.",
 		/mob/living/simple_animal/formic/black_cat = "What? She is... here too? Could you retrieve her cloak? I have not seen her in a long time..." //connected with the black cat
 	)
