@@ -44,6 +44,7 @@
 
 	icon = 'icons/obj/food/meat.dmi'
 	icon_state = "sausage"
+	base_icon_state = "sausage"
 
 	caliber = CALIBER_980TYDHOUER
 	projectile_type = /obj/projectile/bullet/sausage
