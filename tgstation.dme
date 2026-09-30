@@ -10408,6 +10408,7 @@
 #include "modular_oculis\modules\collars\code\thin_collar.dm"
 #include "modular_oculis\modules\contact_science\contacts\black_cat.dm"
 #include "modular_oculis\modules\contact_science\contacts\divine_congealment.dm"
+#include "modular_oculis\modules\contact_science\contacts\mirror_in_multitudes.dm"
 #include "modular_oculis\modules\contact_science\contacts\olivers_scarecrow.dm"
 #include "modular_oculis\modules\contact_science\contacts\ozymandian_wreckage.dm"
 #include "modular_oculis\modules\contact_science\contacts\panopticon_beast.dm"

@@ -30,6 +30,7 @@
 		/mob/living/simple_animal/formic/divine_congealment = "Slime. It holds something special... Radia, or disease. Slime of a new variety. Plasma or uranium create Radia.",
 		/mob/living/simple_animal/formic/olivers_scarecrow = "Maze. Something hidden... bring meson equipment. Old project of an old friend. Bring weapons as well. The dolls will kill you otherwise.",
 		/mob/living/simple_animal/formic/verdant_growth = "Rebirth. It will only progress once a spirit inhabits it. It draws, you decipher. Stand too close and time may feel strange.",
+		/mob/living/simple_animal/formic/mirror_in_multitudes = "Fear. A game of hide and seek. Mirrors will appear within your station, and you must find and signal them. Don't stand too close to them for too long, and don't use too many hints.",
 		/mob/living/simple_animal/formic/black_cat = "What? She is... here too? Could you retrieve her cloak? I have not seen her in a long time..." //connected with the black cat
 	)
 	var/help_damage_min = 5
