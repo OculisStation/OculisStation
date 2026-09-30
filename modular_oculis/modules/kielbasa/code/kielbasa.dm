@@ -62,7 +62,7 @@
 	icon_state = "sausage"
 	name = ".980 Sausage"
 	damage = 0
-	stamina = 40
+	stamina = 70
 	range = 14
 	speed = 1
 	sharpness = NONE
@@ -109,7 +109,7 @@
 	reqs = list(
 		/obj/item/food/sausage = 1,
 	)
-	tool_behaviors = TOOL_KNIFE
+	tool_behaviors = list(TOOL_KNIFE)
 	time = 1 SECONDS
 	category = CAT_WEAPON_AMMO
 
@@ -123,7 +123,7 @@
 
 /datum/market_item/weapon/kielbasa
 	name = "Kiboko upgrade kit"
-	desc = "Some sort of weird conversion kit for a standard Kiboko grenade launcher. Quality not guarenteed."
+	desc = "Some sort of weird aftermarket conversion kit for a standard Kiboko grenade launcher. Quality not guarenteed."
 	item = /obj/item/weaponcrafting/kielbasa_kit
 
 	price_min = CARGO_CRATE_VALUE * 10
