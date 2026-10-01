@@ -90,7 +90,11 @@ GLOBAL_REAL(Master, /datum/controller/master)
 	// Highlander-style: there can only be one! Kill off the old and replace it with the new.
 
 	if(!random_seed)
-		#ifdef UNIT_TESTS
+		// A burn round pins it for the same reason a unit test does: where the
+		// room lands on the reservation level and every roundstart roll are
+		// otherwise different each time, so two rounds differ in more than the
+		// arm schedule they are supposed to be comparing.
+		#if defined(UNIT_TESTS) || defined(DMEOW_BURN_BUILD)
 		random_seed = 29051994 // How about 22475?
 		#else
 		random_seed = rand(1, 1e9)
