@@ -30,7 +30,10 @@
 	var/feeding_timer_current = 220 //dont let it get hungry!
 
 	var/list/obj/item/potential_rewards = list(
-		/obj/item/raw_anomaly_core/panopticon
+		/obj/item/raw_anomaly_core/panopticon,
+		/obj/item/stack/sheet/mineral/abductor,
+		/obj/item/surgicaldrill/alien,
+		/obj/item/stack/sheet/bluespace_crystal
 	)
 
 /mob/living/simple_animal/formic/panopticon_beast/Life(seconds_per_tick = SSMOBS_DT)
