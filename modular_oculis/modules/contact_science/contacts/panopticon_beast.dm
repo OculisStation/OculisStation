@@ -23,6 +23,7 @@
 		"what is my reward",
 		"are you hungry"
 	)
+	talksound = 'sound/mobs/humanoids/breathing/internals_breathing6.ogg'
 
 	var/points = 0
 	var/rewards = 0 //gain 1 reward per 3 points

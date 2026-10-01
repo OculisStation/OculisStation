@@ -31,6 +31,7 @@
 	var/anchored_turf
 	var/breaching = FALSE
 	var/datum/language/spoken_lang = /datum/language/common
+	var/talksound
 
 /mob/living/simple_animal/formic/Initialize(mapload)
 	. = ..()
@@ -62,8 +63,10 @@
 	var/performed_dialogue = pick(dialogue_lines)
 	langsay(performed_dialogue)
 
-/mob/living/simple_animal/formic/proc/langsay(var/spoken) //easy way to make a mob speak in their lang variable. will be used for a translator in future(?)
+/mob/living/simple_animal/formic/proc/langsay(spoken) //easy way to make a mob speak in their lang variable. will be used for a translator in future(?)
 	say(spoken, language = spoken_lang)
+	if(talksound)
+		playsound(src, talksound, 40, TRUE)
 
 /mob/living/simple_animal/formic/proc/respond_to_command(mob/living/carbon/human/source, list/hearing_args)
 	SIGNAL_HANDLER

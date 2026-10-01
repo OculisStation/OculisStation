@@ -212,6 +212,7 @@ GLOBAL_LIST_INIT(global_resforms, subtypesof(/mob/living/simple_animal/formic))
 		var/chosen
 		chosen = pick(GLOB.global_resforms)
 		var/mob/living/simple_animal/formic/spawnedform = new chosen(get_turf(src))
+		playsound(src, 'sound/items/pshoom/pshoom.ogg', 50)
 		do_sparks(3, FALSE, get_turf(src))
 		linkedscanner.contacted_form = spawnedform
 		return

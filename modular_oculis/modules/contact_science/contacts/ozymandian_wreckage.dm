@@ -22,6 +22,7 @@
 		"what happened to you",
 		"what are you"
 	)
+	talksound = 'sound/machines/destructive_scanner/TubeUp.ogg'
 
 	var/list/potential_parts = list( //potential object types which can be selected for repair
 		"Femto-Servo" = /obj/item/stock_parts/servo/femto,

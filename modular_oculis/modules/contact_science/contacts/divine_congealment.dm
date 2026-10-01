@@ -22,6 +22,7 @@
 	echoes = list(
 		"teach me"
 	)
+	talksound = 'sound/mobs/non-humanoids/roro/roro_warble.ogg'
 
 	var/absorbed_clarium = 0 //essence of clarity. glass, wood
 	var/absorbed_ferrum = 0 //essence of dull metal. iron, titanium, plasteel

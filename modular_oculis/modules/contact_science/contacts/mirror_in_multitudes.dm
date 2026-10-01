@@ -23,6 +23,7 @@
 	echoes = list(
 		"do you want to play"
 	)
+	talksound = 'sound/items/radio/radio_receive.ogg'
 
 	var/games_num = 3
 	var/games_played = 0

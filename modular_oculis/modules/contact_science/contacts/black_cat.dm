@@ -20,6 +20,7 @@
 	echoes = list(
 		"you can be loved"
 	)
+	talksound = 'sound/mobs/non-humanoids/cat/cat_purr1.ogg'
 
 	var/dark_light_range = 2
 	var/dark_light_power = -6

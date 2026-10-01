@@ -1,6 +1,6 @@
 /mob/living/simple_animal/formic/verdant_growth
 	name = "Verdant Growth"
-	desc = "A grouping of green crystals, barely sticking out of a rocky shell. You swear you hear birds chirping inside."
+	desc = "A grouping of green crystals, barely sticking out of a rocky shell. You hear birds chirping inside."
 	icon = 'modular_oculis/modules/contact_science/icons/verdant_growth.dmi'
 	icon_state = "verdant"
 	spoken_lang = /datum/language/terrum
@@ -25,6 +25,7 @@
 		"are you singing yet",
 		"what does the songbird mean"
 	)
+	talksound = 'sound/mobs/non-humanoids/chicken/chick_peep.ogg'
 
 	var/accel_chance = 25
 	var/accel_number = 2

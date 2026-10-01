@@ -22,6 +22,7 @@
 		"who are you",
 		"can you help me"
 	)
+	talksound = 'sound/misc/escape_menu/esc_close.ogg'
 
 	var/list/associated_dialogue = list(
 		/mob/living/simple_animal/formic/rabbit_hole = "Me. You're talking to it. I can help you if you show me another resonance form on that scanner.",
