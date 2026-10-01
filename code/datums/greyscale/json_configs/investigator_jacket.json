@@ -1,0 +1,30 @@
+{
+	"jacket_lawyer": [
+		{
+			"type": "icon_state",
+			"icon_state": "suitjacket",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "solfed",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		}
+	],
+	"jacket_lawyer_t": [
+		{
+			"type": "icon_state",
+			"icon_state": "suitjacket_t",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "solfed",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		}
+	]
+}
