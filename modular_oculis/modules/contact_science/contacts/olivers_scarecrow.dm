@@ -1,3 +1,5 @@
+GLOBAL_DATUM_INIT(labLevel, /datum/space_level, null)
+
 /mob/living/simple_animal/formic/olivers_scarecrow
 	name = "Oliver's Scarecrow"
 	desc = "You swear you can see tears dripping from the sockets of this scarecrow's skull."
@@ -27,7 +29,6 @@
 
 	//following info is passed down to the artifact. loaded via scarecrow to give more generation time
 	var/datum/map_template/oliverslabyrinth/theLab //map template
-	var/datum/space_level/labLevel //level
 
 /mob/living/simple_animal/formic/olivers_scarecrow/Initialize(mapload)
 	. = ..()
@@ -36,7 +37,8 @@
 
 /mob/living/simple_animal/formic/olivers_scarecrow/proc/prepare_room()
 	theLab = new()
-	labLevel = theLab.load_new_z(FALSE)
+	if(!GLOB.labLevel)
+		GLOB.labLevel = theLab.load_new_z(FALSE)
 
 /mob/living/simple_animal/formic/olivers_scarecrow/echo_success()
 	var/successful_echo = awaiting_response
@@ -90,7 +92,6 @@
 	icon_state = "oliverslab"
 	w_class = WEIGHT_CLASS_SMALL
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
-	var/datum/space_level/labLevel //level
 	var/mob/living/simple_animal/formic/olivers_scarecrow/origin //the scarecrow
 	var/has_generated_exit = FALSE //have we generated the exit yet?
 	var/list/potential_codes = list( //potential codes for the secret item
@@ -112,9 +113,7 @@
 
 /obj/item/oliverslabyrinth/attack_self(mob/user)
 	. = ..()
-	if(origin.labLevel)
-		labLevel = origin.labLevel
-	else
+	if(!GLOB.labLevel)
 		balloon_alert(user, "generation in progress!")
 		return
 	balloon_alert(user, "entering the labyrinth...")
@@ -127,26 +126,26 @@
 	user.forceMove(locate(
 	66,
 	66,
-	labLevel.z_value,
+	GLOB.labLevel.z_value,
 	))
 	do_sparks(3, FALSE, get_turf(user))
 	if(!has_generated_exit) //generates initial stuff with dynamic values that cant be generated in map
 		var/obj/item/oliversreprieve/generated_exit = new /obj/item/oliversreprieve(locate(
 		145,
 		189,
-		labLevel.z_value,
+		GLOB.labLevel.z_value,
 		))
 		generated_exit.generated_lab = src
 		var/obj/item/paper/crumpled/bloody/decipher_key_paper = new /obj/item/paper/crumpled/bloody(locate(
 		165,
 		190,
-		labLevel.z_value,
+		GLOB.labLevel.z_value,
 		))
 		decipher_key_paper.add_raw_text(correct_code)
 		var/obj/item/mod/module/dispenser/mirage/dreamcoil/dream_module = new /obj/item/mod/module/dispenser/mirage/dreamcoil(locate(
 		71,
 		185,
-		labLevel.z_value,
+		GLOB.labLevel.z_value,
 		))
 		dream_module.code = potential_codes[correct_code]
 		has_generated_exit = TRUE
