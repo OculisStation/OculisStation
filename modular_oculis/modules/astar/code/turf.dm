@@ -22,20 +22,12 @@
 	return FALSE
 
 /// Returns an additional distance factor based on slowdown and other factors.
+/// A* adds this for both turfs of every step, see ASTAR_STEP_COST.
 /turf/proc/get_heuristic_slowdown(mob/traverser, travel_dir)
 	. = astar_weight
 	var/area/current_area = loc
 	if(current_area?.astar_weight)
 		. += current_area.astar_weight
-
-// Like Distance_cardinal, but includes additional weighting to make A* prefer turfs that are easier to pass through.
-/turf/proc/heuristic_cardinal(turf/target, mob/traverser)
-	var/travel_dir = get_dir(src, target)
-	. = Distance_cardinal(target, traverser) + get_heuristic_slowdown(traverser, travel_dir) + target.get_heuristic_slowdown(traverser, travel_dir)
-
-/// A 3d-aware version of heuristic_cardinal that just... adds the Z-axis distance with a multiplier.
-/turf/proc/heuristic_cardinal_3d(turf/target, mob/traverser)
-	return heuristic_cardinal(target, traverser) + abs(z - target.z) * 5 // Weight z-level differences higher so that we try to change Z-level sooner
 
 /// Helper function to compute 3D Manhattan distance.
 /turf/proc/distance_3d(turf/other)
