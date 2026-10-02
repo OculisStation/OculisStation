@@ -26,7 +26,7 @@
 	failure_damage_percent = 0.2
 	repeatable = TRUE
 	target_type = /obj/item/organ/heart/synth
-	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC
+	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC | OPERATION_SELF_OPERABLE
 	requires_organ_damage = 10
 
 // flavor text - preop
@@ -91,7 +91,7 @@
 	failure_damage_percent = 0.2
 	repeatable = TRUE
 	target_type = /obj/item/organ/liver/synth
-	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC
+	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC | OPERATION_SELF_OPERABLE
 	requires_organ_damage = 10
 
 // flavor text - preop
@@ -152,7 +152,7 @@
 	failure_damage_percent = 0.2
 	repeatable = TRUE
 	target_type = /obj/item/organ/lungs/synth
-	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC
+	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC | OPERATION_SELF_OPERABLE
 	requires_organ_damage = 10
 
 // flavor text - preop
@@ -217,7 +217,7 @@
 	failure_damage_percent = 0.2
 	repeatable = TRUE
 	target_type = /obj/item/organ/stomach/synth
-	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC
+	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC | OPERATION_SELF_OPERABLE
 	requires_organ_damage = 10
 
 // flavor text - preop
@@ -280,7 +280,7 @@
 	repeatable = TRUE
 	time = 12 SECONDS //long and complicated
 	target_type = /obj/item/organ/brain/synth
-	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC
+	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC | OPERATION_SELF_OPERABLE
 	requires_organ_damage = 10
 
 // flavor text - preop
@@ -366,7 +366,7 @@
 	all_surgery_states_required = SURGERY_SKIN_OPEN
 	any_surgery_states_blocked = SURGERY_VESSELS_UNCLAMPED
 	required_organ_flag = ORGAN_ROBOTIC & ORGAN_SYNTHETIC_FROM_SPECIES
-	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC
+	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC | OPERATION_SELF_OPERABLE
 	requires_organ_damage = 1
 
 /datum/surgery_operation/organ/repair/ears/synth/all_blocked_strings()

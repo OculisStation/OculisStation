@@ -628,7 +628,7 @@ GLOBAL_DATUM_INIT(operations, /datum/operation_holder, new)
 /// "All requirements" are formatted as "All of the following must be true:"
 /datum/surgery_operation/proc/all_required_strings()
 	SHOULD_CALL_PARENT(TRUE)
-	. = bitfield_to_list(all_surgery_states_required, SURGERY_STATE_GUIDES("must"))
+	. = bitfield_to_list(all_surgery_states_required, operation_flags & OPERATION_MECHANIC ? SURGERY_STATE_GUIDES_ROBOTIC("must") : SURGERY_STATE_GUIDES("must")) // OCULIS EDIT, ORIGINAL: . = bitfield_to_list(all_surgery_states_required, SURGERY_STATE_GUIDES("must"))
 	if(!(operation_flags & OPERATION_STANDING_ALLOWED))
 		. += "the patient must be lying down"
 
@@ -649,7 +649,7 @@ GLOBAL_DATUM_INIT(operations, /datum/operation_holder, new)
 		parsed_any_flags &= ~ALL_SURGERY_VESSEL_STATES
 		. += "the blood vessels must be clamped or unclamped" // weird phrasing but whatever
 
-	. += bitfield_to_list(parsed_any_flags, SURGERY_STATE_GUIDES("must"))
+	. += bitfield_to_list(parsed_any_flags, operation_flags & OPERATION_MECHANIC ? SURGERY_STATE_GUIDES_ROBOTIC("must") : SURGERY_STATE_GUIDES("must")) // OCULIS EDIT, ORIGINAL: . += bitfield_to_list(parsed_any_flags, SURGERY_STATE_GUIDES("must"))
 
 /// Returns a list of strings indicating optional conditions for this operation
 /// "Optional conditions" are formatted as "Additionally, any of the following may be true:"
@@ -676,7 +676,7 @@ GLOBAL_DATUM_INIT(operations, /datum/operation_holder, new)
 		parsed_blocked_flags &= ~ALL_SURGERY_VESSEL_STATES
 		. += "the blood vessels must be intact"
 
-	. += bitfield_to_list(parsed_blocked_flags, SURGERY_STATE_GUIDES("must not"))
+	. += bitfield_to_list(parsed_blocked_flags, operation_flags & OPERATION_MECHANIC ? SURGERY_STATE_GUIDES_ROBOTIC("must not") : SURGERY_STATE_GUIDES("must not")) // OCULIS EDIT, ORIGINAL: . += bitfield_to_list(parsed_blocked_flags, SURGERY_STATE_GUIDES("must not"))
 	if(!(operation_flags & OPERATION_IGNORE_CLOTHES))
 		. += "the operation site must not be obstructed by clothing"
 

@@ -195,7 +195,7 @@
 				span_notice("[surgeon] begins to remove [organ] from [limb.owner || limb]."),
 				span_notice("[surgeon] begins to remove something from [limb.owner || limb]."),
 			)
-			display_pain(limb.owner, "You feel a tugging sensation in your [limb.plaintext_zone]!")
+			display_pain(limb.owner, "You feel a tugging sensation in your [limb.plaintext_zone]!", istype(., /datum/surgery_operation/limb/organ_manipulation/internal/mechanic) || istype(., /datum/surgery_operation/limb/organ_manipulation/external/mechanic)) // OCULIS EDIT, ORIGINAL: display_pain(limb.owner, "You feel a tugging sensation in your [limb.plaintext_zone]!")
 		if("insert")
 			play_operation_sound(limb, surgeon, tool, insert_preop_sound)
 			display_results(
@@ -205,7 +205,7 @@
 				span_notice("[surgeon] begins to insert [isorgan(tool) ? tool.name : tool] into [limb.owner || limb]."),
 				span_notice("[surgeon] begins to insert something into [limb.owner || limb]."),
 			)
-			display_pain(limb.owner, "You can feel something being placed in your [limb.plaintext_zone]!")
+			display_pain(limb.owner, "You can feel something being placed in your [limb.plaintext_zone]!", istype(., /datum/surgery_operation/limb/organ_manipulation/internal/mechanic) || istype(., /datum/surgery_operation/limb/organ_manipulation/external/mechanic)) // OCULIS EDIT, ORIGINAL: display_pain(limb.owner, "You can feel something being placed in your [limb.plaintext_zone]!")
 
 /datum/surgery_operation/limb/organ_manipulation/on_success(obj/item/bodypart/limb, mob/living/surgeon, obj/item/tool, list/operation_args)
 	switch(operation_args[OPERATION_ACTION])
@@ -226,7 +226,13 @@
 		span_notice("[surgeon] successfully extracts [organ] from [FORMAT_LIMB_OWNER(limb)]!"),
 		span_notice("[surgeon] successfully extracts something from [FORMAT_LIMB_OWNER(limb)]!"),
 	)
-	display_pain(limb.owner, "Your [limb.plaintext_zone] throbs with pain, you can't feel your [organ.name] anymore!")
+	// display_pain(limb.owner, "Your [limb.plaintext_zone] throbs with pain, you can't feel your [organ.name] anymore!") // OCULIS EDIT, REMOVAL
+	// OCULIS EDIT ADDITION START
+	if(istype(., /datum/surgery_operation/limb/organ_manipulation/internal/mechanic) || istype(., /datum/surgery_operation/limb/organ_manipulation/external/mechanic))
+		display_pain(limb.owner, "Your [limb.plaintext_zone] pulses, you can't feel your [organ.name] anymore!", TRUE)
+	else
+		display_pain(limb.owner, "Your [limb.plaintext_zone] throbs with pain, you can't feel your [organ.name] anymore!")
+	// OCULIS EDIT ADDITION END
 	log_combat(surgeon, limb.owner || limb, "surgically removed [organ.name] from")
 	if (limb.owner)
 		organ.Remove(limb.owner)
@@ -266,7 +272,13 @@
 		span_notice("[surgeon] successfully inserts [tool] into [FORMAT_LIMB_OWNER(limb)]."),
 		span_notice("[surgeon] successfully inserts something into [FORMAT_LIMB_OWNER(limb)]."),
 	)
-	display_pain(limb.owner, "Your [limb.plaintext_zone] throbs with pain as your new [organ.name] comes to life!")
+	// display_pain(limb.owner, "Your [limb.plaintext_zone] throbs with pain as your new [organ.name] comes to life!") // OCULIS EDIT REMOVAL
+	// OCULIS EDIT ADDITION START
+	if(istype(., /datum/surgery_operation/limb/organ_manipulation/internal/mechanic) || istype(., /datum/surgery_operation/limb/organ_manipulation/external/mechanic))
+		display_pain(limb.owner, "Your [limb.plaintext_zone] pulses as your new [organ.name] activates!", TRUE)
+	else
+		display_pain(limb.owner, "Your [limb.plaintext_zone] throbs with pain as your new [organ.name] comes to life!")
+	// OCULIS EDIT ADDITION END
 
 /datum/surgery_operation/limb/organ_manipulation/internal
 	name = "internal organ manipulation"

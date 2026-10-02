@@ -65,7 +65,7 @@
 	name = "disassemble limb"
 	rnd_name = "Dissassembly (Amputation)"
 	required_bodytype = BODYTYPE_ROBOTIC
-	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC
+	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC | OPERATION_SELF_OPERABLE // OCULIS EDIT, ORIGINAL: operation_flags = parent_type::operation_flags | OPERATION_MECHANIC
 	implements = list(
 		/obj/item/shovel/giant_wrench = 0.33,
 		TOOL_WRENCH = 1,
@@ -95,7 +95,7 @@
 	name = "detach wooden limb"
 	rnd_name = "Detach Wooden Limb (Amputation)"
 	required_bodytype = BODYTYPE_PEG
-	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC
+	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC | OPERATION_SELF_OPERABLE // OCULIS EDIT, ORIGINAL: operation_flags = parent_type::operation_flags | OPERATION_MECHANICoperation_flags = parent_type::operation_flags | OPERATION_MECHANIC
 	implements = list(
 		TOOL_SAW = 1,
 		/obj/item/shovel/serrated = 1,
