@@ -85,7 +85,7 @@
 
 	if (!GLOB.ore_silo_default && mapload && is_station_level(z))
 		GLOB.ore_silo_default = src
-		ID_required = TRUE
+		// ID_required = TRUE // OCULIS EDIT REMOVAL
 
 	register_context()
 	setup_radio()
