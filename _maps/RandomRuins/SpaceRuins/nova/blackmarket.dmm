@@ -444,6 +444,36 @@
 	},
 /turf/open/floor/iron/smooth_large,
 /area/ruin/space/has_grav/nova/blackmarket)
+"uF" = (
+/obj/structure/cable,
+/obj/structure/closet/crate/internals,
+/obj/item/tank/internals/plasmaman/full,
+/obj/item/tank/internals/plasmaman/belt/full{
+	pixel_x = -10
+	},
+/obj/item/tank/internals/plasmaman/belt/full{
+	pixel_x = -5
+	},
+/obj/item/tank/internals/plasmaman/belt/full,
+/obj/item/tank/internals/plasmaman/belt/full{
+	pixel_x = 6
+	},
+/obj/item/tank/internals/nitrogen/belt/full{
+	pixel_y = 2;
+	pixel_x = -4
+	},
+/obj/item/tank/internals/nitrogen/belt/full{
+	pixel_x = 7;
+	pixel_y = -1
+	},
+/obj/item/tank/internals/nitrogen/belt/full{
+	pixel_x = -7;
+	pixel_y = 4
+	},
+/obj/item/tank/internals/nitrogen/belt/full,
+/obj/item/tank/internals/nitrogen/full,
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/ruin/space/has_grav/nova/blackmarket)
 "uG" = (
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/blackmarket)
@@ -763,6 +793,13 @@
 /obj/structure/extinguisher_cabinet/directional/north,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/nova/blackmarket)
+"HP" = (
+/obj/effect/spawner/random/structure/closet_private,
+/obj/item/modular_computer/pda/crew,
+/obj/item/storage/box/nif_ghost_box/ghost_role,
+/obj/item/storage/box/rubbershot,
+/turf/open/floor/iron/smooth_large,
+/area/ruin/space/has_grav/nova/blackmarket)
 "Id" = (
 /obj/effect/turf_decal/bot_white,
 /obj/effect/spawner/random/engineering/canister,
@@ -888,36 +925,6 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/iron/smooth_large,
-/area/ruin/space/has_grav/nova/blackmarket)
-"MG" = (
-/obj/structure/cable,
-/obj/structure/closet/crate/internals,
-/obj/item/tank/internals/plasmaman/full,
-/obj/item/tank/internals/plasmaman/belt/full{
-	pixel_x = -10
-	},
-/obj/item/tank/internals/plasmaman/belt/full{
-	pixel_x = -5
-	},
-/obj/item/tank/internals/plasmaman/belt/full,
-/obj/item/tank/internals/plasmaman/belt/full{
-	pixel_x = 6
-	},
-/obj/item/tank/internals/nitrogen/belt/full{
-	pixel_y = 2;
-	pixel_x = -4
-	},
-/obj/item/tank/internals/nitrogen/belt/full{
-	pixel_x = 7;
-	pixel_y = -1
-	},
-/obj/item/tank/internals/nitrogen/belt/full{
-	pixel_x = -7;
-	pixel_y = 4
-	},
-/obj/item/tank/internals/nitrogen/belt/full,
-/obj/item/tank/internals/nitrogen/full,
-/turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/space/has_grav/nova/blackmarket)
 "MN" = (
 /obj/effect/spawner/random/trash/bin,
@@ -1101,13 +1108,6 @@
 /obj/effect/spawner/random/structure/furniture_parts,
 /obj/effect/turf_decal/bot_white,
 /turf/open/floor/iron/dark/textured_large,
-/area/ruin/space/has_grav/nova/blackmarket)
-"VF" = (
-/obj/effect/spawner/random/structure/closet_private,
-/obj/item/modular_computer/pda,
-/obj/item/storage/box/nif_ghost_box/ghost_role,
-/obj/item/storage/box/rubbershot,
-/turf/open/floor/iron/smooth_large,
 /area/ruin/space/has_grav/nova/blackmarket)
 "VG" = (
 /obj/structure/toilet/snappop{
@@ -1431,7 +1431,7 @@ xz
 AY
 tP
 Zh
-VF
+HP
 mP
 vh
 Zh
@@ -1591,7 +1591,7 @@ Zh
 Zh
 Zh
 Zh
-MG
+uF
 KV
 De
 hd

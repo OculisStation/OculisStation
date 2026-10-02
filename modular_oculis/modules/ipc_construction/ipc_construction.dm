@@ -34,7 +34,7 @@
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
-/obj/item/mmi/posibrain/ipc
+/obj/item/brain_processor/positronic/ipc
 	name = "compact positronic brain"
 	desc = "A cube of shining metal, it has an IPC serial number engraved on the top. It is usually slotted into the chest of synthetic crewmembers. This one appears to be inactive."
 	icon = 'icons/obj/devices/assemblies.dmi'
@@ -44,26 +44,11 @@
 	begin_activation_message = "<span class='notice'>You carefully locate the manual activation switch and start the compact positronic brain's boot process.</span>"
 	success_message = "<span class='notice'>The compact positronic brain pings, and its lights start flashing. Success!</span>"
 	fail_message = "<span class='notice'>The compact positronic brain buzzes quietly, and the golden lights fade away. Perhaps you could try again?</span>"
-	new_mob_message = "<span class='notice'>The compact positronic brain chimes quietly.</span>"
-	recharge_message = "<span class='warning'>The compact positronic brain isn't ready to activate again yet! Give it some time to recharge.</span>"
 	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5, /datum/material/gold = SHEET_MATERIAL_AMOUNT * 2, /datum/material/glass = SHEET_MATERIAL_AMOUNT, /datum/material/silver = SHEET_MATERIAL_AMOUNT)
 
-/obj/item/mmi/posibrain/ipc/transfer_personality(mob/dead/observer/candidate)
-	if(candidate)
-		var/obj/item/organ/brain/synth/ipc_brain = new /obj/item/organ/brain/synth(get_turf(src))
-		ipc_brain.brainmob = new /mob/living/brain(ipc_brain)
-		if(candidate.mind)
-			candidate.mind.transfer_to(ipc_brain.brainmob)
-		else
-			ipc_brain.brainmob.key = candidate.key
-		candidate.reenter_corpse()
-		visible_message(success_message)
-		playsound(src, 'sound/machines/ping.ogg', 15, TRUE)
-		qdel(src)
-
-/obj/item/mmi/posibrain/ipc/update_icon_state()
+/obj/item/brain_processor/positronic/ipc/update_icon_state()
 	. = ..()
-	if(searching)
+	if(is_searching())
 		icon = 'icons/obj/devices/assemblies.dmi'
 		icon_state = "[base_icon_state]-searching"
 		return
@@ -85,7 +70,7 @@
 		/datum/material/gold = SHEET_MATERIAL_AMOUNT * 2,
 		/datum/material/silver = SHEET_MATERIAL_AMOUNT,
 	)
-	build_path = /obj/item/mmi/posibrain/ipc
+	build_path = /obj/item/brain_processor/positronic/ipc
 	category = list(
 		RND_SUBCATEGORY_MECHFAB_ANDROID + RND_SUBCATEGORY_MECHFAB_ANDROID_CHASSIS,
 	)
