@@ -39,7 +39,7 @@
 			Corps is once again chasing leads on the Ashwalkers and Unathi. Reports of neolithic reptiles living on the magma world of Indecipheres have piqued the interest of the \
 			Expedition, which has set about establishing a presence on the frontier to investigate the matter.",
 		"Talunan flagged vessels are prohibited from crossing the DMZ per the Sagittarius Accords. As a result, there is no official Talunan presence North of their border \
-			with SolGov. Unofficially the joint Tiziro-Teshari arm of the Expeditionary Corps acts to fulfill Talunan objectives in and beyond human space.",
+			with SolFed. Unofficially the joint Tiziro-Teshari arm of the Expeditionary Corps acts to fulfill Talunan objectives in and beyond human space.",
 		"Having taken up their original charter of making contact with their wayward kin which where lost in the great exodus following Tizira's first foray into FTL travel, \
 			the Expeditionary Corps is once again chasing leads on the Ashwalkers and Unathi. Reports of neolithic reptiles living on the magma world of Indecipheres has piqued \
 			the interest of the Expedition, which has set about establishing a presence on the frontier to investigate the matter.",

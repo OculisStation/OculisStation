@@ -74,7 +74,7 @@
 	lore_blurb = "The Hyeseong rifle is the first line of man-portable Marsian weapons platforms \
 		from Cybersun Industries.<br><br>\
 		Like her younger sister weapon, the Hoshi carbine, CI used funding aid provided \
-		by SolGov to develop a portable weapon fueled by a proprietary generator \
+		by SolFed to develop a portable weapon fueled by a proprietary generator \
 		rumored to be fueled by superstable plasma. \
 		A rugged and hefty weapon, the Hyeseong stars in applications anywhere from medium to long ranges, though it struggles \
 		in CQB.<br><br>\
@@ -272,7 +272,7 @@
 	speech_json_file = SHORT_MOD_LASER_SPEECH
 	lore_blurb = "The Hoshi carbine is the latest line of man-portable Marsian weapons platforms from \
 		Cybersun Industries.<br><br>\
-		Like her older sister weapon, the Hyeseong rifle, CI used funding aid provided by SolGov \
+		Like her older sister weapon, the Hyeseong rifle, CI used funding aid provided by SolFed \
 		to develop a portable weapon fueled by a proprietary generator rumored to be fueled by superstable plasma. \
 		A lithe and mobile weapon, the Hoshi stars in close-quarters battle, trickshots, and area-of-effect blasts, \
 		at the cost of longer-ranged combat performance.<br><br>\

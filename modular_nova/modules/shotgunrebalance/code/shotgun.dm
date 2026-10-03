@@ -197,7 +197,7 @@
 // everything beyond this point is nova content
 /obj/item/ammo_casing/shotgun/magnum
 	name = "magnum blockshot shell"
-	desc = "A 12 gauge shell that fires fewer, larger pellets than buckshot. A favorite of SolGov anti-piracy enforcers, \
+	desc = "A 12 gauge shell that fires fewer, larger pellets than buckshot. A favorite of SolFed anti-piracy enforcers, \
 		especially against the likes of vox."
 	icon_state = "magshell"
 	projectile_type = /obj/projectile/bullet/pellet/shotgun_buckshot/magnum
