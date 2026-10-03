@@ -2,7 +2,7 @@
 
 /obj/item/gun/ballistic/automatic/sol_rifle
 	name = "\improper MMR-2543E"
-	desc = "A heavy assault rifle chambered in .40 Sol Long, with a decent rate of fire for weapons of its class. Accepts any standard SolGov rifle magazine."
+	desc = "A heavy assault rifle chambered in .40 Sol Long, with a decent rate of fire for weapons of its class. Accepts any standard SolFed rifle magazine."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/carwo_defense_systems/guns48x.dmi'
 	icon_state = "infanterie"
@@ -43,13 +43,13 @@
 	projectile_damage_multiplier = 1
 
 	lore_blurb = "The MMR-2543 is the current standard service rifle for all branches of the Sol Goverment Armed Forces.<br><br>\
-		Initially created for use by the Sagittarian Triumvirate’s military, its adoption by SolGov came a few years later. \
-		Thanks to both the prestige the weapon gained from being adopted by two of the most prominent military forces in SolGov, \
+		Initially created for use by the Sagittarian Triumvirate’s military, its adoption by SolFed came a few years later. \
+		Thanks to both the prestige the weapon gained from being adopted by two of the most prominent military forces in SolFed, \
 		and its modular design making it easily adapted to different requirements, \
-		it is currently the most widely adopted rifle in SolGov with a wide range of different users."
+		it is currently the most widely adopted rifle in SolFed with a wide range of different users."
 
 	/// Lore specific to this type of gun.
-	var/model_specific_lore = "This variant is the Espatier model, and is the standard weapon for SolGov’s Espatier Corps. \
+	var/model_specific_lore = "This variant is the Espatier model, and is the standard weapon for SolFed’s Espatier Corps. \
 		It features a slim and compact design optimized for the close-range engagements \
 		Espatiers typically find themselves in, while still retaining effectiveness at long range. \
 		A computerized sight allows for quick and easy adjustment for engagements at different ranges, \
@@ -81,7 +81,7 @@
 
 /obj/item/gun/ballistic/automatic/sol_rifle/marksman
 	name = "\improper MMR-2543I"
-	desc = "A heavy marksman rifle chambered in .40 Sol Long, commonly seen in the hands of SolGov military types. Accepts any standard SolGov rifle magazine."
+	desc = "A heavy marksman rifle chambered in .40 Sol Long, commonly seen in the hands of SolFed military types. Accepts any standard SolFed rifle magazine."
 
 	icon_state = "elite"
 	worn_icon_state = "elite"
@@ -103,7 +103,7 @@
 	projectile_wound_bonus = -10
 
 	model_specific_lore = "This variant is the Infantry model, and is the primary rifle \
-		for both the SolGov Hydro Corps and Atmospheric Corps. It features excellent accuracy and durability, \
+		for both the SolFed Hydro Corps and Atmospheric Corps. It features excellent accuracy and durability, \
 		and a specialized three-shot burst designed to complete before recoil can impact the shooter."
 
 /obj/item/gun/ballistic/automatic/sol_rifle/marksman/Initialize(mapload)
@@ -121,7 +121,7 @@
 
 /obj/item/gun/ballistic/automatic/sol_rifle/machinegun
 	name = "\improper Trekpaard Light Machine Gun"
-	desc = "A hefty, previous-gen machine gun chambered in .40 Sol Long, somehow still seen in the hands of SolGov military types. Accepts any standard SolGov rifle magazine."
+	desc = "A hefty, previous-gen machine gun chambered in .40 Sol Long, somehow still seen in the hands of SolFed military types. Accepts any standard SolFed rifle magazine."
 
 	icon_state = "qarad"
 	worn_icon_state = "qarad"

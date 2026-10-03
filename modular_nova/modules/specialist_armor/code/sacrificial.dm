@@ -31,6 +31,7 @@
 	. = ..()
 
 	AddComponent(/datum/component/clothing_damaged_by_bullets)
+	AddElement(/datum/element/manufacturer_examine, COMPANY_SOLFED) // OCULIS EDIT ADDITION
 
 /obj/item/clothing/suit/armor/sf_sacrificial/examine_more(mob/user)
 	. = ..()
@@ -68,6 +69,7 @@
 	. = ..()
 
 	AddComponent(/datum/component/clothing_damaged_by_bullets)
+	AddElement(/datum/element/manufacturer_examine, COMPANY_SOLFED) // OCULIS EDIT ADDITION
 
 /obj/item/clothing/head/helmet/sf_sacrificial/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	. = ..()

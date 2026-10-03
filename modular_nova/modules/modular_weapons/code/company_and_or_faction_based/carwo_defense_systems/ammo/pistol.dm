@@ -1,9 +1,9 @@
 // .35 Sol Short
-// Pistol caliber caseless round used almost exclusively by SolGov weapons
+// Pistol caliber caseless round used almost exclusively by SolFed weapons
 
 /obj/item/ammo_casing/c35sol
 	name = ".35 Sol Short lethal bullet casing"
-	desc = "A SolGov standard caseless lethal pistol round."
+	desc = "A SolFed standard caseless lethal pistol round."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/carwo_defense_systems/ammo.dmi'
 	icon_state = "35sol"
@@ -47,7 +47,7 @@
 
 /obj/item/ammo_casing/c35sol/incapacitator
 	name = ".35 Sol Short incapacitator bullet casing"
-	desc = "A SolGov standard caseless less-lethal pistol round. Exhausts targets on hit, has a tendency to bounce off walls at shallow angles."
+	desc = "A SolFed standard caseless less-lethal pistol round. Exhausts targets on hit, has a tendency to bounce off walls at shallow angles."
 
 	icon_state = "35sol_disabler"
 
@@ -93,7 +93,7 @@
 
 /obj/item/ammo_casing/c35sol/ripper
 	name = ".35 Sol Short ripper bullet casing"
-	desc = "A SolGov standard caseless ripper pistol round. Causes slashing wounds on targets, but is weak to armor."
+	desc = "A SolFed standard caseless ripper pistol round. Causes slashing wounds on targets, but is weak to armor."
 
 	icon_state = "35sol_shrapnel"
 	projectile_type = /obj/projectile/bullet/c35sol/ripper
@@ -138,7 +138,7 @@
 
 /obj/item/ammo_casing/c35sol/flash
 	name = ".35 Sol Short flash bullet casing"
-	desc = "A SolGov standard caseless less-lethal pistol round. Creates a small, pyrotechnic flash on hit; insufficient to overload cyborgs."
+	desc = "A SolFed standard caseless less-lethal pistol round. Creates a small, pyrotechnic flash on hit; insufficient to overload cyborgs."
 
 	icon_state = "35sol_flash"
 
