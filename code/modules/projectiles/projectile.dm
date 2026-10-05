@@ -472,7 +472,7 @@
 			unlucky_sob = potential_target
 
 	if(unlucky_sob)
-		set_angle(get_angle(src, unlucky_sob.loc))
+		set_angle(get_angle(loc, unlucky_sob.loc)) // OCULIS EDIT, ORIGINAL: set_angle(get_angle(src, unlucky_sob.loc))
 		original = unlucky_sob
 
 /obj/projectile/Bump(atom/bumped_atom)

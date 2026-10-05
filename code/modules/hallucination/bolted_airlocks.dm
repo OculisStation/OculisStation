@@ -1,6 +1,6 @@
 /datum/hallucination/bolts
 	random_hallucination_weight = 7
-	hallucination_tier = HALLUCINATION_TIER_COMMON
+	hallucination_tier = HALLUCINATION_TIER_UNCOMMON // OCULIS EDIT, ORIGINAL: hallucination_tier = HALLUCINATION_TIER_COMMON
 	/// A list of weakrefs to airlocks we bolt down around us
 	var/list/datum/weakref/airlocks_to_hit
 	/// A list of weakrefs to fake lock hallucinations we've created

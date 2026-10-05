@@ -721,10 +721,10 @@ put up a rune with bluespace effects, lots of those runes are fluff or act as a 
 	I.force = clamp(I.force + 4, 0, 30)
 	I.wound_bonus = I.wound_bonus + 4
 	I.throwforce = clamp(I.throwforce + 4, 0, 30)
-	I.name = "brilliant [I.name]"
-	// Add a glowy colour
-	I.add_atom_colour(rgb(243, 227, 183), ADMIN_COLOUR_PRIORITY)
-	to_chat(user, span_notice("[I] glows with a brilliant light!"))
+	I.name = "starborne [I.name]"
+	// Add a glowy color
+	I.add_visual_effect(/obj/effect/abstract/visual_effect/spacey)
+	to_chat(user, span_notice("[I] glows beautifully like the stars!"))
 
 /obj/item/slimecross/warping/lightpink
 	colour = SLIME_TYPE_LIGHT_PINK

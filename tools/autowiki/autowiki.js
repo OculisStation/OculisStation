@@ -38,7 +38,7 @@ async function main() {
   const bot = new MWBot();
 
   await bot.loginGetEditToken({
-    apiUrl: "https://oculis.miraheze.org/w/api.php", // OCULIS EDIT, ORIGINAL: apiUrl: "https://wiki.tgstation13.org/api.php",
+    apiUrl: "https://wiki.oculis.space/w/api.php", // OCULIS EDIT, ORIGINAL: apiUrl: "https://wiki.tgstation13.org/api.php",
     username: USERNAME,
     password: PASSWORD,
   });

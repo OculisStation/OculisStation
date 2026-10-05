@@ -155,6 +155,10 @@
 			continue
 		if(alive_check && player_mob.stat == DEAD)
 			continue
+		// OCULIS ADDITION START - don't count ghost cafe players
+		if(HAS_TRAIT(player_mob, TRAIT_FREE_GHOST))
+			continue
+		// OCULIS ADDITION END
 		if(afk_check && player_mob.client.is_afk())
 			continue
 		if(human_check && !ishuman(player_mob))

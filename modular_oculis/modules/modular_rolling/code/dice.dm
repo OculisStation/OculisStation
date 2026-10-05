@@ -33,8 +33,18 @@
 	var/dice_sides = copytext(split_dice_text[2], 1, splittext(split_dice_text[2], regex("\\d+"))) // Example: 5
 
 	// Roll the dice.
-	var/answer = roll("[dice_count]d[dice_sides][modifier]") // Example: 1d20+5
+	var/dice_rolled = list()
+	var/total = 0
+	for(var/i in 1 to text2num(dice_count))
+		var/rolled = rand(1, text2num(dice_sides))
+		dice_rolled += rolled
+		total += rolled
+	total += text2num(modifier)
 
-	user.client?.looc_message("[user] rolls [dice_count]d[dice_sides][modifier] and gets [answer].[reason ? " Reason: [reason]" : null]")
+	var/long_message = "[user] rolls [dice_count]d[dice_sides][modifier] and gets [jointext(dice_rolled, "+")][modifier]=[total].[reason ? " Reason: [reason]" : null]"
+	if(length(long_message) <= MAX_MESSAGE_LEN && text2num(dice_count) > 1)
+		user.client?.looc_message(long_message)
+	else
+		user.client?.looc_message("[user] rolls [dice_count]d[dice_sides][modifier] and gets [total].[reason ? " Reason: [reason]" : null]")
 	params = null
 	return ..()

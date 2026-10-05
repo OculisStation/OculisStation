@@ -48,6 +48,9 @@
 	if((squash_flags & SQUASHED_SHOULD_BE_DOWN) && parent_as_living.body_position != LYING_DOWN)
 		return
 
+	if(HAS_TRAIT(crossing_movable, TRAIT_DOESNT_SQUASH))
+		return
+
 	var/should_squash = ((squash_flags & SQUASHED_ALWAYS_IF_DEAD) && parent_as_living.stat == DEAD) || prob(squash_chance)
 
 	if(should_squash && on_squash_callback)

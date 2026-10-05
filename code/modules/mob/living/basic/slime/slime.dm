@@ -27,7 +27,7 @@
 	wound_bonus = -45
 	can_buckle_to = FALSE
 
-	damage_coeff = list(BRUTE = 1, BURN = -1, TOX = 1, STAMINA = 1, OXY = 1) //Healed by fire
+	physiology = list(BURN = -1) //Healed by fire
 	unsuitable_cold_damage = 15
 	unsuitable_heat_damage = 0
 	maximum_survivable_temperature = INFINITY
@@ -381,7 +381,10 @@
 
 	var/core_count = min(count, cores)
 	for(var/i in 1 to core_count)
-		new slime_type.core_type(loc)
+		// OCULIS EDIT CHANGE START - SLIME_RANCHER - ORIGINAL: new slime_type.core_type(loc)
+		var/obj/item/slime_extract/core = new slime_type.core_type(loc)
+		core.fresh_from_slime = TRUE
+		// OCULIS EDIT CHANGE END
 		cores--
 
 	regenerate_icons()

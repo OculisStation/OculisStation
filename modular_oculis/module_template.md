@@ -1,6 +1,6 @@
 <!-- This should be copy-pasted into the root of your module folder as readme.md -->
 
-https://github.com/Monkestation/OculisStation/pull/<!--PR Number-->
+https://github.com/OculisStation/OculisStation/pull/<!--PR Number-->
 
 ## \<Title Here> <!--Title of your addition.-->
 

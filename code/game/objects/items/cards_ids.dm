@@ -604,7 +604,7 @@
 	else if(registered_account.account_balance > 0)
 		context[SCREENTIP_CONTEXT_ALT_LMB] = "Withdraw [MONEY_NAME]"
 	if(trim && length(trim.honorifics))
-		context[SCREENTIP_CONTEXT_CTRL_LMB] = "Toggle honorific"
+		context[SCREENTIP_CONTEXT_CTRL_SHIFT_LMB] = "Toggle honorific" // OCULIS EDIT CHANGE - ORIGINAL: context[SCREENTIP_CONTEXT_CTRL_LMB] = "Toggle honorific"
 	return CONTEXTUAL_SCREENTIP_SET
 
 /obj/item/card/id/add_item_context(obj/item/source, list/context, atom/target, mob/living/user)
@@ -1044,8 +1044,8 @@
 		return insert_money(interacting_with, user) ? ITEM_INTERACT_SUCCESS : ITEM_INTERACT_BLOCKING
 	return NONE
 
-/obj/item/card/id/item_ctrl_click(mob/user)
-	if(!in_contents_of(user) || user.incapacitated) //Check if the ID is in the ID slot, so it can be changed from there too.
+/obj/item/card/id/click_ctrl_shift(mob/user) // OCULIS EDIT CHANGE - ORIGINAL: /obj/item/card/id/item_ctrl_click(mob/user)
+	if(user.incapacitated) // OCULIS EDIT CHANGE - ORIGINAL: if(!in_contents_of(user) || user.incapacitated) //Check if the ID is in the ID slot, so it can be changed from there too.
 		return
 
 	if(!trim)
@@ -1063,7 +1063,7 @@
 			choices += i
 
 	var/chosen_position = tgui_input_list(user, "What position do you want your honorific in?", "Flair!", choices)
-	if(user.incapacitated || !in_contents_of(user))
+	if(user.incapacitated) // OCULIS EDIT CHANGE - ORIGINAL: if(user.incapacitated || !in_contents_of(user))
 		return
 	var/honorific_position_to_use = readable_names[chosen_position]
 
@@ -1074,7 +1074,7 @@
 		balloon_alert(user, "honorific disabled")
 	else
 		var/new_honorific = tgui_input_list(user, "What honorific do you want to use?", "Flair!!!", trim.honorifics)
-		if(!new_honorific || user.incapacitated || !in_contents_of(user))
+		if(!new_honorific || user.incapacitated) // OCULIS EDIT CHANGE - ORIGINAL: if(!new_honorific || user.incapacitated || !in_contents_of(user))
 			return
 		chosen_honorific = new_honorific
 		switch(honorific_position_to_use)

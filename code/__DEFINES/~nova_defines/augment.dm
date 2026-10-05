@@ -19,6 +19,7 @@
 	#define AUGMENT_SLOT_EYES			   "Eyes"
 	#define AUGMENT_SLOT_EARS			   "Ears"
 	#define AUGMENT_SLOT_TONGUE			   "Tongue"
+	#define AUGMENT_SLOT_FANGS			   "Fangs" // OCULIS EDIT ADDITION: Supports fang choice in loadout
 //Implants - we add an "implant" suffix because the defines need to be unique
 #define AUGMENT_CATEGORY_IMPLANTS				"Implants"
 	#define AUGMENT_SLOT_CHEST_IMPLANT			"Chest implant"

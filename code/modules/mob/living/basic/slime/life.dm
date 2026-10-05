@@ -60,10 +60,12 @@
 	else
 		ai_controller?.set_blackboard_key(BB_SLIME_HUNGER_LEVEL, SLIME_HUNGER_NONE)
 
+	/* // OCULIS EDIT REMOVAL START - SLIME_RANCHER - starving a slime shouldn't kill it, or starting xenobio three hours into the shift is just a room of corpses
 	if(nutrition == 0) //adjust nutrition ensures it can't go below 0
 		if(SPT_PROB(50, seconds_per_tick))
 			adjust_brute_loss(rand(0,5))
 		return
+	*/ // OCULIS EDIT REMOVAL END
 
 	if (SLIME_GROW_NUTRITION <= nutrition)
 
