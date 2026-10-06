@@ -3,6 +3,7 @@
 	total_positions = 2
 	spawn_positions = 1
 	job_flags = STATION_JOB_FLAGS | JOB_ANTAG_PROTECTED
+	tgui_icon = FA_ICON_MUG_HOT
 
 	outfit = /datum/outfit/job/bridge_assistant
 	plasmaman_outfit = /datum/outfit/job/bridge_assistant/plasmaman

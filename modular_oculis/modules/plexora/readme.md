@@ -1,4 +1,4 @@
-[https://github.com/Monkestation/OculisStation/pull/<!--PR Number-->](https://github.com/Monkestation/OculisStation/pull/1)
+[https://github.com/OculisStation/OculisStation/pull/<!--PR Number-->](https://github.com/OculisStation/OculisStation/pull/1)
 
 ## Plexora Support
 

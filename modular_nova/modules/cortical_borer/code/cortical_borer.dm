@@ -312,7 +312,7 @@ GLOBAL_LIST_EMPTY(cortical_borers)
 	//this is regenerating health
 	if(health < maxHealth)
 		if(!(upgrade_flags & BORER_STEALTH_MODE))
-			health = min(health * health_regen, maxHealth)
+			adjust_brute_loss(-health_regen * seconds_per_tick)
 
 	//this is so they can evolve
 	if(timed_maturity < world.time)

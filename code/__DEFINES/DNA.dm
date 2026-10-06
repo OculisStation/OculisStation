@@ -97,6 +97,7 @@
 #define ORGAN_SLOT_BREATHING_TUBE "breathing_tube"
 #define ORGAN_SLOT_EARS "ears"
 #define ORGAN_SLOT_EYES "eye_sight"
+#define ORGAN_SLOT_FANGS "fangs"
 #define ORGAN_SLOT_HEART "heart"
 #define ORGAN_SLOT_HEART_AID "heartdrive"
 #define ORGAN_SLOT_HUD "eye_hud"
@@ -196,14 +197,12 @@ GLOBAL_LIST_INIT(organ_process_order, list(
 	ORGAN_SLOT_XENO_ACIDGLAND,
 	ORGAN_SLOT_XENO_NEUROTOXINGLAND,
 	ORGAN_SLOT_XENO_EGGSAC,
-	//iris gizzard edit
+	ORGAN_SLOT_FANGS,
+	// OCULIS EDIT ADDITION START
 	ORGAN_SLOT_GIZZARD,
-	//end iris gizzard edit
-
-	// OCULIS EDIT ADDITION START - ORGAN_SLOT_GLAND
 	ORGAN_SLOT_GLAND,
 	// OCULIS EDIT ADDITION END
-	))
+))
 
 // Defines for used in creating "perks" for the species preference pages.
 /// A key that designates UI icon displayed on the perk.

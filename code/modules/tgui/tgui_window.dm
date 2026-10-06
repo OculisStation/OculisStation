@@ -361,7 +361,8 @@
 		if("ping")
 			send_message("ping/reply", payload)
 		if("ping/set")
-			client?.avgping = payload["ping"]
+			client?.avgping = payload["pingAvg"] || payload["ping"] // OCULIS EDIT - include actually useful ping numbers - ORIGINAL: client?.avgping = payload["ping"]
+			client?.lastping = payload["ping"] // OCULIS ADDITION
 		if("visible")
 			visible = TRUE
 			SEND_SIGNAL(src, COMSIG_TGUI_WINDOW_VISIBLE, client)

@@ -1,0 +1,576 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"bo" = (
+/turf/open/floor/iron/stairs/medium{
+	dir = 1
+	},
+/area/station/science/xenobiology)
+"bz" = (
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/purple/filled/corner,
+/obj/effect/turf_decal/trimline/purple/filled/mid_joiner{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"ck" = (
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/purple/filled/mid_joiner{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"cE" = (
+/obj/machinery/light/floor,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"hw" = (
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/purple/filled/mid_joiner{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"hF" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk,
+/obj/item/kirbyplants/organic/plant1,
+/turf/open/openspace,
+/area/station/science/xenobiology)
+"iN" = (
+/obj/structure/cable,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"kf" = (
+/obj/effect/turf_decal/tile/purple/opposingcorners{
+	dir = 1
+	},
+/turf/open/floor/iron/dark,
+/area/station/science/xenobiology)
+"kE" = (
+/turf/template_noop,
+/area/template_noop)
+"uj" = (
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/purple/filled/mid_joiner{
+	dir = 4
+	},
+/obj/machinery/biomass_recycler,
+/obj/item/stack/biomass/twenty,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"uM" = (
+/obj/effect/turf_decal/tile/purple/opposingcorners{
+	dir = 1
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/table/glass,
+/obj/item/vacuum_pack{
+	pixel_x = -5
+	},
+/obj/item/disk/vacuum_upgrade/printer{
+	pixel_x = 9;
+	pixel_y = 5
+	},
+/obj/item/slime_rancher_scanner{
+	pixel_x = 8;
+	pixel_y = -7
+	},
+/turf/open/floor/iron/dark,
+/area/station/science/xenobiology)
+"uN" = (
+/obj/structure/lattice/catwalk,
+/turf/open/openspace,
+/area/station/science/xenobiology)
+"wK" = (
+/obj/structure/ladder,
+/obj/structure/cable,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"xe" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk,
+/obj/item/kirbyplants/organic/plant1,
+/turf/open/openspace,
+/area/station/science/xenobiology)
+"xO" = (
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/purple/filled/mid_joiner{
+	dir = 8
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"Ao" = (
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/purple/filled/mid_joiner{
+	dir = 8
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"AW" = (
+/obj/structure/table/glass,
+/obj/item/clothing/mask/gas{
+	pixel_x = 3;
+	pixel_y = 6
+	},
+/obj/item/clothing/mask/gas{
+	pixel_x = 3;
+	pixel_y = 6
+	},
+/obj/item/clothing/glasses/science{
+	pixel_x = 4;
+	pixel_y = 8
+	},
+/obj/item/clothing/glasses/science{
+	pixel_x = 4;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/dropper{
+	pixel_y = -5
+	},
+/obj/item/reagent_containers/dropper{
+	pixel_y = -5
+	},
+/obj/effect/turf_decal/tile/purple/opposingcorners{
+	dir = 1
+	},
+/turf/open/floor/iron/dark,
+/area/station/science/xenobiology)
+"Bx" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk,
+/turf/open/openspace,
+/area/station/science/xenobiology)
+"Dn" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"El" = (
+/obj/effect/turf_decal/tile/purple/opposingcorners{
+	dir = 1
+	},
+/obj/machinery/extract_compressor,
+/turf/open/floor/iron/dark,
+/area/station/science/xenobiology)
+"GA" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/station/science/xenobiology)
+"Hb" = (
+/obj/structure/railing,
+/obj/effect/turf_decal/trimline/purple/filled/line,
+/obj/effect/turf_decal/trimline/purple/filled/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/purple/filled/mid_joiner,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"IE" = (
+/obj/structure/flora/bush/grassy/style_random,
+/obj/structure/flora/bush/leavy/style_3,
+/obj/structure/flora/bush/flowers_pp/style_random,
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 2
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/turf/open/floor/grass,
+/area/station/science/xenobiology)
+"Jf" = (
+/obj/item/kirbyplants/organic/plant1,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"Jk" = (
+/turf/open/openspace,
+/area/station/science/xenobiology)
+"Lj" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/station/science/xenobiology)
+"LO" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/purple/filled/mid_joiner{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"NQ" = (
+/obj/structure/railing/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/purple/filled/line,
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/purple/filled/mid_joiner,
+/obj/effect/turf_decal/trimline/purple/filled/mid_joiner{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"Op" = (
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/structure/tank_holder/extinguisher,
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	dir = 1
+	},
+/obj/machinery/newscaster/directional/east,
+/obj/effect/turf_decal/trimline/purple/filled/mid_joiner{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"Pg" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/purple/filled/mid_joiner{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"RI" = (
+/obj/machinery/smartfridge/extract/preloaded,
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/purple/filled/mid_joiner{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"RL" = (
+/obj/structure/table/glass,
+/obj/item/storage/box/gloves{
+	pixel_x = -4;
+	pixel_y = 8
+	},
+/obj/item/storage/box/masks{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/effect/turf_decal/tile/purple/opposingcorners{
+	dir = 1
+	},
+/obj/item/storage/box/monkeycubes{
+	pixel_y = -4;
+	pixel_x = 4
+	},
+/turf/open/floor/iron/dark,
+/area/station/science/xenobiology)
+"Ta" = (
+/obj/effect/turf_decal/tile/purple/opposingcorners{
+	dir = 1
+	},
+/obj/machinery/holopad,
+/turf/open/floor/iron/dark,
+/area/station/science/xenobiology)
+"Td" = (
+/obj/machinery/chem_heater,
+/obj/effect/turf_decal/tile/purple/opposingcorners{
+	dir = 1
+	},
+/turf/open/floor/iron/dark,
+/area/station/science/xenobiology)
+"TK" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk,
+/turf/open/openspace,
+/area/station/science/xenobiology)
+"TQ" = (
+/turf/closed/wall/r_wall,
+/area/station/science/xenobiology)
+"Uz" = (
+/obj/structure/railing/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/purple/filled/line,
+/obj/effect/turf_decal/trimline/purple/filled/mid_joiner,
+/obj/effect/turf_decal/trimline/purple/filled/mid_joiner{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"VN" = (
+/obj/structure/railing,
+/obj/effect/turf_decal/trimline/purple/filled/line,
+/obj/effect/turf_decal/trimline/purple/filled/mid_joiner,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"Zg" = (
+/obj/effect/turf_decal/tile/purple/opposingcorners{
+	dir = 1
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/landmark/start/scientist,
+/turf/open/floor/iron/dark,
+/area/station/science/xenobiology)
+
+(1,1,1) = {"
+kE
+kE
+kE
+kE
+kE
+kE
+kE
+hw
+cE
+Dn
+cE
+VN
+kE
+kE
+kE
+kE
+kE
+kE
+"}
+(2,1,1) = {"
+Lj
+Jk
+Jk
+kE
+Jk
+Jk
+Jk
+bz
+IE
+RI
+uj
+Hb
+Jk
+Jk
+Jk
+Jk
+Jk
+Jk
+"}
+(3,1,1) = {"
+Lj
+LO
+LO
+kE
+TK
+xe
+TK
+Uz
+El
+uM
+RL
+NQ
+TK
+xe
+TK
+TK
+TK
+TK
+"}
+(4,1,1) = {"
+Lj
+Jk
+bo
+kE
+uN
+uN
+uN
+kE
+kf
+Zg
+kf
+kE
+uN
+uN
+uN
+uN
+uN
+uN
+"}
+(5,1,1) = {"
+Lj
+Jk
+bo
+kE
+uN
+uN
+uN
+kE
+Ta
+Zg
+kf
+kE
+uN
+uN
+uN
+uN
+uN
+uN
+"}
+(6,1,1) = {"
+Lj
+Pg
+Pg
+kE
+Bx
+hF
+Bx
+kE
+Td
+uM
+AW
+kE
+Bx
+hF
+Bx
+Bx
+Bx
+Bx
+"}
+(7,1,1) = {"
+Lj
+Jk
+Jk
+kE
+Jk
+Jk
+Jk
+kE
+ck
+Ao
+xO
+kE
+Jk
+Jk
+Jk
+Jk
+Jk
+Jk
+"}
+(8,1,1) = {"
+kE
+kE
+kE
+kE
+kE
+kE
+kE
+hw
+cE
+wK
+kE
+kE
+kE
+kE
+kE
+kE
+kE
+kE
+"}
+(9,1,1) = {"
+kE
+kE
+kE
+kE
+kE
+kE
+kE
+Op
+Jf
+iN
+kE
+kE
+kE
+kE
+kE
+kE
+kE
+kE
+"}
+(10,1,1) = {"
+kE
+kE
+kE
+kE
+kE
+kE
+kE
+TQ
+Lj
+GA
+kE
+kE
+kE
+kE
+kE
+kE
+kE
+kE
+"}

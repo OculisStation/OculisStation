@@ -317,7 +317,7 @@
 	name = "DS-2 Operative"
 	uniform = /obj/item/clothing/under/syndicate/nova/tactical
 	shoes = /obj/item/clothing/shoes/combat
-	ears = /obj/item/radio/headset/interdyne
+	ears = /obj/item/radio/headset/ds2 // OCULIS EDIT, ORIGINAL: ears = /obj/item/radio/headset/interdyne
 	back = /obj/item/storage/backpack
 	backpack_contents = list(
 		/obj/item/storage/box/survival/interdyne = 1,
@@ -413,7 +413,7 @@
 		)
 	r_pocket = /obj/item/flashlight/seclite
 	mask = /obj/item/clothing/mask/gas/syndicate
-	ears = /obj/item/radio/headset/interdyne
+	ears = /obj/item/radio/headset/ds2 // OCULIS EDIT, ORIGINAL: ears = /obj/item/radio/headset/interdyne
 
 /datum/outfit/ds2/syndicate/post_equip(mob/living/carbon/human/syndicate)
 	syndicate.add_faction(ROLE_DS2)
@@ -424,7 +424,7 @@
 	name = "DS-2 Command Operative"
 	uniform = /obj/item/clothing/under/syndicate/nova/tactical
 	shoes = /obj/item/clothing/shoes/combat
-	ears = /obj/item/radio/headset/interdyne/command
+	ears = /obj/item/radio/headset/ds2/command // OCULIS EDIT, ORIGINAL: ears = /obj/item/radio/headset/interdyne/command
 	back = /obj/item/storage/backpack
 	backpack_contents = list(
 		/obj/item/storage/box/survival/interdyne = 1,

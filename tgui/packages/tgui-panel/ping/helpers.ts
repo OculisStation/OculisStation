@@ -46,7 +46,7 @@ export function pingSuccess(roundtrip: number): void {
     failCount: 0,
     networkQuality,
   });
-  Byond.sendMessage('ping/set', { ping: roundtrip });
+  Byond.sendMessage('ping/set', { ping: roundtrip, pingAvg: roundtripAvg }); // OCULIS EDIT - send both normal and average ping - ORIGINAL: Byond.sendMessage('ping/set', { ping: roundtrip, pingAvg: roundtripAvg });
 
   store.set(lastPingedAtAtom, Date.now());
 }

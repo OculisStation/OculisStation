@@ -181,7 +181,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 /datum/crewmonitor/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
-		ui = new(user, src, "CrewConsole")
+		ui = new(user, src, "CrewConsoleOculis") // OCULIS EDIT Originally: ui = new(user, src, "CrewConsole") | Touches up the Crew Monitor UI
 		ui.open()
 
 /datum/crewmonitor/proc/show(mob/M, source)
@@ -253,10 +253,15 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 			"ijob" = UNKNOWN_JOB_ID,
 		)
 
+		entry["icon"] = "question" // OCULIS EDIT ADDITION
 		// ID and id-related data
 		var/obj/item/card/id/id_card = tracked_living_mob.get_idcard(hand_first = FALSE)
 		if (id_card)
 			entry["name"] = id_card.registered_name
+			// OCULIS EDIT ADDITION START
+			var/datum/job/id_job = id_card?.trim?.find_job()
+			entry["icon"] = id_job?.tgui_icon || "question"
+			// OCULIS EDIT ADDITION END
 			entry["assignment"] = id_card.assignment
 			var/trim_assignment = id_card.get_trim_assignment()
 			/* // NOVA EDIT REMOVAL START - Just so we can indent this after an else
@@ -337,7 +342,11 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 			var/mob/living/silicon/ai/AI = usr
 			if(!istype(AI))
 				return
-			AI.ai_tracking_tool.track_name(AI, params["name"])
+			// We need to do this because the ID might add an honorific and otherwise break tracking
+			var/mob/living/target = locate(params["ref"]) in GLOB.mob_living_list
+			if(isnull(target))
+				return
+			AI.ai_tracking_tool.track_mob(AI, target)
 
 #undef SENSORS_UPDATE_PERIOD
 #undef UNKNOWN_JOB_ID

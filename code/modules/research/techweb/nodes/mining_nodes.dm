@@ -62,6 +62,7 @@
 		/datum/design/range_mod/borg,
 		/datum/design/cooldown_mod/borg,
 		/datum/design/hyperaccelerator/borg,
+		/datum/design/anomaly_mod, // OCULIS EDIT ADDITION - ANOMALY_KITS
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_2_POINTS)
 	announce_channels = list(RADIO_CHANNEL_SUPPLY)
@@ -97,6 +98,7 @@
 		/datum/design/jackhammer,
 		/datum/design/drill_diamond,
 		/datum/design/mech_diamond_drill,
+		/datum/design/module/mod_candela_spool,
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_4_POINTS)
 	announce_channels = list(RADIO_CHANNEL_SUPPLY)

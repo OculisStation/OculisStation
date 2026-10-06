@@ -318,6 +318,19 @@
 /obj/item/clothing/under/dress/nova/giant_scarf/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/giant_scarf, initial_skin = "Plain")
 
+/obj/item/clothing/under/dress/nova/open_backed_sweater
+	name = "open-backed sweater"
+	desc = "An open backed sweater."
+	icon = 'icons/map_icons/clothing/under/dress.dmi'
+	icon_state = "/obj/item/clothing/under/dress/nova/open_backed_sweater"
+	post_init_icon_state = "open_backed_sweater"
+	greyscale_config = /datum/greyscale_config/open_backed_sweater
+	greyscale_config_worn = /datum/greyscale_config/open_backed_sweater/worn
+	greyscale_colors = "#90babe"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	body_parts_covered = CHEST|GROIN
+
 /datum/atom_skin/midnight_gown
 	abstract_type = /datum/atom_skin/midnight_gown
 	greyscale_item_path = /obj/item/clothing/under/dress/nova/midnight_gown

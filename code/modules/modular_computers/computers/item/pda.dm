@@ -178,6 +178,14 @@
 	remove_pen(user)
 	return CLICK_ACTION_SUCCESS
 
+// OCULIS EDIT ADDITION START - Allows you to change ID honorifics when equipped to PDA
+
+/obj/item/modular_computer/pda/click_ctrl_shift(mob/user)
+	if(stored_id)
+		stored_id.click_ctrl_shift(user)
+
+// OCULIS EDIT ADDITION END
+
 ///Finds how hard it is to send a virus to this tablet, checking all programs downloaded.
 /obj/item/modular_computer/pda/proc/get_detomatix_difficulty()
 	var/detomatix_difficulty

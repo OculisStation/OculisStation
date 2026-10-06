@@ -4,7 +4,7 @@
 	desc = "You feel like something wants to kill you... The hallucinations are physical and can harm you! NOT RECOMMENDED FOR NEW PLAYERS!"
 	mob_trait = TRAIT_PARANOIA
 	value = -8
-	icon = FA_ICON_GHOST
+	icon = FA_ICON_FIRST_AID
 	medical_record_text = "Patient shows signs of scopophobia, and appears to suffer from vivid hallucinations."
 
 /datum/quirk/extra_sensory_paranoia/add()

@@ -59,6 +59,7 @@
 		bees += new_bee
 		new_bee.beehome = src
 		new_bee.assign_reagent(custom_reagent)
+		new_bee.set_faction(queen_bee.get_faction()) // OCULIS EDIT ADDITION
 
 
 /obj/structure/beebox/premade/random
@@ -87,6 +88,7 @@
 				new_bee.beehome = src
 				new_bee.assign_reagent(queen_bee.beegent)
 				bees += new_bee
+				new_bee.set_faction(queen_bee.get_faction()) // OCULIS EDIT ADDITION
 
 
 /obj/structure/beebox/proc/get_max_honeycomb()

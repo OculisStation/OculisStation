@@ -15,7 +15,7 @@
 	ckeywhitelist = list("thedragmeme")
 
 /datum/loadout_item/under/jumpsuit/sweater_dress
-	name = "Virgin Killer Sweater"
+	name = "Open-Backed Sweater"
 	item_path = /obj/item/clothing/under/sweater_dress
 	ckeywhitelist = list("thedragmeme")
 
@@ -225,10 +225,13 @@
 	item_path = /obj/item/clothing/under/wetsuit_norm
 	ckeywhitelist = list("ChillyLobster")
 
+*/ // OCULIS EDIT REMOVAL END
+
 /datum/loadout_item/mask/wolf_mask
 	name = "Wolf Mask"
 	item_path = /obj/item/clothing/mask/animal/wolf
-	ckeywhitelist = list("hauntme")
+	
+/* // OCULIS EDIT REMOVAL START
 
 /datum/loadout_item/head/drake_skull
 	name = "Skull of an ashdrake"

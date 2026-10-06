@@ -10,5 +10,13 @@
 
 /datum/quirk/winged/add_unique(client/client_source)
 	. = ..()
-	var/obj/item/organ/wings/functional/gizzard/gizzard = new()
-	gizzard.mob_insert(quirk_holder)
+	var/obj/item/organ/wings/existing_wings = quirk_holder.get_organ_slot(ORGAN_SLOT_EXTERNAL_WINGS)
+	if(existing_wings)
+		existing_wings.flight_level = WINGS_AIRWORTHY
+		qdel(existing_wings.GetComponent(/datum/component/jetpack))
+		existing_wings.setup_jetpack()
+		existing_wings.update_flight(quirk_holder)
+		existing_wings.use_stamina = TRUE
+	else
+		var/obj/item/organ/wings/gizzard/gizzard_wings = new()
+		gizzard_wings.Insert(quirk_holder)

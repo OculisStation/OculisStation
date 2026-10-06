@@ -97,6 +97,11 @@
 	if (isturf(owner.loc))
 		return 0
 
+// OCULIS EDIT ADDITION START: Don't trigger when polymorphed
+	if (owner.has_status_effect(/datum/status_effect/grouped/stasis, STASIS_SHAPECHANGE_EFFECT))
+		return 0
+// OCULIS EDIT ADDITION END
+
 	if (COOLDOWN_FINISHED(src, message_cd) && SPT_PROB(15, seconds_per_tick))
 		to_chat(owner, span_warning("You feel trapped! Must escape... can't breathe..."))
 		COOLDOWN_START(src, message_cd, TERROR_MESSAGE_CD)
