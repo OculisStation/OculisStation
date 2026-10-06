@@ -366,14 +366,14 @@ GLOBAL_VAR_INIT(last_maptick_time, 0)
 	return
 	#else
 	if(check_hard_reboot())
-		log_world("World hard rebooted at [time_stamp()]")
+		("World hard rebooted at [server_timestamp()]")
 		shutdown_logging() // See comment below.
 		QDEL_NULL(Tracy)
 		QDEL_NULL(Debugger)
 		TgsEndProcess()
 		return ..()
 
-	log_world("World rebooted at [time_stamp()]")
+	log_world("World rebooted at [server_timestamp()]")
 
 	shutdown_logging() // Past this point, no logging procs can be used, at risk of data loss.
 	QDEL_NULL(Tracy)
