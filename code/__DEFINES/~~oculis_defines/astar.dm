@@ -23,3 +23,8 @@
 #define ASTAR_WEIGHT_OBJ_MEH 2
 /// A* weight for objects to avoid going thru, but not too strongly.
 #define ASTAR_WEIGHT_OBJ_DISCOURAGED (ASTAR_WEIGHT_OBJ_MEH * 10)
+
+/// The lowest get_heuristic_slowdown() a turf should ever have: plain floor in a hallway.
+/// A*'s distance guess assumes every step costs at least this on both ends. If something goes lower,
+/// paths through it can come out a bit longer than the best one, so bump this down with it.
+#define ASTAR_MIN_TURF_WEIGHT (ASTAR_WEIGHT_TURF_DEFAULT + ASTAR_WEIGHT_AREA_HALLS)

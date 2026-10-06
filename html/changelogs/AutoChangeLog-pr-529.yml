@@ -1,4 +1,0 @@
-author: "Shroopy"
-delete-after: True
-changes:
-  - balance: "Made electrodisruptive emitters heal the SM again."
