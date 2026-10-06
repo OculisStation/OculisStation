@@ -566,7 +566,6 @@
 #include "code\__DEFINES\~~iris_defines\research\slimes.dm"
 #include "code\__DEFINES\~~iris_defines\research\techweb_nodes.dm"
 #include "code\__DEFINES\~~iris_defines\traits\declarations.dm"
-#include "code\__DEFINES\~~oculis_defines\_floxy.dm"
 #include "code\__DEFINES\~~oculis_defines\access.dm"
 #include "code\__DEFINES\~~oculis_defines\astar.dm"
 #include "code\__DEFINES\~~oculis_defines\bloodsucker_defines.dm"
