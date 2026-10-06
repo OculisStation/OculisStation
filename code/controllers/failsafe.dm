@@ -71,27 +71,16 @@ GLOBAL_REAL(Failsafe, /datum/controller/failsafe)
 		if(processing_interval > 0)
 			if(Master.processing && Master.iteration)
 				if (defcon > 1 && (!Master.stack_end_detector || !Master.stack_end_detector.check()))
-					// OCULIS EDIT ADDITION - start
-					var/msg = "ERROR: The Master Controller code stack has exited unexpectedly, Restarting..."
-					to_chat(GLOB.admins, span_boldannounce(msg))
-					SSplexora.mc_alert(msg, defcon)
-					// OCULIS EDIT ADDITION - end
+
+					to_chat(GLOB.admins, span_boldannounce("ERROR: The Master Controller code stack has exited unexpectedly, Restarting..."))
 					defcon = 0
 					var/rtn = Recreate_MC()
 					if(rtn > 0)
 						master_iteration = 0
-						// OCULIS EDIT ADDITION - start
-						msg = "MC restarted successfully"
-						to_chat(GLOB.admins, span_adminnotice(msg))
-						SSplexora.mc_alert(msg, defcon)
-						// OCULIS EDIT ADDITION - end
+						to_chat(GLOB.admins, span_adminnotice("MC restarted successfully"))
 					else if(rtn < 0)
 						log_game("FailSafe: Could not restart MC, runtime encountered. Entering defcon 0")
-						// OCULIS EDIT ADDITION - start
-						msg = "ERROR: DEFCON [defcon_pretty()]. Could not restart MC, runtime encountered. I will silently keep retrying."
-						to_chat(GLOB.admins, span_boldannounce(msg))
-						SSplexora.mc_alert(msg, defcon)
-						// OCULIS EDIT ADDITION - end
+						to_chat(GLOB.admins, span_boldannounce("ERROR: DEFCON [defcon_pretty()]. Could not restart MC, runtime encountered. I will silently keep retrying."))
 				// Check if processing is done yet.
 				if(Master.iteration == master_iteration)
 					switch(defcon)
@@ -99,44 +88,24 @@ GLOBAL_REAL(Failsafe, /datum/controller/failsafe)
 							--defcon
 
 						if(3)
-							// OCULIS EDIT ADDITION - start
-							var/msg = "Notice: DEFCON [defcon_pretty()]. The Master Controller has not fired in the last [(5-defcon) * processing_interval] ticks."
-							message_admins(span_adminnotice(msg))
-							SSplexora.mc_alert(msg, defcon)
-							// OCULIS EDIT ADDITION - end
+							message_admins(span_adminnotice("Notice: DEFCON [defcon_pretty()]. The Master Controller has not fired in the last [(5-defcon) * processing_interval] ticks."))
 							--defcon
 
 						if(2)
-							// OCULIS EDIT ADDITION - start
-							var/msg = "Warning: DEFCON [defcon_pretty()]. The Master Controller has not fired in the last [(5-defcon) * processing_interval] ticks. Automatic restart in [processing_interval] ticks."
-							to_chat(GLOB.admins, span_boldannounce(msg))
-							SSplexora.mc_alert(msg, defcon)
-							// OCULIS EDIT ADDITION - end
+							to_chat(GLOB.admins, span_boldannounce("Warning: DEFCON [defcon_pretty()]. The Master Controller has not fired in the last [(5-defcon) * processing_interval] ticks. Automatic restart in [processing_interval] ticks."))
 							--defcon
 
 						if(1)
-							// OCULIS EDIT ADDITION - start
-							var/msg = "Warning: DEFCON [defcon_pretty()]. The Master Controller has still not fired within the last [(5-defcon) * processing_interval] ticks. Killing and restarting..."
-							to_chat(GLOB.admins, span_boldannounce(msg))
-							SSplexora.mc_alert(msg, defcon)
-							// OCULIS EDIT ADDITION - end
+							to_chat(GLOB.admins, span_boldannounce("Warning: DEFCON [defcon_pretty()]. The Master Controller has still not fired within the last [(5-defcon) * processing_interval] ticks. Killing and restarting..."))
 							--defcon
 							var/rtn = Recreate_MC()
 							if(rtn > 0)
 								defcon = 4
 								master_iteration = 0
-								// OCULIS EDIT ADDITION - start
-								msg = "MC restarted successfully"
-								to_chat(GLOB.admins, span_adminnotice(msg))
-								SSplexora.mc_alert(msg, defcon)
-								// OCULIS EDIT ADDITION - end
+								to_chat(GLOB.admins, span_adminnotice("MC restarted successfully"))
 							else if(rtn < 0)
 								log_game("FailSafe: Could not restart MC, runtime encountered. Entering defcon 0")
-								// OCULIS EDIT ADDITION - start
-								msg = "ERROR: DEFCON [defcon_pretty()]. Could not restart MC, runtime encountered. I will silently keep retrying."
-								to_chat(GLOB.admins, span_boldannounce(msg))
-								SSplexora.mc_alert(msg, defcon)
-								// OCULIS EDIT ADDITION - end
+								to_chat(GLOB.admins, span_boldannounce("ERROR: DEFCON [defcon_pretty()]. Could not restart MC, runtime encountered. I will silently keep retrying."))
 							//if the return number was 0, it just means the mc was restarted too recently, and it just needs some time before we try again
 							//no need to handle that specially when defcon 0 can handle it
 
@@ -145,11 +114,7 @@ GLOBAL_REAL(Failsafe, /datum/controller/failsafe)
 							if(rtn > 0)
 								defcon = 4
 								master_iteration = 0
-								// OCULIS EDIT ADDITION - start
-								var/msg = "MC restarted successfully"
-								to_chat(GLOB.admins, span_adminnotice(msg))
-								SSplexora.mc_alert(msg, defcon)
-								// OCULIS EDIT ADDITION - end
+								to_chat(GLOB.admins, span_adminnotice("MC restarted successfully"))
 				else
 					defcon = min(defcon + 1,5)
 					master_iteration = Master.iteration
@@ -187,16 +152,14 @@ GLOBAL_REAL(Failsafe, /datum/controller/failsafe)
 /proc/recover_all_SS_and_recreate_master()
 	del(Master)
 	var/list/subsytem_types = subtypesof(/datum/controller/subsystem)
-	sortTim(subsytem_types, GLOBAL_PROC_REF(cmp_subsystem_init))
+	sortTim(subsytem_types, GLOBAL_PROC_REF(cmp_subsystem_init_stage))
 	for(var/I in subsytem_types)
 		new I
 	. = Recreate_MC()
 	if (. == 1) //We were able to create a new master
 		SSticker.Recover(); //Recover the ticket system so the Masters runlevel gets set
 		Master.Initialize(10, FALSE, FALSE) //Need to manually start the MC, normally world.new would do this
-		var/msg = "MC successfully recreated after recovering all subsystems!"
-		to_chat(GLOB.admins, span_adminnotice(msg))
-		SSplexora.mc_alert(msg, Failsafe.defcon)
+		to_chat(GLOB.admins, span_adminnotice("MC successfully recreated after recovering all subsystems!"))
 	else
 		message_admins(span_boldannounce("Failed to create new MC!"))
 

@@ -15,19 +15,10 @@
 	var/_raw_response
 
 /datum/http_request/proc/prepare(method, url, body = "", list/headers, output_file, timeout_seconds)
-	/* OCULIS EDIT ORIGINAL:
 	if (!length(headers))
 		headers = ""
 	else
 		headers = json_encode(headers)
-	*/
-	if (!length(headers))
-		headers = json_encode(list("User-Agent" = get_useragent()))
-	else
-		if (!headers["User-Agent"])
-			headers["User-Agent"] = get_useragent()
-		headers = json_encode(headers)
-	// OCULIS EDIT END
 
 	src.method = method
 	src.url = url
@@ -35,11 +26,6 @@
 	src.headers = headers
 	src.output_file = output_file
 	src.timeout_seconds = timeout_seconds
-
-/datum/http_request/proc/fire_and_forget()
-	var/result = rustg_http_request_fire_and_forget(method, url, body, headers, build_options())
-	if(result != "ok")
-		CRASH("[result]")
 
 /datum/http_request/proc/execute_blocking()
 	_raw_response = rustg_http_request_blocking(method, url, body, headers, build_options())
