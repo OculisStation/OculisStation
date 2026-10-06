@@ -48,7 +48,6 @@ Support for the Plexora discord bot, used for things such as server status, admi
 - `code/modules/discord/tgs_commands.dm`
   - `/datum/tgs_chat_command/notify` **REMOVED**, as Plexora's functionality replaces it
 - `code/modules/discord/toggle_notify.dm` **REMOVED**
-- `code/modules/error_handler/error_handler.dm`: OOM notify call
 - `code/modules/interview/interview.dm`
   - `/datum/interview/New()`, `/datum/interview/proc/approve()`, `/datum/interview/proc/deny()`: Plexora notifications for interviews.
 
