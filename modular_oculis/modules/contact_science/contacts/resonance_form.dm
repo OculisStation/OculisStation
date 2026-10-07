@@ -4,6 +4,9 @@
 	wander = 0
 	density = 0
 	mob_biotypes = MOB_SPECIAL
+	move_force = MOVE_FORCE_OVERPOWERING
+	move_resist = MOVE_FORCE_OVERPOWERING
+	pull_force = MOVE_FORCE_OVERPOWERING
 
 	var/nanotrasen_id = "NT-ARDB-000"
 	var/primary_hazard_labels = "Cognitohazard"
