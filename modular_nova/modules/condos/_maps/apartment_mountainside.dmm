@@ -2820,7 +2820,7 @@
 	},
 /obj/item/stack/medical/bandage{
 	pixel_y = 10;
-	desc = "Don't cum on the servers."
+	
 	},
 /turf/open/floor/plating,
 /area/misc/condo)
@@ -3805,7 +3805,6 @@
 /obj/item/training_toolbox{
 	name = "ambiguous toolbox";
 	icon_state = "coroner";
-	desc = "Don't cum on the servers.";
 	pixel_x = 1;
 	pixel_y = 10
 	},
