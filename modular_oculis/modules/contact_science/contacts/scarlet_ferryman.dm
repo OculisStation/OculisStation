@@ -251,7 +251,7 @@
 	. = ..()
 	spray_blood(get_dir(get_turf(src), get_turf(user)), 10) //spew blood at attackers
 
-/mob/living/basic/turtle/catacomb //gives epinephrine to nearby player mobs. a nice pet for medical :)
+/mob/living/basic/turtle/catacomb //gives formaldehyde to nearby player mobs. a nice pet for medical :)
 	name = "catacomb turtle"
 	desc = "A flora turtle of odd coloration. You feel... preserved?"
 	icon = 'modular_oculis/modules/contact_science/icons/scarlet_ferry.dmi'
@@ -259,6 +259,7 @@
 	icon_living = "catacomb_turtle"
 	icon_dead = "catacomb_turtle_dead"
 	base_icon_state = "catacomb_turtle"
+	var/datum/reagent/reagent_to_give = /datum/reagent/toxin/formaldehyde
 
 /mob/living/basic/turtle/catacomb/Initialize()
 	. = ..()
@@ -270,8 +271,8 @@
 	if(stat == DEAD)
 		return
 	for(var/mob/living/carbon/human/H in range(5, get_turf(src)))
-		if(!H.reagents?.has_reagent(/datum/reagent/medicine/epinephrine)) //if the body doesn't have epi, add some
-			H.reagents?.add_reagent(/datum/reagent/medicine/epinephrine, 2)
+		if(!H.reagents?.has_reagent(reagent_to_give)) //if the body doesn't have forma, add some
+			H.reagents?.add_reagent(reagent_to_give, 1)
 
 /mob/living/basic/mining/lobstrosity/golden //lobstrosity made o' gold. in addition to its trophy, it has gold in it
 	name = "golden lobstrosity"
