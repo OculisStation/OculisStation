@@ -1,4 +1,3 @@
-/* // OCULIS EDIT REMOVAL START
 // IF you have linked your account, this will trigger a verify of the user
 GAME_VERB_DESC(/client, verify_in_discord, "Verify Discord Account", "Verify your discord account with your BYOND account", "OOC")
 
@@ -33,4 +32,3 @@ GAME_VERB_DESC(/client, verify_in_discord, "Verify Discord Account", "Verify you
 	var/datum/browser/window = new /datum/browser(usr, "discordverification", "Discord Verification")
 	window.set_content("<div>[message]</div>")
 	window.open()
-*/ // OCULIS EDIT REMOVAL END

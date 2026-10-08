@@ -34,12 +34,7 @@
 		if (input["format"] == "json")
 			. = list("error" = .)
 	else
-		// OCULIS EDIT ADDITION START
-		if (input["json"])
-			. = Run(input + json_decode(input["json"]))
-		else
-			. = Run(input)
-		// OCULIS EDIT ADDITION END
+		. = Run(input)
 	if (input["format"] == "json")
 		. = json_encode(.)
 	else if(islist(.))

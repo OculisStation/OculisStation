@@ -18,3 +18,7 @@
   - qol: Disabled the ore silo requiring a bank account by default.
   throwawayuseless:
   - rscadd: New Quirk! Quantum Anxiety!
+2026-10-08:
+  XeonMations:
+  - rscdel: Removed Plexora from the codebase
+  - rscdel: Removed Floxy from the codebase

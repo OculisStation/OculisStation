@@ -4,8 +4,6 @@ ADMIN_VERB(cmd_admin_say, R_NONE, "ASay", "Send a message to other admins", ADMI
 	if(!message)
 		return
 
-	SSplexora.relay_admin_say(user, html_decode(message)) // OCULIS EDIT ADDITION
-
 	if(findtext(message, "@") || findtext(message, "#"))
 		var/list/link_results = check_asay_links(message)
 		if(length(link_results))
