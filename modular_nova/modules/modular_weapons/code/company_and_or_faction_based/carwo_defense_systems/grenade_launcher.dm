@@ -45,7 +45,7 @@
 		over other conventional launcher grenade systems. \
 		For a start, Tydhouer grenades are significantly lighter; combined with their smaller sizes, \
 		it's easier to carry larger amounts of these grenades compared to other contemporary launcher grenades.<br><br>\
-		The main reason SolGov funded the project, though, \
+		The main reason SolFed funded the project, though, \
 		was its reliable, on-the-fly programmable variable time fuze. \
 		Using the ranging sight (which is large, expensive, and computerized, to the chagrin of quartermasters) \
 		on the launcher, users can set an exact distance for the grenade to self-detonate at; \

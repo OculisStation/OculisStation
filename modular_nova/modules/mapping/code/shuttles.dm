@@ -109,7 +109,7 @@
 	name = "Privateer Slaver"
 	prompt_name = "a privateer slaver"
 	you_are_text = "You're here to capture valuable hostages to sell into slavery."
-	flavour_text = "You're part of a privateer crew that sometimes takes contracts from the illusive Guild, which offers bounties and contracts to independent crews. Raiding colonies of the many less technologically advanced species in the area is much easier than this. You've been told that your mission is to capture as many valuable hostages from the station as possible. Your anonymous employer insists on the importance of humiliating SolGov by snatching those under their protection from right under their noses."
+	flavour_text = "You're part of a privateer crew that sometimes takes contracts from the illusive Guild, which offers bounties and contracts to independent crews. Raiding colonies of the many less technologically advanced species in the area is much easier than this. You've been told that your mission is to capture as many valuable hostages from the station as possible. Your anonymous employer insists on the importance of humiliating SolFed by snatching those under their protection from right under their noses."
 	important_text = ""
 
 /obj/effect/mob_spawn/ghost_role/human/guild/slaver
@@ -270,7 +270,7 @@
 	build_path = /obj/machinery/computer/shuttle/solfed
 
 /obj/item/gps/computer/space/solfed
-	name = "\improper SolGov GPS transponder"
+	name = "\improper SolFed GPS transponder"
 	icon = 'modular_nova/modules/mapping/icons/machinery/gps_computer_x32.dmi'	//needs its own file for pixel size ;-;
 	gpstag = "*SF - EAS(I)-6224"
 	pixel_y = 0

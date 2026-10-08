@@ -1,6 +1,6 @@
 /datum/id_trim/solfed
 	trim_icon = 'modular_nova/master_files/icons/obj/card.dmi'
-	assignment = "SolGov"
+	assignment = "SolFed"
 	trim_state = "trim_solfed"
 	department_color = COLOR_SOLFED_GOLD
 	subdepartment_color = COLOR_SOLFED_GOLD
@@ -9,7 +9,7 @@
 
 /// Lets be real if the ERT variant of these guys are coming, ya'll are cooked
 /datum/id_trim/solfed/espatier
-	assignment = "SolGov Espatier"
+	assignment = "SolFed Espatier"
 	threat_modifier = -10 // This counts as military intervention
 
 /datum/id_trim/solfed/espatier/New()
@@ -18,7 +18,7 @@
 
 /// This is the Soft ERT variant of the solfed Officials
 /datum/id_trim/solfed/official
-	assignment = "SolGov Official"
+	assignment = "SolFed Official"
 	sechud_icon_state = SECHUD_SOLFED_LIASON
 
 /datum/id_trim/solfed/official/New()
@@ -71,12 +71,12 @@
 		ACCESS_EVA,
 	)
 
-/datum/id_trim/solgov/New()
+/datum/id_trim/solfed/New()
 	. = ..()
 	access = SSid_access.get_region_access_list(list(REGION_CENTCOM, REGION_ALL_STATION))
 
 /datum/id_trim/solfed/liasion
-	assignment = "SolGov Liasion"
+	assignment = "SolFed Liasion"
 	sechud_icon_state = SECHUD_SOLFED_LIASON
 
 /datum/id_trim/space_police // Overrides the normal /tg/ ERTSEC Icon, these guys aren't NT!

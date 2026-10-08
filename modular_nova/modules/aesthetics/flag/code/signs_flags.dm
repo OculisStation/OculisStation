@@ -58,8 +58,8 @@
 	item_flag = /obj/item/sign/flag/mars
 
 /obj/structure/sign/flag/terragov //IRIS EDIT
-	name = "flag of SolGov"
-	desc = "The flag of SolGov. It's a symbol of humanity no matter where they go, or how much they wish it wasn't."
+	name = "flag of SolFed"
+	desc = "The flag of SolFed. It's a symbol of humanity no matter where they go, or how much they wish it wasn't."
 	icon_state = "flag_solfed"
 	item_flag = /obj/item/sign/flag/terragov
 
@@ -131,8 +131,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flag/interdyne, 32)
 	sign_path = /obj/structure/sign/flag/ssc
 
 /obj/item/sign/flag/terragov //IRIS EDIT
-	name = "folded flag of the SolGov"
-	desc = "The folded flag of SolGov."
+	name = "folded flag of the SolFed"
+	desc = "The folded flag of SolFed."
 	icon_state = "folded_solfed"
 	sign_path = /obj/structure/sign/flag/terragov
 

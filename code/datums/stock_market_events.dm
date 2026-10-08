@@ -6,7 +6,7 @@
 		"Nakamura Engineering",
 		"Robust Industries, LLC",
 		"MODular Solutions",
-		"SolGov",
+		"SolFed",
 		"Australicus Industrial Mining",
 		"Nanotrasen-DeForest Corporation",
 		"Aussec Armory",
@@ -135,7 +135,7 @@
 	trend_duration = 2
 	circumstance = list(
 		"is being investigated by the Galactic Trade Commission, resulting in a halt of trade for ",
-		", in a stunning move, has been embargoed by SolGov, resulting in a halt of trade of ",
+		", in a stunning move, has been embargoed by SolFed, resulting in a halt of trade of ",
 	)
 
 /datum/stock_market_event/lockdown/handle()

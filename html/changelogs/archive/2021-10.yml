@@ -1161,7 +1161,7 @@
       again.
   - bugfix: Preferences menu now supports Halloween races
   - spellcheck: Fixed a typo in the Hostile Statue description.
-  SolGov Board of Spacestation Maintenance:
+  SolFed Board of Spacestation Maintenance:
   - bugfix: NSS Journey's Botany Backroom is no longer missing a disposal pipe segment
   - bugfix: NSS Journey's Toxins Launch Tube is properly aligned (No longer facing
       its own wall)
@@ -1823,7 +1823,7 @@
       a syndicate borg. The Staff of chaos has a 5% chance of firing the bolt directly
       at the user using it. The Staff of healing now behaves like a medibeam gun to
       non-wizards trying to use it.
-  Solgov Station Engineering Safety Association (SESA):
+  SolFed Station Engineering Safety Association (SESA):
   - imageadd: New thinklite(tm) brand reflective strips are now included on non-humanoid
       engineering wear as well! The Association has also updated the non-humanoid
       Atmospherics Hardhat to be up to spec!
