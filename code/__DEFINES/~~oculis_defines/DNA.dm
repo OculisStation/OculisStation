@@ -1,4 +1,11 @@
+#define ORGAN_SLOT_CAFFINATOR_R "organ_slot_caffinator_r"
+#define ORGAN_SLOT_CAFFINATOR_L "organ_slot_caffinator_l"
+#define ORGAN_SLOT_TASTEBOOSTER "organ_slot_tastebooster"
+#define ORGAN_SLOT_WRISTWATCH_R "organ_slot_wristwatch_r"
+#define ORGAN_SLOT_WRISTWATCH_L "organ_slot_wristwatch_l"
+#define ORGAN_SLOT_PALM_R "organ_slot_palm_r"
+#define ORGAN_SLOT_PALM_L "organ_slot_palm_l"
+#define ORGAN_SLOT_MUSICSYNTH "organ_slot_musicsynth"
 #define SPECIES_ARACHNID "arachnid"
-
 #define FEATURE_ARACHNID_APPENDAGES "arachnid_appendages"
 #define FEATURE_ARACHNID_CHELICERAE "arachnid_chelicerae"
