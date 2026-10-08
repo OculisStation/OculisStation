@@ -2819,8 +2819,7 @@
 	base_icon_state = "/obj/item/clothing/mask/muzzle/tape/surgical"
 	},
 /obj/item/stack/medical/bandage{
-	pixel_y = 10;
-	
+	pixel_y = 10
 	},
 /turf/open/floor/plating,
 /area/misc/condo)
