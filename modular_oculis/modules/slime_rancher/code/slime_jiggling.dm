@@ -103,4 +103,5 @@
 	overlay_state = "slimesplit"
 
 /datum/action/innate/slime/reproduce/IsAvailable(feedback = FALSE)
-	return ..() && !owner.has_status_effect(/datum/status_effect/slime_reproducing)
+	var/mob/living/basic/slime/slime_owner = owner
+	return ..() && !slime_owner.blocks_reproduction && !owner.has_status_effect(/datum/status_effect/slime_reproducing)

@@ -323,6 +323,11 @@ GLOBAL_LIST_INIT(slime_extract_auto_activate_reactions, init_slime_auto_activate
 /obj/item/slime_extract/yellow/activate(mob/living/carbon/human/user, datum/species/jelly/luminescent/species, activation_type)
 	switch(activation_type)
 		if(SLIME_ACTIVATE_MINOR)
+			// OCULIS EDIT ADDITION START - SLIME_RANCHER - avoid runtimes with gentle extracts
+			if(!istype(species))
+				to_chat(user, span_warning("This effect only works with Luminescents!"))
+				return
+			// OCULIS EDIT ADDITION END
 			if(species.glow_intensity != LUMINESCENT_DEFAULT_GLOW)
 				to_chat(user, span_warning("Your glow is already enhanced!"))
 				return
@@ -654,7 +659,8 @@ GLOBAL_LIST_INIT(slime_extract_auto_activate_reactions, init_slime_auto_activate
 			user.dna.features[FEATURE_MUTANT_COLOR] = "#[pick("7F", "FF")][pick("7F", "FF")][pick("7F", "FF")]"
 			user.dna.update_uf_block(/datum/dna_block/feature/mutant_color)
 			user.updateappearance(mutcolor_update=1)
-			species.update_glow(user)
+			if(istype(species)) // OCULIS EDIT ADDITION - SLIME_RANCHER - avoid runtimes with gentle extracts
+				species.update_glow(user)
 			to_chat(user, span_notice("You feel different..."))
 			return 100
 
@@ -905,8 +911,14 @@ GLOBAL_LIST_INIT(slime_extract_auto_activate_reactions, init_slime_auto_activate
 		to_chat(user, span_warning("The slime already has the maximum amount of extract!"))
 		return ITEM_INTERACT_BLOCKING
 
+	// OCULIS EDIT CHANGE START - SLIME_RANCHER - two steroids max a slime out instead of four
+	/*
 	to_chat(user, span_notice("You feed the slime the steroid. It will now produce one more extract."))
 	interacting_slime.cores++
+	*/
+	interacting_slime.cores = min(interacting_slime.cores + 2, 5)
+	to_chat(user, span_notice("You feed the slime the steroid. It will now produce [interacting_slime.cores] extracts."))
+	// OCULIS EDIT CHANGE END
 	qdel(src)
 	return ITEM_INTERACT_SUCCESS
 

@@ -178,6 +178,9 @@
 	var/pitch = min(1 + 0.1 * extract_pitch_count, 2)
 	extract_pitch_count++
 	play_ploop(user, pitch)
+	if(length(stored_extracts()) < extract_capacity())
+		extract.forceMove(src)
+		return
 	var/obj/item/storage/bag/xeno/bag = astype(user.get_inactive_held_item())
 	if(isnull(bag))
 		var/static/list/slots_to_check = list(ITEM_SLOT_SUITSTORE, ITEM_SLOT_BELT, ITEM_SLOT_LPOCKET, ITEM_SLOT_RPOCKET)

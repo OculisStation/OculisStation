@@ -1,5 +1,5 @@
 #define SLIME_PEN_MAX_SIZE 9
-#define SLIME_PEN_DEPLOY_TIME 2 SECONDS
+#define SLIME_PEN_DEPLOY_TIME 0.5 SECONDS
 
 /proc/pick_slime_pen_corner(mob/user, atom/menu_anchor)
 	var/list/choices = list()
@@ -160,8 +160,7 @@
 	var/obj/structure/slime_pen_post/chosen = pick_post(user)
 	if(isnull(chosen))
 		return ITEM_INTERACT_BLOCKING
-	chosen.wrench_post(user, tool)
-	return ITEM_INTERACT_SUCCESS
+	return chosen.wrench_post(user, tool) ? ITEM_INTERACT_SUCCESS : ITEM_INTERACT_BLOCKING
 
 /obj/structure/slime_pen_post/multitool_act(mob/living/user, obj/item/tool)
 	var/obj/structure/slime_pen_post/chosen = pick_post(user)
@@ -171,9 +170,11 @@
 	return ITEM_INTERACT_SUCCESS
 
 /obj/structure/slime_pen_post/proc/wrench_post(mob/living/user, obj/item/tool)
-	if(pen)
-		qdel(pen)
-	default_unfasten_wrench(user, tool)
+	var/wrench_time = QDELETED(pen) ? (0.5 SECONDS) : (2 SECONDS)
+	if(default_unfasten_wrench(user, tool, wrench_time) != SUCCESSFUL_UNFASTEN)
+		return FALSE
+	QDEL_NULL(pen)
+	return TRUE
 
 /obj/structure/slime_pen_post/proc/toggle_construction_markers(mob/user)
 	if(pen)
@@ -455,8 +456,7 @@
 	. = ..()
 	if(QDELETED(post) || !user.Adjacent(src))
 		return ITEM_INTERACT_BLOCKING
-	post.wrench_post(user, tool)
-	return ITEM_INTERACT_SUCCESS
+	return post.wrench_post(user, tool) ? ITEM_INTERACT_SUCCESS : ITEM_INTERACT_BLOCKING
 
 /obj/structure/slime_pen_anchor/multitool_act(mob/living/user, obj/item/tool)
 	if(QDELETED(post) || !user.Adjacent(src))
@@ -490,6 +490,35 @@
 		var/mutable_appearance/fence_preview = mutable_appearance(icon, "post_guide")
 		fence_preview.dir = dir
 		. += fence_preview
+
+/obj/effect/mapping_helpers/slime_pen_color
+	desc = "You shouldn't see this. Report it please."
+	layer = ABOVE_OBJ_LAYER
+
+/obj/effect/mapping_helpers/slime_pen_color/Initialize(mapload)
+	. = ..()
+	if(!mapload)
+		log_mapping("[src] spawned outside of mapload!")
+	if(!color)
+		log_mapping("[src] doesn't have a color set!")
+	var/obj/structure/slime_pen_post/premade/post = locate() in loc
+	if(post)
+		post.barrier_color = color
+	else
+		log_mapping("[src] needs to be mapped in on top of a pen!")
+	return INITIALIZE_HINT_QDEL
+
+/obj/effect/mapping_helpers/slime_pen_color/green
+	name = "slime pen color helper (green)"
+	color = "#9FED58"
+
+/obj/effect/mapping_helpers/slime_pen_color/blue
+	name = "slime pen color helper (blue)"
+	color = "#52B4E9"
+
+/obj/effect/mapping_helpers/slime_pen_color/purple
+	name = "slime pen color helper (purple)"
+	color = "#D381C9"
 
 #undef SLIME_PEN_MAX_SIZE
 #undef SLIME_PEN_DEPLOY_TIME

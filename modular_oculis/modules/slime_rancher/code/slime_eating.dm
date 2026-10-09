@@ -5,7 +5,7 @@
 		. |= mutation.needed_items
 	if(/obj/item/stack/ore/bluespace_crystal in .)
 		. |= /obj/item/stack/sheet/bluespace_crystal
-	if(!primed_split_cost)
+	if(!primed_split_cost && !blocks_reproduction)
 		. |= /obj/item/slime_breeding_pellet
 
 /// returns a list of mob types this slime can drain for mutations, finished quotas included -
@@ -66,6 +66,17 @@
 	refresh_wanted_targets()
 	return TRUE
 
+/mob/living/basic/slime/use_sheet(obj/item/stack/sheet/mineral/plasma/delicious_sheet, mob/living/user)
+	// the orange path wants plasma too, and a plasma sheet is a plasma sheet however it got here
+	var/wanted = SEND_SIGNAL(src, COMSIG_SLIME_CHECK_WANTED_ITEM, delicious_sheet) & COMPONENT_SLIME_WANTS_ITEM
+	. = ..()
+	if(!wanted)
+		return
+	SEND_SIGNAL(src, COMSIG_SLIME_ATE_ITEM, /obj/item/stack/sheet/mineral/plasma)
+	refresh_wanted_targets()
+	if(life_stage == SLIME_LIFE_STAGE_ADULT)
+		try_ranch_outcome()
+
 /// The mutation this slime has fully fed for, if any. Random among ties.
 /mob/living/basic/slime/proc/get_unlocked_mutation_type(weight_new_types = FALSE)
 	var/list/unlocked = list()
@@ -91,16 +102,15 @@
 	refresh_wanted_targets()
 
 /// What this slime turns into when it reproduces. Returning our own type means an ordinary split.
-/// Mutating is ranching's job now (see try_ranch_outcome in slime_ranching.dm) - splitting never mutates,
-/// except pyrite slimes, who are cursed/blessed to always roll random regardless of how they split.
+/// Mutating is ranching's job now (see try_ranch_outcome in slime_ranching.dm) - splitting never mutates.
 /// Never returns null - a null here nukes slime_type and takes the mob with it.
 /mob/living/basic/slime/get_random_mutation()
-	if(transformative_effect == SLIME_TYPE_PYRITE)
-		return pick(subtypesof(/datum/slime_type) - /datum/slime_type/rainbow - typesof(/datum/slime_type/unique))
 	return slime_type.type
 
 /// lets a slime eat a wanted item just by attacking it - covers both the AI's own melee attack leaf and a player clicking it themselves
 /mob/living/basic/slime/on_slime_pre_attack(mob/living/basic/slime/our_slime, atom/target, proximity, modifiers)
 	if(isitem(target) && our_slime.eat_wanted_item(target))
+		return COMPONENT_HOSTILE_NO_ATTACK
+	if(!LAZYACCESS(modifiers, RIGHT_CLICK) && our_slime.try_dissolve(target))
 		return COMPONENT_HOSTILE_NO_ATTACK
 	return ..()

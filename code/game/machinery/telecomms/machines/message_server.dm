@@ -190,7 +190,7 @@ GLOBAL_VAR(preset_station_message_server_key)
 	source = init_source
 	data = init_data
 	var/turf/origin_turf = get_turf(source)
-	levels = SSmapping.get_connected_levels(origin_turf)
+	levels = get_telecomms_levels(origin_turf) // OCULIS EDIT CHANGE - SLIME_RANCHER - ORIGINAL: levels = SSmapping.get_connected_levels(origin_turf)
 	if(!("reject" in data))
 		data["reject"] = TRUE
 

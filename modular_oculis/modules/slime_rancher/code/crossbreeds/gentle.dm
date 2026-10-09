@@ -34,7 +34,7 @@
 		return CLICK_ACTION_SUCCESS
 
 /obj/item/slimecross/gentle/proc/preactivate_core(mob/living/carbon/user)
-	if(HAS_TRAIT(user, TRAIT_INCAPACITATED) || !istype(user))
+	if(!iscarbon(user) || user.incapacitated)
 		return FALSE
 	if(!COOLDOWN_FINISHED(src, use_cooldown))
 		to_chat(user, span_notice("[src] isn't ready yet!"))

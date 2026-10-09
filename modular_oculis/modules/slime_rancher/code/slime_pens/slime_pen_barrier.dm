@@ -76,8 +76,9 @@
 
 /obj/structure/slime_pen_barrier/proc/sync_with_twin()
 	var/obj/structure/slime_pen_barrier/twin = find_twin()
-	// two pens sharing an edge would draw the same fence twice, so whoever settles second hides lmao
-	alpha = twin?.alpha ? 0 : 255
+	// two pens sharing an edge would draw the same fence twice, so one of us hides - south always takes priority over north or east
+	var/hidden = twin && (dir & (NORTH|EAST))
+	alpha = hidden ? 0 : 255
 	var/final_color = barrier_color
 	if(twin && twin.barrier_color != barrier_color)
 		final_color = blend_hue_colors(barrier_color, twin.barrier_color)
@@ -87,7 +88,7 @@
 		add_atom_colour(color_transition_filter(final_color), FIXED_COLOUR_PRIORITY)
 	update_appearance()
 	if(twin)
-		twin.alpha = alpha ? 0 : 255
+		twin.alpha = hidden ? 255 : 0
 		twin.update_appearance()
 
 /// fancy HSL color blend that actually looks kinda good

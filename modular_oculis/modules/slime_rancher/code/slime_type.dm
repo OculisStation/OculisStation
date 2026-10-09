@@ -2,8 +2,12 @@
 GLOBAL_LIST(obtained_slime_types)
 /// Lazylist of xenofauna the ranch can print, filled in as slimes that want to eat them show up
 GLOBAL_LIST(unlocked_xenofauna)
+/// Mapping of slime colors to their respective typepaths.
+GLOBAL_ALIST_INIT(slime_colors_to_types, init_slime_colors_to_types())
 
 /datum/slime_type
+	/// For slime types that use fancy visual effects.
+	var/obj/effect/abstract/visual_effect/visual_effect
 	/// List of `/datum/slime_mutation`s this slime type is eligible for.
 	/// Use this instead of the `mutations` list, because modularity or whatever.
 	var/list/possible_mutations
@@ -87,6 +91,7 @@ GLOBAL_LIST(unlocked_xenofauna)
 	)
 
 /datum/slime_type/gold
+	visual_effect = /obj/effect/abstract/visual_effect/gold
 	possible_mutations = list(
 		/datum/slime_mutation/adamantine,
 	)
@@ -99,10 +104,24 @@ GLOBAL_LIST(unlocked_xenofauna)
 	)
 
 /datum/slime_type/black
+	visual_effect = /obj/effect/abstract/visual_effect/black
 	possible_mutations = list(
 		/datum/slime_mutation/darkgrey,
 		/datum/slime_mutation/rainbow,
 	)
 
+/datum/slime_type/bluespace
+	visual_effect = /obj/effect/abstract/visual_effect/bluespace
+
+/datum/slime_type/oil
+	visual_effect = /obj/effect/abstract/visual_effect/oil
+
 /datum/slime_type/rainbow
+	visual_effect = /obj/effect/abstract/visual_effect/rainbow
 	possible_mutations = list()
+
+/proc/init_slime_colors_to_types() as /alist
+	. = alist()
+	for(var/datum/slime_type/slime_type as anything in subtypesof(/datum/slime_type))
+		if(slime_type::colour)
+			.[slime_type::colour] = slime_type

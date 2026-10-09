@@ -969,6 +969,7 @@
 	draining_ref = WEAKREF(draining)
 	to_chat(owner, span_boldnotice("You feel your hands melt around [draining]'s neck as you start to drain [draining.p_them()] of [draining.p_their()] life!"))
 	to_chat(draining, span_userdanger("[owner]'s hands melt around your neck as you can feel your life starting to drain away!"))
+	owner.balloon_alert_to_viewers("hands melt around neck!") // OCULIS EDIT ADDITION - SLIME_RANCHER
 
 /datum/status_effect/stabilized/black/get_examine_text(mob/examiner)
 	var/mob/living/draining = draining_ref?.resolve()

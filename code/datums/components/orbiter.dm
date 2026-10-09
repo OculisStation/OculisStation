@@ -131,7 +131,7 @@
 		return
 	UnregisterSignal(orbiter, list(COMSIG_MOVABLE_MOVED, COMSIG_ATOM_BEFORE_SHUTTLE_MOVE, COMSIG_ATOM_AFTER_SHUTTLE_MOVE))
 	SEND_SIGNAL(parent, COMSIG_ATOM_ORBIT_STOP, orbiter)
-	orbiter.SpinAnimation(0, 0)
+	orbiter.SpinAnimation(0, 0, parallel = FALSE) // OCULIS EDIT CHANGE - SLIME_RANCHER - ORIGINAL: orbiter.SpinAnimation(0, 0)
 	if(istype(orbiter_list[orbiter],/matrix)) //This is ugly.
 		orbiter.transform = orbiter_list[orbiter]
 	orbiter_list -= orbiter

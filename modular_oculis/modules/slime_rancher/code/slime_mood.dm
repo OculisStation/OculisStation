@@ -20,7 +20,7 @@
 	set_mood(new_mood)
 
 /mob/living/basic/slime/proc/update_mood()
-	if(!COOLDOWN_FINISHED(src, reaction_mood_cooldown))
+	if(client || !COOLDOWN_FINISHED(src, reaction_mood_cooldown))
 		return
 	set_mood(get_resting_mood())
 
@@ -41,6 +41,8 @@
 		return SLIME_MOOD_MISCHIEVOUS
 	if(!hunger_disabled && blackboard[BB_SLIME_HUNGER_LEVEL] == SLIME_HUNGER_HUNGRY)
 		return SLIME_MOOD_POUT
+	if(cat_slime)
+		return SLIME_MOOD_CAT
 	if(hunger_disabled || nutrition >= SLIME_GROW_NUTRITION)
 		return SLIME_MOOD_SMILE
 	return SLIME_MOOD_NONE

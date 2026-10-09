@@ -44,7 +44,7 @@
 		set_nutrition(100)
 		return
 
-	if(SPT_PROB(1.25, seconds_per_tick))
+	if(!stops_hunger && SPT_PROB(1.25, seconds_per_tick)) // OCULIS EDIT CHANGE - SLIME_RANCHER - ORIGINAL: if(SPT_PROB(1.25, seconds_per_tick))
 		adjust_nutrition((life_stage == SLIME_LIFE_STAGE_ADULT ? -1 : -0.5) * seconds_per_tick)
 
 	if(nutrition < SLIME_STARVE_NUTRITION)
@@ -74,18 +74,10 @@
 			amount_grown++
 
 		if(powerlevel < SLIME_MAX_POWER && SPT_PROB(30-powerlevel*2, seconds_per_tick))
-			adjust_power_level(1)
-			// IRIS ADDITION START
-			if(transformative_effect == SLIME_TYPE_YELLOW)
-				powerlevel = min(powerlevel + 2, SLIME_MAX_POWER)
-			// IRIS ADDITION END
+			adjust_power_level(1 + extra_charge) // OCULIS EDIT CHANGE - SLIME_RANCHER - ORIGINAL: adjust_power_level(1)
 
 	else if (powerlevel < SLIME_MEDIUM_POWER && SLIME_HUNGER_NUTRITION <= nutrition && SPT_PROB(25-powerlevel*5, seconds_per_tick))
-		adjust_power_level(1)
-		// IRIS ADDITION START
-		if(transformative_effect == SLIME_TYPE_YELLOW)
-			powerlevel = min(powerlevel + 2, SLIME_MAX_POWER)
-		// IRIS ADDITION END
+		adjust_power_level(1 + extra_charge) // OCULIS EDIT CHANGE - SLIME_RANCHER - ORIGINAL: adjust_power_level(1)
 
 	update_mob_action_buttons()
 

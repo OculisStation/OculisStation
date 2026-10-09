@@ -324,14 +324,10 @@
 
 		do_sparks(5, TRUE, carbon_target)
 		var/power = our_slime.powerlevel + rand(0,3)
-		// IRIS ADDITION START
-		if(transformative_effect == SLIME_TYPE_ORANGE)
-			carbon_target.adjust_fire_stacks(2)
-			carbon_target.ignite_mob()
-		// IRIS ADDITION END
 		carbon_target.Paralyze(2 SECONDS)
-		carbon_target.Knockdown(power * 2 SECONDS)
+		carbon_target.Knockdown(power * 0.5 SECONDS) // OCULIS EDIT CHANGE - SLIME_RANCHER - ORIGINAL: carbon_target.Knockdown(power * 2 SECONDS)
 		carbon_target.set_stutter_if_lower(power * 2 SECONDS)
+		SEND_SIGNAL(our_slime, COMSIG_SLIME_SHOCKED, carbon_target) // OCULIS EDIT ADDITION - SLIME_RANCHER
 		if (prob(stunprob) && our_slime.powerlevel >= SLIME_EXTRA_SHOCK_COST)
 			adjust_power_level(-SLIME_EXTRA_SHOCK_COST)
 			carbon_target.apply_damage(our_slime.powerlevel * rand(6, 10), BURN, spread_damage = TRUE, wound_bonus = CANT_WOUND)

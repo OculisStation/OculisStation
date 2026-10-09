@@ -84,6 +84,8 @@
 		return CONTEXTUAL_SCREENTIP_SET
 	if(istype(target, /obj/machinery/biomass_recycler))
 		context[SCREENTIP_CONTEXT_LMB] = "Link recycler"
+	else if(istype(target, /obj/machinery/smartfridge/extract))
+		context[SCREENTIP_CONTEXT_LMB] = "Fire extracts into fridge"
 	else if(pack?.is_recyclable(target))
 		context[SCREENTIP_CONTEXT_LMB] = "Recycle creature"
 	else if(isliving(target))

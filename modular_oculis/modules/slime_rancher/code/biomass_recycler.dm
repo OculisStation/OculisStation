@@ -30,6 +30,11 @@
 	. = ..()
 	add_overlay("grinder_monkey")
 
+/obj/machinery/biomass_recycler/post_machine_initialize()
+	. = ..()
+	for(var/obj/machinery/extract_compressor/compressor in range(COMPRESSOR_LINK_RANGE, src))
+		compressor.link_nearest_recycler()
+
 /obj/machinery/biomass_recycler/RefreshParts()
 	. = ..()
 	var/total_part_tier = 0
@@ -56,6 +61,8 @@
 	. = ..()
 	if(default_unfasten_wrench(user, tool))
 		power_change()
+		for(var/obj/machinery/extract_compressor/compressor in range(COMPRESSOR_LINK_RANGE, src))
+			compressor.link_nearest_recycler()
 	return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/biomass_recycler/screwdriver_act(mob/living/user, obj/item/tool)
@@ -145,6 +152,7 @@
 		return FALSE
 	var/target_name = target.name
 	var/biomass_yield = round(recycle_value(target) * recycling_efficiency, 0.01)
+	target.unequip_everything()
 	qdel(target)
 	biomass = round(biomass + biomass_yield, 0.01)
 	use_energy(active_power_usage)

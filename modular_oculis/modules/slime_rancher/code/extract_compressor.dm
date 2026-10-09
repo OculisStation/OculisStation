@@ -3,9 +3,6 @@
 #define COMPRESSOR_BASE_BIOMASS_COST 8
 #define COMPRESSOR_BIOMASS_PER_BIN_TIER 2
 #define COMPRESSOR_BASE_CYCLE_TIME (90 SECONDS)
-#define COMPRESSOR_CYCLE_TIME_PER_SERVO_TIER (20 SECONDS)
-#define COMPRESSOR_LINK_RANGE 5
-#define COMPRESSOR_FRIDGE_RANGE 1
 
 /particles/slime/extract_compressor
 	count = 20
@@ -31,9 +28,9 @@
 	var/list/obj/item/slime_extract/effect_extracts = list()
 	/// Extracts feeding the crossbreed's color half.
 	var/list/obj/item/slime_extract/color_extracts = list()
-	/// Seconds accumulated into the current cycle.
+	/// Deciseconds accumulated into the current cycle.
 	var/cycle_progress = 0
-	/// Total seconds the current cycle needs. Set when a cycle starts.
+	/// Total deciseconds the current cycle needs. Set when a cycle starts.
 	var/cycle_length = COMPRESSOR_BASE_CYCLE_TIME
 	/// Biomass the current cycle will cost. Set when a cycle starts.
 	var/cycle_biomass_cost = COMPRESSOR_BASE_BIOMASS_COST
@@ -59,13 +56,13 @@
 
 /obj/machinery/extract_compressor/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	. = ..()
-	context[SCREENTIP_CONTEXT_ALT_LMB] = "Eject effect tank"
+	context[SCREENTIP_CONTEXT_ALT_LMB] = "Eject type tank"
 	context[SCREENTIP_CONTEXT_ALT_RMB] = "Eject color tank"
 	if(istype(held_item, /obj/item/slime_extract))
-		context[SCREENTIP_CONTEXT_LMB] = "Load effect tank"
+		context[SCREENTIP_CONTEXT_LMB] = "Load type tank"
 		context[SCREENTIP_CONTEXT_RMB] = "Load color tank"
 	else if(istype(held_item, /obj/item/storage/bag/xeno))
-		context[SCREENTIP_CONTEXT_LMB] = "Bulk-load effect tank"
+		context[SCREENTIP_CONTEXT_LMB] = "Bulk-load type tank"
 		context[SCREENTIP_CONTEXT_RMB] = "Bulk-load color tank"
 	else if(isnull(held_item))
 		context[SCREENTIP_CONTEXT_LMB] = "Start compressing"
@@ -84,6 +81,11 @@
 	linked_recycler_ref = null
 	QDEL_NULL(whir_loop)
 	return ..()
+
+/obj/machinery/extract_compressor/Exited(atom/movable/gone, direction)
+	. = ..()
+	effect_extracts -= gone
+	color_extracts -= gone
 
 /obj/machinery/extract_compressor/proc/build_lookups()
 	if(!isnull(crossbreed_lookup))
@@ -127,14 +129,14 @@
 		servo_tier = max(servo_tier, servo.tier)
 	for(var/datum/stock_part/matter_bin/matter_bin in component_parts)
 		bin_tier = max(bin_tier, matter_bin.tier)
-	cycle_length = max(COMPRESSOR_BASE_CYCLE_TIME - (servo_tier - 1) * COMPRESSOR_CYCLE_TIME_PER_SERVO_TIER, COMPRESSOR_CYCLE_TIME_PER_SERVO_TIER)
+	cycle_length = COMPRESSOR_BASE_CYCLE_TIME / 2 ** (servo_tier - 1)
 	cycle_biomass_cost = max(COMPRESSOR_BASE_BIOMASS_COST - (bin_tier - 1) * COMPRESSOR_BIOMASS_PER_BIN_TIER, COMPRESSOR_BIOMASS_PER_BIN_TIER)
 
 /obj/machinery/extract_compressor/examine(mob/user)
 	. = ..()
 	if(!in_range(user, src) && !isobserver(user))
 		return
-	. += span_notice("The effect tank holds [length(effect_extracts)] of [COMPRESSOR_EFFECT_EXTRACTS] extracts.")
+	. += span_notice("The type tank holds [length(effect_extracts)] of [COMPRESSOR_EFFECT_EXTRACTS] extracts.")
 	. += span_notice("The color tank holds [length(color_extracts)] of [COMPRESSOR_COLOR_EXTRACTS] extracts.")
 	if(length(effect_extracts) && length(color_extracts))
 		var/obj/item/slimecross/result_path = get_resulting_crossbreed()
@@ -269,7 +271,7 @@
 		var/both_full = length(effect_extracts) >= COMPRESSOR_EFFECT_EXTRACTS && length(color_extracts) >= COMPRESSOR_COLOR_EXTRACTS
 		balloon_alert(user, both_full ? "tanks full" : "wrong extract")
 		return ITEM_INTERACT_BLOCKING
-	balloon_alert(user, "loaded [tank == effect_extracts ? "effect" : "color"] tank[prediction_suffix()]")
+	balloon_alert(user, "loaded [tank == effect_extracts ? "type" : "color"] tank[prediction_suffix()]")
 	play_fill_plop(tank)
 	update_appearance()
 	return ITEM_INTERACT_SUCCESS
@@ -321,7 +323,7 @@
 	if(is_cycling())
 		balloon_alert(user, "busy")
 		return CLICK_ACTION_BLOCKING
-	var/side = (tank == effect_extracts) ? "effect" : "color"
+	var/side = (tank == effect_extracts) ? "type" : "color"
 	if(!length(tank))
 		balloon_alert(user, "[side] tank empty")
 		return CLICK_ACTION_BLOCKING
@@ -345,13 +347,13 @@
 	start_cycle(user)
 	update_appearance() // the fridge top-up moved extracts even if start_cycle bailed
 
-/// Tops a tank up from any extract fridge within COMPRESSOR_FRIDGE_RANGE, matching the type already loaded.
+/// Tops a tank up from any extract fridge within COMPRESSOR_LINK_RANGE, matching the type already loaded.
 /obj/machinery/extract_compressor/proc/refill_from_nearby_fridge(list/obj/item/slime_extract/tank)
 	var/required = tank_capacity(tank)
 	if(length(tank) >= required || !length(tank))
 		return
 	var/wanted_type = tank[1].type
-	for(var/obj/machinery/smartfridge/extract/fridge in range(COMPRESSOR_FRIDGE_RANGE, src))
+	for(var/obj/machinery/smartfridge/extract/fridge in range(COMPRESSOR_LINK_RANGE, src))
 		for(var/obj/item/slime_extract/extract in fridge.contents)
 			if(extract.type != wanted_type)
 				continue
@@ -362,7 +364,7 @@
 
 /obj/machinery/extract_compressor/proc/start_cycle(mob/user)
 	if(length(effect_extracts) < COMPRESSOR_EFFECT_EXTRACTS)
-		balloon_alert(user, "not enough effect extracts")
+		balloon_alert(user, "not enough type extracts")
 		return
 	if(length(color_extracts) < COMPRESSOR_COLOR_EXTRACTS)
 		balloon_alert(user, "not enough color extracts")
@@ -414,8 +416,10 @@
 	if(!is_cycling())
 		return PROCESS_KILL
 	if(!is_operational)
+		whir_loop.stop()
 		last_process = world.time
 		return
+	whir_loop.start()
 	cycle_progress += world.time - last_process
 	last_process = world.time
 	use_energy(active_power_usage)
@@ -468,7 +472,4 @@
 #undef COMPRESSOR_BASE_CYCLE_TIME
 #undef COMPRESSOR_BIOMASS_PER_BIN_TIER
 #undef COMPRESSOR_COLOR_EXTRACTS
-#undef COMPRESSOR_CYCLE_TIME_PER_SERVO_TIER
 #undef COMPRESSOR_EFFECT_EXTRACTS
-#undef COMPRESSOR_FRIDGE_RANGE
-#undef COMPRESSOR_LINK_RANGE

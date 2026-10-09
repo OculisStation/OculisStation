@@ -388,6 +388,10 @@ GLOBAL_VAR_INIT(focused_tests, focused_tests())
 	returnable_list += list(/obj/item/organ/neck_accessory, /obj/item/organ/head_accessory)
 	//NOVA EDIT ADDITION END
 
+	// OCULIS EDIT ADDITION START - SLIME_RANCHER
+	returnable_list += typesof(/obj/effect/warped_rune) // don't feel like dealing with the side effects of these tbh
+	// OCULIS EDIT ADDITION END
+
 	return returnable_list
 
 /proc/RunUnitTests()

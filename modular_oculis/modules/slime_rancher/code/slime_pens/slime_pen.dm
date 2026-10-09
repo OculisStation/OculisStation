@@ -45,8 +45,10 @@ GLOBAL_LIST_EMPTY(slime_pens)
 	width = max(xs) - min(xs) + 1
 	height = max(ys) - min(ys) + 1
 	build_barriers()
+	START_PROCESSING(SSprocessing, src)
 
 /datum/slime_pen/Destroy(force)
+	STOP_PROCESSING(SSprocessing, src)
 	GLOB.slime_pens -= src
 	for(var/atom/movable/piece as anything in barriers + posts)
 		UnregisterSignal(piece, list(COMSIG_MOVABLE_MOVED, COMSIG_QDELETING))
@@ -62,6 +64,15 @@ GLOBAL_LIST_EMPTY(slime_pens)
 		stop_tracking_slime(slime)
 	turfs = null
 	return ..()
+
+/datum/slime_pen/process(seconds_per_tick)
+	for(var/turf/turf as anything in turfs)
+		for(var/mob/living/carbon/human/monke in turf)
+			if(!ismonkey(monke) || monke.stat != DEAD || monke.ckey || monke.mind || monke.pulledby)
+				continue
+			if((monke.timeofdeath + (5 MINUTES)) <= world.time && !monke.get_filter("dust_animation")) // stupid janky way of avoiding dusting the same chimp repeatedly while the dusting animation is ongoing
+				monke.visible_message(span_warning("[monke] is automatically dissolved by the slime corral."))
+				monke.dust(just_ash = TRUE, drop_items = TRUE)
 
 /datum/slime_pen/proc/track_slime(mob/living/basic/slime/slime)
 	SIGNAL_HANDLER
@@ -80,6 +91,9 @@ GLOBAL_LIST_EMPTY(slime_pens)
 		return
 	UnregisterSignal(slime, list(COMSIG_QDELETING, COMSIG_MOVABLE_MOVED))
 	LAZYREMOVE(slimes, slime)
+	// the pen next door's Entered runs before our Moved, so it may have already claimed this one
+	if(slime.pen != src)
+		return
 	slime.pen = null
 	COOLDOWN_START(slime, pen_expiry_cooldown, 10 MINUTES)
 

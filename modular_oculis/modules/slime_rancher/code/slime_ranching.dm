@@ -34,8 +34,8 @@
 	if(ranch_progress < SLIME_RANCH_EXTRACT_COST)
 		return
 
-	var/mutation_target = (transformative_effect != SLIME_TYPE_CERULEAN) ? get_unlocked_mutation_type(weight_new_types = TRUE) : null
-	if(mutation_target && prob(mutation_chance))
+	var/mutation_target = get_unlocked_mutation_type(weight_new_types = TRUE)
+	if(mutation_target && !blocks_reproduction && prob(mutation_chance))
 		pending_ranch_mutation = mutation_target
 		start_ranch_mutation()
 		return
@@ -98,6 +98,9 @@
 	return ..()
 
 /mob/living/basic/slime/proc/set_primed_split_cost(new_cost)
+	if(new_cost && blocks_reproduction)
+		balloon_alert_to_viewers("can't split!")
+		return
 	primed_split_cost = new_cost
 	if(new_cost)
 		pending_ranch_mutation = null
@@ -121,7 +124,7 @@
 
 /mob/living/basic/slime/proc/on_check_wanted_pellet(mob/living/basic/slime/source, obj/item/meal)
 	SIGNAL_HANDLER
-	if(!primed_split_cost && istype(meal, /obj/item/slime_breeding_pellet))
+	if(!primed_split_cost && !blocks_reproduction && istype(meal, /obj/item/slime_breeding_pellet))
 		return COMPONENT_SLIME_WANTS_ITEM
 
 /datum/pet_command/slime_split

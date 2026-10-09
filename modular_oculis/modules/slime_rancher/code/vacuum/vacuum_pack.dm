@@ -1,8 +1,6 @@
 #define VACUUM_BASE_CAPACITY 5
 #define VACUUM_BASE_CAPTURE_RANGE 3
 #define VACUUM_BASE_CAPTURE_DELAY (1 SECONDS)
-#define VACUUM_LAUNCH_RANGE 5
-#define VACUUM_LAUNCH_SPEED 2
 
 /datum/action/item_action/toggle_vacuum_nozzle
 	name = "Toggle Vacuum Nozzle"
@@ -25,6 +23,8 @@
 	max_integrity = 200
 
 	var/obj/item/vacuum_nozzle/nozzle
+	var/obj/item/stock_parts/matter_bin/extract_bin
+	var/extract_bin_type = /obj/item/stock_parts/matter_bin
 	var/capacity = VACUUM_BASE_CAPACITY
 	var/capture_range = VACUUM_BASE_CAPTURE_RANGE
 	var/capture_delay = VACUUM_BASE_CAPTURE_DELAY
@@ -47,18 +47,21 @@
 	AddElement(/datum/element/drag_pickup)
 	nozzle = new(src)
 	RegisterSignal(nozzle, COMSIG_MOVABLE_MOVED, PROC_REF(on_nozzle_moved))
+	extract_bin = new extract_bin_type(src)
+	RegisterSignal(src, COMSIG_MOUSEDROP_ONTO, PROC_REF(on_mousedrop_onto))
 
 /obj/item/vacuum_pack/Destroy()
 	var/turf/drop_turf = drop_location()
-	for(var/mob/living/occupant as anything in occupants())
+	for(var/atom/movable/cargo as anything in occupants() + stored_extracts())
 		if(drop_turf)
-			occupant.forceMove(drop_turf)
+			cargo.forceMove(drop_turf)
 		else
-			qdel(occupant)
+			qdel(cargo)
 
 	stop_extract_pulls()
 	QDEL_NULL(succ_sound)
 	QDEL_NULL(nozzle)
+	QDEL_NULL(extract_bin)
 	QDEL_LIST_ASSOC_VAL(upgrades)
 	owned_ai_shutdowns.Cut()
 	linked_recycler_ref = null
@@ -75,6 +78,8 @@
 	. = ..()
 	var/list/stored = occupants()
 	. += span_notice("It contains [length(stored)] of [capacity] slimes.")
+	. += span_notice("It holds [length(stored_extracts())] of [extract_capacity()] extracts in its [extract_bin.name].")
+	. += span_notice("Drag it onto a bag, the extract fridge, or the floor to empty the extracts, or [EXAMINE_HINT("right-click")] it to take one out. Use a matter bin on it to swap the bin.")
 	. += span_notice("Its suction reaches [capture_range] tiles and takes [DisplayTimeText(capture_delay)].")
 	. += span_notice("It is set to [selective_mode ? "selective" : "random"] firing.")
 	. += span_notice("[EXAMINE_HINT("Ctrl-right-click")] with the nozzle to suck up slime extracts in that direction.")
@@ -114,7 +119,10 @@
 	toggle_nozzle(user)
 	return TRUE
 
-/obj/item/vacuum_pack/item_interaction(mob/living/user, obj/item/disk/vacuum_upgrade/disk, list/modifiers)
+/obj/item/vacuum_pack/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(istype(tool, /obj/item/stock_parts/matter_bin))
+		return swap_extract_bin(tool, user)
+	var/obj/item/disk/vacuum_upgrade/disk = tool
 	if(!istype(disk))
 		return NONE
 	if(upgrades[disk.upgrade_type])
@@ -359,6 +367,8 @@
 		restore?.Invoke()
 		return FALSE
 	playsound(nozzle, 'sound/misc/moist_impact.ogg', vol = 50, vary = TRUE)
+	if(prob(99) && isslime(creature) && creature.stat != DEAD)
+		playsound(creature, 'modular_oculis/modules/slime_rancher/sound/woohoo.ogg', vol = 50, vary = TRUE)
 	user.visible_message(
 		span_notice("[user] launches [creature] from [nozzle]."),
 		span_notice("You launch [creature] from [nozzle].")
@@ -441,6 +451,8 @@
 	var/succeeded = FALSE
 	if(istype(target, /obj/machinery/biomass_recycler))
 		succeeded = link_recycler(target, user)
+	else if(istype(target, /obj/machinery/smartfridge/extract))
+		succeeded = fire_extracts(target, user)
 	else if(is_recyclable(target))
 		succeeded = recycle_creature(target, user)
 	else if(isliving(target))
@@ -558,6 +570,7 @@
 
 // subtype that comes with all upgrades installed
 /obj/item/vacuum_pack/upgraded
+	extract_bin_type = /obj/item/stock_parts/matter_bin/bluespace
 
 /obj/item/vacuum_pack/upgraded/Initialize(mapload)
 	. = ..()
@@ -583,5 +596,3 @@
 #undef VACUUM_BASE_CAPACITY
 #undef VACUUM_BASE_CAPTURE_RANGE
 #undef VACUUM_BASE_CAPTURE_DELAY
-#undef VACUUM_LAUNCH_RANGE
-#undef VACUUM_LAUNCH_SPEED
