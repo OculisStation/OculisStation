@@ -103,10 +103,6 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	screentip_images = preferences?.read_preference(/datum/preference/toggle/screentip_images)
 	screentip_text = add_screen_object(/atom/movable/screen/screentip, HUD_MOB_SCREENTIP)
 
-	// IRIS ADDITION START
-	if(preferences?.read_preference(/datum/preference/toggle/mapvote_hud))
-		add_screen_object(/atom/movable/screen/mapvote_hud, HUD_MAPVOTE)
-	// IRIS ADDITION END
 	for(var/mytype in subtypesof(/atom/movable/plane_master_controller))
 		var/atom/movable/plane_master_controller/controller_instance = new mytype(null,src)
 		plane_master_controllers[controller_instance.name] = controller_instance
