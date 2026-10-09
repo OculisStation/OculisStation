@@ -10543,4 +10543,5 @@
 #include "modular_oculis\modules\unique_lizards\code\lizardpeople.dm"
 #include "modular_oculis\modules\unique_lizards\code\lizardpeople_organs.dm"
 #include "modular_oculis\modules\wall_pinning\code\wall_pin.dm"
+#include "modular_oculis\modules\yeowchy\yowchverb.dm"
 // END_INCLUDE
