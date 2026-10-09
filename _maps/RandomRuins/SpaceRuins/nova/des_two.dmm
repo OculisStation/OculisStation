@@ -402,6 +402,25 @@
 	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/diner)
+"bK" = (
+/obj/item/ai_module/law/supplied/freeform{
+	pixel_y = 7
+	},
+/obj/item/brain_processor/positronic{
+	pixel_x = -4
+	},
+/obj/item/brain_processor/positronic{
+	pixel_x = 2;
+	pixel_y = 6
+	},
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/machinery/button/door/directional/north{
+	name = "Mech Bay Access";
+	id = "ds2robotics";
+	req_access = list("syndicate")
+	},
+/turf/open/floor/iron/half,
+/area/ruin/space/has_grav/nova/des_two/research/robotics)
 "bO" = (
 /obj/structure/table/wood,
 /obj/machinery/button/door/directional/north{
@@ -5756,9 +5775,6 @@
 /obj/effect/turf_decal/siding/dark,
 /turf/open/floor/carpet/donk,
 /area/ruin/space/has_grav/nova/des_two/bridge/cl)
-"yM" = (
-/turf/open/floor/iron/dark/smooth_large,
-/area/ruin/space/has_grav/nova/des_two/service/dorms)
 "yO" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 8
@@ -9312,25 +9328,6 @@
 	dir = 1
 	},
 /area/ruin/space/has_grav/nova/des_two/research/robotics)
-"NJ" = (
-/obj/item/ai_module/law/supplied/freeform{
-	pixel_y = 7
-	},
-/obj/item/mmi/posibrain{
-	pixel_x = -4
-	},
-/obj/item/mmi/posibrain{
-	pixel_x = 2;
-	pixel_y = 6
-	},
-/obj/structure/table/reinforced/plastitaniumglass,
-/obj/machinery/button/door/directional/north{
-	name = "Mech Bay Access";
-	id = "ds2robotics";
-	req_access = list("syndicate")
-	},
-/turf/open/floor/iron/half,
-/area/ruin/space/has_grav/nova/des_two/research/robotics)
 "NL" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/west,
 /obj/structure/closet/secure_closet/des_two/sa_locker,
@@ -11880,6 +11877,9 @@
 /obj/structure/reagent_dispensers/water_cooler,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/nova/des_two/security/lawyer)
+"Zc" = (
+/turf/open/floor/iron/dark/smooth_large,
+/area/ruin/space/has_grav/nova/des_two/service/dorms)
 "Zh" = (
 /obj/structure/transit_tube/station/dispenser/reverse,
 /obj/effect/turf_decal/stripes/line{
@@ -13071,7 +13071,7 @@ Ux
 ZE
 ij
 Mh
-yM
+Zc
 cn
 Tv
 jg
@@ -14255,7 +14255,7 @@ eT
 pR
 UQ
 Jw
-NJ
+bK
 ww
 dr
 Mv
