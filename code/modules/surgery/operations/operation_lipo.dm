@@ -106,4 +106,4 @@
 	preop_sound = 'sound/items/tools/ratchet.ogg'
 	success_sound = 'sound/items/handling/surgery/organ2.ogg'
 	required_bodytype = BODYTYPE_ROBOTIC
-	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC
+	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC | OPERATION_SELF_OPERABLE // OCULIS EDIT, ORIGINAL: operation_flags = parent_type::operation_flags | OPERATION_MECHANIC
