@@ -139,15 +139,6 @@ export const MESSAGE_TYPES: MessageType[] = [
     selector: '.admin_channel, .adminsay',
     admin: true,
   },
-  // OCULIS EDIT ADDITION START
-  {
-    type: MESSAGE_TYPE_LORE,
-    name: 'Lore Chat',
-    description: 'LSAY messages',
-    selector: '.loresay',
-    admin: true,
-  },
-  // OCULIS EDIT ADDITION END
   {
     type: MESSAGE_TYPE_MODCHAT,
     name: 'Mod Chat',
@@ -186,4 +177,12 @@ export const MESSAGE_TYPES: MessageType[] = [
     description: 'Mentor PMs and other mentor things.',
     selector: '.mentor, .mentornotice',
   },// NOVA EDIT ADDITION END
+  // OCULIS EDIT ADDITION START
+  {
+    type: MESSAGE_TYPE_LORE,
+    name: 'Lore Chat',
+    description: 'LSAY messages',
+    selector: '.loresay',
+  },
+  // OCULIS EDIT ADDITION END
 ];
