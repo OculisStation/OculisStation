@@ -70,14 +70,15 @@
 	air_contents.set_gas(/datum/gas/oxygen, (3*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C) * O2STANDARD)
 	air_contents.set_gas(/datum/gas/nitrous_oxide, (3*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C) * N2STANDARD)
 
-
+/* // OCULIS EDIT REMOVAL START
 /obj/item/tank/internals/anesthetic/examine(mob/user)
 	. = ..()
 	. += span_notice("A warning is etched into [src]...")
 	. += span_warning("There is no process in the body that uses N2O, so patients will exhale the N2O... exposing you to it. Make sure to work in a well-ventilated space to avoid sleepy mishaps.")
+*/ // OCULIS EDIT REMOVAL END
 
 /obj/item/tank/internals/anesthetic/pure
-	desc = "A tank with pure N2O. There is a warning sticker crudely slapped onto the tank."
+	desc = "A tank with pure N2O." // OCULIS EDIT, ORIGINAL: desc = "A tank with pure N2O. There is a warning sticker crudely slapped onto the tank."
 	icon_state = "anesthetic_warning"
 
 /obj/item/tank/internals/anesthetic/pure/populate_gas()
