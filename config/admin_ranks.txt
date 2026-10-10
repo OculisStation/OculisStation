@@ -16,6 +16,7 @@
 #If SQL-based admin loading is enabled, ranks and their keywords listed here will be loaded first and override any with the same name loaded from the database.
 #
 #The following are valid permission keywords:
+#LORE = access to send messages to the lore chat
 #ADMIN = general admin tools, verbs etc.
 #FUN = events, other event-orientated actions. Access to the fun secrets in the secrets panel.
 #BAN = the ability to ban and unban.
