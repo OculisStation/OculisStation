@@ -20,6 +20,13 @@ on:
       max_required_byond_client:
         required: true
         type: string
+      # false runs the round on the interpreter. Used for one baseline job in
+      # ci_suite.yml, so a JIT round's runtime errors have something to be
+      # counted against.
+      dmeow:
+        required: false
+        type: boolean
+        default: true
 
 jobs:
   run_integration_tests:
@@ -28,7 +35,7 @@ jobs:
     #
     # Otherwise, it will output `Run Tests (map; max)`.
     # For example, `Run Tests (runtimestation; 515)`.
-    name: Run Tests (${{ inputs.major && format('{0}.{1}; ', inputs.major, inputs.minor) || '' }}${{ inputs.map }}; ${{ inputs.max_required_byond_client }})
+    name: Run Tests (${{ inputs.major && format('{0}.{1}; ', inputs.major, inputs.minor) || '' }}${{ inputs.map }}; ${{ inputs.max_required_byond_client }}${{ inputs.dmeow == false && '; no JIT' || '' }})
     runs-on: ubuntu-24.04
     timeout-minutes: 55
     steps:
@@ -64,14 +71,32 @@ jobs:
         run: |
           source $HOME/BYOND/byond/bin/byondsetup
           bash tools/ci/run_server.sh "${{ inputs.map }}" "${{ inputs.map_config }}"
+        env:
+          DMEOW: ${{ inputs.dmeow && '1' || '0' }}
+      # Skipped on a no-JIT round: compare_screenshots downloads every artifact
+      # whose name starts with test_artifacts, so a second set from the same map
+      # would be compared as if it came from a different one.
       - name: Upload screenshot tests
-        if: always()
+        if: always() && inputs.dmeow
         uses: actions/upload-artifact@v7
         with:
           name: test_artifacts_${{ inputs.map }}_${{ inputs.major || env.BYOND_MAJOR }}_${{ inputs.minor || env.BYOND_MINOR }}
           path: data/screenshots_new/
           retention-days: 1
           if-no-files-found: ignore
+      - name: Upload dmeow debug log
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: dmeow_debug_${{ inputs.map }}_${{ inputs.major || env.BYOND_MAJOR }}_${{ inputs.minor || env.BYOND_MINOR }}${{ inputs.dmeow == false && '_nojit' || '' }}
+          # The whole round log directory, which the log-directory=ci param
+          # pins to data/logs/ci and dmeow_init() writes its own log into. The
+          # rest of it is what a compiled proc has to be matched against: the
+          # runtime and signal categories both land here, and there is no dd.log
+          # to name directly because CI builds with the custom error handler on.
+          path: ci_test/data/logs/ci/
+          retention-days: 7
+          if-no-files-found: warn
       - name: On test fail, write a step summary
         if: always() && steps.run_tests.outcome == 'failure'
         run: |
