@@ -1,5 +1,8 @@
-ADMIN_VERB(cmd_lore_say, R_LORE, "LSay", "Send a message to other lorewriters", ADMIN_CATEGORY_MAIN)
+GAME_VERB_PROC(/client, cmd_lore_say, "LSay", "Send a message to other loremasters.")
 	VERB_ARG(message, VERB_ARG_TYPE_TEXT, VERB_ARG_SOURCE_INPUT)
+	if(!is_loremaster())
+		return
+
 	message = emoji_parse(copytext_char(sanitize(message), 1, MAX_MESSAGE_LEN))
 	if(!message)
 		return
@@ -17,16 +20,16 @@ ADMIN_VERB(cmd_lore_say, R_LORE, "LSay", "Send a message to other lorewriters", 
 				window_flash(iter_admin_client)
 				SEND_SOUND(iter_admin_client.mob, sound('sound/misc/asay_ping.ogg'))
 
-	log_lore("[key_name(user)]: [message]")
+	log_lore("[key_name(src)]: [message]")
 	message = keywords_lookup(message)
-	var/asay_color = user.prefs.read_preference(/datum/preference/color/asay_color)
+	var/asay_color = prefs.read_preference(/datum/preference/color/asay_color)
 	var/custom_asay_color = (CONFIG_GET(flag/allow_admin_asaycolor) && asay_color) ? "<font color=[asay_color]>" : "<font color='[DEFAULT_ASAY_COLOR]'>"
-	message = "[span_hierophant("[span_prefix("LORE:")] <EM>[key_name_admin(user)]</EM> [ADMIN_FLW(user.mob)]: [custom_asay_color]<span class='message linkify'>[message]")]</span>[custom_asay_color ? "</font>":null]"
-	for(var/client/admin as anything in GLOB.admins)
+	message = "[span_hierophant("[span_prefix("LORE:")] <EM>[key_name_admin(src)]</EM> [ADMIN_FLW(mob)]: [custom_asay_color]<span class='message linkify'>[message]")]</span>[custom_asay_color ? "</font>":null]"
+	for(var/client/admin as anything in GLOB.admins || GLOB.loremasters)
 		to_chat(admin,
 			type = MESSAGE_TYPE_LORE,
 			html = message,
-			avoid_highlighting = (admin == user),
+			avoid_highlighting = (admin == src),
 			confidential = TRUE,
 		)
 
@@ -85,10 +88,10 @@ GLOBAL_PROTECT(lorelog)
 
 /proc/log_lore(text, list/data)
 	GLOB.lorelog.Add(text)
-	logger.Log(LOG_CATEGORY_ADMIN_LORE, text, data)
+	logger.Log(LOG_CATEGORY_GAME_LORE, text, data)
 
 /datum/log_category/admin_lsay
-	category = LOG_CATEGORY_ADMIN_LORE
+	category = LOG_CATEGORY_GAME_LORE
 	master_category = /datum/log_category/admin_private
 	config_flag = /datum/config_entry/flag/log_lorechat
 	secret = TRUE
