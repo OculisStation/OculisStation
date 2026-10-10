@@ -1,4 +1,4 @@
-GAME_VERB_PROC(/client, cmd_lore_say, "LSay", "Send a message to other loremasters.")
+GAME_VERB_PROC_DESC(/client, cmd_lore_say, "LSay", "Send a message to other loremasters.", "Lore")
 	VERB_ARG(message, VERB_ARG_TYPE_TEXT, VERB_ARG_SOURCE_INPUT)
 	if(!is_loremaster())
 		return
