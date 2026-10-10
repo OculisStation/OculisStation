@@ -16,11 +16,10 @@
 #If SQL-based admin loading is enabled, ranks and their keywords listed here will be loaded first and override any with the same name loaded from the database.
 #
 #The following are valid permission keywords:
-#LORE = access to send messages to the lore chat
 #ADMIN = general admin tools, verbs etc.
 #FUN = events, other event-orientated actions. Access to the fun secrets in the secrets panel.
 #BAN = the ability to ban and unban.
-#STEALTH = the ability to stealthmin (make yourself appear with a fake name to everyone but other admins.)
+#STEALTH = the ability to stealthmin (make yourself appear with a fake name to everyone but other admins.
 #POSSESS = the ability to possess objects.
 #POLL = the ability to create in game server polls (requires DB).
 #BUILD = the ability to use buildmode.
@@ -40,13 +39,8 @@ Include =
 Exclude = AUTOADMIN
 Edit =
 
-Name = Loremaster
-Include = LORE
-Exclude =
-Edit =
-
 Name = Moderator
-Include = @ ADMIN
+Include = ADMIN
 Exclude =
 Edit =
 
@@ -86,6 +80,6 @@ Exclude =
 Edit = EVERYTHING
 
 Name = Coder
-Include = DEBUG VAREDIT SERVER SPAWN POLL LORE
+Include = DEBUG VAREDIT SERVER SPAWN POLL
 Exclude = AUTOADMIN
 Edit =
