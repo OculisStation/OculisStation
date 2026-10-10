@@ -3,3 +3,6 @@
 
 ## Uncomment to enable the chance of a Lone Operative spawning if the Nuclear Authentication Disk is left unmoved for too long
 #NAD_CAN_SPAWN_LONE_OP
+
+## log lore chat
+LOG_LORECHAT
