@@ -40,6 +40,7 @@ export const MESSAGE_TYPE_ATTACKLOG = 'attacklog';
 export const MESSAGE_TYPE_DEBUG = 'debug';
 export const MESSAGE_TYPE_MENTOR = 'mentor'; // NOVA EDIT ADDITION
 export const MESSAGE_TYPE_SUBTLE = 'subtle'; // NOVA EDIT ADDITION
+export const MESSAGE_TYPE_LORE = "lorechat"; // OCULIS EDIT ADDITION
 
 type MessageType = {
   type: string;
@@ -138,6 +139,15 @@ export const MESSAGE_TYPES: MessageType[] = [
     selector: '.admin_channel, .adminsay',
     admin: true,
   },
+  // OCULIS EDIT ADDITION START
+  {
+    type: MESSAGE_TYPE_LORE,
+    name: 'Lore Chat',
+    description: 'LSAY messages',
+    selector: '.loresay',
+    admin: true,
+  },
+  // OCULIS EDIT ADDITION END
   {
     type: MESSAGE_TYPE_MODCHAT,
     name: 'Mod Chat',
