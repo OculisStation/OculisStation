@@ -5,16 +5,15 @@
   - rscdel: Removed Tidy Tiders pirate ship.
 2026-10-05:
   SirNoobsworth:
-  - rscadd: 'new hair called Mayrain (Sprite by: VerdantSun)
-
-      :cl:'
+  - rscadd: 'new hair called Mayrain (Sprite by: VerdantSun)'
 2026-10-06:
   Absolucy:
   - qol: The Navigate verb should be slightly faster now.
-  GreytideSkye:
-  - balance: EMPerverts are no longer able to jam privacy holosigns. Picture of a
-      Crab stocks are in shambles.
   Shroopy:
   - qol: Disabled the ore silo requiring a bank account by default.
   throwawayuseless:
   - rscadd: New Quirk! Quantum Anxiety!
+2026-10-08:
+  XeonMations:
+  - rscdel: Removed Plexora from the codebase
+  - rscdel: Removed Floxy from the codebase

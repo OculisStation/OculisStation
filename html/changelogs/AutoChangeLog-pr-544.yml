@@ -1,5 +1,0 @@
-author: "XeonMations"
-delete-after: True
-changes:
-  - rscdel: "Removed Plexora from the codebase"
-  - rscdel: "Removed Floxy from the codebase"
