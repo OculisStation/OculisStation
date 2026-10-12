@@ -16,7 +16,6 @@
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/carwo_defense_systems/ammo.dmi'
 	icon_state = "granata_standard"
-
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 	w_class = WEIGHT_CLASS_SMALL
 
