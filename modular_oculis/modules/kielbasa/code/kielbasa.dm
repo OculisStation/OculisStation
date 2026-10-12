@@ -26,7 +26,6 @@
 /obj/item/ammo_box/magazine/c980_sausage/drum
 	name = "\improper Kielbasa grenade drum"
 	desc = "A drum for .980 sausages, holds six of them."
-
 	icon_state = "granata_drum"
 
 	w_class = WEIGHT_CLASS_NORMAL
