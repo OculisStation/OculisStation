@@ -20094,7 +20094,6 @@
 	},
 /obj/effect/turf_decal/tile/blue/fourcorners,
 /obj/machinery/button/door/directional/east{
-	pixel_y = 0;
 	id = "paramedic_shutters";
 	name = "Shutters button";
 	pixel_x = 23;
@@ -22788,6 +22787,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/recharger,
 /turf/open/floor/iron,
 /area/station/security/brig)
 "gVI" = (
@@ -34658,8 +34658,7 @@
 /area/station/cargo/office)
 "kZa" = (
 /obj/machinery/camera/directional/south{
-	pixel_x = 21;
-	pixel_y = 0
+	pixel_x = 21
 	},
 /turf/open/floor/engine,
 /area/station/science/xenobiology)
@@ -48173,16 +48172,11 @@
 "pQy" = (
 /obj/structure/table,
 /obj/item/multitool/circuit{
-	pixel_x = -7;
-	pixel_y = 0
+	pixel_x = -7
 	},
+/obj/item/multitool/circuit,
 /obj/item/multitool/circuit{
-	pixel_x = 0;
-	pixel_y = 0
-	},
-/obj/item/multitool/circuit{
-	pixel_x = 7;
-	pixel_y = 0
+	pixel_x = 7
 	},
 /obj/machinery/camera/directional/south{
 	network = list("ss13","rd");
@@ -52685,7 +52679,6 @@
 "rub" = (
 /obj/structure/table/glass,
 /obj/item/book/manual/wiki/surgery{
-	pixel_y = 0;
 	pixel_x = 3
 	},
 /obj/item/book/manual/wiki/medicine{
@@ -52833,7 +52826,6 @@
 /obj/machinery/button/door/directional/east{
 	id = "genetics_shutters";
 	name = "Genetics Shutters";
-	pixel_y = 0;
 	req_access = list("genetics");
 	pixel_x = 23
 	},
@@ -65706,8 +65698,7 @@
 	dir = 4
 	},
 /obj/machinery/camera/directional/north{
-	pixel_x = 21;
-	pixel_y = 0
+	pixel_x = 21
 	},
 /turf/open/floor/engine,
 /area/station/science/xenobiology)
@@ -66125,8 +66116,7 @@
 /obj/structure/ladder,
 /obj/machinery/elevator_control_panel/directional/south{
 	linked_elevator_id = "tram_xeno_lift";
-	pixel_x = 31;
-	pixel_y = -31
+	pixel_x = 31
 	},
 /turf/open/floor/iron/white,
 /area/station/science/xenobiology)
