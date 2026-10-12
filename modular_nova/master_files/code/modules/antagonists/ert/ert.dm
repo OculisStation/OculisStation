@@ -14,7 +14,7 @@
 	role = "Officer"
 
 /datum/antagonist/ert/solfed
-	name = "SolGov Auditor"
+	name = "SolFed Auditor"
 	outfit = /datum/outfit/solfed/lowrank
 	role = "Auditor"
 	suicide_cry = "FOR THE FEDERATION!!!!"
@@ -28,13 +28,13 @@
 	role = "Civil Services Worker"
 
 /datum/antagonist/ert/solfed/leader
-	name = "Lead SolGov Auditor"
+	name = "Lead SolFed Auditor"
 	outfit = /datum/outfit/solfed
 	role = "Lead Auditor"
 	leader = TRUE
 
 /datum/antagonist/ert/solfed/espatier
-	name = "SolGov Espatier"
+	name = "SolFed Espatier"
 	outfit = /datum/outfit/solfed/espatier
 	role = "Rifleman"
 
@@ -43,17 +43,17 @@
 	name_source = GLOB.last_names
 
 /datum/antagonist/ert/solfed/espatier/engineer
-	name = "SolGov Espatier Engineer"
+	name = "SolFed Espatier Engineer"
 	outfit = /datum/outfit/solfed/espatier/engineer
 	role = "Engineer"
 
 /datum/antagonist/ert/solfed/espatier/corpsman
-	name = "SolGov Espatier Corpsman"
+	name = "SolFed Espatier Corpsman"
 	outfit = /datum/outfit/solfed/espatier/corpsman
 	role = "Corpsman"
 
 /datum/antagonist/ert/solfed/espatier/leader
-	name = "SolGov Espatier Squad Leader"
+	name = "SolFed Espatier Squad Leader"
 	outfit = /datum/outfit/solfed/espatier/squadleader
 	role = "Squad Leader"
 	leader = TRUE
@@ -76,17 +76,17 @@
 
 /// Grand Response variant
 /datum/antagonist/ert/solfed/grand_espatier/engineer
-	name = "SolGov Espatier Engineer"
+	name = "SolFed Espatier Engineer"
 	outfit = /datum/outfit/solfed/grand_espatier/engineer
 	role = "Engineer"
 
 /datum/antagonist/ert/solfed/grand_espatier/corpsman
-	name = "SolGov Espatier Corpsman"
+	name = "SolFed Espatier Corpsman"
 	outfit = /datum/outfit/solfed/grand_espatier/corpsman
 	role = "Corpsman"
 
 /datum/antagonist/ert/solfed/grand_espatier/leader
-	name = "SolGov Espatier Squad Leader"
+	name = "SolFed Espatier Squad Leader"
 	outfit = /datum/outfit/solfed/grand_espatier/squadleader
 	role = "Squad Leader"
 	leader = TRUE

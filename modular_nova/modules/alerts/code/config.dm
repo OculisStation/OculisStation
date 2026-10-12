@@ -50,4 +50,4 @@
 	config_entry_value = "The Sol Goverment has released Military Command and action over the station. Sectorial Command is now in full command authority of the station, comply with all instructions from Nanotrasen Sectorial Command staff, Crew cooperation is compulsory! Have a Secure Day!" // OCULIS EDIT, SectCommening 2, ORIGINAL: config_entry_value = "The Sol Goverment has released Military Command and action over the station. Central Command is now in full command authority of the station, comply with all instructions from Nanotrasen Central Command staff, Crew cooperation is compulsory! Have a Secure Day!"
 
 /datum/config_entry/string/alert_federal
-	config_entry_value = "The Sol Goverment has placed this galactic sector under its full command. All star systems within this sector are now under Military Law. Comply with all official SolGov instructions."
+	config_entry_value = "The Sol Goverment has placed this galactic sector under its full command. All star systems within this sector are now under Military Law. Comply with all official SolFed instructions."

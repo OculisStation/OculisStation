@@ -39,27 +39,27 @@
 
 /// Solfed Helmets
 /obj/item/clothing/head/helmet/solfed/mk2/corpsman
-	name = "\improper SolGov Corpsman MK II Combat Helmet"
+	name = "\improper SolFed Corpsman MK II Combat Helmet"
 	greyscale_colors = "#1dd2ff"
 
 /obj/item/clothing/head/helmet/solfed/mk2/engineer
-	name = "\improper SolGov Engineer MK II Combat Helmet"
+	name = "\improper SolFed Engineer MK II Combat Helmet"
 	greyscale_colors = "#ff1d1d"
 
 /obj/item/clothing/head/helmet/solfed/mk2/squadlead
-	name = "\improper SolGov Squad Leader MK II Combat Helmet"
+	name = "\improper SolFed Squad Leader MK II Combat Helmet"
 	greyscale_colors = "#ffe81d"
 
 /obj/item/clothing/head/helmet/solfed/corpsman
-	name = "\improper SolGov Corpsman MK I Combat Helmet"
+	name = "\improper SolFed Corpsman MK I Combat Helmet"
 	greyscale_colors = "#1dd2ff"
 
 /obj/item/clothing/head/helmet/solfed/engineer
-	name = "\improper SolGov Engineer MK I Combat Helmet"
+	name = "\improper SolFed Engineer MK I Combat Helmet"
 	greyscale_colors = "#ff1d1d"
 
 /obj/item/clothing/head/helmet/solfed/squadlead
-	name = "\improper SolGov Squad Leader MK I Combat Helmet"
+	name = "\improper SolFed Squad Leader MK I Combat Helmet"
 	greyscale_colors = "#ffe81d"
 
 /// Multi-Cam pattern
