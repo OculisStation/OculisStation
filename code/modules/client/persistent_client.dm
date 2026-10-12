@@ -53,7 +53,7 @@ GLOBAL_LIST_EMPTY_TYPED(persistent_clients, /datum/persistent_client)
 /datum/persistent_client/proc/set_client(client/new_client)
 	if(client == new_client)
 		return
-
+	
 	if(client)
 		client.persistent_client = null
 	client = new_client

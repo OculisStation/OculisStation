@@ -774,6 +774,7 @@
 		alterer,
 		alterer,
 		list(
+			"Skin Tones" = bodycolours_icon, // OCULIS EDIT ADDITION
 			"Body Colours" = bodycolours_icon,
 			"DNA" = dna_icon,
 			"Hair" = hair_icon,
@@ -785,10 +786,17 @@
 		return
 	switch(selected_alteration)
 		if("Body Colours")
+			/* // OCULIS EDIT REMOVAL START
 			if(HAS_TRAIT(alterer, TRAIT_USES_SKINTONES))
 				alter_skin_colours(alterer)
 			else
 				alter_colours(alterer)
+			*/ // OCULIS EDIT REMOVAL END
+		// OCULIS EDIT ADDITION START
+			alter_colours(alterer)
+		if("Skin Tones")
+			alter_skin_colours(alterer)
+		// OCULIS EDIT ADDITION END
 		if("DNA")
 			alter_dna(alterer)
 		if("Hair")

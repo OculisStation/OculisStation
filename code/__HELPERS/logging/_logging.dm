@@ -196,13 +196,6 @@ GLOBAL_LIST_INIT(testing_global_profiler, list("_PROFILE_NAME" = "Global"))
 		M = C.mob
 		key = C.key
 		ckey = C.ckey
-	// OCULIS EDIT ADDITION START
-	else if(istype(whom, /datum/client_interface))
-		C = whom
-		M = C.mob
-		key = C.key
-		ckey = C.ckey
-	// OCULIS EDIT ADDITION END
 	else if(ismob(whom))
 		M = whom
 		C = M.client

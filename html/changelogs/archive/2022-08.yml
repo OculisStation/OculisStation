@@ -419,11 +419,6 @@
       shuttle in a separate direction, fixing Lavaland's labor camp stacking machine.
   - qol: Labor camp's point checker now states all the information you need, rather
       than being a paragraph of text that just appears in chat.
-  Vishenka0704:
-  - rscadd: Cum on face action in Climax verb
-  - bugfix: now you cum on chosen target, not on you.
-  - bugfix: now the choice of sheath in the menu is only available with those who
-      have sheath
   YakumoChen:
   - bugfix: Ring boxes now once again initially contain the rings they're supposed
       to carry.
