@@ -38,7 +38,6 @@
 	icon = 'icons/obj/food/meat.dmi'
 	icon_state = "sausage"
 	base_icon_state = "sausage"
-
 	caliber = CALIBER_980TYDHOUER
 	projectile_type = /obj/projectile/bullet/sausage
 	custom_materials = list(/datum/material/meat = SHEET_MATERIAL_AMOUNT)
