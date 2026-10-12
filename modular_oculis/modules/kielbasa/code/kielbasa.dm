@@ -32,7 +32,6 @@
 	icon_state = "granata_drum"
 
 	w_class = WEIGHT_CLASS_NORMAL
-
 	max_ammo = 6
 
 
