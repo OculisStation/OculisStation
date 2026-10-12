@@ -15,6 +15,10 @@
 	if(bioboost_end_message)
 		to_chat(owner, bioboost_end_message)
 
+/obj/item/organ/Remove(mob/living/carbon/organ_owner, special, movement_flags)
+	end_bioboost()
+	. = ..()
+
 
 /obj/item/organ/bioimplant/fleshwelder
 	name = "fleshwelding gland"
@@ -37,7 +41,7 @@
 	attack_verb_simple = list("gland", "weld")
 	can_bioboost = TRUE
 	bioboost_start_message = span_info("Your flesh aches with a revitalizing heat!")
-	bioboost_end_message = span_info("The energy fades.")
+	bioboost_end_message = span_info("The revitalizing heat fades.")
 
 	// meds are stored in the... medicine sac i guess??
 	food_reagents = list(/datum/reagent/consumable/nutriment/organ_tissue = 5, /datum/reagent/medicine/fleshsolder = 5)
@@ -51,20 +55,22 @@
 	. = ..()
 	if(organ_flags & ORGAN_FAILING)
 		if(SPT_PROB(10, seconds_per_tick))
-			owner.adjust_brute_loss(10, forced = TRUE)
+			owner.adjust_brute_loss(20)
 			to_chat(owner, span_danger("It feels like your blood is frozen!"))
+			owner.vomit(VOMIT_CATEGORY_BLOOD)
 		return
 	if(damage > high_threshold)
 		if(SPT_PROB(5, seconds_per_tick))
-			to_chat(owner, span_warning("The fuzz flares to an agonizing potency."))
+			to_chat(owner, span_warning("The fuzz flares to an agonizing potency!"))
 			owner.adjust_dizzy_up_to(20 SECONDS, 1 MINUTES)
+			owner.adjust_jitter_up_to(1 MINUTE, 5 MINUTES)
 			if(prob(20))
 				owner.vomit(VOMIT_CATEGORY_BLOOD)
 	else if(damage > low_threshold)
 		if(SPT_PROB(5, seconds_per_tick))
-			to_chat(owner, span_warning("The fuzz flares to an agonizing potency."))
-			if(prob(20))
-				owner.vomit(VOMIT_CATEGORY_BLOOD)
+			to_chat(owner, span_warning("You feel cold."))
+			owner.emote("shiver")
+			owner.adjust_jitter_up_to(20 SECONDS, 2 MINUTES)
 	for(var/datum/wound/toweld as anything in owner.all_wounds)
 		var/self_damage = toweld.on_fleshweld(power, bloodfix, burnfix, bonefix)
 		if(self_damage)
@@ -198,3 +204,20 @@
 	purity_min = 0.3
 	reaction_flags = REACTION_PH_VOL_CONSTANT
 	reaction_tags = REACTION_TAG_HEALING
+
+/datum/micro_organism/cell_line/organs/fleshwelderweak
+	desc = "diminished fleshwelding cells"
+
+	required_reagents = list(/datum/reagent/consumable/nutriment/organ_tissue)
+
+	supplementary_reagents = list(
+		/datum/reagent/iron = 6,
+		/datum/reagent/blood = 3,
+		/datum/reagent/consumable/nutriment = 1,
+	)
+
+	suppressive_reagents = list(
+		/datum/reagent/toxin/mutagen = -2,
+	)
+
+	resulting_atom = /obj/item/organ/liver
