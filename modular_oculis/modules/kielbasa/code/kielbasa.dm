@@ -35,7 +35,6 @@
 /obj/item/ammo_casing/c980sausage
 	name = ".980 Sausage"
 	desc = "A large sausage that deals stamina damage and is a sausage."
-
 	icon = 'icons/obj/food/meat.dmi'
 	icon_state = "sausage"
 	base_icon_state = "sausage"
