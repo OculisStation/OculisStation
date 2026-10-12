@@ -1,0 +1,380 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "genetics_shutters";
+	name = "Genetics Shutters"
+	},
+/turf/open/floor/plating,
+/area/station/science/genetics)
+"b" = (
+/obj/effect/turf_decal/trimline/purple/filled/warning{
+	dir = 8
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 4
+	},
+/area/station/science/lobby)
+"c" = (
+/obj/machinery/destructive_scanner,
+/obj/effect/turf_decal/stripes/end,
+/turf/open/floor/iron/white/smooth_large,
+/area/station/science/lobby)
+"f" = (
+/obj/effect/turf_decal/trimline/purple/filled/line,
+/obj/structure/table,
+/obj/item/stock_parts/servo,
+/obj/item/stock_parts/servo,
+/obj/item/stock_parts/servo,
+/obj/item/stock_parts/capacitor,
+/obj/item/radio/intercom/directional/south,
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 1
+	},
+/area/station/science/lobby)
+"h" = (
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	dir = 8
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 4
+	},
+/area/station/science/lobby)
+"i" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron/white/smooth_large,
+/area/station/science/lobby)
+"j" = (
+/obj/effect/turf_decal/trimline/red/filled/line{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/sign/poster/official/report_crimes/directional/east,
+/turf/open/floor/iron/edge{
+	dir = 8
+	},
+/area/station/hallway/primary/fore)
+"k" = (
+/turf/template_noop,
+/area/template_noop)
+"l" = (
+/obj/effect/turf_decal/trimline/purple/filled/line,
+/obj/structure/extinguisher_cabinet/directional/south,
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 1
+	},
+/area/station/science/lobby)
+"m" = (
+/obj/item/kirbyplants/random,
+/obj/effect/turf_decal/trimline/purple/filled/warning{
+	dir = 9
+	},
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/machinery/firealarm/directional/north,
+/turf/open/floor/iron/white,
+/area/station/science/lobby)
+"o" = (
+/turf/open/floor/iron/white/smooth_large,
+/area/station/science/lobby)
+"q" = (
+/obj/structure/table/reinforced,
+/obj/machinery/door/firedoor,
+/obj/structure/desk_bell{
+	pixel_x = 7;
+	pixel_y = 9
+	},
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "genetics_shutters";
+	name = "Genetics Shutters"
+	},
+/obj/machinery/door/window/left/directional/west{
+	name = "Genetics Desk";
+	req_access = list("genetics")
+	},
+/obj/item/paper_bin{
+	pixel_x = -3;
+	pixel_y = 4
+	},
+/obj/item/pen{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/item/folder/white,
+/turf/open/floor/iron/white/smooth_large,
+/area/station/science/genetics)
+"r" = (
+/obj/structure/chair/sofa/bench/right{
+	dir = 8
+	},
+/obj/structure/railing{
+	dir = 5
+	},
+/turf/open/floor/iron/white/smooth_large,
+/area/station/science/lobby)
+"u" = (
+/obj/structure/chair/sofa/bench/left{
+	dir = 8
+	},
+/obj/structure/railing{
+	dir = 6
+	},
+/turf/open/floor/iron/white/smooth_large,
+/area/station/science/lobby)
+"v" = (
+/obj/machinery/holopad,
+/obj/effect/turf_decal/bot,
+/turf/open/floor/iron/white/smooth_large,
+/area/station/science/lobby)
+"A" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "rndlab1";
+	name = "Research and Development Shutter"
+	},
+/turf/open/floor/plating,
+/area/station/science/lab)
+"B" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/iron/white/smooth_large,
+/area/station/science/lobby)
+"C" = (
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/north,
+/turf/open/floor/iron/white,
+/area/station/science/lobby)
+"D" = (
+/obj/effect/turf_decal/trimline/purple/filled/warning{
+	dir = 9
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/landmark/start/hangover,
+/turf/open/floor/iron/white,
+/area/station/science/lobby)
+"E" = (
+/turf/closed/wall/r_wall,
+/area/station/science/genetics)
+"F" = (
+/obj/structure/chair/sofa/bench/left{
+	dir = 8
+	},
+/obj/effect/landmark/start/assistant,
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/open/floor/iron/white/smooth_large,
+/area/station/science/lobby)
+"I" = (
+/turf/closed/wall,
+/area/station/science/lobby)
+"J" = (
+/obj/effect/landmark/start/hangover,
+/turf/open/floor/iron/white/smooth_large,
+/area/station/science/lobby)
+"K" = (
+/obj/machinery/camera/directional/north{
+	c_tag = "Science - Lobby";
+	name = "science camera";
+	network = list("ss13","rd")
+	},
+/obj/structure/sign/nanotrasen{
+	pixel_y = 32
+	},
+/obj/machinery/vending/modularpc,
+/turf/open/floor/iron/white/smooth_edge,
+/area/station/science/lobby)
+"L" = (
+/obj/effect/turf_decal/trimline/purple/filled/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
+	},
+/obj/structure/cable,
+/turf/open/floor/iron/white/smooth_corner{
+	dir = 1
+	},
+/area/station/science/lobby)
+"M" = (
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	dir = 10
+	},
+/obj/structure/table,
+/obj/item/pai_card,
+/turf/open/floor/iron/white,
+/area/station/science/lobby)
+"N" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/iron/white/smooth_large,
+/area/station/science/lobby)
+"O" = (
+/obj/structure/table/reinforced,
+/obj/machinery/door/window/left/directional/west{
+	name = "Research Lab Desk";
+	req_access = list("science")
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "rndlab1";
+	name = "Research and Development Shutter"
+	},
+/obj/structure/desk_bell/department/science{
+	pixel_x = 6
+	},
+/turf/open/floor/iron/white/smooth_large,
+/area/station/science/lobby)
+"P" = (
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	dir = 8
+	},
+/obj/structure/table,
+/obj/machinery/airalarm/directional/west,
+/obj/item/stack/package_wrap,
+/obj/item/hand_labeler,
+/obj/machinery/light/cold/directional/west,
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 4
+	},
+/area/station/science/lobby)
+"Q" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/turf/open/floor/iron/white/smooth_large,
+/area/station/science/lobby)
+"S" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/iron/large,
+/area/station/hallway/primary/fore)
+"T" = (
+/obj/structure/chair/sofa/bench/right{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/purple/filled/corner{
+	dir = 1
+	},
+/obj/effect/landmark/start/assistant,
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/open/floor/iron/white/smooth_corner{
+	dir = 1
+	},
+/area/station/science/lobby)
+"U" = (
+/obj/effect/turf_decal/trimline/purple/filled/line,
+/obj/item/kirbyplants/random,
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 1
+	},
+/area/station/science/lobby)
+"V" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
+	},
+/turf/open/floor/iron/white/smooth_large,
+/area/station/science/lobby)
+"X" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/purple/filled/warning{
+	dir = 8
+	},
+/obj/structure/cable,
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 4
+	},
+/area/station/science/lobby)
+
+(1,1,1) = {"
+E
+a
+q
+a
+E
+A
+O
+A
+"}
+(2,1,1) = {"
+I
+c
+D
+h
+P
+h
+b
+M
+"}
+(3,1,1) = {"
+C
+X
+L
+B
+i
+i
+V
+f
+"}
+(4,1,1) = {"
+K
+o
+Q
+N
+v
+J
+o
+l
+"}
+(5,1,1) = {"
+m
+T
+u
+N
+o
+r
+F
+U
+"}
+(6,1,1) = {"
+k
+k
+k
+S
+k
+k
+k
+k
+"}
+(7,1,1) = {"
+k
+k
+k
+S
+k
+k
+k
+k
+"}
+(8,1,1) = {"
+k
+k
+k
+j
+k
+k
+k
+k
+"}
