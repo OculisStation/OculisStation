@@ -1009,22 +1009,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/bridge)
-"cn" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/remains/human{
-	desc = "They look like human remains, and have clearly been gnawed at."
-	},
-/obj/effect/decal/cleanable/blood/gibs/old,
-/obj/item/clothing/head/hats/centhat{
-	desc = "There's a gouge through the top where something has clawed clean through it. Whoever was wearing it probably doesn't need a hat any more.";
-	name = "\improper damaged SectCom hat";
-	pixel_x = 2;
-	pixel_y = 2
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
-/obj/structure/cable,
-/turf/open/floor/iron/dark,
-/area/shuttle/abandoned/bridge)
 "co" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 4
@@ -1764,19 +1748,6 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/cargo)
-"sg" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/turf_decal/box/white/corners{
-	dir = 1
-	},
-/obj/structure/closet/crate,
-/obj/item/grenade/chem_grenade/metalfoam,
-/obj/item/relic,
-/obj/item/t_scanner,
-/obj/effect/spawner/random/maintenance/three,
-/obj/effect/turf_decal/tile/neutral/fourcorners,
-/turf/open/floor/iron/dark,
-/area/shuttle/abandoned/cargo)
 "vm" = (
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/abandoned/medbay)
@@ -1806,6 +1777,22 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/cargo)
+"BM" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/remains/human{
+	desc = "They look like human remains, and have clearly been gnawed at."
+	},
+/obj/effect/decal/cleanable/blood/gibs/old,
+/obj/item/clothing/head/hats/centhat{
+	desc = "There's a gouge through the top where something has clawed clean through it. Whoever was wearing it probably doesn't need a hat any more.";
+	name = "\improper damaged SectCom hat";
+	pixel_x = 2;
+	pixel_y = 2
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
+/obj/structure/cable,
+/turf/open/floor/iron/dark,
+/area/shuttle/abandoned/bridge)
 "Ch" = (
 /obj/effect/turf_decal/bot_white,
 /obj/effect/decal/cleanable/dirt,
@@ -1822,6 +1809,19 @@
 /obj/effect/decal/cleanable/cobweb,
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/medbay)
+"CG" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/box/white/corners{
+	dir = 1
+	},
+/obj/structure/closet/crate,
+/obj/item/grenade/chem_grenade/metalfoam,
+/obj/item/assembly/relic,
+/obj/item/t_scanner,
+/obj/effect/spawner/random/maintenance/three,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/turf/open/floor/iron/dark,
+/area/shuttle/abandoned/cargo)
 "DZ" = (
 /obj/effect/turf_decal/delivery/white,
 /obj/effect/decal/cleanable/dirt,
@@ -2066,7 +2066,7 @@ bC
 bR
 bX
 cf
-cn
+BM
 ct
 bC
 cP
@@ -2315,7 +2315,7 @@ aa
 aa
 aa
 cz
-sg
+CG
 ES
 ds
 pn

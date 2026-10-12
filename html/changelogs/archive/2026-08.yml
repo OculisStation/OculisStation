@@ -94,6 +94,15 @@
       and alien tongues.
   - rscadd: Wearing a monkey mask will change the sound of screams to monkey screeches.
   - rscadd: Wearing a pair of kitty ears will let you perform cat emotes.
+  KnigTheThrasher:
+  - map: surface ice wastes have purple lighting and glowy plants
+  ManiacalAnxiety:
+  - rscadd: Completely revamps the space-variant of the syndicate listening post,
+      giving it a new structure to work with.
+  - config: Removed the old syndicate listening post by adding it to the space ruin
+      blacklist.
+  - balance: Removed the esword and makarov from the space-variant comms agent in
+      favor of a gun case in the structure.
   Melbert:
   - spellcheck: Regeneration chat messages read better
   - rscadd: Zombie is no longer a distinct "species" (except High-Functioning Zombie
@@ -122,23 +131,14 @@
       PDAs.
   SmArtKar:
   - refactor: Refactored ethereals to use limb statuses instead of species code
-  hry-gh:
-  - qol: added chat messages when your chat storage has been reset
-  - bugfix: if you've not been playing for awhile and came back, your chat storage
-      may have been reset. this should no longer happen
-  KnigTheThrasher:
-  - map: surface ice wastes have purple lighting and glowy plants
-  ManiacalAnxiety:
-  - rscadd: Completely revamps the space-variant of the syndicate listening post,
-      giving it a new structure to work with.
-  - config: Removed the old syndicate listening post by adding it to the space ruin
-      blacklist.
-  - balance: Removed the esword and makarov from the space-variant comms agent in
-      favor of a gun case in the structure.
   epicgamer545:
   - rscadd: Roboticists now have access to medical record consoles.
   - map: Medical record consoles have been installed in all Robotics Wings, except
       Kilostation.
+  hry-gh:
+  - qol: added chat messages when your chat storage has been reset
+  - bugfix: if you've not been playing for awhile and came back, your chat storage
+      may have been reset. this should no longer happen
   keygenpie:
   - rscadd: New space pirate portal-storm variant
   - rscadd: New netherworld portal-storm variant
@@ -232,6 +232,11 @@
 2026-08-07:
   FalloutFalcon:
   - code_imp: Adds mirror to download byond versions for CLI
+  Hatterhat:
+  - balance: Sterilizine now cleanses gaseous miasma into gaseous oxygen when exposed
+      to turfs (e.g. via smoke or foam).
+  Hollandasie:
+  - rscadd: Adds alt variants of shot mammal snout
   Metek:
   - refactor: Thanks to cutting edge technological advances, check_breath() calculations
       have been optimized by approximately 41% ( using alist() instead of list() )
@@ -249,11 +254,6 @@
       (resulting in missing pixels from their uniforms in weird spots)
   - bugfix: fixed an issue where teshari accessories were not aligning to the correct
       spot
-  Hatterhat:
-  - balance: Sterilizine now cleanses gaseous miasma into gaseous oxygen when exposed
-      to turfs (e.g. via smoke or foam).
-  Hollandasie:
-  - rscadd: Adds alt variants of shot mammal snout
 2026-08-08:
   Gboster-0:
   - code_imp: fixed chasms ignoring lattices on top of them in some scenario's, creating
@@ -369,10 +369,61 @@
   - bugfix: Fix spawn text appearing over HUD. Move spawn text to the top left of
       the screen
 2026-08-12:
+  JohnFulpWillard:
+  - qol: Alien larva's 'Evolve' button now says when it's ready, rather than being
+      in the stat panel.
+  Melbert:
+  - qol: Gizmos pulsed by assembies give feedback sounds
+  - qol: Gizmo feedback alerts are shown to all nearby mobs, rather than just the
+      pulser
+  - bugfix: If a cuffed item enters an anchored object like a closet, the cuffee become
+      stuck to the anchored object, rather than the anchored object being stuck to
+      the cuffee.
+  - bugfix: You can no longer put cuffed objects in any object manually (i.e. by clicking
+      on it). This affects objects like grinders, deep fryers, and soup pots.
+  - qol: Cuffed item examine text is now shown in examine, rather than double-examine
+  - balance: Any mob can attempt to remove someone's cuffed item, rather than just
+      the cuffee. However it takes double the amount of time for non-cuffees.
+  SmArtKar:
+  - balance: Crusher trophies are now small and can be stowed in explorer webbings
+  - balance: Crusher trophies are slightly cheaper to craft
+  - balance: Icewing trophy backstep distance reduced from 2 to 1 to be less disorienting
   XeonMations:
   - bugfix: Moving a crate past a pixelshifted person will no longer cause their sprite
       to move up.
+  lelandkemble:
+  - map: Added several holopads to Kilostation
+  siliconOpossum:
+  - bugfix: Wall signs will no longer say you're changing them when someone else is
 2026-08-13:
+  Aliceee2ch:
+  - qol: Medical Records console now uses dropdowns for blood type field instead of
+      manual typing
+  ArcaneMusic:
+  - balance: Golems now have slightly less aggressive metabolism.
+  - bugfix: Golem foods now offer different levels of nutrition! Finally!
+  - balance: Golems now offer more nutrition from rarer ores.
+  - balance: Golems now get further additional nutrition from eating processed ore
+      sheets instead of raw ore.
+  - map: The free golem ship now has shutters to block wildlife from attacking while
+      inside.
+  - bugfix: Weakpoints, and weakpoints spawned by weakpoints being detonated, should
+      no longer be spawning invisible.
+  - balance: The number of weakpoints that spawn on regular maps has increased from
+      3 to 5.
+  - balance: The number of weakpoints that spawn on the "Structural Weaknesses" station
+      trait now spawns 6 to 12, instead of 4 to 8 weakpoints.
+  Fghj240:
+  - rscadd: Added a new virus chem, Exotic Agar, that gives you level 9 symptoms
+  - balance: Reorganized virus symptoms among 9 levels instead of 8.
+  - balance: The dizziness virus symptom has higher stats and slightly shorter status
+      effect duration
+  - balance: aggressive healing is now cured by spaceacillin like every other healing
+      symptom
+  - rscadd: Added a new symptom, Hypertension. Unlike regular hypertension, this one
+      causes blood vessels to violently rupture all across your body.
+  - rscadd: Added a new symptom, Mutated Regeneration. It heals you.
+  - code_imp: improved code around suppressing virology symptom fluff text
   ManiacalAnxiety:
   - rscadd: Added 12 Titles, affecting CMO, Doctor, Roboticist, Curator, Bartender,
       and Paramedic.
@@ -380,6 +431,317 @@
   - qol: Re-formatted MD, CMO, Paramedic, and Roboticist titles for easier reading.
   - rscadd: Added SDSM-35, IDC-27, Chuunibyou Manual, Toy Wizard Staff, and Nurse/Paramedic
       uniforms to loadout.
+  PapaMichael:
+  - bugfix: You no longer hear radio TTS while unconscious
+  SirNightKnight, JohnFulpWillard:
+  - qol: Decreased the volume of slime footsteps.
+  - qol: Slimes now have new HUD entries from the information that was previously
+      in the stat panel.
+  TalkingCactus, sergeirocks100:
+  - image: The anthromorph and synthmammal sprites have been tweaked slightly, namely
+      by adding in some away-facing hand sprites, removing an unnecessary pixel from
+      the bottom of the male torso, and removing another pixel from the back of the
+      neck of the female head side sprites, as well as removing the ears from the
+      head side sprites.
+  - image: The plain body markings have been updated as described above, with the
+      exception of the female head sprite change.
+  - image: Away facing sprites on hand markings that were supposed to have them should
+      now display as they should. Do report if there's any oddities.
+  Y0SH1M4S73R:
+  - bugfix: revenants should far less frequently be rendered vulnerable for far longer
+      than they should be
+  lelandkemble:
+  - bugfix: General Beepsky no longer provides an extra free esword when destroyed
+  - qol: Added an examine hint on clogged vents that tells you about using a plunger
+      on it
+  - map: Added several holopads to Kilostation
+  mrmanlikesbt:
+  - refactor: Techweb and design code has been refactored.
+  - bugfix: Fixed anomaly cores not granting research points in the destructive analyzer.
+  - bugfix: Fixed exosuit fabricators
+  sergeirocks100:
+  - bugfix: The regular, midway, hearts, commie, freedom, and UK boxers, as well as
+      the long johns, should all now use their proper digitigrade sprites.
+2026-08-14:
+  FalloutFalcon:
+  - bugfix: Ants and shade mobs are plural is seemingly intended
+  JohnFulpWillard:
+  - bugfix: The Escape menu has Webmap URLs again.
+  RusselNotSCP:
+  - bugfix: Flesh heretics now benefit from eating the organs of non-meaty victims,
+      such as fish and podpeople.
+  SmArtKar:
+  - code_imp: Optimized /datum/gas_mixture/proc/archive() by ~42%
+  rkz/tsar-salat:
+  - bugfix: fixed a screaming icon stacktrace proc designed to scream, not screaming.
+  - bugfix: stumps continue to not render, as they should, as opposed to not rendering
+      because their rendering was broken
+  timothymtorres:
+  - bugfix: Fix helmets being flammable when armor is not
 2026-08-15:
   XeonMations:
   - spellcheck: removed additional references to irisstation
+2026-08-16:
+  sergeirocks100:
+  - bugfix: Neckerchiefs should no longer look wonky if you have a snout.
+  sqnztb:
+  - bugfix: medical records shouldn't be bluescreening now
+2026-08-17:
+  Shroopy:
+  - rscadd: Added moth eyes to the augments list.
+  - bugfix: Fixed the height bug that messed up faces on tall characters.
+  Skies-Of-Blue:
+  - qol: Doubles the available loadout preset slots
+  epicgamer545:
+  - bugfix: On Wawastation, the robotics medical records console now is placed in
+      the right spot (robotics) instead of near the holodeck.
+2026-08-18:
+  Hollandasie:
+  - rscadd: Added an open-backed sweater
+  Iajret:
+  - bugfix: Alien technodes no longer available roundstart
+  Maximal08:
+  - bugfix: Ashen Eyes description no longer states that they are a focus
+  PapaMichael:
+  - bugfix: The Destructive Analyzer properly unlocks research nodes again
+  Shroopy:
+  - bugfix: Fixed expanded .38 speedloader crafting.
+  TealSeer:
+  - bugfix: fixed icons in the biogenerator UI being broken
+  curiousbookshelf:
+  - bugfix: Fixes Social Anxiety blocking speech even when the block chance is set
+      to zero.
+2026-08-19:
+  XeonMations:
+  - rscadd: Added custom roll emote.
+  - rscdel: Removed old roll emotes.
+  - qol: By default, particle weather is set to be disabled.
+2026-08-20:
+  Arceniu:
+  - bugfix: fixed a misc radio channels(cybersun, guild, faction/solfed)
+  Hatterhat:
+  - bugfix: .38 speedloader widening kits work again.
+  JerryWester:
+  - code_imp: Adds a function to attempt the removal of an appendix if one is present
+      in an AI uplink shell going through the SAD, allowing for biosynthetic shells
+  Jureiia:
+  - bugfix: Interdyne's cargo orders have now been made a little more consistent with
+      what they're labelled as.
+  Skies-Of-Blue:
+  - balance: colour filters now affect held/equipped/stored items in addition to the
+      standard game plane
+  sergeirocks100:
+  - bugfix: Xenomorph hybrids can now access their plantigrade legs. If the legs on
+      your xenohybrid character are plantigrade all of a sudden, and you want to go
+      back to how they were, then don't forget to go into the character preferences,
+      and change the legs from "Normal Legs" to "Digitigrade Legs".
+2026-08-21:
+  Morskoikot:
+  - rscadd: Added Chemnaga, Leopard seal, Insect + winged alt and Bunny taur sprites.
+  SmArtKar:
+  - rscadd: Every 5 minutes 2-4 random cargo exports get tripled in price, lets go
+      gambling!
+  W0LF-101:
+  - bugfix: Reskinning the Laevateinn revolver no longer breaks its belt and suit
+      storage slot sprite.
+  sqnztb:
+  - balance: waves of mobs spawned from ore vents will only attack the player now
+  - code_imp: Automapper templates are no longer overwritten by modular map modules
+2026-08-22:
+  FalloutFalcon:
+  - refactor: breaks up navigate code into a proc for the choice vs the line creation
+  - admin: Admin VV topic to navigate a player to a marked object
+  Melbert:
+  - balance: Donk. Flechette rounds aren't stealthy embeds and can be hand removed
+  PapaMichael:
+  - bugfix: AI tracking from the crew monitoring console now works for people who
+      have set an ID card honorific too
+  Vishenka0704:
+  - rscdel: Condo's hotel upgrade
+  YuiY1997:
+  - map: added dorms common area automapper template
+2026-08-23:
+  DeltaFire15:
+  - bugfix: Roundstart wings no longer contain the reagent that grants you flight
+      potion wings.
+  - bugfix: The Cybernetic Limb Mounts trait is now better at deciding whether you
+      should or shouldn't be able to pull off your own head (limb blacklisted if it
+      contains your brain instead of only if you are organic).
+  - bugfix: The Cybernetic Limb Mounts trait no longer lets you pull off limbs with
+      the BODYPART_UNREMOVABLE flag.
+  - bugfix: Surgical NIF repairs are no longer impossible.
+  FalloutFalcon:
+  - bugfix: Anchored Items cant be looted with quick inserting from bags
+  JohnFulpWillard:
+  - qol: Pressing backspace while unfocused now clears your command bar.
+  - qol: The Command bar now starts on Say instead of Command mode.
+  Melbert:
+  - bugfix: Humans can take CSL
+  Richard Blonski:
+  - bugfix: Chat Highlight sounds are off by default now.
+  - qol: Chat Highlights won't trigger on self-actions or radio channel names.
+  Shroopy:
+  - rscadd: Added hand labelers and MOD paint kits to loadouts.
+  Skies-Of-Blue:
+  - balance: entombed characters spawning as a shaft miner will now be given the ash
+      accretion module, hopefully making it less of a miserable experience
+  SmArtKar:
+  - rscdel: Goldgrub no longer reproduce unless hand fed ores
+  XeonMations:
+  - balance: you can now get a maximum of 8 things per category in the loadouts menu
+2026-08-24:
+  Absolucy:
+  - rscadd: Added purple luxury medipens. These are given instead when bought with
+      a jellyperson's bank account. They are jelly-friendly, however heal less than
+      normal luxury pens. They also make you more purple. Sprite by Bieyes.
+  Neocloudy:
+  - bugfix: '[NOVA] Delayed unrestricted access on airlocks now works on TG maps,
+      and any Nova maps that may implement it.'
+  XeonMations:
+  - bugfix: fixed the game not compiling
+  curiousbookshelf:
+  - map: Removed the extra set of Jaws of Recovery on Void Raptor
+  levels0:
+  - rscadd: certain cursed mirrors might now talk
+2026-08-25:
+  ArcaneMusic:
+  - bugfix: Mushroom hallucinogen does not apply it's drug effect if the target has
+      no client.
+  FalloutFalcon:
+  - admin: Painting and Trophy manager no longer permanently deletes itself after
+      the first close
+  Ghommie:
+  - balance: Other apes, like gorillas, can have fun popping balloons with foam darts
+      as well. They can also perform some monkey emotes now.
+  JohnFulpWillard:
+  - refactor: Changed how TGUI icons for jobs are set, please make a report if any
+      are missing.
+  Melbert:
+  - qol: Upon scanning a target with a gas analyzer, its UI will update constantly
+      as the target's gas mixture changes (so long as you stay in range). No more
+      spam clicking to see the status of your gas canister.
+  - qol: Gas analyzer and gas chamber UIs both received facelifts. Both now list out
+      all available gases and gas reactions, and now contain some additional info
+      like export value.
+  - spellcheck: '"Dumbed down" some atmos tooltips, for lack of a better word.'
+  - spellcheck: Grammar pass on a lot of atmos related content.
+  - spellcheck: Hyper-noblium renamed to Hyper-Noblium
+  - spellcheck: Proto Nitrate renamed to Proto-Nitrate
+  - spellcheck: Antinoblium renamed to Anti-Noblium
+  - refactor: Refactored how gas reactions and electrolyzer reactions are setup, report
+      anything weird with them
+  - refactor: Refactored buying and selling gas from cargo a tiny bit, report anything
+      weird with them
+  - qol: Gas chamber UIs now default to showing information pertaining to whichever
+      gas is held within
+  - qol: Blind players can access the gas analyzer UI
+  - code_imp: Cleaned up code that stops you from removing cuffs while removing cuffs.
+      Report any oddities
+  - code_imp: Cleaned up code involving Bluespace bags interfering with teleports.
+      Report any oddities
+  - code_imp: Cleaned up code that prevents tinfoil hats from being equipped on throw.
+      Report any oddities
+  - code_imp: Cleaned up code that determines if masks should filter toxins out of
+      breathed air. Report any oddities
+  - code_imp: Cleaned up code that prevents moths from eating certain foods. Report
+      any oddities
+  Metek:
+  - bugfix: Fixed a missing wire in Ice Box education chamber.
+  PapaMichael:
+  - bugfix: Radio encryption keys can once again be inserted into pAI cards
+  Richard Blonski:
+  - bugfix: Tarkon items no longer show up on NanoTrasen lethes without the proper
+      reverse engineering.
+  - bugfix: Reversed-engineered Takron items show up only in the lethes of departments
+      that should have access to them.
+  SmArtKar:
+  - admin: Improved OverFlayer previews by allowing to edit preview plane/backdrop
+      color
+  sergeirocks100:
+  - bugfix: When sending messages in LOOC, AOOC, or SOOC using their respective buttons
+      in the OOC tab, certain characters, such as single and double quotes, should
+      no longer display as unprocessed HTML entities instead of their proper characters.
+  curiousbookshelf:
+  - map: Added paramedic dispatch to Void Raptor
+  - map: Moved Void Raptor chemical storage closer to the rest of chemistry
+2026-08-26:
+  Iajret:
+  - bugfix: '[Nova] fixed new tram dorms related issues (disposals, firelock miss-triggering,
+      airlock names and disconnected cafe APC)'
+  - bugfix: 'Snowglobe: removed stray labor shuttle, replaced coffee seed pack with
+      actual beans at medbay''s breakroom, connected stray air vent in front of Bar'
+  - bugfix: '[Nova] Kilostation: connected disposals at NTC office, connected Captain''s
+      office back to powergrid, clightly changed tiling in front of NTC office.'
+  sqnztb:
+  - bugfix: plexagon no longer tries to draw a job icon after the name.
+  vinylspiders:
+  - spellcheck: fixes a typo in diluted regenerative jelly description
+  Shroopy:
+  - bugfix: Fixed Snowglobe's brig having a reinforced wall inside of a reinforced
+      window.
+  - qol: Removed the windows between the machines and the tables in the Void Raptor
+      science office.
+  - bugfix: Fixed Void Raptor xenobio's disposals.
+  - map: Added 2 toolbelts to Tramstation's robotics.
+2026-08-27:
+  Hollandasie:
+  - image: Resprited the nurse outfit and hat
+  - code_imp: Code tweaks to the nurse outfits
+  Shroopy:
+  - rscadd: Adds In-Trial titles for heads of staff, and Blueshield.
+2026-08-28:
+  Absolucy:
+  - qol: Meteor shield satellites can now be shrunk down into tiny capsules, and deployed
+      from said capsules.
+  - balance: The meteor shield crate now contains 5 shield sat capsules.
+  - qol: Meteors now drop debris when zapped by meteor defense sats.
+  - qol: Examining meteor defense sats now also shows how many meteors have been zapped
+      overall by all sats.
+  - balance: Slightly boosted the range of meteor defense satellite from 14 to 16
+      tiles.
+  - qol: You now only need engineering access to order meteor satellites, not command
+      access.
+  DeltaFire15:
+  - qol: Lung organ failure messages are now different if you do not breathe.
+  - qol: Lung organ failure messages no longer fire every organ tick, only being guaranteed
+      on the first.
+  - spellcheck: The feeling you get from lung failure if you need lungs to breathe
+      is no longer "sudden" after the first tick.
+  Shroopy:
+  - qol: Reverted the command bar starting on Say. It now starts in Command mode.
+  - qol: Non-breathing CPR messages are now (hopefully) more clear, go into your chat,
+      and no longer spam you.
+  - bugfix: Fixed a runtime preventing giving non-breathing CPR without lungs.
+  - refactor: Refactored non-breathing CPR.
+  - balance: Self-respiration no longer blocks giving breathing CPR.
+  Skies-Of-Blue:
+  - bugfix: proto-kinetic hammers will no longer knockback immovable entities such
+      as tendrils
+  - bugfix: being polymorphed will no longer trigger claustrophobia in those who have
+      it
+  curiousbookshelf:
+  - qol: Touched up the Crew Monitor UI
+2026-08-29:
+  Shroopy:
+  - rscadd: Added DS-2-specific headsets and associated encryption keys, that have
+      access to the Cybersun and Interdyne channels.
+  - rscdel: Removed Interdyne knowing codespeak.
+2026-08-30:
+  Shroopy:
+  - balance: "Un-permit-locked the M\xEDrotv\u016Frce personal pacifier."
+  Hatterhat:
+  - bugfix: Crew manifests should no longer break when adding new entries.
+  PapaMichael:
+  - bugfix: Face decals (like pie) now appear on monkeys' faces instead of above it
+  SmArtKar:
+  - rscadd: Added "Candela" navigation networks and beacons, acting as a way for miners
+      to mark their paths, boost vent outputs and protect their routes from fauna
+      respawns
+  - rscdel: Miners no longer spawn with marker beacons
+  - balance: Mining fultons can now transport miners to tapped ore vents within nearby
+      Candela networks in addition to extraction beacons, and both cost significantly
+      less points
+  - balance: Syndicate extraction beacons can only be reached by syndicate fultons
+  timothymtorres:
+  - rscadd: Add reworked vending shortage negative station trait. All station snack,
+      soda, and coffee vending machines start empty.

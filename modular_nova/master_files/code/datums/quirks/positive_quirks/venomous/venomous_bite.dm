@@ -92,8 +92,15 @@
 
 /// Does NOT inject reagents; represents the initial bite. Can end in your teeth being broken by armor. Dumbass.
 /datum/action/cooldown/mob_cooldown/venomous_bite/proc/try_bite(mob/living/target)
+	// OCULIS EDIT ADDITION START - allow fangs to affect bite damage
+	var/bite_damage = VENOMOUS_BITE_DAMAGE
+	var/obj/item/organ/fangs/fangs = owner.get_organ_slot(ORGAN_SLOT_FANGS)
+	if(fangs)
+		bite_damage += fangs.bite_high // this has a wind-up, so like, you get the high-end
+	// OCULIS EDIT ADDITION END
+
 	var/target_zone = check_zone(owner.zone_selected)
-	var/armor = target.run_armor_check(target_zone, MELEE)
+	var/armor = target.run_armor_check(target_zone, MELEE, armour_penetration = fangs?.bite_effectiveness || 0) // OCULIS EDIT - allow fangs to affect bite damage - ORIGINAL: var/armor = target.run_armor_check(target_zone, MELEE)
 	var/obj/item/bodypart/part = target.get_bodypart(target_zone)
 
 	var/text = "[owner] sinks [owner.p_their()] teeth into [target]'s [target.parse_zone_with_bodypart(target_zone)]!"
@@ -150,7 +157,11 @@
 	var/wound_bonus = 0
 	if (prob(VENOMOUS_BITE_WOUND_CHANCE))
 		wound_bonus = VENOMOUS_BITE_WOUND_BONUS
-	target.apply_damage(VENOMOUS_BITE_DAMAGE, BRUTE, target_zone, armor, wound_bonus = wound_bonus, sharpness = SHARP_POINTY)
+	// OCULIS EDIT ADDITION START
+	if(fangs)
+		wound_bonus += fangs.bite_effectiveness
+	// OCULIS EDIT ADDITION END
+	target.apply_damage(bite_damage, BRUTE, target_zone, armor, wound_bonus = wound_bonus, sharpness = SHARP_POINTY) // OCULIS EDIT - allow fangs to affect bite damage - ORIGINAL: target.apply_damage(VENOMOUS_BITE_DAMAGE, BRUTE, target_zone, armor, wound_bonus = wound_bonus, sharpness = SHARP_POINTY)
 	if (iscarbon(owner))
 		var/mob/living/carbon/carbon_owner = owner
 		for (var/datum/disease/our_disease as anything in carbon_owner.diseases)

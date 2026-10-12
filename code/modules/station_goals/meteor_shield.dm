@@ -66,8 +66,10 @@
 
 	//emag behavior dark matt-eor stuff
 
+	/* // OCULIS EDIT REMOVAL START - meteor shield rework
 	/// Proximity monitor associated with this atom, needed for it to work.
 	var/datum/proximity_monitor/proximity_monitor
+	*/ // OCULIS EDIT REMOVAL END
 
 	/// amount of emagged active meteor shields
 	var/static/emagged_active_meteor_shields = 0
@@ -89,6 +91,7 @@
 		if(obj_flags & EMAGGED)
 			. += span_warning("But something seems off about it...?")
 
+/* // OCULIS EDIT REMOVAL START - meteor shield rework
 /obj/machinery/satellite/meteor_shield/proc/space_los(meteor)
 	for(var/turf/T in get_line(src,meteor))
 		if(!isspaceturf(T))
@@ -109,6 +112,7 @@
 		beam_from.Beam(get_turf(meteor_to_destroy), icon_state="sat_beam", time = 5)
 		if(meteor_to_destroy.shield_defense(src))
 			qdel(meteor_to_destroy)
+*/ // OCULIS EDIT REMOVAL END
 
 /obj/machinery/satellite/meteor_shield/toggle(user)
 	if(user)
@@ -120,18 +124,21 @@
 	if(obj_flags & EMAGGED)
 		update_emagged_meteor_sat(user)
 
+	/* // OCULIS EDIT REMOVAL START - meteor shield rework
 	if(active)
 		proximity_monitor.set_range(kill_range)
 	else
 		proximity_monitor.set_range(0)
 
-
+	*/ // OCULIS EDIT REMOVAL END
 	var/datum/station_goal/station_shield/goal = SSstation.get_station_goal(/datum/station_goal/station_shield)
 	goal?.update_coverage()
 
 /obj/machinery/satellite/meteor_shield/Destroy()
 	. = ..()
+	/* // OCULIS EDIT REMOVAL START - meteor shield rework
 	QDEL_NULL(proximity_monitor)
+	*/ // OCULIS EDIT REMOVAL END
 	if(obj_flags & EMAGGED)
 		//satellites that are destroying are not active, this will count down the number of emagged sats
 		update_emagged_meteor_sat()

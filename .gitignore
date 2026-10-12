@@ -271,17 +271,17 @@ rust_g64.dll
 /_maps/ouroboros.json
 
 # OCULIS all lewd stuff from nova
-/modular_nova/modules/modular_items/lewd_items/**
-/modular_nova/modules/GAGS/nsfw/**
+/modular_nova/modules/modular_items/lewd_items/**/*
+/modular_nova/modules/GAGS/nsfw/**/*
 /modular_nova/modules/verbs/code/subtle.dm
-/modular_nova/modules/knotting/**
+/modular_nova/modules/knotting/**/*
 
 /modular_nova/modules/customization/modules/mob/dead/new_player/sprite_accessories/genitals.dm
 /modular_nova/modules/customization/modules/mob/dead/new_player/preferences_setup.dm
 /modular_nova/master_files/code/modules/client/preferences/erp_preferences.dm
 /modular_nova/master_files/code/modules/client/preferences/genitals.dm
 /modular_nova/master_files/icons/effects/holosigns.dmi
-/modular_nova/master_files/icons/obj/genitals/**
+/modular_nova/master_files/icons/obj/genitals/**/*
 /modular_nova/master_files/code/modules/client/preferences/scent_taste.dm
 
 /tgui/packages/tgui/interfaces/MilkingMachine.jsx
@@ -292,4 +292,4 @@ rust_g64.dll
 /tgui/packages/tgui/interfaces/PreferencesMenu/preferences/features/belly_button.tsx
 
 /code/_DEFINES/~nova_defines/lewd_defines.dm
-/modular_nova/modules/tums/**
+/modular_nova/modules/tums/**/*

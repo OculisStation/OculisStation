@@ -69,10 +69,17 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 		var/list/to_del = spawn_at.contents - cached_contents
 		if(length(to_del))
 			for(var/atom/to_kill in to_del)
-		// NOVA EDIT ADDITION START - Remove persistent effects created by previous test iterations.
-				// Some effects, such as liquid turfs, intentionally ignore ordinary qdel().
-				// Force them out of the test area before the next atom is created.
 				qdel(to_kill, force = TRUE)
+				// this does clear itself back to null once we leave this loop, but I do not trust
+				// BYOND to not fuck it up in the future. so it goes. this unfortunately makes the other comment
+				// slightly less funny since it means BYOND isn't THAT sinful but whatev, its still funny
+				to_kill = null
+		//This will hold a ref to the last thing we qdel unless we set it to null
+		//Yes, byond is VERY fucking sinful!
+		to_del = null
+		// NOVA EDIT ADDITION START - Remove persistent effects created by previous test iterations.
+		// Some effects, such as liquid turfs, intentionally ignore ordinary qdel().
+		// Force them out of the test area before the next atom is created.
 		// Explosions process their affected turfs asynchronously. Do not let a blast
 		// queued by one type affect an atom created by a later iteration.
 		SSexplosions.wipe_turf(spawn_at)
@@ -113,6 +120,7 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 			var/qdeld_at = oldest_packet[GC_QUEUE_ITEM_GCD_DESTROYED]
 
 			oldest_packet_creation = min(qdeld_at, oldest_packet_creation)
+			oldest_packet = null
 
 		//If we've found a packet that got del'd later then we finished, then all our shit has been processed
 		//That said, if there are any pending hard deletes you may NOT sleep, we gotta handle that shit

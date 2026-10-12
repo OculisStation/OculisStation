@@ -1260,16 +1260,6 @@
 /obj/machinery/duct,
 /turf/open/floor/plating,
 /area/awaymission/moonoutpost19/arrivals)
-"jf" = (
-/obj/item/banner/command/mundane{
-	desc = "The banner of Sectorial Command, impaled into the rock upon first landing on this moon.";
-	name = "command claim banner";
-	pixel_x = -1;
-	pixel_y = 15
-	},
-/obj/structure/stone_tile/surrounding/burnt,
-/turf/open/misc/asteroid/moon,
-/area/awaymission/moonoutpost19/main)
 "jh" = (
 /obj/machinery/portable_atmospherics/canister/air,
 /obj/effect/decal/cleanable/dirt,
@@ -2471,6 +2461,17 @@
 	},
 /turf/open/floor/iron,
 /area/awaymission/moonoutpost19/arrivals)
+"qU" = (
+/obj/structure/table,
+/obj/item/brain_processor/organic,
+/obj/item/brain_processor/organic,
+/obj/item/brain_processor/organic,
+/obj/structure/alien/weeds,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/iron/white,
+/area/awaymission/moonoutpost19/research)
 "qY" = (
 /obj/structure/closet/mini_fridge/grimy,
 /obj/item/food/pizzaslice/margherita,
@@ -4963,6 +4964,18 @@
 /obj/effect/decal/cleanable/blood/splatter/xeno,
 /turf/open/misc/asteroid/moon,
 /area/awaymission/moonoutpost19/main)
+"IA" = (
+/obj/structure/mecha_wreckage/ripley/mk2{
+	desc = "Remains of the historical mech that first touched down on Moon Outpost 19. Completely irreparable, but perhaps something can be salvaged.";
+	name = "\improper Historical Ripley MK-II wreckage"
+	},
+/obj/effect/decal/cleanable/blood/oil,
+/obj/item/food/grown/flower/moonflower{
+	pixel_x = 7;
+	pixel_y = -18
+	},
+/turf/open/misc/asteroid/moon,
+/area/awaymission/moonoutpost19/main)
 "IB" = (
 /obj/structure/chair/pew/right{
 	dir = 8
@@ -5430,6 +5443,16 @@
 	},
 /turf/open/floor/iron,
 /area/awaymission/moonoutpost19/arrivals)
+"MV" = (
+/obj/item/banner/command/mundane{
+	desc = "The banner of Sectorial Command, impaled into the rock upon first landing on this moon.";
+	name = "command claim banner";
+	pixel_x = -1;
+	pixel_y = 15
+	},
+/obj/structure/stone_tile/surrounding/burnt,
+/turf/open/misc/asteroid/moon,
+/area/awaymission/moonoutpost19/main)
 "Nf" = (
 /obj/effect/spawner/structure/window,
 /turf/open/floor/plating,
@@ -6816,17 +6839,6 @@
 /obj/effect/turf_decal/tile/yellow/opposingcorners,
 /turf/open/floor/iron/moon,
 /area/awaymission/moonoutpost19/arrivals)
-"WP" = (
-/obj/structure/table,
-/obj/item/mmi,
-/obj/item/mmi,
-/obj/item/mmi,
-/obj/structure/alien/weeds,
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/turf/open/floor/iron/white,
-/area/awaymission/moonoutpost19/research)
 "WS" = (
 /obj/structure/closet/secure_closet/freezer{
 	locked = 0;
@@ -7153,18 +7165,6 @@
 "YX" = (
 /obj/structure/fence{
 	dir = 4
-	},
-/turf/open/misc/asteroid/moon,
-/area/awaymission/moonoutpost19/main)
-"YY" = (
-/obj/structure/mecha_wreckage/ripley/mk2{
-	desc = "Remains of the historical mech that first touched down on Moon Outpost 19. Completely irreparable, but perhaps something can be salvaged.";
-	name = "\improper Historical Ripley MK-II wreckage"
-	},
-/obj/effect/decal/cleanable/blood/oil,
-/obj/item/food/grown/flower/moonflower{
-	pixel_x = 7;
-	pixel_y = -18
 	},
 /turf/open/misc/asteroid/moon,
 /area/awaymission/moonoutpost19/main)
@@ -37028,7 +37028,7 @@ ea
 Pk
 cL
 kd
-WP
+qU
 gI
 KL
 ea
@@ -37977,7 +37977,7 @@ yV
 yV
 yV
 yV
-YY
+IA
 yV
 yV
 yV
@@ -38234,7 +38234,7 @@ yV
 yV
 yV
 yV
-jf
+MV
 yV
 yV
 yV

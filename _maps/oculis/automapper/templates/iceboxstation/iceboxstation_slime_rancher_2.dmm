@@ -1,0 +1,215 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ds" = (
+/obj/machinery/smartfridge/extract/preloaded,
+/obj/structure/window/reinforced/spawner/directional/west,
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"jf" = (
+/turf/closed/wall/r_wall,
+/area/station/science/xenobiology)
+"no" = (
+/obj/structure/table/glass,
+/obj/item/storage/box/monkeycubes,
+/obj/structure/window/reinforced/spawner/directional/west,
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"oC" = (
+/obj/structure/cable,
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/poddoor/preopen{
+	id = "xenobiomain";
+	name = "Containment Blast Door"
+	},
+/turf/open/floor/plating,
+/area/station/science/xenobiology)
+"pB" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/smartfridge/petri/preloaded,
+/turf/open/openspace,
+/area/station/science/xenobiology)
+"rb" = (
+/obj/effect/landmark/event_spawn,
+/obj/structure/cable,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"sA" = (
+/obj/effect/landmark/start/scientist,
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"tx" = (
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/structure/table/glass,
+/obj/item/slime_rancher_scanner{
+	pixel_x = 4;
+	pixel_y = 3
+	},
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"tU" = (
+/obj/structure/table/glass,
+/obj/item/paper_bin{
+	pixel_y = 4
+	},
+/obj/item/folder/white{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/item/pen{
+	pixel_x = -4
+	},
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/structure/window/reinforced/spawner/directional/west,
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"uB" = (
+/obj/structure/cable,
+/obj/machinery/door/poddoor/preopen{
+	id = "xenobiomain";
+	name = "Containment Blast Door"
+	},
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/station/science/xenobiology)
+"wX" = (
+/obj/machinery/biomass_recycler,
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/obj/item/stack/biomass/twenty,
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"yh" = (
+/obj/structure/lattice/catwalk,
+/turf/open/openspace,
+/area/station/science/xenobiology)
+"Cp" = (
+/turf/template_noop,
+/area/template_noop)
+"EG" = (
+/obj/structure/cable,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"Gc" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"GL" = (
+/obj/structure/window/reinforced/spawner/directional/south,
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"OG" = (
+/obj/structure/table,
+/obj/item/toy/plush/slimeplushie{
+	name = "Tara";
+	desc = "An adorable stuffed toy that resembles a slime. A faded purple flower is embroidered beneath one of its many patches, alongside several tiny slips of paper that look suspiciously like overdue notices."
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/obj/structure/cable,
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"ON" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"Su" = (
+/obj/machinery/chem_master,
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/window/reinforced/spawner/directional/south,
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"TK" = (
+/obj/structure/rack,
+/obj/item/wirecutters,
+/obj/item/screwdriver,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/machinery/light/directional/south,
+/obj/structure/cable,
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"Ys" = (
+/obj/structure/reagent_dispensers/watertank,
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"YM" = (
+/obj/structure/table,
+/obj/item/vacuum_pack{
+	pixel_x = -5
+	},
+/obj/item/disk/vacuum_upgrade/printer{
+	pixel_y = 5;
+	pixel_x = 9
+	},
+/obj/item/slime_rancher_scanner{
+	pixel_y = -7;
+	pixel_x = 8
+	},
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
+"Zq" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+
+(1,1,1) = {"
+Su
+ds
+no
+tU
+yh
+yh
+pB
+oC
+"}
+(2,1,1) = {"
+GL
+YM
+sA
+tx
+Ys
+Zq
+OG
+uB
+"}
+(3,1,1) = {"
+ON
+ON
+ON
+ON
+EG
+rb
+TK
+jf
+"}
+(4,1,1) = {"
+Cp
+Cp
+Cp
+Cp
+Cp
+Gc
+wX
+uB
+"}
+(5,1,1) = {"
+Cp
+Cp
+Cp
+Cp
+Cp
+yh
+yh
+oC
+"}

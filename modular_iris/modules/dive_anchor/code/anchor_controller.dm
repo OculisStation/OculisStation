@@ -101,7 +101,6 @@
 /datum/design/board/anchor_controller
 	name = "Anchor Controller Board"
 	desc = "Allows for the construction of circuit boards used to build anchor controllers."
-	id = "anchor_controller"
 	build_path = /obj/item/circuitboard/computer/anchor_controller
 	category = list(
 		RND_CATEGORY_COMPUTER + RND_SUBCATEGORY_COMPUTER_CARGO
@@ -109,10 +108,9 @@
 	departmental_flags = DEPARTMENT_BITFLAG_CARGO
 
 /datum/techweb_node/dive_anchors
-	id = TECHWEB_NODE_DIVE_ANCHORS
 	display_name = "Dive Anchor Controllers"
 	description = "Technology for remote control of the spatial manipulation capabilities of dive anchors."
-	prereq_ids = list(TECHWEB_NODE_CONSOLES)
-	design_ids = list("anchor_controller")
+	prerequisite_nodes = list(/datum/techweb_node/consoles)
+	unlocked_designs = list(/datum/design/board/anchor_controller)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_2_POINTS)
 	announce_channels = list(RADIO_CHANNEL_SUPPLY)

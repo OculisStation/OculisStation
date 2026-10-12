@@ -7,8 +7,6 @@
 	setup_mood()
 	// This needs to be called very very early in human init (before organs / species are created at the minimum)
 	setup_organless_effects()
-	// Physiology needs to be created before species, as some species modify physiology
-	setup_physiology()
 
 
 	create_dna(species)
@@ -39,22 +37,17 @@
 	ADD_TRAIT(src, TRAIT_CAN_MOUNT_HUMANS, INNATE_TRAIT)
 	ADD_TRAIT(src, TRAIT_CAN_MOUNT_CYBORGS, INNATE_TRAIT)
 
-/mob/living/carbon/human/proc/setup_physiology()
-	physiology = new()
-
 /mob/living/carbon/human/get_unconscious_appearance()
 	return get_generic_humanoid_static_appearance()
 
 /mob/living/carbon/human/proc/setup_mood()
-	if (CONFIG_GET(flag/disable_human_mood))
-		return
 	mob_mood = new /datum/mood(src)
 
 /mob/living/carbon/human/dummy/get_unconscious_appearance()
 	return null
 
 /mob/living/carbon/human/dummy/setup_mood()
-	return
+	mob_mood = new /datum/mood/dummy(src)
 
 /// This proc is for holding effects applied when a mob is missing certain organs
 /// It is called very, very early in human init because all humans innately spawn with no organs and gain them during init
@@ -71,7 +64,6 @@
 	randomize_human_normie(src, randomize_mutations = TRUE, update_body = FALSE)
 
 /mob/living/carbon/human/Destroy()
-	QDEL_NULL(physiology)
 	GLOB.human_list -= src
 
 	if (mob_mood)
@@ -572,27 +564,50 @@
 			balloon_alert(src, "[target.p_they()] [target.p_are()] dead!")
 			return FALSE
 
-		var/can_breathe = TRUE // OCULIS EDIT ADDITION - If FALSE, then chest compressions are the only option
-
+		/* // OCULIS EDIT REMOVAL START
 		if (is_mouth_covered())
 			balloon_alert(src, "remove your mask first!")
-			can_breathe = FALSE // OCULIS EDIT, ORIGINAL: return FALSE
+			return FALSE
 
 		if (target.is_mouth_covered())
 			balloon_alert(src, "remove [target.p_their()] mask first!")
-			can_breathe = FALSE // OCULIS EDIT, ORIGINAL: return FALSE
+			return FALSE
 
 		if(HAS_TRAIT_FROM(src, TRAIT_NOBREATH, DISEASE_TRAIT))
 			to_chat(src, span_warning("you can't breathe!"))
-			can_breathe = FALSE // OCULIS EDIT, ORIGINAL: return FALSE
+			return FALSE
 
 		var/obj/item/organ/lungs/human_lungs = get_organ_slot(ORGAN_SLOT_LUNGS)
-		if(isnull(human_lungs) || istype(human_lungs, /obj/item/organ/lungs/synth)) // OCULIS EDIT, ORIGINAL: if(isnull(human_lungs))
+		if(isnull(human_lungs))
 			balloon_alert(src, "you don't have lungs!")
-			can_breathe = FALSE // OCULIS EDIT, ORIGINAL: return FALSE
+			return FALSE
 		if(human_lungs.organ_flags & ORGAN_FAILING)
 			balloon_alert(src, "your lungs are too damaged!")
-			can_breathe = FALSE // OCULIS EDIT, ORIGINAL: return FALSE
+			return FALSE
+		*/ // OCULIS EDIT REMOVAL END
+		// OCULIS EDIT ADDITION START
+		var/can_breathe = TRUE // If FALSE, then chest compressions are the only option
+		var/alerts = list()
+
+		if (is_mouth_covered())
+			alerts += "your mouth is covered!"
+
+		if (target.is_mouth_covered())
+			alerts += "[target.p_their()] mouth is covered!"
+
+		var/obj/item/organ/lungs/human_lungs = get_organ_slot(ORGAN_SLOT_LUNGS)
+		if(isnull(human_lungs) || istype(human_lungs, /obj/item/organ/lungs/synth))
+			alerts += "you don't have lungs!"
+		else if(human_lungs.organ_flags & ORGAN_FAILING)
+			alerts += "your lungs are too damaged!"
+
+		if(length(alerts))
+			can_breathe = FALSE
+			if(!panicking)
+				balloon_alert(src, jointext(alerts, "\n") + "\ncontinuing anyways!")
+			for(var/alert in alerts)
+				to_chat(src, span_warning(capitalize(alert)))
+		// OCULIS EDIT ADDITION END
 
 		visible_message(span_notice("[src] is trying to perform CPR on [target.name]!"), \
 						can_breathe ? span_notice("You try to perform CPR on [target.name]... Hold still!"):span_notice("You try to perform CPR on [target.name] without mouth-to-mouth... Hold still!")) // OCULIS EDIT, ORIGINAL: span_notice("You try to perform CPR on [target.name]... Hold still!"))
@@ -643,14 +658,17 @@
 
 #undef CPR_PANIC_SPEED
 
-/mob/living/carbon/human/cuff_resist(obj/item/I)
+/mob/living/carbon/human/get_all_attached_restraints()
+	. = ..()
+	if(wear_suit?.breakouttime)
+		. += wear_suit
+
+/mob/living/carbon/human/cuff_resist(obj/item/cuffs, breakouttime = null, cuff_break = 0)
 	if(HAS_TRAIT(src, TRAIT_HULK))
 		say(pick(";RAAAAAAAARGH!", ";HNNNNNNNNNGGGGGGH!", ";GWAAAAAAAARRRHHH!", "NNNNNNNNGGGGGGGGHH!", ";AAAAAAARRRGH!" ), forced = "hulk")
-		if(..(I, cuff_break = FAST_CUFFBREAK))
-			dropItemToGround(I)
+		. = ..(cuffs, cuff_break = FAST_CUFFBREAK)
 	else
-		if(..())
-			dropItemToGround(I)
+		. = ..()
 
 /**
  * Wash the hands, cleaning either the gloves if equipped and not obscured, otherwise the hands themselves if they're not obscured.
@@ -724,14 +742,6 @@
 /mob/living/carbon/human/proc/end_electrocution_animation(mutable_appearance/MA)
 	remove_atom_colour(TEMPORARY_COLOUR_PRIORITY, COLOR_BLACK)
 	cut_overlay(MA)
-
-/mob/living/carbon/human/resist_restraints()
-	if(wear_suit?.breakouttime)
-		changeNext_move(CLICK_CD_BREAKOUT)
-		last_special = world.time + CLICK_CD_BREAKOUT
-		cuff_resist(wear_suit)
-	else
-		..()
 
 /mob/living/carbon/human/clear_cuffs(obj/item/I, cuff_break)
 	. = ..()
@@ -932,10 +942,10 @@
 			to_chat(usr, "This mob has no brain to insert into an MMI.")
 			return
 
-		var/obj/item/mmi/new_mmi = new(get_turf(src))
+		var/obj/item/brain_processor/organic/new_mmi = new(get_turf(src))
 
 		target_brain.Remove(src)
-		new_mmi.force_brain_into(target_brain)
+		new_mmi.insert_brain(target_brain)
 
 		to_chat(usr, "Turned [src] into an MMI.")
 		log_admin("[key_name(usr)] turned [key_name_and_tag(src)] into an MMI.")

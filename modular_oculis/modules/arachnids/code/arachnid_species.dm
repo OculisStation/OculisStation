@@ -23,7 +23,7 @@
 
 	COOLDOWN_DECLARE(pesticide_toxin_damage_cooldown)
 
-	exotic_bloodtype = BLOOD_TYPE_ARACHNID
+	exotic_bloodtype = /datum/blood_type/arachnid
 	inherent_factions = list(FACTION_SPIDER)
 	bodypart_overrides = list(
 		BODY_ZONE_HEAD = /obj/item/bodypart/head/arachnid,

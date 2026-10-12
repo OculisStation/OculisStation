@@ -2,7 +2,7 @@
 /datum/hallucination/battle
 	abstract_hallucination_parent = /datum/hallucination/battle
 	random_hallucination_weight = 3
-	hallucination_tier = HALLUCINATION_TIER_COMMON
+	hallucination_tier = HALLUCINATION_TIER_UNCOMMON // OCULIS EDIT, ORIGINAL: hallucination_tier = HALLUCINATION_TIER_COMMON
 
 /datum/hallucination/battle/start()
 	if(HAS_TRAIT(hallucinator, TRAIT_DEAF))

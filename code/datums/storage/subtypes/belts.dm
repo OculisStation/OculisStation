@@ -155,6 +155,7 @@
 		/obj/item/shovel,
 		/obj/item/stack/cable_coil,
 		/obj/item/stack/marker_beacon,
+		/obj/item/stack/candela_beacon,
 		/obj/item/stack/medical,
 		/obj/item/stack/ore,
 		/obj/item/stack/sheet/animalhide,
@@ -170,7 +171,8 @@
 		/obj/item/wrench,
 		/obj/item/wormhole_jaunter,
 		/obj/item/skeleton_key,
-		/obj/item/storage/box/kinetic, //OCULIS CHANGE START - ADDS THE WASTELAND GUN AMMOS TO THE EXPLORER WEBBING
+		/obj/item/crusher_trophy,
+		/obj/item/storage/box/kinetic, // OCULIS EDIT ADDITION START - ADDS THE WASTELAND GUN AMMOS TO THE EXPLORER WEBBING
 		/obj/item/ammo_box/magazine/pksmgmag,
 		/obj/item/storage/box/kinetic/shotgun,
 		/obj/item/storage/box/kinetic/shotgun/sniperslug,
@@ -193,7 +195,8 @@
 		/obj/item/ammo_casing/minerjdj,
 		/obj/item/ammo_box/magazine/ammo_stack/govmining,
 		/obj/item/ammo_box/magazine/ammo_stack/kineticmagnum,
-		/obj/item/ammo_box/magazine/ammo_stack/autoshotgun, //OCULIS CHANGE END
+		/obj/item/ammo_box/magazine/ammo_stack/autoshotgun, // OCULIS EDIT ADDITION END
+
 	))
 
 ///Primitive mining belt

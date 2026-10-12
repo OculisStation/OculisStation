@@ -41,6 +41,7 @@
 	our_slime = null
 
 /datum/status_effect/slime_leech/tick(seconds_between_ticks)
+	var/mob/living/basic/slime/our_slime = src.our_slime // OCULIS ADDITION - shitty workaround to situations where our food is deleted mid-tick
 	if(QDELETED(our_slime))
 		qdel(src)
 		return
@@ -96,6 +97,9 @@
 
 		to_chat(owner, span_userdanger(pick(pain_lines)))
 
+	// OCULIS EDIT ADDITION START - latch-feeding feeds mutation progress
+	SEND_SIGNAL(our_slime, COMSIG_SLIME_LATCH_DRAINED, owner, -totaldamage)
+	// OCULIS EDIT ADDITION END
 	our_slime.adjust_nutrition(-1 * 1.8 * totaldamage) //damage is already modified by seconds_between_ticks
 
 	//Heal yourself.

@@ -15,4 +15,10 @@
 /// Trait that allows whoever has it to walk through arachnid webbing without slowdown.
 #define TRAIT_ARACHNID_WEB_SURFER "arachnid_web_surfer"
 
+/// Trait that prevents mobs from squashing other mobs by walking over them.
+#define TRAIT_DOESNT_SQUASH "doesnt_squash"
+
+/// slapped on anything a slime has latched onto, and it never comes back off. if it's a monkey, nobody feels bad when it dies
+#define TRAIT_WAS_SLIME_FOOD "was_slime_food"
+
 // END TRAIT DEFINES

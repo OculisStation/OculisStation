@@ -31,7 +31,7 @@
 
 /mob/living/basic/parrot/poly/Initialize(mapload)
 	. = ..()
-
+	AddElement(/datum/element/befriend_petting) // OCULIS EDIT ADDITION - allows Poly to befriend crew through petting
 	if(!memory_saved)
 		roundend_callback = CALLBACK(src, PROC_REF(Write_Memory))
 		SSticker.OnRoundend(roundend_callback)

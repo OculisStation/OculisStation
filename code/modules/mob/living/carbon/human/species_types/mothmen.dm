@@ -24,7 +24,7 @@
 	species_language_holder = /datum/language_holder/moth
 	payday_modifier = 1.0
 	family_heirlooms = list(/obj/item/flashlight/lantern/heirloom_moth)
-	exotic_bloodtype = BLOOD_TYPE_INSECT // OCULIS EDIT ADDITION
+	exotic_bloodtype = /datum/blood_type/insect // OCULIS EDIT ADDITION
 
 	bodypart_overrides = list(
 		BODY_ZONE_HEAD = /obj/item/bodypart/head/moth,

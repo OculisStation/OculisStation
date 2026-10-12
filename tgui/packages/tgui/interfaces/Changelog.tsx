@@ -221,11 +221,11 @@ export class ChangelogContent extends Component<any, ChangelogState> {
         </p>
         <p>
           {'Current project maintainers can be found '}
-          <a href="https://github.com/Monkestation/OculisStation?tab=members">
+          <a href="https://github.com/OculisStation/OculisStation?tab=members">
             here
           </a>
           {', recent GitHub contributors can be found '}
-          <a href="https://github.com/Monkestation/OculisStation/pulse/monthly">
+          <a href="https://github.com/OculisStation/OculisStation/pulse/monthly">
             here
           </a>
           .

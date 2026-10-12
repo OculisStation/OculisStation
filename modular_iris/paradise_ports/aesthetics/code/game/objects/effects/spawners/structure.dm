@@ -35,3 +35,6 @@
 
 /obj/effect/spawner/structure/window/survival_pod
 	icon = 'icons/obj/structures_spawners.dmi'
+
+/obj/effect/spawner/structure/window/cult
+	icon = 'icons/obj/structures_spawners.dmi'

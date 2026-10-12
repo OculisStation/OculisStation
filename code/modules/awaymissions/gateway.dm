@@ -144,7 +144,7 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 	//NOVA EDIT ADDITION
 	if (CONFIG_GET(flag/borg_gateway_blacklist))
 		var/list/type_blacklist = list(
-			/obj/item/mmi,
+			/obj/item/brain_processor,
 			/mob/living/silicon,
 		)
 		if(is_type_in_list(AM, type_blacklist))
@@ -175,7 +175,7 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 	pixel_y = -32
 	bound_height = 64
 	bound_width = 96
-	bound_x = 0
+	bound_x = -32
 	bound_y = 0
 	density = TRUE
 
@@ -359,7 +359,7 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 	//NOVA EDIT ADDITION
 	if (CONFIG_GET(flag/borg_gateway_blacklist))
 		var/list/type_blacklist = list(
-			/obj/item/mmi,
+			/obj/item/brain_processor,
 			/mob/living/silicon,
 			/obj/item/borg/upgrade/ai,
 		)
@@ -478,10 +478,12 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 
 /atom/movable/screen/map_view/gateway_port/proc/setup_visuals(datum/gateway_destination/D)
 	our_destination = D
+	set_display(our_destination?.get_target_turf())
 	update_portal_filters()
 
 /atom/movable/screen/map_view/gateway_port/proc/reset_visuals()
 	our_destination = null
+	set_display(our_destination?.get_target_turf())
 	update_portal_filters()
 
 /atom/movable/screen/map_view/gateway_port/proc/update_portal_filters()

@@ -1,4 +1,0 @@
-author: "Shroopy"
-delete-after: True
-changes:
-  - bugfix: "Fixed the height bug that messed up faces on tall characters."

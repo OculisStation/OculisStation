@@ -199,6 +199,11 @@
 		/obj/item/reagent_containers/syringe,
 		/obj/item/slime_extract,
 		/obj/item/swab,
+		// OCULIS EDIT ADDITION START - slime rancher stuff
+		/obj/item/stack/biomass,
+		/obj/item/slime_breeding_pellet,
+		/obj/item/slimepotion,
+		// OCULIS EDIT ADDITION END
 	))
 
 ///Construction bag
@@ -219,6 +224,7 @@
 		/obj/item/stock_parts,
 		/obj/item/wallframe/camera,
 		/obj/item/rcd_ammo,
+		/obj/item/meteor_shield_capsule, // OCULIS EDIT ADDITION - meteor sat capsules
 	), exception_hold_list = list(
 		/obj/item/stack/sheet,
 		/obj/item/stack/rods,

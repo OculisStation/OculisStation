@@ -484,6 +484,7 @@
 	icon_state = "xenobag"
 	worn_icon_state = "xenobag"
 	desc = "A bag for the storage and transport of anomalous materials."
+	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_POCKETS // OCULIS EDIT ADDITION - SLIME_RANCHER
 	resistance_flags = FLAMMABLE
 	storage_type = /datum/storage/bag/xeno
 

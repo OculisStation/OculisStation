@@ -511,6 +511,7 @@
 		. = CONTEXTUAL_SCREENTIP_SET
 	if(stored_id) // ID get removed first before pAIs
 		context[SCREENTIP_CONTEXT_ALT_LMB] = "Remove ID"
+		context[SCREENTIP_CONTEXT_CTRL_SHIFT_LMB] = "Toggle honorific" // OCULIS EDIT ADDITION
 		. = CONTEXTUAL_SCREENTIP_SET
 	else if(inserted_pai)
 		context[SCREENTIP_CONTEXT_ALT_LMB] = "Remove pAI"

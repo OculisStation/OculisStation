@@ -2,7 +2,7 @@
 /datum/hallucination/nearby_fake_item
 	abstract_hallucination_parent = /datum/hallucination/nearby_fake_item
 	random_hallucination_weight = 1
-	hallucination_tier = HALLUCINATION_TIER_COMMON
+	hallucination_tier = HALLUCINATION_TIER_UNCOMMON // OCULIS EDIT, ORIGINAL: hallucination_tier = HALLUCINATION_TIER_COMMON
 
 	/// The icon file to draw from for left hand icons
 	var/left_hand_file

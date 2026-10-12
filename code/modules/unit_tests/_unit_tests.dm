@@ -222,6 +222,7 @@
 #include "interaction_silicon.dm"
 #include "interaction_structures.dm"
 #include "job_display_order.dm"
+#include "job_icons.dm"
 #include "json_savefile_importing.dm"
 #include "keybinding_init.dm"
 #include "kinetic_crusher.dm"
@@ -230,6 +231,7 @@
 #include "language_transfer.dm"
 #include "leash.dm"
 #include "lesserform.dm"
+#include "light_replacer.dm"
 #include "limbsanity.dm"
 #include "ling_decap.dm"
 #include "liver.dm"
@@ -383,6 +385,9 @@
 #include "~nova\neuroware_chips.dm"
 #include "~nova\opposing_force.dm"
 // NOVA EDIT END
+// OCULIS EDIT START
+#include "~oculis\slime_ranching.dm"
+// OCULIS EDIT END
 // END_INCLUDE
 #ifdef REFERENCE_TRACKING_DEBUG //Don't try and parse this file if ref tracking isn't turned on. IE: don't parse ref tracking please mr linter
 #include "find_reference_sanity.dm"

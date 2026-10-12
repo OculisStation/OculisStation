@@ -104,9 +104,9 @@
 /datum/supply_pack/companies/energy/hc_surplus/crank_taser
 	contains = list(/obj/item/gun/energy/taser/crank)
 	cost = CARGO_CRATE_VALUE * 2
-	// access = FALSE // OCULIS EDIT
-	// access_view = FALSE // OCULIS EDIT
-	// express_lock = FALSE // OCULIS EDIT
+	access = FALSE
+	access_view = FALSE
+	express_lock = FALSE
 	order_flags = ORDER_COMPANY
 
 /datum/supply_pack/companies/energy/hc_surplus/stun_gun //Not a gun but it's only fair to place similar items close to each other

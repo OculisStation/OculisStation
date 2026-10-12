@@ -16,14 +16,19 @@ Reproductive extracts:
 	var/feedAmount = 3
 	var/last_produce = 0
 
+/* // OCULIS EDIT REMOVAL START - SLIME_RANCHER - moved to modular_oculis/master_files/code/modules/research/xenobiology/crossbreeding/reproductive.dm
 /obj/item/slimecross/reproductive/examine()
 	. = ..()
 	. += span_danger("It appears to have eaten [length(contents)] Monkey Cube[p_s()]")
+*/ // OCULIS EDIT REMOVAL END
 
+/* // OCULIS EDIT REMOVAL START - SLIME_RANCHER - no item storage is needed for numeric biomass
 /obj/item/slimecross/reproductive/Initialize(mapload)
 	. = ..()
 	create_storage(storage_type = /datum/storage/extract_inventory)
+*/ // OCULIS EDIT REMOVAL END
 
+/* // OCULIS EDIT REMOVAL START - SLIME_RANCHER - moved to modular_oculis/master_files/code/modules/research/xenobiology/crossbreeding/reproductive.dm
 /obj/item/slimecross/reproductive/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	var/datum/storage/extract_inventory/slime_storage = atom_storage
 	if(!istype(slime_storage)) // what
@@ -60,6 +65,7 @@ Reproductive extracts:
 	slime_storage?.processCubes(user)
 	playsound(src, 'sound/items/eatfood.ogg', 20, TRUE)
 	return ITEM_INTERACT_SUCCESS
+*/ // OCULIS EDIT REMOVAL END
 
 /obj/item/slimecross/reproductive/grey
 	extract_type = /obj/item/slime_extract/grey

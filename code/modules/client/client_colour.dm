@@ -129,7 +129,7 @@
 	if (isnull(hud_used))
 		return
 
-	for (var/atom/movable/screen/plane_master/game_plane as anything in hud_used.get_true_plane_masters(RENDER_PLANE_GAME))
+	for (var/atom/movable/screen/plane_master/game_plane as anything in ((hud_used.get_true_plane_masters(RENDER_PLANE_GAME)) + (hud_used.get_true_plane_masters(ABOVE_HUD_PLANE)))) // OCULIS EDIT CHANGE - ORIGINAL: for (var/atom/movable/screen/plane_master/game_plane as anything in hud_used.get_true_plane_masters(RENDER_PLANE_GAME))
 		for (var/filter_id in color_filter_store)
 			game_plane.remove_filter(filter_id)
 
@@ -139,7 +139,7 @@
 	for (var/list/color_filter as anything in applied_filters)
 		var/added_color = color_filter[CLIENT_COLOR_VALUE_INDEX]
 		var/filter_priority = color_filter[CLIENT_COLOR_PRIORITY_INDEX]
-		for (var/atom/movable/screen/plane_master/game_plane as anything in hud_used.get_true_plane_masters(RENDER_PLANE_GAME))
+		for (var/atom/movable/screen/plane_master/game_plane as anything in ((hud_used.get_true_plane_masters(RENDER_PLANE_GAME)) + (hud_used.get_true_plane_masters(ABOVE_HUD_PLANE)))) // OCULIS EDIT CHANGE - ORIGINAL: for (var/atom/movable/screen/plane_master/game_plane as anything in hud_used.get_true_plane_masters(RENDER_PLANE_GAME))
 			var/filter_id = "client_colour_[filter_priority]"
 			game_plane.add_filter(filter_id, filter_priority, added_color)
 			color_filter_store |= filter_id
@@ -152,7 +152,7 @@
 	if(anim_time <= -1)
 		return update_client_colour()
 
-	for (var/atom/movable/screen/plane_master/game_plane as anything in hud_used.get_true_plane_masters(RENDER_PLANE_GAME))
+	for (var/atom/movable/screen/plane_master/game_plane as anything in ((hud_used.get_true_plane_masters(RENDER_PLANE_GAME)) + (hud_used.get_true_plane_masters(ABOVE_HUD_PLANE)))) // OCULIS EDIT CHANGE - ORIGINAL: for (var/atom/movable/screen/plane_master/game_plane as anything in hud_used.get_true_plane_masters(RENDER_PLANE_GAME))
 		for (var/filter_id in color_filter_store)
 			game_plane.remove_filter(filter_id)
 
@@ -162,7 +162,7 @@
 	for (var/list/color_filter as anything in applied_filters)
 		var/added_color = color_filter[CLIENT_COLOR_VALUE_INDEX]
 		var/filter_priority = color_filter[CLIENT_COLOR_PRIORITY_INDEX]
-		for (var/atom/movable/screen/plane_master/game_plane as anything in hud_used.get_true_plane_masters(RENDER_PLANE_GAME))
+		for (var/atom/movable/screen/plane_master/game_plane as anything in ((hud_used.get_true_plane_masters(RENDER_PLANE_GAME)) + (hud_used.get_true_plane_masters(ABOVE_HUD_PLANE)))) // OCULIS EDIT CHANGE - ORIGINAL: for (var/atom/movable/screen/plane_master/game_plane as anything in hud_used.get_true_plane_masters(RENDER_PLANE_GAME))
 			var/filter_id = "client_colour_[filter_priority]"
 			game_plane.add_filter(filter_id, filter_priority, color_matrix_filter())
 			game_plane.transition_filter(filter_id, added_color, anim_time, anim_easing)

@@ -20,16 +20,3 @@
 		return ..()
 	return FALSE
 
-GAME_VERB_PROC(/mob, emote_roll2d6, "| Roll 2d6 |", "Emotes")
-	src.emote("roll2d6", intentional = TRUE)
-
-/datum/emote/roll2d6
-	key = "roll2d6"
-	affected_by_pitch = FALSE
-
-/datum/emote/roll2d6/run_emote(mob/user, params, type_override, intentional)
-	. = ..()
-	var/roll1 = roll(6)
-	var/roll2 = roll(6)
-	var/result = roll1 + roll2
-	user.client?.looc_message("[user] rolls 2d6 and gets [roll1]+[roll2]=[result].")

@@ -236,12 +236,14 @@
 	description = "The SSCV Atrus was chartered to survey over 600 planets in its maiden voyage. \
 	Hopefully the SSC is content with an indepth analysis of just this asteroid."
 
+/* // OCULIS EDIT REMOVAL START - We have our own
 /datum/map_template/ruin/space/listeningstation
 	id = "listeningstation"
 	suffix = "listeningstation.dmm"
 	name = "Space-Ruin Syndicate Listening Station"
 	description = "Listening stations form the backbone of the syndicate's information-gathering operations. \
 	Assignment to these stations is dreaded by most agents, as it entails long and lonely shifts listening to nearby stations chatter incessantly about the most meaningless things."
+*/ // OCULIS EDIT REMOVAL END
 
 /datum/map_template/ruin/space/old_ai_sat
 	id = "oldAIsat"

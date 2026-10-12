@@ -296,6 +296,8 @@
 #define LIGHT_COLOR_HOLY_MAGIC "#FFF743"
 /// deep crimson
 #define LIGHT_COLOR_BLOOD_MAGIC "#D00000"
+/// Light-ish blue, used on mining sprites
+#define LIGHT_COLOR_MINING "#4AA0ED"
 
 /* These ones aren't a direct colour like the ones above, because nothing would fit */
 /// Warm orange color, leaning strongly towards yellow. rgb(250, 160, 25)
@@ -439,7 +441,7 @@
 #define COLOR_SLIME_BLUE "#19ffff"
 #define COLOR_SLIME_BLUESPACE "#ebebeb"
 #define COLOR_SLIME_CERULEAN "#5783aa"
-#define COLOR_SLIME_DARK_BLUE "#2e9dff"
+#define COLOR_SLIME_DARK_BLUE "#002080" // OCULIS EDIT CHANGE - SLIME_EXTRACT_COLORS - ORIGINAL: #define COLOR_SLIME_DARK_BLUE "#2e9dff"
 #define COLOR_SLIME_DARK_PURPLE "#9948f7"
 #define COLOR_SLIME_GOLD "#c38b07"
 #define COLOR_SLIME_GREEN "#07f024"
@@ -447,7 +449,7 @@
 #define COLOR_SLIME_LIGHT_PINK "#ffe1fa"
 #define COLOR_SLIME_METAL "#676767"
 #define COLOR_SLIME_OIL "#242424"
-#define COLOR_SLIME_ORANGE "#ffb445"
+#define COLOR_SLIME_ORANGE "#d95627" // OCULIS EDIT CHANGE - SLIME_EXTRACT_COLORS - ORIGINAL: #define COLOR_SLIME_ORANGE "#ffb445"
 #define COLOR_SLIME_PINK "#fe5bbd"
 #define COLOR_SLIME_PURPLE "#d138ff"
 #define COLOR_SLIME_PYRITE "#ffc427"
@@ -544,6 +546,7 @@ GLOBAL_LIST_INIT(heretic_path_to_color, list(
 #define EYE_COLOR_WEED_PRIORITY 20
 #define EYE_COLOR_HUD_PRIORITY 30
 #define EYE_COLOR_LUMINESCENT_PRIORITY 40
+#define EYE_COLOR_CULTLIKE_PRIORITY 49
 #define EYE_COLOR_CULT_PRIORITY 50
 
 // Client color priorities

@@ -6,7 +6,6 @@
 /datum/design/board/bounty
 	name = "Computer Design (Bounty Console)"
 	desc = "Allows for the construction of circuit boards used to build a Bounty Console."
-	id = "cargo_bounty"
 	build_path = /obj/item/circuitboard/computer/bounty
 	category = list("Computer Boards")
 	departmental_flags = DEPARTMENT_BITFLAG_CARGO

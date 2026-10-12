@@ -11,6 +11,7 @@
 	time = 12 SECONDS
 	all_surgery_states_required = SURGERY_SKIN_OPEN | SURGERY_BONE_SAWED | SURGERY_ORGANS_CUT
 	any_surgery_states_blocked = SURGERY_VESSELS_UNCLAMPED
+	required_organ_flag = ORGAN_ROBOTIC //OCULIS EDIT ADDITION - NIFs are always robotic organs. Thus, require a robotic organ.
 
 /datum/surgery_operation/organ/repair_nif/on_preop(obj/item/organ/cyberimp/brain/nif/installed_nif, mob/living/surgeon, obj/item/tool, list/operation_args)
 	display_results(

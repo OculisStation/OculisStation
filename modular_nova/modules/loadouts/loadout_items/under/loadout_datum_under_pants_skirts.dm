@@ -256,6 +256,11 @@
 	reskin_datum = /datum/atom_skin/cableknit_sweater
 	group = "Casualwear"
 
+/datum/loadout_item/under/miscellaneous/open_backed_sweater
+	name = "Open-Backed Sweater"
+	item_path = /obj/item/clothing/under/dress/nova/open_backed_sweater
+	group = "Casualwear"
+
 /datum/loadout_item/under/jumpsuit/turtleneck
 	name = "Turtleneck w/ Pants"
 	item_path = /obj/item/clothing/under/greyscale/turtleneck

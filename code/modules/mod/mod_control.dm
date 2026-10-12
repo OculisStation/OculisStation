@@ -6,7 +6,7 @@
 	worn_icon = 'icons/mob/clothing/modsuit/mod_clothing.dmi'
 
 /obj/item/mod/control
-	name = "MOD control unit"
+	name = "\improper MOD control unit"
 	desc = "The control unit of a Modular Outerwear Device, a powered suit that protects against various environments."
 	icon_state = "standard-control"
 	inhand_icon_state = "mod_control"
@@ -34,7 +34,7 @@
 	alternate_worn_layer = HANDS_LAYER+0.1 //we want it to go above generally everything, but not hands
 	interaction_flags_click = NEED_DEXTERITY|NEED_HANDS|ALLOW_RESTING
 	/// The MOD's theme, decides on some stuff like armor and statistics.
-	var/datum/mod_theme/theme = /datum/mod_theme
+	var/datum/mod_theme/theme = /datum/mod_theme/standard
 	/// Looks of the MOD.
 	var/skin = "standard"
 	/// Theme of the MOD TGUI
@@ -608,7 +608,7 @@
 	var/obj/item/mod/module/picked_module = locate(module_reference) in modules
 	if(!istype(picked_module))
 		return
-	picked_module.on_select()
+	picked_module.on_select(user)
 
 /obj/item/mod/control/shock(mob/living/shocking, chance, shock_source, siemens_coeff)
 	if(get_charge() < 1)
@@ -743,11 +743,14 @@
 	for (var/module_slow in module_slowdowns)
 		total_slowdown += module_slow
 
-	for(var/datum/mod_part/part_datum as anything in get_part_datums(all = TRUE))
+	for(var/datum/mod_part/part_datum as anything in get_part_datums()) // OCULIS EDIT, ORIGINAL: for(var/datum/mod_part/part_datum as anything in get_part_datums(all = TRUE))
 		var/obj/item/part = part_datum.part_item
-		part.slowdown = total_slowdown / length(mod_parts)
+		part.slowdown = total_slowdown / (length(mod_parts) - 1) // OCULIS EDIT, ORIGINAL: part.slowdown = total_slowdown / length(mod_parts)
 		if (!part_datum.sealed)
 			part.slowdown = max(part.slowdown, 0)
+		if(istype(part, /obj/item/clothing/shoes/mod))
+			var/obj/item/clothing/shoes/mod/shoe_part = part
+			shoe_part.update_footstep_sounds()
 	wearer?.update_equipment_speed_mods()
 
 /obj/item/mod/control/proc/power_off()

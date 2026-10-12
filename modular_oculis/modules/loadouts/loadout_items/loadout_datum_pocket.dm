@@ -32,3 +32,11 @@
 	name = " SDSM-35"
 	item_path = /obj/item/tgui_book/manual/dsm
 	group = "Comfort"
+
+/datum/loadout_item/pocket_items/hand_labeler
+	name = "Hand Labeler"
+	item_path = /obj/item/hand_labeler
+
+/datum/loadout_item/pocket_items/mod_paint // it's actually normal sized but shhh
+	name = "MOD Paint Kit"
+	item_path = /obj/item/mod/paint

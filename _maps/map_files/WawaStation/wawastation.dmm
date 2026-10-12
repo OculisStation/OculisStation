@@ -312,9 +312,9 @@
 /area/station/hallway/primary/central)
 "afj" = (
 /obj/structure/table,
-/obj/item/mmi,
-/obj/item/mmi,
-/obj/item/mmi,
+/obj/item/brain_processor/organic,
+/obj/item/brain_processor/organic,
+/obj/item/brain_processor/organic,
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
@@ -24936,7 +24936,7 @@
 /area/station/service/hydroponics)
 "iJb" = (
 /obj/structure/table,
-/obj/item/mmi,
+/obj/item/brain_processor/organic,
 /obj/effect/turf_decal/trimline/purple/filled/line,
 /obj/machinery/light/directional/south,
 /turf/open/floor/iron/dark,
@@ -41438,7 +41438,7 @@
 /area/station/hallway/secondary/service)
 "otH" = (
 /obj/structure/closet/crate/cardboard,
-/obj/item/relic,
+/obj/item/assembly/relic,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating,
 /area/station/maintenance/department/bridge)

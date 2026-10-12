@@ -100,6 +100,7 @@
 		"Command Bodyguard",
 		"Corporate Protection Specialist",
 		"Executive Protection Agent",
+		"Blueshield In-Trial", // OCULIS EDIT ADDITION
 	)
 
 /datum/job/botanist
@@ -144,6 +145,7 @@
 		"Site Director",
 		"Site Administrator",
 		"Station Commander",
+		"Captain In-Trial", // OCULIS EDIT ADDITION
 	)
 
 /datum/job/cargo_technician
@@ -201,6 +203,7 @@
 		"Engineering Foreman",
 		"Engineering Supervisor",
 		"Head of Engineering",
+		"Chief Engineer In-Trial", // OCULIS EDIT ADDITION
 	)
 
 /datum/job/chief_medical_officer
@@ -213,6 +216,7 @@
 		"Medical Director",
 		"Medical Administrator",
 		"Charge Nurse", // OCULIS EDIT ADDITION
+		"Chief Medical Officer In-Trial", // OCULIS EDIT ADDITION
 	)
 
 /datum/job/clown
@@ -339,6 +343,7 @@
 		"Executive Officer",
 		"First Officer", // OCULIS EDIT ADDITION
 		"Senior Sophont Resources Agent", // OCULIS EDIT ADDITION
+		"Head of Personnel In-Trial", // OCULIS EDIT ADDITION
 	)
 
 /datum/job/head_of_security
@@ -352,6 +357,7 @@
 		"Security Director",
 		"Sheriff",
 		"Marshall", // OCULIS EDIT ADDITION
+		"Head of Security In-Trial", // OCULIS EDIT ADDITION
 	)
 
 /datum/job/janitor
@@ -447,6 +453,7 @@
 		"Supply Foreman",
 		"Union Requisitions Officer",
 		"Warehouse Supervisor",
+		"Quartermaster In-Trial", // OCULIS EDIT ADDITION
 	)
 
 /datum/job/research_director
@@ -459,6 +466,7 @@
 		"Silicon Administrator",
 		"Research Administrator",
 		"Director of Science",
+		"Research Director In-Trial", // OCULIS EDIT ADDITION
 	)
 
 /datum/job/roboticist

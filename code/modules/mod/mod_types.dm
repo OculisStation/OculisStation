@@ -186,7 +186,7 @@
 /obj/item/mod/control/pre_equipped/security
 	theme = /datum/mod_theme/security
 	applied_modules = list(
-		/obj/item/mod/module/storage,
+		/obj/item/mod/module/storage/large_capacity, // OCULIS EDIT, ORIGINAL: /obj/item/mod/module/storage,
 		/obj/item/mod/module/magnetic_harness,
 		/obj/item/mod/module/flashlight,
 		/obj/item/mod/module/jetpack,

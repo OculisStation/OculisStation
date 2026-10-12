@@ -1,7 +1,7 @@
 /// Causes the hallucinator to believe themselves frozen in ice. Man am I glad he's frozen in there etc etc
 /datum/hallucination/ice
 	random_hallucination_weight = 3
-	hallucination_tier = HALLUCINATION_TIER_COMMON
+	hallucination_tier = HALLUCINATION_TIER_RARE // OCULIS EDIT, ORIGINAL: hallucination_tier = HALLUCINATION_TIER_COMMON
 
 	/// What icon file to use for our hallucinator
 	var/ice_icon = 'icons/effects/freeze.dmi'

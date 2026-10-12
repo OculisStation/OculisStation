@@ -14,7 +14,6 @@
 /datum/design/rotary_phone
 	name = "Rotary Telephone Circuit Board"
 	desc = "A circuit board for building classic rotary telephones that can be placed anywhere and connected to the station's phone network."
-	id = "rotary_phone"
 	build_type = AUTOLATHE
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,

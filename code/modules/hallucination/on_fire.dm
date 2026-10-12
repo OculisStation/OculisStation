@@ -3,7 +3,7 @@
 
 /datum/hallucination/fire
 	random_hallucination_weight = 3
-	hallucination_tier = HALLUCINATION_TIER_UNCOMMON
+	hallucination_tier = HALLUCINATION_TIER_RARE // OCULIS EDIT, ORIGINAL: hallucination_tier = HALLUCINATION_TIER_UNCOMMON
 
 	/// Are we currently burning our mob?
 	var/active = TRUE
@@ -42,7 +42,7 @@
 	return new_overlay
 
 /datum/hallucination/fire/start()
-	fake_firestacks = rand(5, 15)
+	fake_firestacks = rand(2.5, 7.5) // OCULIS EDIT, ORIGINAL: fake_firestacks = rand(5, 15)
 	fire_overlay = make_overlay()
 	if(!fire_overlay)
 		return FALSE

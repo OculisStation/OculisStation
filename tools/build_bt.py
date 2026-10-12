@@ -280,6 +280,7 @@ def main() -> int:
     code_dirs = [
         repo_root / 'code',
         repo_root / 'modular_nova',  # NOVA EDIT CHANGE - ORIGINAL: code_dirs only included repo_root / 'code'
+        repo_root / 'modular_oculis',  # OCULIS EDIT ADDITION - SLIME_RANCHER
     ]
 
     for code_dir in code_dirs:

@@ -461,6 +461,13 @@
 	// Inhale Miasma. Exhale nothing.
 	breathe_gas_volume(breath, /datum/gas/miasma)
 	// Miasma side effects
+	if (prob(0.5 * miasma_pp))
+		for (var/datum/disease as anything in breather.diseases)
+			if (is_type_in_list(disease, GLOB.floor_diseases))
+				return
+		var/random_disease = pick_weight(GLOB.floor_diseases)
+		var/datum/disease/inflicted_disease = new random_disease
+		breather.ForceContractDisease(inflicted_disease, del_on_fail = TRUE)
 	if (HAS_TRAIT(breather, TRAIT_ANOSMIA)) //Anosmia quirk holder cannot smell miasma, but can get diseases from it.
 		return
 	switch(miasma_pp)
@@ -624,7 +631,7 @@
 		// Breath has more than 0 moles of gas.
 		// Route gases through mask filter if breather is wearing one.
 		var/obj/item/clothing/mask/worn_mask = breather.get_item_by_slot(ITEM_SLOT_MASK)
-		if(istype(worn_mask) && (worn_mask.clothing_flags & GAS_FILTERING) && worn_mask.has_filter)
+		if(istype(worn_mask) && worn_mask.has_filter)
 			breath = worn_mask.consume_filter(breath)
 	// Breath has 0 moles of gas, and we can breathe space
 	else if(HAS_TRAIT(breather, TRAIT_NO_BREATHLESS_DAMAGE))
@@ -851,7 +858,15 @@
 		if(do_i_cough)
 			owner.emote("cough")
 	if(organ_flags & ORGAN_FAILING && !IS_UNCONSCIOUS_OR_CRIT(owner))
-		owner.visible_message(span_danger("[owner] grabs [owner.p_their()] throat, struggling for breath!"), span_userdanger("You suddenly feel like you can't breathe!"))
+		// owner.visible_message(span_danger("[owner] grabs [owner.p_their()] throat, struggling for breath!"), span_userdanger("You suddenly feel like you can't breathe!")) // OCULIS EDIT REMOVAL
+		//OCULIS EDIT ADDITION START - nobreath gives you a different failure message, additionally only guaranteed on the fail tick, 5% otherwise for nonvital, 10% if vital (to reduce spam).
+		var/is_nobreather = HAS_TRAIT(owner, TRAIT_NOBREATH)
+		if(!failed || SPT_PROB(is_nobreather ? 5 : 10, seconds_per_tick))
+			if(is_nobreather)
+				to_chat(owner, span_danger("[HAS_TRAIT(owner, TRAIT_SELF_AWARE) ? "Your lungs feel" : "Something within you feels"] wrong!")) //Self aware check for parity with examine.
+			else
+				owner.visible_message(span_danger("[owner] grabs [owner.p_their()] throat, struggling for breath!"), span_userdanger("You [failed ? "" : "suddenly "]feel like you can't breathe!"))
+		//OCULIS EDIT ADDITION END
 		failed = TRUE
 
 /obj/item/organ/lungs/get_availability(datum/species/owner_species, mob/living/owner_mob)
@@ -917,6 +932,7 @@
 	safe_oxygen_min = 0 //We don't breathe this
 	safe_plasma_min = 4 //We breathe THIS!
 	safe_plasma_max = 0
+	organ_flags = ORGAN_MINERAL | ORGAN_ORGANIC
 
 /obj/item/organ/lungs/plasmaman/plasmaman_smoker
 	name = "smoker plasma filter"

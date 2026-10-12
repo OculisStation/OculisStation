@@ -156,7 +156,7 @@
 		if(possible_target.current.stat == DEAD)
 			continue
 		// NOVA EDIT ADDITION BEGIN - Antag opt-in (Only security and command can be targetted)
-		if (!CONFIG_GET(flag/disable_antag_opt_in_preferences) && !possible_target.assigned_role?.heretic_sac_target)
+		if (!CONFIG_GET(flag/disable_conflict_opt_in_preferences) && possible_target.get_effective_conflict_opt_in_level() < CONFLICT_OPT_IN_YES_KILL) // OCULIS EDIT - USE OPT-IN SETTINGS FOR HERETIC - ORIGINAL: if (!CONFIG_GET(flag/disable_antag_opt_in_preferences) && !possible_target.assigned_role?.heretic_sac_target)
 			continue
 		// NOVA EDIT ADDITION END
 

@@ -99,6 +99,10 @@ for code_file in scannable_files:
         if("~nova/" in code_file):
             dm_path = "~nova\\" + dm_path
         # NOVA EDIT END
+        # OCULIS EDIT START - do the same above but for oculis
+        if("~oculis/" in code_file):
+            dm_path = "~oculis\\" + dm_path
+        # OCULIS EDIT END
 
     included = f"#include \"{dm_path}\"" in lines
 

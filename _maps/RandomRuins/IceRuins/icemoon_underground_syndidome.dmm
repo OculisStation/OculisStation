@@ -409,6 +409,31 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/syndibiodome)
+"fH" = (
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/effect/spawner/surgery_tray/full,
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 5
+	},
+/obj/item/clothing/mask/surgical{
+	pixel_x = -4;
+	pixel_y = 2
+	},
+/obj/item/clothing/gloves/latex{
+	pixel_x = 5;
+	pixel_y = 7
+	},
+/obj/item/brain_processor/organic/syndie{
+	pixel_x = 7;
+	pixel_y = 6
+	},
+/obj/item/clothing/gloves/latex/coroner{
+	pixel_x = 0;
+	pixel_y = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/syndibiodome)
 "fI" = (
 /obj/structure/fluff/tram_rail/end{
 	dir = 1
@@ -3059,22 +3084,6 @@
 	dir = 5
 	},
 /area/ruin/syndibiodome)
-"Lc" = (
-/obj/effect/decal/cleanable/blood/drip,
-/obj/machinery/pdapainter/research,
-/obj/effect/turf_decal/siding/wood{
-	dir = 6
-	},
-/obj/item/toy/figure/syndie{
-	pixel_x = 3;
-	pixel_y = -1
-	},
-/obj/item/toy/figure/syndie{
-	pixel_x = 5;
-	pixel_y = 10
-	},
-/turf/open/floor/wood,
-/area/ruin/syndibiodome)
 "Le" = (
 /obj/effect/turf_decal/weather/dirt{
 	dir = 5
@@ -3489,31 +3498,6 @@
 /obj/machinery/door/firedoor,
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
-/area/ruin/syndibiodome)
-"Pw" = (
-/obj/structure/table/reinforced/plastitaniumglass,
-/obj/effect/spawner/surgery_tray/full,
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 5
-	},
-/obj/item/clothing/mask/surgical{
-	pixel_x = -4;
-	pixel_y = 2
-	},
-/obj/item/clothing/gloves/latex{
-	pixel_x = 5;
-	pixel_y = 7
-	},
-/obj/item/mmi/syndie{
-	pixel_x = 7;
-	pixel_y = 6
-	},
-/obj/item/clothing/gloves/latex/coroner{
-	pixel_x = 0;
-	pixel_y = 8
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/mineral/plastitanium/red,
 /area/ruin/syndibiodome)
 "PB" = (
 /turf/open/floor/grass,
@@ -4451,6 +4435,22 @@
 /obj/structure/curtain/bounty,
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /turf/open/floor/plating,
+/area/ruin/syndibiodome)
+"ZX" = (
+/obj/effect/decal/cleanable/blood/drip,
+/obj/machinery/pdapainter/research,
+/obj/effect/turf_decal/siding/wood{
+	dir = 6
+	},
+/obj/item/toy/figure/syndie{
+	pixel_x = 3;
+	pixel_y = -1
+	},
+/obj/item/toy/figure/syndie{
+	pixel_x = 5;
+	pixel_y = 10
+	},
+/turf/open/floor/wood,
 /area/ruin/syndibiodome)
 
 (1,1,1) = {"
@@ -5921,7 +5921,7 @@ qN
 qN
 bp
 qN
-Pw
+fH
 Oi
 Do
 Uu
@@ -6151,7 +6151,7 @@ ys
 bB
 DL
 jT
-Lc
+ZX
 qN
 uH
 EY

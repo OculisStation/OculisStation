@@ -61,22 +61,9 @@
 /datum/sprite_accessory/ethereal_horns/is_hidden(mob/living/carbon/human/wearer)
 	var/obj/item/clothing/head/worn_head = wearer.head
 	var/obj/item/clothing/mask/worn_mask = wearer.wear_mask
-	if(isnull(worn_head) && isnull(worn_mask))
-		return FALSE
-
-	// Can hide if wearing hat
-	if(key in wearer.try_hide_mutant_parts)
-		return TRUE
-
-	// Exception for MODs
-	if(istype(wearer.head, /obj/item/clothing/head/mod))
-		return FALSE
-
-	// Hide accessory if flagged to do so
 	if((worn_head?.flags_inv & HIDEHAIR || worn_mask?.flags_inv & HIDEHAIR))
 		return TRUE
-
-	return FALSE
+	return ..()
 
 /datum/sprite_accessory/ethereal_horns/none
 	name = SPRITE_ACCESSORY_NONE

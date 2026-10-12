@@ -32,7 +32,6 @@
 					msg += "<[PR.url]>\n"
 	return new /datum/tgs_message_content(msg.Join(""))
 
-/* OCULIS EDIT REMOVAL BEGIN - Moved to modular_oculis/master_files/code/modules/discord/toggle_notify.dm
 // Notify
 /datum/tgs_chat_command/notify
 	name = "notify"
@@ -50,4 +49,3 @@
 	// If we got here, they arent in the list. Chuck 'em in!
 	SSdiscord.notify_members += sender.mention
 	return new /datum/tgs_message_content("You will now be notified when the server restarts")
-*/ // OCULIS EDIT REMOVAL END

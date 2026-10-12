@@ -3,13 +3,13 @@
 	. = ..()
 	if(. & EMP_PROTECT_SELF)
 		return
-	powerlevel = 0 // oh no, the power!
+	adjust_power_level(-SLIME_MAX_POWER) // oh no, the power!
 
 ///If a slime is attack with an empty hand, shoves included, try to wrestle them off the mob they are on
 /mob/living/basic/slime/proc/on_attack_hand(mob/living/basic/slime/defender_slime, mob/living/attacker)
 	SIGNAL_HANDLER
 
-	if(isnull(buckled))
+	if(!isliving(buckled)) // OCULIS EDIT CHANGE - a slime on a chair has nobody to be wrestled off - ORIGINAL: if(isnull(buckled))
 		return
 
 	if(buckled == attacker ? prob(60) : prob(30)) //its easier to remove the slime from yourself
