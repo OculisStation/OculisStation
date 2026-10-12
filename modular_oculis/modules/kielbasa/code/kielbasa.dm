@@ -13,7 +13,6 @@
 /obj/item/ammo_box/magazine/c980_sausage
 	name = "\improper Kielbasa grenade box"
 	desc = "A standard size box for .980 sausages, holds four of them."
-
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/carwo_defense_systems/ammo.dmi'
 	icon_state = "granata_standard"
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
