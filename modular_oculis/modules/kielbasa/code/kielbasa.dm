@@ -45,7 +45,6 @@
 	projectile_type = /obj/projectile/bullet/sausage
 
 	custom_materials = list(/datum/material/meat = SHEET_MATERIAL_AMOUNT)
-
 	harmful = FALSE //Clearly.
 	ammo_categories = AMMO_CLASS_NONE
 
