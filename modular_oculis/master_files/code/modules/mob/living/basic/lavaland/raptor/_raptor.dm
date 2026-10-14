@@ -37,7 +37,7 @@
 	. = ..()
 	if (!.)
 		return FALSE
-	if (ismegafauna(living_mob) || istype(living_mob, /mob/living/basic/raptor))
+	if (istype(living_mob, /mob/living/basic/raptor))
 		return FALSE
 	return TRUE
 
