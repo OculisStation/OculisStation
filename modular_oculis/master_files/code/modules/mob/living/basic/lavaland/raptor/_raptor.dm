@@ -31,9 +31,9 @@
 		return
 	// Raptors can no longer be entangled by goliath tentacles
 
-/datum/targeting_strategy/basic/exact_match/ignore_friends/raptor
+/datum/targeting_strategy/basic/exact_match/ignore_friends/ignoreraptor
 
-/datum/targeting_strategy/basic/exact_match/ignore_friends/raptor/is_valid_target(mob/living/living_mob, atom/the_target, vision_range, datum/ai_controller/controller = null)
+/datum/targeting_strategy/basic/exact_match/ignore_friends/ignoreraptor/is_valid_target(mob/living/living_mob, atom/the_target, vision_range, datum/ai_controller/controller = null)
 	. = ..()
 	if (!.)
 		return FALSE
@@ -49,7 +49,7 @@
 			"wags their tail against",
 			"playfully leans against"
 		),
-		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic/exact_match/ignore_friends/raptor,
+		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic/exact_match/ignore_friends/ignoreraptor,
 		BB_HUNT_TARGETING_STRATEGY = /datum/targeting_strategy/basic,
 		BB_PET_TARGETING_STRATEGY = /datum/targeting_strategy/basic,
 		BB_BABIES_PARTNER_TYPES = list(/mob/living/basic/raptor),
