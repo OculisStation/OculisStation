@@ -66,19 +66,37 @@ ADMIN_VERB(play_direct_mob_sound, R_SOUND, "Play Direct Mob Sound", "Play a soun
 
 GLOBAL_VAR_INIT(web_sound_cooldown, 0)
 
+// OCULIS EDIT ADDITION - uses MUSIC_SERVER_URL in oculis_config.txt to resolve via a remote PHP endpoint instead of local yt-dlp
 ///Takes an input from either proc/play_web_sound or the request manager and runs it through yt-dlp and prompts the user before playing it to the server.
 /proc/web_sound(mob/user, input, credit)
 	if(!check_rights(R_SOUND))
 		return
+	/* // OCULIS EDIT REMOVAL START
 	var/ytdl = CONFIG_GET(string/invoke_youtubedl)
 	if(!ytdl)
 		to_chat(user, span_boldwarning("yt-dlp was not configured, action unavailable"), confidential = TRUE) //Check config.txt for the INVOKE_YOUTUBEDL value
 		return
+	*/ // OCULIS EDIT REMOVAL END
+	// OCULIS EDIT ADDITION START
+	var/local_ytdl = CONFIG_GET(string/invoke_youtubedl)
+	var/music_server = CONFIG_GET(string/music_server_url)
+	if(!(music_server || local_ytdl))
+		to_chat(user, span_boldwarning("Neither local yt-dlp or an exteranl php server was not configured, action unavailable."), confidential = TRUE) //Check config.txt for the INVOKE_YOUTUBEDL value
+		return
+
+	if(local_ytdl && music_server)
+		switch(tgui_alert(user, "Choose source.", "Play Internet Sound", list("Local yt-dlp", "External php server", "Try Both")))
+			if("Local yt-dlp")
+				music_server = null
+			if("External php server")
+				local_ytdl = null
+	// OCULIS EDIT ADDITION END
 	var/web_sound_url = ""
 	var/stop_web_sounds = FALSE
 	var/list/music_extra_data = list()
 	var/duration = 0
 	if(istext(input))
+		/* // OCULIS EDIT REMOVAL START
 		var/shell_scrubbed_input = shell_url_scrub(input)
 		var/list/output = world.shelleo("[ytdl] --geo-bypass --format \"bestaudio\[ext=mp3]/best\[ext=mp4]\[height <= 360]/bestaudio\[ext=m4a]/bestaudio\[ext=aac]\" --dump-single-json --no-playlist -- \"[shell_scrubbed_input]\"")
 		var/errorlevel = output[SHELLEO_ERRORLEVEL]
@@ -97,6 +115,18 @@ GLOBAL_VAR_INIT(web_sound_cooldown, 0)
 			return
 		if (data["url"])
 			web_sound_url = data["url"]
+			*/ // OCULIS EDIT REMOVAL END
+		// OCULIS EDIT ADDITION START
+		var/list/data
+		if(local_ytdl)
+			data = download_music_from_local_ytdl(user, input, local_ytdl)
+		if(music_server && !data) // Only resort to a server if local ytdl fails to avoid unsecciary work transmition across servers.
+			data = download_music_from_external_server(user, input, music_server)
+
+		if(!data || !data["url"])
+			return
+		web_sound_url = data["url"]
+		// OCULIS EDIT ADDITION END
 		var/title = "[data["title"]]"
 		var/webpage_url = title
 		if (data["webpage_url"])
@@ -157,7 +187,9 @@ GLOBAL_VAR_INIT(web_sound_cooldown, 0)
 			if(client.prefs.read_preference(/datum/preference/numeric/volume/sound_midi) > 0)
 				recipients += client
 		recipients |= user.client
-		to_chat(recipients, fieldset_block("Now Playing: [span_bold(music_extra_data["title"])] by [span_bold(music_extra_data["artist"])]", jointext(to_chat_message, ""), "boxed_message"))
+		// to_chat(recipients, fieldset_block("Now Playing: [span_bold(music_extra_data["title"])] by [span_bold(music_extra_data["artist"])]", jointext(to_chat_message, ""), "boxed_message")) // OCULIS EDIT REMOVAL
+		var/real_artist = !!(music_extra_data["artist"] && (music_extra_data["artist"] != "Unknown")) // OCULIS EDIT ADDITION
+		to_chat(recipients, fieldset_block("Now Playing: [span_bold(music_extra_data["title"])][real_artist ? " by [span_bold(music_extra_data["artist"])]" : ""]", jointext(to_chat_message, ""), "boxed_message")) // OCULIS EDIT ADDITION
 
 		SSblackbox.record_feedback("nested tally", "played_url", 1, list("[user.ckey]", "[input]"))
 		log_admin("[key_name(user)] played web sound: [input]")
@@ -191,8 +223,51 @@ GLOBAL_VAR_INIT(web_sound_cooldown, 0)
 
 	BLACKBOX_LOG_ADMIN_VERB("Play Internet Sound")
 
+// OCULIS EDIT ADDITION START
+/proc/download_music_from_external_server(mob/user, input, music_server)
+	var/encoded = url_encode(input)
+	var/request_url = "[trim(music_server)]?url=[encoded]"
+	to_chat(user, span_notice("API request for php endpoint: [request_url]"), confidential = TRUE)
+	var/datum/http_request/request = new()
+	request.prepare(RUSTG_HTTP_METHOD_GET, request_url, "", list("Content-Type" = "application/json"))
+	request.begin_async()
+	var/actual_timeout = REALTIMEOFDAY + 20 SECONDS
+	UNTIL(request.is_complete() || REALTIMEOFDAY > actual_timeout)
+	var/datum/http_response/http_response = request.into_response()
+	if(http_response.errored || http_response.status_code != 200)
+		return
+	var/list/data
+	try
+		data = json_decode(http_response.body)
+	catch(var/exception/e)
+		to_chat(user, span_boldwarning("invalid JSON: [e]"), confidential = TRUE)
+		return
+
+	return data
+
+/proc/download_music_from_local_ytdl(mob/user, input, local_ytdl)
+	to_chat(user, span_notice("Requesting from local yt-dl"))
+	var/shell_scrubbed_input = shell_url_scrub(input)
+	var/list/output = world.shelleo("[local_ytdl] --geo-bypass --format \"bestaudio\[ext=mp3]/best\[ext=mp4]\[height <= 360]/bestaudio\[ext=m4a]/bestaudio\[ext=aac]\" --dump-single-json --no-playlist -- \"[shell_scrubbed_input]\"")
+	var/errorlevel = output[SHELLEO_ERRORLEVEL]
+	var/stdout = output[SHELLEO_STDOUT]
+	var/stderr = output[SHELLEO_STDERR]
+	if(errorlevel)
+		to_chat(user, span_boldwarning("yt-dlp URL retrieval FAILED:"), confidential = TRUE)
+		to_chat(user, span_warning("[stderr]"), confidential = TRUE)
+		return
+	var/list/data
+	try
+		data = json_decode(stdout)
+	catch(var/exception/e)
+		to_chat(user, span_boldwarning("yt-dlp JSON parsing FAILED:"), confidential = TRUE)
+		to_chat(user, span_warning("[e]: [stdout]"), confidential = TRUE)
+
+	return data
+// OCULIS EDIT ADDITION END
+
 ADMIN_VERB_CUSTOM_EXIST_CHECK(play_web_sound)
-	return !!CONFIG_GET(string/invoke_youtubedl)
+	return !!CONFIG_GET(string/music_server_url) || !!CONFIG_GET(string/invoke_youtubedl) // OCULIS EDIT, ORIGINAL: return !!CONFIG_GET(string/invoke_youtubedl)
 
 ADMIN_VERB(play_web_sound, R_SOUND, "Play Internet Sound", "Play a given internet sound to all players.", ADMIN_CATEGORY_FUN)
 	if(!CLIENT_COOLDOWN_FINISHED(GLOB, web_sound_cooldown))

@@ -3,3 +3,6 @@
 
 ## Uncomment to enable the chance of a Lone Operative spawning if the Nuclear Authentication Disk is left unmoved for too long
 #NAD_CAN_SPAWN_LONE_OP
+
+## url that leads to a php endpoint where yt-dl runs. should return a json package including a url to the mp3
+#MUSIC_SERVER_URL
