@@ -95,8 +95,7 @@
 		"spans" = spans,
 		"mods" = message_mods,
 	)
-	// levels = SSmapping.get_connected_levels(get_turf(source)) // IRIS EDIT - OLD
-	levels = lvls != null ? lvls : SSmapping.get_connected_levels(get_turf(source)) // IRIS EDIT - NEW
+	levels = !isnull(lvls) ? lvls : get_telecomms_levels(get_turf(source)) // OCULIS EDIT - ORIGINAL: levels = SSmapping.get_connected_levels(get_turf(source))
 
 #undef COMPRESSION_VOCAL_SIGNAL_MIN
 #undef COMPRESSION_VOCAL_SIGNAL_MAX

@@ -1,12 +1,14 @@
+/// Slimes a pack holds before upgrades.
 #define VACUUM_BASE_CAPACITY 5
+/// How far the suction reaches in tiles, before upgrades.
 #define VACUUM_BASE_CAPTURE_RANGE 3
+/// How long it takes to suck something up, before upgrades.
 #define VACUUM_BASE_CAPTURE_DELAY (1 SECONDS)
-#define VACUUM_LAUNCH_RANGE 5
-#define VACUUM_LAUNCH_SPEED 2
 
 /datum/action/item_action/toggle_vacuum_nozzle
 	name = "Toggle Vacuum Nozzle"
 
+/// Backpack that sucks up slimes and extracts, and shoots the slimes back out.
 /obj/item/vacuum_pack
 	name = "slime vacuum pack"
 	desc = "A backpack (or belt) vacuum for carrying and launching slimes. Anything else it sucks up goes straight to the linked recycler."
@@ -24,20 +26,35 @@
 	actions_types = list(/datum/action/item_action/toggle_vacuum_nozzle)
 	max_integrity = 200
 
+	/// The nozzle. It lives inside the pack when nobody's holding it.
 	var/obj/item/vacuum_nozzle/nozzle
+	/// Matter bin that sets how many extracts fit.
+	var/obj/item/stock_parts/matter_bin/extract_bin
+	/// Bin the pack spawns with.
+	var/extract_bin_type = /obj/item/stock_parts/matter_bin
+	/// Most slimes the pack holds.
 	var/capacity = VACUUM_BASE_CAPACITY
+	/// How far the suction reaches, in tiles.
 	var/capture_range = VACUUM_BASE_CAPTURE_RANGE
+	/// How long it takes to suck something up, in deciseconds.
 	var/capture_delay = VACUUM_BASE_CAPTURE_DELAY
+	/// The upgrades we've got: upgrade type -> its /datum/vacuum_upgrade.
 	var/list/upgrades = list()
 	var/list/owned_ai_shutdowns = list()
+	/// Weakref to the linked biomass recycler.
 	var/datum/weakref/linked_recycler_ref
+	/// The critter type the printer upgrade will print next.
 	var/atom/selected_species
+	/// If TRUE, firing asks which slime to shoot instead of picking one for you.
 	var/selective_mode = FALSE
+	/// TRUE while we're in the middle of something, so spam clicking doesn't stack.
 	var/busy = FALSE
 	var/retracting = FALSE // needed to avoid recursing dropped()
+	/// VACUUM_CAN_* flags, turned on by installed upgrades.
 	var/capabilities = NONE
 	/// Extracts currently flying toward the user, mapped to the move loop pulling them.
 	var/alist/pulled_extracts = alist()
+	/// How many extracts this pull has sucked up so far, so each ploop is higher pitched.
 	var/extract_pitch_count = 0
 	var/datum/sound_token/succ_sound
 	COOLDOWN_DECLARE(extract_suction_cooldown)
@@ -47,18 +64,21 @@
 	AddElement(/datum/element/drag_pickup)
 	nozzle = new(src)
 	RegisterSignal(nozzle, COMSIG_MOVABLE_MOVED, PROC_REF(on_nozzle_moved))
+	extract_bin = new extract_bin_type(src)
+	RegisterSignal(src, COMSIG_MOUSEDROP_ONTO, PROC_REF(on_mousedrop_onto))
 
 /obj/item/vacuum_pack/Destroy()
 	var/turf/drop_turf = drop_location()
-	for(var/mob/living/occupant as anything in occupants())
+	for(var/atom/movable/cargo as anything in occupants() + stored_extracts())
 		if(drop_turf)
-			occupant.forceMove(drop_turf)
+			cargo.forceMove(drop_turf)
 		else
-			qdel(occupant)
+			qdel(cargo)
 
 	stop_extract_pulls()
 	QDEL_NULL(succ_sound)
 	QDEL_NULL(nozzle)
+	QDEL_NULL(extract_bin)
 	QDEL_LIST_ASSOC_VAL(upgrades)
 	owned_ai_shutdowns.Cut()
 	linked_recycler_ref = null
@@ -75,6 +95,8 @@
 	. = ..()
 	var/list/stored = occupants()
 	. += span_notice("It contains [length(stored)] of [capacity] slimes.")
+	. += span_notice("It holds [length(stored_extracts())] of [extract_capacity()] extracts in its [extract_bin.name].")
+	. += span_notice("Drag it onto a bag, the extract fridge, or the floor to empty the extracts, or [EXAMINE_HINT("right-click")] it to take one out. Use a matter bin on it to swap the bin.")
 	. += span_notice("Its suction reaches [capture_range] tiles and takes [DisplayTimeText(capture_delay)].")
 	. += span_notice("It is set to [selective_mode ? "selective" : "random"] firing.")
 	. += span_notice("[EXAMINE_HINT("Ctrl-right-click")] with the nozzle to suck up slime extracts in that direction.")
@@ -114,7 +136,10 @@
 	toggle_nozzle(user)
 	return TRUE
 
-/obj/item/vacuum_pack/item_interaction(mob/living/user, obj/item/disk/vacuum_upgrade/disk, list/modifiers)
+/obj/item/vacuum_pack/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(istype(tool, /obj/item/stock_parts/matter_bin))
+		return swap_extract_bin(tool, user)
+	var/obj/item/disk/vacuum_upgrade/disk = tool
 	if(!istype(disk))
 		return NONE
 	if(upgrades[disk.upgrade_type])
@@ -128,6 +153,7 @@
 	qdel(disk)
 	return ITEM_INTERACT_SUCCESS
 
+/// Takes the nozzle out into a hand, or puts it back.
 /obj/item/vacuum_pack/proc/toggle_nozzle(mob/living/user)
 	if(!istype(user) || !is_worn_by(user))
 		balloon_alert(user, "wear the pack first!")
@@ -158,6 +184,7 @@
 	nozzle.forceMove(src)
 	retracting = FALSE
 
+/// Snaps the nozzle back into the pack if it ends up anywhere else.
 /obj/item/vacuum_pack/proc/on_nozzle_moved(atom/movable/source, atom/old_loc, direction)
 	SIGNAL_HANDLER
 	if(source.loc == src || source.loc == loc)
@@ -170,11 +197,13 @@
 /obj/item/vacuum_pack/proc/is_worn_by(mob/user)
 	return user.get_slot_by_item(src) & slot_flags
 
+/// The critters inside the pack.
 /obj/item/vacuum_pack/proc/occupants()
 	. = list()
 	for(var/mob/living/occupant in contents)
 		. += occupant
 
+/// Resets our stats, then applies every upgrade again.
 /obj/item/vacuum_pack/proc/recalculate_stats()
 	capacity = VACUUM_BASE_CAPACITY
 	capture_range = VACUUM_BASE_CAPTURE_RANGE
@@ -187,6 +216,7 @@
 		capture_delay -= upgrade.capture_delay_reduction
 		capabilities |= upgrade.capability
 
+/// The linked recycler, or null (and clears the ref) if it's gone.
 /obj/item/vacuum_pack/proc/resolve_recycler()
 	var/obj/machinery/biomass_recycler/recycler = linked_recycler_ref?.resolve()
 	if(isnull(recycler))
@@ -209,6 +239,7 @@
 		return FALSE
 	return TRUE
 
+/// Links to a working recycler the user is standing next to.
 /obj/item/vacuum_pack/proc/link_recycler(obj/machinery/biomass_recycler/recycler, mob/living/user)
 	if(!can_use_nozzle(user, feedback = TRUE))
 		return FALSE
@@ -222,6 +253,7 @@
 	balloon_alert(user, "recycler linked")
 	return TRUE
 
+/// Whether the user is wearing the pack and holding the nozzle.
 /obj/item/vacuum_pack/proc/can_use_nozzle(mob/living/user, feedback = FALSE)
 	if(QDELETED(src) || QDELETED(nozzle) || !istype(user))
 		return FALSE
@@ -249,6 +281,7 @@
 		return FALSE
 	return TRUE
 
+/// Whether this creature can be vacuumed into the pack right now.
 /obj/item/vacuum_pack/proc/can_suck(mob/living/target, mob/living/user, feedback = FALSE)
 	if(!can_reach_for_intake(target, user, feedback))
 		return FALSE
@@ -256,7 +289,8 @@
 		if(feedback)
 			balloon_alert(user, "pack is full!")
 		return FALSE
-	if(target.stat == DEAD || target.client || target.mind || target.anchored || target.buckled || target.has_buckled_mobs())
+	// sitting on a slime (or being sat on by one) is fine, the slime sorts its tower out when it gets moved
+	if(target.stat == DEAD || target.client || target.mind || target.anchored || (target.buckled && !isslime(target.buckled)))
 		if(feedback)
 			balloon_alert(user, "cannot be sucked up!")
 		return FALSE
@@ -282,6 +316,7 @@
 		return FALSE
 	return TRUE
 
+/// Waits out capture_delay, then stuffs the slime in the pack.
 /obj/item/vacuum_pack/proc/capture(mob/living/target, mob/living/user, turf/required_turf)
 	var/turf/starting_turf = required_turf || target.loc
 	if(!can_suck(target, user, feedback = TRUE))
@@ -331,6 +366,7 @@
 	astype(occupant, /mob/living/basic/slime)?.reset_stuck_ai()
 	SEND_SIGNAL(src, COMSIG_VACUUM_RELEASED, occupant)
 
+/// Plops a critter from the pack out onto a turf.
 /obj/item/vacuum_pack/proc/release(mob/living/occupant, turf/destination)
 	if(QDELETED(occupant) || occupant.loc != src || !isturf(destination))
 		return FALSE
@@ -348,6 +384,7 @@
 		return FALSE
 	return TRUE
 
+/// Yeets a critter at the target, and lets it fly over other mobs.
 /obj/item/vacuum_pack/proc/launch(mob/living/creature, atom/target, mob/living/user)
 	if(QDELETED(creature) || !isturf(creature.loc) || !can_aim_at(target, user, feedback = TRUE))
 		return FALSE
@@ -359,15 +396,19 @@
 		restore?.Invoke()
 		return FALSE
 	playsound(nozzle, 'sound/misc/moist_impact.ogg', vol = 50, vary = TRUE)
+	if(prob(99) && isslime(creature) && creature.stat != DEAD)
+		playsound(creature, 'modular_oculis/modules/slime_rancher/sound/woohoo.ogg', vol = 50, vary = TRUE)
 	user.visible_message(
 		span_notice("[user] launches [creature] from [nozzle]."),
 		span_notice("You launch [creature] from [nozzle].")
 	)
 	return TRUE
 
+/// Takes back the PASSMOB that launch() gave.
 /obj/item/vacuum_pack/proc/un_passmob(mob/living/creature)
 	creature.pass_flags &= ~PASSMOB
 
+/// Takes one slime out of the pack and shoots it at the target.
 /obj/item/vacuum_pack/proc/fire(atom/target, mob/living/user)
 	if(!can_aim_at(target, user, feedback = TRUE))
 		return FALSE
@@ -399,6 +440,7 @@
 		return
 	return selected
 
+/// Keeps a radial menu open only while the pack is busy and usable.
 /obj/item/vacuum_pack/proc/can_continue_menu(mob/living/user)
 	return busy && can_use_nozzle(user)
 
@@ -409,6 +451,7 @@
 	var/mob/living/basic/basic_target = target
 	return istype(basic_target) && !isslime(basic_target) && basic_target.biomass_value > 0
 
+/// Whether the linked recycler can take this creature right now.
 /obj/item/vacuum_pack/proc/can_recycle_creature(mob/living/target, mob/living/user, obj/machinery/biomass_recycler/recycler, feedback = FALSE)
 	if(!is_recyclable(target) || !can_reach_for_intake(target, user, feedback))
 		return FALSE
@@ -433,6 +476,7 @@
 	play_ploop(nozzle)
 	return recycler.recycle(target, user, feedback = TRUE)
 
+/// Nozzle left-click: picks what to do from what was clicked.
 /obj/item/vacuum_pack/proc/primary_action(atom/target, mob/living/user)
 	if(busy)
 		balloon_alert(user, "busy!")
@@ -441,6 +485,8 @@
 	var/succeeded = FALSE
 	if(istype(target, /obj/machinery/biomass_recycler))
 		succeeded = link_recycler(target, user)
+	else if(istype(target, /obj/machinery/smartfridge/extract))
+		succeeded = fire_extracts(target, user)
 	else if(is_recyclable(target))
 		succeeded = recycle_creature(target, user)
 	else if(isliving(target))
@@ -450,6 +496,7 @@
 	busy = FALSE
 	return succeeded
 
+/// Radial menu to pick one creature off a turf, then take it in.
 /obj/item/vacuum_pack/proc/select_turf_target(turf/target_turf, mob/living/user)
 	if(busy || !has_selectable_target(target_turf, user))
 		return FALSE
@@ -475,6 +522,7 @@
 	busy = FALSE
 	return succeeded
 
+/// Whether anything on the turf could go in the selection menu.
 /obj/item/vacuum_pack/proc/has_selectable_target(turf/target_turf, mob/living/user)
 	if(busy || !isturf(target_turf))
 		return FALSE
@@ -488,6 +536,7 @@
 		return can_recycle_creature(candidate, user, resolve_recycler())
 	return can_suck(candidate, user)
 
+/// Radial menu of species the recycler can print. Returns the chosen type.
 /obj/item/vacuum_pack/proc/choose_species(mob/living/user)
 	var/obj/machinery/biomass_recycler/recycler = resolve_recycler()
 	if(!(capabilities & VACUUM_CAN_PRINT))
@@ -495,17 +544,18 @@
 		return
 	if(!can_use_recycler(recycler, user, feedback = TRUE))
 		return
-	var/list/catalogue = recycler.get_printable_species()
+	var/list/catalog = recycler.get_printable_species()
 	var/list/choices = list()
 	var/list/species_by_label = list()
-	for(var/atom/species as anything in catalogue)
+	for(var/atom/species as anything in catalog)
 		var/species_name = ispath(species, /mob/living/carbon/human/species/monkey) ? "monkey" : species::name
-		var/label = "[species_name] - [catalogue[species]] biomass"
+		var/label = "[species_name] - [catalog[species]] biomass"
 		choices[label] = image(icon = species::icon, icon_state = species::icon_state)
 		species_by_label[label] = species
 	var/selection = show_radial_menu(user, nozzle, choices, custom_check = CALLBACK(src, PROC_REF(can_continue_menu), user), require_near = TRUE, tooltips = TRUE)
 	return species_by_label[selection]
 
+/// Lets the user pick which species the printer prints next.
 /obj/item/vacuum_pack/proc/select_species(mob/living/user)
 	if(busy)
 		balloon_alert(user, "busy!")
@@ -527,6 +577,7 @@
 	. = try_print_species(target, user)
 	busy = FALSE
 
+/// Spends the recycler's biomass to print the picked critter, then shoots it out.
 /obj/item/vacuum_pack/proc/try_print_species(atom/target, mob/living/user)
 	if(!selected_species)
 		selected_species = choose_species(user)
@@ -558,6 +609,7 @@
 
 // subtype that comes with all upgrades installed
 /obj/item/vacuum_pack/upgraded
+	extract_bin_type = /obj/item/stock_parts/matter_bin/bluespace
 
 /obj/item/vacuum_pack/upgraded/Initialize(mapload)
 	. = ..()
@@ -583,5 +635,3 @@
 #undef VACUUM_BASE_CAPACITY
 #undef VACUUM_BASE_CAPTURE_RANGE
 #undef VACUUM_BASE_CAPTURE_DELAY
-#undef VACUUM_LAUNCH_RANGE
-#undef VACUUM_LAUNCH_SPEED

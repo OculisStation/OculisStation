@@ -17,7 +17,10 @@ Industrial extracts:
 	. += "It currently has [plasmaabsorbed] units of plasma floating inside the outer shell, out of [plasmarequired] units."
 
 /obj/item/slimecross/industrial/proc/do_after_spawn(obj/item/spawned)
-	return
+	// OCULIS EDIT CHANGE START - SLIME_RANCHER - ORIGINAL: return
+	SHOULD_CALL_PARENT(TRUE)
+	spawned.layer = min(spawned.layer, layer - 0.1)
+	// OCULIS EDIT CHANGE END
 
 /obj/item/slimecross/industrial/Initialize(mapload)
 	. = ..()
@@ -43,7 +46,7 @@ Industrial extracts:
 		playsound(src, 'sound/effects/blob/attackblob.ogg', 50, TRUE)
 		plasmaabsorbed -= plasmarequired
 		for(var/i in 1 to itemamount)
-			do_after_spawn(new itempath(get_turf(src)))
+			do_after_spawn(new itempath(loc)) // OCULIS EDIT CHANGE - SLIME_RANCHER - ORIGINAL: do_after_spawn(new itempath(get_turf(src)))
 	else if(IsWorking)
 		playsound(src, 'sound/effects/bubbles/bubbles.ogg', 5, TRUE)
 	if(IsWorking)
@@ -88,6 +91,7 @@ Industrial extracts:
 	itempath = /obj/item/stock_parts/power_store/cell/high
 
 /obj/item/slimecross/industrial/yellow/do_after_spawn(obj/item/spawned)
+	. = ..() // OCULIS EDIT ADDITION - SLIME_RANCHER
 	var/obj/item/stock_parts/power_store/cell/high/C = spawned
 	if(istype(C))
 		C.charge = rand(0,C.maxcharge/2)
@@ -105,6 +109,7 @@ Industrial extracts:
 	itempath = /obj/item/slimepotion/fireproof
 
 /obj/item/slimecross/industrial/darkblue/do_after_spawn(obj/item/spawned)
+	. = ..() // OCULIS EDIT ADDITION - SLIME_RANCHER
 	var/obj/item/slimepotion/fireproof/potion = spawned
 	if(istype(potion))
 		potion.uses = 1
@@ -120,6 +125,7 @@ Industrial extracts:
 	..()
 
 /obj/item/slimecross/industrial/silver/do_after_spawn(obj/item/spawned)
+	. = ..() // OCULIS EDIT ADDITION - SLIME_RANCHER
 	ADD_TRAIT(spawned, TRAIT_FOOD_SILVER, INNATE_TRAIT)
 
 /obj/item/slimecross/industrial/bluespace

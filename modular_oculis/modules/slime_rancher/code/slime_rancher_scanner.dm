@@ -1,3 +1,4 @@
+/// Handheld thingy that sticks to one slime and shows its stats live
 /obj/item/slime_rancher_scanner
 	name = "slime scanner"
 	desc = "A device that analyzes a slime's internal composition and measures its stats, \
@@ -51,6 +52,7 @@
 	ui_interact(user)
 	return ITEM_INTERACT_SUCCESS
 
+/// Swaps which slime we're watching
 /obj/item/slime_rancher_scanner/proc/set_slime(mob/living/user, mob/living/basic/slime/new_slime)
 	if(!isslime(new_slime))
 		return
@@ -140,6 +142,7 @@
 		"nutrition_hungry" = SLIME_HUNGER_NUTRITION,
 	)
 
+/// How far along one mutation is, used for ui_data
 /obj/item/slime_rancher_scanner/proc/mutation_data(datum/slime_mutation/mutation) as /list
 	var/datum/slime_type/target = mutation.mutates_into
 	var/list/entry = list(
