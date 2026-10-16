@@ -71,3 +71,9 @@ cp -r tgui/packages/tgfont/dist/* $1/tgui/packages/tgfont/dist/
 if [ "$(uname -o)" = "Msys" ]; then
 	cp ./*.dll $1/
 fi
+
+cp ./libdmeow.so $1/
+# dmeow reads this from its working directory when DMEOW_SLEEP_VERDICTS is
+# unset, which a live server's is. Without it nothing gates a compiled proc
+# that can end up above a sleep.
+cp ./dmeow_sleep_verdicts.txt $1/
