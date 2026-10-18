@@ -17,3 +17,11 @@
   XeonMations:
   - rscdel: Removed Plexora from the codebase
   - rscdel: Removed Floxy from the codebase
+2026-10-12:
+  Meunahlux:
+  - bugfix: Changed the Boh Loh Yah to reflect its allergies and contents accurately.
+  XeonMations:
+  - qol: Shapeshifting now allows you to individually select skintone and mutant colors.
+2026-10-17:
+  Shroopy:
+  - rscdel: Removed disabling mail on Sundays.
