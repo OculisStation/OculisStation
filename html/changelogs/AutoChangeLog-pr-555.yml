@@ -1,0 +1,4 @@
+author: "XeonMations"
+delete-after: True
+changes:
+  - server: "Added a topic call to ?players and ?adminwho"
