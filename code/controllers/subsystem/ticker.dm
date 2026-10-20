@@ -315,6 +315,7 @@ SUBSYSTEM_DEF(ticker)
 		ruleset.execute()
 		SSdynamic.unqueue_ruleset(ruleset)
 		SSdynamic.executed_rulesets += ruleset
+	SSmapping.lazy_load_template(LAZY_TEMPLATE_KEY_SYNDICATE_STATION) // OCULIS EDIT ADDITION
 	// Queue roundstart intercept report
 	/* // NOVA EDIT REMOVAL START
 	if(!CONFIG_GET(flag/no_intercept_report))
