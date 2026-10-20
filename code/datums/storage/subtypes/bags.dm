@@ -203,6 +203,7 @@
 		/obj/item/stack/biomass,
 		/obj/item/slime_breeding_pellet,
 		/obj/item/slimepotion,
+		/obj/item/slimecross,
 		// OCULIS EDIT ADDITION END
 	))
 

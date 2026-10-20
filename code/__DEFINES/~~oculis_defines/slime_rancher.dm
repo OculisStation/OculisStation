@@ -8,8 +8,21 @@
 #define BB_SLIME_WANTED_MOBS "BB_slime_wanted_mobs"
 ///Friend a slime is currently waddling over to go nuzzle
 #define BB_SLIME_NUZZLE_TARGET "BB_slime_nuzzle_target"
+///Person a cat slime is currently hopping over to bounce off of
+#define BB_SLIME_BOUNCE_TARGET "BB_slime_bounce_target"
+///Mess (or pest) a cleaner slime is walking towards to dissolve
+#define BB_SLIME_CLEAN_TARGET "BB_slime_clean_target"
+///Slime we're walking over to sit on, or the one we're already sitting on
+#define BB_SLIME_STACK_TARGET "BB_slime_stack_target"
+///Turf a cleaner slime is wandering over to, to look for messes there
+#define BB_SLIME_ROAM_TARGET "BB_slime_roam_target"
+///Player a cleaner slime is wandering towards, getting as close as it can
+#define BB_SLIME_ROAM_PLAYER "BB_slime_roam_player"
 ///Emotes a monkey uses for its battle screech instead of the hardcoded roar/screech, if set
 #define BB_MONKEY_BATTLE_SCREECHES "BB_monkey_battle_screeches"
+
+///How many transformative extracts one slime can hold
+#define SLIME_MAX_TRANSFORMATIONS 3
 
 /// The cat face. Core only defines the faces its own AI used, and this one's cuter.
 #define SLIME_MOOD_CAT ":33"
@@ -24,14 +37,24 @@
 #define COMSIG_SLIME_UPDATE_MOOD "slime_update_mood"
 /// From /datum/status_effect/slime_leech/tick(): (mob/living/meal, drained)
 #define COMSIG_SLIME_LATCH_DRAINED "slime_latch_drained"
+/// From /mob/living/basic/slime/proc/on_slime_pre_attack(), when a slime shocks a carbon: (mob/living/carbon/target)
+#define COMSIG_SLIME_SHOCKED "slime_shocked"
+/// From /mob/living/basic/slime/proc/finish_reproduce() and death(), once per new baby: (mob/living/basic/slime/baby)
+#define COMSIG_SLIME_SPLIT "slime_split"
 
 /// From /obj/item/vacuum_pack/proc/store(): (mob/living/stored_mob)
 #define COMSIG_VACUUM_STORED "vacuum_stored"
 /// From /obj/item/vacuum_pack/Exited(): (mob/living/released_mob)
 #define COMSIG_VACUUM_RELEASED "vacuum_released"
 
+///called on a movable when it stops orbiting an atom: (atom/center)
+#define COMSIG_MOVABLE_STOPPED_ORBITING "movable_stopped_orbiting"
+
 #define VACUUM_CAN_PACIFY (1<<0)
 #define VACUUM_CAN_PRINT (1<<1)
+
+#define VACUUM_LAUNCH_RANGE 5
+#define VACUUM_LAUNCH_SPEED 2
 
 // these control how long slimes jiggle when splitting or mutating
 #define SLIME_SPLIT_WINDUP (5 SECONDS)
@@ -39,6 +62,8 @@
 
 /// Health an adult slime has to drain to secrete one extract (or roll a mutation)
 #define SLIME_RANCH_EXTRACT_COST 50
+/// A ranching slime won't secrete extracts while this many are already lying around nearby
+#define SLIME_RANCH_NEARBY_EXTRACT_CAP 80
 /// Health a slime told to split by a friend has to drain first
 #define SLIME_RANCH_COMMAND_SPLIT_COST 50
 /// Health a slime that ate a breeding pellet has to drain first
@@ -47,6 +72,12 @@
 #define SLIME_RANCH_RETRY_COOLDOWN (5 SECONDS)
 /// How long a slime ignores a target it couldn't path to
 #define SLIME_CHASE_GIVE_UP_TIME (5 SECONDS)
+/// How far (in path steps) a slime will walk to go find a player, or chase anything once it's moving with A*
+#define SLIME_SEEK_PATH_LENGTH 60
+/// How many damaging hits a cat slime shrugs off before it holds a grudge
+#define SLIME_CAT_PATIENCE_HITS 3
+/// Hits further apart than this don't add up against a cat slime's patience
+#define SLIME_CAT_PATIENCE_WINDOW (10 SECONDS)
 
 /// The fence sprite's own blue. A pen set to this color skips the recolor filter entirely, so the default look is the sprite as drawn.
 #define SLIME_PEN_DEFAULT_COLOR "#4dc8e8"
@@ -54,5 +85,15 @@
 #define PENNED_MONKEY_RETALIATE_PROB 40
 /// How far away other slimes notice a monkey attacking a slime and join in.
 #define SLIME_MONKEY_RALLY_RANGE 5
+
+#define COMPRESSOR_LINK_RANGE 7
+
+#define VV_HK_SLIME_SET_TYPE "slime_set_type"
+#define VV_HK_SLIME_ADD_TRANSFORMATION "slime_add_transformation"
+#define VV_HK_SLIME_SET_LIFE_STAGE "slime_set_life_stage"
+#define VV_HK_SLIME_SET_POWER "slime_set_power"
+#define VV_HK_SLIME_SET_BEHAVIOR "slime_set_behavior"
+#define VV_HK_SLIME_FILL_GROWTH "slime_fill_growth"
+#define VV_HK_SLIME_FORCE_SPLIT "slime_force_split"
 
 #define EVLOG_CATEGORY_SLIMES "Slimes"

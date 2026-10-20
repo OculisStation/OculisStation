@@ -6,7 +6,9 @@
 	/// Slime type a ranch mutation already rolled, held onto until that mutation actually happens
 	var/datum/slime_type/pending_ranch_mutation
 	COOLDOWN_DECLARE(ranch_retry_cooldown)
+	COOLDOWN_DECLARE(extract_crowded_alert_cooldown)
 
+/// Runs when we drain a meal, adults save up the amount as ranch_progress
 /mob/living/basic/slime/proc/on_ranch_drain(datum/source, mob/living/meal, drained)
 	SIGNAL_HANDLER
 	set_temporary_mood(SLIME_MOOD_SMILE) // a mouthful of someone is still a mouthful, even for babies
@@ -16,6 +18,15 @@
 		return
 	ranch_progress += drained
 	try_ranch_outcome()
+
+/// Loose extracts lying around us, stops counting once it hits the cap
+/mob/living/basic/slime/proc/count_nearby_extracts()
+	var/count = 0
+	for(var/obj/item/slime_extract/extract in range(7, drop_location()))
+		count++
+		if(count >= SLIME_RANCH_NEARBY_EXTRACT_CAP)
+			break
+	return count
 
 /// checks whether we've banked enough to split, mutate, or pop out an extract
 /mob/living/basic/slime/proc/try_ranch_outcome()
@@ -34,13 +45,19 @@
 	if(ranch_progress < SLIME_RANCH_EXTRACT_COST)
 		return
 
-	var/mutation_target = (transformative_effect != SLIME_TYPE_CERULEAN) ? get_unlocked_mutation_type(weight_new_types = TRUE) : null
-	if(mutation_target && prob(mutation_chance))
+	var/mutation_target = get_unlocked_mutation_type(weight_new_types = TRUE)
+	if(mutation_target && !blocks_reproduction && prob(mutation_chance))
 		pending_ranch_mutation = mutation_target
 		start_ranch_mutation()
 		return
 
 	ranch_progress -= SLIME_RANCH_EXTRACT_COST
+	if(count_nearby_extracts() >= SLIME_RANCH_NEARBY_EXTRACT_CAP)
+		if(COOLDOWN_FINISHED(src, extract_crowded_alert_cooldown))
+			// randomized so a whole capped pen doesn't complain in one synchronized chorus
+			COOLDOWN_START(src, extract_crowded_alert_cooldown, rand(1 MINUTES, 2 MINUTES))
+			balloon_alert_to_viewers("too crowded for extracts!")
+		return
 	squish_out_extract()
 	for(var/i in 1 to cores)
 		var/obj/item/slime_extract/extract = new slime_type.core_type(drop_location())
@@ -82,7 +99,7 @@
 		return
 
 	if(pending_ranch_mutation)
-		if(ranch_mutation_ready() && !isliving(buckled))
+		if(ranch_mutation_ready() && !is_latched())
 			EVLOG_TEXT(src, EVLOG_CATEGORY_SLIMES, "resumes its stored [pending_ranch_mutation] mutation")
 			start_ranch_mutation()
 		return
@@ -97,7 +114,11 @@
 		return FALSE
 	return ..()
 
+/// Gets us ready to split once we've saved up this much ranch_progress, 0 means go back to making extracts
 /mob/living/basic/slime/proc/set_primed_split_cost(new_cost)
+	if(new_cost && blocks_reproduction)
+		balloon_alert_to_viewers("can't split!")
+		return
 	primed_split_cost = new_cost
 	if(new_cost)
 		pending_ranch_mutation = null
@@ -119,15 +140,18 @@
 	// here would stomp it out from under the split/mutation that's about to actually happen
 	return ..()
 
+/// Makes us want breeding pellets, unless we're already gonna split
 /mob/living/basic/slime/proc/on_check_wanted_pellet(mob/living/basic/slime/source, obj/item/meal)
 	SIGNAL_HANDLER
-	if(!primed_split_cost && istype(meal, /obj/item/slime_breeding_pellet))
+	if(!primed_split_cost && !blocks_reproduction && istype(meal, /obj/item/slime_breeding_pellet))
 		return COMPONENT_SLIME_WANTS_ITEM
 
+/// Pet command that tells the slime to split next (or to nvm that)
 /datum/pet_command/slime_split
 	command_name = "Split"
 	command_desc = "Prime (or unprime) your slime to split the next time it's fed enough."
-	radial_icon_state = "breed"
+	radial_icon = 'modular_oculis/modules/slime_rancher/icons/radial_pets.dmi'
+	radial_icon_state = "split"
 	speech_commands = list("split", "breed", "multiply")
 
 /datum/pet_command/slime_split/try_activate_command(mob/living/commander, radial_command)
@@ -143,6 +167,7 @@
 	// deliberately skips set_command_active - toggling the split prime shouldn't cancel an active Follow/Stay
 	return TRUE
 
+/// Feed it to a slime and it'll split next
 /obj/item/slime_breeding_pellet
 	name = "slime breeding pellet"
 	desc = "A biomass pellet slimes go nuts for. Feed it to a slime, and it'll split the next time it's fed enough!"

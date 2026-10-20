@@ -11,7 +11,9 @@
 	item_flags = NOBLUDGEON | ABSTRACT
 	slot_flags = NONE
 	resistance_flags = FIRE_PROOF | ACID_PROOF
+	/// The pack we're attached to
 	var/obj/item/vacuum_pack/pack
+	/// Weakref to whoever's holding us, we listen to their clicks
 	var/datum/weakref/registered_user_ref
 
 /obj/item/vacuum_nozzle/Initialize(mapload)
@@ -84,6 +86,8 @@
 		return CONTEXTUAL_SCREENTIP_SET
 	if(istype(target, /obj/machinery/biomass_recycler))
 		context[SCREENTIP_CONTEXT_LMB] = "Link recycler"
+	else if(istype(target, /obj/machinery/smartfridge/extract))
+		context[SCREENTIP_CONTEXT_LMB] = "Fire extracts into fridge"
 	else if(pack?.is_recyclable(target))
 		context[SCREENTIP_CONTEXT_LMB] = "Recycle creature"
 	else if(isliving(target))
@@ -98,6 +102,7 @@
 /obj/item/vacuum_nozzle/proc/is_world_target(atom/target)
 	return isturf(target) || isturf(target?.loc)
 
+/// Starts listening for the holder's alt/ctrl clicks and such
 /obj/item/vacuum_nozzle/proc/register_user(mob/living/user)
 	var/mob/living/old_user = registered_user_ref?.resolve()
 	if(old_user == user)
@@ -108,6 +113,7 @@
 	RegisterSignal(user, COMSIG_MOB_ALTCLICKON, PROC_REF(on_user_altclick))
 	RegisterSignal(user, COMSIG_MOB_CLICKON, PROC_REF(on_user_click))
 
+/// Stops listening to the holder's clicks
 /obj/item/vacuum_nozzle/proc/unregister_user()
 	var/mob/living/user = registered_user_ref?.resolve()
 	if(user)
@@ -124,6 +130,7 @@
 	pack.suck_extracts(target, source)
 	return COMSIG_MOB_CANCEL_CLICKON
 
+/// Alt-click opens the pick-a-creature menu for that turf.
 /obj/item/vacuum_nozzle/proc/on_user_altclick(mob/living/source, atom/target)
 	SIGNAL_HANDLER
 	if(source.get_active_held_item() != src || !pack || pack.busy)
@@ -136,6 +143,7 @@
 	INVOKE_ASYNC(pack, TYPE_PROC_REF(/obj/item/vacuum_pack, select_turf_target), target_turf, source)
 	return COMSIG_MOB_CANCEL_CLICKON
 
+/// Shrinking copy of a creature flying into the nozzle.
 /obj/effect/temp_visual/vacuum_intake
 	duration = 0.5 SECONDS
 	randomdir = FALSE

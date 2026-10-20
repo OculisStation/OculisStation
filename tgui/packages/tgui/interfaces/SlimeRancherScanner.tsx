@@ -47,6 +47,7 @@ type BuiltInNumberData = {
   nutrition_starving: number;
   nutrition_hungry: number;
   extract_cost: number;
+  extract_cap: number;
 };
 
 type BaseSlimeData = {
@@ -67,6 +68,7 @@ type SlimeInfoData = {
   nutrition: number;
   powerlevel: number;
   cores: number;
+  nearby_extracts: number;
   growth: number;
   ranch_progress: number;
   split_cost: number;
@@ -106,15 +108,12 @@ function RequirementIcon(props: { requirement: Requirement }) {
 
 function RequirementCell(props: {
   requirement: Requirement;
-  done: BooleanLike;
   children?: ReactNode;
 }) {
-  const { requirement, done, children } = props;
+  const { requirement, children } = props;
 
   return (
-    <Box
-      className={`SlimeRancherScanner__requirement${done ? ' SlimeRancherScanner__requirement--done' : ''}`}
-    >
+    <Box className="SlimeRancherScanner__requirement">
       <RequirementIcon requirement={requirement} />
       <span>{requirement.name}</span>
       {children}
@@ -137,7 +136,7 @@ function MutationRow(props: { mutation: Mutation }) {
       </Box>
       <Box className="SlimeRancherScanner__requirements">
         {mutation.items.map((item) => (
-          <RequirementCell key={item.name} requirement={item} done={item.done}>
+          <RequirementCell key={item.name} requirement={item}>
             {!!item.done && (
               <Icon name="check" className="SlimeRancherScanner__completed" />
             )}
@@ -146,7 +145,7 @@ function MutationRow(props: { mutation: Mutation }) {
         {mutation.drains.map((drain) => {
           const done = drain.drained >= drain.total;
           return (
-            <RequirementCell key={drain.name} requirement={drain} done={done}>
+            <RequirementCell key={drain.name} requirement={drain}>
               <ProgressBar
                 value={drain.drained}
                 maxValue={drain.total}
@@ -181,11 +180,13 @@ function Vitals() {
     powerlevel,
     max_powerlevel,
     cores,
+    nearby_extracts,
     growth,
     max_growth,
     ranch_progress,
     split_cost,
     extract_cost,
+    extract_cap,
     mutation_chance,
     crossbreed_modification,
     crossbreed_progress,
@@ -198,6 +199,7 @@ function Vitals() {
 
   const starving = nutrition < nutrition_starving;
   const hungry = nutrition < nutrition_hungry;
+  const crowded = nearby_extracts >= extract_cap;
 
   return (
     <Box className="SlimeRancher__card SlimeRancherScanner__vitals">
@@ -225,6 +227,12 @@ function Vitals() {
         </NoticeBox>
       )}
       {!starving && !!hungry && <NoticeBox>This slime is hungry.</NoticeBox>}
+      {crowded && (
+        <NoticeBox danger>
+          Too many extracts are lying around, this slime won't secrete more
+          until some get cleared out.
+        </NoticeBox>
+      )}
       <hr className="SlimeRancher__rule" />
       <Box className="SlimeRancherScanner__meters">
         <Box className="SlimeRancherScanner__meter">
@@ -303,6 +311,12 @@ function Vitals() {
         <Box className="SlimeRancher__well">
           <span>Cores</span>
           <strong>{cores}</strong>
+        </Box>
+        <Box className="SlimeRancher__well">
+          <span>Nearby extracts</span>
+          <strong>
+            {nearby_extracts} / {extract_cap}
+          </strong>
         </Box>
       </Box>
     </Box>

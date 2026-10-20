@@ -1,8 +1,16 @@
 /datum/ai_controller/basic_controller/slime
+	ai_movement = /datum/ai_movement/basic_avoidance/adaptive
 	behavior_tree_json = "modular_oculis/modules/slime_rancher/code/slime.bt.json"
 
 /datum/bt_node/subtree/pet_command/attack/slime
 	behavior_tree_json = "modular_oculis/modules/slime_rancher/code/pet_command_attack_slime.bt.json"
+
+/datum/pet_command/follow/slime
+	follow_subtree = /datum/bt_node/subtree/pet_command/follow/slime
+
+/// The stock follow tree, except we only count as caught up on their floor, so we follow people up and down stairs
+/datum/bt_node/subtree/pet_command/follow/slime
+	behavior_tree_json = "modular_oculis/modules/slime_rancher/code/pet_command_follow_slime.bt.json"
 
 /// items the slime wants to eat, from BB_SLIME_WANTED_ITEMS, if it is set
 /datum/target_source/slime_wanted_items
@@ -19,16 +27,59 @@
 
 /// slimes will also chase down critters they still owe a mutation, hungry or not
 /datum/targeting_strategy/slime_food/is_valid_target(mob/living/living_mob, atom/target, vision_range, datum/ai_controller/controller = null)
+	var/mob/living/basic/slime/slimey = living_mob
+	// grudges still get fought, these two just don't go looking for a meal
+	if(isliving(target) && !(target in controller?.blackboard[BB_BASIC_MOB_RETALIATE_LIST]))
+		var/mob/living/candidate = target
+		if(slimey.cleaner_slime)
+			return FALSE
+		if(slimey.cat_slime && candidate.mob_size >= slimey.mob_size)
+			return FALSE
+
 	. = ..()
 	if(. || isnull(controller) || QDELETED(target))
 		return .
 
+	var/static/list/livestock = typecacheof(list(
+		/mob/living/basic/cow,
+		/mob/living/basic/pig,
+		/mob/living/basic/sheep,
+		/mob/living/basic/goat,
+		/mob/living/basic/chicken,
+		/mob/living/basic/rabbit,
+	))
 	var/list/wanted_mobs = controller.blackboard[BB_SLIME_WANTED_MOBS]
-	if(!wanted_mobs?[target.type])
+	if(!livestock[target.type] && !wanted_mobs?[target.type])
 		return FALSE
 
-	var/mob/living/basic/slime/slimey = living_mob
 	return slimey.can_feed_on(target, silent = TRUE, check_adjacent = FALSE) && can_see(slimey, target, vision_range)
+
+/// the fence is see-through, but nothing outside it is ever reachable
+/datum/bt_node/ai_behavior/acquire_target/update_interaction_target/slime
+
+/// Whether we're in a pen and this thing isn't.
+/datum/bt_node/ai_behavior/acquire_target/update_interaction_target/slime/proc/outside_our_pen(datum/ai_controller/controller, atom/thing)
+	var/mob/living/basic/slime/slime_pawn = controller.pawn
+	var/datum/slime_pen/pen = slime_pawn.pen
+	return pen && !pen.turfs[get_turf(thing)]
+
+/datum/bt_node/ai_behavior/acquire_target/update_interaction_target/slime/should_keep_target(datum/ai_controller/controller, datum/targeting_strategy/strategy, datum/target_priority_strategy/priority_strategy, atom/current_target, resolved_vision_range)
+	if(current_target && outside_our_pen(controller, current_target))
+		return FALSE
+	return ..()
+
+/datum/bt_node/ai_behavior/acquire_target/update_interaction_target/slime/filter_candidates(datum/ai_controller/controller, list/candidates, datum/targeting_strategy/strategy, datum/target_priority_strategy/priority_strategy, atom/current_target, range)
+	var/list/penned_candidates = list()
+	for(var/atom/candidate as anything in candidates)
+		if(!outside_our_pen(controller, candidate))
+			penned_candidates += candidate
+	return ..(controller, penned_candidates, strategy, priority_strategy, current_target, range)
+
+/datum/bt_node/ai_behavior/acquire_target/update_interaction_target/slime/meal
+
+// stagger it out a bit so it feels more natural
+/datum/bt_node/ai_behavior/acquire_target/update_interaction_target/slime/meal/get_cooldown(datum/ai_controller/cooldown_for)
+	return rand(1 SECONDS, 4 SECONDS)
 
 /datum/bt_node/decorator/slime_is_wild
 
@@ -38,13 +89,14 @@
 		return FALSE
 	return !slime_pawn.is_ranched()
 
-/// Chases like the generic leaf, except it sits still (and stays running) while latched onto its prey.
+/// Chases like the generic leaf, except it sits still (and stays running) while latched onto or standing next to its target.
 /datum/bt_node/ai_behavior/move_to_target/slime_chase
 
 /datum/bt_node/ai_behavior/move_to_target/slime_chase/perform(seconds_per_tick, datum/ai_controller/controller)
 	var/mob/living/pawn = controller.pawn
-	if(isliving(controller.blackboard[target_key]) && pawn.buckled == controller.blackboard[target_key])
-		// a latched slime can't walk, and pre_move counts every skipped step as a pathing failure
+	var/atom/target = controller.blackboard[target_key]
+	if(!QDELETED(target) && (pawn.buckled == target || pawn.Adjacent(target)))
+		// the moveloop counts every step it doesn't take as a pathing failure, and 10 of those kills the chase
 		if(controller.ai_movement.moving_controllers[controller])
 			controller.ai_movement.stop_moving_towards(controller)
 		movement_failed = FALSE
@@ -61,11 +113,20 @@
 	var/atom/failed_target = controller.blackboard[key]
 	// the parallel bails without resetting its primary, so the feed or melee leaf would sit there "running"
 	child.reset_subtree_tick_states()
-	if(!QDELETED(failed_target) && !LAZYACCESS(controller.blackboard[BB_TEMPORARY_IGNORE_LIST], failed_target))
-		var/expires_at = world.time + SLIME_CHASE_GIVE_UP_TIME
-		controller.set_blackboard_key_assoc_lazylist(BB_TEMPORARY_IGNORE_LIST, failed_target, expires_at)
-		addtimer(CALLBACK(controller, TYPE_PROC_REF(/datum/ai_controller/basic_controller/slime, expire_chase_exclusion), failed_target, expires_at), SLIME_CHASE_GIVE_UP_TIME)
+	if(!QDELETED(failed_target))
+		astype(controller, /datum/ai_controller/basic_controller/slime)?.ignore_target(failed_target, SLIME_CHASE_GIVE_UP_TIME)
 	controller.clear_blackboard_key(key)
+
+/// for the branches right above random_walk, which loops forever and never lets the selector look back up here on its own
+/datum/bt_node/decorator/bb_key_set/slime_target/idle
+	observer_abort = BT_ABORT_LOWER_PRIORITY
+
+/datum/bt_node/decorator/bb_key_set/slime_target/idle/on_observed_change(datum/ai_controller/controller, key)
+	// the stock check trusts active_execution_index, which is junk inside our big parallel
+	if(child_active || !evaluate_for_observer(controller))
+		return
+	EVLOG_TEXT(controller, EVLOG_CATEGORY_AI_DECISIONMAKING, "[controller.pawn] [type]: [src.key] got set while idling, replanning")
+	controller.cancel_current_plan()
 
 /// resets a lot of AI stuff so like, it'll get unstuck if AI got softlocked or something. hopefully.
 /mob/living/basic/slime/proc/reset_stuck_ai()
@@ -78,12 +139,25 @@
 		BB_CURRENT_TARGET_HIDING_LOCATION,
 		BB_SLIME_ITEM_TARGET,
 		BB_SLIME_NUZZLE_TARGET,
+		BB_SLIME_BOUNCE_TARGET,
+		BB_SLIME_CLEAN_TARGET,
+		BB_SLIME_STACK_TARGET,
+		BB_SLIME_ROAM_TARGET,
+		BB_SLIME_ROAM_PLAYER,
 		BB_TEMPORARY_IGNORE_LIST,
 		BB_BASIC_MOB_RETALIATE_LIST,
 	))
 		ai_controller.clear_blackboard_key(stale_key)
 	refresh_wanted_targets()
 	balloon_alert_to_viewers("shakes [p_themselves()] off")
+
+/// Ignores a target until duration runs out. Never shortens an existing, longer ignore.
+/datum/ai_controller/basic_controller/slime/proc/ignore_target(atom/target, duration)
+	var/expires_at = world.time + duration
+	if(LAZYACCESS(blackboard[BB_TEMPORARY_IGNORE_LIST], target) >= expires_at)
+		return
+	set_blackboard_key_assoc_lazylist(BB_TEMPORARY_IGNORE_LIST, target, expires_at)
+	addtimer(CALLBACK(src, PROC_REF(expire_chase_exclusion), target, expires_at), duration)
 
 /// Drops a chase exclusion we set, unless something longer-lived (a friend peeling us off) overwrote it since.
 /datum/ai_controller/basic_controller/slime/proc/expire_chase_exclusion(atom/target, expires_at)
@@ -108,7 +182,7 @@
 	if(!.)
 		return FALSE
 	var/mob/living/basic/slime/slime_pawn = controller.pawn
-	if(!istype(slime_pawn) || slime_pawn.buckled || IS_UNCONSCIOUS_OR_CRIT(slime_pawn))
+	if(!istype(slime_pawn) || slime_pawn.is_latched() || IS_UNCONSCIOUS_OR_CRIT(slime_pawn))
 		return FALSE
 	return TRUE
 
