@@ -2198,7 +2198,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 // donation reward for deadmon
 /obj/item/clothing/suit/hooded/seva/melon
 	name = "sundowner SEVA suit"
-	desc = "A SEVA suit originally designed for SolGov's Army Corps of Engineers to be used in CBRN environments. This suit seems to have had its typical armor plating and anti-radiation lining removed in favor of movement. "
+	desc = "A SEVA suit originally designed for SolFed's Army Corps of Engineers to be used in CBRN environments. This suit seems to have had its typical armor plating and anti-radiation lining removed in favor of movement. "
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
 	worn_icon_digi = 'modular_nova/master_files/icons/donator/mob/clothing/suit_digi.dmi'
@@ -2209,7 +2209,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 
 /obj/item/clothing/head/hooded/seva/melon
 	name = "sundowner hood"
-	desc = "Designed for the SolGov Army Corps of Engineers, the original version came with armor plates and a hardened glass faceplate. This one has been scaled down, unfortunately."
+	desc = "Designed for the SolFed Army Corps of Engineers, the original version came with armor plates and a hardened glass faceplate. This one has been scaled down, unfortunately."
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/hats.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/head.dmi'
 	worn_icon_muzzled = 'modular_nova/master_files/icons/donator/mob/clothing/head_muzzled.dmi'
@@ -2320,7 +2320,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 
 /obj/item/clothing/suit/hooded/explorer/melon
 	name = "anomalous materials protection suit"
-	desc = "A suit originally designed for the SolGov Army to be used in CBRN environments. This suit still has it's protective plates installed. It's clear that this suit has been patched up over many years."
+	desc = "A suit originally designed for the SolFed Army to be used in CBRN environments. This suit still has it's protective plates installed. It's clear that this suit has been patched up over many years."
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
 	worn_icon_digi = 'modular_nova/master_files/icons/donator/mob/clothing/suit_digi.dmi'

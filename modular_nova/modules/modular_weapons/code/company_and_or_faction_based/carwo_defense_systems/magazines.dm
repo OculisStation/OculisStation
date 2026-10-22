@@ -2,7 +2,7 @@
 
 /obj/item/ammo_box/magazine/c35sol_pistol
 	name = "\improper Sol pistol magazine"
-	desc = "A standard size magazine for SolGov pistols, holds twelve rounds."
+	desc = "A standard size magazine for SolFed pistols, holds twelve rounds."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/carwo_defense_systems/ammo.dmi'
 	icon_state = "pistol_35_standard"
@@ -20,7 +20,7 @@
 
 /obj/item/ammo_box/magazine/c35sol_pistol/stendo
 	name = "\improper Sol extended pistol magazine"
-	desc = "An extended magazine for SolGov pistols, holds twenty-four rounds."
+	desc = "An extended magazine for SolFed pistols, holds twenty-four rounds."
 
 	icon_state = "pistol_35_stended"
 
@@ -71,7 +71,7 @@
 
 /obj/item/ammo_box/magazine/c40sol_rifle
 	name = "\improper Sol rifle short magazine"
-	desc = "A shortened magazine for SolGov rifles, holds fifteen rounds."
+	desc = "A shortened magazine for SolFed rifles, holds fifteen rounds."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/carwo_defense_systems/ammo.dmi'
 	icon_state = "rifle_short"
@@ -90,7 +90,7 @@
 
 /obj/item/ammo_box/magazine/c40sol_rifle/standard
 	name = "\improper Sol rifle magazine"
-	desc = "A standard size magazine for SolGov rifles, holds thirty rounds."
+	desc = "A standard size magazine for SolFed rifles, holds thirty rounds."
 
 	icon_state = "rifle_standard"
 
