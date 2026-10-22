@@ -22224,6 +22224,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/checker,
 /area/station/security/prison/rec)
+"fWf" = (
+/obj/structure/table/reinforced,
+/obj/machinery/recharger,
+/turf/open/floor/carpet/red,
+/area/station/security/office)
 "fWl" = (
 /obj/effect/spawner/random/trash/mess,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
@@ -26840,18 +26845,11 @@
 /area/station/service/lawoffice)
 "hjA" = (
 /obj/structure/table/reinforced,
-/obj/item/restraints/handcuffs{
-	pixel_y = 3;
-	pixel_x = 2
-	},
 /obj/item/lighter{
 	pixel_y = 16;
 	pixel_x = 8
 	},
-/obj/item/restraints/handcuffs{
-	pixel_y = 6;
-	pixel_x = -1
-	},
+/obj/machinery/recharger,
 /turf/open/floor/carpet/red,
 /area/station/security/office)
 "hjB" = (
@@ -34773,6 +34771,14 @@
 /obj/item/folder/red{
 	pixel_y = 5
 	},
+/obj/item/paper_bin{
+	pixel_y = 6;
+	pixel_x = 5
+	},
+/obj/item/pen{
+	pixel_y = 8;
+	pixel_x = 3
+	},
 /turf/open/floor/carpet/red,
 /area/station/security/office)
 "jlI" = (
@@ -35098,6 +35104,14 @@
 /obj/item/binoculars{
 	pixel_x = 3;
 	pixel_y = 8
+	},
+/obj/item/restraints/handcuffs{
+	pixel_y = 6;
+	pixel_x = -1
+	},
+/obj/item/restraints/handcuffs{
+	pixel_y = 3;
+	pixel_x = 2
 	},
 /turf/open/floor/carpet/red,
 /area/station/security/office)
@@ -35575,18 +35589,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating,
 /area/station/maintenance/department/science/xenobiology)
-"jyV" = (
-/obj/structure/table/reinforced,
-/obj/item/paper_bin{
-	pixel_y = 6;
-	pixel_x = 5
-	},
-/obj/item/pen{
-	pixel_y = 8;
-	pixel_x = 3
-	},
-/turf/open/floor/carpet/red,
-/area/station/security/office)
 "jzb" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 10
@@ -45209,6 +45211,14 @@
 	pixel_y = 5;
 	pixel_x = -7
 	},
+/obj/item/radio{
+	pixel_x = 7;
+	pixel_y = -3
+	},
+/obj/item/hand_labeler{
+	pixel_y = 6;
+	pixel_x = -2
+	},
 /turf/open/floor/carpet/red,
 /area/station/security/office)
 "mae" = (
@@ -48237,7 +48247,6 @@
 /area/station/hallway/primary/foreporthall)
 "mRK" = (
 /obj/structure/table/reinforced,
-/obj/machinery/recharger,
 /turf/open/floor/iron/dark,
 /area/station/security/lockers)
 "mSh" = (
@@ -72015,13 +72024,6 @@
 	dir = 4
 	},
 /area/station/engineering/atmospherics_engine)
-"tow" = (
-/obj/structure/table/reinforced,
-/obj/machinery/recharger{
-	pixel_y = 4
-	},
-/turf/open/floor/carpet/red,
-/area/station/security/office)
 "toB" = (
 /obj/machinery/holopad,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -76648,18 +76650,6 @@
 	dir = 10
 	},
 /area/station/security/checkpoint/service)
-"uzg" = (
-/obj/structure/table/reinforced,
-/obj/item/hand_labeler{
-	pixel_y = 6;
-	pixel_x = -2
-	},
-/obj/item/radio{
-	pixel_x = 7;
-	pixel_y = -3
-	},
-/turf/open/floor/carpet/red,
-/area/station/security/office)
 "uzk" = (
 /obj/effect/turf_decal/plaque{
 	icon_state = "L12"
@@ -244970,7 +244960,7 @@ rkR
 eWc
 uqS
 oOP
-jyV
+fWf
 mzj
 mwj
 tGN
@@ -245741,13 +245731,13 @@ sTd
 xwA
 uqS
 bfu
-uzg
+fWf
 xeH
 mwj
 tGN
 jWq
 plW
-pdt
+fWf
 eYd
 vIO
 cKU
@@ -246260,7 +246250,7 @@ mac
 mwj
 jtN
 jWq
-tow
+pdt
 pHr
 qHf
 saW

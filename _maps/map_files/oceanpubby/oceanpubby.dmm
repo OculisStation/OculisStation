@@ -1745,6 +1745,8 @@
 /obj/effect/turf_decal/tile/red/half/contrasted{
 	dir = 8
 	},
+/obj/machinery/recharger,
+/obj/structure/table,
 /turf/open/floor/iron,
 /area/station/security/brig)
 "anG" = (
