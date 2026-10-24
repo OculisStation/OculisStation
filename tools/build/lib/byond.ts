@@ -224,17 +224,50 @@ export async function DreamMaker(
 type DDOptions = {
   dmbFile: string;
   namedDmVersion?: string | null;
+  // Runs the server under another program, e.g. a counter tracer that has to be
+  // dd.exe's direct parent because it filters on one pid. Everything here is
+  // prefixed ahead of the dd.exe path, so it must end with whatever separator
+  // the wrapper wants before its child.
+  wrapper?: string[];
+  // Extra variables for the server. Spread over process.env rather than
+  // replacing it - spawn's env replaces the whole environment, and the server
+  // needs PATH and the rest of it.
+  env?: Record<string, string>;
 };
+
+async function resolveDdExePath(
+  options: DDOptions,
+  exeName: string,
+): Promise<string> {
+  const dmPath = await getDmPath(options.namedDmVersion);
+  const baseDir = path.dirname(dmPath);
+  return baseDir === '.' ? exeName : path.join(baseDir, exeName);
+}
 
 export async function DreamDaemon(
   options: DDOptions,
   ...args: any[]
 ): Promise<Juke.ExecReturn> {
-  const dmPath = await getDmPath(options.namedDmVersion);
-  const baseDir = path.dirname(dmPath);
   const ddExeName =
     process.platform === 'win32' ? 'dreamdaemon.exe' : 'DreamDaemon';
-  const ddExePath = baseDir === '.' ? ddExeName : path.join(baseDir, ddExeName);
+  const ddExePath = await resolveDdExePath(options, ddExeName);
 
   return Juke.exec(ddExePath, [options.dmbFile, ...args]);
+}
+
+// dreamdaemon.exe opens a GUI window; dd.exe is the same server without one.
+// Only DreamDaemon() itself has a console-mode split on Windows - `DreamDaemon`
+// is already the right binary name on Linux.
+export async function DreamDaemonConsole(
+  options: DDOptions,
+  ...args: any[]
+): Promise<Juke.ExecReturn> {
+  const ddExeName = process.platform === 'win32' ? 'dd.exe' : 'DreamDaemon';
+  const ddExePath = await resolveDdExePath(options, ddExeName);
+  const launch = [...(options.wrapper ?? []), ddExePath, options.dmbFile, ...args];
+  const execOptions = options.env
+    ? { env: { ...process.env, ...options.env } }
+    : {};
+
+  return Juke.exec(launch[0], launch.slice(1), execOptions);
 }
