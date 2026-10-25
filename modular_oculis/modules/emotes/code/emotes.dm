@@ -20,13 +20,16 @@
 		return ..()
 	return FALSE
 
-/datum/emote/living/carbon/vomit
+/datum/emote/living/vomit
 	key = "vomit"
 	key_third_person = "vomits"
+	emote_type = EMOTE_VISIBLE
 
-/datum/emote/living/carbon/vomit/run_emote(mob/user, params, type_override, intentional)
+/datum/emote/living/vomit/run_emote(mob/user, params, type_override, intentional)
 	. = ..()
 	if(!.)
 		return
 	var/mob/living/carbon/carbon_user = user
+	if(!istype(user))
+		return
 	carbon_user.vomit(vomit_flags = (MOB_VOMIT_MESSAGE | MOB_VOMIT_HARM | MOB_VOMIT_STUN | MOB_VOMIT_FORCE))
