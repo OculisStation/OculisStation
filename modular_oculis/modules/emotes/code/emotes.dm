@@ -20,3 +20,13 @@
 		return ..()
 	return FALSE
 
+/datum/emote/living/carbon/vomit
+	key = "vomit"
+	key_third_person = "vomits"
+
+/datum/emote/living/carbon/vomit/run_emote(mob/user, params, type_override, intentional)
+	. = ..()
+	if(!.)
+		return
+	var/mob/living/carbon/carbon_user = user
+	carbon_user.vomit(harm = FALSE, force = TRUE)
