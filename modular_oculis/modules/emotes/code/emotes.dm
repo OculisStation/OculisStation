@@ -20,15 +20,13 @@
 		return ..()
 	return FALSE
 
-/datum/emote/living/vomit
+/datum/emote/living/carbon/human/vomit
 	key = "vomit"
 	key_third_person = "vomits"
+	message = "vomits!"
 	emote_type = EMOTE_VISIBLE
 
-/datum/emote/living/vomit/run_emote(mob/user, params, type_override, intentional)
-	. = ..()
-	if(!.)
-		return
+/datum/emote/living/carbon/human/vomit/run_emote(mob/user, params, type_override, intentional)
 	var/mob/living/carbon/carbon_user = user
 	if(!istype(user))
 		return
