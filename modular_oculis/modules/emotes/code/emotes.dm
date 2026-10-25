@@ -29,4 +29,4 @@
 	if(!.)
 		return
 	var/mob/living/carbon/carbon_user = user
-	carbon_user.vomit(harm = FALSE, force = TRUE)
+	carbon_user.vomit(vomit_flags = (MOB_VOMIT_MESSAGE | MOB_VOMIT_HARM | MOB_VOMIT_STUN | MOB_VOMIT_FORCE))
