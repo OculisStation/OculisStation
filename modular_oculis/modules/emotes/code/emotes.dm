@@ -23,7 +23,7 @@
 /datum/emote/living/carbon/human/vomit
 	key = "vomit"
 	key_third_person = "vomits"
-	message = "vomits!"
+	message = "vomits."
 	emote_type = EMOTE_VISIBLE
 
 /datum/emote/living/carbon/human/vomit/run_emote(mob/user, params, type_override, intentional)
