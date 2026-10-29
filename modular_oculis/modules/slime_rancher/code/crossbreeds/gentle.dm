@@ -6,6 +6,7 @@
 	icon = 'modular_iris/modules/research/icons/slimecrossing.dmi'
 	icon_state = "gentle"
 	var/extract_type = /obj/item/slime_extract/grey // If this is not replaced, it'll be very apparent to players
+	/// The real extract inside, made from extract_type.
 	var/obj/item/slime_extract/extract = null
 	COOLDOWN_DECLARE(use_cooldown)
 
@@ -34,7 +35,7 @@
 		return CLICK_ACTION_SUCCESS
 
 /obj/item/slimecross/gentle/proc/preactivate_core(mob/living/carbon/user)
-	if(HAS_TRAIT(user, TRAIT_INCAPACITATED) || !istype(user))
+	if(!iscarbon(user) || user.incapacitated)
 		return FALSE
 	if(!COOLDOWN_FINISHED(src, use_cooldown))
 		to_chat(user, span_notice("[src] isn't ready yet!"))

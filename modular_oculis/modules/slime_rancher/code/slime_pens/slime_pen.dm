@@ -5,8 +5,9 @@ GLOBAL_LIST_EMPTY(slime_pens)
 	var/datum/slime_pen/pen
 	COOLDOWN_DECLARE(pen_expiry_cooldown)
 
+/// Is this slime in a pen? (or it left one less than 10 minutes ago, close enough - cleaners skip the grace period)
 /mob/living/basic/slime/proc/is_ranched()
-	return pen || !COOLDOWN_FINISHED(src, pen_expiry_cooldown)
+	return pen || (!cleaner_slime && !COOLDOWN_FINISHED(src, pen_expiry_cooldown))
 
 // penned monkeys have become jaded to getting glomped, and thus are less likely to lose their mcfucking marbles
 /datum/ai_controller/monkey/on_attacked(datum/source, mob/attacker)
@@ -18,14 +19,24 @@ GLOBAL_LIST_EMPTY(slime_pens)
 
 /// handles a single slime pen and tracks the slimes in it
 /datum/slime_pen
+	/// Slimes in the pen rn, null when it's empty
 	var/list/slimes
+	/// The tiles inside the pen, keyed by turf.
+	/// Use `turfs[spot]` to check to see if a turf is in the pen
 	var/list/turf/turfs = list()
+	/// The four corner posts
 	var/list/obj/structure/slime_pen_post/posts = list()
+	/// The fence bits around the edge
 	var/list/obj/structure/slime_pen_barrier/barriers = list()
+	/// Fence color, as a hex string
 	var/barrier_color = SLIME_PEN_DEFAULT_COLOR
 	/// Pen size in tiles (pen size... hahaha)
 	var/width = 0
+	/// Same as width, but north to south
 	var/height = 0
+
+	/// Cooldown for checking for dead slime food to dust.
+	COOLDOWN_DECLARE(corpse_check_cooldown)
 
 /datum/slime_pen/New(list/turf/interior, list/obj/structure/slime_pen_post/new_posts)
 	GLOB.slime_pens += src
@@ -45,8 +56,10 @@ GLOBAL_LIST_EMPTY(slime_pens)
 	width = max(xs) - min(xs) + 1
 	height = max(ys) - min(ys) + 1
 	build_barriers()
+	START_PROCESSING(SSprocessing, src)
 
 /datum/slime_pen/Destroy(force)
+	STOP_PROCESSING(SSprocessing, src)
 	GLOB.slime_pens -= src
 	for(var/atom/movable/piece as anything in barriers + posts)
 		UnregisterSignal(piece, list(COMSIG_MOVABLE_MOVED, COMSIG_QDELETING))
@@ -63,51 +76,72 @@ GLOBAL_LIST_EMPTY(slime_pens)
 	turfs = null
 	return ..()
 
+/datum/slime_pen/process(seconds_per_tick)
+	if(!COOLDOWN_FINISHED(src, corpse_check_cooldown))
+		return
+	for(var/turf/turf as anything in turfs)
+		for(var/mob/living/corpse in turf)
+			if(isslime(corpse) || !is_slime_pen_contained(corpse) || corpse.stat != DEAD || corpse.ckey || corpse.mind || corpse.pulledby)
+				continue
+			if((corpse.timeofdeath + (5 MINUTES)) <= world.time && !corpse.get_filter("dust_animation")) // stupid janky way of avoiding dusting the same chimp repeatedly while the dusting animation is ongoing
+				corpse.visible_message(span_warning("[corpse] is automatically dissolved by the slime corral."))
+				corpse.unequip_everything()
+				corpse.dust_animation()
+				QDEL_IN(corpse, 1.3 SECONDS)
+	COOLDOWN_START(src, corpse_check_cooldown, 15 SECONDS)
+
 /datum/slime_pen/proc/track_slime(mob/living/basic/slime/slime)
 	SIGNAL_HANDLER
 	if(!isslime(slime))
 		CRASH("somehow tried to add something that isn't a slime as a slime in a pen")
-	if(QDELING(slime) || (slime in slimes) || !(slime.loc in turfs) || QDELETED(src))
+	if(QDELING(slime) || (slime in slimes) || !turfs[slime.loc] || QDELETED(src))
 		return
 	LAZYADD(slimes, slime)
 	slime.pen = src
 	RegisterSignal(slime, COMSIG_QDELETING, PROC_REF(stop_tracking_slime))
 	RegisterSignal(slime, COMSIG_MOVABLE_MOVED, PROC_REF(slime_moved))
 
+/// Forgets about a slime, and starts its 10 minute pen_expiry_cooldown
 /datum/slime_pen/proc/stop_tracking_slime(mob/living/basic/slime/slime)
 	SIGNAL_HANDLER
 	if(isnull(slime) || !(slime in slimes))
 		return
 	UnregisterSignal(slime, list(COMSIG_QDELETING, COMSIG_MOVABLE_MOVED))
 	LAZYREMOVE(slimes, slime)
+	// the pen next door's Entered runs before our Moved, so it may have already claimed this one
+	if(slime.pen != src)
+		return
 	slime.pen = null
 	COOLDOWN_START(slime, pen_expiry_cooldown, 10 MINUTES)
 
 /datum/slime_pen/proc/slime_moved(mob/living/basic/slime/slime, atom/old_loc, dir, forced, list/old_locs)
 	SIGNAL_HANDLER
-	if(!(slime.loc in turfs))
+	if(!turfs[slime.loc])
 		stop_tracking_slime(slime)
 
+/// Adds a tile, plus any slimes already sitting on it
 /datum/slime_pen/proc/add_turf(turf/new_turf)
 	if(!isturf(new_turf))
 		CRASH("somehow tried to add a non-turf as a slime pen turf")
-	if(new_turf in turfs)
+	if(turfs[new_turf])
 		return
 	RegisterSignals(new_turf, list(COMSIG_ATOM_ENTERED, COMSIG_ATOM_AFTER_SUCCESSFUL_INITIALIZED_ON), PROC_REF(check_entered))
-	turfs += new_turf
+	turfs[new_turf] = TRUE
 	for(var/mob/living/basic/slime/slime in new_turf)
 		track_slime(slime)
 
+/// Drops a tile, and forgets any slimes on it
 /datum/slime_pen/proc/remove_turf(turf/old_turf)
 	if(!isturf(old_turf))
 		CRASH("somehow tried to remove a non-turf from the slime pen turfs?")
-	if(!(old_turf in turfs))
+	if(!turfs[old_turf])
 		return
 	UnregisterSignal(old_turf, list(COMSIG_ATOM_ENTERED, COMSIG_ATOM_AFTER_SUCCESSFUL_INITIALIZED_ON))
 	turfs -= old_turf
 	for(var/mob/living/basic/slime/slime in old_turf)
 		stop_tracking_slime(slime)
 
+/// Keeps tabs on slimes that wander in, and tells monkeys to stfu
 /datum/slime_pen/proc/check_entered(datum/source, atom/movable/arrived)
 	SIGNAL_HANDLER
 	if(isslime(arrived))
@@ -120,15 +154,16 @@ GLOBAL_LIST_EMPTY(slime_pens)
 		penned_monkey.ai_controller?.override_blackboard_key(BB_MONKEY_IDLE_COMMON_EMOTES, quiet_emotes)
 		// getting eaten flips them into the combat tree, which screeches from its own list
 		penned_monkey.ai_controller?.override_blackboard_key(BB_MONKEY_BATTLE_SCREECHES, quiet_emotes)
+		penned_monkey.ai_controller?.set_blackboard_key(BB_MONKEY_PENNED, TRUE)
 
 /// actually sets up the fence piece and such
 /datum/slime_pen/proc/build_barriers()
 	for(var/turf/spot as anything in turfs)
 		for(var/direction in GLOB.cardinals)
-			if(get_step(spot, direction) in turfs)
+			if(turfs[get_step(spot, direction)])
 				continue
 			// side pieces on the top row need the little connector that closes the corner join
-			var/top_row = (direction & (EAST|WEST)) && !(get_step(spot, NORTH) in turfs)
+			var/top_row = (direction & (EAST|WEST)) && !turfs[get_step(spot, NORTH)]
 			var/obj/structure/slime_pen_barrier/barrier = new(spot, direction, top_row)
 			barriers += barrier
 			apply_color(barrier)

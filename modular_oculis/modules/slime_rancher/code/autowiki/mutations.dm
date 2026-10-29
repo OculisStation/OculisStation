@@ -8,14 +8,16 @@
 
 	for(var/datum/slime_mutation/mutation_path as anything in sort_list(valid_subtypesof(/datum/slime_mutation), GLOBAL_PROC_REF(cmp_typepaths_asc)))
 		var/datum/slime_type/result_type = mutation_path::mutates_into
+		// :: can't read list vars, and qdel would unregister from a slime this one never had
+		var/datum/slime_mutation/recipe = new mutation_path
 
 		output += include_template("Autowiki/SlimeMutation", list(
 			"result" = escape_value(result_type::colour),
 			"color" = result_type::rgb_code,
 			"icon" = slime_icon(result_type::colour),
 			"sources" = format_sources(sources_by_mutation[mutation_path]),
-			"items" = format_items(mutation_path::needed_items),
-			"drains" = format_drains(mutation_path::latch_needed),
+			"items" = format_items(recipe.needed_items),
+			"drains" = format_drains(recipe.latch_needed),
 		)) + "\n"
 
 	return output
@@ -102,6 +104,7 @@
 	for(var/color in sort_list(mutations_by_source))
 		for(var/datum/slime_mutation/mutation_path as anything in sort_list(mutations_by_source[color], GLOBAL_PROC_REF(cmp_typepaths_asc)))
 			var/datum/slime_type/result_type = mutation_path::mutates_into
+			var/datum/slime_mutation/recipe = new mutation_path
 
 			output += include_template("Autowiki/SlimeMutationBySource", list(
 				"source" = escape_value(color),
@@ -109,8 +112,8 @@
 				"result" = escape_value(result_type::colour),
 				"color" = result_type::rgb_code,
 				"icon" = slime_icon(result_type::colour),
-				"items" = format_items(mutation_path::needed_items),
-				"drains" = format_drains(mutation_path::latch_needed),
+				"items" = format_items(recipe.needed_items),
+				"drains" = format_drains(recipe.latch_needed),
 			)) + "\n"
 
 	return output
