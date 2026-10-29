@@ -16297,9 +16297,7 @@
 "mak" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/firedoor,
-/obj/structure/displaycase/forsale/kitchen{
-	pixel_y = 8
-	},
+/obj/structure/tipjar/prefilled,
 /obj/machinery/pollution_scrubber{
 	pixel_x = 7;
 	pixel_y = 4
