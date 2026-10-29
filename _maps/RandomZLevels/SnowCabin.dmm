@@ -699,6 +699,12 @@
 /obj/machinery/power/turbine/turbine_outlet,
 /turf/open/floor/plating,
 /area/awaymission/cabin)
+"dx" = (
+/obj/structure/barricade/wooden/snowed,
+/turf/open/misc/asteroid/snow/snow_cabin/trampled{
+	slowdown = 1
+	},
+/area/awaymission/cabin/caves)
 "dC" = (
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 9
@@ -898,13 +904,6 @@
 /obj/item/stack/sheet/mineral/wood,
 /turf/open/floor/wood/freezing,
 /area/awaymission/cabin/lumbermill)
-"fd" = (
-/obj/effect/spawner/random/food_or_drink/keg{
-	desc = "Hey, SectCom, we located our complimentary case of space beer! The pamphlet didn't lie!";
-	name = "complimentary keg of space beer"
-	},
-/turf/open/floor/plating/snowed,
-/area/awaymission/cabin/caves)
 "fe" = (
 /obj/structure/table/wood,
 /obj/item/shovel,
@@ -1138,15 +1137,6 @@
 	name = "Flood Gate"
 	},
 /area/awaymission/cabin/caves/mountain)
-"gd" = (
-/turf/open/indestructible/binary{
-	density = 1;
-	desc = "No, I am not going through this.";
-	icon = 'icons/obj/fluff/beach.dmi';
-	icon_state = "water";
-	name = "dirty water"
-	},
-/area/awaymission/cabin/caves/mountain)
 "ge" = (
 /obj/structure/flora/tree/stump{
 	desc = "Breaking it should be easy.";
@@ -1182,12 +1172,6 @@
 /obj/structure/sign/poster/contraband/pwr_game/directional/east,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/engine,
-/area/awaymission/cabin/caves/mountain)
-"gr" = (
-/turf/open/indestructible{
-	icon_state = "plating";
-	name = "plating"
-	},
 /area/awaymission/cabin/caves/mountain)
 "gs" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1245,14 +1229,6 @@
 /obj/effect/baseturf_helper/asteroid/snow,
 /turf/closed/indestructible/ice,
 /area/awaymission/inaccessible)
-"gD" = (
-/obj/structure/girder,
-/obj/effect/decal/cleanable/shreds,
-/turf/open/indestructible{
-	icon_state = "plating";
-	name = "plating"
-	},
-/area/awaymission/cabin/caves/mountain)
 "gE" = (
 /turf/closed/indestructible/fakedoor{
 	desc = "I think that intercomm could open the door.";
@@ -1530,13 +1506,6 @@
 /obj/structure/cable,
 /turf/open/floor/wood,
 /area/awaymission/cabin)
-"hJ" = (
-/obj/structure/lattice/catwalk,
-/turf/open/indestructible{
-	icon_state = "plating";
-	name = "bridge"
-	},
-/area/awaymission/cabin/caves/mountain)
 "hK" = (
 /obj/effect/decal/cleanable/greenglow,
 /obj/effect/decal/cleanable/dirt,
@@ -2349,6 +2318,17 @@
 	name = "soviet floor"
 	},
 /area/awaymission/cabin/caves/sovietcave)
+"lP" = (
+/mob/living/basic/bear/russian{
+	desc = "He'll hold the line against you!";
+	light_range = 3;
+	melee_damage_upper = 25;
+	name = "Artyom"
+	},
+/turf/open/misc/asteroid/snow/snow_cabin/trampled{
+	slowdown = 1
+	},
+/area/awaymission/cabin/caves)
 "lS" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/spider/stickyweb,
@@ -2555,24 +2535,12 @@
 	},
 /turf/open/floor/carpet,
 /area/awaymission/cabin)
-"nC" = (
-/obj/structure/ladder/unbreakable{
-	desc = "Finally.";
-	icon_state = "ladder10";
-	id = "whyisitcalledladder10andnotladder1";
-	name = "Freedom"
+"nE" = (
+/obj/machinery/light/directional/north,
+/turf/open/misc/asteroid/snow/snow_cabin/trampled{
+	slowdown = 1
 	},
-/obj/effect/light_emitter{
-	name = "outdoor light";
-	set_cap = 3;
-	set_luminosity = 6;
-	light_color = "#9bbbff"
-	},
-/turf/open/indestructible{
-	icon_state = "plating";
-	name = "plating"
-	},
-/area/awaymission/cabin/caves/mountain)
+/area/awaymission/cabin/caves)
 "nL" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/airlock/grunge,
@@ -2965,6 +2933,12 @@
 	},
 /turf/open/floor/plating/snowed/smoothed,
 /area/awaymission/cabin/caves)
+"sA" = (
+/obj/machinery/light/directional/east,
+/turf/open/misc/asteroid/snow/snow_cabin/trampled{
+	slowdown = 1
+	},
+/area/awaymission/cabin/caves)
 "sB" = (
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 8
@@ -3188,14 +3162,6 @@
 "um" = (
 /obj/effect/turf_decal/weather/snow,
 /turf/open/misc/ice/smooth,
-/area/awaymission/cabin/caves)
-"uo" = (
-/obj/machinery/light/directional/north,
-/turf/open/misc/asteroid/snow/snow_cabin{
-	floor_variance = 0;
-	icon_state = "snow_dug";
-	slowdown = 1
-	},
 /area/awaymission/cabin/caves)
 "uq" = (
 /obj/structure/chair{
@@ -3501,6 +3467,13 @@
 	},
 /turf/open/misc/asteroid/snow/snow_cabin,
 /area/awaymission/cabin/caves)
+"xO" = (
+/turf/open/indestructible/binary/water{
+	density = 1;
+	desc = "No, I am not going through this.";
+	name = "dirty water"
+	},
+/area/awaymission/cabin/caves/mountain)
 "xY" = (
 /obj/vehicle/ridden/atv{
 	dir = 4
@@ -3783,14 +3756,6 @@
 	desc = "A mountain rock."
 	},
 /turf/open/misc/asteroid/snow/snow_cabin,
-/area/awaymission/cabin/caves)
-"At" = (
-/obj/machinery/light/directional/east,
-/turf/open/misc/asteroid/snow/snow_cabin{
-	floor_variance = 0;
-	icon_state = "snow_dug";
-	slowdown = 1
-	},
 /area/awaymission/cabin/caves)
 "AB" = (
 /obj/structure/flora/rock/icy/style_random{
@@ -4114,6 +4079,23 @@
 /obj/effect/mapping_helpers/no_tele_turf,
 /turf/closed/indestructible/syndicate,
 /area/awaymission/cabin/caves/sovietcave)
+"Fc" = (
+/obj/structure/ladder/unbreakable{
+	desc = "Finally.";
+	icon_state = "ladder10";
+	id = "whyisitcalledladder10andnotladder1";
+	name = "Freedom"
+	},
+/obj/effect/light_emitter{
+	name = "outdoor light";
+	set_cap = 3;
+	set_luminosity = 6;
+	light_color = "#9bbbff"
+	},
+/turf/open/indestructible/plating_pattern{
+	name = "plating"
+	},
+/area/awaymission/cabin/caves/mountain)
 "Fp" = (
 /obj/effect/turf_decal/weather/snow/corner,
 /obj/effect/light_emitter{
@@ -4406,13 +4388,6 @@
 	slowdown = 0
 	},
 /area/awaymission/cabin/snowforest)
-"JL" = (
-/turf/open/misc/asteroid/snow/snow_cabin{
-	floor_variance = 0;
-	icon_state = "snow_dug";
-	slowdown = 1
-	},
-/area/awaymission/cabin/caves)
 "JV" = (
 /obj/effect/turf_decal/stripes/red/line,
 /obj/effect/light_emitter{
@@ -4563,6 +4538,11 @@
 /obj/effect/mapping_helpers/no_tele_turf,
 /turf/open/indestructible,
 /area/awaymission/cabin/caves/mountain)
+"LD" = (
+/turf/open/indestructible/plating_pattern{
+	name = "plating"
+	},
+/area/awaymission/cabin/caves/mountain)
 "LE" = (
 /obj/item/nullrod/claymore/multiverse{
 	anchored = 1;
@@ -4591,14 +4571,6 @@
 	},
 /turf/open/floor/plating/snowed/snow_cabin,
 /area/awaymission/cabin/lumbermill)
-"LW" = (
-/obj/structure/barricade/wooden/snowed,
-/turf/open/misc/asteroid/snow/snow_cabin{
-	floor_variance = 0;
-	icon_state = "snow_dug";
-	slowdown = 1
-	},
-/area/awaymission/cabin/caves)
 "Md" = (
 /obj/structure/chair{
 	dir = 8
@@ -4618,19 +4590,6 @@
 	color = "4040ff"
 	},
 /turf/open/misc/asteroid/snow/snow_cabin,
-/area/awaymission/cabin/caves)
-"Ml" = (
-/mob/living/basic/bear/russian{
-	desc = "He'll hold the line against you!";
-	light_range = 3;
-	melee_damage_upper = 25;
-	name = "Artyom"
-	},
-/turf/open/misc/asteroid/snow/snow_cabin{
-	floor_variance = 0;
-	icon_state = "snow_dug";
-	slowdown = 1
-	},
 /area/awaymission/cabin/caves)
 "MA" = (
 /obj/effect/turf_decal/stripes/red/corner{
@@ -4841,6 +4800,13 @@
 "PV" = (
 /turf/open/misc/ice/smooth,
 /area/awaymission/cabin/caves)
+"PX" = (
+/obj/structure/girder,
+/obj/effect/decal/cleanable/shreds,
+/turf/open/indestructible/plating_pattern{
+	name = "plating"
+	},
+/area/awaymission/cabin/caves/mountain)
 "Qa" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/space_heater,
@@ -4910,6 +4876,13 @@
 	},
 /turf/open/floor/plating/snowed/snow_cabin,
 /area/awaymission/cabin/snowforest/sovietsurface)
+"QJ" = (
+/obj/effect/spawner/random/food_or_drink/keg{
+	desc = "Hey, SectCom, we located our complimentary case of space beer! The pamphlet didn't lie!";
+	name = "complimentary keg of space beer"
+	},
+/turf/open/floor/plating/snowed,
+/area/awaymission/cabin/caves)
 "QR" = (
 /obj/effect/decal/cleanable/blood,
 /obj/item/trash/popcorn{
@@ -5057,6 +5030,12 @@
 	},
 /turf/open/floor/wood,
 /area/awaymission/cabin)
+"Sr" = (
+/obj/structure/lattice/catwalk,
+/turf/open/indestructible/plating_pattern{
+	name = "bridge"
+	},
+/area/awaymission/cabin/caves/mountain)
 "Su" = (
 /obj/effect/light_emitter{
 	name = "cave light";
@@ -5216,6 +5195,11 @@
 	},
 /turf/open/floor/wood,
 /area/awaymission/cabin)
+"TT" = (
+/turf/open/misc/asteroid/snow/snow_cabin/trampled{
+	slowdown = 1
+	},
+/area/awaymission/cabin/caves)
 "TU" = (
 /obj/effect/decal/cleanable/glitter{
 	desc = "It looks like fancy glitter to me.";
@@ -16458,8 +16442,8 @@ Dm
 cx
 fI
 fG
-gd
-gd
+xO
+xO
 fG
 fG
 cx
@@ -16715,8 +16699,8 @@ cx
 fG
 fG
 fG
-gd
-gd
+xO
+xO
 fG
 fG
 fH
@@ -16972,8 +16956,8 @@ cx
 fG
 fG
 fG
-gd
-gd
+xO
+xO
 fG
 gy
 fG
@@ -17229,8 +17213,8 @@ cx
 fG
 fL
 fG
-gd
-gd
+xO
+xO
 fG
 fG
 fG
@@ -17486,8 +17470,8 @@ cx
 fG
 fG
 fG
-gd
-gd
+xO
+xO
 fG
 fG
 fG
@@ -17743,8 +17727,8 @@ cx
 fG
 fG
 fI
-gd
-gd
+xO
+xO
 fG
 fI
 fG
@@ -18000,8 +17984,8 @@ cx
 fG
 fG
 fG
-gd
-gd
+xO
+xO
 fG
 fG
 fG
@@ -18257,8 +18241,8 @@ cx
 fH
 fG
 fG
-gd
-gd
+xO
+xO
 fG
 fG
 fG
@@ -18514,8 +18498,8 @@ cx
 fG
 fG
 fG
-gd
-gd
+xO
+xO
 fG
 fG
 fG
@@ -18771,8 +18755,8 @@ cx
 fG
 fG
 fH
-gd
-gd
+xO
+xO
 fG
 fG
 fG
@@ -19028,8 +19012,8 @@ cx
 fG
 fG
 fG
-gd
-gd
+xO
+xO
 fG
 fH
 fL
@@ -19285,8 +19269,8 @@ cx
 fG
 fG
 fG
-gd
-gd
+xO
+xO
 fG
 fG
 fG
@@ -19542,8 +19526,8 @@ cx
 fI
 fG
 fG
-gd
-gd
+xO
+xO
 fG
 fG
 fG
@@ -19799,8 +19783,8 @@ cx
 fG
 fG
 fG
-gd
-gd
+xO
+xO
 fG
 fG
 fG
@@ -20056,8 +20040,8 @@ cx
 fG
 fG
 fG
-gd
-gd
+xO
+xO
 fG
 gz
 fG
@@ -20313,8 +20297,8 @@ cx
 fG
 fH
 fG
-gd
-gd
+xO
+xO
 fG
 fG
 fG
@@ -20570,8 +20554,8 @@ cx
 fG
 fG
 fG
-gd
-gd
+xO
+xO
 fI
 fG
 gH
@@ -20827,8 +20811,8 @@ cx
 fG
 fG
 fI
-gd
-gd
+xO
+xO
 fG
 fG
 gu
@@ -21084,8 +21068,8 @@ cx
 fG
 fG
 fG
-gd
-gd
+xO
+xO
 fG
 gA
 fL
@@ -21341,8 +21325,8 @@ cx
 fG
 fG
 fL
-gd
-gd
+xO
+xO
 gu
 fG
 fG
@@ -21598,18 +21582,18 @@ cx
 fH
 fG
 fG
-gd
-gd
-gd
-gd
-gd
-gd
-gd
-gd
-hJ
-hJ
-gd
-gd
+xO
+xO
+xO
+xO
+xO
+xO
+xO
+xO
+Sr
+Sr
+xO
+xO
 gc
 co
 co
@@ -21855,18 +21839,18 @@ cx
 fG
 fG
 fH
-gd
-gd
-gd
-gd
-gd
-gd
-gd
-gd
-hJ
-hJ
-gd
-gd
+xO
+xO
+xO
+xO
+xO
+xO
+xO
+xO
+Sr
+Sr
+xO
+xO
 gc
 co
 co
@@ -22886,7 +22870,7 @@ cx
 cx
 cx
 cx
-gD
+PX
 cx
 cx
 cx
@@ -23141,9 +23125,9 @@ Ly
 Ly
 Ly
 cx
-gr
-gr
-gr
+LD
+LD
+LD
 cx
 Ly
 Ly
@@ -23399,8 +23383,8 @@ Ly
 Ly
 Dm
 cx
-gr
-gr
+LD
+LD
 cx
 Ly
 Ly
@@ -23655,9 +23639,9 @@ co
 Ly
 Ly
 cx
-gr
-gr
-gr
+LD
+LD
+LD
 cx
 Ly
 Ly
@@ -23912,9 +23896,9 @@ co
 Ly
 Ly
 cx
-gr
-gr
-gr
+LD
+LD
+LD
 cx
 Ly
 Ly
@@ -24169,9 +24153,9 @@ co
 Ly
 Ly
 cx
-gr
-gr
-gr
+LD
+LD
+LD
 cx
 Ly
 Ly
@@ -24427,8 +24411,8 @@ Ly
 Ly
 Dm
 cx
-gr
-gr
+LD
+LD
 cx
 Ly
 Ly
@@ -24684,8 +24668,8 @@ Ly
 Ly
 Ly
 cx
-gr
-gr
+LD
+LD
 cx
 Ly
 Ly
@@ -24942,7 +24926,7 @@ Ly
 Ly
 Dm
 cx
-gr
+LD
 cx
 Ly
 Ly
@@ -25198,8 +25182,8 @@ Ly
 Ly
 Ly
 cx
-gr
-gr
+LD
+LD
 cx
 Ly
 Ly
@@ -25456,7 +25440,7 @@ Ly
 Dm
 cx
 cx
-gr
+LD
 cx
 Ly
 Ly
@@ -25711,9 +25695,9 @@ co
 Ly
 Ly
 cx
-gr
-gr
-gr
+LD
+LD
+LD
 cx
 Ly
 Ly
@@ -25968,9 +25952,9 @@ co
 Ly
 Ly
 cx
-gr
-gr
-gr
+LD
+LD
+LD
 cx
 Ly
 Ly
@@ -26225,9 +26209,9 @@ co
 Ly
 Ly
 cx
-gr
-gr
-gr
+LD
+LD
+LD
 cx
 Ly
 Ly
@@ -26482,9 +26466,9 @@ co
 Ly
 Ly
 cx
-gr
-gr
-gr
+LD
+LD
+LD
 cx
 Ly
 Ly
@@ -26739,9 +26723,9 @@ co
 Ly
 Ly
 cx
-gr
-gr
-gr
+LD
+LD
+LD
 cx
 Ly
 Ly
@@ -26996,9 +26980,9 @@ co
 Ly
 Ly
 cx
-gr
-gr
-gr
+LD
+LD
+LD
 cx
 Ly
 Ly
@@ -27253,9 +27237,9 @@ co
 Ly
 Ly
 cx
-gr
-gr
-gr
+LD
+LD
+LD
 cx
 Ly
 Ly
@@ -27510,9 +27494,9 @@ co
 Ly
 Ly
 cx
-gr
-gr
-gr
+LD
+LD
+LD
 cx
 Ly
 Ly
@@ -27767,9 +27751,9 @@ co
 Ly
 Ly
 cx
-gr
-gr
-gr
+LD
+LD
+LD
 cx
 Ly
 Ly
@@ -28024,9 +28008,9 @@ co
 Ly
 Ly
 cx
-gr
-gr
-gr
+LD
+LD
+LD
 cx
 Ly
 Ly
@@ -28281,9 +28265,9 @@ co
 Ly
 Ly
 cx
-gr
-nC
-gr
+LD
+Fc
+LD
 cx
 Ly
 Ly
@@ -28538,9 +28522,9 @@ co
 Ly
 Ly
 cx
-gr
-gr
-gr
+LD
+LD
+LD
 cx
 Ly
 Ly
@@ -31939,15 +31923,15 @@ Oe
 Oe
 PV
 PV
-JL
-JL
-JL
-JL
-JL
-JL
-JL
-JL
-JL
+TT
+TT
+TT
+TT
+TT
+TT
+TT
+TT
+TT
 Oe
 Oe
 Oe
@@ -32194,17 +32178,17 @@ Oe
 Oe
 Oe
 Oe
-JL
-JL
-JL
-JL
-JL
-JL
-JL
-JL
-JL
-JL
-JL
+TT
+TT
+TT
+TT
+TT
+TT
+TT
+TT
+TT
+TT
+TT
 Oe
 Oe
 Oe
@@ -32450,18 +32434,18 @@ Oe
 Oe
 Oe
 Oe
-JL
-JL
-JL
-JL
+TT
+TT
+TT
+TT
 Oe
-JL
-JL
-JL
+TT
+TT
+TT
 Oe
 Oe
-JL
-JL
+TT
+TT
 Oe
 Oe
 Ao
@@ -32712,14 +32696,14 @@ Oe
 Oe
 Oe
 Oe
-JL
-JL
-JL
+TT
+TT
+TT
 Oe
 Oe
 Oe
-JL
-JL
+TT
+TT
 Oe
 Oe
 Oe
@@ -32969,14 +32953,14 @@ Oe
 Oe
 Oe
 Oe
-JL
-JL
-JL
+TT
+TT
+TT
 Oe
 Oe
 Oe
-JL
-JL
+TT
+TT
 Oe
 Oe
 Oe
@@ -33232,9 +33216,9 @@ iv
 iv
 Oe
 Oe
-JL
-JL
-JL
+TT
+TT
+TT
 Oe
 Oe
 gx
@@ -33490,8 +33474,8 @@ iv
 iv
 Oe
 Oe
-JL
-JL
+TT
+TT
 Oe
 Oe
 gx
@@ -33747,8 +33731,8 @@ iM
 iv
 Oe
 Oe
-JL
-JL
+TT
+TT
 Oe
 Oe
 gx
@@ -34004,8 +33988,8 @@ iM
 iv
 Oe
 Oe
-JL
-JL
+TT
+TT
 Oe
 gx
 PH
@@ -34261,8 +34245,8 @@ iM
 iv
 Oe
 Oe
-JL
-JL
+TT
+TT
 Oe
 gx
 PH
@@ -34518,8 +34502,8 @@ iv
 iv
 Oe
 Oe
-JL
-JL
+TT
+TT
 gx
 PH
 Jt
@@ -34775,8 +34759,8 @@ iv
 Oe
 Oe
 Oe
-JL
-JL
+TT
+TT
 gx
 Jt
 Jt
@@ -35032,8 +35016,8 @@ PH
 gx
 gx
 gx
-LW
-LW
+dx
+dx
 gx
 PH
 Jt
@@ -35289,8 +35273,8 @@ PH
 PH
 PH
 gx
-JL
-JL
+TT
+TT
 gx
 PH
 PH
@@ -35546,8 +35530,8 @@ PH
 PH
 PH
 gx
-LW
-LW
+dx
+dx
 gx
 PH
 PH
@@ -35803,8 +35787,8 @@ PH
 PH
 gx
 Oe
-JL
-JL
+TT
+TT
 gx
 PH
 PH
@@ -36060,8 +36044,8 @@ PH
 gx
 Oe
 Oe
-JL
-JL
+TT
+TT
 gx
 PH
 PH
@@ -36316,9 +36300,9 @@ PH
 PH
 gx
 Oe
-JL
-JL
-JL
+TT
+TT
+TT
 gx
 PH
 PH
@@ -36573,9 +36557,9 @@ PH
 PH
 gx
 Oe
-JL
-JL
-JL
+TT
+TT
+TT
 gx
 PH
 PH
@@ -36830,8 +36814,8 @@ PH
 gx
 Oe
 Oe
-JL
-JL
+TT
+TT
 Oe
 Oe
 gx
@@ -37087,8 +37071,8 @@ PH
 gx
 Oe
 Oe
-JL
-JL
+TT
+TT
 Oe
 gx
 PH
@@ -37343,9 +37327,9 @@ PH
 gx
 Oe
 Oe
-JL
-JL
-JL
+TT
+TT
+TT
 Oe
 gx
 PH
@@ -37600,8 +37584,8 @@ PH
 gx
 Oe
 Oe
-JL
-JL
+TT
+TT
 Oe
 Oe
 gx
@@ -37857,8 +37841,8 @@ gx
 gx
 Oe
 Oe
-JL
-JL
+TT
+TT
 Oe
 Oe
 gx
@@ -38113,8 +38097,8 @@ gx
 Oe
 Oe
 Oe
-JL
-JL
+TT
+TT
 Oe
 Oe
 gx
@@ -38369,9 +38353,9 @@ PH
 gx
 Oe
 Oe
-JL
-JL
-JL
+TT
+TT
+TT
 Oe
 Oe
 gx
@@ -38626,8 +38610,8 @@ gx
 Oe
 Oe
 Oe
-JL
-JL
+TT
+TT
 Oe
 Oe
 gx
@@ -38882,9 +38866,9 @@ gx
 Oe
 Oe
 Oe
-JL
-JL
-JL
+TT
+TT
+TT
 Oe
 gx
 PH
@@ -39138,9 +39122,9 @@ PH
 gx
 Oe
 Oe
-JL
-JL
-JL
+TT
+TT
+TT
 Oe
 Oe
 gx
@@ -39394,9 +39378,9 @@ gx
 gx
 Ao
 Oe
-JL
-JL
-JL
+TT
+TT
+TT
 Oe
 Oe
 gx
@@ -39651,9 +39635,9 @@ Oe
 Oe
 Oe
 Oe
-JL
-JL
-JL
+TT
+TT
+TT
 Oe
 gx
 PH
@@ -39907,9 +39891,9 @@ Oe
 Oe
 Oe
 Oe
-JL
-JL
-JL
+TT
+TT
+TT
 Oe
 gx
 PH
@@ -40163,9 +40147,9 @@ Oe
 Oe
 Oe
 Oe
-JL
-JL
-JL
+TT
+TT
+TT
 Oe
 Oe
 gx
@@ -40419,9 +40403,9 @@ gx
 Oe
 Oe
 Oe
-JL
-JL
-JL
+TT
+TT
+TT
 Oe
 Oe
 gx
@@ -40675,9 +40659,9 @@ gx
 Oe
 Oe
 Oe
-JL
-JL
-JL
+TT
+TT
+TT
 Oe
 Oe
 gx
@@ -40931,9 +40915,9 @@ PH
 gx
 Oe
 Oe
-JL
-JL
-JL
+TT
+TT
+TT
 Oe
 Oe
 Oe
@@ -41188,9 +41172,9 @@ PH
 gx
 Oe
 Oe
-JL
-JL
-JL
+TT
+TT
+TT
 Oe
 Oe
 gx
@@ -41445,9 +41429,9 @@ gx
 Oe
 Oe
 Oe
-JL
-JL
-JL
+TT
+TT
+TT
 Oe
 Oe
 gx
@@ -45702,7 +45686,7 @@ ab
 gx
 XQ
 DE
-JL
+TT
 Oe
 gx
 Jt
@@ -45958,9 +45942,9 @@ ab
 Jt
 PH
 gx
-JL
-JL
-JL
+TT
+TT
+TT
 ab
 Jt
 Jt
@@ -46216,8 +46200,8 @@ Jt
 PH
 gx
 Oe
-JL
-JL
+TT
+TT
 Oe
 ab
 Jt
@@ -46473,8 +46457,8 @@ PH
 PH
 PH
 ab
-JL
-JL
+TT
+TT
 Oe
 gx
 Jt
@@ -46730,8 +46714,8 @@ PH
 PH
 PH
 ab
-JL
-JL
+TT
+TT
 Oe
 gx
 Jt
@@ -46987,9 +46971,9 @@ PH
 PH
 PH
 ab
-JL
-JL
-JL
+TT
+TT
+TT
 gx
 Jt
 Jt
@@ -47245,8 +47229,8 @@ PH
 gx
 PH
 gx
-JL
-JL
+TT
+TT
 gx
 Jt
 Jt
@@ -47502,8 +47486,8 @@ PH
 PH
 ab
 Oe
-JL
-JL
+TT
+TT
 gx
 Jt
 Jt
@@ -47759,8 +47743,8 @@ PH
 PH
 gx
 Oe
-JL
-JL
+TT
+TT
 ab
 Jt
 Jt
@@ -48015,9 +47999,9 @@ PH
 PH
 gx
 Oe
-JL
-JL
-JL
+TT
+TT
+TT
 gx
 Jt
 Jt
@@ -48271,9 +48255,9 @@ PH
 PH
 PH
 ab
-JL
-JL
-JL
+TT
+TT
+TT
 Oe
 gx
 Jt
@@ -48528,8 +48512,8 @@ Jt
 PH
 PH
 ab
-JL
-JL
+TT
+TT
 Oe
 gx
 PH
@@ -48785,8 +48769,8 @@ PH
 PH
 PH
 ab
-JL
-JL
+TT
+TT
 Oe
 gx
 Jt
@@ -48869,7 +48853,7 @@ PH
 PH
 hM
 hQ
-fd
+QJ
 hQ
 PV
 Ld
@@ -49042,8 +49026,8 @@ PH
 PH
 Jt
 ab
-JL
-JL
+TT
+TT
 Oe
 ab
 Jt
@@ -49299,8 +49283,8 @@ PH
 PH
 Jt
 ab
-JL
-JL
+TT
+TT
 ab
 Jt
 PH
@@ -49556,8 +49540,8 @@ PH
 PH
 ab
 Oe
-JL
-JL
+TT
+TT
 ab
 PH
 PH
@@ -49812,9 +49796,9 @@ Jt
 Jt
 gx
 Oe
-JL
-JL
-JL
+TT
+TT
+TT
 gx
 PH
 PH
@@ -50069,8 +50053,8 @@ Jt
 Jt
 gx
 Oe
-JL
-JL
+TT
+TT
 gx
 PH
 PH
@@ -50325,9 +50309,9 @@ Jt
 Jt
 Jt
 gx
-JL
-JL
-JL
+TT
+TT
+TT
 gx
 PH
 PH
@@ -50582,8 +50566,8 @@ Jt
 Jt
 Jt
 gx
-JL
-JL
+TT
+TT
 gx
 PH
 PH
@@ -50839,9 +50823,9 @@ Jt
 Jt
 Jt
 gx
-JL
-JL
-JL
+TT
+TT
+TT
 gx
 gx
 PH
@@ -51097,9 +51081,9 @@ Jt
 Jt
 ab
 Oe
-JL
-JL
-JL
+TT
+TT
+TT
 Oe
 gx
 PH
@@ -51355,10 +51339,10 @@ Jt
 Jt
 ab
 Oe
-JL
-JL
-JL
-JL
+TT
+TT
+TT
+TT
 gx
 PH
 Jt
@@ -51613,10 +51597,10 @@ Jt
 Jt
 ab
 Oe
-JL
-JL
-JL
-JL
+TT
+TT
+TT
+TT
 gx
 Jt
 Jt
@@ -51872,8 +51856,8 @@ Jt
 ab
 ab
 ab
-JL
-JL
+TT
+TT
 gx
 ab
 ab
@@ -52129,8 +52113,8 @@ Jt
 Jt
 Jt
 gx
-JL
-JL
+TT
+TT
 Oe
 Oe
 Oe
@@ -52386,9 +52370,9 @@ Jt
 Jt
 ab
 Ao
-JL
-JL
-JL
+TT
+TT
+TT
 Oe
 ab
 Jt
@@ -52644,8 +52628,8 @@ ab
 Oe
 Oe
 Oe
-JL
-JL
+TT
+TT
 gx
 Jt
 Jt
@@ -52901,8 +52885,8 @@ Jt
 ab
 ab
 ab
-JL
-JL
+TT
+TT
 Oe
 ab
 Jt
@@ -53158,8 +53142,8 @@ Jt
 Jt
 Jt
 ab
-JL
-JL
+TT
+TT
 Oe
 gx
 ab
@@ -53415,8 +53399,8 @@ Jt
 PH
 gx
 Oe
-JL
-JL
+TT
+TT
 Oe
 gx
 gx
@@ -53672,8 +53656,8 @@ Jt
 gx
 Oe
 Oe
-JL
-JL
+TT
+TT
 Oe
 Oe
 gx
@@ -53929,8 +53913,8 @@ PH
 PH
 ab
 ab
-JL
-JL
+TT
+TT
 ab
 Oe
 Oe
@@ -54186,8 +54170,8 @@ PH
 PH
 PH
 gx
-JL
-JL
+TT
+TT
 ab
 ab
 ab
@@ -54443,8 +54427,8 @@ PH
 PH
 PH
 gx
-JL
-JL
+TT
+TT
 gx
 PH
 PH
@@ -54700,8 +54684,8 @@ PH
 PH
 Jt
 ab
-JL
-JL
+TT
+TT
 ab
 ab
 Jt
@@ -54957,8 +54941,8 @@ Jt
 PH
 ab
 Oe
-JL
-JL
+TT
+TT
 Oe
 Oe
 ab
@@ -55214,8 +55198,8 @@ Jt
 PH
 Jt
 ab
-JL
-JL
+TT
+TT
 Oe
 Oe
 Oe
@@ -55471,8 +55455,8 @@ PH
 PH
 gx
 Oe
-JL
-JL
+TT
+TT
 Oe
 gx
 Oe
@@ -55728,8 +55712,8 @@ Jt
 Jt
 gx
 Oe
-JL
-JL
+TT
+TT
 Oe
 Oe
 Oe
@@ -55985,8 +55969,8 @@ PH
 PH
 PH
 gx
-JL
-JL
+TT
+TT
 ab
 ab
 Oe
@@ -56242,8 +56226,8 @@ ii
 ab
 Jt
 gx
-JL
-JL
+TT
+TT
 Oe
 ab
 ab
@@ -56499,8 +56483,8 @@ Oe
 Oe
 ab
 Oe
-JL
-JL
+TT
+TT
 Oe
 ab
 Jt
@@ -56755,9 +56739,9 @@ ii
 Oe
 Oe
 Oe
-JL
-JL
-JL
+TT
+TT
+TT
 ab
 Jt
 PH
@@ -57011,9 +56995,9 @@ PH
 ii
 Oe
 Oe
-JL
-JL
-JL
+TT
+TT
+TT
 gx
 PH
 PH
@@ -57267,9 +57251,9 @@ PH
 PH
 Fb
 ii
-uo
-JL
-JL
+nE
+TT
+TT
 gx
 PH
 PH
@@ -57523,9 +57507,9 @@ ii
 ii
 ii
 ii
-JL
-Ml
-At
+TT
+lP
+sA
 Oe
 Oe
 gx
@@ -57780,8 +57764,8 @@ im
 mM
 im
 mS
-JL
-JL
+TT
+TT
 ii
 Oe
 Oe
