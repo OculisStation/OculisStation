@@ -85,7 +85,7 @@
 				continue
 			if(!CheckToolReach(nozzle, monkey, capture_range))
 				continue
-		for(var/obj/item/slime_extract/extract in monkey.held_items)
+		for(var/obj/item/slime_extract/extract in monkey.get_held_items())
 			monkey.dropItemToGround(extract)
 
 	var/found = FALSE
