@@ -152,23 +152,15 @@
 	name = "\improper MOD [skin] skin applier"
 
 /obj/item/mod/skin_applier/interact_with_atom(atom/attacked_atom, mob/living/user, params)
-	if(!isatom(attacked_atom) || !(attacked_atom.type in subtypesof(/obj/item/mod/control))) //IRIS EDIT - Adds universal for skin appliers
+	if(!istype(attacked_atom, /obj/item/mod/control))
 		return NONE
 	var/obj/item/mod/control/mod = attacked_atom
 	if(mod.active || mod.activating)
 		balloon_alert(user, "unit active!")
 		return ITEM_INTERACT_BLOCKING
-	if(!universal && !(skin in mod.theme.variants)) // IRIS EDIT
+	if(!(skin in mod.theme.variants))
 		balloon_alert(user, "wrong theme for skin!")
 		return ITEM_INTERACT_BLOCKING
-	if(universal) // IRIS EDIT - adds this skin to the variants of this suit
-		var/datum/mod_theme/mod_theme = get_mod_theme_by_skin(skin)
-		if(!mod_theme)
-			balloon_alert(user, "issue applying skin!")
-			return TRUE
-
-		mod.theme.variants[skin] = mod_theme.variants[skin]
-
 	mod.theme.set_skin(mod, skin)
 	balloon_alert(user, "skin applied")
 	qdel(src)
