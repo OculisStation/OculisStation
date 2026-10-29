@@ -1,19 +1,30 @@
 // THIS IS A OCULIS UI FILE
-import type { ReactNode } from 'react';
+import { useState } from 'react';
 import {
   Box,
-  DmIcon,
   Icon,
   NoticeBox,
   ProgressBar,
+  Tabs,
   Tooltip,
 } from 'tgui-core/components';
-import type { BooleanLike } from 'tgui-core/react';
+import { type BooleanLike, classes } from 'tgui-core/react';
 import { capitalizeAll } from 'tgui-core/string';
 
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
-import { SlimeName, SlimePips, SlimePortrait } from './common/SlimeRancher';
+import {
+  RequirementCell,
+  SlimeName,
+  SlimePips,
+  SlimePortrait,
+} from './common/SlimeRancher';
+import {
+  SLIMEPEDIA_TABS,
+  Slimepedia,
+  type SlimepediaPage,
+  useSlimepediaData,
+} from './Slimepedia';
 
 type Requirement = {
   name: string;
@@ -89,43 +100,16 @@ type Data = {
   SlimeMutationData &
   BuiltInNumberData;
 
-const REQUIREMENT_ICON_SIZE = '48px';
-
-/** Fixed size so an odd-sized source icon can't shove one row out of line with its neighbors. */
-function RequirementIcon(props: { requirement: Requirement }) {
-  const { requirement } = props;
-
-  return (
-    <DmIcon
-      icon={requirement.icon}
-      icon_state={requirement.icon_state}
-      fallback={<Icon name="question" />}
-      width={REQUIREMENT_ICON_SIZE}
-      height={REQUIREMENT_ICON_SIZE}
-    />
-  );
-}
-
-function RequirementCell(props: {
-  requirement: Requirement;
-  children?: ReactNode;
-}) {
-  const { requirement, children } = props;
-
-  return (
-    <Box className="SlimeRancherScanner__requirement">
-      <RequirementIcon requirement={requirement} />
-      <span>{requirement.name}</span>
-      {children}
-    </Box>
-  );
-}
-
 function MutationRow(props: { mutation: Mutation }) {
   const { mutation } = props;
 
   return (
-    <Box className="SlimeRancherScanner__recipe">
+    <Box
+      className={classes([
+        'SlimeRancherScanner__recipe',
+        !!mutation.ready && 'SlimeRancherScanner__recipe--ready',
+      ])}
+    >
       <Box className="SlimeRancherScanner__recipe-heading">
         <SlimeName color={mutation.color} hex={mutation.color_hex} />
         {!!mutation.ready && (
@@ -327,6 +311,9 @@ function Mutations() {
   const { data } = useBackend<Data>();
   const { mutations } = data;
   const anyReady = mutations.some((mutation) => !!mutation.ready);
+  const sorted = [...mutations].sort(
+    (a, b) => Number(!!b.ready) - Number(!!a.ready),
+  );
 
   if (mutations.length === 0) {
     return (
@@ -342,13 +329,8 @@ function Mutations() {
   return (
     <Box className="SlimeRancher__card SlimeRancherScanner__mutations">
       <h2 className="SlimeRancher__heading">Mutations</h2>
-      {!anyReady && (
-        <NoticeBox info>
-          No recipe is finished yet, so this slime will only secrete extracts.
-        </NoticeBox>
-      )}
       <Box className="SlimeRancherScanner__recipes">
-        {mutations.map((mutation) => (
+        {sorted.map((mutation) => (
           <MutationRow key={mutation.color} mutation={mutation} />
         ))}
       </Box>
@@ -356,24 +338,60 @@ function Mutations() {
   );
 }
 
+enum ScannerTab {
+  Scan = 'scan',
+}
+
 export const SlimeRancherScanner = () => {
   const { data } = useBackend<Data>();
-  const { scanned } = data;
+  const { scanned, color } = data;
+  const slimepedia = useSlimepediaData();
+  const [tab, setTab] = useState<ScannerTab | SlimepediaPage>(ScannerTab.Scan);
 
   return (
     <Window width={780} height={600} theme="slime_rancher">
-      <Window.Content scrollable className="SlimeRancherScanner">
-        {!scanned ? (
-          <Box className="SlimeRancher__empty">
-            <Icon name="crosshairs" size={3} />
-            <h1>No slime currently scanned.</h1>
-            <p>Point the scanner at any slime you can see.</p>
+      <Window.Content className="SlimeRancherScanner">
+        <Tabs className="SlimeRancher__tabs">
+          <Tabs.Tab
+            icon="crosshairs"
+            selected={tab === ScannerTab.Scan}
+            onClick={() => setTab(ScannerTab.Scan)}
+          >
+            Scan
+          </Tabs.Tab>
+          {SLIMEPEDIA_TABS.map((entry) => (
+            <Tabs.Tab
+              key={entry.page}
+              icon={entry.icon}
+              selected={tab === entry.page}
+              onClick={() => setTab(entry.page)}
+            >
+              {entry.label}
+            </Tabs.Tab>
+          ))}
+        </Tabs>
+        {tab === ScannerTab.Scan ? (
+          <Box className="SlimeRancher__scroll SlimeRancherScanner__scan">
+            {!scanned ? (
+              <Box className="SlimeRancher__empty">
+                <Icon name="crosshairs" size={3} />
+                <h1>No slime currently scanned.</h1>
+                <p>Point the scanner at any slime you can see.</p>
+              </Box>
+            ) : (
+              <>
+                <Vitals />
+                <Mutations />
+              </>
+            )}
           </Box>
         ) : (
-          <>
-            <Vitals />
-            <Mutations />
-          </>
+          <Slimepedia
+            data={slimepedia}
+            page={tab}
+            onPageChange={setTab}
+            initialColorName={scanned ? color : undefined}
+          />
         )}
       </Window.Content>
     </Window>

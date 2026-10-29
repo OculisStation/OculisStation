@@ -1,6 +1,15 @@
 // THIS IS A OCULIS UI FILE
 .SlimeRancherScanner {
 	.Window__contentPadding {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		height: calc(100% - 2rem);
+	}
+
+	&__scan {
+		flex: 1;
+		min-height: 0;
 		display: grid;
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 		align-items: start;
@@ -8,7 +17,7 @@
 	}
 
 	@media (max-width: 620px) {
-		.Window__contentPadding {
+		&__scan {
 			grid-template-columns: minmax(0, 1fr);
 		}
 	}
@@ -93,6 +102,12 @@
 		box-shadow: inset 0 2px 3px var(--slime-shadow);
 	}
 
+	&__recipe--ready {
+		box-shadow:
+			inset 0 2px 3px var(--slime-shadow),
+			0 0 0 2px var(--slime-good);
+	}
+
 	&__recipe-heading {
 		display: flex;
 		flex-wrap: wrap;
@@ -115,23 +130,7 @@
 		gap: 0.5rem;
 	}
 
-	&__requirement {
-		position: relative;
-		display: grid;
-		grid-template-rows: auto 1fr;
-		justify-items: center;
-		align-items: start;
-		gap: 0.25rem;
-		min-width: 0;
-		font-size: 0.917rem;
-		font-weight: bold;
-		text-align: center;
-		overflow-wrap: anywhere;
-
-		> img {
-			image-rendering: pixelated;
-		}
-
+	.SlimeRancher__requirement {
 		.ProgressBar {
 			justify-self: stretch;
 			min-height: 1.25rem;
@@ -160,6 +159,6 @@
 	--progress-bar-color: oklch(0.73 0.012 245);
 }
 
-.theme-slime_rancher .SlimeRancherScanner__requirement .ProgressBar {
+.theme-slime_rancher .SlimeRancherScanner .SlimeRancher__requirement .ProgressBar {
 	background: var(--slime-cream);
 }

@@ -85,7 +85,9 @@ GLOBAL_LIST_EMPTY(slime_pens)
 				continue
 			if((corpse.timeofdeath + (5 MINUTES)) <= world.time && !corpse.get_filter("dust_animation")) // stupid janky way of avoiding dusting the same chimp repeatedly while the dusting animation is ongoing
 				corpse.visible_message(span_warning("[corpse] is automatically dissolved by the slime corral."))
-				corpse.dust(just_ash = TRUE, drop_items = TRUE)
+				corpse.unequip_everything()
+				corpse.dust_animation()
+				QDEL_IN(corpse, 1.3 SECONDS)
 	COOLDOWN_START(src, corpse_check_cooldown, 15 SECONDS)
 
 /datum/slime_pen/proc/track_slime(mob/living/basic/slime/slime)
@@ -152,6 +154,7 @@ GLOBAL_LIST_EMPTY(slime_pens)
 		penned_monkey.ai_controller?.override_blackboard_key(BB_MONKEY_IDLE_COMMON_EMOTES, quiet_emotes)
 		// getting eaten flips them into the combat tree, which screeches from its own list
 		penned_monkey.ai_controller?.override_blackboard_key(BB_MONKEY_BATTLE_SCREECHES, quiet_emotes)
+		penned_monkey.ai_controller?.set_blackboard_key(BB_MONKEY_PENNED, TRUE)
 
 /// actually sets up the fence piece and such
 /datum/slime_pen/proc/build_barriers()

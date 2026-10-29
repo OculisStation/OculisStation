@@ -26,3 +26,6 @@
 /// The lowest weight A* gives a turf: plain floor in a hallway.
 /// A*'s distance guess assumes every step costs at least this on both ends, so anything lighter is raised to it.
 #define ASTAR_MIN_TURF_WEIGHT (ASTAR_WEIGHT_TURF_DEFAULT + ASTAR_WEIGHT_AREA_HALLS)
+
+///Path we should use next time we start A* movement, if it ends where we're going
+#define BB_ASTAR_PATH_TO_USE "BB_astar_path_to_use"

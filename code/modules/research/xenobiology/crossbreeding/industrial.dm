@@ -45,8 +45,13 @@ Industrial extracts:
 	if(plasmaabsorbed >= plasmarequired)
 		playsound(src, 'sound/effects/blob/attackblob.ogg', 50, TRUE)
 		plasmaabsorbed -= plasmarequired
+		// OCULIS EDIT CHANGE START - SLIME_RANCHER - ORIGINAL: do_after_spawn(new itempath(get_turf(src)))
+		var/datum/storage/container = loc?.atom_storage
 		for(var/i in 1 to itemamount)
-			do_after_spawn(new itempath(loc)) // OCULIS EDIT CHANGE - SLIME_RANCHER - ORIGINAL: do_after_spawn(new itempath(get_turf(src)))
+			var/obj/item/spawned = new itempath(drop_location())
+			container?.attempt_insert(spawned, override = TRUE)
+			do_after_spawn(spawned)
+		// OCULIS EDIT CHANGE END
 	else if(IsWorking)
 		playsound(src, 'sound/effects/bubbles/bubbles.ogg', 5, TRUE)
 	if(IsWorking)

@@ -125,3 +125,13 @@ GLOBAL_ALIST_INIT(slime_colors_to_types, init_slime_colors_to_types())
 	for(var/datum/slime_type/slime_type as anything in subtypesof(/datum/slime_type))
 		if(slime_type::colour)
 			.[slime_type::colour] = slime_type
+
+/// "[effect]|[colour]" -> crossbreed path, for every non-abstract slimecross.
+GLOBAL_ALIST_INIT(slime_crossbreeds, init_slime_crossbreeds())
+
+/proc/init_slime_crossbreeds() as /alist
+	. = alist()
+	for(var/obj/item/slimecross/cross_path as anything in subtypesof(/obj/item/slimecross))
+		if(cross_path::colour == "null")
+			continue // not a real crossbreed
+		.["[cross_path::effect]|[cross_path::colour]"] = cross_path

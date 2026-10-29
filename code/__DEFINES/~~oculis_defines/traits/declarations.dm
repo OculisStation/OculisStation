@@ -24,4 +24,7 @@
 /// Weapon carries the starborne enchantment, so the black warping rune won't stack a second one onto it
 #define TRAIT_STARBORNE "starborne"
 
+/// Mask carrying the rebreather element
+#define TRAIT_SLIME_REBREATHER "slime_rebreather"
+
 // END TRAIT DEFINES

@@ -20,6 +20,8 @@
 #define BB_SLIME_ROAM_PLAYER "BB_slime_roam_player"
 ///Emotes a monkey uses for its battle screech instead of the hardcoded roar/screech, if set
 #define BB_MONKEY_BATTLE_SCREECHES "BB_monkey_battle_screeches"
+///Set once a monkey has wandered into a slime pen
+#define BB_MONKEY_PENNED "BB_monkey_penned"
 
 ///How many transformative extracts one slime can hold
 #define SLIME_MAX_TRANSFORMATIONS 3
@@ -87,6 +89,10 @@
 #define SLIME_MONKEY_RALLY_RANGE 5
 
 #define COMPRESSOR_LINK_RANGE 7
+/// Extracts the compressor's type tank holds.
+#define COMPRESSOR_EFFECT_EXTRACTS 8
+/// Extracts the compressor's color tank holds.
+#define COMPRESSOR_COLOR_EXTRACTS 2
 
 #define VV_HK_SLIME_SET_TYPE "slime_set_type"
 #define VV_HK_SLIME_ADD_TRANSFORMATION "slime_add_transformation"

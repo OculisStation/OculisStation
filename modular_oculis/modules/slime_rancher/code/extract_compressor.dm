@@ -1,5 +1,3 @@
-#define COMPRESSOR_EFFECT_EXTRACTS 8
-#define COMPRESSOR_COLOR_EXTRACTS 2
 /// Biomass a cycle costs with tier 1 matter bins.
 #define COMPRESSOR_BASE_BIOMASS_COST 8
 /// Biomass cost saved per bin tier above 1. Also the lowest a cycle can cost.
@@ -47,8 +45,6 @@
 	/// REALTIMEOFDAY of the last process tick, so cycles count real seconds even when the server is lagging.
 	var/last_process
 
-	/// "[effect]|[colour]" -> crossbreed path, built once from every non-abstract slimecross.
-	var/static/alist/crossbreed_lookup
 	/// slime_extract type -> list(colour, rgb_code), built once from every slime_type.
 	var/static/alist/extract_color_lookup
 
@@ -92,16 +88,10 @@
 	effect_extracts -= gone
 	color_extracts -= gone
 
-/// Builds the crossbreed and extract color lookup lists, only the first time.
+/// Builds the extract color lookup list, only the first time.
 /obj/machinery/extract_compressor/proc/build_lookups()
-	if(!isnull(crossbreed_lookup))
+	if(!isnull(extract_color_lookup))
 		return
-	crossbreed_lookup = alist()
-	for(var/obj/item/slimecross/cross_path as anything in subtypesof(/obj/item/slimecross))
-		if(cross_path::colour == "null")
-			continue // not a real crossbreed
-		crossbreed_lookup["[cross_path::effect]|[cross_path::colour]"] = cross_path
-
 	extract_color_lookup = alist()
 	for(var/datum/slime_type/slime_type as anything in subtypesof(/datum/slime_type))
 		if(!slime_type::core_type)
@@ -431,7 +421,7 @@
 	var/list/color_info = extract_color_lookup[color_extracts[1].type]
 	if(!effect || !color_info)
 		return null
-	return crossbreed_lookup["[effect]|[color_info[1]]"]
+	return GLOB.slime_crossbreeds["[effect]|[color_info[1]]"]
 
 /obj/machinery/extract_compressor/process()
 	if(!is_cycling())
@@ -493,5 +483,3 @@
 #undef COMPRESSOR_BASE_BIOMASS_COST
 #undef COMPRESSOR_BASE_CYCLE_TIME
 #undef COMPRESSOR_BIOMASS_PER_BIN_TIER
-#undef COMPRESSOR_COLOR_EXTRACTS
-#undef COMPRESSOR_EFFECT_EXTRACTS

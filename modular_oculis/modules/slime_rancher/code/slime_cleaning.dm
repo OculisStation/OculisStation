@@ -3,6 +3,12 @@
 /// same as the clean finder's vision_range in slime.bt.json
 #define SLIME_CLEAN_SCAN_RANGE 7
 
+/mob/living/basic/slime
+	/// Until this runs out, sees_mess_to_clean() reuses its last answer instead of scanning again
+	COOLDOWN_DECLARE(mess_scan_reuse)
+	/// Whether the last mess scan found any mess we'd go for
+	var/mess_nearby = FALSE
+
 /// Whether this is a mess a cleaner slime will eat.
 /mob/living/basic/slime/proc/can_dissolve(atom/movable/mess)
 	var/static/list/dissolvable_cache
@@ -94,13 +100,18 @@
 
 /// Whether there's a mess in view we'd go clean up, leaving out ones we gave up on or that are outside our pen.
 /mob/living/basic/slime/proc/sees_mess_to_clean()
+	if(!COOLDOWN_FINISHED(src, mess_scan_reuse))
+		return mess_nearby
+	COOLDOWN_START(src, mess_scan_reuse, 1 SECONDS)
+	mess_nearby = FALSE
 	var/datum/target_source/source = GET_TARGET_SOURCE(/datum/target_source/slime_messes)
 	var/list/ignored = ai_controller?.blackboard[BB_TEMPORARY_IGNORE_LIST]
 	for(var/atom/movable/mess as anything in source.collect_candidates(src, ai_controller, SLIME_CLEAN_SCAN_RANGE))
 		if(LAZYACCESS(ignored, mess) || (pen && !pen.turfs[get_turf(mess)]))
 			continue
-		return TRUE
-	return FALSE
+		mess_nearby = TRUE
+		break
+	return mess_nearby
 
 /datum/targeting_strategy/slime_mess
 

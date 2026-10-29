@@ -49,10 +49,14 @@
 		return
 	if(!length(path))
 		controller.ignore_target(spot, SLIME_CHASE_GIVE_UP_TIME)
+		// a failed search goes through every tile in reach, so don't keep picking spots in the same locked room
+		if(!controller.blackboard_key_exists(BB_SLIME_ROAM_PLAYER))
+			controller.ignore_target(get_area(spot), 1 MINUTES)
 		// no path means they're out of reach, so we stop looking instead of standing around for the rest of the minute
 		controller.clear_blackboard_key(BB_SLIME_ROAM_PLAYER)
 		finish_async(AI_BEHAVIOR_FAILED)
 		return
+	controller.override_blackboard_key(BB_ASTAR_PATH_TO_USE, path)
 	controller.set_blackboard_key(BB_SLIME_ROAM_TARGET, spot)
 	finish_async(AI_BEHAVIOR_SUCCEEDED)
 

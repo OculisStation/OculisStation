@@ -12,6 +12,13 @@
 /datum/bt_node/subtree/pet_command/follow/slime
 	behavior_tree_json = "modular_oculis/modules/slime_rancher/code/pet_command_follow_slime.bt.json"
 
+// slime_food turns down everyone but grudges for cleaners, so don't scan for meals we'd never eat
+/datum/bt_node/decorator/slime_wants_to_eat/check_condition(datum/ai_controller/controller)
+	var/mob/living/basic/slime/slime_pawn = controller.pawn
+	if(istype(slime_pawn) && slime_pawn.cleaner_slime && !length(controller.blackboard[BB_BASIC_MOB_RETALIATE_LIST]))
+		return FALSE
+	return ..()
+
 /// items the slime wants to eat, from BB_SLIME_WANTED_ITEMS, if it is set
 /datum/target_source/slime_wanted_items
 
