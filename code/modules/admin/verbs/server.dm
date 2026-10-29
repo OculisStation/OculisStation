@@ -57,31 +57,15 @@ ADMIN_VERB(restart, R_SERVER, "Reboot World", "Restarts the world immediately.",
 			if (result != NO_EVENT_RESTART)
 				SSticker.TriggerRoundEndTgsEvent()
 
-			// OCULIS EDIT ADDITION START
-			SSplexora.restart_requester = user.mob
-			SSplexora.restart_type = PLEXORA_SHUTDOWN_NORMAL
-			// OCULIS EDIT ADDITION END
 			SSticker.Reboot(init_by, "admin reboot - by [user.key] [user.holder.fakekey ? "(stealth)" : ""]", delay * 10)
 		if(HARD_RESTART)
 			to_chat(world, "World reboot - [init_by]")
-			// OCULIS EDIT ADDITION START
-			SSplexora.restart_requester = user.mob
-			SSplexora.restart_type = PLEXORA_SHUTDOWN_HARD
-			// OCULIS EDIT ADDITION END
 			world.Reboot()
 		if(HARDEST_RESTART)
 			to_chat(world, "Hard world reboot - [init_by]")
-			// OCULIS EDIT ADDITION START
-			SSplexora.restart_requester = user.mob
-			SSplexora.restart_type = PLEXORA_SHUTDOWN_HARDEST
-			// OCULIS EDIT ADDITION END
 			world.Reboot(fast_track = TRUE)
 		if(TGS_RESTART)
 			to_chat(world, "Server restart - [init_by]")
-			// OCULIS EDIT ADDITION START
-			SSplexora.restart_requester = user.mob
-			SSplexora.notify_shutdown(PLEXORA_SHUTDOWN_KILLDD)
-			// OCULIS EDIT ADDITION END
 			world.TgsEndProcess()
 
 #undef REGULAR_RESTART

@@ -20,7 +20,7 @@
 		.["message"] = "Invalid target ckey provided."
 		return
 
-	var/sender_ckey = ckey(SSplexora.lookup_ckey(sender_discord_id)) // OCULIS EDIT CHANGE - SSdiscord -> SSplexora
+	var/sender_ckey = ckey(SSdiscord.lookup_ckey(sender_discord_id))
 
 	if(!sender_ckey)
 		.["success"] = FALSE

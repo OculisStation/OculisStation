@@ -1,5 +1,5 @@
 /turf/open/chasm
-	astar_weight = ASTAR_WEIGHT_TURF_NEVER
+	astar_weight = ASTAR_WEIGHT_TURF_ALMOST_NEVER
 
 /turf/open/cliff
 	astar_weight = ASTAR_WEIGHT_TURF_ALMOST_NEVER

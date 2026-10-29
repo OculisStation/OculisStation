@@ -34,12 +34,7 @@
 		if (input["format"] == "json")
 			. = list("error" = .)
 	else
-		// OCULIS EDIT ADDITION START
-		if (input["json"])
-			. = Run(input + json_decode(input["json"]))
-		else
-			. = Run(input)
-		// OCULIS EDIT ADDITION END
+		. = Run(input)
 	if (input["format"] == "json")
 		. = json_encode(.)
 	else if(islist(.))
@@ -316,3 +311,27 @@
 
 	message_admins(span_adminnotice("Incoming cross-sector newscaster article by [author_key] in channel [channel_name]."))
 	GLOB.news_network.submit_article(msg, author, channel_name)
+
+// OCULIS EDIT ADDITION START
+/datum/world_topic/whois
+	keyword = "whoIs"
+
+/datum/world_topic/whois/Run(list/input)
+	. = list()
+	.["players"] = GLOB.clients
+
+	return list2params(.)
+
+/datum/world_topic/getadmins
+	keyword = "getAdmins"
+
+/datum/world_topic/getadmins/Run(list/input)
+	. = list()
+	var/list/adm = get_admin_counts()
+	var/list/presentmins = adm["present"]
+	var/list/afkmins = adm["afk"]
+	.["admins"] = presentmins
+	.["admins"] += afkmins
+
+	return list2params(.)
+// OCULIS EDIT ADDITION END

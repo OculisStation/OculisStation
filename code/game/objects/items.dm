@@ -1548,7 +1548,7 @@ GAME_VERB_SRC(/obj/item, verb_pickup, oview(1), "Pick up", null)
 	var/image/pickup_animation = image(icon = src)
 	SET_PLANE(pickup_animation, GAME_PLANE, source)
 	pickup_animation.transform.Scale(0.75)
-	pickup_animation.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
+	pickup_animation.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA | (appearance_flags & KEEP_TOGETHER) // OCULIS EDIT - inset overlays (starborne, blood) need KEEP_TOGETHER to stay clipped to the item - ORIGINAL: pickup_animation.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
 
 	var/direction = get_dir(source, target)
 	var/to_x = target.base_pixel_x

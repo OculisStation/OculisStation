@@ -1,18 +1,19 @@
-/turf/proc/reachable_turf_test(requester, turf/target, datum/can_pass_info/pass_info)
+/turf/proc/reachable_turf_test(atom/movable/requester, turf/target, datum/can_pass_info/pass_info)
 	if(!target || target.density)
 		return FALSE
-	if(!target.can_cross_safely(requester)) // dangerous turf! lava or openspace (or others in the future)
+	if(!target.can_cross_safely(requester)) // lava, openspace, etc
 		return FALSE
 	var/z_distance = abs(target.z - z)
-	if(!z_distance) // standard check for same-z pathing
+	if(!z_distance)
 		return !LinkBlockedWithAccess(target, pass_info)
-	if(z_distance != 1) // no single movement lets you move more than one z-level at a time (currently; update if this changes)
+	if(z_distance != 1) // nothing moves more than one z-level at a time
 		return FALSE
-	if(target.z > z) // going up stairs
+	if(target.z > z)
 		var/obj/structure/stairs/stairs = locate() in src
 		if(stairs?.isTerminator() && target == get_step_multiz(src, stairs.dir | UP))
-			return TRUE
-	else if(isopenspaceturf(src)) // going down stairs
+			// same two checks stair_ascend does before it moves anyone
+			return requester.can_z_move(UP, src, null, ZMOVE_ALLOW_BUCKLED) && !requester.can_z_move(DOWN, target, null, ZMOVE_FALL_FLAGS)
+	else if(isopenspaceturf(src))
 		var/turf/turf_below = GET_TURF_BELOW(src)
 		if(!turf_below || target != turf_below)
 			return FALSE
@@ -22,20 +23,12 @@
 	return FALSE
 
 /// Returns an additional distance factor based on slowdown and other factors.
-/turf/proc/get_heuristic_slowdown(mob/traverser, travel_dir)
+/// A* adds this for both turfs of every step, see ASTAR_STEP_COST.
+/turf/proc/get_heuristic_slowdown()
 	. = astar_weight
 	var/area/current_area = loc
 	if(current_area?.astar_weight)
 		. += current_area.astar_weight
-
-// Like Distance_cardinal, but includes additional weighting to make A* prefer turfs that are easier to pass through.
-/turf/proc/heuristic_cardinal(turf/target, mob/traverser)
-	var/travel_dir = get_dir(src, target)
-	. = Distance_cardinal(target, traverser) + get_heuristic_slowdown(traverser, travel_dir) + target.get_heuristic_slowdown(traverser, travel_dir)
-
-/// A 3d-aware version of heuristic_cardinal that just... adds the Z-axis distance with a multiplier.
-/turf/proc/heuristic_cardinal_3d(turf/target, mob/traverser)
-	return heuristic_cardinal(target, traverser) + abs(z - target.z) * 5 // Weight z-level differences higher so that we try to change Z-level sooner
 
 /// Helper function to compute 3D Manhattan distance.
 /turf/proc/distance_3d(turf/other)
@@ -46,12 +39,7 @@
 	var/dz = abs(z - other.z) * 5 // Weight z-level differences higher
 	return (dx + dy + dz)
 
-/// Returns the 3D Manhattan between two objects.
-/proc/get_dist_3d(atom/source, atom/target)
-	var/turf/source_turf = get_turf(source)
-	return source_turf.distance_3d(get_turf(target))
-
-/turf/open/get_heuristic_slowdown(mob/traverser, travel_dir)
+/turf/open/get_heuristic_slowdown()
 	. = ..()
 	if(slowdown)
 		. += slowdown * 10

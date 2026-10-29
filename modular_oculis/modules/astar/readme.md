@@ -16,6 +16,8 @@ specific areas and tiles, i.e preferring to go through hallways rather than main
 - `code/__HELPERS/paths/path.dm`
   - new var: `/datum/can_pass_info/multiz_checks`
   - `/datum/can_pass_info/New`: added `multiz_checks` argument
+- `code/__HELPERS/paths/jps.dm`
+  - `/datum/pathfind/jps/found_turfs` is an `alist`
 
 ### Modular Overrides:
 
@@ -35,12 +37,10 @@ specific areas and tiles, i.e preferring to go through hallways rather than main
 ### Defines:
 
 - `code/__DEFINES/~~oculis_defines/astar.dm`: `ASTAR_*` defines
-- `code/__HELPERS/~~oculis_helpers/_lists.dm`: `BINARY_INSERT_DEFINE_REVERSE`
 
 ### Included files that are not contained in this module:
 
 - `code/__DEFINES/~~oculis_defines/astar.dm`
-- `code/__HELPERS/~~oculis_helpers/_lists.dm`
 - `code/__HELPERS/~~oculis_helpers/mapping.dm`
 
 ### Credits:

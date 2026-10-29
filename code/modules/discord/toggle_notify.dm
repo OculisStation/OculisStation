@@ -1,7 +1,5 @@
-/* // OCULIS EDIT REMOVAL START
 // Verb to toggle restart notifications
 GAME_VERB_DESC(/client, notify_restart, "Notify Restart", "Notifies you on Discord when the server restarts.", "OOC")
-
 	// Safety checks
 	if(!CONFIG_GET(flag/sql_enabled))
 		to_chat(src, span_warning("This feature requires the SQL backend to be running."))
@@ -30,4 +28,3 @@ GAME_VERB_DESC(/client, notify_restart, "Notify Restart", "Notifies you on Disco
 	// If we got here, they arent in the list. Chuck 'em in!
 	to_chat(src, span_notice("You will now be notified when the server restarts"))
 	SSdiscord.notify_members += "[stored_mention]"
-*/ // OCULIS EDIT REMOVAL END
