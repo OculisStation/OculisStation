@@ -46,7 +46,8 @@
 /datum/controller/subsystem/shuttle/proc/reactivate_shuttles()
 	SSshuttle.emergency_no_escape = FALSE
 	for(var/obj/docking_port/mobile/shuttle in SSshuttle.mobile_docking_ports)
-		shuttle.mode = SHUTTLE_IDLE
+		if(shuttle.mode == SHUTTLE_DISABLED)
+			shuttle.mode = SHUTTLE_IDLE
 	clearTradeBlockade("BLACK_ALERT")
 	clearHostileEnvironment("BLACK_ALERT")
 
