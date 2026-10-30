@@ -1,7 +1,4 @@
 GAME_VERB_DESC(/mob/living, ouch_thyself, "Ouch Thyself", "Deal damage to yourself.", "IC")
-	set category = "IC"
-	set name = "Ouch Thyself"
-	set desc = "Allows you to damage yourself. Ough."
 
 	var/unfunnyjoke = pick(list("Select Yeowchies", "I hurt myself... today...", "Damage Types", "Pick Thy Poison", "Applicable Pithy Quote", "Dumb Ways To Die", "Toe Stubbage Device"))
 	if(prob(0.1))
