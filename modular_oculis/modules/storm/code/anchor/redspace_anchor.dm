@@ -245,7 +245,7 @@
 
 /obj/machinery/redspace_anchor/proc/tick(intensity)
 	if((charging_state != POWER_IDLE) || !online)
-		use_energy(active_power_usage * seconds_per_tick)
+		use_energy(active_power_usage)
 		return
 	violetspace_energy += (rand(1,5) * intensity)
 	if(violetspace_energy >= 100)
