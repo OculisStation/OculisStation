@@ -660,3 +660,60 @@
   - bugfix: parrying someone else's projectile now uses the parry multipliers instead
       of the self-boost ones, so parried shots hit a bit softer than before
   - bugfix: fixed a runtime when a cyborg or AI joined the round
+2026-10-30:
+  Absolucy:
+  - rscadd: slimes can hold 3 transformative extracts at once now, and their babies
+      get all of them
+  - rscadd: pink transformative makes cat slimes!! cat ears, only hunts small things,
+      bounces off of people for fun :3
+  - rscadd: dark blue transformative makes a cleaner slime. it eats messes, trash
+      and pests instead of you. they're like cute cleanbots
+  - rscadd: blue transformative makes a slime that never splits or mutates, it just
+      makes extracts forever
+  - rscadd: rainbow warping is back, and the rune is a door to your own little pocket
+      dimension. tap an extract on it first to pick which room, like a key
+  - rscadd: starborne weapons orbit you when dropped, and flies back when thrown.
+      anyone else can pick it up when its orbiting you tho
+  - rscadd: you can put hats on slimes
+  - rscadd: vacuum packs hold extracts now. shoot them into the fridge, dump them
+      in a bag, or right-click to grab one
+  - rscadd: slime pens clean up dead monkeys after 5 minutes
+  - rscdel: no more teleporting slimes (bluespace transformative is gone)
+  - balance: most warping runes do something useful now instead of just griefing
+  - balance: one rune per warping extract
+  - balance: crystalline pylons reach further, and the orange, oil, black and pyrite
+      ones are way less evil
+  - rscadd: in fact, crystalline pyrite is just a disco party now!!!! party!!!
+  - balance: slime shocks knock you down for way less time
+  - balance: slimes are a bit harder to wrestle off, but can't latch again for 10
+      seconds after
+  - balance: slime steroids give +2 extracts, up to 5
+  - balance: better servos make the extract compressor MUCH faster
+  - qol: compressors grab extracts from fridges up to 7 tiles away
+  - qol: xenobio bags hold crossbreeds too now
+  - qol: pens deploy way faster, and are harder to delete by accident
+  - qol: penned slimes only listen to verbal commands if ur in the pen with them
+  - qol: crystalline and transformative extracts actually tell you what they do when
+      u examine them
+  - qol: befriending a slime makes it forgive everyone it was mad at
+  - bugfix: slimes are less dumb about walking around things
+  - bugfix: hand-fed plasma sheets count for mutations
+  - bugfix: a couple of gentle extracts don't silently runtime when a non-luminescent
+      uses them
+  - bugfix: pens sharing a fence stop fighting over who draws it
+  - bugfix: unpowered compressors stop whirring
+  - bugfix: player slimes keep the face they picked via emote
+  - spellcheck: compressor "effect tank" is the "type tank" now
+  - sound: slimes go "woohoo!" when launched out of the vacuum
+  ArbiterAmbrose:
+  - rscadd: Added two grape seeds to the Ashwalker nest
+  - rscadd: Added three oven trays to the Ashwalker nest
+  Skies-Of-Blue:
+  - balance: the ashwalker's translation necklace is now fire/lavaproof
+  - balance: lavaland tumors now guarantee their unique item drop
+  - balance: boosted tumors now guarantee a tumor shard in place of their unique drop
+  - bugfix: menacing ore vents are once again possible to complete
+  firebudgy, The_Arbiber:
+  - rscadd: the "Ghost" synth chassis is now available in a character creator near
+      you!
+      
