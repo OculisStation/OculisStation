@@ -283,10 +283,7 @@
 	name = "Solfed Transport";
 	port_direction = 4;
 	dir = 4;
-	width = 17;
-	dwidth = 9;
-	dheight = 3;
-	height = 11
+	
 	},
 /turf/open/floor/plating,
 /area/shuttle/solfed)
