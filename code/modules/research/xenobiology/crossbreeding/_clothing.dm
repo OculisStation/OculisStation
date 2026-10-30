@@ -12,7 +12,7 @@ Slimecrossing Armor
 	inhand_icon_state = "b_mask"
 	body_parts_covered = NONE
 	w_class = WEIGHT_CLASS_SMALL
-	clothing_traits = list(TRAIT_NOBREATH)
+	// clothing_traits = list(TRAIT_NOBREATH) // OCULIS EDIT REMOVAL - SLIME_RANCHER - the rebreather element hands out TRAIT_NOBREATH now
 	armor_type = /datum/armor/mask_nobreath
 	flags_cover = MASKCOVERSMOUTH
 	resistance_flags = NONE
@@ -21,6 +21,7 @@ Slimecrossing Armor
 /datum/armor/mask_nobreath
 	bio = 50
 
+/* // OCULIS EDIT REMOVAL START - SLIME_RANCHER - moved into /datum/element/rebreather
 /obj/item/clothing/mask/nobreath/equipped(mob/living/carbon/human/user, slot)
 	. = ..()
 	if(slot & ITEM_SLOT_MASK)
@@ -31,6 +32,7 @@ Slimecrossing Armor
 /obj/item/clothing/mask/nobreath/dropped(mob/living/carbon/human/user)
 	..()
 	user.remove_status_effect(/datum/status_effect/rebreathing)
+*/ // OCULIS EDIT REMOVAL END
 
 /obj/item/clothing/glasses/prism_glasses
 	name = "prism glasses"

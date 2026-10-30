@@ -1,5 +1,7 @@
+/// The particle numbers below are tuned for a stream this many tiles long.
 #define VACUUM_STREAM_BASE_TILES 3
 
+/// Swirls that fly back toward the user.
 /particles/vacuum_suction
 	icon = 'icons/effects/particles/generic.dmi'
 	icon_state = list("curl" = 2, "dot" = 3)
@@ -18,6 +20,7 @@
 	gradient = list(0, "#ffb3e6", 1, "#b3f0ff", 2, "#fff3b3", "loop")
 	color = generator(GEN_NUM, 0, 3, UNIFORM_RAND)
 
+/// Stretches the stream to cover this many tiles.
 /particles/vacuum_suction/proc/scale_to_range(tiles)
 	var/scale = tiles / VACUUM_STREAM_BASE_TILES
 	if(scale == 1)
@@ -29,6 +32,7 @@
 	position = generator(GEN_BOX, list(-16, 32, 0), list(16, tiles * ICON_SIZE_Y, 0), UNIFORM_RAND)
 	velocity = list(0, -12 * scale)
 
+/// Sparkles on whatever is being sucked up.
 /particles/vacuum_sparkles
 	icon = 'icons/effects/particles/generic.dmi'
 	icon_state = "cross"
@@ -42,6 +46,7 @@
 	gradient = list(0, "#ffb3e6", 1, "#b3f0ff", 2, "#fff3b3", "loop")
 	color = generator(GEN_NUM, 0, 3, UNIFORM_RAND)
 
+/// The suction particles, turned to face the aim angle.
 /obj/effect/temp_visual/vacuum_suction_stream
 	duration = 1.2 SECONDS
 	randomdir = FALSE
@@ -62,6 +67,7 @@
 	QDEL_NULL(particles)
 	return ..()
 
+/// Pulls extracts within 45 degrees of the aim toward the user.
 /obj/item/vacuum_pack/proc/suck_extracts(atom/target, mob/living/user)
 	if(!COOLDOWN_FINISHED(src, extract_suction_cooldown) || !can_use_nozzle(user, feedback = TRUE))
 		return
@@ -99,6 +105,7 @@
 	if(!found)
 		balloon_alert(user, "no extracts!")
 
+/// Faces the target and plays the stream. Returns the aim angle.
 /obj/item/vacuum_pack/proc/start_suction(atom/target, mob/living/user)
 	user.face_atom(target)
 	if(isnull(succ_sound))
@@ -112,6 +119,7 @@
 /obj/item/vacuum_pack/proc/play_ploop(atom/source, pitch = 1)
 	playsound(source, 'sound/items/vacuum/vacuum_ploop.ogg', vol = 40, frequency = pitch)
 
+/// Plays the stream and puts sparkles on the creature.
 /obj/item/vacuum_pack/proc/start_mob_suction(mob/living/target, mob/living/user)
 	start_suction(target, user)
 	target.add_shared_particles(/particles/vacuum_sparkles)
@@ -119,6 +127,7 @@
 /obj/item/vacuum_pack/proc/stop_mob_suction(mob/living/target)
 	target.remove_shared_particles(/particles/vacuum_sparkles)
 
+/// Makes the extract fly over to the user.
 /obj/item/vacuum_pack/proc/start_extract_pull(obj/item/slime_extract/extract, mob/living/user)
 	var/datum/move_loop/loop = GLOB.move_manager.home_onto(extract, user, delay = 0.1 SECONDS, timeout = 2 SECONDS, priority = MOVEMENT_ABOVE_SPACE_PRIORITY)
 	if(!loop)
@@ -131,6 +140,7 @@
 	extract.add_shared_particles(/particles/vacuum_sparkles)
 	extract.SpinAnimation(0.4 SECONDS, loops = 2)
 
+/// Takes the extract in once it reaches the user's tile.
 /obj/item/vacuum_pack/proc/on_extract_pull_step(datum/move_loop/has_target/source)
 	SIGNAL_HANDLER
 	var/mob/living/user = source.target
@@ -152,6 +162,7 @@
 	SIGNAL_HANDLER
 	end_extract_pull(source)
 
+/// Stops pulling an extract, and cleans up its signals and sparkles.
 /obj/item/vacuum_pack/proc/end_extract_pull(obj/item/slime_extract/extract)
 	var/datum/move_loop/loop = pulled_extracts[extract]
 	if(!loop)
@@ -172,12 +183,16 @@
 	for(var/extract in pulled_extracts)
 		end_extract_pull(extract)
 
+/// Stores the extract. If we're full it tries a xeno bag, and if that's a no-go it just drops.
 /obj/item/vacuum_pack/proc/extract_arrived(obj/item/slime_extract/extract, mob/living/user)
 	end_extract_pull(extract)
 	// bloop~ bloop~~ bloop~~~ bloop~~~!
 	var/pitch = min(1 + 0.1 * extract_pitch_count, 2)
 	extract_pitch_count++
 	play_ploop(user, pitch)
+	if(length(stored_extracts()) < extract_capacity())
+		extract.forceMove(src)
+		return
 	var/obj/item/storage/bag/xeno/bag = astype(user.get_inactive_held_item())
 	if(isnull(bag))
 		var/static/list/slots_to_check = list(ITEM_SLOT_SUITSTORE, ITEM_SLOT_BELT, ITEM_SLOT_LPOCKET, ITEM_SLOT_RPOCKET)

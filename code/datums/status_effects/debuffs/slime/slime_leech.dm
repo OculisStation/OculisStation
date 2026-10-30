@@ -21,7 +21,21 @@
 		return FALSE
 
 	RegisterSignals(our_slime, list(COMSIG_LIVING_DEATH, COMSIG_MOB_UNBUCKLED, COMSIG_QDELETING,), PROC_REF(on_buckle_end))
+	// OCULIS EDIT ADDITION START - SLIME_RANCHER
+	// not COMSIG_LIVING_SET_BODY_POSITION, that fires before on_lying_down() gets to move the sprite
+	RegisterSignal(owner, COMSIG_LIVING_POST_UPDATE_TRANSFORM, PROC_REF(follow_owner_height))
+	follow_owner_height()
+	// OCULIS EDIT ADDITION END
 	return ..()
+
+// OCULIS EDIT ADDITION START - SLIME_RANCHER
+/// Keeps the slime on the owner's body when they flop over, since a lying sprite gets drawn lower.
+/datum/status_effect/slime_leech/proc/follow_owner_height(datum/source)
+	SIGNAL_HANDLER
+
+	var/lying_offset = (owner.body_position == LYING_DOWN && owner.rotate_on_lying) ? PIXEL_Y_OFFSET_LYING : 0
+	our_slime.add_offsets(TRAIT_STATUS_EFFECT(id), y_add = lying_offset)
+// OCULIS EDIT ADDITION END
 
 ///If the buckling ends
 /datum/status_effect/slime_leech/proc/on_buckle_end()
@@ -38,6 +52,11 @@
 	qdel(src)
 
 /datum/status_effect/slime_leech/on_remove()
+	// OCULIS EDIT ADDITION START - SLIME_RANCHER
+	UnregisterSignal(owner, COMSIG_LIVING_POST_UPDATE_TRANSFORM)
+	if(!QDELETED(our_slime))
+		our_slime.remove_offsets(TRAIT_STATUS_EFFECT(id))
+	// OCULIS EDIT ADDITION END
 	our_slime = null
 
 /datum/status_effect/slime_leech/tick(seconds_between_ticks)
@@ -76,6 +95,11 @@
 		if(need_mob_update)
 			owner.updatehealth()
 
+	// OCULIS EDIT ADDITION START - SLIME_RANCHER
+	if(QDELETED(src) || QDELETED(owner))
+		return
+	// OCULIS EDIT ADDITION END
+
 	if(totaldamage >= 0) // adjust_brute_loss() returns a negative value on successful damage adjustment
 		our_slime.balloon_alert(our_slime, "not food!")
 		our_slime.stop_feeding()
@@ -98,9 +122,13 @@
 		to_chat(owner, span_userdanger(pick(pain_lines)))
 
 	// OCULIS EDIT ADDITION START - latch-feeding feeds mutation progress
-	SEND_SIGNAL(our_slime, COMSIG_SLIME_LATCH_DRAINED, owner, -totaldamage)
+	var/drained = -totaldamage
+	if(isbasicmob(owner))
+		var/mob/living/basic/basic_owner = owner
+		drained *= basic_owner.slime_meal_multiplier
+	SEND_SIGNAL(our_slime, COMSIG_SLIME_LATCH_DRAINED, owner, drained)
 	// OCULIS EDIT ADDITION END
-	our_slime.adjust_nutrition(-1 * 1.8 * totaldamage) //damage is already modified by seconds_between_ticks
+	our_slime.adjust_nutrition(1.8 * drained) //damage is already modified by seconds_between_ticks // OCULIS EDIT CHANGE - SLIME_RANCHER - ORIGINAL: our_slime.adjust_nutrition(-1 * 1.8 * totaldamage)
 
 	//Heal yourself.
 	our_slime.adjust_brute_loss(-1.5 * seconds_between_ticks)
