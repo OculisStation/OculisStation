@@ -47,7 +47,7 @@
 
 /// HIGH ALERT SOLFED RERSPONSE
 /datum/outfit/solfed/grand_espatier
-	name = "SolGov Espatier Rifleman (GRAND RESPONSE)"
+	name = "SolFed Espatier Rifleman (GRAND RESPONSE)"
 
 	uniform = /obj/item/clothing/under/solfed/marines
 	head = /obj/item/clothing/head/helmet/solfed/mk2
@@ -77,7 +77,7 @@
 	id_trim = /datum/id_trim/solfed/espatier
 
 /datum/outfit/solfed/grand_espatier/engineer
-	name = "SolGov Espatier Engineer (GRAND RESPONSE)"
+	name = "SolFed Espatier Engineer (GRAND RESPONSE)"
 	head = /obj/item/clothing/head/helmet/solfed/mk2/engineer
 	belt = /obj/item/storage/belt/utility/full/powertools
 	mask = /obj/item/clothing/mask/gas/welding/up
@@ -100,7 +100,7 @@
 	..()
 
 /datum/outfit/solfed/grand_espatier/corpsman
-	name = "SolGov Espatier Corpsman (GRAND RESPONSE)"
+	name = "SolFed Espatier Corpsman (GRAND RESPONSE)"
 	head = /obj/item/clothing/head/helmet/solfed/mk2/corpsman
 	ears = /obj/item/radio/headset/headset_solfed/espatier/corpsman
 	backpack_contents = list(
@@ -119,7 +119,7 @@
 	..()
 
 /datum/outfit/solfed/grand_espatier/squadleader
-	name = "SolGov Espatier Squad Leader (GRAND RESPONSE)"
+	name = "SolFed Espatier Squad Leader (GRAND RESPONSE)"
 	head = /obj/item/clothing/head/helmet/solfed/mk2/squadlead
 	ears = /obj/item/radio/headset/headset_solfed/espatier/squadleader
 
@@ -142,7 +142,7 @@
 
 /// REGULAR ALERT SOLFED RESPONSE (Used for events/admin shenanagins for lesser threats instead of kill everything)
 /datum/outfit/solfed/espatier
-	name = "SolGov Espatier Rifleman"
+	name = "SolFed Espatier Rifleman"
 
 	uniform = /obj/item/clothing/under/solfed/marines
 	head = /obj/item/clothing/head/helmet/solfed
@@ -172,7 +172,7 @@
 	id_trim = /datum/id_trim/solfed/espatier
 
 /datum/outfit/solfed/espatier/engineer
-	name = "SolGov Espatier Engineer"
+	name = "SolFed Espatier Engineer"
 	head = /obj/item/clothing/head/helmet/solfed/engineer
 	belt = /obj/item/storage/belt/utility/full/powertools
 	mask = /obj/item/clothing/mask/gas/welding/up
@@ -195,7 +195,7 @@
 	..()
 
 /datum/outfit/solfed/espatier/corpsman
-	name = "SolGov Espatier Corpsman"
+	name = "SolFed Espatier Corpsman"
 	head = /obj/item/clothing/head/helmet/solfed/corpsman
 	ears = /obj/item/radio/headset/headset_solfed/espatier/corpsman
 	backpack_contents = list(
@@ -214,7 +214,7 @@
 	..()
 
 /datum/outfit/solfed/espatier/squadleader
-	name = "SolGov Espatier Squad Leader"
+	name = "SolFed Espatier Squad Leader"
 	head = /obj/item/clothing/head/helmet/solfed/squadlead
 	ears = /obj/item/radio/headset/headset_solfed/espatier/squadleader
 
