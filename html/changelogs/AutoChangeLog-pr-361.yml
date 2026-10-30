@@ -1,0 +1,4 @@
+author: "throwawayuseless"
+delete-after: True
+changes:
+  - rscadd: "Ouch Thyself verb. It does self damage."
