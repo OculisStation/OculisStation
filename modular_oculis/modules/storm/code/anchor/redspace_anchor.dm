@@ -6,6 +6,7 @@
 	name = "redspace anchor"
 	icon = 'modular_oculis/modules/storm/icons/redspace_anchor.dmi'
 	icon_state = "anchor_off"
+	base_icon_state = "anchor"
 	interaction_flags_machine = INTERACT_MACHINE_WIRES_IF_OPEN | INTERACT_MACHINE_ALLOW_SILICON | INTERACT_MACHINE_OPEN_SILICON
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 
@@ -15,7 +16,8 @@
 	* to make sure these values are right.
 	*/
 	use_power = IDLE_POWER_USE
-	idle_power_usage = (6 MEGA WATTS) // Lotta fucking power to keep the storm at bay.
+	idle_power_usage = (100 KILO WATTS)
+	active_power_usage = (6 MEGA WATTS) // Lotta fucking power to keep the storm at bay.
 
 	// 3x3 offset by one row
 	pixel_x = -32
@@ -27,8 +29,10 @@
 	density = TRUE
 	move_resist = INFINITY
 
-	/// Whether the redspace anchor is currently active.
-	var/on = TRUE
+	/// Whether the redspace anchor is currently online.
+	var/online = TRUE
+	/// Whether the redpsace anchor is active. Only used during black alert.
+	var/activated = FALSE
 	/// If the main breaker is on/off, to enable/disable the anchor.
 	var/breaker = TRUE
 	/// If the power cable is cut or not.
@@ -58,8 +62,7 @@
 	SSeidolon_storm.register_anchor(src)
 	set_wires(new /datum/wires/redspace_anchor(src))
 	soundloop = new(src, start_immediately = FALSE)
-	if(on)
-		add_overlay("activated")
+	update_appearance()
 
 /obj/machinery/redspace_anchor/examine(mob/user)
 	if(HAS_TRAIT(user, TRAIT_MINDSHIELD))
@@ -101,10 +104,25 @@
 
 /obj/machinery/redspace_anchor/update_icon_state()
 	. = ..()
-	if(on)
-		icon_state = "anchor_on"
+	if(machine_stat & BROKEN)
+		icon_state = "[base_icon_state]_broken"
+		return
+	if(activated)
+		icon_state = "[base_icon_state]_on"
+	else if(online)
+		icon_state = "[base_icon_state]_standby"
 	else
-		icon_state = "anchor_off"
+		icon_state = "[base_icon_state]_off"
+
+/obj/machinery/redspace_anchor/update_overlays()
+	. = ..()
+	if((machine_stat & (BROKEN)))
+		return
+
+	if(activated) // Are we activated or on standby?
+		. += emissive_appearance(icon, "emissive_on", src)
+	else
+		. += emissive_appearance(icon, "emissive_standby", src)
 
 /obj/machinery/redspace_anchor/screwdriver_act(mob/living/user, obj/item/tool)
 	if(machine_stat & BROKEN)
@@ -152,7 +170,7 @@
 
 /obj/machinery/redspace_anchor/proc/enable()
 	charging_state = POWER_IDLE
-	on = TRUE
+	online = TRUE
 
 	//soundloop.start()
 	update_appearance()
@@ -164,7 +182,7 @@
 
 /obj/machinery/redspace_anchor/proc/disable()
 	charging_state = POWER_IDLE
-	on = FALSE
+	online = FALSE
 
 	//soundloop.stop()
 	update_appearance()
@@ -177,28 +195,7 @@
 // Charge/Discharge and turn on/off when you reach 0/100 percent.
 /obj/machinery/redspace_anchor/process()
 	if(machine_stat & BROKEN)
-		cut_overlays()
 		return
-
-	var/overlay_state = null
-	switch(charge_count)
-		if(0 to 20)
-			overlay_state = null
-		if(21 to 40)
-			overlay_state = "startup"
-		if(41 to 60)
-			overlay_state = "idle"
-		if(61 to 80)
-			overlay_state = "activating"
-		if(81 to 100)
-			overlay_state = "activated"
-
-	if(overlay_state != current_overlay)
-		cut_overlays()
-		if(overlay_state)
-			add_overlay(overlay_state)
-		current_overlay = overlay_state
-
 	if(charging_state == POWER_IDLE)
 		return
 	if((charging_state == POWER_UP) && (charge_count >= 100))
@@ -241,13 +238,14 @@
 			mobs.playsound_local(T, null, 100, 1, 0.5, sound_to_use = alert_sound)
 	if(!SSmapping.level_has_any_trait(z, ZTRAIT_STATION))
 		return
-	if(on)
-		priority_announce("Redspace Anchor activated. Storm dissipation in progress.", "Redspace Anchor")
+	if(online)
+		priority_announce("Redspace Anchor activated.", "Redspace Anchor", color_override = "green")
 	else
-		priority_announce("Warning: Redspace Anchor has been disabled. Storm encroaching on station perimeter.", "Redspace Anchor")
+		priority_announce("Warning: Redspace Anchor has been disabled.", "Redspace Anchor", color_override = "red")
 
 /obj/machinery/redspace_anchor/proc/tick(intensity)
-	if((charging_state != POWER_IDLE) || !on)
+	if((charging_state != POWER_IDLE) || !online)
+		use_energy(active_power_usage * seconds_per_tick)
 		return
 	violetspace_energy += (rand(1,5) * intensity)
 	if(violetspace_energy >= 100)

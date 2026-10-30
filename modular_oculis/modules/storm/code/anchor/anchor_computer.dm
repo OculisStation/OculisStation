@@ -43,7 +43,7 @@
 	data["breaker"] = connected_anchor.breaker
 	data["charge_count"] = connected_anchor.charge_count
 	data["charging_state"] = connected_anchor.charging_state
-	data["on"] = connected_anchor.on
+	data["on"] = connected_anchor.online
 	data["operational"] = (connected_anchor.machine_stat & BROKEN) ? FALSE : TRUE
 	data["violetspace_energy"] = connected_anchor.violetspace_energy
 	return data
