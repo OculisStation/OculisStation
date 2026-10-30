@@ -37,17 +37,13 @@
 
 /datum/controller/subsystem/shuttle/proc/deactivate_shuttles()
 	SSshuttle.emergency_no_escape = TRUE
-	// Now for the individual shuttles.
-	for(var/obj/docking_port/mobile/shuttle in SSshuttle.mobile_docking_ports)
-		shuttle.mode = SHUTTLE_DISABLED
+	SSshuttle.lockdown = TRUE
 	registerTradeBlockade("BLACK_ALERT")
 	registerHostileEnvironment("BLACK_ALERT")
 
 /datum/controller/subsystem/shuttle/proc/reactivate_shuttles()
 	SSshuttle.emergency_no_escape = FALSE
-	for(var/obj/docking_port/mobile/shuttle in SSshuttle.mobile_docking_ports)
-		if(shuttle.mode == SHUTTLE_DISABLED)
-			shuttle.mode = SHUTTLE_IDLE
+	SSshuttle.lockdown = FALSE
 	clearTradeBlockade("BLACK_ALERT")
 	clearHostileEnvironment("BLACK_ALERT")
 
