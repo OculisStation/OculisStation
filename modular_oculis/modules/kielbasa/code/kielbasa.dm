@@ -40,7 +40,7 @@
 	base_icon_state = "sausage"
 	caliber = CALIBER_980TYDHOUER
 	projectile_type = /obj/projectile/bullet/sausage
-	custom_materials = list(/datum/material/meat = SHEET_MATERIAL_AMOUNT)
+	custom_materials = list(/datum/material/meat = SHEET_MATERIAL_AMOUNT * 4)
 	harmful = FALSE //Clearly.
 	ammo_categories = AMMO_CLASS_NONE
 
