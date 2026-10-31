@@ -883,26 +883,6 @@ Byond.subscribeTo('update_stat', (payload) => {
   }
 });
 
-Byond.subscribeTo("update_stat", function (payload) {
-  status_tab_parts = [payload.ping_str];
-
-  var parsed = payload.global_data;
-
-  for (var i = 0; i < parsed.length; i++)
-    if (parsed[i] != null) status_tab_parts.push(parsed[i]);
-
-  parsed = payload.other_str;
-
-  for (var i = 0; i < parsed.length; i++)
-    if (parsed[i] != null) status_tab_parts.push(parsed[i]);
-
-  if (current_tab == "Status") {
-    draw_status();
-  } else if (current_tab == "Debug Stat Panel") {
-    draw_debug();
-  }
-});
-
 Byond.subscribeTo('update_mc', (payload) => {
   mc_tab_parts = payload.mc_data;
   mc_tab_parts.splice(0, 0, ['', 'Location:', payload.coord_entry]);
