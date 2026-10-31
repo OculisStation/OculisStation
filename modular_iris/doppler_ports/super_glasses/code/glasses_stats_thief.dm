@@ -20,7 +20,7 @@
 	if(!istype(attacking_glasses))
 		return
 	// Do the glasses attacking us have any of the things we care about?
-	if(!attacking_glasses.color_cutoffs && (!attacking_glasses.flash_protect != FLASH_PROTECTION_NONE) && (!length(attacking_glasses.clothing_traits)) && !attacking_glasses.vision_flags)
+	if(!attacking_glasses.color_cutoffs && (!attacking_glasses.flash_protect != FLASH_PROTECTION_NONE) && (!length(attacking_glasses.clothing_traits)))
 		return
 	INVOKE_ASYNC(src, PROC_REF(consume), user, thing)
 
@@ -38,7 +38,6 @@
 	thief.change_glass_color(slick_shades.glass_colour_type)
 	thief.clothing_traits = slick_shades.clothing_traits
 	thief.flash_protect = slick_shades.flash_protect
-	thief.vision_flags = slick_shades.vision_flags
 	thief.tint = slick_shades.tint
 	playsound(slick_shades, 'sound/effects/industrial_scan/industrial_scan1.ogg', 50, TRUE)
 	do_sparks(3, FALSE, slick_shades)

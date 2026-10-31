@@ -207,7 +207,7 @@
 		return AI_BEHAVIOR_INSTANT | AI_BEHAVIOR_FAILED
 
 	for(var/mob/living/neighbor in oview(1, slime_pawn))
-		for(var/obj/item/held in neighbor.held_items)
+		for(var/obj/item/held in neighbor.get_held_items())
 			if(!wanted_types[held.type])
 				continue
 			var/held_name = "\the [held]" // get this bc eating it might delete the item

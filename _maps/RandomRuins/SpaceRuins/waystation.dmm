@@ -38,10 +38,6 @@
 /obj/structure/closet/firecloset,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/waystation)
-"bz" = (
-/obj/structure/chair/comfy/black,
-/turf/open/floor/carpet/grimey,
-/area/ruin/space/has_grav/waystation/qm)
 "bA" = (
 /mob/living/basic/trooper/syndicate/melee/sword/space/stormtrooper,
 /turf/open/floor/iron/dark,
@@ -95,12 +91,24 @@
 /obj/structure/closet/secure_closet/personal/cabinet,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/waystation/dorms)
+"cq" = (
+/obj/machinery/door/airlock/mining,
+/obj/structure/cable,
+/obj/effect/mapping_helpers/airlock/access/all/away/command,
+/turf/open/floor/carpet/grimey,
+/area/ruin/space/has_grav/waystation/qm)
 "cu" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/waystation/cargooffice)
+"cB" = (
+/obj/structure/filingcabinet/chestdrawer{
+	pixel_y = 2
+	},
+/turf/open/floor/carpet/grimey,
+/area/ruin/space/has_grav/waystation/qm)
 "cT" = (
 /obj/machinery/oven/range,
 /obj/machinery/light/small/directional/north,
@@ -169,6 +177,12 @@
 /obj/machinery/holopad,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/powered/waystation/assaultpod)
+"dP" = (
+/obj/machinery/power/apc/auto_name/directional/west,
+/obj/structure/cable,
+/obj/item/kirbyplants/random,
+/turf/open/floor/carpet/grimey,
+/area/ruin/space/has_grav/waystation/qm)
 "dW" = (
 /obj/structure/chair/stool/directional/south,
 /obj/machinery/light/small/directional/south,
@@ -221,11 +235,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/waystation/cargooffice)
-"eb" = (
-/obj/structure/cable,
-/obj/effect/mob_spawn/corpse/human/waystation/quartermaster,
-/turf/open/floor/carpet/grimey,
-/area/ruin/space/has_grav/waystation/qm)
 "eo" = (
 /obj/structure/marker_beacon/olive,
 /obj/structure/lattice/catwalk,
@@ -247,6 +256,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/cafeteria,
 /area/ruin/space/has_grav/waystation/kitchen)
+"eR" = (
+/obj/structure/cable,
+/turf/open/floor/carpet/grimey,
+/area/ruin/space/has_grav/waystation/qm)
 "eV" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/conveyor{
@@ -312,6 +325,10 @@
 	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/waystation/cargobay)
+"fU" = (
+/obj/effect/spawner/random/food_or_drink/keg,
+/turf/open/floor/iron/freezer,
+/area/ruin/space/has_grav/waystation/kitchen)
 "gf" = (
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
@@ -429,28 +446,12 @@
 /obj/structure/window/reinforced/spawner/directional/east,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/waystation/securestorage)
-"in" = (
-/obj/structure/table/wood,
-/obj/effect/mapping_helpers/broken_floor,
-/obj/item/clipboard{
-	pixel_x = -6;
-	pixel_y = 4
-	},
-/obj/item/stamp/granted{
-	pixel_x = 7;
-	pixel_y = 9
-	},
-/obj/item/stamp/denied{
-	pixel_x = 7;
-	pixel_y = 4
-	},
-/obj/item/stamp/head/qm{
-	pixel_x = 7;
-	pixel_y = -2
-	},
-/obj/structure/cable,
-/turf/open/floor/carpet/grimey,
-/area/ruin/space/has_grav/waystation/qm)
+"im" = (
+/obj/structure/closet/secure_closet/freezer/fridge/open,
+/obj/item/storage/box/ingredients/wildcard,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/cafeteria,
+/area/ruin/space/has_grav/waystation/kitchen)
 "ix" = (
 /obj/item/kirbyplants/random,
 /obj/effect/turf_decal/siding/green/end,
@@ -559,17 +560,6 @@
 "jV" = (
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/waystation/dorms)
-"jZ" = (
-/obj/structure/chair/office{
-	dir = 8
-	},
-/obj/structure/cable,
-/obj/item/ammo_casing/shotgun/buckshot/spent{
-	pixel_x = -7;
-	pixel_y = 14
-	},
-/turf/open/floor/carpet/grimey,
-/area/ruin/space/has_grav/waystation/qm)
 "ka" = (
 /obj/effect/turf_decal/bot,
 /obj/effect/decal/cleanable/blood,
@@ -789,6 +779,9 @@
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
 /area/ruin/space)
+"ns" = (
+/turf/open/floor/carpet/grimey,
+/area/ruin/space/has_grav/waystation/qm)
 "nu" = (
 /obj/machinery/processor,
 /obj/effect/decal/cleanable/dirt,
@@ -826,12 +819,6 @@
 	},
 /turf/template_noop,
 /area/space/nearstation)
-"nK" = (
-/obj/machinery/door/airlock/mining,
-/obj/structure/cable,
-/obj/effect/mapping_helpers/airlock/access/all/away/command,
-/turf/open/floor/carpet/grimey,
-/area/ruin/space/has_grav/waystation/qm)
 "nQ" = (
 /obj/effect/turf_decal/loading_area{
 	dir = 1
@@ -940,6 +927,17 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/waystation/dorms)
+"pr" = (
+/obj/structure/chair/office{
+	dir = 8
+	},
+/obj/structure/cable,
+/obj/item/ammo_casing/shotgun/buckshot/spent{
+	pixel_x = -7;
+	pixel_y = 14
+	},
+/turf/open/floor/carpet/grimey,
+/area/ruin/space/has_grav/waystation/qm)
 "pw" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/maintenance,
@@ -1015,9 +1013,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/waystation/securestorage)
-"re" = (
-/turf/open/floor/carpet/grimey,
-/area/ruin/space/has_grav/waystation/qm)
 "rh" = (
 /obj/machinery/conveyor{
 	dir = 8;
@@ -1142,21 +1137,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/waystation/dorms)
-"sB" = (
-/obj/item/ammo_casing/shotgun/buckshot/spent{
-	pixel_x = 6;
-	pixel_y = 1
-	},
-/obj/item/ammo_casing/shotgun/buckshot/spent{
-	pixel_x = 1;
-	pixel_y = 1
-	},
-/obj/item/ammo_casing/shotgun/buckshot/spent{
-	pixel_x = -8;
-	pixel_y = -5
-	},
-/turf/open/floor/carpet/grimey,
-/area/ruin/space/has_grav/waystation/qm)
 "sP" = (
 /obj/effect/baseturf_helper/asteroid/airless,
 /turf/closed/wall,
@@ -1260,20 +1240,6 @@
 /obj/item/modular_computer/laptop/preset/civilian,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/waystation/securestorage)
-"vu" = (
-/obj/structure/table/wood,
-/obj/item/flashlight/lamp/green{
-	pixel_x = -7;
-	pixel_y = 14
-	},
-/obj/item/storage/fancy/cigarettes/cigars/havana,
-/obj/item/lighter{
-	pixel_x = 6;
-	pixel_y = 4
-	},
-/obj/structure/sign/flag/nanotrasen/directional/west,
-/turf/open/floor/carpet/grimey,
-/area/ruin/space/has_grav/waystation/qm)
 "vy" = (
 /obj/structure/table,
 /obj/item/pizzabox/pineapple{
@@ -1416,6 +1382,20 @@
 	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/waystation/power)
+"xR" = (
+/obj/structure/table/wood,
+/obj/item/flashlight/lamp/green{
+	pixel_x = -7;
+	pixel_y = 14
+	},
+/obj/item/storage/fancy/cigarettes/cigars/havana,
+/obj/item/lighter{
+	pixel_x = 6;
+	pixel_y = 4
+	},
+/obj/structure/sign/flag/nanotrasen/directional/west,
+/turf/open/floor/carpet/grimey,
+/area/ruin/space/has_grav/waystation/qm)
 "xS" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/maintenance,
@@ -1619,6 +1599,12 @@
 "Cc" = (
 /turf/open/floor/iron/freezer,
 /area/ruin/space/has_grav/waystation/kitchen)
+"Ce" = (
+/obj/structure/chair/office{
+	dir = 8
+	},
+/turf/open/floor/carpet/grimey,
+/area/ruin/space/has_grav/waystation/qm)
 "Cn" = (
 /obj/structure/table,
 /obj/item/knife/kitchen{
@@ -1648,11 +1634,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/waystation/cargooffice)
-"CS" = (
-/obj/effect/decal/cleanable/blood/tracks,
-/obj/structure/cable,
-/turf/open/floor/carpet/grimey,
-/area/ruin/space/has_grav/waystation/qm)
 "CY" = (
 /obj/structure/sign/poster/official/here_for_your_safety,
 /turf/closed/wall/r_wall,
@@ -1752,11 +1733,6 @@
 /obj/structure/sign/poster/official/random/directional/north,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/waystation/dorms)
-"Ft" = (
-/obj/structure/table/wood,
-/obj/item/food/cake/birthday,
-/turf/open/floor/carpet/grimey,
-/area/ruin/space/has_grav/waystation/qm)
 "Fu" = (
 /obj/effect/turf_decal/siding/brown{
 	dir = 8
@@ -1854,25 +1830,6 @@
 /obj/effect/baseturf_helper/asteroid/airless,
 /turf/closed/wall,
 /area/ruin/space/has_grav/waystation/qm)
-"HU" = (
-/obj/structure/table/wood,
-/obj/item/reagent_containers/cup/glass/bottle/whiskey{
-	pixel_x = -7;
-	pixel_y = 11
-	},
-/obj/item/reagent_containers/cup/glass/drinkingglass/shotglass{
-	pixel_y = -4
-	},
-/obj/item/reagent_containers/cup/glass/drinkingglass/shotglass{
-	pixel_x = -9;
-	pixel_y = -4
-	},
-/obj/item/gps/spaceruin{
-	pixel_x = 4;
-	pixel_y = 9
-	},
-/turf/open/floor/carpet/grimey,
-/area/ruin/space/has_grav/waystation/qm)
 "Id" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/iron,
@@ -1881,12 +1838,6 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/waystation/cargobay)
-"Ij" = (
-/obj/machinery/power/apc/auto_name/directional/west,
-/obj/structure/cable,
-/obj/item/kirbyplants/random,
-/turf/open/floor/carpet/grimey,
-/area/ruin/space/has_grav/waystation/qm)
 "IN" = (
 /obj/machinery/gibber,
 /turf/open/floor/iron/freezer,
@@ -1945,6 +1896,11 @@
 /obj/item/crowbar,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/waystation/cargobay)
+"Jk" = (
+/obj/structure/table/wood,
+/obj/item/flashlight/lamp/green,
+/turf/open/floor/carpet/grimey,
+/area/ruin/space/has_grav/waystation/qm)
 "Jl" = (
 /obj/effect/turf_decal/siding/red{
 	dir = 9
@@ -1961,12 +1917,6 @@
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/waystation/cargobay)
-"JC" = (
-/obj/structure/chair/office{
-	dir = 8
-	},
-/turf/open/floor/carpet/grimey,
-/area/ruin/space/has_grav/waystation/qm)
 "JG" = (
 /obj/machinery/conveyor{
 	dir = 5;
@@ -2029,12 +1979,6 @@
 /obj/effect/spawner/random/structure/crate_loot,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/waystation/cargobay)
-"KU" = (
-/obj/structure/closet/secure_closet/freezer/fridge/open,
-/obj/item/storage/box/ingredients/random,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/iron/cafeteria,
-/area/ruin/space/has_grav/waystation/kitchen)
 "KW" = (
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
@@ -2147,10 +2091,6 @@
 	},
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/waystation/qm)
-"Ml" = (
-/obj/structure/cable,
-/turf/open/floor/carpet/grimey,
-/area/ruin/space/has_grav/waystation/qm)
 "Mq" = (
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
@@ -2249,6 +2189,25 @@
 /obj/machinery/atmospherics/components/tank/air,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/waystation)
+"NM" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/cup/glass/bottle/whiskey{
+	pixel_x = -7;
+	pixel_y = 11
+	},
+/obj/item/reagent_containers/cup/glass/drinkingglass/shotglass{
+	pixel_y = -4
+	},
+/obj/item/reagent_containers/cup/glass/drinkingglass/shotglass{
+	pixel_x = -9;
+	pixel_y = -4
+	},
+/obj/item/gps/spaceruin{
+	pixel_x = 4;
+	pixel_y = 9
+	},
+/turf/open/floor/carpet/grimey,
+/area/ruin/space/has_grav/waystation/qm)
 "NT" = (
 /obj/effect/baseturf_helper/asteroid/airless,
 /turf/closed/wall,
@@ -2318,6 +2277,21 @@
 /obj/effect/mapping_helpers/airlock/access/all/away/supply,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/waystation/cargooffice)
+"Ph" = (
+/obj/item/ammo_casing/shotgun/buckshot/spent{
+	pixel_x = 6;
+	pixel_y = 1
+	},
+/obj/item/ammo_casing/shotgun/buckshot/spent{
+	pixel_x = 1;
+	pixel_y = 1
+	},
+/obj/item/ammo_casing/shotgun/buckshot/spent{
+	pixel_x = -8;
+	pixel_y = -5
+	},
+/turf/open/floor/carpet/grimey,
+/area/ruin/space/has_grav/waystation/qm)
 "Pj" = (
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 9
@@ -2347,10 +2321,11 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/waystation/dorms)
-"Px" = (
-/obj/effect/spawner/random/food_or_drink/keg,
-/turf/open/floor/iron/freezer,
-/area/ruin/space/has_grav/waystation/kitchen)
+"PH" = (
+/obj/structure/table/wood,
+/obj/item/food/cake/birthday,
+/turf/open/floor/carpet/grimey,
+/area/ruin/space/has_grav/waystation/qm)
 "PK" = (
 /obj/machinery/conveyor{
 	dir = 8;
@@ -2375,6 +2350,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/cafeteria,
 /area/ruin/space/has_grav/waystation/kitchen)
+"PT" = (
+/obj/structure/chair/comfy/black,
+/turf/open/floor/carpet/grimey,
+/area/ruin/space/has_grav/waystation/qm)
 "PX" = (
 /obj/effect/turf_decal/tile/red/anticorner/contrasted,
 /turf/open/floor/iron/dark,
@@ -2405,6 +2384,11 @@
 /obj/effect/turf_decal/tile/brown/half/contrasted,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/waystation/cargooffice)
+"QC" = (
+/obj/structure/cable,
+/obj/effect/mob_spawn/corpse/human/waystation/quartermaster,
+/turf/open/floor/carpet/grimey,
+/area/ruin/space/has_grav/waystation/qm)
 "QL" = (
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
@@ -2481,11 +2465,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/waystation/cargooffice)
-"So" = (
-/obj/structure/table/wood,
-/obj/item/flashlight/lamp/green,
-/turf/open/floor/carpet/grimey,
-/area/ruin/space/has_grav/waystation/qm)
 "SD" = (
 /obj/effect/turf_decal/loading_area{
 	dir = 4
@@ -2552,10 +2531,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/waystation/dorms)
-"TS" = (
-/obj/machinery/photocopier/prebuilt,
-/turf/open/floor/carpet/grimey,
-/area/ruin/space/has_grav/waystation/qm)
 "TT" = (
 /turf/closed/wall,
 /area/ruin/space/has_grav/waystation)
@@ -2592,20 +2567,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/waystation/securestorage)
-"Uv" = (
-/obj/structure/filingcabinet/chestdrawer{
-	pixel_y = 2
-	},
-/turf/open/floor/carpet/grimey,
-/area/ruin/space/has_grav/waystation/qm)
-"Uw" = (
-/obj/structure/chair/comfy/black{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/blood,
-/obj/effect/decal/cleanable/blood/splatter,
-/turf/open/floor/carpet/grimey,
-/area/ruin/space/has_grav/waystation/qm)
 "Uy" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
@@ -2626,6 +2587,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/waystation/cargobay)
+"US" = (
+/obj/structure/bookcase/random,
+/turf/open/floor/carpet/grimey,
+/area/ruin/space/has_grav/waystation/qm)
 "Va" = (
 /obj/effect/decal/cleanable/blood,
 /obj/item/ammo_casing/c45/spent{
@@ -2698,6 +2663,10 @@
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/powered/waystation/assaultpod)
+"VF" = (
+/obj/machinery/photocopier/prebuilt,
+/turf/open/floor/carpet/grimey,
+/area/ruin/space/has_grav/waystation/qm)
 "VG" = (
 /obj/structure/chair/stool,
 /obj/effect/decal/cleanable/dirt,
@@ -2708,10 +2677,6 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/waystation/power)
-"Wa" = (
-/obj/structure/bookcase/random,
-/turf/open/floor/carpet/grimey,
-/area/ruin/space/has_grav/waystation/qm)
 "Wd" = (
 /turf/closed/wall/mineral/plastitanium/nodiagonal,
 /area/ruin/space/has_grav/powered/waystation/assaultpod)
@@ -2757,6 +2722,28 @@
 	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/waystation/dorms)
+"WG" = (
+/obj/structure/table/wood,
+/obj/effect/mapping_helpers/broken_floor,
+/obj/item/clipboard{
+	pixel_x = -6;
+	pixel_y = 4
+	},
+/obj/item/stamp/granted{
+	pixel_x = 7;
+	pixel_y = 9
+	},
+/obj/item/stamp/denied{
+	pixel_x = 7;
+	pixel_y = 4
+	},
+/obj/item/stamp/head/qm{
+	pixel_x = 7;
+	pixel_y = -2
+	},
+/obj/structure/cable,
+/turf/open/floor/carpet/grimey,
+/area/ruin/space/has_grav/waystation/qm)
 "WS" = (
 /obj/effect/turf_decal/tile/red/half/contrasted,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
@@ -2891,6 +2878,11 @@
 /obj/structure/dresser,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/waystation/qm)
+"Yo" = (
+/obj/effect/decal/cleanable/blood/tracks,
+/obj/structure/cable,
+/turf/open/floor/carpet/grimey,
+/area/ruin/space/has_grav/waystation/qm)
 "Yu" = (
 /obj/structure/table,
 /obj/item/storage/toolbox/electrical{
@@ -2949,6 +2941,14 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/waystation/dorms)
+"ZH" = (
+/obj/structure/chair/comfy/black{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/open/floor/carpet/grimey,
+/area/ruin/space/has_grav/waystation/qm)
 "ZJ" = (
 /obj/effect/turf_decal/siding/red,
 /obj/structure/table/reinforced,
@@ -3957,14 +3957,14 @@ Ls
 we
 cn
 QN
-TS
-vu
-HU
-TS
+VF
+xR
+NM
+VF
 QN
-Ij
-Wa
-So
+dP
+US
+Jk
 QN
 pK
 iJ
@@ -4019,14 +4019,14 @@ Ls
 bg
 TL
 QN
-Uv
-Uw
-CS
-eb
-nK
-Ml
-bz
-Ft
+cB
+ZH
+Yo
+QC
+cq
+eR
+PT
+PH
 QN
 pK
 iJ
@@ -4083,8 +4083,8 @@ uG
 QN
 xt
 Mk
-in
-re
+WG
+ns
 QN
 Tx
 wW
@@ -4143,10 +4143,10 @@ wM
 Ls
 Ud
 QN
-JC
-sB
-jZ
-re
+Ce
+Ph
+pr
+ns
 TT
 TT
 TT
@@ -4817,7 +4817,7 @@ Bw
 ko
 kX
 kX
-KU
+im
 do
 vM
 su
@@ -4875,11 +4875,11 @@ or
 yg
 LE
 Cc
-Px
+fU
 do
 Kg
 gT
-KU
+im
 do
 kq
 kq

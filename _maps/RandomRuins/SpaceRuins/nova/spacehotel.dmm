@@ -1019,12 +1019,6 @@
 	},
 /turf/open/floor/carpet/black,
 /area/ruin/space/has_grav/hotel/bar)
-"gc" = (
-/obj/structure/closet,
-/obj/item/storage/medkit/regular,
-/obj/item/wrench,
-/turf/open/floor/carpet/neon/simple/teal/nodots,
-/area/ruin/space/has_grav/hotel/guestroom/room_3)
 "gd" = (
 /obj/structure/chair/sofa/corp/corner,
 /turf/open/floor/carpet/black,
@@ -3201,17 +3195,6 @@
 	},
 /turf/open/floor/carpet/orange,
 /area/ruin/space/has_grav/hotel)
-"pS" = (
-/obj/structure/holopay,
-/obj/effect/turf_decal/bot_blue,
-/obj/effect/turf_decal/siding/dark/corner{
-	dir = 1
-	},
-/obj/effect/turf_decal/siding/dark/corner{
-	dir = 4
-	},
-/turf/open/floor/iron/dark/diagonal,
-/area/ruin/space/has_grav/hotel)
 "pV" = (
 /obj/structure/window/reinforced/tinted/spawner/directional/east,
 /obj/structure/window/reinforced/tinted/spawner/directional/south,
@@ -3998,10 +3981,6 @@
 	},
 /turf/open/floor/wood/large,
 /area/ruin/space/has_grav/hotel/guestroom/room_4)
-"vb" = (
-/obj/effect/spawner/random/food_or_drink/keg,
-/turf/open/floor/wood,
-/area/ruin/space/has_grav/hotel/bar)
 "ve" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/carpet/royalblack,
@@ -5270,6 +5249,16 @@
 /obj/structure/window/reinforced/tinted/spawner/directional/west,
 /turf/open/indestructible/hoteltile,
 /area/ruin/space/has_grav/hotel/guestroom/room_6)
+"DP" = (
+/obj/effect/turf_decal/bot_blue,
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/diagonal,
+/area/ruin/space/has_grav/hotel)
 "DQ" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 4
@@ -5994,34 +5983,6 @@
 /obj/effect/turf_decal/siding/dark,
 /turf/open/floor/carpet/black,
 /area/ruin/space/has_grav/hotel)
-"IM" = (
-/obj/structure/closet/crate/freezer,
-/obj/item/food/grown/wheat,
-/obj/item/food/grown/wheat,
-/obj/item/food/grown/wheat,
-/obj/item/food/grown/wheat,
-/obj/item/food/grown/wheat,
-/obj/item/food/grown/wheat,
-/obj/item/food/grown/wheat,
-/obj/item/food/grown/potato,
-/obj/item/food/grown/potato,
-/obj/item/food/grown/potato,
-/obj/item/food/grown/potato,
-/obj/item/food/grown/potato,
-/obj/item/food/grown/carrotlike/carrot,
-/obj/item/food/grown/carrotlike/carrot,
-/obj/item/food/grown/carrotlike/carrot,
-/obj/item/food/grown/carrotlike/carrot,
-/obj/item/food/grown/carrotlike/carrot,
-/obj/item/food/grown/carrotlike/carrot,
-/obj/item/food/grown/tomato,
-/obj/item/food/grown/tomato,
-/obj/item/food/grown/tomato,
-/obj/item/food/grown/tomato,
-/obj/item/food/grown/tomato,
-/obj/machinery/light_switch/directional/south,
-/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
-/area/ruin/space/has_grav/hotel/bar)
 "IP" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -6387,6 +6348,10 @@
 /obj/structure/cable,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/hotel/guestroom/room_5)
+"Lp" = (
+/obj/effect/spawner/random/food_or_drink/keg,
+/turf/open/floor/wood,
+/area/ruin/space/has_grav/hotel/bar)
 "Lq" = (
 /obj/structure/window/reinforced/tinted/spawner/directional/east,
 /obj/structure/dresser,
@@ -6961,6 +6926,34 @@
 /obj/effect/turf_decal/tile/dark_red/diagonal_edge,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/hotel)
+"Pp" = (
+/obj/structure/closet/crate/freezer,
+/obj/item/food/grown/wheat,
+/obj/item/food/grown/wheat,
+/obj/item/food/grown/wheat,
+/obj/item/food/grown/wheat,
+/obj/item/food/grown/wheat,
+/obj/item/food/grown/wheat,
+/obj/item/food/grown/wheat,
+/obj/item/food/grown/potato,
+/obj/item/food/grown/potato,
+/obj/item/food/grown/potato,
+/obj/item/food/grown/potato,
+/obj/item/food/grown/potato,
+/obj/item/food/grown/carrotlike/carrot,
+/obj/item/food/grown/carrotlike/carrot,
+/obj/item/food/grown/carrotlike/carrot,
+/obj/item/food/grown/carrotlike/carrot,
+/obj/item/food/grown/carrotlike/carrot,
+/obj/item/food/grown/carrotlike/carrot,
+/obj/item/food/grown/tomato,
+/obj/item/food/grown/tomato,
+/obj/item/food/grown/tomato,
+/obj/item/food/grown/tomato,
+/obj/item/food/grown/tomato,
+/obj/machinery/light_switch/directional/south,
+/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
+/area/ruin/space/has_grav/hotel/bar)
 "Pq" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
@@ -6988,6 +6981,12 @@
 /obj/effect/spawner/surgery_tray/full,
 /turf/open/floor/iron/showroomfloor,
 /area/ruin/space/has_grav/hotel)
+"Pt" = (
+/obj/structure/closet,
+/obj/item/storage/medkit/regular,
+/obj/item/wrench,
+/turf/open/floor/carpet/neon/simple/teal/nodots,
+/area/ruin/space/has_grav/hotel/guestroom/room_3)
 "Pw" = (
 /obj/structure/chair/office/light{
 	dir = 4
@@ -9016,7 +9015,7 @@ Lc
 fi
 mY
 UK
-vb
+Lp
 Yw
 cj
 hw
@@ -9146,7 +9145,7 @@ Oh
 fi
 YR
 dM
-IM
+Pp
 fi
 CD
 fh
@@ -9828,7 +9827,7 @@ yX
 jM
 pE
 dx
-gc
+Pt
 hT
 Jx
 rB
@@ -10683,7 +10682,7 @@ GI
 do
 di
 tQ
-pS
+DP
 LU
 tW
 Cv

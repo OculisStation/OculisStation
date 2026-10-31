@@ -68,7 +68,7 @@
 	RegisterSignal(slime, COMSIG_QDELETING, PROC_REF(unset_slime))
 	RegisterSignal(slime, COMSIG_SLIME_UPDATE_MOOD, PROC_REF(on_slime_mood_change)) // live slime reaction
 	balloon_alert(user, "scanned [slime]")
-	playsound(src, SFX_INDUSTRIAL_SCAN, 20, TRUE, -2, TRUE, FALSE)
+	playsound(src, /datum/sound_effect/industrial_scan, 20, TRUE, -2, TRUE, FALSE)
 
 /obj/item/slime_rancher_scanner/proc/unset_slime()
 	SIGNAL_HANDLER

@@ -1,0 +1,6 @@
+/turf/open/indestructible/hoteltile{icon_state = "darkfull";icon = @UNSET} : /turf/open/indestructible/dark{@OLD;icon_state = @SKIP}
+/turf/open/indestructible/hoteltile{icon_state = "white";icon = @UNSET} : /turf/open/indestructible/white{@OLD;icon_state = @SKIP}
+/turf/open/indestructible/hoteltile{icon_state = "cafeteria";icon = @UNSET} : /turf/open/indestructible/kitchen{@OLD;icon_state = @SKIP}
+/turf/open/indestructible/hoteltile{icon_state = "floor";icon = @UNSET} : /turf/open/indestructible{@OLD;icon_state = @SKIP}
+/turf/open/indestructible/hoteltile{icon_state = "plating";icon = @UNSET} : /turf/open/indestructible/plating{@OLD;icon_state = @SKIP}
+/turf/open/indestructible/hoteltile{icon_state = "stairs-old";icon = @UNSET} : /turf/open/floor/iron/stairs{@OLD;icon_state = @SKIP}
