@@ -34,3 +34,37 @@
 		ex_loremaster.loremaster_datum = null
 
 	GLOB.loremasters.Cut()
+
+/datum/player_rank_controller/loremaster/get_ckeys_for_legacy_save()
+	if(IsAdminAdvancedProcCall())
+		return
+
+	return GLOB.loremasters
+
+/datum/player_rank_controller/loremaster/should_use_legacy_system()
+	return CONFIG_GET(flag/loremaster_legacy_system)
+
+a SQL or using the legacy system,
+/// based on configs.
+/datum/controller/subsystem/player_ranks/proc/load_loremasters()
+	PROTECTED_PROC(TRUE)
+
+	if(IsAdminAdvancedProcCall())
+		return
+
+	loremaster_controller = new
+
+	if(CONFIG_GET(flag/loremaster_legacy_system))
+		loremaster_controller.load_legacy()
+		return
+
+	if(!SSdbcore.Connect())
+		var/message = "Failed to connect to database in load_loremasters(). Reverting to legacy system."
+		log_config(message)
+		log_game(message)
+		message_admins(message)
+		CONFIG_SET(flag/loremaster_legacy_system, TRUE)
+		loremaster_controller.load_legacy()
+		return
+
+	load_player_rank_sql(loremaster_controller)

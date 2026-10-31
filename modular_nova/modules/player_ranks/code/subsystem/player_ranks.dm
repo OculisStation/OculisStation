@@ -21,6 +21,10 @@ SUBSYSTEM_DEF(player_ranks)
 	var/datum/player_rank_controller/donator/donator_controller
 	/// The mentor player rank controller.
 	var/datum/player_rank_controller/mentor/mentor_controller
+	// OCULIS EDIT ADDITION START
+	/// The loremaster player rank controller.
+	var/datum/player_rank_controller/loremaster/loremaster_controller
+	// OCULIS EDIT ADDITION END
 
 
 /datum/controller/subsystem/player_ranks/Initialize()
@@ -29,6 +33,7 @@ SUBSYSTEM_DEF(player_ranks)
 
 	load_donators()
 	load_mentors()
+	load_loremasters() // OCULIS EDIT ADDITION
 
 	return SS_INIT_SUCCESS
 
@@ -36,6 +41,7 @@ SUBSYSTEM_DEF(player_ranks)
 /datum/controller/subsystem/player_ranks/Destroy()
 	QDEL_NULL(donator_controller)
 	QDEL_NULL(mentor_controller)
+	QDEL_NULL(loremaster_controller)
 	return ..()
 
 

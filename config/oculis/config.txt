@@ -6,3 +6,4 @@
 
 ## log lore chat
 LOG_LORECHAT
+#LOREMASTER_LEGACY_SYSTEM
