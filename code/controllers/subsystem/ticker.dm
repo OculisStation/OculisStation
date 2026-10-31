@@ -242,6 +242,7 @@ SUBSYSTEM_DEF(ticker)
 	//Configure mode and assign player to antagonists
 	var/can_continue = FALSE
 	can_continue = SSdynamic.select_roundstart_antagonists() //Choose antagonists
+	SSeidolon_storm.initialize_storm_intensity() // OCULIS EDIT ADDITION - EIDOLON_STORM
 	CHECK_TICK
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_PRE_JOBS_ASSIGNED, src)
 	can_continue = can_continue && SSjob.divide_occupations() //Distribute jobs
