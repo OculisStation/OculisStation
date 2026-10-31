@@ -44,7 +44,11 @@
 /datum/player_rank_controller/loremaster/should_use_legacy_system()
 	return CONFIG_GET(flag/loremaster_legacy_system)
 
-a SQL or using the legacy system,
+/// Defines whether the server uses the legacy donator system with donators.txt or the SQL system.
+/datum/config_entry/flag/loremaster_legacy_system
+	protection = CONFIG_ENTRY_LOCKED
+
+/// Handles loading loremasters either via SQL or using the legacy system,
 /// based on configs.
 /datum/controller/subsystem/player_ranks/proc/load_loremasters()
 	PROTECTED_PROC(TRUE)
