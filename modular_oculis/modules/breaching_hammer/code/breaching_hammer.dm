@@ -7,7 +7,7 @@
 	worn_icon_state = "classic_baton"
 	lefthand_file = 'modular_nova/modules/sec_haul/icons/peacekeeper/baton/peacekeeper_baton_lefthand.dmi'
 	righthand_file = 'modular_nova/modules/sec_haul/icons/peacekeeper/baton/peacekeeper_baton_righthand.dmi'
-	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_BACK
+	slot_flags = ITEM_SLOT_BELT
 	force = 20
 	throwforce = 16
 	w_class = WEIGHT_CLASS_HUGE
