@@ -215,7 +215,7 @@
 	icon_state = "tentacle"
 	taur_mode = BODYSHAPE_TAUR_SNAKE
 	color_src = USE_ONE_COLOR
-	organ_type = /obj/item/organ/taur_body/tentacle
+	organ_type = /obj/item/organ/taur_body/serpentine/tentacle // OCULIS EDIT, ORIGINAL:
 
 /datum/sprite_accessory/taur/tentacle/alt
 	name = "Tentacle, Alt"
