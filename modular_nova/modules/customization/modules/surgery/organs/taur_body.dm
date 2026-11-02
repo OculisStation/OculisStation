@@ -185,11 +185,11 @@
 	left_leg_name = "left legs"
 	right_leg_name = "right legs"
 
-/obj/item/organ/taur_body/serpentine/tentacle // OCULIS EDIT, ORIGINAL:
+/obj/item/organ/taur_body/serpentine/tentacle // OCULIS EDIT, ORIGINAL: /obj/item/organ/taur_body/tentacle
 	left_leg_name = "front tentacles"
 	right_leg_name = "back tentacles"
 
-/obj/item/organ/taur_body/blob
+/obj/item/organ/taur_body/serpentine/blob // OCULIS EDIT, ORIGINAL: /obj/item/organ/taur_body/blob
 	left_leg_name = "outer blob"
 	right_leg_name = "inner blob"
 
