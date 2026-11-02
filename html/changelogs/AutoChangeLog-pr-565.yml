@@ -1,0 +1,4 @@
+author: "XeonMations"
+delete-after: True
+changes:
+  - qol: "You can now select gauntlets in loadouts without being in security."
