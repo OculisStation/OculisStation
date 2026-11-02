@@ -10383,6 +10383,7 @@
 #include "modular_oculis\master_files\code\modules\projectiles\gun.dm"
 #include "modular_oculis\master_files\code\modules\projectiles\projectile_speed.dm"
 #include "modular_oculis\master_files\code\modules\projectiles\boxes_magazines\ammo_boxes.dm"
+#include "modular_oculis\master_files\code\modules\reagents\chemistry\reagents\other_reagents.dm"
 #include "modular_oculis\master_files\code\modules\research\designs\limbgrower_designs.dm"
 #include "modular_oculis\master_files\code\modules\research\designs\machine_designs.dm"
 #include "modular_oculis\master_files\code\modules\research\designs\autolathe\medsci_designs.dm"
