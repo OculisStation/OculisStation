@@ -9,6 +9,7 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
 	slot_flags = ITEM_SLOT_NECK | ITEM_SLOT_OCLOTHING
 	w_class = WEIGHT_CLASS_SMALL //allows this to fit inside of pockets.
+	resistance_flags = LAVA_PROOF | FIRE_PROOF // OCULIS EDIT ADDITION
 	/// The language granted by this necklace
 	var/datum/language/language_granted = /datum/language/ashtongue
 	/// Where the power comes from

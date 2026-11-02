@@ -23,20 +23,18 @@ If you have difficulty, ask for help in the #coding-general channel on our disco
 
 ## Introduction
 
-Hello and welcome to /tg/station's contributing page. You are here because you are curious or interested in contributing - thank you! Everyone is free to contribute to this project as long as they follow the simple guidelines and specifications below; at /tg/station, we strive to maintain code stability and maintainability, and to do that, we need all pull requests to hold up to those specifications. It's in everyone's best interests - including yours! - if the same bug doesn't have to be fixed twice because of duplicated code.
+Hello and welcome to OculisStation's contributing page. You are here because you are curious or interested in contributing - thank you! Everyone is free to contribute to this project as long as they follow the simple guidelines and specifications below; at OculisStation, we strive to maintain code stability and maintainability, and to do that, we need all pull requests to hold up to those specifications. It's in everyone's best interests - including yours! - if the same bug doesn't have to be fixed twice because of duplicated code.
 
 First things first, we want to make it clear how you can contribute (if you've never contributed before), as well as the kinds of powers the team has over your additions, to avoid any unpleasant surprises if your pull request is closed for a reason you didn't foresee.
 
 ## Getting Started
 
-/tg/station doesn't have a list of goals and features to add; we instead allow freedom for contributors to suggest and create their ideas for the game. That doesn't mean we aren't determined to squash bugs, which unfortunately pop up a lot due to the deep complexity of the game. Here are some useful starting guides, if you want to contribute or if you want to know what challenges you can tackle with zero knowledge about the game's code structure.
+OculisStation doesn't have a list of goals and features to add; we instead allow freedom for contributors to suggest and create their ideas for the game. That doesn't mean we aren't determined to squash bugs, which unfortunately pop up a lot due to the deep complexity of the game. Here are some useful starting guides, if you want to contribute or if you want to know what challenges you can tackle with zero knowledge about the game's code structure.
 
 If you want to contribute the first thing you'll need to do is [set up Git](https://hackmd.io/@tgstation/HJ8OdjNBc) so you can download the source code.
 After setting it up, optionally navigate your git commandline to the project folder and run the command: `git config blame.ignoreRevsFile .git-blame-ignore-revs`.
 
-We have a [list of guides on the wiki](http://tgstation13.org/wiki/Guides#Development_and_Contribution_Guides) that will help you get started contributing to /tg/station with Git and Dream Maker. For beginners, it is recommended you work on small projects like bugfixes at first. If you need help learning to program in BYOND, check out this [repository of resources](http://www.byond.com/developer/articles/resources).
-
-There is an open list of approachable issues for [your inspiration here](https://github.com/tgstation/tgstation/issues?q=is%3Aopen+is%3Aissue+label%3A%22Good+First+Issue%22).
+We have a [list of guides on TGStation's wiki](http://tgstation13.org/wiki/Guides#Development_and_Contribution_Guides) that will help you get started contributing to OculisStation with Git and Dream Maker. For beginners, it is recommended you work on small projects like bugfixes at first. If you need help learning to program in BYOND, check out this [repository of resources](http://www.byond.com/developer/articles/resources).
 
 You can of course, as always, ask for help on the Discord channels or the forums. We're just here to have fun and help out, so please don't expect professional support.
 
@@ -57,7 +55,7 @@ Maintainers can revert your changes if they feel they are not worth maintaining 
 
 These are the few directives we have for project maintainers.
 
-- Do not merge PRs you create.
+- Do not merge PRs you create. (With the exception of upstream pulls.)
 - Do not merge PRs until 24 hours have passed since it was opened. Exceptions include:
   - Emergency fixes.
     - Try to get secondary maintainer approval before merging if you are able to.
@@ -171,7 +169,7 @@ This is also still a requirement if your pull request has a corresponding design
 
 If you are porting features/tools from other codebases, you must give them credit where it's due. Typically, crediting them in your pull request and the changelog is the recommended way of doing it. Take note of what license they use though, porting stuff from AGPLv3 and GPLv3 codebases are allowed.
 
-Regarding sprites & sounds, you must credit the artist and possibly the codebase. All /tg/station assets including icons and sound are under a [Creative Commons 3.0 BY-SA license](https://creativecommons.org/licenses/by-sa/3.0/) unless otherwise indicated.
+Regarding sprites & sounds, you must credit the artist and possibly the codebase. All OculisStation assets including icons and sound are under a [Creative Commons 3.0 BY-SA license](https://creativecommons.org/licenses/by-sa/3.0/) unless otherwise indicated.
 
 Regarding sprites in particular, you still need to take your own screenshots of the sprites in-game on your Nova Sector code in your PR body, not just re-use the screenshots provided in the original PR.
 
@@ -197,6 +195,6 @@ Github actions that require additional configuration are disabled on the reposit
 
 ## Using the Maintainer Role Ping in Discord
 
-When your PR is labeled as "Stale", you are permitted to ping the `@Maintainer` role on the /tg/station Discord. Using this ping for anything else can be met with escalating timeouts and referral to /tg/station's Discord moderators for further infractions.
+When your PR is labeled as "Stale", you are permitted to ping the `@Maintainer` role on the OculisStation Discord. Using this ping for anything else can be met with escalating timeouts and referral to OculisStation's Discord moderators for further infractions.
 
 Feel free to engage and obtain general feedback in the Coding General channel without the role ping before your PR goes stale to build interest and get reviews.

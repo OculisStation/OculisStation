@@ -134,10 +134,11 @@ SUBSYSTEM_DEF(vote)
 		return
 	if(CONFIG_GET(flag/no_dead_vote) && voter.stat == DEAD && !voter.client?.holder)
 		return
-	//IRIS ADDITION START
-	if(!current_vote.can_mob_vote(voter))
+
+	if(!(their_vote in current_vote.choices))
+		message_admins("POSSIBLE EXPLOIT: [key_name(voter)] tried to submit a vote for an option that didn't exist. They tried to call a vote for the following option: [sanitize(their_vote)]")
 		return
-	//IRIS ADDITION END
+
 	// If user has already voted, remove their specific vote
 	if(voter.ckey in current_vote.choices_by_ckey)
 		var/their_old_vote = current_vote.choices_by_ckey[voter.ckey]
@@ -167,6 +168,10 @@ SUBSYSTEM_DEF(vote)
 	//IRIS ADDITION END
 	else
 		voted += voter.ckey
+
+	if(!(their_vote in current_vote.choices))
+		message_admins("POSSIBLE EXPLOIT: [key_name(voter)] tried to submit a vote for an option that didn't exist. They tried to call a vote for the following option: [sanitize(their_vote)]")
+		return
 
 	if(current_vote.choices_by_ckey[voter.ckey + their_vote] == 1)
 		current_vote.choices_by_ckey[voter.ckey + their_vote] = 0

@@ -1,8 +1,13 @@
+/// Biomass from one monkey or monkey cube.
 #define BIOMASS_MONKEY_YIELD 0.4
+/// Hurt critters are worth less biomass, but never less than this much of their full value.
 #define BIOMASS_MINIMUM_CONDITION 0.25
+/// How much more biomass we get for each part tier above 1.
 #define BIOMASS_PART_EFFICIENCY_STEP 0.25
+/// Printing a creature costs its biomass_value times this.
 #define BIOMASS_PRINT_COST_MULTIPLIER 2
 
+/// Turns creatures into biomass, and biomass into cubes and creatures.
 /obj/machinery/biomass_recycler
 	name = "biomass recycler"
 	desc = "A machine used for recycling creatures and fabricating dehydrated biomass."
@@ -24,11 +29,22 @@
 		/obj/item/stack/biomass = 1,
 		/obj/item/slime_breeding_pellet = 2,
 	)
-	var/static/list/baseline_species = list(/mob/living/basic/cockroach/iceroach)
+	/// Critters you can print right away, no unlocks needed.
+	var/static/list/baseline_species = list(
+		/mob/living/basic/cockroach/iceroach,
+		/mob/living/basic/cow,
+		/mob/living/basic/pig,
+		/mob/living/basic/sheep,
+	)
 
 /obj/machinery/biomass_recycler/Initialize(mapload)
 	. = ..()
 	add_overlay("grinder_monkey")
+
+/obj/machinery/biomass_recycler/post_machine_initialize()
+	. = ..()
+	for(var/obj/machinery/extract_compressor/compressor in range(COMPRESSOR_LINK_RANGE, src))
+		compressor.link_nearest_recycler()
 
 /obj/machinery/biomass_recycler/RefreshParts()
 	. = ..()
@@ -50,12 +66,14 @@
 	. = ..()
 	if(in_range(user, src) || isobserver(user))
 		. += span_notice("The status display reads: <b>[biomass]</b> unit\s of biomass at <b>[recycling_efficiency * 100]%</b> recycling efficiency.")
-		. += span_notice("Its catalogue lists <b>[length(get_printable_species())]</b> printable creature\s. More unlock as slimes mutate.")
+		. += span_notice("Its catalog lists <b>[length(get_printable_species())]</b> printable creature\s. More unlock as slimes mutate.")
 
 /obj/machinery/biomass_recycler/wrench_act(mob/living/user, obj/item/tool)
 	. = ..()
 	if(default_unfasten_wrench(user, tool))
 		power_change()
+		for(var/obj/machinery/extract_compressor/compressor in range(COMPRESSOR_LINK_RANGE, src))
+			compressor.link_nearest_recycler()
 	return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/biomass_recycler/screwdriver_act(mob/living/user, obj/item/tool)
@@ -68,6 +86,7 @@
 	. = ..()
 	icon_state = panel_open ? "[base_icon_state]_open" : base_icon_state
 
+/// Whether the machine is powered, anchored, and has its panel shut.
 /obj/machinery/biomass_recycler/proc/is_available()
 	return is_operational && anchored && !panel_open
 
@@ -140,11 +159,13 @@
 		return FALSE
 	return TRUE
 
+/// Deletes the creature and adds its biomass. Returns FALSE if it can't be recycled.
 /obj/machinery/biomass_recycler/proc/recycle(mob/living/target, mob/living/user, feedback = FALSE)
 	if(!can_recycle(target, user, feedback))
 		return FALSE
 	var/target_name = target.name
 	var/biomass_yield = round(recycle_value(target) * recycling_efficiency, 0.01)
+	target.unequip_everything()
 	qdel(target)
 	biomass = round(biomass + biomass_yield, 0.01)
 	use_energy(active_power_usage)
@@ -152,6 +173,7 @@
 	to_chat(user, span_notice("You recycle [target_name] into [biomass_yield] unit[biomass_yield == 1 ? "" : "s"] of biomass."))
 	return TRUE
 
+/// Returns a list of creature type -> biomass cost.
 /obj/machinery/biomass_recycler/proc/get_printable_species()
 	var/static/list/species_costs
 	if(isnull(species_costs))
@@ -208,6 +230,7 @@
 /obj/machinery/biomass_recycler/proc/can_continue_print_menu(mob/user)
 	return user.Adjacent(src) && user.can_perform_action(src) && is_available()
 
+/// Biomass cubes, one per unit of biomass.
 /obj/item/stack/biomass
 	name = "biomass cubes"
 	desc = "Cubes of condensed green biomass."

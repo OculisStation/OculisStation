@@ -23,6 +23,7 @@
 	pack = null
 	return ..()
 
+/// Runs right after the upgrade is installed, for ones that need a bit of setup.
 /datum/vacuum_upgrade/proc/on_install()
 	return
 
@@ -101,6 +102,7 @@
 		if(occupant.stat != DEAD)
 			occupant.heal_overall_damage(brute = 1 * delta_time, burn = 1 * delta_time)
 
+/// Use it on a pack to install an upgrade. Eats the disk.
 /obj/item/disk/vacuum_upgrade
 	name = "vacuum upgrade disk"
 	desc = "A one-use upgrade disk for a slime vacuum pack."

@@ -1832,6 +1832,35 @@
 /obj/structure/tank_dispenser,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/atmos)
+"hV" = (
+/obj/structure/closet/secure_closet/freezer/meat{
+	req_access = list("tarkon")
+	},
+/obj/effect/spawner/random/food_or_drink/donkpockets{
+	pixel_x = -8;
+	pixel_y = -4
+	},
+/obj/item/reagent_containers/condiment/flour,
+/obj/item/reagent_containers/condiment/flour,
+/obj/item/storage/fancy/egg_box,
+/obj/item/storage/fancy/egg_box,
+/obj/item/reagent_containers/condiment/enzyme{
+	pixel_x = 12
+	},
+/obj/item/reagent_containers/condiment/rice,
+/obj/item/reagent_containers/condiment/sugar,
+/obj/item/reagent_containers/condiment/milk,
+/obj/item/reagent_containers/condiment/milk,
+/obj/item/reagent_containers/condiment/soymilk,
+/obj/item/reagent_containers/condiment/soymilk,
+/obj/item/pizzavoucher,
+/obj/item/pizzavoucher,
+/obj/item/storage/box/beakers{
+	pixel_x = -4;
+	pixel_y = -2
+	},
+/turf/open/floor/iron/freezer,
+/area/ruin/space/has_grav/port_tarkon/kitchen)
 "hW" = (
 /obj/structure/fence,
 /obj/effect/turf_decal/stripes/asteroid/corner{
@@ -2161,35 +2190,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/developement)
-"jf" = (
-/obj/structure/closet/secure_closet/freezer/meat{
-	req_access = list("tarkon")
-	},
-/obj/effect/spawner/random/food_or_drink/donkpockets{
-	pixel_x = -8;
-	pixel_y = -4
-	},
-/obj/item/reagent_containers/condiment/flour,
-/obj/item/reagent_containers/condiment/flour,
-/obj/item/storage/fancy/egg_box,
-/obj/item/storage/fancy/egg_box,
-/obj/item/reagent_containers/condiment/enzyme{
-	pixel_x = 12
-	},
-/obj/item/reagent_containers/condiment/rice,
-/obj/item/reagent_containers/condiment/sugar,
-/obj/item/reagent_containers/condiment/milk,
-/obj/item/reagent_containers/condiment/milk,
-/obj/item/reagent_containers/condiment/soymilk,
-/obj/item/reagent_containers/condiment/soymilk,
-/obj/item/choice_beacon/ingredient,
-/obj/item/choice_beacon/ingredient,
-/obj/item/storage/box/beakers{
-	pixel_x = -4;
-	pixel_y = -2
-	},
-/turf/open/floor/iron/freezer,
-/area/ruin/space/has_grav/port_tarkon/kitchen)
 "jh" = (
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/machinery/firealarm/directional/west,
@@ -3016,6 +3016,12 @@
 "mR" = (
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/toolstorage)
+"mT" = (
+/obj/effect/turf_decal/tile/purple/half,
+/obj/structure/table/reinforced,
+/obj/item/brain_processor/positronic/sphere,
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/port_tarkon/developement)
 "mV" = (
 /obj/structure/ore_vent/ghost_mining/starter/tarkon,
 /turf/open/misc/asteroid/airless,
@@ -4288,6 +4294,40 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/comms)
+"sk" = (
+/obj/structure/closet/secure_closet/freezer/meat{
+	req_access = list("tarkon")
+	},
+/obj/item/storage/fancy/egg_box,
+/obj/item/storage/fancy/egg_box,
+/obj/item/reagent_containers/condiment/flour,
+/obj/item/reagent_containers/condiment/flour,
+/obj/item/reagent_containers/condiment/enzyme{
+	pixel_x = 12
+	},
+/obj/item/reagent_containers/condiment/rice,
+/obj/item/reagent_containers/condiment/sugar,
+/obj/item/reagent_containers/condiment/milk,
+/obj/item/reagent_containers/condiment/milk,
+/obj/item/reagent_containers/condiment/soymilk,
+/obj/item/reagent_containers/condiment/soymilk,
+/obj/item/pizzavoucher,
+/obj/item/toy/figure/chef,
+/obj/item/circuitboard/machine/dish_drive,
+/obj/item/food/meat/slab,
+/obj/item/food/meat/slab,
+/obj/item/food/meat/slab,
+/obj/item/food/meat/slab,
+/obj/item/food/meat/slab,
+/obj/item/food/meat/slab,
+/obj/item/food/meat/slab,
+/obj/item/food/meat/slab,
+/obj/item/food/meat/slab,
+/obj/item/food/meat/slab,
+/obj/item/food/meat/slab,
+/obj/item/food/meat/slab,
+/turf/open/floor/iron/freezer,
+/area/ruin/space/has_grav/port_tarkon/kitchen)
 "sl" = (
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/machinery/light/small/directional/west,
@@ -9601,40 +9641,6 @@
 /obj/structure/alien/weeds/node,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/port_tarkon/cargoexpand)
-"Pn" = (
-/obj/structure/closet/secure_closet/freezer/meat{
-	req_access = list("tarkon")
-	},
-/obj/item/storage/fancy/egg_box,
-/obj/item/storage/fancy/egg_box,
-/obj/item/reagent_containers/condiment/flour,
-/obj/item/reagent_containers/condiment/flour,
-/obj/item/reagent_containers/condiment/enzyme{
-	pixel_x = 12
-	},
-/obj/item/reagent_containers/condiment/rice,
-/obj/item/reagent_containers/condiment/sugar,
-/obj/item/reagent_containers/condiment/milk,
-/obj/item/reagent_containers/condiment/milk,
-/obj/item/reagent_containers/condiment/soymilk,
-/obj/item/reagent_containers/condiment/soymilk,
-/obj/item/choice_beacon/ingredient,
-/obj/item/toy/figure/chef,
-/obj/item/circuitboard/machine/dish_drive,
-/obj/item/food/meat/slab,
-/obj/item/food/meat/slab,
-/obj/item/food/meat/slab,
-/obj/item/food/meat/slab,
-/obj/item/food/meat/slab,
-/obj/item/food/meat/slab,
-/obj/item/food/meat/slab,
-/obj/item/food/meat/slab,
-/obj/item/food/meat/slab,
-/obj/item/food/meat/slab,
-/obj/item/food/meat/slab,
-/obj/item/food/meat/slab,
-/turf/open/floor/iron/freezer,
-/area/ruin/space/has_grav/port_tarkon/kitchen)
 "Pp" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/west,
 /obj/machinery/conveyor_switch/oneway{
@@ -9791,12 +9797,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/centerhall)
-"PW" = (
-/obj/effect/turf_decal/tile/purple/half,
-/obj/structure/table/reinforced,
-/obj/item/brain_processor/positronic/sphere,
-/turf/open/floor/iron/dark,
-/area/ruin/space/has_grav/port_tarkon/developement)
 "PX" = (
 /obj/effect/turf_decal/tile/yellow/half{
 	dir = 8
@@ -15062,7 +15062,7 @@ NU
 yW
 yW
 ZT
-PW
+mT
 Fx
 OY
 OK
@@ -19289,7 +19289,7 @@ Yu
 MN
 gs
 Gx
-Pn
+sk
 sU
 UQ
 sy
@@ -19381,7 +19381,7 @@ GT
 hr
 Dp
 Gx
-jf
+hV
 Cm
 oY
 sy

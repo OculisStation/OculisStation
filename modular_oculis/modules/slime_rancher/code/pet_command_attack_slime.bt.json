@@ -37,7 +37,8 @@
 						"vars": {
 							"target_key": "BB_CURRENT_PET_TARGET",
 							"required_dist": 1,
-							"finish_on_arrival": false
+							"finish_on_arrival": false,
+							"movement_type": "/datum/ai_movement/astar/slime"
 						}
 					}
 				]

@@ -95,8 +95,7 @@
 		"spans" = spans,
 		"mods" = message_mods,
 	)
-	// levels = SSmapping.get_connected_levels(get_turf(source)) // IRIS EDIT - OLD
-	levels = lvls != null ? lvls : SSmapping.get_connected_levels(get_turf(source)) // IRIS EDIT - NEW
+	levels = !isnull(lvls) ? lvls : get_telecomms_levels(get_turf(source)) // OCULIS EDIT - ORIGINAL: levels = SSmapping.get_connected_levels(get_turf(source))
 
 #undef COMPRESSION_VOCAL_SIGNAL_MIN
 #undef COMPRESSION_VOCAL_SIGNAL_MAX
@@ -159,6 +158,9 @@
 
 	for(var/obj/item/radio/called_radio as anything in radios)
 		called_radio.on_receive_message(data)
+		if(called_radio.runechat_on_receive) // show runechat above this radio
+			for(var/mob/radio_hearer as anything in mob_only_listeners(get_hearers_in_LOS(called_radio.canhear_range, called_radio)))
+				LAZYSET(virt.runechat_anchors, radio_hearer, called_radio)
 	var/list/message_mods = data["mods"]
 
 	var/tts_radio_id = LAZYACCESS(message_mods, MODE_TTS_IDENTIFIER)
@@ -203,6 +205,7 @@
 			continue
 		spans -= blacklisted_spans
 		hearer.Hear(virt, language, message, frequency, data["frequency_name"], data["frequency_color"], spans, message_mods, message_range = INFINITY)
+	virt.runechat_anchors = null // runechat is already made
 
 	// This following recording is intended for research and feedback in the use of department radio channels
 	if(length(receive))
