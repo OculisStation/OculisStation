@@ -31,3 +31,10 @@
 	if(!istype(user))
 		return
 	carbon_user.vomit(vomit_flags = (MOB_VOMIT_MESSAGE | MOB_VOMIT_HARM | MOB_VOMIT_STUN | MOB_VOMIT_FORCE))
+
+/datum/emote/living/carbon/human/slowclap
+	key = "slowclap"
+	message = "slowly claps their hands."
+	emote_type = EMOTE_AUDIBLE
+	sound = 'sound/machines/slowclap.ogg'
+	hands_use_check = TRUE
