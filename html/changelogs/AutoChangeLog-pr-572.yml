@@ -1,0 +1,4 @@
+author: "XeonMations"
+delete-after: True
+changes:
+  - balance: "Heavyset characters no longer have a slowdown when dragging other heavyset characters."
