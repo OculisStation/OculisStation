@@ -1,0 +1,4 @@
+author: "XeonMations"
+delete-after: True
+changes:
+  - bugfix: "Fixed laying down not playing the appropriate SFX."
