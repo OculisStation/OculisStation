@@ -7,11 +7,12 @@ GLOBAL_LIST_INIT(hand_pairs, list(
 /datum/quirk/multiple_arms
 	name = "Multiple Arms"
 	desc = "You have multiple arms! (Does not affect character sprite)"
-	value = 2
+	value = 8
 	gain_text = span_notice("You feel more handed.")
 	lose_text = span_notice("You feel less handed.")
 	medical_record_text = "Patient has multiple arms."
 	icon = FA_ICON_HAND_LIZARD
+	var/list/given_arms = list()
 
 /datum/quirk_constant_data/multiple_arms
 	associated_typepath = /datum/quirk/multiple_arms
@@ -22,8 +23,6 @@ GLOBAL_LIST_INIT(hand_pairs, list(
 
 	var/arm_amount = GLOB.hand_pairs[client_source?.prefs.read_preference(/datum/preference/choiced/multiple_arms)]
 	var/mob/living/carbon/human/human_holder = quirk_holder
-	if(!human_holder)
-		return
 
 	var/obj/item/bodypart/arm/left/current_left_arm = human_holder.dna.species.bodypart_overrides[BODY_ZONE_L_ARM]
 	var/obj/item/bodypart/arm/right/current_right_arm = human_holder.dna.species.bodypart_overrides[BODY_ZONE_R_ARM]
@@ -33,11 +32,13 @@ GLOBAL_LIST_INIT(hand_pairs, list(
 		additional_left_arm.held_index = (initial(additional_left_arm.held_index) + (i * 2))
 		additional_left_arm.body_zone = null
 		additional_left_arm.try_attach_limb(human_holder, TRUE)
+		given_arms += REF(additional_left_arm)
 
-		var/obj/item/bodypart/arm/left/additional_right_arm = new current_right_arm()
+		var/obj/item/bodypart/arm/right/additional_right_arm = new current_right_arm()
 		additional_right_arm.held_index = (initial(additional_right_arm.held_index) + (i * 2))
 		additional_right_arm.body_zone = null
 		additional_right_arm.try_attach_limb(human_holder, TRUE)
+		given_arms += REF(additional_right_arm)
 
 	var/total_arms = 2 + (2 * arm_amount) // One set + the additional sets.
 	human_holder.change_number_of_hands(total_arms)
@@ -46,8 +47,15 @@ GLOBAL_LIST_INIT(hand_pairs, list(
 
 /datum/quirk/multiple_arms/remove()
 	var/mob/living/carbon/human/human_holder = quirk_holder
-	if(!human_holder)
-		return
+	for(var/i in 1 to length(given_arms))
+		var/datum/weakref/arm_weakref = given_arms[1]
+		var/obj/item/bodypart/arm/removing_arm = arm_weakref.resolve()
+		given_arms -= given_arms[1]
+		removing_arm?.drop_limb(special = TRUE, move_to_floor = FALSE)
+		qdel(removing_arm)
+	human_holder.change_number_of_hands(2)
+	human_holder.set_num_hands(2)
+	human_holder.set_usable_hands(2)
 
 // Preferences.
 /datum/preference/choiced/multiple_arms
