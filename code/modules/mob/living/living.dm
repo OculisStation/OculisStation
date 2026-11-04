@@ -2837,7 +2837,7 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 	if(new_value == LYING_DOWN) // From standing to lying down.
 		//NOVA EDIT ADDITION BEGIN - SOUNDS
 		if(has_gravity())
-			playsound(src, "bodyfall", 50, TRUE)
+			playsound(src, /datum/sound_effect/bodyfall, 50, TRUE) // OCULIS EDIT, ORIGINAL: playsound(src, "bodyfall", 50, TRUE)
 		//NOVA EDIT END
 		on_lying_down()
 	else // From lying down to standing up.
