@@ -1,7 +1,7 @@
 #define EXPRESS_EMAG_DISCOUNT 0.72
 #define BEACON_PRINT_COOLDOWN 10 SECONDS
 
-/obj/machinery/computer/cargo/deep_storage/deep_storage
+/obj/machinery/computer/cargo/deep_storage
 	name = "deep storage supply console"
 	desc = "This console allows the user to retrieve a package \
 		with 1/80th of the delivery time: made possible by Sectorial's new \"Deep Storage Initiative\".\
