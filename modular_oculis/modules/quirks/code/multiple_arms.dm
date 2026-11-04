@@ -33,13 +33,13 @@ GLOBAL_LIST_INIT(hand_pairs, list(
 		additional_left_arm.held_index = (initial(additional_left_arm.held_index) + (i * 2))
 		additional_left_arm.body_zone = null
 		additional_left_arm.try_attach_limb(human_holder, TRUE)
-		given_arms += REF(additional_left_arm)
+		given_arms += WEAKREF(additional_left_arm)
 
 		var/obj/item/bodypart/arm/right/additional_right_arm = new current_right_arm()
 		additional_right_arm.held_index = (initial(additional_right_arm.held_index) + (i * 2))
 		additional_right_arm.body_zone = null
 		additional_right_arm.try_attach_limb(human_holder, TRUE)
-		given_arms += REF(additional_right_arm)
+		given_arms += WEAKREF(additional_right_arm)
 
 	var/total_arms = 2 + (2 * arm_amount) // One set + the additional sets.
 	human_holder.change_number_of_hands(total_arms)
