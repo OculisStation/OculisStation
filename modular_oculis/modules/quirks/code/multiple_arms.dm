@@ -10,8 +10,9 @@ GLOBAL_LIST_INIT(hand_pairs, list(
 	value = 8
 	gain_text = span_notice("You feel more handed.")
 	lose_text = span_notice("You feel less handed.")
-	medical_record_text = "Patient has multiple arms."
+	medical_record_text = "Patient has more than one pair of arms."
 	icon = FA_ICON_HAND_LIZARD
+
 	var/list/given_arms = list()
 
 /datum/quirk_constant_data/multiple_arms
