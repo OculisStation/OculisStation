@@ -48,9 +48,6 @@
 	/// How much charge the redspace anchor has, goes down when breaker is shut, and shuts down at 0.
 	var/charge_count = 100
 
-	/// The overlay currently used.
-	var/current_overlay = null
-
 	/// Audio for when the redspace anchor is on
 	var/datum/looping_sound/redspace_anchor/soundloop
 
@@ -238,8 +235,10 @@
 			mobs.playsound_local(T, null, 100, 1, 0.5, sound_to_use = alert_sound)
 	if(!SSmapping.level_has_any_trait(z, ZTRAIT_STATION))
 		return
-	if(online)
-		priority_announce("Redspace Anchor activated.", "Redspace Anchor", color_override = "green")
+	if(online && activated)
+		priority_announce("Redspace Anchor activated during ongoing storm.", "Redspace Anchor", color_override = "purple")
+	else if(online)
+		priority_announce("Redspace Anchor enabled and awaiting activation codes.", "Redspace Anchor", color_override = "green")
 	else
 		priority_announce("Warning: Redspace Anchor has been disabled.", "Redspace Anchor", color_override = "red")
 

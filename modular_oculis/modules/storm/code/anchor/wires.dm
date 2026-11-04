@@ -5,11 +5,15 @@
 /datum/wires/redspace_anchor/New(atom/holder)
 	wires = list(
 		WIRE_POWER,
+		WIRE_POWER,
+		WIRE_POWER,
+		WIRE_POWER,
+		WIRE_POWER,
 		WIRE_AI,
 		WIRE_ALARM,
 		WIRE_DISCHARGE,
 	)
-	add_duds(13) // It's a complicated machine. It's gonna have lots of wires.
+	add_duds(9) // It's a complicated machine. It's gonna have lots of wires.
 	..()
 
 /datum/wires/redspace_anchor/interactable(mob/user)
