@@ -61,7 +61,7 @@
 				connected_anchor.trigger_unsafe_discharge()
 				investigate_log("was overloaded by remaining violetspace energy.", INVESTIGATE_ENGINE)
 			connected_anchor.set_power()
-			update_overlays()
+			update_appearance(UPDATE_OVERLAYS)
 			. = TRUE
 		if("discharge_violetspace")
 			if(connected_anchor.violetspace_energy && connected_anchor.can_discharge)
