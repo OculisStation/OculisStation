@@ -1,25 +1,3 @@
-/obj/item/organ
-	var/can_bioboost = FALSE
-	var/bioboost_start_message = null
-	var/bioboost_end_message = null
-	var/bioboost_duration = null
-	var/bioboost_cooldown = null
-
-/obj/item/organ/proc/start_bioboost()
-	organ_flags |= ORGAN_BIOBOOSTED
-	if(bioboost_start_message)
-		to_chat(owner, bioboost_start_message)
-
-/obj/item/organ/proc/end_bioboost()
-	organ_flags &= ~ORGAN_BIOBOOSTED
-	if(bioboost_end_message)
-		to_chat(owner, bioboost_end_message)
-
-/obj/item/organ/Remove(mob/living/carbon/organ_owner, special, movement_flags)
-	end_bioboost()
-	. = ..()
-
-
 /obj/item/organ/bioimplant/fleshwelder
 	name = "fleshwelding gland"
 	desc = "This bioengineered circulatory organ stimulates immune responses to tissue damage. Overstressing the gland may lead to pain, fatigue, internal bleeding, or poisoning."
@@ -42,6 +20,8 @@
 	can_bioboost = TRUE
 	bioboost_start_message = span_info("Your flesh aches with a revitalizing heat!")
 	bioboost_end_message = span_info("The revitalizing heat fades.")
+	bioboost_duration = 20 SECONDS
+	bioboost_cooldown = 5 MINUTES
 
 	// meds are stored in the... medicine sac i guess??
 	food_reagents = list(/datum/reagent/consumable/nutriment/organ_tissue = 5, /datum/reagent/medicine/fleshsolder = 5)
@@ -55,7 +35,7 @@
 	. = ..()
 	if(organ_flags & ORGAN_FAILING)
 		if(SPT_PROB(10, seconds_per_tick))
-			owner.adjust_brute_loss(20)
+			owner.adjust_brute_loss(10)
 			to_chat(owner, span_danger("It feels like your blood is frozen!"))
 			owner.vomit(VOMIT_CATEGORY_BLOOD)
 		return
@@ -63,7 +43,7 @@
 		if(SPT_PROB(5, seconds_per_tick))
 			to_chat(owner, span_warning("The fuzz flares to an agonizing potency!"))
 			owner.adjust_dizzy_up_to(20 SECONDS, 1 MINUTES)
-			owner.adjust_jitter_up_to(1 MINUTE, 5 MINUTES)
+			owner.adjust_jitter_up_to(1 MINUTES, 5 MINUTES)
 			if(prob(20))
 				owner.vomit(VOMIT_CATEGORY_BLOOD)
 	else if(damage > low_threshold)
@@ -76,25 +56,26 @@
 		if(self_damage)
 			apply_organ_damage(self_damage * damage_modifier)
 
-/obj/item/organ/bioimplant/fleshwelder/start_bioboost()
+/obj/item/organ/bioimplant/fleshwelder/start_bioboost(powermult)
 	. = ..()
-	power *= 10
-	damage_modifier *= 20
+	power *= (15 * powermult)
+	damage_modifier *= (20 * powermult)
 
-/obj/item/organ/bioimplant/fleshwelder/end_bioboost()
+/obj/item/organ/bioimplant/fleshwelder/end_bioboost(powermult)
 	. = ..()
-	power /= 10
-	damage_modifier /= 20
+	power /= (15 * powermult)
+	damage_modifier /= (20 * powermult)
 
 /obj/item/organ/bioimplant/fleshwelder/weak
 	name = "weak fleshwelding gland"
 	desc = /obj/item/organ/bioimplant/fleshwelder::desc + " This one is only about half as efficient."
 	power = 0.5
+	food_reagents = list(/datum/reagent/consumable/nutriment/organ_tissue = 5, /datum/reagent/medicine/mine_salve = 5, /datum/reagent/medicine/spaceacillin = 5)
 
-/datum/design/fleshwelder
+/datum/design/weakfleshwelder
 	name = "Fleshwelding Gland (Weak)"
 	build_type = LIMBGROWER
-	reagents_list = list(/datum/reagent/medicine/mine_salve = 10, /datum/reagent/medicine/c2/synthflesh = 10, /datum/reagent/inverse/aranesp = 10)
+	reagents_list = list(/datum/reagent/medicine/mine_salve = 10, /datum/reagent/medicine/c2/synthflesh = 10, /datum/reagent/medicine/spaceacillin = 10)
 	build_path = /obj/item/organ/bioimplant/fleshwelder/weak
 	category = list("Bioimplants")
 
@@ -111,35 +92,41 @@
 /datum/wound/burn/flesh/on_fleshweld(power, bloodfix, burnfix, bonefix)
 	if(burnfix == 0)
 		return 0
-	infection = min((infection - (0.05 * burnfix * power)), 0)
-	flesh_damage = min((flesh_damage - (0.05 * burnfix * power)), 0)
+	infection = max((infection - (0.05 * burnfix * power)), 0)
+	flesh_damage = max((flesh_damage - (0.05 * burnfix * power)), 0)
 	return 0.2
 
 /datum/wound/slash/flesh/on_fleshweld(power, bloodfix, burnfix, bonefix)
 	if(bloodfix == 0)
 		return 0
-	blood_flow = min((blood_flow -(0.05 * bloodfix * power)), 0)
+	adjust_blood_flow(-(0.05 * bloodfix * power), 0)
 	return 0.2
 
 /datum/wound/pierce/on_fleshweld(power, bloodfix, burnfix, bonefix)
 	if(bloodfix == 0)
 		return 0
-	blood_flow = min((blood_flow -(0.05 * bloodfix * power)), 0)
+	adjust_blood_flow(-(0.05 * bloodfix * power), 0)
 	return 0.4 //punctures are harder to clot
 
 /datum/wound/blunt/bone/on_fleshweld(power, bloodfix, burnfix, bonefix)
 	if(bonefix == 0)
 		return 0
-	cryo_progress += 0.5 * power * bonefix
-	return 0.5 //bones are quite heavy
+	on_xadone(0.5 * power * bonefix)
+	return 0.4 //bones are quite heavy
+
+/datum/wound/muscle/on_fleshweld(power, bloodfix, burnfix, bonefix)
+	if(bloodfix == 0) //i figure the closest thing to an internal puncture or tear that i added a power setting for is an external puncture or tear
+		return 0
+	regen_ticks_current += 1 * power * bloodfix
+	return 0.3
 
 // i needed a thematically appropriate reagent to make the fleshwelder out of. so here we have this now. Enjoy!
 /datum/reagent/medicine/fleshsolder
 	name = "Fleshwelding Serum"
 	color = "#226688"
-	taste_description = "a draining painful chill that pierces the tongue"
+	taste_description = "a drainingly painful chill that pierces the tongue"
 	taste_mult = 20 // it starts to regen your mouth as you drink it! This is quite painful! Fun!
-	description = "This experimental serum induces a powerful regenerative effect that repairs wounds over time while causing intense pain, fatigue, and even severe toxicity and organ damage, depending on dosage. 5 units or less is generally safe. Between 5 and 10 units is moderately toxic. Between 10 and 15 units is extremely poisonous to the organs. At dosages above 15 units, critical condition is likely. Potency of regenerative effect is massively increased per dosage tier."
+	description = "This compound induces a state of extremely rapid epimorphosis that repairs external and internal wounds over time while causing intense pain, fatigue, toxin damage, and organ damage. These effects are highly dependant on total continuous duration. 5 units or less is generally safe. Between 5 and 10 units is moderately toxic. Between 10 and 15 units is liable to cause massive systemic organ damage. Any dosage above 15 units is equivalent in effect, all being near-guarenteed to cause critical condition. Potency of regenerative effect increases exponentially with dosage tier."
 	metabolization_rate = 1.25 * REAGENTS_METABOLISM
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED | REAGENT_DEAD_PROCESS
 
@@ -174,11 +161,13 @@
 				for(var/obj/item/organ/ouch as anything in affected_mob.organs)
 					if(prob(50))
 						ouch.apply_organ_damage(ouch.maxHealth * 0.1)
-		if(31 to INFINITY) // more than one full-ass syringe (aka, you chose this you dingus (or severe medical malpractice ig))
-			to_chat(affected_mob, span_danger("You think you're falling apart. Suddenly, the pain stops. You can't move. Everything cuts to black."))
-			fleshweldit(100, 2, 2, 2, affected_mob)
+		if(31 to INFINITY) // more than one entire syringe (aka, you chose this you dingus (or severe medical malpractice ig))
+			affected_mob.visible_message(span_warning("[affected_mob] suddenly seizes up, collapsing! [affected_mob.p_Their()] skin froths violently, then settles."), span_danger("Suddenly, the pain stops. Then, you stop. You cannot move and cannot breathe. You collapse. Everything goes black."))
 			affected_mob.adjust_tox_loss(100)
-			affected_mob.Unconscious(10 SECONDS)
+			affected_mob.Unconscious(20 SECONDS)
+			affected_mob.Paralyze(20 SECONDS)
+			fleshweldit(100, 2, 2, 2, affected_mob)
+			QDEL_LAZYLIST(affected_mob.all_scars)
 			volume = 0
 
 
@@ -188,8 +177,8 @@
 		toweld.on_fleshweld(power, bloodfix, burnfix, bonefix)
 
 /datum/chemical_reaction/medicine/fleshsolder
-	results = list(/datum/reagent/medicine/fleshsolder = 2)
-	required_reagents = list(/datum/reagent/medicine/polypyr = 1, /datum/reagent/consumable/nutriment/organ_tissue = 1)
+	results = list(/datum/reagent/medicine/fleshsolder = 3)
+	required_reagents = list(/datum/reagent/medicine/polypyr = 1, /datum/reagent/consumable/nutriment/organ_tissue = 1, /datum/reagent/medicine/c2/synthflesh = 1)
 	required_temp = 50
 	is_cold_recipe = TRUE
 	optimal_temp = 30
@@ -200,24 +189,45 @@
 	ph_exponent_factor = 0.5
 	thermic_constant = -30
 	H_ion_release = -5
-	rate_up_lim = 20 //affected by pH too
+	rate_up_lim = 20
 	purity_min = 0.3
 	reaction_flags = REACTION_PH_VOL_CONSTANT
 	reaction_tags = REACTION_TAG_HEALING
+	mix_message = "The mixture congeals into a viscous teal fluid."
 
 /datum/micro_organism/cell_line/organs/fleshwelderweak
-	desc = "diminished fleshwelding cells"
+	desc = "diminished epimorphic cells"
 
-	required_reagents = list(/datum/reagent/consumable/nutriment/organ_tissue)
+	required_reagents = list(/datum/reagent/consumable/nutriment/organ_tissue, /datum/reagent/medicine/mine_salve)
 
 	supplementary_reagents = list(
-		/datum/reagent/iron = 6,
 		/datum/reagent/blood = 3,
 		/datum/reagent/consumable/nutriment = 1,
+		/datum/reagent/medicine/spaceacillin = 1,
+		/datum/reagent/medicine/fleshsolder = 6,
 	)
 
 	suppressive_reagents = list(
-		/datum/reagent/toxin/mutagen = -2,
+		/datum/reagent/toxin/mutagen = -4,
 	)
 
-	resulting_atom = /obj/item/organ/liver
+	resulting_atom = /obj/item/organ/bioimplant/fleshwelder/weak
+
+/datum/micro_organism/cell_line/organs/fleshwelder
+	desc = "strengthened epimorphic cells"
+
+	required_reagents = list(/datum/reagent/consumable/nutriment/organ_tissue, /datum/reagent/inverse/aranesp)
+
+	supplementary_reagents = list(
+		/datum/reagent/blood = 3,
+		/datum/reagent/consumable/nutriment = 1,
+		/datum/reagent/medicine/spaceacillin = 1,
+		/datum/reagent/medicine/fleshsolder = 6,
+		/datum/reagent/toxin/mutagen = 6,
+	)
+
+	suppressive_reagents = list(
+		/datum/reagent/toxin/mutagen = -4,
+	)
+
+	resulting_atom = /obj/item/organ/bioimplant/fleshwelder
