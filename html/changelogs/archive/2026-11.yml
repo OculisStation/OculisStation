@@ -4,3 +4,11 @@
 2026-11-03:
   XeonMations:
   - qol: You can now select gauntlets in loadouts without being in security.
+2026-11-05:
+  XeonMations:
+  - rscadd: 'Added a new emote for humans: *slowclap'
+  - balance: All energy-based weapons besides the captain's antique no longer auto-recharge.
+      You now have to use rechargers again.
+  - balance: Heavyset characters no longer have a slowdown when dragging other heavyset
+      characters.
+  - bugfix: Fixed laying down not playing the appropriate SFX.
