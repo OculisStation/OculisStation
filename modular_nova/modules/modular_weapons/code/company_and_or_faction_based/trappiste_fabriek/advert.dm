@@ -30,7 +30,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/official/trappiste_suppre
 	. = ..()
 
 	. += "<i>Small text details that this information may also be transferrable \
-		to other types of SolGov ammunition, but that you should check the box \
+		to other types of SolFed ammunition, but that you should check the box \
 		the bullets come in just to be sure. Trappiste is, of course, \
 		not liable for excess harm caused by misreading color identification systems.</i>"
 

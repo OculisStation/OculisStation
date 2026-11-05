@@ -44,7 +44,7 @@
 		love the thing so, thanks to its efficacy against large targets, like \
 		fuel-stat raiders in large suits of armor. \
 		Ask a space pirate, however, and you'll get a different story, \
-		thanks to many SolGov anti-piracy units picking the Bogseo as their standard boarding weapon.<br><br>\
+		thanks to many SolFed anti-piracy units picking the Bogseo as their standard boarding weapon.<br><br>\
 		What better option to ruin a brigand's day than a hail of bullets \
 		large enough to turn them into mist at full auto, after all?"
 

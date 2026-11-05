@@ -579,7 +579,7 @@
   - balance: You no longer see what exactly you're overdosing on, unless you have
       self-aware quirk
   NoNameGiven-05:
-  - bugfix: All mentions of SolFed have been changed to SolGov.
+  - bugfix: All mentions of SolFed have been changed to SolFed.
   Sadhorizon:
   - rscadd: Added a new job - Explorer - dedicated to Gateway and space exploration
   - rscdel: Lawyer no longer has the "Human Resources Agent" alt-title.

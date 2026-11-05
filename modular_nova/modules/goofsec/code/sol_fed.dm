@@ -315,7 +315,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 /datum/antagonist/ert/request_911/greet()
 	var/missiondesc =  ""
 	missiondesc += "<B><font size=5 color=red>You are NOT a Nanotrasen Employee. You work for the Sol Government as a [role].</font></B>"
-	missiondesc += "<BR>You are responding to emergency calls from the station for immediate SolGov [department] assistance!\n"
+	missiondesc += "<BR>You are responding to emergency calls from the station for immediate SolFed [department] assistance!\n"
 	missiondesc += "<BR>Use the Cell Phone in your backpack to confer with fellow first responders!\n"
 	missiondesc += "<BR><B>911 Transcript is as follows</B>:"
 	missiondesc += "<BR> [GLOB.call_911_msg]"
@@ -417,7 +417,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	id_trim = /datum/id_trim/solfed/atmos
 
 /obj/item/radio/headset/headset_solfed/atmos
-	name = "\improper SolGov adv. atmos headset"
+	name = "\improper SolFed adv. atmos headset"
 	desc = "A headset used by the Solar Federation response teams."
 	icon_state = "med_headset"
 	keyslot = /obj/item/encryptionkey/headset_solfed/atmos
@@ -428,7 +428,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	icon = 'icons/map_icons/items/_item.dmi'
 
 /obj/item/encryptionkey/headset_solfed/atmos
-	name = "\improper SolGov adv. atmos encryption key"
+	name = "\improper SolFed adv. atmos encryption key"
 	special_channels = RADIO_SPECIAL_CENTCOM
 	channels = list(RADIO_CHANNEL_SOLFED = 1, RADIO_CHANNEL_ENGINEERING = 1, RADIO_CHANNEL_COMMAND = 1)
 	icon_state = "/obj/item/encryptionkey/headset_solfed/atmos"
@@ -437,14 +437,14 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	greyscale_colors = "#ebebeb#2b2793"
 
 /obj/item/radio/headset/headset_solfed/sec
-	name = "\improper SolGov adv. Security headset"
+	name = "\improper SolFed adv. Security headset"
 	desc = "A headset used by the Solar Federation response teams."
 	icon_state = "med_headset"
 	keyslot = /obj/item/encryptionkey/headset_solfed/sec
 	radio_talk_sound = 'modular_nova/modules/radiosound/sound/radio/security.ogg'
 
 /obj/item/encryptionkey/headset_solfed/sec
-	name = "\improper  SolGov adv. Security encryption key"
+	name = "\improper  SolFed adv. Security encryption key"
 	special_channels = RADIO_SPECIAL_CENTCOM
 	channels = list(RADIO_CHANNEL_SOLFED = 1, RADIO_CHANNEL_SECURITY = 1, RADIO_CHANNEL_COMMAND = 1)
 	icon_state = "/obj/item/encryptionkey/headset_solfed/sec"
@@ -453,14 +453,14 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	greyscale_colors = "#ebebeb#2b2793"
 
 /obj/item/radio/headset/headset_solfed/med
-	name = "\improper SolGov adv. Medical headset"
+	name = "\improper SolFed adv. Medical headset"
 	desc = "A headset used by the Solar Federation response teams."
 	icon_state = "med_headset"
 	keyslot = /obj/item/encryptionkey/headset_solfed/med
 	radio_talk_sound = 'modular_nova/modules/radiosound/sound/radio/security.ogg'
 
 /obj/item/encryptionkey/headset_solfed/med
-	name = "\improper SolGov adv. Medical encryption key"
+	name = "\improper SolFed adv. Medical encryption key"
 	special_channels = RADIO_SPECIAL_CENTCOM
 	channels = list(RADIO_CHANNEL_SOLFED = 1, RADIO_CHANNEL_MEDICAL = 1, RADIO_CHANNEL_COMMAND = 1)
 	icon_state = "/obj/item/encryptionkey/headset_solfed/med"
@@ -572,7 +572,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	greeted_mob.playsound_local(greeted_mob, 'sound/effects/families_police.ogg', 100, FALSE, pressure_affected = FALSE, use_reverb = FALSE)
 
 /datum/outfit/request_911/treason_destroyer
-	name = "911 Response: SolGov Military"
+	name = "911 Response: SolFed Military"
 
 	uniform = /obj/item/clothing/under/solfed/marines
 	head = /obj/item/clothing/head/helmet/solfed
@@ -599,8 +599,8 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	id_trim = /datum/id_trim/solfed
 
 /obj/item/solfed_reporter
-	name = "SolGov reporter"
-	desc = "Use this in-hand to vote to call SolGov backup. If half your team votes for it, SWAT will be dispatched."
+	name = "SolFed reporter"
+	desc = "Use this in-hand to vote to call SolFed backup. If half your team votes for it, SWAT will be dispatched."
 	icon = 'modular_nova/modules/goofsec/icons/reporter.dmi'
 	icon_state = "reporter_off"
 	w_class = WEIGHT_CLASS_SMALL
@@ -712,7 +712,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 
 /obj/item/solfed_reporter/swat_caller
 	name = "S.W.A.T. backup caller"
-	desc = "Use this in-hand to vote to call SolGov S.W.A.T. backup. If half your team votes for it, SWAT will be dispatched."
+	desc = "Use this in-hand to vote to call SolFed S.W.A.T. backup. If half your team votes for it, SWAT will be dispatched."
 	type_to_check = /datum/antagonist/ert/request_911
 	type_of_callers = "911_responders"
 	announcement_source = "Sol Government S.W.A.T."
