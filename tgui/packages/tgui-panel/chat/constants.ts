@@ -40,6 +40,7 @@ export const MESSAGE_TYPE_ATTACKLOG = 'attacklog';
 export const MESSAGE_TYPE_DEBUG = 'debug';
 export const MESSAGE_TYPE_MENTOR = 'mentor'; // NOVA EDIT ADDITION
 export const MESSAGE_TYPE_SUBTLE = 'subtle'; // NOVA EDIT ADDITION
+export const MESSAGE_TYPE_LORE = "lorechat"; // OCULIS EDIT ADDITION
 
 type MessageType = {
   type: string;
@@ -176,4 +177,12 @@ export const MESSAGE_TYPES: MessageType[] = [
     description: 'Mentor PMs and other mentor things.',
     selector: '.mentor, .mentornotice',
   },// NOVA EDIT ADDITION END
+  // OCULIS EDIT ADDITION START
+  {
+    type: MESSAGE_TYPE_LORE,
+    name: 'Lore Chat',
+    description: 'LSAY messages',
+    selector: '.loresay',
+  },
+  // OCULIS EDIT ADDITION END
 ];
