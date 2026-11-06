@@ -93,22 +93,23 @@
 	if(!underfloor_state)
 		return
 
-	var/mutable_appearance/distro_pipe_appearance = get_pipe_image(icon, "pipe_exposed", dir, COLOR_BLUE, piping_layer = 4)
-	if(nodes[1])
-		distro_pipe_appearance = get_pipe_image(icon, "pipe_intact", dir, COLOR_BLUE, piping_layer = 4)
-	. += distro_pipe_appearance
+	. += get_pipe_image(
+		iconfile = icon,
+		iconstate = "pipe_[isnull(nodes[1]) ? "exposed" : "intact"]",
+		direction = dir,
+		color = nodes[1]?.color || COLOR_BLUE, // default to blue to indicate input
+		piping_layer = 4,
+	)
+	. += get_pipe_image(
+		iconfile = icon,
+		iconstate = "pipe_[isnull(nodes[2]) ? "exposed" : "intact"]",
+		direction = dir,
+		color = nodes[2]?.color || COLOR_RED, // default to red to indicate output
+		piping_layer = 2,
+	)
 
-	var/mutable_appearance/waste_pipe_appearance = get_pipe_image(icon, "pipe_exposed", dir, COLOR_RED, piping_layer = 2)
-	if(nodes[2])
-		waste_pipe_appearance = get_pipe_image(icon, "pipe_intact", dir, COLOR_RED, piping_layer = 2)
-	. += waste_pipe_appearance
-
-	var/mutable_appearance/distro_cap_appearance = get_pipe_image(icon, "vent_cap", dir, piping_layer = 4)
-	. += distro_cap_appearance
-
-	var/mutable_appearance/waste_cap_appearance = get_pipe_image(icon, "vent_cap", dir, piping_layer = 2)
-	. += waste_cap_appearance
-
+	. += get_pipe_image(icon, "vent_cap", dir, piping_layer = 4)
+	. += get_pipe_image(icon, "vent_cap", dir, piping_layer = 2)
 
 /obj/machinery/atmospherics/components/unary/airlock_pump/atmos_init(list/node_connects)
 	for(var/obj/machinery/atmospherics/target in get_step(src, dir))
@@ -486,12 +487,14 @@
 	// This is support for awkwardly shaped airlocks that cycle on a group ID
 	if(!length(internal_airlocks))
 		for(var/obj/machinery/door/airlock/external_airlock as anything in external_airlocks)
-			internal_airlocks |= external_airlock.close_others
+			if(external_airlock.close_others)
+				internal_airlocks |= external_airlock.close_others
 		// For double-wide airlocks, so we don't end up with doors in both lists
 		internal_airlocks -= external_airlocks
 	if(!length(external_airlocks))
 		for(var/obj/machinery/door/airlock/internal_airlock as anything in internal_airlocks)
-			external_airlocks |= internal_airlock.close_others
+			if(internal_airlock.close_others)
+				external_airlocks |= internal_airlock.close_others
 		external_airlocks -= internal_airlocks
 
 	if(!length(external_airlocks) || !length(internal_airlocks))

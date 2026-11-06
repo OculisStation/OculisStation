@@ -16,8 +16,13 @@
 
 	payday_modifier = 1.0
 	outfit_important_for_life = /datum/outfit/vox
+	// Swap the survival box's mask and O2 tank for a nitrogen tank. The medipen gets cleared by the override, so re-add it.
+	survival_box_overrides = list(
+		SURVIVAL_INTERNALS_TYPE = /obj/item/tank/internals/nitrogen/belt/emergency,
+		SURVIVAL_MEDIPEN_TYPE = /obj/item/reagent_containers/hypospray/medipen,
+	)
 	species_language_holder = /datum/language_holder/vox
-	exotic_bloodtype = BLOOD_TYPE_VOX //IRIS EDIT
+	exotic_bloodtype = /datum/blood_type/vox //IRIS EDIT
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	// Vox are cold resistant, but also heat sensitive
 	bodytemp_heat_damage_limit = (BODYTEMP_HEAT_DAMAGE_LIMIT - 15) // being cold resistant, should make you heat sensitive actual effect ingame isn't much

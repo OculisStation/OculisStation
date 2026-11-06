@@ -41,12 +41,16 @@
 
 	var/list/exclusions = list()
 	exclusions += BODY_ZONE_CHEST
-	if (!issynthetic(cast_on))
-		exclusions += BODY_ZONE_HEAD // no decapitating yourself unless you're a synthetic, who keep their brains in their chest
+	//OCULIS EDIT START - Synths, in fact, do NOT always have their brain in their chest. Stops people from accidentally pulling off their vital head.
+	if (locate(/obj/item/organ/brain) in cast_on.get_bodypart(BODY_ZONE_HEAD)) //ORIGINAL: if (!issynthetic(cast_on))
+		exclusions += BODY_ZONE_HEAD // no decapitating yourself unless your brain is not in your head.
+	//OCULIS EDIT END
 
 	var/list/robot_parts = list()
 	for (var/obj/item/bodypart/possible_part as anything in cast_on.bodyparts)
-		if ((possible_part.bodytype & BODYTYPE_ROBOTIC) && !(possible_part.body_zone in exclusions)) //only robot limbs and only if they're not crucial to our like, ongoing life, you know?
+	//OCULIS EDIT START - Adds a check for !(possible_part.bodypart_flags & BODYPART_UNREMOVABLE) that for some reason did not exist before.
+		if ((possible_part.bodytype & BODYTYPE_ROBOTIC) && !(possible_part.bodypart_flags & BODYPART_UNREMOVABLE) && !(possible_part.body_zone in exclusions)) //only robot limbs and only if they're not crucial to our like, ongoing life, you know?
+	//OCULIS EDIT END
 			robot_parts += possible_part
 
 	if (!length(robot_parts))

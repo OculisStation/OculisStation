@@ -24,9 +24,11 @@
 
 /datum/hallucination/hazard/lava
 	hazard_type = /obj/effect/client_image_holder/hallucination/danger/lava
+	hallucination_tier = HALLUCINATION_TIER_VERYSPECIAL // OCULIS EDIT ADDITION
 
 /datum/hallucination/hazard/chasm
 	hazard_type = /obj/effect/client_image_holder/hallucination/danger/chasm
+	hallucination_tier = HALLUCINATION_TIER_VERYSPECIAL // OCULIS EDIT ADDITION
 
 /datum/hallucination/hazard/anomaly
 	hazard_type = /obj/effect/client_image_holder/hallucination/danger/anomaly

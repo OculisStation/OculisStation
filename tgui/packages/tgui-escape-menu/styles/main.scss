@@ -27,6 +27,7 @@ body,
 .Tooltip {
   font-family: 'Pixellari', monospace;
   transform: translateY(-1.5rem);
+  z-index: 3;
 }
 
 .escape-menu {
@@ -96,6 +97,15 @@ body,
     line-height: 1.5;
     color: #ddd;
     z-index: 2;
+  }
+
+  &__details-link {
+    color: #5599ff;
+
+    &:hover {
+      text-decoration: underline;
+      -webkit-text-stroke: 0;
+    }
   }
 
   &__buttons {

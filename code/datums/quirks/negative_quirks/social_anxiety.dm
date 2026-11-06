@@ -72,7 +72,7 @@
 		for(var/word in message_split)
 			if(prob(max(5, moodmod)) && word != message_split[1]) //Minimum 1/20 chance of filler
 				new_message += pick("uh,","erm,","um,")
-				if(prob(min(5, moodmod))) //Max 1 in 20 chance of cutoff after a successful filler roll, for 50% odds in a 15 word sentence
+				if(prob(min(5, moodmod) * speech_block_chance)) // OCULIS EDIT - Original: if(prob(min(5, moodmod))) | Fixes Social Anxiety speech block chance
 					quirk_holder.set_silence_if_lower(6 SECONDS)
 					to_chat(quirk_holder, span_danger("You feel self-conscious and stop talking. You need a moment to recover!"))
 					break

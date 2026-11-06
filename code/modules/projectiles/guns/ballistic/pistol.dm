@@ -342,7 +342,7 @@
 		take_damage(damage_to_take)
 		return
 
-	playsound(loc, SFX_SHATTER, 75, TRUE)
+	playsound(loc, /datum/sound_effect/shatter, 75, TRUE)
 	if (loc != user)
 		take_damage(damage_to_take)
 		return
@@ -393,10 +393,7 @@
 
 /obj/item/disk/design_disk/liberator
 	name = "illegal 3D printer design disk"
-
-/obj/item/disk/design_disk/liberator/Initialize(mapload)
-	. = ..()
-	blueprints += new /datum/design/liberator_gun
+	blueprints = list(/datum/design/liberator_gun)
 
 #undef DOORHICKEY_GUN_MIN_DAMAGE
 #undef DOORHICKEY_GUN_MAX_DAMAGE

@@ -133,16 +133,10 @@ GLOBAL_LIST_INIT(meta_gas_info, meta_gas_list()) //see ATMOSPHERICS/gas_types.dm
 /datum/gas_mixture/proc/thermal_energy()
 	return THERMAL_ENERGY(src) //see code/__DEFINES/atmospherics.dm; use the define in performance critical areas
 
-///Update archived versions of variables. Returns: 1 in all cases
+/// Update archived versions of variables
 /datum/gas_mixture/proc/archive()
-	var/list/cached_moles = moles
-	var/list/cached_moles_archive = moles_archive
-
+	moles_archive = moles.Copy()
 	temperature_archived = temperature
-	for(var/gas_id, value in cached_moles)
-		cached_moles_archive[gas_id] = value
-
-	return TRUE
 
 ///Merges all air from giver into self. Deletes giver. Returns: 1 if we are mutable, 0 otherwise
 /datum/gas_mixture/proc/merge(datum/gas_mixture/giver)
@@ -476,6 +470,10 @@ GLOBAL_LIST_INIT(meta_gas_info, meta_gas_list()) //see ATMOSPHERICS/gas_types.dm
 /datum/gas_mixture/proc/compare(datum/gas_mixture/sample, cmp_archive)
 	var/list/cached_moles = (cmp_archive) ? moles_archive : moles
 	var/list/sample_cached_moles = (cmp_archive) ? sample.moles_archive : sample.moles  //accessing datum vars is slower than proc vars
+	var/total_delta = abs(values_sum(moles) - values_sum(sample.moles))
+
+	if(total_delta > MINIMUM_MOLES_DELTA_TO_MOVE) //difference in total moles no need for further iterration
+		return "total_moles"
 
 	for(var/gas_id in cached_moles | sample_cached_moles) // compare gases from either mixture
 		var/gas_moles = cached_moles[gas_id] // it can be null, but everything coerce to 0 after, so we save JMP and Tst
@@ -529,7 +527,7 @@ GLOBAL_LIST_INIT(meta_gas_info, meta_gas_list()) //see ATMOSPHERICS/gas_types.dm
 	//It might be worth looking into updating these after each reaction, but that makes us care more about order of operations, so be careful
 	var/temp = temperature
 	reaction_loop:
-		for(var/datum/gas_reaction/reaction as anything in reactions)
+		for(var/datum/gas_reaction/standard/reaction as anything in reactions)
 
 			var/list/reqs = reaction.requirements
 			if((reqs["MIN_TEMP"] && temp < reqs["MIN_TEMP"]) || (reqs["MAX_TEMP"] && temp > reqs["MAX_TEMP"]))
@@ -742,6 +740,48 @@ GLOBAL_LIST_INIT(meta_gas_info, meta_gas_list()) //see ATMOSPHERICS/gas_types.dm
 	return TRUE
 
 /**
+ * Adds a number of moles of a specific gas to this gas mixture
+ * If adding the gas would exceed a target pressure, the difference will be removed from the mixture
+ * The excess gas that would cause the pressure to exceed the target will be removed and returned
+ *
+ * * gas_type - the typepath of gas to add.
+ * * mol_count - the number of moles of the gas to add.
+ * * target_pressure - the maximum pressure allowed in the mixture.
+ */
+/datum/gas_mixture/proc/add_gas_up_to_pressure(gas_type, mol_count, max_pressure = ONE_ATMOSPHERE)
+	assert_gas(gas_type)
+	adjust_gas(gas_type, mol_count)
+	return remove_moles_beyond_excess_pressure(max_pressure)
+
+/**
+ * Adds multiple gases to the mixture, ensuring the total pressure does not exceed the specified maximum pressure.
+ *
+ * * gas_list - a list of gases to add, where each entry is a pair of gas type and mole count.
+ * * max_pressure - the maximum pressure allowed in the mixture.
+ */
+/datum/gas_mixture/proc/add_gases_up_to_pressure(gas_list, max_pressure = ONE_ATMOSPHERE)
+	assert_gases(arglist(gas_list))
+	adjust_multiple_gases(gas_list)
+	return remove_moles_beyond_excess_pressure(max_pressure)
+
+/**
+ * When given a target pressure, removes an amount of moles from the gas mixture to return to that pressure.
+ *
+ * * max_pressure - the target pressure to return to.
+ *
+ * Returns a gas mixture containing the excess moles that were removed to achieve the target pressure.
+ * Returns null if the current pressure is already less than or equal to the target pressure.
+ */
+/datum/gas_mixture/proc/remove_moles_beyond_excess_pressure(max_pressure = ONE_ATMOSPHERE)
+	if(return_pressure() <= max_pressure)
+		return null
+
+	var/expected_mols = (max_pressure * return_volume()) / (R_IDEAL_GAS_EQUATION  * return_temperature())
+	var/datum/gas_mixture/excess_air = remove(total_moles() - expected_mols)
+	garbage_collect()
+	return excess_air
+
+/**
  * Calls for electrolyzer_reaction reactions on the gas_mixture.
  * Arguments:
  * * working_power - working_power to use for the electrolyzer_reaction reactions.
@@ -749,7 +789,7 @@ GLOBAL_LIST_INIT(meta_gas_info, meta_gas_list()) //see ATMOSPHERICS/gas_types.dm
  */
 /datum/gas_mixture/proc/electrolyze(working_power = 0, electrolyzer_args = list())
 	for(var/reaction in GLOB.electrolyzer_reactions)
-		var/datum/electrolyzer_reaction/current_reaction = GLOB.electrolyzer_reactions[reaction]
+		var/datum/gas_reaction/electrolyzer/current_reaction = GLOB.electrolyzer_reactions[reaction]
 
 		if(!current_reaction.reaction_check(air_mixture = src, electrolyzer_args = electrolyzer_args))
 			continue

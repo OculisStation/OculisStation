@@ -63,9 +63,6 @@
 	 * do NOT add channels to this for little reason as it can add considerable memory usage.
 	 */
 	var/list/important_recursive_contents
-	///contains every client mob corresponding to every client eye in this container. lazily updated by SSparallax and is sparse:
-	///only the last container of a client eye has this list assuming no movement since SSparallax's last fire
-	var/list/client_mobs_in_contents
 
 	/// String representing the spatial grid groups we want to be held in.
 	/// acts as a key to the list of spatial grid contents types we exist in via SSspatial_grid.spatial_grid_categories.
@@ -253,8 +250,6 @@
 	if(spatial_grid_key)
 		SSspatial_grid.force_remove_from_grid(src)
 
-	LAZYNULL(client_mobs_in_contents)
-
 #ifndef DISABLE_DREAMLUAU
 	// These lists cease existing when src does, so we need to clear any lua refs to them that exist.
 	DREAMLUAU_CLEAR_REF_USERDATA(vis_contents)
@@ -420,8 +415,9 @@
 	return TRUE
 
 /// Returns a list of movables that should also be affected when src moves through zlevels, and src.
-/atom/movable/proc/get_z_move_affected(z_move_flags)
-	. = list(src)
+/atom/movable/proc/get_z_move_affected(z_move_flags, list/returning_list = list())
+	. = returning_list
+	. |= src
 	if(buckled_mobs)
 		. |= buckled_mobs
 	if(!(z_move_flags & ZMOVE_INCLUDE_PULLED))
@@ -429,15 +425,11 @@
 	for(var/mob/living/buckled as anything in buckled_mobs)
 		if(buckled.pulling)
 			. |= buckled.pulling
-	if(pulling)
-		. |= pulling
-		if (pulling.buckled_mobs)
-			. |= pulling.buckled_mobs
-
-		//makes conga lines work with ladders and flying up and down; checks if the guy you are pulling is pulling someone,
-		//then uses recursion to run the same function again
-		if (pulling.pulling)
-			. |= pulling.pulling.get_z_move_affected(z_move_flags)
+	//makes conga lines work with ladders and flying up and down; checks if the guy you are pulling is pulling someone,
+	//then uses recursion to run the same function again
+	//we pass in the list from this proc to ensure we dont reach an infinite loop due to mobs grabbed in a loop or two mobs grabing eachother.
+	if(pulling && !(pulling in .))
+		. |= pulling.get_z_move_affected(z_move_flags, .)
 
 /**
  * Checks if the destination turf is elegible for z movement from the start turf to a given direction and returns it if so.
@@ -691,11 +683,21 @@
  * most of the time you want forceMove()
  */
 /atom/movable/proc/abstract_move(atom/new_loc)
-	RESOLVE_ACTIVE_MOVEMENT // This should NEVER happen, but, just in case...
+	RESOLVE_INTERRUPTED_MOVEMENT // This should NEVER happen, but, just in case...
 	var/atom/old_loc = loc
 	var/direction = get_dir(old_loc, new_loc)
 	loc = new_loc
 	Moved(old_loc, direction, TRUE, momentum_change = FALSE)
+
+/// Finishes a movement of ours that something in its callbacks interrupted with another one.
+/atom/movable/proc/finish_interrupted_movement()
+	var/list/movement = active_movement
+	active_movement = null
+	var/area/old_area = get_area(movement[ACTIVE_MOVEMENT_OLDLOC])
+	var/area/new_area = get_area(src)
+	if(old_area != new_area)
+		new_area?.Entered(src, old_area)
+	Moved(arglist(movement))
 
 ////////////////////////////////////////
 // Here's where we rewrite how byond handles movement except slightly different
@@ -707,7 +709,7 @@
 		return
 	SEND_SIGNAL(src, COMSIG_MOVABLE_ATTEMPTED_MOVE, newloc, direction)
 	// A mid-movement... movement... occurred, resolve that first.
-	RESOLVE_ACTIVE_MOVEMENT
+	RESOLVE_INTERRUPTED_MOVEMENT
 
 	if(!direction)
 		direction = get_dir(src, newloc)
@@ -757,23 +759,25 @@
 
 	. = TRUE
 
+	if(oldarea != newarea)
+		oldarea.Exited(src, direction)
+
 	if(old_locs) // This condition will only be true if it is a multi-tile object.
 		for(var/atom/exited_loc as anything in (old_locs - new_locs))
 			exited_loc.Exited(src, direction)
 	else // Else there's just one loc to be exited.
 		oldloc.Exited(src, direction)
-	if(oldarea != newarea)
-		oldarea.Exited(src, direction)
 
 	if(new_locs) // Same here, only if multi-tile.
 		for(var/atom/entered_loc as anything in (new_locs - old_locs))
 			entered_loc.Entered(src, oldloc, old_locs)
 	else
 		newloc.Entered(src, oldloc, old_locs)
-	if(oldarea != newarea)
-		newarea.Entered(src, oldarea)
 
-	RESOLVE_ACTIVE_MOVEMENT
+	if(oldarea != newarea)
+		RESOLVE_ACTIVE_AREA_MOVEMENT(newarea, oldarea)
+	else
+		RESOLVE_ACTIVE_MOVEMENT
 
 ////////////////////////////////////////
 
@@ -842,8 +846,6 @@
 					setDir(first_step_dir)
 				else if(!inertia_moving)
 					newtonian_move(dir2angle(direct))
-				if(client_mobs_in_contents)
-					update_parallax_contents()
 			moving_diagonally = 0
 			return
 
@@ -917,11 +919,6 @@
 
 	if (!moving_diagonally && !inertia_moving && momentum_change && movement_dir)
 		newtonian_move(dir2angle(movement_dir))
-	// If we ain't moving diagonally right now, update our parallax
-	// We don't do this all the time because diag movements should trigger one call to this, not two
-	// Waste of cpu time, and it fucks the animate
-	if (!moving_diagonally && client_mobs_in_contents)
-		update_parallax_contents()
 
 	SEND_SIGNAL(src, COMSIG_MOVABLE_MOVED, old_loc, movement_dir, forced, old_locs, momentum_change)
 
@@ -1010,8 +1007,8 @@
 	if(!QDELETED(throwing))
 		throwing.finalize(hit = TRUE, target = bumped_atom)
 		. = TRUE
-		if(QDELETED(bumped_atom))
-			return
+	if(QDELETED(bumped_atom))
+		return TRUE
 	bumped_atom.Bumped(src)
 
 /atom/movable/Exited(atom/movable/gone, direction)
@@ -1192,7 +1189,7 @@
 
 /atom/movable/proc/doMove(atom/destination)
 	. = FALSE
-	RESOLVE_ACTIVE_MOVEMENT
+	RESOLVE_INTERRUPTED_MOVEMENT
 
 	var/atom/oldloc = loc
 	var/is_multi_tile = bound_width > ICON_SIZE_X || bound_height > ICON_SIZE_Y
@@ -1220,6 +1217,10 @@
 				stack_trace("Attempt to move [src] to [destination] was rejected by BYOND, possibly due to cyclic contents")
 				return FALSE
 
+			// The area exit goes out before the turfs hear anything, so a move they set off never leaves it pending
+			if(old_area && old_area != destarea)
+				old_area.Exited(src, movement_dir)
+
 			if(is_multi_tile && isturf(destination))
 				var/dx = destination.x
 				var/dy = destination.y
@@ -1228,8 +1229,6 @@
 					dx, dy, dz,
 					dx + ROUND_UP(bound_width / ICON_SIZE_X), dy + ROUND_UP(bound_height / ICON_SIZE_Y), dz
 				)
-				if(old_area && old_area != destarea)
-					old_area.Exited(src, movement_dir)
 				for(var/atom/left_loc as anything in locs - new_locs)
 					left_loc.Exited(src, movement_dir)
 
@@ -1237,15 +1236,12 @@
 					entering_loc.Entered(src, movement_dir)
 
 				if(old_area && old_area != destarea)
-					destarea.Entered(src, movement_dir)
+					RESOLVE_ACTIVE_AREA_MOVEMENT(destarea, movement_dir)
 			else
-				if(oldloc)
-					oldloc.Exited(src, movement_dir)
-					if(old_area && old_area != destarea)
-						old_area.Exited(src, movement_dir)
+				oldloc?.Exited(src, movement_dir)
 				destination.Entered(src, oldloc)
 				if(destarea && old_area != destarea)
-					destarea.Entered(src, old_area)
+					RESOLVE_ACTIVE_AREA_MOVEMENT(destarea, old_area)
 
 		. = TRUE
 
@@ -1256,14 +1252,12 @@
 		if (oldloc)
 			loc = null
 			var/area/old_area = get_area(oldloc)
+			old_area?.Exited(src, NONE)
 			if(is_multi_tile && isturf(oldloc))
 				for(var/atom/old_loc as anything in locs)
 					old_loc.Exited(src, NONE)
 			else
 				oldloc.Exited(src, NONE)
-
-			if(old_area)
-				old_area.Exited(src, NONE)
 
 	RESOLVE_ACTIVE_MOVEMENT
 
@@ -1766,9 +1760,10 @@
 /atom/movable/proc/setGrabState(newstate)
 	if(newstate == grab_state)
 		return
-	SEND_SIGNAL(src, COMSIG_MOVABLE_SET_GRAB_STATE, newstate)
 	. = grab_state
 	grab_state = newstate
+	SEND_SIGNAL(src, COMSIG_MOVABLE_SET_GRAB_STATE, grab_state)
+	SEND_SIGNAL(pulling, COMSIG_MOVABLE_CHANGED_GRABBED_STATE, grab_state)
 	switch(grab_state) // Current state.
 		if(GRAB_PASSIVE)
 			pulling.remove_traits(list(TRAIT_IMMOBILIZED, TRAIT_HANDS_BLOCKED), CHOKEHOLD_TRAIT)

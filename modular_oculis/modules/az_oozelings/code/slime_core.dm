@@ -601,7 +601,8 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 		if(core_item)
 			drop_items(usr, list(core_item))
 
-ADMIN_VERB(cmd_admin_heal_slime, R_ADMIN, "Heal Slime Core", "Use this to heal Slime cores.", ADMIN_CATEGORY_DEBUG, obj/item/organ/brain/slime/core in GLOB.dead_slime_cores)
+ADMIN_VERB(cmd_admin_heal_slime, R_ADMIN, "Heal Slime Core", "Use this to heal Slime cores.", ADMIN_CATEGORY_DEBUG)
+	VERB_ARG_TYPED(core, VERB_ARG_TYPE_OBJ, VERB_ARG_SOURCE_WORLD, /obj/item/organ/brain/slime)
 	if(QDELETED(core))
 		to_chat(user, span_boldannounce("Invalid Slime Core."), confidential = TRUE)
 		return

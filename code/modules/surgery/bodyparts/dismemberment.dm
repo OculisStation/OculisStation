@@ -134,6 +134,7 @@
 			return
 		forceMove(drop_loc)
 
+	SEND_SIGNAL(src, COMSIG_BODYPART_POST_REMOVED, owner, special, dismembered)
 	SEND_SIGNAL(phantom_owner, COMSIG_CARBON_POST_REMOVE_LIMB, src, special, dismembered)
 
 /**
@@ -261,16 +262,17 @@
 	if(!can_attach_limb(new_limb_owner, special))
 		return FALSE
 
-	var/obj/item/bodypart/existing_limb = new_limb_owner.get_bodypart(body_zone, include_stumps = TRUE)
-	if(existing_limb)
-		if(existing_limb.type != stump_typepath)
-			stack_trace("Attempted to attach a limb to [new_limb_owner] in zone [body_zone] where they already have a non-stump limb")
-		existing_limb.drop_limb(special = TRUE)
-		qdel(existing_limb)
+	if(body_zone)
+		var/obj/item/bodypart/existing_limb = new_limb_owner.get_bodypart(body_zone, include_stumps = TRUE)
+		if(existing_limb)
+			if(existing_limb.type != stump_typepath)
+				stack_trace("Attempted to attach a limb to [new_limb_owner] in zone [body_zone] where they already have a non-stump limb")
+			existing_limb.drop_limb(special = TRUE)
+			qdel(existing_limb)
 
 	SEND_SIGNAL(new_limb_owner, COMSIG_CARBON_ATTACH_LIMB, src, special, lazy)
 	SEND_SIGNAL(src, COMSIG_BODYPART_ATTACHED, new_limb_owner, special, lazy)
-	new_limb_owner.add_bodypart(src)
+	new_limb_owner.add_bodypart(src, special, lazy)
 
 	if(!lazy)
 		LAZYREMOVE(new_limb_owner.body_zone_dismembered_by, body_zone)
@@ -368,6 +370,8 @@
 
 	if(length(excluded_zones))
 		zone_list -= excluded_zones
+	if(HAS_TRAIT(src, TRAIT_BLOCK_ATTACHING_LEGS))
+		zone_list -= GLOB.leg_zones
 	for(var/limb_zone in zone_list)
 		regenerate_limb(limb_zone, dismembered_by_copy)
 

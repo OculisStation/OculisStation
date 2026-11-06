@@ -32,7 +32,7 @@
 	light_on = FALSE
 	combat_mode = FALSE
 	ai_controller = /datum/ai_controller/basic_controller/minebot
-	damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 1, STAMINA = 0, OXY = 1)
+	physiology = list(STAMINA = 0)
 	///the gun we use to kill
 	var/obj/item/gun/energy/recharge/kinetic_accelerator/minebot/stored_gun
 	///our normal overlay
@@ -90,7 +90,7 @@
 	comms.implant(src)
 	assign_access()
 
-/mob/living/basic/mining_drone/set_combat_mode(new_mode, silent = TRUE)
+/mob/living/basic/mining_drone/set_combat_mode(new_mode, silent = TRUE, force = FALSE)
 	. = ..()
 	icon_state = combat_mode ? "mining_drone_offense" : "mining_drone"
 	balloon_alert(src, "now [combat_mode ? "attacking" : "collecting"]")

@@ -87,7 +87,7 @@ export function LoadoutPage(props) {
                         data.character_preferences.misc.loadout_lists.loadouts
                           .length
                       }{' '}
-                      of 12 total)
+                      of 24 total)
                     </Flex.Item>
                   )}
                   <Flex.Item ml="auto">

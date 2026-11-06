@@ -925,7 +925,6 @@
       all maps, and in the ghost cafe.
   - bugfix: Departments now have their cargo order consoles on icebox
   - refactor: refactored organic interface chemicals
-  - rscdel: cum and aphrodisiac kegs have been removed
   - rscdel: A broken and obsolete captain's clothing item has been removed
   - rscadd: Poly now listens to basic voice commands, but she only recognizes the
       CE's authority! Say "Poly, up" or "Poly, perch" to get her on your shoulder,

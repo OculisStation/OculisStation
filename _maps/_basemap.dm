@@ -21,6 +21,8 @@
 	// #include "map_files\Ouroboros\Ouroboros.dmm"
 	#include "map_files\SerenityStation\SerenityStation.dmm"
 	#include "map_files\Snowglobe\snowglobe.dmm"
+	#include "map_files\oceanpubby\oceanpubby.dmm"
+	// #include "map_files\NorthStar\north_star.dmm"
 	// NOVA EDIT ADDITION END
 	// OCULIS EDIT START
 	#include "map_files\oceanpubby\oceanpubby.dmm"
@@ -35,8 +37,8 @@
 	#include "templates_nova.dm"
 #endif
 // NOVA EDIT ADDITION END
-// IRIS EDIT ADDITION START
-#ifdef IRIS_TEMPLATES
-	#include "templates_iris.dm"
+// OCULIS EDIT ADDITION START
+#ifdef OCULIS_TEMPLATES
+	#include "templates_oculis.dm"
 #endif
-// IRIS EDIT ADDITION END
+// OCULIS EDIT ADDITION END

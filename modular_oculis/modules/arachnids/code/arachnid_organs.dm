@@ -39,6 +39,10 @@
 	modifies_speech = TRUE
 	disliked_foodtypes = FRUIT | VEGETABLES // Okay listen, i don't actually know what irl spiders don't like to eat and i'm pretty tired of looking for answers. <--- LOKA HERE, arachnids in my headcanon don't like vegetables so we'll do that
 	liked_foodtypes = GORE | MEAT | BUGS | GROSS
+	emote_sounds = list(
+		/datum/emote/living/scream::key = 'modular_oculis/modules/arachnids/sounds/arachnid_scream.ogg',
+		/datum/emote/living/laugh::key = 'modular_oculis/modules/arachnids/sounds/arachnid_laugh.ogg',
+	)
 
 /obj/item/organ/tongue/arachnid/modify_speech(datum/source, list/speech_args) //This is flypeople speech
 	var/static/regex/fly_buzz = new("z+", "g")

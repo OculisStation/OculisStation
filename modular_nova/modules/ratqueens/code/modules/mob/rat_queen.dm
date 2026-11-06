@@ -123,27 +123,3 @@
 	allow_random = FALSE
 	icon_state_living = "buffking"
 	icon_state_dead = "buffking_dead"
-
-/// Rat queen (thick rat)
-
-/datum/rat_fashion/rat_queen
-	name = "rat queen"
-	allow_random = TRUE
-	icon_state_living = "ratqueen"
-	icon_state_dead = "ratqueen_dead"
-
-/// Rat queen alt (fat rat)
-
-/datum/rat_fashion/rat_queen_alt
-	name = "rat queen alt"
-	allow_random = TRUE
-	icon_state_living = "ratqueen_fat"
-	icon_state_dead = "ratqueen_dead"
-
-/// Ringmaster (thick rat but clothed)
-
-/datum/rat_fashion/ringmaster
-	name = "ringmaster"
-	allow_random = FALSE
-	icon_state_living = "ringmaster"
-	icon_state_dead = "ratqueen_dead"

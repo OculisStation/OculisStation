@@ -146,7 +146,7 @@
 		vision_distance = 5,
 		visible_message_flags = ALWAYS_SHOW_SELF_MESSAGE,
 	)
-	playsound(src, istype(tool, /obj/item/stack/medical/suture) ? SFX_SUTURE_BEGIN : 'sound/items/handling/surgery/cautery1.ogg', 50, TRUE)
+	playsound(src, istype(tool, /obj/item/stack/medical/suture) ? /datum/sound_effect/suture_begin : 'sound/items/handling/surgery/cautery1.ogg', 50, TRUE)
 	if(!do_after(
 		user = src,
 		delay = /datum/surgery_operation/limb/close_skin::time * 2 * tool.toolspeed,
@@ -162,7 +162,7 @@
 		vision_distance = 5,
 		visible_message_flags = ALWAYS_SHOW_SELF_MESSAGE,
 	)
-	playsound(src, istype(tool, /obj/item/stack/medical/suture) ? SFX_SUTURE_END : 'sound/items/handling/surgery/cautery2.ogg', 50, TRUE)
+	playsound(src, istype(tool, /obj/item/stack/medical/suture) ? /datum/sound_effect/suture_end : 'sound/items/handling/surgery/cautery2.ogg', 50, TRUE)
 	limb.remove_surgical_state(ALL_SURGERY_STATES_UNSET_ON_CLOSE)
 	if(istype(tool, /obj/item/stack/medical/suture))
 		var/obj/item/stack/medical/suture/suture_tool = tool
@@ -518,7 +518,7 @@ GLOBAL_DATUM_INIT(operations, /datum/operation_holder, new)
 		return 0
 
 	var/obj/item/realtool = tool
-	return (realtool.toolspeed) * (implements[realtool.tool_behaviour] || is_type_in_list(realtool, implements, zebra = TRUE) || 0)
+	return (realtool.toolspeed) * (implements[realtool.tool_behaviour] || is_type_in_list(realtool, implements, zebra = TRUE, return_first_match = TRUE) || 0)
 
 /**
  * Return a radial slice, a list of radial slices, or an assoc list of radial slice to operation info

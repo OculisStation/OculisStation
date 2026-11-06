@@ -8,29 +8,29 @@
 
 // New blood packs
 /obj/item/reagent_containers/blood/haemocyanin
-	blood_type = "Haemocyanin"
+	blood_type = /datum/blood_type/haemocyanin
 
 /obj/item/reagent_containers/blood/chlorocruorin
-	blood_type = "Chlorocruorin"
+	blood_type = /datum/blood_type/chlorocruorin
 
 /obj/item/reagent_containers/blood/hemerythrin
-	blood_type = "Hemerythrin"
+	blood_type = /datum/blood_type/hemerythrin
 
 /obj/item/reagent_containers/blood/pinnaglobin
-	blood_type = "Pinnaglobin"
+	blood_type = /datum/blood_type/pinnaglobin
 
 /obj/item/reagent_containers/blood/exotic
-	blood_type = "Exotic"
+	blood_type = /datum/blood_type/exotic
 
 // OCULIS EDIT ADDITION START
 /obj/item/reagent_containers/blood/haemoglobin
-	blood_type = "Haemoglobin"
+	blood_type = /datum/blood_type/haemoglobin
 
 /obj/item/reagent_containers/blood/haemotoxin
-	blood_type = "Haemotoxin"
+	blood_type = /datum/blood_type/haemotoxin
 
 /obj/item/reagent_containers/blood/nanoblood
-	blood_type = "Nanomachine Infused Blood"
+	blood_type = /datum/blood_type/nanoblood
 // OCULIS EDIT ADDITION END
 
 /datum/supply_pack/medical/bloodpacks/uncommon

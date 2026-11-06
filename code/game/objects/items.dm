@@ -109,7 +109,7 @@
 
 	///Price of an item in a vending machine, overriding the base vending machine price. Define in terms of paycheck defines as opposed to raw numbers.
 	var/custom_price
-	///Price of an item in a vending machine, overriding the premium vending machine price. Define in terms of paycheck defines as opposed to raw numbers.
+	///Price of a premium and contraband item in a vending machine, overriding the premium vending machine price. Define in terms of paycheck defines as opposed to raw numbers.
 	var/custom_premium_price
 	///Whether spessmen with an ID with an age below AGE_MINOR (20 by default) can buy this item
 	var/age_restricted = FALSE
@@ -269,7 +269,7 @@
 		if(damtype == BURN)
 			hitsound = 'sound/items/tools/welder.ogg'
 		if(damtype == BRUTE)
-			hitsound = SFX_SWING_HIT
+			hitsound = /datum/sound_effect/swing_hit
 
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_ITEM, src)
 
@@ -443,12 +443,14 @@ GAME_VERB_SRC(/obj/item, move_to_top, oview(1), "Move To Top", null)
 
 	if(item_flags & CRUEL_IMPLEMENT)
 		.[span_red("morbid")] = "It seems quite practical for particularly morbid procedures and experiments."
-	if(item_flags & BLUESPACE_INTERFERENCE)
+	if(HAS_TRAIT(src, TRAIT_BLUESPACE_INTERFERENCE))
 		.["bluespace-active"] = "It is highly active in bluespace and will cause malfunctions in teleporters."
 	if (siemens_coefficient == 0)
 		.["insulated"] = "It is made from a robust electrical insulator and will block any electricity passing through it!"
 	else if (siemens_coefficient <= 0.5)
 		.["partially insulated"] = "It is made from a poor insulator that will dampen (but not fully block) electric shocks passing through it."
+	if(item_flags & CAN_BE_OVERSLOT)
+		.["form-fitting"] = "It does not block MODsuits from deploying when worn."
 
 /obj/item/examine_descriptor(mob/user)
 	return "item"
@@ -466,21 +468,19 @@ GAME_VERB_SRC(/obj/item, move_to_top, oview(1), "Move To Top", null)
 		. += research_scan(user)
 
 /obj/item/proc/research_scan(mob/user)
-	/// Research prospects, including boostable nodes and point values. Deliver to a console to know whether the boosts have already been used.
+	// Research prospects, including boostable nodes and point values. Deliver to a console to know whether the boosts have already been used.
 	var/list/research_msg = list("<font color='purple'>Research prospects:</font> ")
-	///Separator between the items on the list
+	// Separator between the items on the list
 	var/sep = ""
-	///Nodes that can be boosted
-	var/list/boostable_nodes = techweb_item_unlock_check(src)
-	if (boostable_nodes)
-		for(var/id in boostable_nodes)
-			var/datum/techweb_node/node = SSresearch.techweb_node_by_id(id)
-			if(!node)
-				continue
+	// Nodes that can be boosted
+	var/list/boostable_nodes = SSresearch.techweb_unlock_items[type]
+	if(length(boostable_nodes))
+		for(var/boost_path in boostable_nodes)
+			var/datum/techweb_node/node = SSresearch.techweb_nodes[boost_path]
 			research_msg += sep
 			research_msg += node.display_name
 			sep = ", "
-	var/list/points = techweb_item_point_check(src)
+	var/list/points = SSresearch.techweb_point_items[type]
 	if (length(points))
 		sep = ", "
 		research_msg += techweb_point_display_generic(points)
@@ -870,10 +870,11 @@ GAME_VERB_SRC(/obj/item, verb_pickup, oview(1), "Pick up", null)
 
 /obj/item/singularity_pull(atom/singularity, current_size)
 	..()
+	if(QDELETED(src))
+		return
+
 	if(current_size >= STAGE_FOUR)
 		throw_at(singularity, 14, 3, spin=0)
-	else
-		return
 
 /obj/item/on_exit_storage(datum/storage/master_storage)
 	. = ..()
@@ -911,12 +912,11 @@ GAME_VERB_SRC(/obj/item, verb_pickup, oview(1), "Pick up", null)
 	if(HAS_TRAIT(src, TRAIT_NODROP))
 		return
 	callback = CALLBACK(src, PROC_REF(after_throw), callback) //replace their callback with our own
-	. = ..(target, range, speed, thrower, spin, diagonals_first, callback, force, gentle, quickstart = quickstart)
+	. = ..(target, range, speed, thrower, spin, diagonals_first, callback, force, gentle, quickstart = quickstart, throw_datum_typepath = throw_type_path)
 
 /obj/item/proc/after_throw(datum/callback/callback)
 	if (callback) //call the original callback
 		. = callback.Invoke()
-	item_flags &= ~IN_INVENTORY
 	if(!pixel_y && !pixel_x && !(item_flags & NO_PIXEL_RANDOM_DROP))
 		pixel_x = rand(-8,8)
 		pixel_y = rand(-8,8)
@@ -970,9 +970,9 @@ GAME_VERB_SRC(/obj/item, verb_pickup, oview(1), "Pick up", null)
 
 /obj/item/proc/get_dismember_sound()
 	if(damtype == BURN)
-		. = SFX_SEAR
+		. = /datum/sound_effect/sear
 	else
-		. = SFX_DESECRATION
+		. = /datum/sound_effect/desecration
 
 /// Creates an ignition hotspot if item is lit and located on turf, in mask, or in hand
 /obj/item/proc/open_flame(flame_heat = 700, mob_slots = ITEM_SLOT_MASK|ITEM_SLOT_HANDS)
@@ -1441,12 +1441,12 @@ GAME_VERB_SRC(/obj/item, verb_pickup, oview(1), "Pick up", null)
 				var/obj/item/shard/broken_glass = new /obj/item/shard(loc)
 				broken_glass.name = "broken [name]"
 				broken_glass.desc = "This used to be \a [name], but it sure isn't anymore."
-				playsound(victim, SFX_SHATTER, 25, TRUE)
+				playsound(victim, /datum/sound_effect/shatter, 25, TRUE)
 				qdel(src)
 				if(QDELETED(source_item))
 					broken_glass.on_accidental_consumption(victim, user)
 			else //33% chance to just "crack" it (play a sound) and leave it in the bread
-				playsound(victim, SFX_SHATTER, 15, TRUE)
+				playsound(victim, /datum/sound_effect/shatter, 15, TRUE)
 			discover_after = FALSE
 
 		victim.adjust_disgust(33)
@@ -1550,7 +1550,7 @@ GAME_VERB_SRC(/obj/item, verb_pickup, oview(1), "Pick up", null)
 	var/image/pickup_animation = image(icon = src)
 	SET_PLANE(pickup_animation, GAME_PLANE, source)
 	pickup_animation.transform.Scale(0.75)
-	pickup_animation.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
+	pickup_animation.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA | (appearance_flags & KEEP_TOGETHER) // OCULIS EDIT - inset overlays (starborne, blood) need KEEP_TOGETHER to stay clipped to the item - ORIGINAL: pickup_animation.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
 
 	var/direction = get_dir(source, target)
 	var/to_x = target.base_pixel_x
@@ -1849,7 +1849,7 @@ GAME_VERB_SRC(/obj/item, verb_pickup, oview(1), "Pick up", null)
 /obj/item/proc/item_start_equip(atom/target, obj/item/equipping, mob/user, show_visible_message = TRUE)
 
 	if(show_visible_message)
-		if(HAS_TRAIT(equipping, TRAIT_DANGEROUS_OBJECT))
+		if(HAS_TRAIT(equipping, TRAIT_DANGEROUS_EQUIP))
 			target.visible_message(
 				span_danger("[user] tries to put [equipping] on [target]."),
 				span_userdanger("[user] tries to put [equipping] on you."),

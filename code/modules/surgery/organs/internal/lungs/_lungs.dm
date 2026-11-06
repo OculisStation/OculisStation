@@ -28,15 +28,15 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment/organ_tissue = 5, /datum/reagent/medicine/salbutamol = 5)
 
 	/// Our previous breath's partial pressures, in the form gas id -> partial pressure
-	var/list/last_partial_pressures = list()
+	var/alist/last_partial_pressures = alist()
 	/// List of gas to treat as other gas, in the form list(inital_gas, treat_as, multiplier)
 	var/list/treat_as = list()
-	/// Assoc list of procs to run while a gas is present, in the form gas id -> proc_path
-	var/list/breath_present = list()
-	/// Assoc list of procs to run when a gas is immediately removed from the breath, in the form gas id -> proc_path
-	var/list/breath_lost = list()
-	/// Assoc list of procs to always run, in the form gas_id -> proc_path
-	var/list/breathe_always = list()
+	/// Alist of procs to run while a gas is present, in the form gas id -> proc_path
+	var/alist/breath_present = alist()
+	/// Alist of procs to run when a gas is immediately removed from the breath, in the form gas id -> proc_path
+	var/alist/breath_lost = alist()
+	/// Alist of procs to always run, in the form gas_id -> proc_path
+	var/alist/breathe_always = alist()
 
 	/// Gas mixture to breath out when we're done processing a breath
 	/// Will get emptied out when it's all done
@@ -90,6 +90,11 @@
 	var/tritium_irradiation_moles_max = 15
 	var/tritium_irradiation_probability_min = 10
 	var/tritium_irradiation_probability_max = 60
+
+	var/antinoblium_irradiation_moles_min = 0.5
+	var/antinoblium_irradiation_moles_max = 30
+	var/antinoblium_irradiation_probability_min = 5
+	var/antinoblium_irradiation_probability_max = 90
 
 	var/cold_message = "your face freezing and an icicle forming"
 	var/cold_level_1_threshold = COLD_LEVEL_1_THRESHOLD
@@ -151,6 +156,7 @@
 	add_gas_reaction(/datum/gas/nitrium, while_present = PROC_REF(too_much_nitrium))
 	add_gas_reaction(/datum/gas/tritium, while_present = PROC_REF(too_much_tritium))
 	add_gas_reaction(/datum/gas/zauker, while_present = PROC_REF(too_much_zauker))
+	add_gas_reaction(/datum/gas/antinoblium, while_present = PROC_REF(too_much_antinoblium))
 
 ///Simply exists so that you don't keep any alerts from your previous lack of lungs.
 /obj/item/organ/lungs/on_mob_insert(mob/living/carbon/receiver, special = FALSE, movement_flags)
@@ -168,12 +174,12 @@
 	// This is very "manual" I realize, but it's useful to ensure cleanup for gases we're removing happens
 	// Avoids stuck alerts and such
 	var/static/datum/gas_mixture/immutable/dummy = new(BREATH_VOLUME)
-	for(var/gas_id in last_partial_pressures)
+	for(var/gas_id, partial_pressure in last_partial_pressures)
 		var/on_loss = breath_lost[gas_id]
 		if(!on_loss)
 			continue
 
-		call(src, on_loss)(organ_owner, dummy, last_partial_pressures[gas_id])
+		call(src, on_loss)(organ_owner, dummy, partial_pressure)
 	dummy.garbage_collect()
 
 /**
@@ -267,6 +273,10 @@
 	breather.apply_damage(clamp(ratio, oxy_breath_dam_min, oxy_breath_dam_max), oxy_damage_type, spread_damage = TRUE)
 	if(!HAS_TRAIT(breather, TRAIT_ANOSMIA))
 		breather.throw_alert(ALERT_TOO_MUCH_OXYGEN, /atom/movable/screen/alert/too_much_oxy)
+
+	breather.adjust_organ_loss(ORGAN_SLOT_LUNGS, clamp(o2_pp * 0.5, MIN_TOXIC_GAS_LUNG_DAMAGE, MAX_TOXIC_GAS_LUNG_DAMAGE))
+	if(prob(o2_pp))
+		to_chat(breather, span_alert("You feel a burning sensation in your chest"))
 
 /// Handles NOT having too much o2. only relevant if safe_oxygen_max has a value
 /obj/item/organ/lungs/proc/safe_oxygen(mob/living/carbon/breather, datum/gas_mixture/breath, old_o2_pp)
@@ -363,13 +373,15 @@
 			return BREATH_LOST
 		return
 
-	// If it's the first breath with too much CO2 in it, lets start a counter, then have them pass out after 12s or so.
 	if(old_plasma_pp < safe_plasma_max)
 		if(!HAS_TRAIT(breather, TRAIT_ANOSMIA))
 			breather.throw_alert(ALERT_TOO_MUCH_PLASMA, /atom/movable/screen/alert/too_much_plas)
 
 	var/ratio = (breath.moles[/datum/gas/plasma] / safe_plasma_max) * 10
 	breather.apply_damage(clamp(ratio, plas_breath_dam_min, plas_breath_dam_max), plas_damage_type, spread_damage = TRUE)
+	breather.adjust_organ_loss(ORGAN_SLOT_LUNGS, clamp(plasma_pp * 0.5, MIN_TOXIC_GAS_LUNG_DAMAGE, MAX_TOXIC_GAS_LUNG_DAMAGE))
+	if(prob(plasma_pp))
+		to_chat(breather, span_alert("You feel a burning sensation in your chest"))
 
 /// Resets plasma side effects
 /obj/item/organ/lungs/proc/safe_plasma(mob/living/carbon/breather, datum/gas_mixture/breath, old_plasma_pp)
@@ -388,8 +400,6 @@
 	breathe_gas_volume(breath, /datum/gas/freon)
 	if (freon_pp > gas_stimulation_min)
 		breather.reagents.add_reagent(/datum/reagent/freon, 1)
-	if (prob(freon_pp))
-		to_chat(breather, span_alert("Your mouth feels like it's burning!"))
 	if (freon_pp > 40)
 		breather.emote("gasp")
 		breather.adjust_fire_loss(15)
@@ -398,6 +408,9 @@
 			breather.set_silence_if_lower(6 SECONDS)
 	else
 		breather.adjust_fire_loss(freon_pp / 4)
+	breather.adjust_organ_loss(ORGAN_SLOT_LUNGS, clamp(freon_pp * 0.5, MIN_TOXIC_GAS_LUNG_DAMAGE, MAX_TOXIC_GAS_LUNG_DAMAGE))
+	if(prob(freon_pp))
+		to_chat(breather, span_alert("You feel a burning sensation in your chest"))
 
 /// Breathing in halon, convert it to a reagent
 /obj/item/organ/lungs/proc/too_much_halon(mob/living/carbon/breather, datum/gas_mixture/breath, halon_pp, old_halon_pp)
@@ -461,6 +474,13 @@
 	// Inhale Miasma. Exhale nothing.
 	breathe_gas_volume(breath, /datum/gas/miasma)
 	// Miasma side effects
+	if (prob(0.5 * miasma_pp))
+		for (var/datum/disease as anything in breather.diseases)
+			if (is_type_in_list(disease, GLOB.floor_diseases))
+				return
+		var/random_disease = pick_weight(GLOB.floor_diseases)
+		var/datum/disease/inflicted_disease = new random_disease
+		breather.ForceContractDisease(inflicted_disease, del_on_fail = TRUE)
 	if (HAS_TRAIT(breather, TRAIT_ANOSMIA)) //Anosmia quirk holder cannot smell miasma, but can get diseases from it.
 		return
 	switch(miasma_pp)
@@ -545,8 +565,8 @@
 	// Random chance to inflict side effects increases with pressure.
 	if((prob(nitrium_pp) && (nitrium_pp > 15)))
 		// Nitrium side-effect.
-		breather.adjust_organ_loss(ORGAN_SLOT_LUNGS, nitrium_pp * 0.1)
-		to_chat(breather, span_notice("You feel a burning sensation in your chest"))
+		breather.adjust_organ_loss(ORGAN_SLOT_LUNGS, clamp(nitrium_pp * 0.1, MIN_TOXIC_GAS_LUNG_DAMAGE, MAX_TOXIC_GAS_LUNG_DAMAGE))
+		to_chat(breather, span_alert("You feel a burning sensation in your chest"))
 	// Metabolize to reagents.
 	if (nitrium_pp > 5)
 		var/existing = breather.reagents.get_reagent_amount(/datum/reagent/nitrium_low_metabolization)
@@ -569,6 +589,28 @@
 		var/chance = LERP(tritium_irradiation_probability_min, tritium_irradiation_probability_max, lerp_scale)
 		if (prob(chance))
 			breather.AddComponent(/datum/component/irradiated)
+	breather.adjust_organ_loss(ORGAN_SLOT_LUNGS, clamp(trit_pp * 1, MIN_TOXIC_GAS_LUNG_DAMAGE, MAX_TOXIC_GAS_LUNG_DAMAGE))
+	if(prob(trit_pp))
+		to_chat(breather, span_alert("You feel a burning sensation in your chest"))
+
+/// Extremelly radioactive gas with severe toxin damage
+/obj/item/organ/lungs/proc/too_much_antinoblium(mob/living/carbon/breather, datum/gas_mixture/breath, antinoblium_pp, old_antinoblium_pp)
+	breathe_gas_volume(breath, /datum/gas/antinoblium)
+	var/gas_breathed = breathe_gas_volume(breath, /datum/gas/antinoblium)
+	var/moles_visible = GLOB.meta_gas_info[META_GAS_MOLES_VISIBLE][/datum/gas/antinoblium] * BREATH_PERCENTAGE
+	// more severe side effects than trit
+	if(gas_breathed > moles_visible)
+		var/ratio = gas_breathed * 30
+		breather.adjust_tox_loss(clamp(ratio, MIN_TOXIC_GAS_DAMAGE, MAX_TOXIC_GAS_DAMAGE))
+	if((antinoblium_pp > antinoblium_irradiation_moles_min) && SSradiation.can_irradiate_basic(breather))
+		var/lerp_scale = min(antinoblium_irradiation_moles_max, antinoblium_pp - antinoblium_irradiation_moles_min) / (antinoblium_irradiation_moles_max - antinoblium_irradiation_moles_min)
+		var/chance = LERP(antinoblium_irradiation_probability_min, antinoblium_irradiation_probability_max, lerp_scale)
+		if(prob(chance))
+			breather.AddComponent(/datum/component/irradiated)
+
+	breather.adjust_organ_loss(ORGAN_SLOT_LUNGS, clamp(antinoblium_pp * 1, MIN_TOXIC_GAS_LUNG_DAMAGE, MAX_TOXIC_GAS_LUNG_DAMAGE))
+	if(prob(antinoblium_pp))
+		to_chat(breather, span_alert("You feel a burning sensation in your chest"))
 
 /// Really toxic stuff, very much trying to kill you
 /obj/item/organ/lungs/proc/too_much_zauker(mob/living/carbon/breather, datum/gas_mixture/breath, zauker_pp, old_zauker_pp)
@@ -577,6 +619,10 @@
 	if(zauker_pp > gas_stimulation_min)
 		var/existing = breather.reagents.get_reagent_amount(/datum/reagent/zauker)
 		breather.reagents.add_reagent(/datum/reagent/zauker, max(0, 1 - existing))
+
+	breather.adjust_organ_loss(ORGAN_SLOT_LUNGS, clamp(zauker_pp * 2, MIN_TOXIC_GAS_LUNG_DAMAGE, MAX_TOXIC_GAS_LUNG_DAMAGE))
+	if(prob(zauker_pp))
+		to_chat(breather, span_alert("You feel a burning sensation in your chest"))
 
 /**
  * This proc tests if the lungs can breathe, if they can breathe a given gas mixture, and throws/clears gas alerts.
@@ -624,7 +670,7 @@
 		// Breath has more than 0 moles of gas.
 		// Route gases through mask filter if breather is wearing one.
 		var/obj/item/clothing/mask/worn_mask = breather.get_item_by_slot(ITEM_SLOT_MASK)
-		if(istype(worn_mask) && (worn_mask.clothing_flags & GAS_FILTERING) && worn_mask.has_filter)
+		if(istype(worn_mask) && worn_mask.has_filter)
 			breath = worn_mask.consume_filter(breath)
 	// Breath has 0 moles of gas, and we can breathe space
 	else if(HAS_TRAIT(breather, TRAIT_NO_BREATHLESS_DAMAGE))
@@ -645,13 +691,13 @@
 	var/old_euphoria = (n2o_euphoria == EUPHORIA_ACTIVE || healium_euphoria == EUPHORIA_ACTIVE)
 
 	// Cache for sonic speed
-	var/list/last_partial_pressures = src.last_partial_pressures
-	var/list/breathe_always = src.breathe_always
-	var/list/breath_present = src.breath_present
-	var/list/breath_lost = src.breath_lost
+	var/alist/last_partial_pressures = src.last_partial_pressures
+	var/alist/breathe_always = src.breathe_always
+	var/alist/breath_present = src.breath_present
+	var/alist/breath_lost = src.breath_lost
 
 	// Build out our partial pressures, for use as we go
-	var/list/partial_pressures = list()
+	var/alist/partial_pressures = alist()
 	for(var/gas_id, amount in breath_moles)
 		partial_pressures[gas_id] = breath.get_breath_partial_pressure(amount * received_pressure_mult)
 
@@ -667,11 +713,10 @@
 
 	// First, we breathe the stuff that always wants to be processed
 	// This is typically things like o2, stuff the mob needs to live
-	for(var/breath_id in breathe_always)
+	// Ensures the gas will always be instanciated, so people can interact with it safely
+	for(var/breath_id, inhale in breathe_always)
 		var/partial_pressure = partial_pressures[breath_id] || 0
 		var/old_partial_pressure = last_partial_pressures[breath_id] || 0
-		// Ensures the gas will always be instanciated, so people can interact with it safely
-		var/inhale = breathe_always[breath_id]
 		call(src, inhale)(breather, breath, partial_pressure, old_partial_pressure)
 
 	// Now we'll handle the callbacks that want to be run conditionally off our current breath
@@ -687,7 +732,7 @@
 				call(src, on_lose)(breather, breath, partial_pressures[gas_id], last_partial_pressures[gas_id])
 
 	// Finally, we'll run the callbacks that aren't in breath_gases, but WERE in our last breath
-	for(var/gas_id in last_partial_pressures)
+	for(var/gas_id, partial_pressure in last_partial_pressures)
 		// If we still have it, go away
 		if(breath_moles[gas_id])
 			continue
@@ -695,7 +740,7 @@
 		if(!on_loss)
 			continue
 
-		call(src, on_loss)(breather, breath, last_partial_pressures[gas_id])
+		call(src, on_loss)(breather, breath, partial_pressure)
 
 	src.last_partial_pressures = partial_pressures
 
@@ -760,20 +805,26 @@
 
 /obj/item/organ/lungs/proc/handle_breath_temperature(datum/gas_mixture/breath, mob/living/carbon/human/breather) // called by human/life, handles temperatures
 	var/breath_temperature = breath.temperature
+	breath.temperature = breather.bodytemperature // The air you breathe out should match your body temperature
+
+	if((breath_temperature > cold_level_1_threshold) || (breath_temperature < heat_level_1_threshold))
+		return // safe air that isn't too hot or cold
 
 	if(!HAS_TRAIT(breather, TRAIT_RESISTCOLD)) // COLD DAMAGE
 		var/cold_modifier = breather.dna.species.coldmod
 		var/breath_effect_prob = 0
-		if(breath_temperature < cold_level_3_threshold)
+		if(breath_temperature <= cold_level_3_threshold)
 			breather.apply_damage(cold_level_3_damage * cold_modifier, cold_damage_type, spread_damage = TRUE)
 			breath_effect_prob = 100
-		if(breath_temperature > cold_level_3_threshold && breath_temperature < cold_level_2_threshold)
+			breather.adjust_organ_loss(ORGAN_SLOT_LUNGS, TEMPERATURE_LUNG_DAMAGE)
+		else if(breath_temperature <= cold_level_2_threshold)
 			breather.apply_damage(cold_level_2_damage * cold_modifier, cold_damage_type, spread_damage = TRUE)
 			breath_effect_prob = 50
-		if(breath_temperature > cold_level_2_threshold && breath_temperature < cold_level_1_threshold)
+		else if(breath_temperature <= cold_level_1_threshold)
 			breather.apply_damage(cold_level_1_damage * cold_modifier, cold_damage_type, spread_damage = TRUE)
 			breath_effect_prob = 25
-		if(breath_temperature < cold_level_1_threshold)
+
+		if(breath_temperature <= cold_level_1_threshold)
 			if(prob(sqrt(breath_effect_prob) * 4))
 				to_chat(breather, span_warning("You feel [cold_message] in your [name]!"))
 				if(prob(50))
@@ -790,21 +841,19 @@
 	if(!HAS_TRAIT(breather, TRAIT_RESISTHEAT)) // HEAT DAMAGE
 		var/heat_modifier = breather.dna.species.heatmod
 		var/heat_message_prob = 0
-		if(breath_temperature > heat_level_1_threshold && breath_temperature < heat_level_2_threshold)
-			breather.apply_damage(heat_level_1_damage * heat_modifier, heat_damage_type, spread_damage = TRUE)
+		if(breath_temperature >= heat_level_3_threshold)
+			breather.apply_damage(heat_level_3_damage * heat_modifier, heat_damage_type, spread_damage = TRUE)
 			heat_message_prob = 100
-		if(breath_temperature > heat_level_2_threshold && breath_temperature < heat_level_3_threshold)
+			breather.adjust_organ_loss(ORGAN_SLOT_LUNGS, TEMPERATURE_LUNG_DAMAGE)
+		else if(breath_temperature >= heat_level_2_threshold)
 			breather.apply_damage(heat_level_2_damage * heat_modifier, heat_damage_type, spread_damage = TRUE)
 			heat_message_prob = 50
-		if(breath_temperature > heat_level_3_threshold)
-			breather.apply_damage(heat_level_3_damage * heat_modifier, heat_damage_type, spread_damage = TRUE)
+		else if(breath_temperature >= heat_level_1_threshold)
+			breather.apply_damage(heat_level_1_damage * heat_modifier, heat_damage_type, spread_damage = TRUE)
 			heat_message_prob = 25
-		if(breath_temperature > heat_level_1_threshold)
+		if(breath_temperature >= heat_level_1_threshold)
 			if(prob(sqrt(heat_message_prob) * 4))
 				to_chat(breather, span_warning("You feel [hot_message] in your [name]!"))
-
-	// The air you breathe out should match your body temperature
-	breath.temperature = breather.bodytemperature
 
 /// Creates a particle effect off the mouth of the passed mob.
 /obj/item/organ/lungs/proc/emit_breath_particle(mob/living/carbon/human/breather, particle_type)
@@ -852,7 +901,15 @@
 		if(do_i_cough)
 			owner.emote("cough")
 	if(organ_flags & ORGAN_FAILING && !IS_UNCONSCIOUS_OR_CRIT(owner))
-		owner.visible_message(span_danger("[owner] grabs [owner.p_their()] throat, struggling for breath!"), span_userdanger("You suddenly feel like you can't breathe!"))
+		// owner.visible_message(span_danger("[owner] grabs [owner.p_their()] throat, struggling for breath!"), span_userdanger("You suddenly feel like you can't breathe!")) // OCULIS EDIT REMOVAL
+		//OCULIS EDIT ADDITION START - nobreath gives you a different failure message, additionally only guaranteed on the fail tick, 5% otherwise for nonvital, 10% if vital (to reduce spam).
+		var/is_nobreather = HAS_TRAIT(owner, TRAIT_NOBREATH)
+		if(!failed || SPT_PROB(is_nobreather ? 5 : 10, seconds_per_tick))
+			if(is_nobreather)
+				to_chat(owner, span_danger("[HAS_TRAIT(owner, TRAIT_SELF_AWARE) ? "Your lungs feel" : "Something within you feels"] wrong!")) //Self aware check for parity with examine.
+			else
+				owner.visible_message(span_danger("[owner] grabs [owner.p_their()] throat, struggling for breath!"), span_userdanger("You [failed ? "" : "suddenly "]feel like you can't breathe!"))
+		//OCULIS EDIT ADDITION END
 		failed = TRUE
 
 /obj/item/organ/lungs/get_availability(datum/species/owner_species, mob/living/owner_mob)
@@ -918,6 +975,8 @@
 	safe_oxygen_min = 0 //We don't breathe this
 	safe_plasma_min = 4 //We breathe THIS!
 	safe_plasma_max = 0
+	oxy_damage_type = TOX
+	organ_flags = ORGAN_MINERAL | ORGAN_ORGANIC
 
 /obj/item/organ/lungs/plasmaman/plasmaman_smoker
 	name = "smoker plasma filter"
@@ -963,7 +1022,7 @@
 	if(. & EMP_PROTECT_SELF)
 		return
 	if(!COOLDOWN_FINISHED(src, severe_cooldown)) //So we cant just spam emp to kill people.
-		owner.losebreath += 20
+		owner.losebreath += (20 / severity)
 		COOLDOWN_START(src, severe_cooldown, 30 SECONDS)
 	if(prob(emp_vulnerability/severity)) //Chance of permanent effects
 		organ_flags |= ORGAN_EMP //Starts organ faliure - gonna need replacing soon.
@@ -1135,7 +1194,6 @@
 	breath.adjust_gas(/datum/gas/water_vapor, -gas_breathed)
 	var/list/new_gases = list(/datum/gas/oxygen = gas_breathed, /datum/gas/hydrogen = gas_breathed * 2)
 	breath_out.adjust_multiple_gases(new_gases)
-
 
 /obj/item/organ/lungs/pod
 	name = "pod vacuole"

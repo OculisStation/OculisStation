@@ -2,7 +2,7 @@
 /datum/hallucination/nearby_fake_item
 	abstract_hallucination_parent = /datum/hallucination/nearby_fake_item
 	random_hallucination_weight = 1
-	hallucination_tier = HALLUCINATION_TIER_COMMON
+	hallucination_tier = HALLUCINATION_TIER_UNCOMMON // OCULIS EDIT, ORIGINAL: hallucination_tier = HALLUCINATION_TIER_COMMON
 
 	/// The icon file to draw from for left hand icons
 	var/left_hand_file
@@ -95,7 +95,7 @@
 	image_icon_state = "stunbaton"
 
 /datum/hallucination/nearby_fake_item/baton/generate_fake_image(mob/living/carbon/human/holder, file)
-	hallucinator.playsound_local(get_turf(holder), SFX_SPARKS, 75, TRUE, -1)
+	hallucinator.playsound_local(get_turf(holder), /datum/sound_effect/sparks, 75, TRUE, -1)
 	return ..()
 
 /datum/hallucination/nearby_fake_item/flash

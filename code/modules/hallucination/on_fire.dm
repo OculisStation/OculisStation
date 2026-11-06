@@ -3,7 +3,7 @@
 
 /datum/hallucination/fire
 	random_hallucination_weight = 3
-	hallucination_tier = HALLUCINATION_TIER_UNCOMMON
+	hallucination_tier = HALLUCINATION_TIER_RARE // OCULIS EDIT, ORIGINAL: hallucination_tier = HALLUCINATION_TIER_UNCOMMON
 
 	/// Are we currently burning our mob?
 	var/active = TRUE
@@ -42,13 +42,14 @@
 	return new_overlay
 
 /datum/hallucination/fire/start()
-	fake_firestacks = rand(5, 15)
+	fake_firestacks = rand(2.5, 7.5) // OCULIS EDIT, ORIGINAL: fake_firestacks = rand(5, 15)
 	fire_overlay = make_overlay()
 	if(!fire_overlay)
 		return FALSE
 
 	hallucinator.client?.images |= fire_overlay
 	to_chat(hallucinator, span_userdanger("You're set on fire!"))
+	hallucinator.add_mood_event("on_fire", /datum/mood_event/on_fire)
 	var/atom/movable/screen/alert/fire/fake/alert = hallucinator.throw_alert(ALERT_FIRE, /atom/movable/screen/alert/fire/fake, override = TRUE)
 	alert.hallucination_weakref = WEAKREF(src)
 	times_to_lower_stamina = rand(5, 10)
@@ -58,6 +59,9 @@
 /datum/hallucination/fire/Destroy()
 	hallucinator.clear_alert(ALERT_FIRE, clear_override = TRUE)
 	hallucinator.clear_alert(ALERT_TEMPERATURE, clear_override = TRUE)
+	if(!hallucinator.on_fire)
+		hallucinator.clear_mood_event("on_fire")
+		hallucinator.add_mood_event("fake_fire", /datum/mood_event/fake_fire)
 	if(fire_overlay)
 		hallucinator.client?.images -= fire_overlay
 		fire_overlay = null
@@ -143,3 +147,8 @@
 
 /atom/movable/screen/alert/fire/fake/handle_stop_drop_roll(mob/living/roller)
 	return !!roller.apply_status_effect(/datum/status_effect/stop_drop_roll/hallucinating, hallucination_weakref)
+
+/datum/mood_event/fake_fire
+	description = "Oh... I was just imagining those flames."
+	mood_change = 4
+	timeout = 30 SECONDS

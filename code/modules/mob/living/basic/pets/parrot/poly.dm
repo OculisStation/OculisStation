@@ -31,7 +31,7 @@
 
 /mob/living/basic/parrot/poly/Initialize(mapload)
 	. = ..()
-
+	AddElement(/datum/element/befriend_petting) // OCULIS EDIT ADDITION - allows Poly to befriend crew through petting
 	if(!memory_saved)
 		roundend_callback = CALLBACK(src, PROC_REF(Write_Memory))
 		SSticker.OnRoundend(roundend_callback)
@@ -115,28 +115,19 @@
 			add_atom_colour("#BB7777", FIXED_COLOUR_PRIORITY)
 
 /// Reads the memory of the parrot, and updates the necessary variables. Returns a list of phrases to add to the parrot's speech buffer.
-/mob/living/basic/parrot/poly/proc/read_memory()
-	RETURN_TYPE(/list)
-	var/list/returnable_list = list()
-	if(fexists("data/npc_saves/Poly.sav")) //legacy compatability to convert old format to new
-		var/savefile/legacy = new /savefile("data/npc_saves/Poly.sav")
-		legacy["phrases"] >> returnable_list
-		legacy["roundssurvived"] >> rounds_survived
-		legacy["longestsurvival"] >> longest_survival
-		legacy["longestdeathstreak"] >> longest_deathstreak
-		fdel("data/npc_saves/Poly.sav")
+/mob/living/basic/parrot/poly/proc/read_memory() as /list
+	var/json_file = file("data/npc_saves/Poly.json")
+	if(!fexists(json_file))
+		return list()
+	var/json_text = file2text(json_file)
+	if(!rustg_json_is_valid(json_text))
+		return list()
+	var/list/json = json_decode(json_text)
+	rounds_survived = json["roundssurvived"]
+	longest_survival = json["longestsurvival"]
+	longest_deathstreak = json["longestdeathstreak"]
 
-	else
-		var/json_file = file("data/npc_saves/Poly.json")
-		if(!fexists(json_file))
-			return list()
-		var/list/json = json_decode(file2text(json_file))
-		returnable_list = json["phrases"]
-		rounds_survived = json["roundssurvived"]
-		longest_survival = json["longestsurvival"]
-		longest_deathstreak = json["longestdeathstreak"]
-
-	return returnable_list
+	return json["phrases"]
 
 /// Determines the type of Poly we might have here based on the statistics we got from the memory.
 /mob/living/basic/parrot/poly/proc/determine_special_poly()

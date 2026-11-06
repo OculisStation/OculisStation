@@ -4,7 +4,6 @@
 /datum/design/quantum_capacitor
 	name = "Quantum Capacitor"
 	desc = "A capacitor engineered with a mix of bluespace and quantum technologies."
-	id = "quantum_capacitor"
 	build_type = PROTOLATHE
 	materials = list(
 		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 3.3,
@@ -22,7 +21,6 @@
 /datum/design/quantum_scanning_module
 	name = "Quantum field scanning module"
 	desc = "A special scanning module using a mix of bluespace and quantum tech to scan even sub-atomic materials."
-	id = "quantum_scanning_module"
 	build_type = PROTOLATHE
 	materials = list(
 		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 3.3,
@@ -40,7 +38,6 @@
 /datum/design/quantum_servo
 	name = "Quantum field servo"
 	desc = "A strange, almost intangible servo that uses bluespace tech to manipulate and fold quantum states."
-	id = "quantum_servo"
 	build_type = PROTOLATHE
 	materials = list(
 		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 2.7,
@@ -58,7 +55,6 @@
 /datum/design/quantum_micro_laser
 	name = "Quantum micro-laser"
 	desc = "A modified quadultra micro-laser designed to make use of newly discovered quantum tech."
-	id = "quantum_micro_laser"
 	build_type = PROTOLATHE
 	materials = list(
 		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 2.7,
@@ -76,7 +72,6 @@
 /datum/design/quantum_matter_bin
 	name = "Entangled matter bin"
 	desc = "A bluespace matter bin that makes use of entangled particles to store states of materials as energy."
-	id = "quantum_matter_bin"
 	build_type = PROTOLATHE
 	materials = list(
 		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 3.3,
@@ -93,7 +88,6 @@
 /datum/design/quantum_cell
 	name = "Quantum power cell"
 	desc = "A rechargeable quantum entangled power cell."
-	id = "quantum_cell"
 	build_type = PROTOLATHE
 	// We are draining the entire ass silo with this recipe
 	materials = list(

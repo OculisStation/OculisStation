@@ -137,6 +137,7 @@
 #include "card_mismatch.dm"
 #include "cardboard_cutouts.dm"
 #include "cargo_crate_sanity.dm"
+#include "cargo_crates_and_exclusions.dm"
 #include "cargo_dep_order_locations.dm"
 #include "cargo_selling.dm"
 #include "chain_pull_through_space.dm"
@@ -163,6 +164,7 @@
 #include "crafting.dm"
 #include "crayons.dm"
 #include "create_and_destroy.dm"
+#include "cuffed_item.dm"
 #include "damp_rag.dm"
 #include "dcs_check_list_arguments.dm"
 #include "dcs_get_id_from_elements.dm"
@@ -171,6 +173,7 @@
 #include "dismemberment.dm"
 #include "dna_infusion.dm"
 #include "door_access.dm"
+#include "door_control_assembly.dm"
 #include "dragon_expiration.dm"
 #include "drink_icons.dm"
 #include "dropper.dm"
@@ -221,6 +224,7 @@
 #include "interaction_silicon.dm"
 #include "interaction_structures.dm"
 #include "job_display_order.dm"
+#include "job_icons.dm"
 #include "json_savefile_importing.dm"
 #include "keybinding_init.dm"
 #include "kinetic_crusher.dm"
@@ -229,6 +233,7 @@
 #include "language_transfer.dm"
 #include "leash.dm"
 #include "lesserform.dm"
+#include "light_replacer.dm"
 #include "limbsanity.dm"
 #include "ling_decap.dm"
 #include "liver.dm"
@@ -260,6 +265,7 @@
 #include "monkey_business.dm"
 #include "mouse_bite_cable.dm"
 #include "move_pulled.dm"
+#include "movement_loop_buckets.dm"
 #include "movement_order_sanity.dm"
 #include "mutant_hands_consistency.dm"
 #include "mutant_organs.dm"
@@ -317,6 +323,7 @@
 #include "serving_tray.dm"
 #include "simple_animal_freeze.dm"
 #include "siunit.dm"
+#include "slapcrafting.dm"
 #include "slime_mood.dm"
 #include "slips.dm"
 #include "spawn_humans.dm"
@@ -381,6 +388,9 @@
 #include "~nova\neuroware_chips.dm"
 #include "~nova\opposing_force.dm"
 // NOVA EDIT END
+// OCULIS EDIT START
+#include "~oculis\slime_ranching.dm"
+// OCULIS EDIT END
 // END_INCLUDE
 #ifdef REFERENCE_TRACKING_DEBUG //Don't try and parse this file if ref tracking isn't turned on. IE: don't parse ref tracking please mr linter
 #include "find_reference_sanity.dm"

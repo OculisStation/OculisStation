@@ -3,12 +3,11 @@
 	category_ui_icon = FA_ICON_USER_SECRET
 	type_to_generate = /datum/loadout_item/suit
 	tab_order = /datum/loadout_category/head::tab_order + 3
-	// IRIS EDIT ADDITION START: Allows you to grab a second suit from loadout
-	VAR_PRIVATE/max_allowed = 2
+	// VAR_PRIVATE/max_allowed = 2 // OCULIS EDIT REMOVAL
 
 /datum/loadout_category/suits/New()
 	. = ..()
-	category_info = "([max_allowed] allowed)"
+	// category_info = "([max_allowed] allowed)" // OCULIS EDIT REMOVAL
 
 /datum/loadout_category/suits/handle_duplicate_entires(
 	datum/preference_middleware/loadout/manager,
@@ -67,9 +66,17 @@
 	)
 
 /datum/loadout_item/suit/hoodie_pullover
-	name = "pullover"
+	name = "Pullover"
 	item_path = /obj/item/clothing/suit/hooded/wintercoat/pullover
 
 /datum/loadout_item/suit/hoodie_zipup
-	name = "zipup"
+	name = "Zipup"
 	item_path = /obj/item/clothing/suit/hooded/wintercoat/zipup
+
+/datum/loadout_item/suit/wintercoat
+	name = "Winter Coat (Departmental)"
+	item_path = /obj/item/clothing/suit/hooded/wintercoat
+
+/datum/loadout_item/suit/wintercoat/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only = FALSE)
+	. = ..()
+	outfit.suit = astype(outfit, /datum/outfit/job)?.wintercoat || item_path

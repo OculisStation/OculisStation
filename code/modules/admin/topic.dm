@@ -1453,12 +1453,7 @@
 		if(!link_url)
 			return
 
-		// OCULIS EDIT ADDITION START - FLOXY
-		if(href_list["legacy"] || !CONFIG_GET(string/floxy_url))
-			web_sound_legacy(usr, link_url, credit)
-		else
-			web_sound(usr, link_url, credit)
-		// OCULIS EDIT ADDITION END
+		web_sound(usr, link_url, credit)
 
 	else if(href_list["debug_z_levels"])
 		return SSadmin_verbs.dynamic_invoke_verb(usr, /datum/admin_verb/debug_z_levels)

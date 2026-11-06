@@ -20,8 +20,6 @@
 	high_threshold_cleared = span_info("Your vision functions passably once more.")
 	low_threshold_cleared = span_info("Your vision is cleared of any ailment.")
 
-	/// Sight flags this eye pair imparts on its user.
-	var/sight_flags = NONE
 	/// How much innate tint these eyes have
 	var/tint = 0
 	/// How much innare flash protection these eyes have, usually paired with tint
@@ -51,7 +49,7 @@
 	var/obj/effect/abstract/eyelid_effect/eyelid_left
 	var/obj/effect/abstract/eyelid_effect/eyelid_right
 
-	/// Glasses cannot be worn over these eyes. Currently unused
+	/// Glasses cannot be worn over these eyes.
 	var/no_glasses = FALSE
 	/// Native FOV that will be applied if a config is enabled
 	var/native_fov = NONE //NOVA EDIT CHANGE - ORIGINAL: var/native_fov = FOV_90_DEGREES
@@ -145,6 +143,9 @@
 
 /obj/item/organ/eyes/on_mob_remove(mob/living/carbon/organ_owner, special, movement_flags)
 	. = ..()
+	// Don't forget about the eyelids
+	organ_owner.vis_contents -= eyelid_left
+	organ_owner.vis_contents -= eyelid_right
 
 	if(ishuman(organ_owner))
 		var/mob/living/carbon/human/human_owner = organ_owner
@@ -336,7 +337,7 @@
 	if(my_head.owner && !(my_head.owner.obscured_slots & HIDEEYES))
 		overlays += get_emissive_overlays(eye_left, eye_right, my_head)
 
-	if(my_head.head_flags & HEAD_EYECOLOR)
+	if((my_head.head_flags & HEAD_EYECOLOR) && my_head.is_husked != HUSKED_ZOMBIE)
 		eye_right.color = my_head.owner?.get_right_eye_color() || eye_color_right
 		eye_left.color = my_head.owner?.get_left_eye_color() || eye_color_left
 		var/list/eyelids = get_eyelid_overlays(eye_left, eye_right, my_head)
@@ -562,7 +563,9 @@
 		. += wait_time
 		if (anim_times && !sync_blinking)
 			// Make sure that we're somewhat in sync with the other eye
-			animate(time = anim_times[i + 1] - wait_time)
+			var/offset_time = anim_times[i + 1] - wait_time
+			if(offset_time) // For some reason having time == 0 in this case breaks animate
+				animate(time = offset_time)
 		animate(alpha = 255, time = 0)
 		animate(time = BLINK_DURATION)
 		if (i != cycles)
@@ -647,7 +650,6 @@
 	light_level = NIGHTVISION_LIGHT_LOW
 
 /obj/item/organ/eyes/night_vision/ui_action_click()
-	sight_flags = initial(sight_flags)
 	switch(light_level)
 		if (NIGHTVISION_LIGHT_OFF)
 			color_cutoffs = low_light_cutoff.Copy()

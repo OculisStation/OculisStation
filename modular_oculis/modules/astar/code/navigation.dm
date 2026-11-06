@@ -1,9 +1,5 @@
 #define MAX_NAVIGATE_RANGE 145
 
-/mob/living
-	/// Are we currently pathfinding for the navigate verb?
-	var/navigating = FALSE
-
 /mob/living/proc/create_astar_navigation()
 	var/list/destination_list = list()
 	for(var/atom/destination as anything in GLOB.navigate_destinations)
@@ -31,7 +27,7 @@
 
 	navigating = TRUE
 	var/datum/callback/await = list(CALLBACK(src, PROC_REF(finish_astar_navigation), navigate_target))
-	if(!SSpathfinder.astar_pathfind(src, navigate_target, maxnodes = MAX_NAVIGATE_RANGE, mintargetdist = 1, access = get_access(), smooth_diagonals = FALSE, on_finish = await)) // diagonals look kind of weird when visualized for now
+	if(!SSpathfinder.astar_pathfind(src, navigate_target, max_distance = MAX_NAVIGATE_RANGE, mintargetdist = 1, access = get_access(), smooth_diagonals = FALSE, on_finish = await)) // diagonals look kind of weird when visualized for now
 		navigating = FALSE
 		balloon_alert(src, "failed to begin navigation!")
 

@@ -132,50 +132,51 @@ DEFINE_BITFIELD(smoothing_junction, list(
 #define SMOOTH_GROUP_FLOOR_SIDERITE S_TURF(54) //![/turf/open/misc/asteroid/basalt/smooth/siderite]
 #define SMOOTH_GROUP_FLOOR_SHALE S_TURF(55) //![/turf/open/misc/asteroid/basalt/smooth/shale]
 #define SMOOTH_GROUP_FLOOR_BASALT S_TURF(56) //![/turf/open/misc/asteroid/basalt]
+#define SMOOTH_GROUP_FLOOR_HEXACRETE S_TURF(57) ///turf/open/floor/concrete
 
-#define SMOOTH_GROUP_CLOSED_TURFS S_TURF(57) ///turf/closed
-#define SMOOTH_GROUP_MATERIAL_WALLS S_TURF(58) ///turf/closed/wall/material
-#define SMOOTH_GROUP_SYNDICATE_WALLS S_TURF(59) ///turf/closed/wall/r_wall/plastitanium/syndicate, /turf/closed/indestructible/syndicate
-#define SMOOTH_GROUP_HOTEL_WALLS S_TURF(60) ///turf/closed/indestructible/hotelwall
-#define SMOOTH_GROUP_MINERAL_WALLS S_TURF(61) ///turf/closed/mineral, /turf/closed/indestructible
-#define SMOOTH_GROUP_RED_ROCK_WALLS S_TURF(62) ///turf/closed/mineral/asteroid, /turf/closed/mineral/random/stationside/asteroid
-#define SMOOTH_GROUP_SHALE_WALLS S_TURF(63) ///turf/closed/mineral/random/volcanic/shale
-#define SMOOTH_GROUP_BOSS_WALLS S_TURF(64) ///turf/closed/indestructible/riveted/boss
-#define SMOOTH_GROUP_SURVIVAL_TITANIUM_WALLS S_TURF(65) ///turf/closed/wall/mineral/plastitanium/survival
-#define SMOOTH_GROUP_TURF_OPEN_CLIFF S_TURF(66) ///turf/open/cliff
-#define SMOOTH_GROUP_HIEROPHANT S_TURF(67) ///turf/closed/indestructible/riveted/hierophant
-#define SMOOTH_GROUP_PLASTINUM_WALLS S_TURF(68) ///turf/closed/indestructible/riveted/plastinum
+#define SMOOTH_GROUP_CLOSED_TURFS S_TURF(58) ///turf/closed
+#define SMOOTH_GROUP_MATERIAL_WALLS S_TURF(59) ///turf/closed/wall/material
+#define SMOOTH_GROUP_SYNDICATE_WALLS S_TURF(60) ///turf/closed/wall/r_wall/plastitanium/syndicate, /turf/closed/indestructible/syndicate
+#define SMOOTH_GROUP_HOTEL_WALLS S_TURF(61) ///turf/closed/indestructible/hotelwall
+#define SMOOTH_GROUP_MINERAL_WALLS S_TURF(62) ///turf/closed/mineral, /turf/closed/indestructible
+#define SMOOTH_GROUP_RED_ROCK_WALLS S_TURF(63) ///turf/closed/mineral/asteroid, /turf/closed/mineral/random/stationside/asteroid
+#define SMOOTH_GROUP_SHALE_WALLS S_TURF(64) ///turf/closed/mineral/random/volcanic/shale
+#define SMOOTH_GROUP_BOSS_WALLS S_TURF(65) ///turf/closed/indestructible/riveted/boss
+#define SMOOTH_GROUP_SURVIVAL_TITANIUM_WALLS S_TURF(66) ///turf/closed/wall/mineral/titanium/survival
+#define SMOOTH_GROUP_TURF_OPEN_CLIFF S_TURF(67) ///turf/open/cliff
+#define SMOOTH_GROUP_HIEROPHANT S_TURF(68) ///turf/closed/indestructible/riveted/hierophant
+#define SMOOTH_GROUP_PLASTINUM_WALLS S_TURF(69) ///turf/closed/indestructible/riveted/plastinum
 // NOVA EDIT ADDITION START
-#define SMOOTH_GROUP_ELEVATED_PLASTEEL S_TURF(69)
-#define SMOOTH_GROUP_LOWERED_PLASTEEL S_TURF(70)
-#define SMOOTH_GROUP_FISSURE S_TURF(71)
-#define SMOOTH_GROUP_MUSHROOM S_TURF(72)
-#define SMOOTH_GROUP_CARPET_KINARIS S_TURF(73)
-#define SMOOTH_GROUP_CARPET_KINARIS_RED S_TURF(74)
-#define SMOOTH_GROUP_CARPET_KINARIS_ORANGE S_TURF(75)
-#define SMOOTH_GROUP_CARPET_KINARIS_YELLOW S_TURF(76)
-#define SMOOTH_GROUP_CARPET_KINARIS_GREEN S_TURF(77)
-#define SMOOTH_GROUP_CARPET_KINARIS_PURPLE S_TURF(78)
-#define SMOOTH_GROUP_CARPET_KINARIS_BLACKTRIM S_TURF(79)
-#define SMOOTH_GROUP_CARPET_KINARIS_BLACK S_TURF(80)
-#define SMOOTH_GROUP_CARPET_KINARIS_BLACK_RED S_TURF(81)
-#define SMOOTH_GROUP_CARPET_KINARIS_BLACK_ORANGE S_TURF(82)
-#define SMOOTH_GROUP_CARPET_KINARIS_BLACK_YELLOW S_TURF(83)
-#define SMOOTH_GROUP_CARPET_KINARIS_BLACK_GREEN S_TURF(84)
-#define SMOOTH_GROUP_CARPET_KINARIS_BLACK_PURPLE S_TURF(85)
-#define SMOOTH_GROUP_CARPET_KINARIS_BLACK_WHITETRIM S_TURF(86)
-#define SMOOTH_GROUP_CARPET_POLITE_BLACK S_TURF(87)
-#define SMOOTH_GROUP_CARPET_POLITE_RED S_TURF(88)
-#define SMOOTH_GROUP_CARPET_POLITE_ORANGE S_TURF(89)
-#define SMOOTH_GROUP_CARPET_POLITE_YELLOW S_TURF(90)
-#define SMOOTH_GROUP_CARPET_POLITE_GREEN S_TURF(91)
-#define SMOOTH_GROUP_CARPET_POLITE_BLUE S_TURF(92)
-#define SMOOTH_GROUP_CARPET_POLITE_PURPLE S_TURF(93)
+#define SMOOTH_GROUP_ELEVATED_PLASTEEL S_TURF(70)
+#define SMOOTH_GROUP_LOWERED_PLASTEEL S_TURF(71)
+#define SMOOTH_GROUP_FISSURE S_TURF(72)
+#define SMOOTH_GROUP_MUSHROOM S_TURF(73)
+#define SMOOTH_GROUP_CARPET_KINARIS S_TURF(74)
+#define SMOOTH_GROUP_CARPET_KINARIS_RED S_TURF(75)
+#define SMOOTH_GROUP_CARPET_KINARIS_ORANGE S_TURF(76)
+#define SMOOTH_GROUP_CARPET_KINARIS_YELLOW S_TURF(77)
+#define SMOOTH_GROUP_CARPET_KINARIS_GREEN S_TURF(78)
+#define SMOOTH_GROUP_CARPET_KINARIS_PURPLE S_TURF(79)
+#define SMOOTH_GROUP_CARPET_KINARIS_BLACKTRIM S_TURF(80)
+#define SMOOTH_GROUP_CARPET_KINARIS_BLACK S_TURF(81)
+#define SMOOTH_GROUP_CARPET_KINARIS_BLACK_RED S_TURF(82)
+#define SMOOTH_GROUP_CARPET_KINARIS_BLACK_ORANGE S_TURF(83)
+#define SMOOTH_GROUP_CARPET_KINARIS_BLACK_YELLOW S_TURF(84)
+#define SMOOTH_GROUP_CARPET_KINARIS_BLACK_GREEN S_TURF(85)
+#define SMOOTH_GROUP_CARPET_KINARIS_BLACK_PURPLE S_TURF(86)
+#define SMOOTH_GROUP_CARPET_KINARIS_BLACK_WHITETRIM S_TURF(87)
+#define SMOOTH_GROUP_CARPET_POLITE_BLACK S_TURF(88)
+#define SMOOTH_GROUP_CARPET_POLITE_RED S_TURF(89)
+#define SMOOTH_GROUP_CARPET_POLITE_ORANGE S_TURF(90)
+#define SMOOTH_GROUP_CARPET_POLITE_YELLOW S_TURF(91)
+#define SMOOTH_GROUP_CARPET_POLITE_GREEN S_TURF(92)
+#define SMOOTH_GROUP_CARPET_POLITE_BLUE S_TURF(93)
+#define SMOOTH_GROUP_CARPET_POLITE_PURPLE S_TURF(94)
 //NOVA EDIT ADDITION END
 
-#define SMOOTH_GROUP_CARPET_GRIMEY S_TURF(94) // OCULIS EDIT ADDITION
+#define SMOOTH_GROUP_CARPET_GRIMEY S_TURF(95) // OCULIS EDIT ADDITION
 
-#define MAX_S_TURF 94 //Always match this value with the one above it. // OCULIS EDIT CHANGE - ORIGINAL: #define MAX_S_TURF 93 // NOVA EDIT CHANGE - ORIGINAL: #define MAX_S_TURF 68 //Always match this value with the one above it.
+#define MAX_S_TURF 95 // OCULIS EDIT CHANGE - ORIGINAL: #define MAX_S_TURF 94 //Always match this value with the one above it.
 
 #define S_OBJ(num) ("-" + #num + ",")
 /* /obj included */
@@ -196,11 +197,12 @@ DEFINE_BITFIELD(smoothing_junction, list(
 #define SMOOTH_GROUP_SURVIVAL_TITANIUM_POD S_OBJ(15) ///turf/closed/wall/mineral/plastitanium/survival/pod, /obj/machinery/door/airlock/survival_pod, /obj/structure/window/reinforced/shuttle/survival_pod
 #define SMOOTH_GROUP_HIERO_WALL S_OBJ(16) ///obj/effect/temp_visual/elite_tumor_wall, /obj/effect/temp_visual/hierophant/wall
 #define SMOOTH_GROUP_BAMBOO_WALLS S_OBJ(17) //![/turf/closed/wall/mineral/bamboo, /obj/structure/falsewall/bamboo]
+#define SMOOTH_GROUP_CONCRETE_WALLS S_OBJ(18) ///turf/closed/wall/concrete
 
-//NOVA EDIT ADDITION
+// NOVA EDIT ADDITION START - AESTHETICS
 #define SMOOTH_GROUP_SHIPWALLS S_OBJ(19)	///turf/closed/wall/mineral/titanium/spaceship
 #define SMOOTH_GROUP_STONE_WALLS S_OBJ(20) ///turf/closed/wall/mineral/stone, /obj/structure/falsewall/stone
-//NOVA EDIT END
+// NOVA EDIT ADDITION END
 
 #define SMOOTH_GROUP_PAPERFRAME S_OBJ(21) ///obj/structure/window/paperframe, /obj/structure/mineral_door/paperframe
 
@@ -208,6 +210,7 @@ DEFINE_BITFIELD(smoothing_junction, list(
 #define SMOOTH_GROUP_WINDOW_FULLTILE_BRONZE S_OBJ(23) ///obj/structure/window/bronze/fulltile
 #define SMOOTH_GROUP_WINDOW_FULLTILE_PLASTITANIUM S_OBJ(24) ///turf/closed/indestructible/opsglass, /obj/structure/window/reinforced/plasma/plastitanium
 #define SMOOTH_GROUP_WINDOW_FULLTILE_SHUTTLE S_OBJ(25) ///obj/structure/window/reinforced/shuttle
+#define SMOOTH_GROUP_WINDOW_FULLTILE_CULT  S_OBJ(26) ///obj/structure/window/cult/fulltile
 
 #define SMOOTH_GROUP_LATTICE S_OBJ(31) ///obj/structure/lattice
 #define SMOOTH_GROUP_CATWALK S_OBJ(32) ///obj/structure/lattice/catwalk
@@ -267,13 +270,20 @@ DEFINE_BITFIELD(smoothing_junction, list(
 
 #define SMOOTH_GROUP_BOULDER_PLATFORM S_OBJ(87) ///obj/structure/lattice/catwalk/boulder
 
-// OCULIS EDIT START
-#define SMOOTH_GROUP_CRYSTAL_WALL S_OBJ(88) ///turf/closed/wall/mineral/violetspace_crystal
-// OCULIS EDIT END
+// NOVA EDIT ADDITION START - FLOORS_AND_WALLS - mineral wall groups removed by tgstation #97723
+#define SMOOTH_GROUP_BONE_WALLS S_OBJ(88) ///turf/closed/wall/mineral/bone, /obj/structure/falsewall/bone
+#define SMOOTH_GROUP_ADAMANTINE_WALLS S_OBJ(89) ///turf/closed/wall/mineral/adamantine, /obj/structure/falsewall/adamantine
+#define SMOOTH_GROUP_METALHYDROGEN_WALLS S_OBJ(90) ///turf/closed/wall/mineral/metalhydrogen, /obj/structure/falsewall/metalhydrogen
+#define SMOOTH_GROUP_HAUNTIUM_WALLS S_OBJ(91) ///turf/closed/wall/mineral/hauntium, /obj/structure/falsewall/hauntium
+#define SMOOTH_GROUP_RUNITE_WALLS S_OBJ(92) ///turf/closed/wall/mineral/runite, /obj/structure/falsewall/runite
+#define SMOOTH_GROUP_MYTHRIL_WALLS S_OBJ(93) ///turf/closed/wall/mineral/mythril, /obj/structure/falsewall/mythril
+// NOVA EDIT ADDITION END
 
 //OCULIS EDIT ADDITION - SMOOTH_GROUP_SILK_WALLS - For arachnid silk walls
-#define SMOOTH_GROUP_SILK_WALLS S_OBJ(89) ///turf/closed/wall/material/silk /obj/structure/falsewall/silk
+#define SMOOTH_GROUP_CRYSTAL_WALL S_OBJ(94) ///turf/closed/wall/mineral/violetspace_crystal
+#define SMOOTH_GROUP_SILK_WALLS S_OBJ(95) ///turf/closed/wall/material/silk /obj/structure/falsewall/silk
 //OCULIS EDIT END
+
 
 /// Performs the work to set smoothing_groups and canSmoothWith.
 /// An inlined function used in both turf/Initialize and atom/Initialize.

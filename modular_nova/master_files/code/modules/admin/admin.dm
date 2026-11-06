@@ -60,11 +60,11 @@ ADMIN_VERB(toggledchat, R_ADMIN, "Toggle Dead Chat", "Toggle dis bitch.", ADMIN_
 	return TRUE
 
 ///Proc which converts an admin_help ticket to a mentorhelp
-/datum/admin_help/proc/convert_to_mentorhelp(key_name = key_name_admin(usr), force = FALSE) // OCULIS EDIT CHANGE - ORIGINAL: /datum/admin_help/proc/convert_to_mentorhelp(key_name = key_name_admin(usr))
+/datum/admin_help/proc/convert_to_mentorhelp(key_name = key_name_admin(usr))
 	if(state != AHELP_ACTIVE)
 		return FALSE
 
-	if(!force && handler && handler != usr.ckey) // OCULIS EDIT CHANGE - ORIGINAL: if(handler && handler != usr.ckey)
+	if(handler && handler != usr.ckey)
 		var/response = tgui_alert(usr, "This ticket is already being handled by [handler]. Do you want to continue?", "Ticket already assigned", list("Yes", "No"))
 		if(!response || response == "No")
 			return FALSE
@@ -79,5 +79,3 @@ ADMIN_VERB(toggledchat, R_ADMIN, "Toggle Dead Chat", "Toggle dis bitch.", ADMIN_
 	log_admin("[usr.client] converted Ticket #[id] from [initiator_ckey] into Mentorhelp")
 
 	Close(key_name, TRUE)
-	SSplexora.aticket_closed(src, usr.ckey, AHELP_CLOSETYPE_CLOSE, AHELP_CLOSEREASON_MENTOR) // OCULIS EDIT ADDITION - i know i could make a modular file for this as an overload but its a one line addition. bweh.
-

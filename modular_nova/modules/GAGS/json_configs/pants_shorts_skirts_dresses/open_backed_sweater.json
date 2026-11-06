@@ -1,0 +1,10 @@
+{
+	"open_backed_sweater": [
+		{
+			"type": "icon_state",
+			"icon_state": "open_backed_sweater",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		}
+	]
+}

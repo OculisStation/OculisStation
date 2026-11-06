@@ -13,4 +13,4 @@
 	)
 
 /obj/item/reagent_containers/blood/arachnid
-	blood_type = BLOOD_TYPE_ARACHNID
+	blood_type = /datum/blood_type/arachnid

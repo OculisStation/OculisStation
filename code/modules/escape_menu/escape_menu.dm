@@ -141,6 +141,8 @@ GAME_VERB_HIDDEN(/client, reset_held_keys_verb, "Reset Held Keys")
 		"shiftTime" = (SSticker.round_start_time == 0) ? "Pre-Game" : round_timestamp(),
 		"timeDilation" = "[round(SStime_track.time_dilation_current, 1)]",
 		"mapName" = SSmapping.current_map?.return_map_name(webmap_included = TRUE) || "Loading...",
+		"mapFeedbackLink" = SSmapping.current_map?.feedback_link,
+		"mapWebmap" = SSmapping.current_map?.mapping_url,
 		"canLeaveBody" = FALSE, // NOVA EDIT CHANGE - original: isliving(client?.mob) - Nova replaces the generic Leave Body page with the OPFOR/Ghost/Respawn buttons below
 		"canOpfor" = isliving(client?.mob), // NOVA EDIT ADDITION
 		"canRespawn" = !isliving(client?.mob), // NOVA EDIT ADDITION
@@ -157,6 +159,8 @@ GAME_VERB_HIDDEN(/client, reset_held_keys_verb, "Reset Held Keys")
 /datum/escape_menu/proc/build_admin_list()
 	var/list/result = list()
 	for(var/client/admin as anything in GLOB.admins)
+		if(admin.holder?.fakekey && !client?.holder)
+			continue
 		result += list(list(
 			"ckey" = admin.ckey,
 			"displayName" = admin.holder?.fakekey || admin.ckey,
@@ -170,12 +174,16 @@ GAME_VERB_HIDDEN(/client, reset_held_keys_verb, "Reset Held Keys")
 
 /datum/escape_menu/proc/build_player_list()
 	var/list/result = list()
-	for(var/client/player as anything in GLOB.clients - GLOB.admins)
+	for(var/client/player as anything in GLOB.clients)
+		var/fakekey = player.holder?.fakekey
+		if(player.holder && !(fakekey && !client?.holder))
+			continue
+		var/shown_key = fakekey || player.ckey
 		result += list(list(
-			"ckey" = player.ckey,
-			"displayName" = player.ckey,
+			"ckey" = shown_key,
+			"displayName" = shown_key,
 			"ping" = round(player.avgping, 1),
-			"ignored" = (player.ckey in client?.prefs?.ignoring),
+			"ignored" = (shown_key in client?.prefs?.ignoring),
 			"isSelf" = (player.ckey == client?.ckey),
 		))
 	return result

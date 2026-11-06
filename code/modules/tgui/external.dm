@@ -150,7 +150,7 @@
  *
  * Tracks open UIs for a user.
  */
-/mob/var/list/tgui_open_uis = list()
+/mob/var/list/tgui_open_uis
 
 /**
  * global
@@ -183,7 +183,7 @@
  *
  * required uiref ref The UI that was closed.
  */
-GAME_VERB_HIDDEN(/client, uiclose, "uiclose", window_id as text)
+GAME_VERB_NATIVE(/client, uiclose, "uiclose", null, window_id as text)
 	var/mob/user = src?.mob
 	if(!user)
 		return

@@ -558,7 +558,6 @@
 	var/atom/drop_loc = drop_location()
 	for(var/obj/item/item_ingredient as anything in ingredients)
 		item_ingredient.forceMove(drop_loc)
-		item_ingredient.dropped() //Mob holders can be on the ground if we don't do this
 	open(autoclose = 1.4 SECONDS)
 
 /obj/machinery/microwave/proc/start_cycle(mob/user)
@@ -854,7 +853,12 @@
 		pre_fail()
 		return
 
-	if(!vampire_charge_amount || !length(ingredients) || vampire_charge_amount < 25 || (cell_powered && (isnull(cell) || !cell.charge)))
+	if(cell_powered && (isnull(cell) || !cell.charge))
+		playsound(src, 'sound/machines/buzz/buzz-sigh.ogg', 50, FALSE)
+		balloon_alert(cooker, "no power draw!")
+		return
+
+	if(!vampire_charge_amount || !length(ingredients) || vampire_charge_amount < 25)
 		vampire_cell = null
 		charge_loop_finish(cooker)
 		return

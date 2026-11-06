@@ -56,8 +56,6 @@
 	var/self_sustaining_overlay_icon_state = "gaia_blessing"
 	///Whether the plant is currently being pollinated or polinating the nearby plants
 	var/being_pollinated = FALSE
-	///The light level on the tray tile
-	var/light_level = 0
 	///our snail overlay, if any
 	var/obj/effect/overlay/vis_effect/snail/our_snail
 	///Flags to indicate special tray type behaviours.
@@ -302,10 +300,6 @@
 			set_self_sustaining(FALSE)
 			visible_message(span_warning("[name]'s auto-grow functionality shuts off!"))
 
-	if(isturf(loc))
-		var/turf/currentTurf = loc
-		light_level = currentTurf.get_lumcount()
-
 	if(world.time > (lastcycle + cycledelay))
 		lastcycle = world.time
 		if(myseed && plant_status != HYDROTRAY_PLANT_DEAD)
@@ -335,7 +329,7 @@
 
 //Photosynthesis/////////////////////////////////////////////////////////
 			// Lack of light hurts non-mushrooms
-			if(light_level < (is_fungus ? 0.2 : 0.4))
+			if(astype(loc, /turf)?.check_lumcount_below(is_fungus ? 0.2 : 0.4))
 				adjust_plant_health((is_fungus ? -1 : -2) / rating)
 
 //Water//////////////////////////////////////////////////////////////////
@@ -1063,7 +1057,7 @@
 	if(istype(tool, /obj/item/storage/bag/plants))
 		if(plant_status == HYDROTRAY_PLANT_HARVESTABLE)
 			var/list/harvest = myseed.harvest(user)
-			for(var/obj/item/food/grown/bounty in harvest)
+			for(var/obj/item/bounty in harvest)
 				tool.atom_storage?.attempt_insert(bounty, user, TRUE)
 			return ITEM_INTERACT_SUCCESS
 

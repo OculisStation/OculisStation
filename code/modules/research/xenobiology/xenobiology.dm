@@ -323,6 +323,11 @@ GLOBAL_LIST_INIT(slime_extract_auto_activate_reactions, init_slime_auto_activate
 /obj/item/slime_extract/yellow/activate(mob/living/carbon/human/user, datum/species/jelly/luminescent/species, activation_type)
 	switch(activation_type)
 		if(SLIME_ACTIVATE_MINOR)
+			// OCULIS EDIT ADDITION START - SLIME_RANCHER - avoid runtimes with gentle extracts
+			if(!istype(species))
+				to_chat(user, span_warning("This effect only works with Luminescents!"))
+				return
+			// OCULIS EDIT ADDITION END
 			if(species.glow_intensity != LUMINESCENT_DEFAULT_GLOW)
 				to_chat(user, span_warning("Your glow is already enhanced!"))
 				return
@@ -526,7 +531,7 @@ GLOBAL_LIST_INIT(slime_extract_auto_activate_reactions, init_slime_auto_activate
 				return
 			ADD_TRAIT(user, TRAIT_ADAMANTINE_EXTRACT_ARMOR, ADAMANTINE_EXTRACT_TRAIT)
 			to_chat(user, span_notice("You feel your skin harden and become more resistant."))
-			user.physiology.damage_resistance += 25
+			user.damage_resistance += 25
 			addtimer(CALLBACK(src, PROC_REF(reset_armor), user), 120 SECONDS)
 			return 450
 
@@ -540,7 +545,7 @@ GLOBAL_LIST_INIT(slime_extract_auto_activate_reactions, init_slime_auto_activate
 
 /obj/item/slime_extract/adamantine/proc/reset_armor(mob/living/carbon/human/user)
 	REMOVE_TRAIT(user, TRAIT_ADAMANTINE_EXTRACT_ARMOR, ADAMANTINE_EXTRACT_TRAIT)
-	user.physiology.damage_resistance -= 25
+	user.damage_resistance -= 25
 
 /obj/item/slime_extract/bluespace
 	name = "bluespace slime extract"
@@ -654,7 +659,8 @@ GLOBAL_LIST_INIT(slime_extract_auto_activate_reactions, init_slime_auto_activate
 			user.dna.features[FEATURE_MUTANT_COLOR] = "#[pick("7F", "FF")][pick("7F", "FF")][pick("7F", "FF")]"
 			user.dna.update_uf_block(/datum/dna_block/feature/mutant_color)
 			user.updateappearance(mutcolor_update=1)
-			species.update_glow(user)
+			if(istype(species)) // OCULIS EDIT ADDITION - SLIME_RANCHER - avoid runtimes with gentle extracts
+				species.update_glow(user)
 			to_chat(user, span_notice("You feel different..."))
 			return 100
 
@@ -893,9 +899,11 @@ GLOBAL_LIST_INIT(slime_extract_auto_activate_reactions, init_slime_auto_activate
 	icon_state = "potred"
 
 /obj/item/slimepotion/slime/steroid/interact_with_slime(mob/living/basic/slime/interacting_slime, mob/living/user, list/modifiers)
+	/* // OCULIS EDIT REMOVAL START - SLIME RANCHER
 	if(interacting_slime.life_stage == SLIME_LIFE_STAGE_ADULT) //Can't steroidify adults
 		to_chat(user, span_warning("Only baby slimes can use the steroid!"))
 		return ITEM_INTERACT_BLOCKING
+	*/ // OCULIS EDIT REMOVAL END - SLIME RANCHER
 	if(IS_UNCONSCIOUS_OR_CRIT(interacting_slime))
 		to_chat(user, span_warning("The slime is dead!"))
 		return ITEM_INTERACT_BLOCKING
@@ -903,8 +911,14 @@ GLOBAL_LIST_INIT(slime_extract_auto_activate_reactions, init_slime_auto_activate
 		to_chat(user, span_warning("The slime already has the maximum amount of extract!"))
 		return ITEM_INTERACT_BLOCKING
 
+	// OCULIS EDIT CHANGE START - SLIME_RANCHER - two steroids max a slime out instead of four
+	/*
 	to_chat(user, span_notice("You feed the slime the steroid. It will now produce one more extract."))
 	interacting_slime.cores++
+	*/
+	interacting_slime.cores = min(interacting_slime.cores + 2, 5)
+	to_chat(user, span_notice("You feed the slime the steroid. It will now produce [interacting_slime.cores] extracts."))
+	// OCULIS EDIT CHANGE END
 	qdel(src)
 	return ITEM_INTERACT_SUCCESS
 
@@ -972,7 +986,7 @@ GLOBAL_LIST_INIT(slime_extract_auto_activate_reactions, init_slime_auto_activate
 
 	if(isitem(interacting_with))
 		var/obj/item/apply_to = interacting_with
-		if(apply_to.slowdown <= 0 || (apply_to.item_flags & IMMUTABLE_SLOW) || HAS_TRAIT(apply_to, TRAIT_NO_SPEED_POTION))
+		if((apply_to.slowdown <= 0 && !istype(apply_to, /obj/item/mod/control)) || (apply_to.item_flags & IMMUTABLE_SLOW) || HAS_TRAIT(apply_to, TRAIT_NO_SPEED_POTION)) // OCULIS EDIT - temporary speed potion bugfix - ORIGINAL: if((apply_to.slowdown <= 0 && !istype(apply_to, /obj/item/mod/control)) || (apply_to.item_flags & IMMUTABLE_SLOW) || HAS_TRAIT(apply_to, TRAIT_NO_SPEED_POTION))
 			if(interacting_with.atom_storage)
 				return NONE // lets us put the potion in the bag
 			to_chat(user, span_warning("[apply_to] can't be made any faster!"))
@@ -980,6 +994,11 @@ GLOBAL_LIST_INIT(slime_extract_auto_activate_reactions, init_slime_auto_activate
 
 	if(SEND_SIGNAL(interacting_with, COMSIG_SPEED_POTION_APPLIED, src, user) & SPEED_POTION_STOP)
 		return ITEM_INTERACT_SUCCESS
+
+	// OCULIS EDIT ADDITION START - don't speed potion tables lol. this is BELOW the signal, so that if a structure or whatever WANTS to implement a custom interaction, they can
+	if((isstructure(interacting_with) || ismachinery(interacting_with)) && (interacting_with.anchored || interacting_with.drag_slowdown <= 0))
+		return NONE
+	// OCULIS EDIT ADDITION END
 
 	if(isitem(interacting_with))
 		var/obj/item/apply_to = interacting_with

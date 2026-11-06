@@ -11,7 +11,6 @@
 
 /datum/design/wholehuman
 	name = "Blank body"
-	id = "blankhuman"
 	build_type = LIMBGROWER
 	reagents_list = list(/datum/reagent/medicine/c2/synthflesh = 600)
 	build_path = /mob/living/carbon/human/empty
@@ -19,7 +18,6 @@
 
 /datum/design/humanoidbrain
 	name = "Blank brain"
-	id = "blankbrain"
 	build_type = LIMBGROWER
 	reagents_list = list(/datum/reagent/medicine/c2/synthflesh = 100)
 	build_path = /obj/item/organ/brain

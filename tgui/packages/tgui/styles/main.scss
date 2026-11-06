@@ -37,11 +37,18 @@
 @include meta.load-css('./interfaces/NuclearBomb.scss');
 @include meta.load-css('./interfaces/Orbit.scss');
 @include meta.load-css('./interfaces/Paper.scss');
+@include meta.load-css('./interfaces/PlantAnalyzer.scss');
 @include meta.load-css('./interfaces/PreferencesMenu.scss');
 @include meta.load-css('./interfaces/RequestManager.scss');
 @include meta.load-css('./interfaces/Roulette.scss');
 @include meta.load-css('./interfaces/Safe.scss');
 @include meta.load-css('./interfaces/SlotMachine.scss');
+// OCULIS EDIT ADDITION START - SLIME_RANCHER
+@include meta.load-css('./themes/slime_rancher.scss');
+@include meta.load-css('./interfaces/SlimeRancherScanner.scss');
+@include meta.load-css('./interfaces/SlimePen.scss');
+@include meta.load-css('./interfaces/Slimepedia.scss');
+// OCULIS EDIT ADDITION END
 @include meta.load-css('./interfaces/SpriteAuditor.scss');
 @include meta.load-css('./interfaces/Techweb.scss');
 @include meta.load-css('./interfaces/Trophycase.scss');

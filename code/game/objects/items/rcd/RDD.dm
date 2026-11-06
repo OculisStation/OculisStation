@@ -149,15 +149,28 @@ GLOBAL_LIST_INIT(rdd_designs, list(
 		list("name" = "Large Plastic Rocks (Alt)", "path" = /obj/structure/decoration/rock/pile/jungle/large/second),
 		list("name" = "Large Plastic Rocks (Alt 2)", "path" = /obj/structure/decoration/rock/pile/jungle/large/third),
 		list("name" = "Large Plastic Rocks (Random)", "path" = /obj/structure/decoration/rock/pile/jungle/large/style_random),
+		list("name" = "Plastic Volcano Pore", "path" = /obj/structure/decoration/rock/volcano/first),
+		list("name" = "Plastic Volcano Pore (Alt)", "path" = /obj/structure/decoration/rock/volcano/second),
+		list("name" = "Plastic Volcano Pore (Alt2)", "path" = /obj/structure/decoration/rock/volcano/third),
+		list("name" = "Plastic Volcano Pore (Alt3)", "path" = /obj/structure/decoration/rock/volcano/fourth),
+		list("name" = "Plastic Volcano Pore (Alt4)", "path" = /obj/structure/decoration/rock/volcano/fifth),
+		list("name" = "Plastic Volcano Pore (Random)", "path" = /obj/structure/decoration/rock/volcano/style_random/),
+	),
+	"Misc" = list(
+		list("name" = "Plastic Glowgrowth Colony", "path" = /obj/structure/decoration/misc/glowgrowth/first),
+		list("name" = "Plastic Glowgrowth Colony (Alt)", "path" = /obj/structure/decoration/misc/glowgrowth/second),
+		list("name" = "Plastic Glowgrowth Colony (Alt2)", "path" = /obj/structure/decoration/misc/glowgrowth/third),
+		list("name" = "Plastic Glowgrowth Colony (Random)", "path" = /obj/structure/decoration/misc/glowgrowth/style_random),
 	),
 ))
 
 /obj/item/construction/rdd
-	name = "rapid-decoration-device (RDD)"
+	name = "rapid decoration device (RDD)"
 	desc = "A device used to rapidly deploy plastic decorative flora. \
 		Internally synthesizes cheap plastic replicas of natural scenery."
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "rdd"
+	inhand_icon_state = "rdd"
 	worn_icon_state = "RCD"
 	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
@@ -248,7 +261,7 @@ GLOBAL_LIST_INIT(rdd_designs, list(
 					selected_decoration = design["path"]
 					selected_category = category
 					selected_design_name = design_name
-					playsound(src, SFX_TOOL_SWITCH, 20, TRUE)
+					playsound(src, /datum/sound_effect/tool_switch, 20, TRUE)
 					return TRUE
 
 	return TRUE

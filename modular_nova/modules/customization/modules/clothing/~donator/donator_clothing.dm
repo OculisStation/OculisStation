@@ -258,7 +258,7 @@
 //Donation reward for Thedragmeme
 //Have I reached suspiciously wealthy furry status yet? /j
 /obj/item/clothing/under/sweater_dress
-	name = "virgin killer sweater"
+	name = "open-backed sweater"
 	desc = "A meticulously knitted sweater that shows off ALL the right places. This is BARELY considered work attire."
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
@@ -359,7 +359,10 @@
 
 /obj/item/clothing/shoes/jackboots/heel/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/squeak, list('modular_nova/master_files/sound/effects/heel1.ogg' = 1, 'modular_nova/master_files/sound/effects/heel2.ogg' = 1), 50)
+	AddComponent(/datum/component/shoe_footstep, list(
+		'modular_nova/master_files/sound/effects/heel1.ogg',
+		'modular_nova/master_files/sound/effects/heel2.ogg',
+	), volume = 50, steps_per_play = 2, extrarange = -1, falloff_exponent = 10)
 
 // Donation reward for Bloodrite
 /obj/item/clothing/shoes/clown_shoes/britches
@@ -584,11 +587,13 @@
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/mask.dmi'
 	inhand_icon_state = "gasmask_captain"
 	animal_type = "wolf"
-	unique_death = 'modular_nova/master_files/sound/effects/wolfhead_curse.ogg'
+	emote_sounds = list(
+		/datum/emote/living/deathgasp::key = 'modular_nova/master_files/sound/effects/wolfhead_curse.ogg',
+	)
 	visor_flags_inv = HIDEFACIALHAIR | HIDESNOUT
 	flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
 	visor_flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
-	clothing_flags = VOICEBOX_DISABLED | MASKINTERNALS | BLOCK_GAS_SMOKE_EFFECT | GAS_FILTERING
+	clothing_flags = VOICEBOX_DISABLED | MASKINTERNALS | BLOCK_GAS_SMOKE_EFFECT
 	alternate_worn_layer = ABOVE_BODY_FRONT_HEAD_LAYER
 	use_radio_beeps_tts = TRUE
 
@@ -1604,7 +1609,10 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 
 /obj/item/clothing/shoes/fancy_heels/drag/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/squeak, list('modular_nova/master_files/sound/effects/footstep/highheel1.ogg' = 1, 'modular_nova/master_files/sound/effects/footstep/highheel2.ogg' = 1), 70)
+	AddComponent(/datum/component/squeak, list(
+		'modular_nova/master_files/sound/effects/footstep/highheel1.ogg' = 1,
+		'modular_nova/master_files/sound/effects/footstep/highheel2.ogg' = 1,
+	), 70, extrarange = MEDIUM_RANGE_SOUND_EXTRARANGE, falloff_exponent = SOUND_FALLOFF_EXPONENT)
 
 // Donation reward for Razurath
 
@@ -2039,9 +2047,11 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	desc = "An eerie crystalline shard that pulses with theurgic energies. Tendrils of crimson energy seem to dance along its surface."
 	icon = 'modular_nova/master_files/icons/donator/obj/custom.dmi'
 	icon_state = "crystal"
-	items_to_create = list(/obj/item/knife/razor_claws/donator/theurgic_knife)
 	extend_sound = 'sound/items/haunted/ghostitemattack.ogg'
 	retract_sound = 'sound/items/haunted/ghostitemattack.ogg'
+
+/obj/item/organ/cyberimp/arm/toolkit/shard/donator/theurgic_crystal/get_init_items()
+	return list(/obj/item/knife/razor_claws/donator/theurgic_knife)
 
 /obj/item/knife/razor_claws/donator/theurgic_knife
 	name = "cursed ritual knife"
@@ -2113,7 +2123,10 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 
 /obj/item/clothing/shoes/rem_shoes/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/squeak, list('modular_nova/master_files/sound/effects/footstep/highheel1.ogg' = 1, 'modular_nova/master_files/sound/effects/footstep/highheel2.ogg' = 1), 70)
+	AddComponent(/datum/component/squeak, list(
+		'modular_nova/master_files/sound/effects/footstep/highheel1.ogg' = 1,
+		'modular_nova/master_files/sound/effects/footstep/highheel2.ogg' = 1,
+	), 70, extrarange = MEDIUM_RANGE_SOUND_EXTRARANGE, falloff_exponent = SOUND_FALLOFF_EXPONENT)
 
 /obj/item/clothing/under/bwake
 	name = "\improper Compression bodysuit"

@@ -1139,7 +1139,7 @@
 		/datum/reagent/consumable/sugar = 4,
 	)
 	tastes = list("cookie" = 1, "butter" = 1)
-	foodtypes = DAIRY | GRAIN | PINEAPPLE //it's funny
+	foodtypes = DAIRY | GRAIN | SUGAR // OCULIS EDIT, ORIGINAL: foodtypes = DAIRY | GRAIN | PINEAPPLE 
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_3
 
@@ -1386,7 +1386,7 @@
 	icon = 'icons/obj/food/martian.dmi'
 	icon_state = "pickled_voltvine"
 	food_reagents = list(
-		/datum/reagent/consumable/liquidelectricity/enriched = 4,
+		/datum/reagent/consumable/liquidelectricity = 4,
 		/datum/reagent/consumable/nutriment/vitamin = 2,
 	)
 	tastes = list("sour radish" = 1)
@@ -1401,7 +1401,7 @@
 	icon = 'icons/obj/food/martian.dmi'
 	icon_state = "volt_fish"
 	food_reagents = list(
-		/datum/reagent/consumable/liquidelectricity/enriched = 6,
+		/datum/reagent/consumable/liquidelectricity = 6,
 		/datum/reagent/consumable/nutriment/protein = 4,
 	)
 	tastes = list("fish" = 1, "sour pear" = 1)
@@ -1416,7 +1416,7 @@
 	icon = 'icons/obj/food/martian.dmi'
 	icon_state = "sprout_bowl"
 	food_reagents = list(
-		/datum/reagent/consumable/liquidelectricity/enriched = 8,
+		/datum/reagent/consumable/liquidelectricity = 8,
 		/datum/reagent/consumable/nutriment/protein = 4,
 		/datum/reagent/consumable/nutriment/vitamin = 2,
 	)

@@ -8,13 +8,17 @@ If the scythe isn't empowered when you sheath it, you take a heap of damage and 
 /obj/item/organ/cyberimp/arm/toolkit/shard/scythe
 	name = "sinister shard"
 	desc = "This shard seems to be directly linked to some sinister entity. It might be your god! It also gives you a really horrible rash when you hold onto it for too long."
-	items_to_create = list(/obj/item/vorpalscythe)
 	organ_traits = list(TRAIT_MORBID)
 
 /obj/item/organ/cyberimp/arm/toolkit/shard/scythe/Initialize(mapload)
 	. = ..()
-	for (var/obj/item/scythe as anything in items_list)
-		ADD_TRAIT(scythe, TRAIT_NULLROD_ITEM, INNATE_TRAIT)
+
+/obj/item/organ/cyberimp/arm/toolkit/shard/scythe/get_init_items()
+	return list(/obj/item/vorpalscythe)
+
+/obj/item/organ/cyberimp/arm/toolkit/shard/scythe/prepare_init_item(obj/item/new_item)
+	. = ..()
+	ADD_TRAIT(new_item, TRAIT_NULLROD_ITEM, INNATE_TRAIT)
 
 /obj/item/organ/cyberimp/arm/toolkit/shard/scythe/Retract()
 	var/obj/item/vorpalscythe/scythe = active_item
@@ -25,7 +29,7 @@ If the scythe isn't empowered when you sheath it, you take a heap of damage and 
 
 	to_chat(owner, span_userdanger("[scythe] tears into you for your unworthy display of arrogance!"))
 	playsound(owner, 'sound/effects/magic/demon_attack1.ogg', 50, TRUE)
-	owner.apply_damage(25, BRUTE, hand, wound_bonus = 10, sharpness = SHARP_EDGED)
+	owner.apply_damage(25, BRUTE, bodypart_owner, wound_bonus = 10, sharpness = SHARP_EDGED)
 	return ..()
 
 /obj/item/vorpalscythe
@@ -84,7 +88,7 @@ If the scythe isn't empowered when you sheath it, you take a heap of damage and 
 	AddComponent(/datum/component/walking_aid)
 
 /obj/item/vorpalscythe/attack(mob/living/target, mob/living/user, list/modifiers, list/attack_modifiers)
-	if(ismonkey(target) && !target.mind) //Don't empower from hitting monkeys. Hit a corgi or something, I don't know.
+	if(HAS_TRAIT(target, TRAIT_LESSER_HUMANOID) && !target.mind) //Don't empower from hitting monkeys. Hit a corgi or something, I don't know.
 		return ..()
 
 	if(target.stat != DEAD && target != user)
@@ -125,7 +129,7 @@ If the scythe isn't empowered when you sheath it, you take a heap of damage and 
 	var/potential_empowerment = SCYTHE_EMPOWERED
 
 	if(!potential_reaping.mind) //We put this here juuuust in case there is something funky with ling checks
-		if(ismonkey(potential_reaping))
+		if(HAS_TRAIT(potential_reaping, TRAIT_LESSER_HUMANOID))
 			to_chat(user, span_warning("A pointless existence. You'll get no benefit from this death knell beyond the satisfaction of beheading this foul thing."))
 			potential_empowerment = SCYTHE_WEAK
 		else
@@ -141,7 +145,7 @@ If the scythe isn't empowered when you sheath it, you take a heap of damage and 
 		death_knell_speed_mod *= 1.5 //Staminacritting someone who's jittering (from, say, a stun baton) won't give you enough time to slice their head off, but staminacritting someone who isn't jittering will
 	if(empowerment == SCYTHE_EMPOWERED) //That said, if heads are already rolling, why stop here?
 		death_knell_speed_mod *= 0.5
-	if(ispodperson(potential_reaping) || ismonkey(potential_reaping)) //And if they're a podperson or monkey, they can just die.
+	if((potential_reaping.mob_biotypes & MOB_PLANT) || HAS_TRAIT(potential_reaping, TRAIT_LESSER_HUMANOID)) //And if they're a podperson/mushperson or monkey, they can just die.
 		death_knell_speed_mod *= 0.5
 
 	log_combat(user, potential_reaping, "prepared to use [src] to decapitate")

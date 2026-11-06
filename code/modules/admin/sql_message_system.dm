@@ -99,27 +99,6 @@
 		qdel(query_create_message)
 		return
 	qdel(query_create_message)
-	// OCULIS EDIT ADDITION START
-	var/datum/client_interface/mock_player = new(target_ckey)
-	mock_player.prefs = new /datum/preferences(mock_player)
-
-	var/list/plexora_note = list(
-		"ckey" = target_ckey,
-		"type" = type,
-		"text" = text,
-		"secret" = secret,
-		"expiration_time" = expiry || null,
-		"note_severity" = note_severity,
-		"admin_ckey" = admin_ckey,
-		"admin_key_name" = key_name(usr),
-		"round_id" = GLOB.round_id,
-		"round_timer" = round_timestamp(),
-		"world_time" = world.time,
-	)
-
-	plexora_note["total_playtime"] = mock_player.get_exp_living()
-	SSplexora.new_note(plexora_note)
-	// OCULIS EDIT ADDITION END
 	if(logged)
 		log_admin_private(pm)
 		message_admins("[header]:<br>[text]")

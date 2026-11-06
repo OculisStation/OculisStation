@@ -191,7 +191,7 @@
 			hud_list[hud] = list()
 
 		else
-			var/image/I = image('modular_iris/master_files/icons/mob/huds/hud.dmi', src, "")	// IRIS EDIT: nova filepath 'modular_nova/master_files/icons/mob/huds/hud.dmi'; original filepath 'icons/mob/huds/hud.dmi'
+			var/image/I = image(DEFAULT_HUDS_DMI, src, "")
 			I.appearance_flags = RESET_COLOR|PIXEL_SCALE|KEEP_APART
 			hud_list[hud] = I
 		set_hud_image_active(hud, update_huds = FALSE) //by default everything is active. but dont add it to huds to keep control.
@@ -462,13 +462,13 @@ GAME_VERB_PROC(/mob, Cell, "Cell", "Admin")
 /mob/proc/get_items_by_slots(slot_ids)
 	. = list()
 	for (var/slot_id in bitfield_to_list(slot_ids))
-		. += get_item_by_slot(slot_id)
+		. |= get_item_by_slot(slot_id)
 
 /// Gets what slot the item on the mob is held in.
 /// Returns null if the item isn't in any slots on our mob.
 /// Does not check if the passed item is null, which may result in unexpected outcoms.
 /mob/proc/get_slot_by_item(obj/item/looking_for)
-	if(looking_for in held_items)
+	if(is_holding(looking_for))
 		return ITEM_SLOT_HANDS
 
 	return null
@@ -561,7 +561,8 @@ GAME_VERB_PROC(/mob, Cell, "Cell", "Admin")
  * [this byond forum post](https://secure.byond.com/forum/?post=1326139&page=2#comment8198716)
  * for why this isn't atom/verb/examine()
  */
-GAME_VERB(/mob, examinate, "Examine", null, atom/examinify as mob|obj|turf) //It used to be oview(12), but I can't really say why
+GAME_VERB_CONTEXT(/mob, examinate, "Examine", "", null, /atom)
+	VERB_ARG_TYPED(examinify, VERB_ARG_TYPE_MOB | VERB_ARG_TYPE_OBJ | VERB_ARG_TYPE_TURF, VERB_ARG_SOURCE_VIEW, /atom)
 
 	DEFAULT_QUEUE_OR_CALL_VERB(VERB_CALLBACK(src, PROC_REF(run_examinate), examinify))
 
@@ -569,10 +570,7 @@ GAME_VERB(/mob, examinate, "Examine", null, atom/examinify as mob|obj|turf) //It
 	if(QDELETED(examinify)) // since this can run async we might have had the atom get qdeleted already
 		return
 
-	if(isarea(examinify))
-		return
-
-	if(isturf(examinify) && !(sight & SEE_TURFS) && !(examinify in view(client?.view || world.view, src)))
+	if(isturf(examinify) && !(sight & SEE_TURFS) && !(examinify in view(client ? client.view : world.view, src)))
 		// shift-click catcher may issue examinate() calls for out-of-sight turfs
 		return
 
@@ -580,7 +578,7 @@ GAME_VERB(/mob, examinate, "Examine", null, atom/examinify as mob|obj|turf) //It
 	if(is_blind()) //blind people see things differently (through touch)
 		if(!blind_examine_check(examinify))
 			return
-	else if(examine_turf && !(examine_turf.luminosity || examine_turf.dynamic_lumcount) && \
+	else if(examine_turf && !(examine_turf.luminosity || examine_turf.get_dynamic_lumcount()) && \
 		get_dist(src, examine_turf) > 1 && \
 		!has_nightvision()) // If you aren't blind, it's in darkness (that you can't see) and farther then next to you
 		return
@@ -726,24 +724,15 @@ GAME_VERB(/mob, examinate, "Examine", null, atom/examinify as mob|obj|turf) //It
 		return
 
 	// check to see if their face is blocked or, if not, a signal blocks it
-	if(examined_mob.can_eye_contact() && SEND_SIGNAL(src, COMSIG_MOB_EYECONTACT, examined_mob, TRUE) != COMSIG_BLOCK_EYECONTACT)
-		var/obj/item/clothing/eye_cover = examined_mob.is_eyes_covered()
-		if (!eye_cover || (!eye_cover.tint && !eye_cover.flash_protect))
+	if(examined_mob.is_eyes_visible(1, FLASH_PROTECTION_FLASH, requires_eyes = TRUE))
+		if(SEND_SIGNAL(src, COMSIG_MOB_EYECONTACT, examined_mob, TRUE) != COMSIG_BLOCK_EYECONTACT)
 			var/msg = span_smallnotice("You make eye contact with [examined_mob].")
 			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(to_chat), src, msg), 0.3 SECONDS) // so the examine signal has time to fire and this will print after
 
-	if(!imagined_eye_contact && can_eye_contact() && !examined_mob.is_blind() && SEND_SIGNAL(examined_mob, COMSIG_MOB_EYECONTACT, src, FALSE) != COMSIG_BLOCK_EYECONTACT)
-		var/obj/item/clothing/eye_cover = is_eyes_covered()
-		if (!eye_cover || (!eye_cover.tint && !eye_cover.flash_protect))
+	if(!imagined_eye_contact && !examined_mob.is_blind() && is_eyes_visible(1, FLASH_PROTECTION_FLASH, requires_eyes = TRUE))
+		if(SEND_SIGNAL(examined_mob, COMSIG_MOB_EYECONTACT, src, FALSE) != COMSIG_BLOCK_EYECONTACT)
 			var/msg = span_smallnotice("[src] makes eye contact with you.")
 			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(to_chat), examined_mob, msg), 0.3 SECONDS)
-
-/// Checks if we can make eye contact or someone can make eye contact with us
-/mob/living/proc/can_eye_contact()
-	return TRUE
-
-/mob/living/carbon/can_eye_contact()
-	return !(obscured_slots & HIDEFACE)
 
 /**
  * Called by using Activate Held Object with an empty hand/limb
@@ -924,10 +913,10 @@ GAME_VERB(/mob, reset_ui_positions_for_mob, "Reset UI Positions", "OOC")
 	SStgui.reset_ui_position(src)
 
 //suppress the .click/dblclick macros so people can't use them to identify the location of items or aimbot
-GAME_VERB_HIDDEN(/mob, DisClick, ".click", argu = null as anything, sec = "" as text, number1 = 0 as num  , number2 = 0 as num)
+GAME_VERB_NATIVE(/mob, DisClick, ".click", null, argu = null as anything, sec = "" as text, number1 = 0 as num, number2 = 0 as num)
 	return
 
-GAME_VERB_HIDDEN(/mob, DisDblClick, ".dblclick", argu = null as anything, sec = "" as text, number1 = 0 as num  , number2 = 0 as num)
+GAME_VERB_NATIVE(/mob, DisDblClick, ".dblclick", null, argu = null as anything, sec = "" as text, number1 = 0 as num, number2 = 0 as num)
 	return
 
 /// Adds this list to the output to the stat browser
@@ -936,21 +925,82 @@ GAME_VERB_HIDDEN(/mob, DisDblClick, ".dblclick", argu = null as anything, sec = 
 	SEND_SIGNAL(src, COMSIG_MOB_GET_STATUS_TAB_ITEMS, .)
 	return .
 
+/**
+ * Attempts to cycle through hands to select a new hand.
+ *
+ * - cycle_dir: A cardinal (NORTH, SOUTH, EAST, WEST) direction. Defaults to WEST, which is forwards.
+ * - climb: If TRUE, wrapping will also shift rows/columns.
+ * - silent: If applicable and TRUE, will output messages to the mob.
+ * - initial_index: The starting point for the iteration loop. Note that this hand is considered *last*.
+ */
+/mob/proc/cycle_hand(cycle_dir = WEST, climb = TRUE, silent = FALSE, initial_index = active_hand_index)
+	if(!(cycle_dir in GLOB.cardinals))
+		stack_trace("received invalid cycle_dir [!isnull(cycle_dir) ? cycle_dir : "null"]")
+		return FALSE
 
+	if(SEND_SIGNAL(src, COMSIG_MOB_CYCLE_HAND, cycle_dir, climb, silent) & COMPONENT_BLOCK_CYCLE)
+		return FALSE
+
+	var/step = ((cycle_dir & NORTHWEST) != 0) ? 1 : -1
+	var/by_row = cycle_dir & (NORTH|SOUTH)
+
+	var/hand_count = held_items.len
+	var/num_rows = floor(hand_count / 2)
+	var/row = floor((initial_index - 1) / 2)
+	var/column = (initial_index - 1) % 2
+
+	var/max_iterations // worst case, we iterate this many times up to our initial_index
+	if(climb)
+		max_iterations = hand_count
+	else if(!by_row)
+		max_iterations = 2
+	else
+		max_iterations = num_rows
+	for(var/i in 1 to max_iterations)
+		if(by_row) // vertically
+			row += step
+			if(row < 0 || row >= num_rows)
+				row = ((row % num_rows) + num_rows) % num_rows
+				if(climb)
+					column = abs(column + step) % 2
+		else // horizontally
+			column += step
+			if(column < 0 || column >= 2)
+				column = abs(column) % 2
+				if(climb)
+					row = (((row + step) % num_rows) + num_rows) % num_rows
+
+		var/desired_index = (row * 2 + column) + 1
+
+		var/sigresult = SEND_SIGNAL(src, COMSIG_MOB_CYCLE_HAND_INDEX(desired_index), cycle_dir, climb, silent)
+		if(sigresult & COMPONENT_BLOCK_CYCLE)
+			return FALSE
+		if(sigresult & COMPONENT_CONTINUE_CYCLE)
+			continue
+
+		return swap_hand(desired_index, silent = silent)
+	return FALSE
+
+/// Swaps the mob's active hand to the specified held_index.
+/// If intending to swap to the "next" hand, use [/mob/proc/cycle_hand] instead.
 /mob/proc/swap_hand(held_index, silent = FALSE)
 	SHOULD_NOT_OVERRIDE(TRUE) // Override perform_hand_swap instead
 
-	var/obj/item/held_item = get_active_held_item()
-	if(SEND_SIGNAL(src, COMSIG_MOB_SWAPPING_HANDS, held_item) & COMPONENT_BLOCK_SWAP)
-		if (!silent)
-			to_chat(src, span_warning("Your other hand is too busy holding [held_item]."))
+	if(!isnum(held_index))
+		stack_trace("You passed [held_index] into swap_hand instead of a number. WTF man")
 		return FALSE
 
-	var/result = perform_hand_swap(held_index)
-	if (result)
-		SEND_SIGNAL(src, COMSIG_MOB_SWAP_HANDS, get_active_held_item(), held_item)
+	if(held_index < 1 || held_index > get_num_hand_slots())
+		stack_trace("held_index out of bounds ([held_index])")
+		return FALSE
 
-	return result
+	if(SEND_SIGNAL(src, COMSIG_MOB_SWAPPING_HANDS, held_index, silent) & COMPONENT_BLOCK_SWAP)
+		return FALSE
+
+	var/obj/item/old_active_held_item = get_active_held_item()
+	. = perform_hand_swap(held_index)
+	if(.)
+		SEND_SIGNAL(src, COMSIG_MOB_SWAP_HANDS, get_active_held_item(), old_active_held_item)
 
 /// Performs the actual ritual of swapping hands, such as setting the held index variables
 /mob/proc/perform_hand_swap(held_index)
@@ -958,16 +1008,15 @@ GAME_VERB_HIDDEN(/mob, DisDblClick, ".dblclick", argu = null as anything, sec = 
 	if (!HAS_TRAIT(src, TRAIT_CAN_HOLD_ITEMS))
 		return FALSE
 
-	if(!held_index)
-		held_index = (active_hand_index % held_items.len) + 1
-
-	if(!isnum(held_index))
-		CRASH("You passed [held_index] into swap_hand instead of a number. WTF man")
-
 	var/previous_index = active_hand_index
 	active_hand_index = held_index
+
+	// update the previous handset
 	hud_used?.update_inventory_slot(ITEM_SLOT_HANDS, previous_index)
+	hud_used?.update_inventory_slot(ITEM_SLOT_HANDS, get_offhand_index(previous_index))
+	// update the current handset
 	hud_used?.update_inventory_slot(ITEM_SLOT_HANDS, held_index)
+	hud_used?.update_inventory_slot(ITEM_SLOT_HANDS, get_offhand_index(held_index))
 	return TRUE
 
 /mob/proc/activate_hand(selected_hand)
@@ -1173,7 +1222,6 @@ GAME_VERB_HIDDEN(/mob, DisDblClick, ".dblclick", argu = null as anything, sec = 
 	if(oldname == newname)
 		return FALSE
 	if(!istext(newname) && !isnull(newname))
-		stack_trace("[src] attempted to change its name from [oldname] to the non string value [newname]")
 		return FALSE
 
 	log_played_names(
@@ -1219,6 +1267,7 @@ GAME_VERB_HIDDEN(/mob, DisDblClick, ".dblclick", argu = null as anything, sec = 
 
 	log_mob_tag("TAG: [tag] RENAMED: [key_name(src)]")
 	SEND_SIGNAL(src, COMSIG_MOB_FULLY_RENAMED, oldname, newname)
+
 	return TRUE
 
 ///Updates GLOB.manifest records with new name , see mob/living/carbon/human
@@ -1257,7 +1306,7 @@ GAME_VERB_HIDDEN(/mob, DisDblClick, ".dblclick", argu = null as anything, sec = 
 	SIGNAL_HANDLER
 	return
 
-/mob/proc/update_health_hud()
+/mob/proc/update_health_hud(healthpercent)
 	return
 
 /// Changes the stamina HUD based on new information
@@ -1354,7 +1403,7 @@ GAME_VERB_HIDDEN(/mob, DisDblClick, ".dblclick", argu = null as anything, sec = 
 	var/turf/mob_location = get_turf(src)
 	var/area/mob_area = get_area(src)
 
-	if(mob_location.get_lumcount() > light_amount)
+	if(mob_location.check_lumcount_above(light_amount))
 		return TRUE
 	else if(!mob_area.static_lighting)
 		return TRUE
@@ -1594,10 +1643,6 @@ GAME_VERB_HIDDEN(/mob, DisDblClick, ".dblclick", argu = null as anything, sec = 
 
 	for(var/datum/callback/CB as anything in persistent_client.post_logout_callbacks)
 		CB.Invoke()
-
-	if(canon_client?.movingmob)
-		LAZYREMOVE(canon_client.movingmob.client_mobs_in_contents, src)
-		canon_client.movingmob = null
 
 	clear_important_client_contents()
 	canon_client = null

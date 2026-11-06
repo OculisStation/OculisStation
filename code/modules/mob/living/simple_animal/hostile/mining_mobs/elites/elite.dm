@@ -274,7 +274,7 @@ While using this makes the system rely on OnFire, it still gives options for tim
 
 	for(var/mob/living/simple_animal/hostile/asteroid/elite/elitehere in loc)
 		if(elitehere == mychild && activity == TUMOR_PASSIVE)
-			mychild.adjustHealth(-mychild.maxHealth * 0.025*seconds_per_tick)
+			mychild.adjust_brute_loss(-mychild.maxHealth * 0.025*seconds_per_tick)
 			var/obj/effect/temp_visual/heal/H = new /obj/effect/temp_visual/heal(get_turf(mychild))
 			H.color = COLOR_RED
 
@@ -303,7 +303,7 @@ While using this makes the system rely on OnFire, it still gives options for tim
 	if(QDELETED(mychild) || mychild.stat == DEAD)
 		onEliteLoss()
 		return
-	if(QDELETED(activator) || activator.stat == DEAD || (activator.health <= HEALTH_THRESHOLD_DEAD && HAS_TRAIT(activator, TRAIT_NODEATH)))
+	if(QDELETED(activator) || activator.stat == DEAD || (activator.health <= activator.dead_threshold && HAS_TRAIT(activator, TRAIT_NODEATH)))
 		if(!QDELETED(activator) && HAS_TRAIT(activator, TRAIT_NODEATH)) // dust the unkillable activator
 			activator.dust(drop_items = TRUE)
 		onEliteWon()
@@ -336,12 +336,23 @@ While using this makes the system rely on OnFire, it still gives options for tim
 	visible_message(span_boldwarning("[src] begins to convulse violently before beginning to dissipate."))
 	visible_message(span_boldwarning("As [src] closes, something is forced up from down below."))
 	var/obj/structure/closet/crate/necropolis/tendril/lootbox = new /obj/structure/closet/crate/necropolis/tendril(loc)
+/*
+// OCULIS EDIT START: Rebalances elite fauna to drop their trophy unless boosted, in which case they drop the intended boosted loot
+// ORIGINAL:
 	if(boosted)
 		if(mychild.loot_drop != null && prob(50))
 			new mychild.loot_drop(lootbox)
 		else
 			new /obj/item/tumor_shard(lootbox)
 	qdel(src)
+*/
+	if(!boosted)
+		if(mychild.loot_drop != null)
+			new mychild.loot_drop(lootbox)
+	else
+		new /obj/item/tumor_shard(lootbox)
+	qdel(src)
+// OCULIS EDIT END
 
 /obj/structure/elite_tumor/proc/onEliteWon()
 	activity = TUMOR_PASSIVE

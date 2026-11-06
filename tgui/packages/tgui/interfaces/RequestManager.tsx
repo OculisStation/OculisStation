@@ -21,7 +21,6 @@ import { Window } from '../layouts';
 type Data = {
   requests: Request[];
   fax_autoprinting: BooleanLike;
-  floxy_available: BooleanLike; // OCULIS EDIT ADDITION - FLOXY
 };
 
 type Request = {
@@ -144,7 +143,7 @@ const RequestType = (props) => {
 };
 
 const RequestControls = (props) => {
-  const { act, data } = useBackend<Data>(); // OCULIS EDIT CHANGE - FLOXY - ORIGINAL: const { act } = useBackend<Data>();
+  const { act } = useBackend<Data>();
   const { request } = props;
 
   return (
@@ -175,15 +174,6 @@ const RequestControls = (props) => {
       {request.req_type === 'request_internet_sound' && (
         <>
           <Button onClick={() => act('play', { id: request.id })}>PLAY</Button>
-          {/* OCULIS EDIT ADDITION START - FLOXY */}
-          {!!data.floxy_available && (
-            <Button
-              onClick={() => act('play', { id: request.id, legacy: true })}
-            >
-              PLAY (legacy mode)
-            </Button>
-          )}
-          {/* OCULIS EDIT ADDITION END */}
         </>
       )}
     </div>

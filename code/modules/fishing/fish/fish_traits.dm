@@ -201,8 +201,7 @@ GLOBAL_LIST_INIT(spontaneous_fish_traits, populate_spontaneous_fish_traits())
 	if(HAS_TRAIT(rod, TRAIT_ROD_IGNORE_ENVIRONMENT))
 		return
 	var/turf/turf = get_turf(location)
-	var/light_amount = turf?.get_lumcount()
-	if(light_amount > SHADOW_SPECIES_LIGHT_THRESHOLD)
+	if(turf?.check_lumcount_above(SHADOW_SPECIES_LIGHT_THRESHOLD))
 		.[MULTIPLICATIVE_FISHING_MOD] = 0
 
 /datum/fish_trait/nocturnal/apply_to_fish(obj/item/fish/fish, initial = TRUE)
@@ -218,18 +217,13 @@ GLOBAL_LIST_INIT(spontaneous_fish_traits, populate_spontaneous_fish_traits())
 	if(!source.loc || (!HAS_TRAIT(source.loc, TRAIT_IS_AQUARIUM) && !isturf(source.loc)))
 		return
 	var/turf/turf = get_turf(source)
-	var/light_amount = turf.get_lumcount()
-	if(light_amount > SHADOW_SPECIES_LIGHT_THRESHOLD)
+	if(turf.check_lumcount_above(SHADOW_SPECIES_LIGHT_THRESHOLD))
 		source.damage_fish(0.5 * seconds_per_tick)
 
 /datum/fish_trait/nocturnal/apply_to_mob(mob/living/basic/mob)
 	. = ..()
-	// Make sure the mob can also ee in the dark
-	mob.lighting_cutoff_red = min(mob.lighting_cutoff_red, 20)
-	mob.lighting_cutoff_green = min(mob.lighting_cutoff_green, 20)
-	mob.lighting_cutoff_blue = min(mob.lighting_cutoff_blue, 20)
-	mob.update_sight()
-
+	// Make sure the mob can also see in the dark
+	ADD_TRAIT(mob, TRAIT_TRUE_NIGHT_VISION, FISH_TRAIT_DATUM)
 	RegisterSignal(mob, COMSIG_LIVING_HANDLE_BREATHING, PROC_REF(on_non_stasis_life))
 
 /datum/fish_trait/nocturnal/proc/on_non_stasis_life(mob/living/basic/mob, seconds_per_tick = SSMOBS_DT)
@@ -237,9 +231,8 @@ GLOBAL_LIST_INIT(spontaneous_fish_traits, populate_spontaneous_fish_traits())
 	var/turf/our_turf = mob.loc
 	if(!isturf(our_turf))
 		return
-	var/light_amount = our_turf.get_lumcount()
 
-	if (light_amount < SHADOW_SPECIES_LIGHT_THRESHOLD) //heal in the dark
+	if (our_turf.check_lumcount_below(SHADOW_SPECIES_LIGHT_THRESHOLD)) //heal in the dark
 		mob.apply_status_effect(/datum/status_effect/shadow/regeneration)
 
 /datum/fish_trait/heavy
@@ -883,7 +876,7 @@ GLOBAL_LIST_INIT(spontaneous_fish_traits, populate_spontaneous_fish_traits())
 			mood_event_type = /datum/mood_event/inked, \
 		)
 	target.visible_message(span_warning("[target] is inked by [source]!"), span_userdanger("You've been inked by [source]!"))
-	playsound(target, SFX_DESECRATION, 50, TRUE)
+	playsound(target, /datum/sound_effect/desecration, 50, TRUE)
 	ADD_TRAIT(source, TRAIT_FISH_INK_ON_COOLDOWN, FISH_TRAIT_DATUM)
 	addtimer(TRAIT_CALLBACK_REMOVE(source, TRAIT_FISH_INK_ON_COOLDOWN, FISH_TRAIT_DATUM), 9 SECONDS)
 

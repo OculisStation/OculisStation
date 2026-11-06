@@ -15,4 +15,16 @@
 /// Trait that allows whoever has it to walk through arachnid webbing without slowdown.
 #define TRAIT_ARACHNID_WEB_SURFER "arachnid_web_surfer"
 
+/// Trait that prevents mobs from squashing other mobs by walking over them.
+#define TRAIT_DOESNT_SQUASH "doesnt_squash"
+
+/// slapped on anything a slime has latched onto, and it never comes back off. if it's a monkey, nobody feels bad when it dies
+#define TRAIT_WAS_SLIME_FOOD "was_slime_food"
+
+/// Weapon carries the starborne enchantment, so the black warping rune won't stack a second one onto it
+#define TRAIT_STARBORNE "starborne"
+
+/// Mask carrying the rebreather element
+#define TRAIT_SLIME_REBREATHER "slime_rebreather"
+
 // END TRAIT DEFINES

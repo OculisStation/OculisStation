@@ -60,6 +60,9 @@
 /// Called when we've eaten something
 /mob/living/basic/goose/proc/on_gobbled(atom/source, obj/item/food, mob/feeder)
 	SIGNAL_HANDLER
+	// The eaten item isn't always destroyed (see conserve_food), so make sure the AI
+	// forgets about it instead of trying to eat the same swallowed item forever.
+	ai_controller?.clear_blackboard_key(BB_TARGET_FOOD)
 	if (!food.has_material_type(/datum/material/plastic))
 		return NONE
 
@@ -125,7 +128,7 @@
 
 	. = ..()
 	if (. == COMSIG_MOB_TERMINATE_EAT)
-		return NONE// It's plastic, if it's not plastic we already filtered it for edible
+		return // It's plastic, which we already swallowed whole. If it's not plastic we already filtered it for edible
 
 	// This also increases my vomit chance, but we atomised this field to the inside of a component and I need to read it
 	var/datum/component/edible/edible = food.GetComponent(/datum/component/edible)

@@ -99,7 +99,7 @@
 			if(HAS_TRAIT(L, TRAIT_OVERSIZED) && !HAS_TRAIT(src, TRAIT_OVERSIZED) && !iscyborg(src))
 				add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/bulky_drag, multiplicative_slowdown = PULL_OVERSIZED_SLOWDOWN)
 				return
-			if(HAS_TRAIT(L, TRAIT_HEAVYSET))
+			if(HAS_TRAIT(L, TRAIT_HEAVYSET) && !HAS_TRAIT(src, TRAIT_HEAVYSET) && !iscyborg(src)) // OCULIS EDIT, ORIGINAL: if(HAS_TRAIT(L, TRAIT_HEAVYSET))
 				add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/bulky_drag, multiplicative_slowdown = PULL_OVERSIZED_SLOWDOWN)
 				return
 			//NOVA EDIT END
@@ -166,6 +166,6 @@
 	return ..()
 
 /mob/living/keybind_face_direction(direction)
-	if(IS_UNCONSCIOUS(src))
+	if(IS_UNCONSCIOUS(src) || HAS_TRAIT(src, TRAIT_STASIS)) // NOVA EDIT CHANGE - ORIGINAL: if(!(mobility_flags & MOBILITY_MOVE))
 		return
 	return ..()

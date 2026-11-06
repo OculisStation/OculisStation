@@ -1,5 +1,5 @@
 /obj/item/reagent_containers/blood/nabber
-	blood_type = BLOOD_TYPE_NABBER
+	blood_type = /datum/blood_type/nabber
 	custom_materials = list(/datum/material/biomass = SHEET_MATERIAL_AMOUNT)
 
 /obj/item/reagent_containers/blood/nabber/examine()
@@ -8,7 +8,6 @@
 
 /datum/design/organic_bloodbag_nabber
 	name = "H Blood Pack"
-	id = "organic_bloodbag_nabber"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 100)
 	build_path = /obj/item/reagent_containers/blood/nabber
@@ -18,7 +17,7 @@
 	)
 
 /obj/item/reagent_containers/blood/vox
-	blood_type = BLOOD_TYPE_VOX
+	blood_type = /datum/blood_type/vox
 	custom_materials = list(/datum/material/biomass = SHEET_MATERIAL_AMOUNT)
 
 /obj/item/reagent_containers/blood/vox/examine()
@@ -27,7 +26,6 @@
 
 /datum/design/organic_bloodbag_vox
 	name = "VO Blood Pack"
-	id = "organic_bloodbag_vox"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 100)
 	build_path = /obj/item/reagent_containers/blood/vox
@@ -37,7 +35,7 @@
 	)
 
 /obj/item/reagent_containers/blood/insect
-	blood_type = BLOOD_TYPE_INSECT
+	blood_type = /datum/blood_type/insect
 	custom_materials = list(/datum/material/biomass = SHEET_MATERIAL_AMOUNT)
 
 /obj/item/reagent_containers/blood/insect/examine()
@@ -46,7 +44,6 @@
 
 /datum/design/organic_bloodbag_insect
 	name = "I Blood Pack"
-	id = "organic_bloodbag_insect"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 100)
 	build_path = /obj/item/reagent_containers/blood/insect
@@ -56,7 +53,7 @@
 	)
 
 /obj/item/reagent_containers/blood/skrell
-	blood_type = BLOOD_TYPE_SKRELL
+	blood_type = /datum/blood_type/skrell
 	custom_materials = list(/datum/material/biomass = SHEET_MATERIAL_AMOUNT)
 
 /obj/item/reagent_containers/blood/skrell/examine()
@@ -65,7 +62,6 @@
 
 /datum/design/organic_bloodbag_skrell
 	name = "SK Blood Pack"
-	id = "organic_bloodbag_skrell"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 100)
 	build_path = /obj/item/reagent_containers/blood/skrell

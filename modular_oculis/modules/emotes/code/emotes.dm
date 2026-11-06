@@ -20,16 +20,21 @@
 		return ..()
 	return FALSE
 
-GAME_VERB_PROC(/mob, emote_roll2d6, "| Roll 2d6 |", "Emotes")
-	src.emote("roll2d6", intentional = TRUE)
+/datum/emote/living/carbon/human/vomit
+	key = "vomit"
+	key_third_person = "vomits"
+	message = "vomits."
+	emote_type = EMOTE_VISIBLE
 
-/datum/emote/roll2d6
-	key = "roll2d6"
-	affected_by_pitch = FALSE
+/datum/emote/living/carbon/human/vomit/run_emote(mob/user, params, type_override, intentional)
+	var/mob/living/carbon/carbon_user = user
+	if(!istype(user))
+		return
+	carbon_user.vomit(vomit_flags = (MOB_VOMIT_MESSAGE | MOB_VOMIT_HARM | MOB_VOMIT_STUN | MOB_VOMIT_FORCE))
 
-/datum/emote/roll2d6/run_emote(mob/user, params, type_override, intentional)
-	. = ..()
-	var/roll1 = roll(6)
-	var/roll2 = roll(6)
-	var/result = roll1 + roll2
-	user.client?.looc_message("[user] rolls 2d6 and gets [roll1]+[roll2]=[result].")
+/datum/emote/living/carbon/human/slowclap
+	key = "slowclap"
+	message = "slowly claps their hands."
+	emote_type = EMOTE_AUDIBLE
+	sound = 'sound/machines/slowclap.ogg'
+	hands_use_check = TRUE

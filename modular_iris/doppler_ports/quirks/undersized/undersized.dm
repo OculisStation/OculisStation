@@ -1,5 +1,4 @@
 #define UNDERSIZED_SPEED_SLOWDOWN 0.5
-#define UNDERSIZED_HUNGER_MOD 0.5
 #define UNDERSIZED_HARM_DAMAGE_BONUS -10
 #define UNDERSIZED_KICK_EFFECTIVENESS_BONUS -5
 #define UNDERSIZED_SQUASH_CHANCE 100
@@ -37,7 +36,7 @@
 	human_holder.AddElement(/datum/element/can_be_held)
 
 	human_holder.max_grab = GRAB_AGGRESSIVE //you are too weak to neck slam or strangle
-	human_holder.physiology.hunger_mod *= UNDERSIZED_HUNGER_MOD
+	MODIFY_PHYSIOLOGY(human_holder, PHYS_COEFF_HUNGER_MOD, 0.5)
 	human_holder.add_movespeed_modifier(/datum/movespeed_modifier/undersized)
 
 	RegisterSignal(human_holder, COMSIG_CARBON_POST_ATTACH_LIMB, PROC_REF(on_gain_limb))
@@ -98,7 +97,7 @@
 	human_holder.RemoveElement(/datum/element/can_be_held)
 
 	human_holder.max_grab = GRAB_KILL
-	human_holder.physiology.hunger_mod /= UNDERSIZED_HUNGER_MOD
+	MODIFY_PHYSIOLOGY(human_holder, PHYS_COEFF_HUNGER_MOD, 2)
 	human_holder.remove_movespeed_modifier(/datum/movespeed_modifier/undersized)
 
 
@@ -217,7 +216,6 @@
 
 //ensmallening spell end
 
-#undef UNDERSIZED_HUNGER_MOD
 #undef UNDERSIZED_SPEED_SLOWDOWN
 #undef UNDERSIZED_HARM_DAMAGE_BONUS
 #undef UNDERSIZED_KICK_EFFECTIVENESS_BONUS

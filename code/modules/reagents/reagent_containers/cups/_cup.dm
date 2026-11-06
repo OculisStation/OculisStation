@@ -9,7 +9,7 @@
 	icon_state = "bottle"
 	lefthand_file = 'icons/mob/inhands/items/drinks_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/items/drinks_righthand.dmi'
-	reagent_container_liquid_sound = SFX_DEFAULT_LIQUID_SLOSH
+	reagent_container_liquid_sound = /datum/sound_effect/default_liquid_slosh
 
 	/// Like Edible's food type, what kind of drink is this?
 	var/drink_type = NONE
@@ -190,7 +190,38 @@
 	if(isliving(target))
 		return try_drink(target, user)
 
+	if(is_drainable())
+		return pour_concrete(target, user)
+
 	return NONE
+
+/// QoL helper for pouring concrete directly from container just by clicking.
+/// Easier than splashing onto turf or object, but requires a little delay.
+/obj/item/reagent_containers/cup/proc/pour_concrete(atom/target, mob/living/user)
+	var/datum/reagent/concrete/concrete = reagents.has_reagent(/datum/reagent/concrete, check_subtypes=TRUE)
+	if (!concrete)
+		return NONE
+	var/pour_amount = concrete.pour_amount(target, user)
+	if (!pour_amount)
+		return NONE
+	if (concrete.volume < pour_amount)
+		user.balloon_alert(user, "not enough to pour")
+		return ITEM_INTERACT_FAILURE
+	user.balloon_alert(user, "pouring...")
+	user.visible_message(
+		span_notice("[user] starts pouring concrete onto \a [target]."),
+		span_notice("You start pouring concrete onto \a [target]..."),
+	)
+	if (!do_after(user, 1 SECONDS, target=target))
+		user.balloon_alert(user, "interrupted")
+		return ITEM_INTERACT_FAILURE
+	if(concrete.volume < pour_amount) // check if volume has changed during do_after
+		user.balloon_alert(user, "not enough to pour")
+		return ITEM_INTERACT_FAILURE
+	playsound(src, 'sound/effects/slosh.ogg', 25, TRUE)
+	concrete.expose_atom(target, pour_amount, TOUCH)
+	reagents.remove_reagent(concrete.type, pour_amount)
+	return ITEM_INTERACT_SUCCESS
 
 /obj/item/reagent_containers/cup/interact_with_atom_secondary(atom/target, mob/living/user, list/modifiers)
 	. = ..()
@@ -572,15 +603,14 @@
 	slot_flags = ITEM_SLOT_HEAD
 	resistance_flags = NONE
 	armor_type = /datum/armor/cup_bucket
-	slot_equipment_priority = list( \
-		ITEM_SLOT_BACK, ITEM_SLOT_ID,\
-		ITEM_SLOT_ICLOTHING, ITEM_SLOT_OCLOTHING,\
-		ITEM_SLOT_MASK, ITEM_SLOT_HEAD, ITEM_SLOT_NECK,\
-		ITEM_SLOT_FEET, ITEM_SLOT_GLOVES,\
-		ITEM_SLOT_EARS, ITEM_SLOT_EYES,\
-		ITEM_SLOT_BELT, ITEM_SLOT_SUITSTORE,\
-		ITEM_SLOT_LPOCKET, ITEM_SLOT_RPOCKET,\
-		ITEM_SLOT_DEX_STORAGE
+	slot_equipment_priority = list(
+		ITEM_SLOT_BACK, ITEM_SLOT_ID,
+		ITEM_SLOT_ICLOTHING, ITEM_SLOT_OCLOTHING,
+		ITEM_SLOT_MASK, ITEM_SLOT_HEAD, ITEM_SLOT_NECK,
+		ITEM_SLOT_FEET, ITEM_SLOT_GLOVES,
+		ITEM_SLOT_EARS, ITEM_SLOT_EYES,
+		ITEM_SLOT_BELT, ITEM_SLOT_SUITSTORE,
+		ITEM_SLOT_LPOCKET, ITEM_SLOT_RPOCKET,
 	)
 
 /obj/item/reagent_containers/cup/bucket/Initialize(mapload)

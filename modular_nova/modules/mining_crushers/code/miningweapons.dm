@@ -160,7 +160,7 @@
 	. = ..()
 	if(HAS_TRAIT(user, TRAIT_PACIFISM) || !HAS_TRAIT(src, TRAIT_WIELDED))
 		return
-	else if(!QDELETED(target) && !target.anchored)
+	else if(!QDELETED(target) && !target.anchored && !(target.move_resist == INFINITY)) // OCULIS EDIT: PKHammer can no longer displace tendrils - ORIGINAL: else if(!QDELETED(target) && !target.anchored)
 		var/whack_speed = (2)
 		target.throw_at(throw_target, 2, whack_speed, user, gentle = TRUE)
 

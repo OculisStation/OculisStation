@@ -55,6 +55,7 @@
 		QDEL_LIST(imaginary_group)
 	QDEL_LAZYLIST(diseases)
 	QDEL_LAZYLIST(quirks)
+	QDEL_NULL(inner_armor)
 
 	if(!isnull(unconscious_appearance))
 		// Not super necessary strictly speaking but just in case
@@ -98,7 +99,7 @@
 	if(levels <= 1 && can_help_themselves)
 		var/obj/item/organ/wings/gliders = get_organ_by_type(/obj/item/organ/wings)
 		if(HAS_TRAIT(src, TRAIT_FREERUNNING) || gliders?.can_soften_fall()) // the power of parkour or wings allows falling short distances unscathed
-			var/graceful_landing = HAS_TRAIT(src, TRAIT_CATLIKE_GRACE)
+			var/graceful_landing = HAS_TRAIT(src, TRAIT_CATLIKE_INSTINCT)
 
 			if(graceful_landing)
 				add_movespeed_modifier(/datum/movespeed_modifier/landed_on_feet)
@@ -117,7 +118,7 @@
 	// Smaller mobs with catlike grace can ignore damage (EG: cats)
 	var/small_surface_area = mob_size <= MOB_SIZE_SMALL
 	var/skip_knockdown = FALSE
-	if(HAS_TRAIT(src, TRAIT_CATLIKE_GRACE) && (small_surface_area || usable_legs >= 2) && body_position == STANDING_UP && can_help_themselves)
+	if(HAS_TRAIT(src, TRAIT_CATLIKE_INSTINCT) && (small_surface_area || usable_legs >= 2) && body_position == STANDING_UP && can_help_themselves)
 		. |= ZIMPACT_NO_MESSAGE|ZIMPACT_NO_SPIN
 		skip_knockdown = TRUE
 		if(small_surface_area || (isfelinid(src) || istajaran(src))) // NOVA EDIT CHANGE - ORIGINAL: if(small_surface_area)
@@ -139,8 +140,8 @@
 
 	if(body_position == STANDING_UP)
 		var/damage_for_each_leg = round((incoming_damage / 2) * damage_softening_multiplier)
-		apply_damage(damage_for_each_leg, BRUTE, BODY_ZONE_L_LEG, wound_bonus = -2.5 * levels)
-		apply_damage(damage_for_each_leg, BRUTE, BODY_ZONE_R_LEG, wound_bonus = -2.5 * levels)
+		apply_damage(damage_for_each_leg, BRUTE, BODY_ZONE_L_LEG)
+		apply_damage(damage_for_each_leg, BRUTE, BODY_ZONE_R_LEG)
 	else
 		apply_damage(incoming_damage, BRUTE, spread_damage = TRUE)
 
@@ -288,10 +289,9 @@
 		if(borg.combat_mode && borg.stat != DEAD)
 			return TRUE
 	//anti-riot equipment is also anti-push
-	for(var/obj/item/I in M.held_items)
-		if(!isclothing(M))
-			if(prob(I.block_chance*2))
-				return
+	for(var/obj/item/I as anything in M.get_held_items())
+		if(!isclothing(M) && prob(I.block_chance*2))
+			return TRUE
 
 /mob/living/proc/can_mobswap_with(mob/other)
 	if (HAS_TRAIT(other, TRAIT_NOMOBSWAP) || HAS_TRAIT(src, TRAIT_NOMOBSWAP))
@@ -335,15 +335,15 @@
 
 /mob/living/get_photo_description(obj/item/camera/camera)
 	var/list/holding = list()
-	var/len = length(held_items)
-	if(len)
-		for(var/obj/item/held_item in held_items)
-			if(!holding.len)
-				holding += "[p_They()] [p_are()] holding \a [held_item]"
-			else if(held_items.Find(held_item) == len)
-				holding += ", and \a [held_item]"
-			else
-				holding += ", \a [held_item]"
+	var/list/held = get_held_items()
+	for(var/item_position in 1 to length(held))
+		var/obj/item/held_item = held[item_position]
+		if(!length(holding))
+			holding += "[p_They()] [p_are()] holding \a [held_item]"
+		else if(item_position != length(held))
+			holding += ", \a [held_item]"
+		else
+			holding += ", and \a [held_item]"
 	return "You can also see [src] on the photo[health < (maxHealth * 0.75) ? ", looking a bit hurt":""][holding.len ? ". [holding.Join("")].":"."]"
 
 //Called when we bump onto an obj
@@ -563,7 +563,8 @@
 
 //mob verbs are a lot faster than object verbs
 //for more info on why this is not atom/pull, see examinate() in mob.dm
-GAME_VERB(/mob/living, pulled, "Pull", null, atom/movable/thing_pulled as mob|obj in oview(1))
+GAME_VERB_CONTEXT_RANGE(/mob/living, pulled, "Pull", "", null, /atom/movable, oview(1))
+	VERB_ARG_TYPED_RANGE(thing_pulled, VERB_ARG_TYPE_MOB | VERB_ARG_TYPE_OBJ, VERB_ARG_SOURCE_VIEW, /atom/movable, 1)
 	if(istype(thing_pulled) && Adjacent(thing_pulled))
 		start_pulling(thing_pulled)
 
@@ -587,7 +588,8 @@ GAME_VERB(/mob/living, pulled, "Pull", null, atom/movable/thing_pulled as mob|ob
 	log_message("points at [pointing_at]", LOG_EMOTE)
 	visible_message(span_infoplain("[span_name("[src]")] points at [pointing_at]."), span_notice("You point at [pointing_at]."))
 
-GAME_VERB_HIDDEN(/mob/living, succumb, "succumb", whispered as num|null)
+GAME_VERB_HIDDEN(/mob/living, succumb, "succumb")
+	VERB_ARG(whispered, VERB_ARG_TYPE_NUM, VERB_ARG_SOURCE_INPUT)
 	if (!CAN_SUCCUMB(src))
 		if(HAS_TRAIT(src, TRAIT_SUCCUMB_OVERRIDE))
 			if(whispered)
@@ -598,7 +600,7 @@ GAME_VERB_HIDDEN(/mob/living, succumb, "succumb", whispered as num|null)
 			return
 	log_message("Has [whispered ? "whispered his final words" : "succumbed to death"] with [round(health, 0.1)] points of health!", LOG_ATTACK)
 	message_admins("[ADMIN_LOOKUPFLW(usr)] Has [whispered ? "whispered his final words" : "succumbed to death"] with [round(health, 0.1)] points of health, at [AREACOORD(usr)]") // NOVA EDIT ADDITION
-	adjust_oxy_loss(health - HEALTH_THRESHOLD_DEAD)
+	adjust_oxy_loss(health - dead_threshold)
 	updatehealth()
 	if(!whispered)
 		to_chat(src, span_notice("You have given up life and succumbed to death."))
@@ -667,7 +669,7 @@ GAME_VERB_PROC(/mob/living, mob_sleep, "Sleep", null)
  * * hand_firsts - boolean that checks the hands of the mob first if TRUE.
  */
 /mob/living/proc/get_idcard(hand_first)
-	if(!length(held_items)) //Early return for mobs without hands.
+	if(!can_hold_items()) //Early return for mobs without hands.
 		return
 	//Check hands
 	var/obj/item/held_item = get_active_held_item()
@@ -896,9 +898,10 @@ GAME_VERB_PROC(/mob/living, mob_sleep, "Sleep", null)
 	update_stamina()
 	SEND_SIGNAL(src, COMSIG_LIVING_HEALTH_UPDATE)
 
-/mob/living/update_health_hud()
+/mob/living/update_health_hud(healthpercent)
 	var/severity = 0
-	var/healthpercent = (health/maxHealth) * 100
+	if(!healthpercent)
+		healthpercent = (health/maxHealth) * 100
 	var/atom/movable/screen/healthdoll/living/livingdoll = hud_used?.screen_objects[HUD_MOB_HEALTHDOLL]
 	if(istype(livingdoll)) //to really put you in the boots of a simplemob
 		switch(healthpercent)
@@ -926,6 +929,8 @@ GAME_VERB_PROC(/mob/living, mob_sleep, "Sleep", null)
 			livingdoll.add_filter("mob_shape_mask", 1, alpha_mask_filter(icon = mob_mask))
 			livingdoll.add_filter("inset_drop_shadow", 2, drop_shadow_filter(size = -1))
 		livingdoll.health_overlay.maptext = MAPTEXT("<div align='center' valign='middle' style='position:relative'>[round(healthpercent, 1)]%</div>")
+		if(livingdoll.hovering)
+			livingdoll.update_appearance(UPDATE_ICON)
 
 	if(severity > 0)
 		overlay_fullscreen("brute", /atom/movable/screen/fullscreen/brute, severity)
@@ -1095,7 +1100,7 @@ GAME_VERB_PROC(/mob/living, mob_sleep, "Sleep", null)
 /mob/living/proc/can_be_revived()
 	if(HAS_TRAIT(src, TRAIT_NODEATH))
 		return TRUE
-	if(health > HEALTH_THRESHOLD_DEAD)
+	if(health > dead_threshold)
 		return TRUE
 	return FALSE
 
@@ -1747,8 +1752,8 @@ GAME_VERB_PROC(/mob/living, mob_sleep, "Sleep", null)
 				/mob/living/basic/mining/mook/worker,
 				/mob/living/basic/mining/mook/worker/bard,
 				/mob/living/basic/mining/mook/worker/tribal_chief,
-				/mob/living/basic/mining/legion/monkey,
-				/mob/living/basic/mining/legion/monkey/snow,
+				/mob/living/basic/mining/legion/lesser,
+				/mob/living/basic/mining/legion/lesser/snow,
 				/mob/living/basic/mining/lobstrosity,
 				/mob/living/basic/mining/lobstrosity/lava,
 				/mob/living/basic/mining/ice_demon,
@@ -2131,6 +2136,90 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 	user.visible_message(span_warning("[user] scoops up [src]!"))
 	user.put_in_hands(holder)
 
+/mob/living/update_sight()
+	if(!client)
+		return
+
+	if(stat == DEAD && !HAS_TRAIT(src, TRAIT_CORPSELOCKED))
+		if(SSmapping.level_trait(z, ZTRAIT_NOXRAY))
+			set_sight(NONE)
+		else if(is_secret_level(z))
+			set_sight(initial(sight))
+		else
+			set_sight(SEE_TURFS|SEE_MOBS|SEE_OBJS)
+		set_invis_see(SEE_INVISIBLE_OBSERVER)
+		return
+
+	var/new_sight = restore_initial_sight()
+
+	if(client.eye && client.eye != src)
+		var/atom/atom = client.eye
+		if(atom.update_remote_sight(src)) //returns TRUE if we override all other sight updates.
+			return ..() //still, call sync_lighting_plane_cutoff()
+
+	var/obj/item/organ/eyes/eyes = get_organ_slot(ORGAN_SLOT_EYES)
+	if(eyes)
+		set_invis_see(eyes.see_invisible)
+		if(!isnull(eyes.lighting_cutoff))
+			lighting_cutoff = eyes.lighting_cutoff
+		if(!isnull(eyes.color_cutoffs))
+			lighting_color_cutoffs = blend_cutoff_colors(lighting_color_cutoffs, eyes.color_cutoffs)
+
+	var/obj/item/clothing/glasses/glasses = get_item_by_slot(ITEM_SLOT_EYES)
+	if(istype(glasses) && (glasses.item_flags & IN_INVENTORY))
+		set_invis_see(glasses.invis_override || min(glasses.invis_view, see_invisible))
+		if(!isnull(glasses.lighting_cutoff))
+			lighting_cutoff = max(lighting_cutoff, glasses.lighting_cutoff)
+		if(length(glasses.color_cutoffs))
+			lighting_color_cutoffs = blend_cutoff_colors(lighting_color_cutoffs, glasses.color_cutoffs)
+
+	// An average (ranging from 1 to 100) of the lighting_color_cutoffs values.
+	// Used to avoid the hardcoded lighting cutoff from overly stacking with the more specific lighting color cutoffs from eyes and glasses
+	// (or innate in the case of some mobs), with the exception of night vision I guess.
+	var/avg_light_color_cutoff = (lighting_color_cutoffs[1] + lighting_color_cutoffs[2] + lighting_color_cutoffs[3]) / 3
+
+	if(HAS_TRAIT(src, TRAIT_MESON_VISION))
+		new_sight |= SEE_TURFS
+		lighting_cutoff = max(lighting_cutoff, LIGHTING_CUTOFF_REAL_LOW - avg_light_color_cutoff)
+
+	if(HAS_TRAIT(src, TRAIT_THERMAL_VISION))
+		new_sight |= SEE_MOBS
+		lighting_cutoff = max(lighting_cutoff, LIGHTING_CUTOFF_MEDIUM - avg_light_color_cutoff)
+
+	if(HAS_TRAIT(src, TRAIT_XRAY_VISION))
+		new_sight |= SEE_TURFS|SEE_MOBS|SEE_OBJS
+
+	if(HAS_TRAIT(src, TRAIT_MATERIAL_VISON))
+		new_sight |= SEE_OBJS
+
+	if(SSmapping.level_trait(z, ZTRAIT_NOXRAY))
+		new_sight = NONE
+
+	if(HAS_TRAIT(src, TRAIT_TRUE_NIGHT_VISION))
+		lighting_cutoff = max(lighting_cutoff, LIGHTING_CUTOFF_HIGH)
+
+	if(HAS_TRAIT(src, TRAIT_ECHOLOCATOR))
+		new_sight |= SEE_MOBS|SEE_TURFS
+		lighting_cutoff = max(lighting_cutoff, LIGHTING_CUTOFF_FULLBRIGHT)
+
+	set_sight(new_sight)
+	return ..()
+
+///Part of the [/mob/living/update_sight()] stack. This shouldn't be used outside of it.
+/mob/living/proc/restore_initial_sight()
+	SHOULD_CALL_PARENT(TRUE)
+	PROTECTED_PROC(TRUE)
+	set_invis_see(initial(see_invisible))
+	lighting_cutoff = initial(lighting_cutoff)
+	lighting_color_cutoffs = list(lighting_cutoff_red, lighting_cutoff_green, lighting_cutoff_blue)
+	var/init_sight = initial(sight)
+	//we cannot see mobs and/or objects unless we have thermals/xray/material vision, but we can still see turfs to navigate around
+	if(HAS_TRAIT(src, TRAIT_MOVE_VENTCRAWLING) && istype(loc, /obj/machinery/atmospherics))
+		init_sight |= SEE_TURFS|BLIND
+	//after the reset above, so handlers can tint the cutoffs
+	init_sight |= SEND_SIGNAL(src, COMSIG_LIVING_RESTORE_INITIAL_SIGHT)
+	return init_sight
+
 /mob/living/proc/mob_try_pickup(mob/living/user, instant=FALSE)
 	if(!ishuman(user) && (user.mob_size <= mob_size || user.num_hands == 0))
 		if (!user.num_hands)
@@ -2138,7 +2227,7 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 		if (user.mob_size <= mob_size)
 			to_chat(user, span_warning("[src] is too big to pick up!"))
 			return
-	if(!user.get_empty_held_indexes())
+	if(!length(user.get_empty_held_indexes()))
 		to_chat(user, span_warning("Your hands are full!"))
 		return FALSE
 	if(buckled)
@@ -2256,6 +2345,7 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 	VV_DROPDOWN_OPTION(VV_HK_GIVE_DELUSION_HALLUCINATION, "Give Delusion Hallucination")
 	VV_DROPDOWN_OPTION(VV_HK_GIVE_GUARDIAN_SPIRIT, "Give Guardian Spirit")
 	VV_DROPDOWN_OPTION(VV_HK_ADMIN_RENAME, "Force Change Name")
+	VV_DROPDOWN_OPTION(VV_HK_NAVIGATE_TO_MARKED_OBJECT, "Navigate To Marked Object")
 
 /mob/living/vv_do_topic(list/href_list)
 	. = ..()
@@ -2304,6 +2394,18 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 		))
 		message_admins("[key_name_admin(usr)] has forcibly changed the real name of [key_name(src)] from '[old_name]' to '[real_name]'[(replace_preferences ? " and their preferences" : "")]")
 
+	if(href_list[VV_HK_NAVIGATE_TO_MARKED_OBJECT])
+		if(!check_rights(R_ADMIN))
+			return
+
+		if(!usr.client.holder.marked_datum)
+			to_chat(usr, span_warning("You don't have any object marked."))
+		else if(!isatom(usr.client.holder.marked_datum))
+			to_chat(usr, span_warning("The object you have marked cannot be used as a target. Target must be an atom."))
+		else
+			create_navigation_line(usr.client.holder.marked_datum)
+
+
 /mob/living/proc/move_to_error_room()
 	var/obj/effect/landmark/error/error_landmark = locate(/obj/effect/landmark/error) in GLOB.landmarks_list
 	if(error_landmark)
@@ -2345,7 +2447,7 @@ GLOBAL_LIST_EMPTY(fire_appearances)
  * * amount (int) The amount of change from the base body temperature
  */
 /mob/living/proc/add_body_temperature_change(key_name, amount)
-	body_temp_changes["[key_name]"] = amount
+	LAZYSET(body_temp_changes, "[key_name]", amount)
 
 /**
  * remove_body_temperature_change Removes the modifications to the body temperature
@@ -2356,7 +2458,7 @@ GLOBAL_LIST_EMPTY(fire_appearances)
  * * key_name (str) The unique key for this change that will be removed
  */
 /mob/living/proc/remove_body_temperature_change(key_name)
-	body_temp_changes -= key_name
+	LAZYREMOVE(body_temp_changes, key_name)
 
 /**
  * get_body_temp_normal_change Returns the aggregate change to body temperature
@@ -2364,10 +2466,11 @@ GLOBAL_LIST_EMPTY(fire_appearances)
  * This aggregates all the changes in the body_temp_changes list and returns the result
  */
 /mob/living/proc/get_body_temp_normal_change()
+	if(!body_temp_changes)
+		return 0
 	var/total_change = 0
-	if(body_temp_changes.len)
-		for(var/change in body_temp_changes)
-			total_change += body_temp_changes["[change]"]
+	for(var/change in body_temp_changes)
+		total_change += body_temp_changes["[change]"]
 	return total_change
 
 /**
@@ -2484,8 +2587,8 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 	var/turf/check_turf = get_step_multiz(src, direction == DOWN ? NONE : direction)
 	if(!get_step_multiz(src, direction)) //We are at the edge z-level.
 		to_chat(src, span_warning("There's nothing interesting there."))
-		return
-	else if(!istransparentturf(check_turf)) //There is no turf we can look through above us
+		return null
+	if(!istransparentturf(check_turf) && !HAS_TRAIT(src, TRAIT_XRAY_VISION)) //There is no turf we can look through above us
 		var/turf/front_hole = get_step(check_turf, dir)
 		if(istransparentturf(front_hole))
 			check_turf = front_hole
@@ -2496,7 +2599,7 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 					break
 		if(!istransparentturf(check_turf))
 			to_chat(src, span_warning("You can't see through the floor [direction == DOWN ? "below" : "above"] you."))
-			return
+			return null
 	return direction == DOWN ? get_step_multiz(check_turf, DOWN) : check_turf
 
 /**
@@ -2707,7 +2810,7 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 
 /mob/living/perform_hand_swap(held_index)
 	//safeguard for one-handed mobs lol
-	if(length(held_items) == 1)
+	if(get_num_hand_slots() == 1)
 		held_index = 1
 
 	return ..()
@@ -2734,7 +2837,7 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 	if(new_value == LYING_DOWN) // From standing to lying down.
 		//NOVA EDIT ADDITION BEGIN - SOUNDS
 		if(has_gravity())
-			playsound(src, "bodyfall", 50, TRUE)
+			playsound(src, /datum/sound_effect/bodyfall, 50, TRUE) // OCULIS EDIT, ORIGINAL: playsound(src, "bodyfall", 50, TRUE)
 		//NOVA EDIT END
 		on_lying_down()
 	else // From lying down to standing up.
@@ -3130,6 +3233,17 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 		return "[span_notice("You'd estimate [p_their()] fitness level at about...")] [span_boldwarning("What?!? [our_fitness_level]???")]"
 
 	return span_notice("You'd estimate [p_their()] fitness level at about [our_fitness_level]. [comparative_fitness <= 0.33 ? "Pathetic." : ""]")
+
+/// Check if bees are not hostile to us
+/mob/living/proc/bee_friendly()
+	if(mob_biotypes & MOB_PLANT)
+		return TRUE
+	var/obj/item/clothing/suit = get_item_by_slot(ITEM_SLOT_OCLOTHING)
+	var/obj/item/clothing/hat = get_item_by_slot(ITEM_SLOT_HEAD)
+	if(!istype(suit) || !istype(hat))
+		return FALSE
+	if(suit.clothing_flags & hat.clothing_flags & THICKMATERIAL)
+		return TRUE
 
 ///Performs the aftereffects of blocking a projectile.
 /mob/living/proc/block_projectile_effects()

@@ -724,7 +724,6 @@
 	name = "runner plushie"
 	desc = "A plushie depicting a xenomorph runner, made to commemorate the centenary of the Battle of LV-426. Much cuddlier than the real thing."
 	icon_state = "rouny"
-	item_flags = XENOMORPH_HOLDABLE
 	inhand_icon_state = null
 	attack_verb_continuous = list("slashes", "bites", "charges")
 	attack_verb_simple = list("slash", "bite", "charge")
@@ -804,7 +803,7 @@
 	inhand_icon_state = null
 	attack_verb_continuous = list("Oops", "Eeks")
 	attack_verb_simple = list("Oop", "Eek")
-	squeak_override = list(SFX_SCREECH=1)
+	squeak_override = list(/datum/sound_effect/screech=1)
 	/// if the monkey ate a mimana and has changed nationality
 	var/french = FALSE
 

@@ -147,10 +147,11 @@
  * return bool
  */
 /datum/tgui_window/proc/can_be_suspended()
+	var/unlimited_windows = client?.prefs?.read_preference(/datum/preference/toggle/tgui_unlimited_windows)
 	return !fatally_errored \
 		&& pooled \
 		&& pool_index > 0 \
-		&& pool_index <= TGUI_WINDOW_SOFT_LIMIT \
+		&& (unlimited_windows || pool_index <= TGUI_WINDOW_SOFT_LIMIT) \
 		&& status == TGUI_WINDOW_READY
 
 /**
@@ -360,7 +361,8 @@
 		if("ping")
 			send_message("ping/reply", payload)
 		if("ping/set")
-			client?.avgping = payload["ping"]
+			client?.avgping = payload["pingAvg"] || payload["ping"] // OCULIS EDIT - include actually useful ping numbers - ORIGINAL: client?.avgping = payload["ping"]
+			client?.lastping = payload["ping"] // OCULIS ADDITION
 		if("visible")
 			visible = TRUE
 			SEND_SIGNAL(src, COMSIG_TGUI_WINDOW_VISIBLE, client)

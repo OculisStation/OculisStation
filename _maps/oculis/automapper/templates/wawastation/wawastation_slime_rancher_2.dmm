@@ -1,0 +1,384 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"cd" = (
+/obj/structure/table,
+/obj/effect/turf_decal/stripes/line,
+/obj/item/stack/sheet/mineral/plasma,
+/obj/machinery/reagentgrinder,
+/turf/open/floor/iron/white/textured_large,
+/area/station/science/xenobiology)
+"cC" = (
+/obj/machinery/chem_heater/withbuffer,
+/obj/effect/turf_decal/bot_red,
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/iron/white/textured_half,
+/area/station/science/xenobiology)
+"dn" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/station/science/xenobiology)
+"eY" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/item/storage/box/monkeycubes,
+/obj/structure/table,
+/obj/item/vacuum_pack{
+	pixel_x = -5
+	},
+/obj/item/disk/vacuum_upgrade/printer{
+	pixel_y = 5;
+	pixel_x = 9
+	},
+/obj/item/slime_rancher_scanner{
+	pixel_x = 8;
+	pixel_y = -7
+	},
+/turf/open/floor/iron/white/textured_large,
+/area/station/science/xenobiology)
+"iP" = (
+/obj/effect/turf_decal/bot_red,
+/obj/machinery/biomass_recycler,
+/obj/item/stack/biomass/twenty,
+/turf/open/floor/iron/white/textured_large,
+/area/station/science/xenobiology)
+"lS" = (
+/obj/machinery/light/directional/north,
+/obj/structure/table,
+/obj/item/pen{
+	pixel_x = 9;
+	pixel_y = 4
+	},
+/obj/item/hand_labeler{
+	pixel_x = -13;
+	pixel_y = 10
+	},
+/turf/open/floor/glass/reinforced,
+/area/station/science/xenobiology)
+"mf" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/glass/reinforced,
+/area/station/science/xenobiology)
+"nf" = (
+/obj/structure/table,
+/obj/item/toy/plush/slimeplushie{
+	pixel_x = 0;
+	pixel_y = 4;
+	desc = "An adorable stuffed toy that resembles a slime. A faded purple flower is embroidered beneath one of its many patches, alongside several tiny slips of paper that look suspiciously like overdue notices.";
+	name = "Tara"
+	},
+/obj/item/stamp/granted{
+	pixel_x = -6;
+	pixel_y = 4
+	},
+/obj/item/stamp/denied{
+	pixel_x = 4;
+	pixel_y = 1
+	},
+/turf/open/floor/glass/reinforced,
+/area/station/science/xenobiology)
+"sL" = (
+/obj/machinery/door/poddoor/shutters/window/preopen{
+	dir = 8;
+	id = "xbprotect";
+	name = "Security Shutters"
+	},
+/obj/machinery/door/firedoor,
+/turf/open/floor/iron/white/textured_large,
+/area/station/science/xenobiology)
+"sS" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/turf/open/floor/iron/white/textured_corner,
+/area/station/science/xenobiology)
+"tp" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
+/turf/open/floor/iron/white/textured_corner{
+	dir = 4
+	},
+/area/station/science/xenobiology)
+"tw" = (
+/turf/open/floor/iron/white/textured_corner{
+	dir = 8
+	},
+/area/station/science/xenobiology)
+"tU" = (
+/obj/machinery/door/poddoor/shutters/window/preopen{
+	dir = 8;
+	id = "xbprotect";
+	name = "Security Shutters"
+	},
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/station/science/xenobiology)
+"vj" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/extract_compressor,
+/turf/open/floor/catwalk_floor/iron_white,
+/area/station/science/xenobiology)
+"ws" = (
+/obj/structure/table,
+/obj/machinery/fax{
+	fax_name = "Xenobiology Desk";
+	name = "Xenobiology's Fax Machine"
+	},
+/turf/open/floor/glass/reinforced,
+/area/station/science/xenobiology)
+"Dz" = (
+/turf/closed/wall/r_wall,
+/area/station/science/xenobiology)
+"Ei" = (
+/obj/machinery/chem_master,
+/obj/effect/turf_decal/bot_red,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/iron/white/textured_half,
+/area/station/science/xenobiology)
+"EZ" = (
+/obj/structure/chair/office{
+	dir = 1
+	},
+/turf/open/floor/iron/white/textured_large,
+/area/station/science/xenobiology)
+"Gj" = (
+/obj/structure/chair/office/light{
+	dir = 1
+	},
+/turf/open/floor/glass/reinforced,
+/area/station/science/xenobiology)
+"Gv" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/siding/purple{
+	dir = 1
+	},
+/turf/open/floor/catwalk_floor/iron_white,
+/area/station/science/xenobiology)
+"JQ" = (
+/obj/structure/table,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/item/stack/sheet/mineral/plasma,
+/obj/machinery/reagentgrinder,
+/turf/open/floor/iron/white/textured_large,
+/area/station/science/xenobiology)
+"Ob" = (
+/obj/structure/chair/office,
+/turf/open/floor/iron/white/textured_large,
+/area/station/science/xenobiology)
+"OM" = (
+/turf/template_noop,
+/area/template_noop)
+"Pd" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/item/storage/box/monkeycubes,
+/obj/structure/table,
+/obj/item/vacuum_pack{
+	pixel_x = -5
+	},
+/obj/item/disk/vacuum_upgrade/printer{
+	pixel_y = 5;
+	pixel_x = 9
+	},
+/obj/item/slime_rancher_scanner{
+	pixel_x = 8;
+	pixel_y = -7
+	},
+/turf/open/floor/iron/white/textured_large,
+/area/station/science/xenobiology)
+"SA" = (
+/turf/open/floor/iron/white/textured_large,
+/area/station/science/xenobiology)
+"SP" = (
+/obj/machinery/camera/autoname/directional/east{
+	network = list("ss13","rd","xeno")
+	},
+/obj/effect/turf_decal/siding/purple{
+	dir = 1
+	},
+/turf/open/floor/iron/white/smooth_corner{
+	dir = 8
+	},
+/area/station/science/xenobiology)
+"TF" = (
+/obj/effect/turf_decal/bot_red,
+/obj/effect/turf_decal/stripes/line,
+/obj/item/kirbyplants/organic/plant1,
+/turf/open/floor/iron/white/textured_large,
+/area/station/science/xenobiology)
+"VP" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/machinery/holopad,
+/turf/open/floor/iron/white/textured_half{
+	dir = 1
+	},
+/area/station/science/xenobiology)
+"Yn" = (
+/obj/effect/turf_decal/bot_red,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/item/kirbyplants/organic/plant1,
+/turf/open/floor/iron/white/textured_large,
+/area/station/science/xenobiology)
+
+(1,1,1) = {"
+OM
+OM
+vj
+OM
+OM
+OM
+sS
+VP
+tp
+OM
+OM
+OM
+"}
+(2,1,1) = {"
+OM
+OM
+OM
+OM
+OM
+OM
+Ei
+iP
+cC
+OM
+OM
+OM
+"}
+(3,1,1) = {"
+OM
+OM
+OM
+sL
+tU
+Dz
+mf
+mf
+mf
+OM
+OM
+OM
+"}
+(4,1,1) = {"
+OM
+OM
+OM
+SA
+Yn
+mf
+OM
+OM
+OM
+mf
+cd
+SA
+"}
+(5,1,1) = {"
+OM
+OM
+OM
+Ob
+Pd
+mf
+OM
+OM
+OM
+mf
+eY
+EZ
+"}
+(6,1,1) = {"
+OM
+OM
+OM
+SA
+JQ
+mf
+OM
+OM
+OM
+mf
+TF
+SA
+"}
+(7,1,1) = {"
+OM
+OM
+OM
+OM
+OM
+OM
+OM
+OM
+OM
+Dz
+dn
+tw
+"}
+(8,1,1) = {"
+OM
+OM
+OM
+OM
+OM
+OM
+OM
+OM
+OM
+OM
+OM
+OM
+"}
+(9,1,1) = {"
+lS
+Gj
+Gv
+OM
+OM
+OM
+OM
+OM
+OM
+OM
+OM
+OM
+"}
+(10,1,1) = {"
+ws
+nf
+SP
+OM
+OM
+OM
+OM
+OM
+OM
+OM
+OM
+OM
+"}
+(11,1,1) = {"
+Dz
+Dz
+Dz
+OM
+OM
+OM
+OM
+OM
+OM
+OM
+OM
+OM
+"}

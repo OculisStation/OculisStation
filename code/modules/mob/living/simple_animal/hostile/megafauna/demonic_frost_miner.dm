@@ -41,7 +41,7 @@ Difficulty: Extremely Hard
 	crusher_achievement_type = /datum/award/achievement/boss/demonic_miner_crusher
 	score_achievement_type = /datum/award/score/demonic_miner_score
 	death_message = "falls to the ground, decaying into plasma particles."
-	death_sound = SFX_BODYFALL
+	death_sound = /datum/sound_effect/bodyfall
 	footstep_type = FOOTSTEP_MOB_HEAVY
 	summon_line = "I'M WIDE AWAKE! AND YOU'RE WIIIIIIIDE OPEN!"
 	/// If the demonic frost miner is in its enraged state
@@ -137,7 +137,7 @@ Difficulty: Extremely Hard
 		return
 	update_cooldowns(list(COOLDOWN_UPDATE_SET_MELEE = 8 SECONDS, COOLDOWN_UPDATE_SET_RANGED = 8 SECONDS))
 	frost_orbs.StartCooldown(8 SECONDS)
-	adjustHealth(-maxHealth)
+	adjust_brute_loss(-maxHealth)
 	enraged = TRUE
 	enraging = TRUE
 	animate(src, pixel_z = 96, time = 100, easing = ELASTIC_EASING, flags = ANIMATION_RELATIVE)
@@ -155,7 +155,7 @@ Difficulty: Extremely Hard
 	playsound(src, 'sound/effects/meteorimpact.ogg', 100, TRUE)
 	ADD_TRAIT(src, TRAIT_MOVE_FLYING, FROSTMINER_ENRAGE_TRAIT)
 	enraging = FALSE
-	adjustHealth(-maxHealth)
+	adjust_brute_loss(-maxHealth)
 
 /mob/living/simple_animal/hostile/megafauna/demonic_frost_miner/ex_act(severity, target)
 	adjust_brute_loss(-30 * severity)

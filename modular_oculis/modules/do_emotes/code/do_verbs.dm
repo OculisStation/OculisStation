@@ -28,7 +28,8 @@
 	DEFAULT_QUEUE_OR_CALL_VERB(VERB_CALLBACK(user.mob, TYPE_PROC_REF(/mob, emote), "do_emote"))
 	return TRUE
 
-GAME_VERB(/mob, do_verb, "Do", "IC", message as message)
+GAME_VERB(/mob, do_verb, "Do", "IC")
+	VERB_ARG(message, VERB_ARG_TYPE_MESSAGE, VERB_ARG_SOURCE_INPUT)
 	if(GLOB.say_disabled) // This is here to try to identify lag problems
 		to_chat(src, span_danger("Speech is currently admin-disabled."))
 		return
@@ -53,10 +54,12 @@ GAME_VERB(/mob, do_verb, "Do", "IC", message as message)
 		return FALSE
 
 	if(!params)
+		user.client.start_thinking()
 		message = tgui_input_text(user, "Write your do emote.", "Do Emote", null, max_length = MAX_MESSAGE_LEN, multiline = TRUE)
 	else
 		message = params
 
+	user.client.stop_thinking()
 	if(!message)
 		return
 

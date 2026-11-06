@@ -1,5 +1,6 @@
 /* // OCULIS EDIT REMOVAL START
-GAME_VERB(/mob, do_verb, "Do", "IC", message as message)
+GAME_VERB(/mob, do_verb, "Do", "IC")
+	VERB_ARG(message, VERB_ARG_TYPE_MESSAGE, VERB_ARG_SOURCE_INPUT)
 	if(GLOB.say_disabled)
 		to_chat(usr, span_danger("Speech is currently admin-disabled."))
 		return
@@ -39,7 +40,7 @@ GAME_VERB(/mob, do_verb, "Do", "IC", message as message)
 		return
 
 	var/name_stub = " (<b>[usr]</b>)"
-	message = usr.apply_message_emphasis(message)
+	message = apply_message_emphasis(message)
 	message = trim(copytext_char(message, 1, (MAX_MESSAGE_LEN - length(name_stub))))
 	var/message_with_name = message + name_stub
 

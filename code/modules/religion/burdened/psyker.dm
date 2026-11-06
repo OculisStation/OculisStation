@@ -78,9 +78,6 @@
 	if(!psyker_head.replace_limb(src))
 		return FALSE
 	psyker_head.species_id = dna?.species?.id
-	var/list/our_drops = psyker_head.get_butcher_drops(force = TRUE)
-	if (length(our_drops))
-		psyker_head.butcher_drops = string_list(our_drops)
 	qdel(old_head)
 	var/obj/item/organ/brain/psyker/psyker_brain = new() /// turns out if you make a flashing monochromatic outline against black background that refreshes on inconsistant intervals, it hurts peoples eyes. Who'da thunk.
 	old_brain.before_organ_replacement(psyker_brain)
@@ -220,13 +217,13 @@
 /obj/item/ammo_box/magazine/internal/cylinder/revchap
 	name = "chaplain revolver cylinder"
 	ammo_type = /obj/item/ammo_casing/c38/holy
-	caliber = CALIBER_38
+	caliber = CALIBER_357_38
 	max_ammo = 5
 
 /obj/item/ammo_casing/c38/holy
 	name = "lucky .38 bullet casing"
 	desc = "A lucky .38 bullet casing. You feel lucky just holding it."
-	caliber = CALIBER_38
+	caliber = CALIBER_357_38
 	projectile_type = /obj/projectile/bullet/c38/holy
 	custom_materials = null
 

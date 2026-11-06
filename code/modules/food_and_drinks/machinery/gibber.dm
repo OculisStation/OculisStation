@@ -112,8 +112,8 @@
 			return
 
 		if(!ignore_clothing)
-			for(var/obj/item/I in C.held_items + C.get_equipped_items())
-				if(!HAS_TRAIT(I, TRAIT_NODROP))
+			for(var/obj/item/item as anything in C.get_equipped_items(INCLUDE_HELD))
+				if(!HAS_TRAIT(item, TRAIT_NODROP))
 					to_chat(user, span_warning("Subject may not have abiotic items on!"))
 					return
 
@@ -232,11 +232,9 @@ GAME_VERB_SRC(/obj/machinery/gibber, eject, oview(1), "Empty gibber", null)
 	var/mob/living/carbon/human/agent_whiskey = victim
 	var/drop_chance = 0
 	for (var/obj/item/bodypart/limb as anything in agent_whiskey.get_bodyparts())
-		if (!limb.butcher_drops)
-			continue
-
-		for (var/obj/item/drop_type as anything in limb.butcher_drops)
-			var/amount = limb.butcher_drops[drop_type] || 1
+		var/list/limb_butcher_drops = limb.get_butcher_drops()
+		for (var/obj/item/drop_type as anything in limb_butcher_drops)
+			var/amount = limb_butcher_drops[drop_type] || 1
 			drop_chance += amount * efficiency
 			if (drop_chance > 1)
 				amount = floor(drop_chance)

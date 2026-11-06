@@ -3,16 +3,16 @@
 	. = ..()
 	if(. & EMP_PROTECT_SELF)
 		return
-	powerlevel = 0 // oh no, the power!
+	adjust_power_level(-SLIME_MAX_POWER) // oh no, the power!
 
 ///If a slime is attack with an empty hand, shoves included, try to wrestle them off the mob they are on
 /mob/living/basic/slime/proc/on_attack_hand(mob/living/basic/slime/defender_slime, mob/living/attacker)
 	SIGNAL_HANDLER
 
-	if(isnull(buckled))
+	if(!is_latched()) // OCULIS EDIT CHANGE - a slime on a chair has nobody to be wrestled off - ORIGINAL: if(isnull(buckled))
 		return
 
-	if(buckled == attacker ? prob(60) : prob(30)) //its easier to remove the slime from yourself
+	if(buckled == attacker ? prob(50) : prob(20)) // OCULIS EDIT CHANGE - SLIME_RANCHER - a helper has both hands free and isn't being eaten - ORIGINAL: if(buckled == attacker ? prob(60) : prob(30)) //its easier to remove the slime from yourself
 		attacker.visible_message(span_warning("[attacker] attempts to wrestle \the [defender_slime.name] off [buckled == attacker ? "" : buckled] !"), \
 		span_danger("[buckled == attacker ? "You attempt" : "[attacker] attempts" ] to wrestle \the [defender_slime.name] off [buckled == attacker ? "" : buckled]!"))
 		playsound(loc, 'sound/items/weapons/punchmiss.ogg', 25, TRUE, -1)

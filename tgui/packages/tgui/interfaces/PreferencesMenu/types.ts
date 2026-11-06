@@ -230,7 +230,6 @@ export type CharacterPreferencesData = {
 
   names: Record<string, string>;
   vocals: Record<string, string>; // NOVA EDIT ADDITION
-  erp: Record<string, unknown>; // NOVA EDIT ADDITION
 
   misc: {
     gender: Gender;
@@ -268,8 +267,6 @@ export type PreferencesMenuData = {
   preview_options: string[];
   preview_selection: string;
 
-  erp_pref: BooleanLike;
-
   job_alt_titles: Record<string, string>;
 
   markings: Record<string, Marking[]>;
@@ -298,7 +295,6 @@ export type PreferencesMenuData = {
   selected_quirks: string[];
   selected_personalities: typePath[] | null;
   max_personalities: number;
-  mood_enabled: BooleanLike;
   species_disallowed_quirks: string[];
 
   antag_bans?: string[];

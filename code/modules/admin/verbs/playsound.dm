@@ -3,7 +3,8 @@
 #define SHELLEO_STDOUT 2
 #define SHELLEO_STDERR 3
 
-ADMIN_VERB(play_sound, R_SOUND, "Play Global Sound", "Play a sound to all connected players.", ADMIN_CATEGORY_FUN, sound as sound)
+ADMIN_VERB(play_sound, R_SOUND, "Play Global Sound", "Play a sound to all connected players.", ADMIN_CATEGORY_FUN)
+	VERB_ARG(sound, VERB_ARG_TYPE_SOUND, VERB_ARG_SOURCE_INPUT)
 	var/freq = 1
 	var/vol = tgui_input_number(user, "What volume would you like the sound to play at?", max_value = 100)
 	if(!vol)
@@ -39,14 +40,17 @@ ADMIN_VERB(play_sound, R_SOUND, "Play Global Sound", "Play a sound to all connec
 
 	BLACKBOX_LOG_ADMIN_VERB("Play Global Sound")
 
-ADMIN_VERB(play_local_sound, R_SOUND, "Play Local Sound", "Plays a sound only you can hear.", ADMIN_CATEGORY_FUN, sound as sound)
+ADMIN_VERB(play_local_sound, R_SOUND, "Play Local Sound", "Plays a sound only you can hear.", ADMIN_CATEGORY_FUN)
+	VERB_ARG(sound, VERB_ARG_TYPE_SOUND, VERB_ARG_SOURCE_INPUT)
 	log_admin("[key_name(user)] played a local sound [sound]")
 	message_admins("[key_name_admin(user)] played a local sound [sound]")
 	var/volume = tgui_input_number(user, "What volume would you like the sound to play at?", max_value = 100)
 	playsound(get_turf(user.mob), sound, volume || 50, FALSE)
 	BLACKBOX_LOG_ADMIN_VERB("Play Local Sound")
 
-ADMIN_VERB(play_direct_mob_sound, R_SOUND, "Play Direct Mob Sound", "Play a sound directly to a mob.", ADMIN_CATEGORY_FUN, sound as sound, mob/target)
+ADMIN_VERB(play_direct_mob_sound, R_SOUND, "Play Direct Mob Sound", "Play a sound directly to a mob.", ADMIN_CATEGORY_FUN)
+	VERB_ARG(sound, VERB_ARG_TYPE_SOUND, VERB_ARG_SOURCE_INPUT)
+	VERB_ARG_TYPED(target, VERB_ARG_TYPE_MOB, VERB_ARG_SOURCE_WORLD, /mob)
 	if(!target)
 		target = input(user, "Choose a mob to play the sound to. Only they will hear it.", "Play Mob Sound") as null|anything in sort_names(GLOB.player_list)
 	if(QDELETED(target))
@@ -63,7 +67,7 @@ ADMIN_VERB(play_direct_mob_sound, R_SOUND, "Play Direct Mob Sound", "Play a soun
 GLOBAL_VAR_INIT(web_sound_cooldown, 0)
 
 ///Takes an input from either proc/play_web_sound or the request manager and runs it through yt-dlp and prompts the user before playing it to the server.
-/proc/web_sound_legacy(mob/user, input, credit) // OCULIS EDIT CHANGE - FLOXY - ORIGINAL: /proc/web_sound(mob/user, input, credit)
+/proc/web_sound(mob/user, input, credit)
 	if(!check_rights(R_SOUND))
 		return
 	var/ytdl = CONFIG_GET(string/invoke_youtubedl)
@@ -185,12 +189,12 @@ GLOBAL_VAR_INIT(web_sound_cooldown, 0)
 
 	CLIENT_COOLDOWN_START(GLOB, web_sound_cooldown, duration)
 
-	BLACKBOX_LOG_ADMIN_VERB("Play Internet Sound (Legacy)") // OCULIS EDIT CHANGE - FLOXY - ORIGINAL: BLACKBOX_LOG_ADMIN_VERB("Play Internet Sound")
+	BLACKBOX_LOG_ADMIN_VERB("Play Internet Sound")
 
-ADMIN_VERB_CUSTOM_EXIST_CHECK(play_web_sound_legacy) // OCULIS EDIT CHANGE - FLOXY - ORIGINAL: ADMIN_VERB_CUSTOM_EXIST_CHECK(play_web_sound)
+ADMIN_VERB_CUSTOM_EXIST_CHECK(play_web_sound)
 	return !!CONFIG_GET(string/invoke_youtubedl)
 
-ADMIN_VERB(play_web_sound_legacy, R_SOUND, "Play Internet Sound (Legacy)", "Play a given internet sound to all players.", ADMIN_CATEGORY_FUN) // OCULIS EDIT CHANGE - FLOXY - ORIGINAL: ADMIN_VERB(play_web_sound, R_SOUND, "Play Internet Sound", "Play a given internet sound to all players.", ADMIN_CATEGORY_FUN)
+ADMIN_VERB(play_web_sound, R_SOUND, "Play Internet Sound", "Play a given internet sound to all players.", ADMIN_CATEGORY_FUN)
 	if(!CLIENT_COOLDOWN_FINISHED(GLOB, web_sound_cooldown))
 		if(tgui_alert(user, "Someone else is already playing an Internet sound! It has [DisplayTimeText(CLIENT_COOLDOWN_TIMELEFT(GLOB, web_sound_cooldown), 1)] remaining. \
 		Would you like to override?", "Musicalis Interruptus", list("No","Yes")) != "Yes")
@@ -204,11 +208,12 @@ ADMIN_VERB(play_web_sound_legacy, R_SOUND, "Play Internet Sound (Legacy)", "Play
 			to_chat(user, span_boldwarning("Non-http(s) URIs are not allowed."), confidential = TRUE)
 			to_chat(user, span_warning("For youtube-dl shortcuts like ytsearch: please use the appropriate full URL from the website."), confidential = TRUE)
 			return
-		web_sound_legacy(user.mob, web_sound_input) // OCULIS EDIT CHANGE - FLOXY - ORIGINAL: web_sound(user.mob, web_sound_input)
+		web_sound(user.mob, web_sound_input)
 	else
-		web_sound_legacy(user.mob, null) // OCULIS EDIT CHANGE - FLOXY - ORIGINAL: web_sound(user.mob, null)
+		web_sound(user.mob, null)
 
-ADMIN_VERB(set_round_end_sound, R_SOUND, "Set Round End Sound", "Set the sound that plays on round end.", ADMIN_CATEGORY_FUN, sound as sound)
+ADMIN_VERB(set_round_end_sound, R_SOUND, "Set Round End Sound", "Set the sound that plays on round end.", ADMIN_CATEGORY_FUN)
+	VERB_ARG(sound, VERB_ARG_TYPE_SOUND, VERB_ARG_SOURCE_INPUT)
 	var/volume = tgui_input_number(user, "What volume would you like this sound to play at?", max_value = 100)
 	var/sound/admin_sound = sound(sound)
 	if(volume)

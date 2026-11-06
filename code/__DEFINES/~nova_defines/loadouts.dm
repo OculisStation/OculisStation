@@ -33,7 +33,7 @@
 
 // NOTE TO FUTURE CODERS: If you increase this to a huge number, please restrict the overall **amount** of items players can take,
 // if item count restrictions have been significantly increased. You will end up with massively bloated save sizes otherwise.
-#define LOADOUT_MAX_PRESETS 12
+#define LOADOUT_MAX_PRESETS 24 // OCULIS EDIT: this sign can't stop me because I can't read!!! ORIGINAL: #define LOADOUT_MAX_PRESETS 12
 #define LOADOUT_MAX_NAME_LENGTH 24
 
 /// Please add jobs here. It's cleaner using these.

@@ -38,9 +38,7 @@
 	return ..()
 
 /obj/item/gun/ballistic/rifle/can_shoot()
-	if (bolt_locked)
-		return FALSE
-	return ..()
+	return ..() && !bolt_locked
 
 /obj/item/gun/ballistic/rifle/examine(mob/user)
 	. = ..()
@@ -75,6 +73,10 @@
 
 	SET_BASE_PIXEL(-8, 0)
 
+/obj/item/gun/ballistic/rifle/boltaction/presawn
+	WHEN_MAP(icon_state = "sakhno_sawn")
+	spawn_sawn_off = TRUE
+
 /obj/item/gun/ballistic/rifle/boltaction/add_deep_lore()
 	AddElement(/datum/element/examine_lore, \
 		lore = "The Sakhno Precision Rifle's origins are closely tied to the Sakhno Concern, one of the Third Soviet Union's \
@@ -95,12 +97,10 @@
 /obj/item/gun/ballistic/rifle/boltaction/add_bayonet_point()
 	AddComponent(/datum/component/bayonet_attachable, offset_x = 41, offset_y = 14, bayonet_overlay = "bayonet_thin")
 
-/obj/item/gun/ballistic/rifle/boltaction/sawoff(mob/user)
+/obj/item/gun/ballistic/rifle/boltaction/do_sawoff()
 	. = ..()
-	if(.)
-		spread = 36
-		SET_BASE_PIXEL(0, 0)
-		update_appearance()
+	spread = 36
+	SET_BASE_PIXEL(0, 0)
 
 /obj/item/gun/ballistic/rifle/boltaction/attack_self(mob/user)
 	if(jammed)
@@ -194,10 +194,9 @@
 	. = ..()
 	AddComponent(/datum/component/scope, range_modifier = 1.5)
 
-/obj/item/gun/ballistic/rifle/boltaction/prime/sawoff(mob/user)
+/obj/item/gun/ballistic/rifle/boltaction/prime/do_sawoff()
 	. = ..()
-	if(.)
-		name = "\improper Obrez Moderna" // wear it loud and proud
+	name = "\improper Obrez Moderna" // wear it loud and proud
 
 /obj/item/gun/ballistic/rifle/boltaction/donkrifle
 	name = "\improper Donk Co. Jezail"
@@ -230,11 +229,10 @@
 			no risk of receiving a refurbished, poorly-kept surplus arm that jams more than it shoots." \
 	)
 
-/obj/item/gun/ballistic/rifle/boltaction/donkrifle/sawoff(mob/user) //the heavy price one pays for fitting this in a backpack
+/obj/item/gun/ballistic/rifle/boltaction/donkrifle/do_sawoff() //the heavy price one pays for fitting this in a backpack
 	. = ..()
-	if(.)
-		projectile_damage_multiplier = 0.75
-		spread = 50
+	projectile_damage_multiplier = 0.75
+	spread = 50
 
 /obj/item/gun/ballistic/rifle/rebarxbow
 	name = "heated rebar crossbow"
@@ -251,13 +249,11 @@
 	bolt_type = BOLT_TYPE_OPEN
 	semi_auto = FALSE
 	internal_magazine = TRUE
-	can_modify_ammo = FALSE
 	slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_SUITSTORE
 	bolt_wording = "bowstring"
 	magazine_wording = "rod"
 	cartridge_wording = "rod"
 	weapon_weight = WEAPON_HEAVY
-	initial_caliber = CALIBER_REBAR
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/boltaction/rebarxbow/normal
 	fire_sound = 'sound/items/xbow_lock.ogg'
 	can_be_sawn_off = FALSE
@@ -292,9 +288,7 @@
 	rack()
 
 /obj/item/gun/ballistic/rifle/rebarxbow/can_shoot()
-	if (bolt_locked)
-		return FALSE
-	return ..()
+	return ..() && !bolt_locked
 
 /obj/item/gun/ballistic/rifle/rebarxbow/shoot_with_empty_chamber(mob/living/user)
 	if(chambered || !magazine || !length(magazine.contents))
@@ -316,7 +310,7 @@
 	name = "stressed rebar crossbow"
 	desc = "Some idiot decided that they would risk shooting themselves in the face if it meant they could rack and reload the crossbow faster. Hopefully it was worth it."
 	// Feel free to add a recipe to allow you to change it back if you would like, I just wasn't sure if you could have two recipes for the same thing.
-	can_misfire = TRUE
+	pressure_threshold = AMMO_CASING_PRESSURE_LOW
 	draw_time = 0.5 SECONDS
 	reload_time = 0.5 SECONDS
 	doafter_flags = IGNORE_USER_LOC_CHANGE
@@ -332,7 +326,6 @@
 	inhand_icon_state = "rebarxbowsyndie"
 	worn_icon_state = "rebarxbowsyndie"
 	w_class = WEIGHT_CLASS_NORMAL
-	initial_caliber = CALIBER_REBAR
 	draw_time = 0.5 SECONDS
 	reload_time = 1.2 SECONDS
 	doafter_flags = IGNORE_USER_LOC_CHANGE
@@ -353,12 +346,13 @@
 	fire_sound = 'sound/items/weapons/gun/sniper/shot.ogg'
 	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 8.05, /datum/material/wood = SHEET_MATERIAL_AMOUNT * 8, /datum/material/cardboard = SHEET_MATERIAL_AMOUNT, /datum/material/plastic = SMALL_MATERIAL_AMOUNT * 3)
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/boltaction/pipegun
-	projectile_damage_multiplier = 1.75
+	projectile_damage_multiplier = 1.6
 	projectile_speed_multiplier = 1.6
 	obj_flags = UNIQUE_RENAME
 	can_be_sawn_off = FALSE
 	trigger_guard = TRIGGER_GUARD_ALLOW_ALL
 	pb_knockback = 3
+	pressure_threshold = AMMO_CASING_PRESSURE_EXTREME //Don't ask how assistants do it, they jsut do.
 
 	SET_BASE_PIXEL(-8, 0)
 
@@ -479,7 +473,7 @@
 		var/obj/item/gun/ballistic/rifle/enchanted/gun = new type
 		gun.guns_left = guns_left - 1
 		discard_gun(user)
-		user.swap_hand()
+		user.cycle_hand()
 		user.put_in_hands(gun)
 	else
 		user.dropItemToGround(src, TRUE)

@@ -9,7 +9,7 @@
 	melee_damage_upper = 30
 	ai_controller = /datum/ai_controller/basic_controller/watcher/cosmic_entity
 	faction = list(FACTION_VIOLET)
-	basic_mob_flags = IMMUNE_TO_FISTS | DEL_ON_DEATH
+	basic_mob_flags = DEL_ON_DEATH
 
 /datum/ai_controller/basic_controller/watcher/cosmic_entity
 	blackboard = list(
@@ -23,7 +23,7 @@
 	name = "rising hatred"
 	desc = "A series of strange purple parasitic creatures."
 	faction = list(FACTION_VIOLET)
-	basic_mob_flags = IMMUNE_TO_FISTS | DEL_ON_DEATH
+	basic_mob_flags = DEL_ON_DEATH
 
 /mob/living/basic/mining/hivelord/cosmic_entity/Initialize(mapload)
 	. = ..()

@@ -205,6 +205,7 @@
 	. = ..()
 	// quickly deploy it on roundstart. we can't do this in add_unique because that gets called in the preview screen, which overwrites people's loadout stuff in suit/shoes/gloves slot. very unfun for them
 	install_quirk_interaction_features() // have to do this here to ensure all traumas and the like from quirks are applied to our mob
+	install_job_relevant_features() // OCULIS EDIT ADDITION: supporting job-specific MODules
 	modsuit.quick_activation()
 
 /datum/quirk/equipping/entombed/remove()
@@ -238,6 +239,21 @@
 	if (human_holder.get_quirk(/datum/quirk/paraplegic))
 		var/obj/item/mod/module/anomaly_locked/antigrav/entombed/ambulator = new
 		modsuit.install(ambulator, human_holder)
+
+// OCULIS EDIT ADDITION START: supporting job-specific MODules
+
+/datum/quirk/equipping/entombed/proc/install_job_relevant_features()
+	// if a job needs more support than standard to function, add a module here!
+	if (!modsuit)
+		return
+	var/mob/living/carbon/human/human_holder = quirk_holder
+	if (human_holder && human_holder.mind && human_holder.mind.assigned_role)
+	// Entombed miners are practically forced to use a raptor due to the slowdown, not to mention the armor penalty. Ash accretion throws them a bone and makes it more tolerable to play
+		if (human_holder.mind.assigned_role.title == JOB_SHAFT_MINER)
+			var/obj/item/mod/module/ash_accretion/accretion = new
+			modsuit.install(accretion, human_holder)
+
+// OCULIS EDIT ADDITION END
 
 /datum/quirk_constant_data/entombed
 	associated_typepath = /datum/quirk/equipping/entombed

@@ -1,7 +1,7 @@
 /// A hallucination that makes us and (possibly) other people look like something else.
 /datum/hallucination/delusion
 	abstract_hallucination_parent = /datum/hallucination/delusion
-	hallucination_tier = HALLUCINATION_TIER_UNCOMMON
+	hallucination_tier = HALLUCINATION_TIER_VERYSPECIAL // OCULIS EDIT, ORIGINAL: hallucination_tier = HALLUCINATION_TIER_UNCOMMON
 
 	/// The duration of the delusions
 	var/duration = 30 SECONDS

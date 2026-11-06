@@ -14,7 +14,11 @@
 	icon_state = "rolled_poster"
 	/// List of posters which make you feel a certain type of way
 	var/static/list/pinup_posters = list(
-		/obj/structure/sign/poster/contraband/lusty_xenomorph
+		/obj/structure/sign/poster/contraband/lusty_xenomorph,
+		/obj/structure/sign/poster/contraband/double_gunshow,
+		/obj/structure/sign/poster/contraband/rabbit_hole,
+		/obj/structure/sign/poster/contraband/bridge_bunny,
+		/obj/structure/sign/poster/contraband/rabbit_swole,
 	)
 
 /obj/item/poster/random_contraband/pinup/Initialize(mapload, obj/structure/sign/poster/new_poster_structure)
@@ -837,6 +841,34 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/jovial, 32)
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/bojack, 32)
 
+
+/obj/structure/sign/poster/contraband/rabbit_hole
+	name = "Down the Rabbit Hole"
+	desc = "I'm late! I'm late! For a very important date..."
+	icon_state = "rabbit_hole"
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/rabbit_hole, 32)
+
+/obj/structure/sign/poster/contraband/rabbit_swole
+	name = "Damn that Rabbit Swole"
+	desc = "Someone's been hitting that 'Eat me' cake..."
+	icon_state = "rabbit_swole"
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/rabbit_swole, 32)
+
+/obj/structure/sign/poster/contraband/double_gunshow
+	name = "Double Gunshow"
+	desc = "All the whey all across this guy..."
+	icon_state = "double_gunshow"
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/double_gunshow, 32)
+
+/obj/structure/sign/poster/contraband/bridge_bunny
+	name = "Bridge Bunny"
+	desc = "Ideas are like rabbits. You... uh... What were you thinking about again?"
+	icon_state = "nt-bunny"
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/bridge_bunny, 32)
 
 /obj/structure/sign/poster/contraband/vodka
 	name = "Vodka"

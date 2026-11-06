@@ -12,8 +12,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 	worn_icon_state = "electronic"
 	sound_vary = TRUE
-	pickup_sound = SFX_GENERIC_DEVICE_PICKUP
-	drop_sound = SFX_GENERIC_DEVICE_DROP
+	pickup_sound = /datum/sound_effect/generic_device_pickup
+	drop_sound = /datum/sound_effect/generic_device_drop
 	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT)
 
 	/// Spam alert prevention
@@ -40,9 +40,7 @@
 		to_chat(user, span_alert("Encryption Key ports not configured."))
 		return ITEM_INTERACT_BLOCKING
 
-	pai.radio.attackby(tool, user, modifiers)
-	to_chat(user, span_notice("You insert [tool] into the [src]."))
-	return ITEM_INTERACT_SUCCESS
+	return pai.radio.install_key(user, tool)
 
 /obj/item/pai_card/attack_self(mob/user)
 	if(!in_range(src, user))

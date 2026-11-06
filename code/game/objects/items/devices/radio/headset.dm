@@ -36,8 +36,8 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	interaction_flags_mouse_drop = FORBID_TELEKINESIS_REACH
 	slot_flags = ITEM_SLOT_EARS
 	dog_fashion = null
-	equip_sound = SFX_HEADSET_EQUIP
-	pickup_sound = SFX_HEADSET_PICKUP
+	equip_sound = /datum/sound_effect/headset_equip
+	pickup_sound = /datum/sound_effect/headset_pickup
 	drop_sound = 'sound/items/handling/headset/headset_drop1.ogg'
 	sound_vary = TRUE
 	var/obj/item/encryptionkey/keyslot2 = null
@@ -83,7 +83,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 /obj/item/radio/headset/Initialize(mapload)
 	. = ..()
 	if(ispath(keyslot2))
-		keyslot2 = new keyslot2()
+		keyslot2 = new keyslot2(src)
 	set_listening(TRUE)
 	set_broadcasting(TRUE)
 	recalculateChannels()

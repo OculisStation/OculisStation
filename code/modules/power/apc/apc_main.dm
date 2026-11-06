@@ -243,6 +243,7 @@
 	AddElement(/datum/element/contextual_screentip_mob_typechecks, hovering_mob_typechecks)
 
 /obj/machinery/power/apc/Destroy()
+	SSmachines.processing_apcs -= src
 	if(malfai)
 		malfai.hacked_apcs -= src
 		malfai = null
@@ -263,17 +264,21 @@
 		if(NORTH)
 			offset_old = pixel_y
 			pixel_y = APC_PIXEL_OFFSET
+			pixel_x = 0
 		if(SOUTH)
 			offset_old = pixel_y
 			pixel_y = -APC_PIXEL_OFFSET
+			pixel_x = 0
 		if(EAST)
 			offset_old = pixel_x
 			pixel_x = APC_PIXEL_OFFSET
+			pixel_y = 0
 		if(WEST)
 			offset_old = pixel_x
 			pixel_x = -APC_PIXEL_OFFSET
+			pixel_y = 0
 
-	var/image/hud_image = image(icon = 'icons/mob/huds/hud.dmi', icon_state = "apc_hacked")
+	var/image/hud_image = image(icon = DEFAULT_HUDS_DMI, icon_state = "apc_hacked")
 	hud_image.pixel_w = pixel_x
 	hud_image.pixel_z = pixel_y
 	hud_list = list(
@@ -575,6 +580,12 @@
 		total_static_energy_usage += APC_CHANNEL_IS_ON(environ) * area.energy_usage[AREA_USAGE_STATIC_ENVIRON]
 	area.clear_usage()
 
+	if(malfai && COOLDOWN_FINISHED(src, malf_ai_pt_generation) && !(machine_stat & (BROKEN|MAINT)) && !failure_timer && (total_static_energy_usage + 60 KILO JOULES) <= (terminal?.surplus() + cell.charge) && malfai.malf_picker.processing_time < MALF_MAX_PP)
+	//if we're hacked, we're off point cooldown, we're not broken or off temporarily, we can gather enough power, and our ai can take more points
+		total_static_energy_usage += 60 KILO JOULES
+		COOLDOWN_START(src, malf_ai_pt_generation, 30 SECONDS)
+		malfai.malf_picker.processing_time += 1
+
 	if(total_static_energy_usage) //Use power from static power users.
 		var/grid_used = min(terminal?.surplus(), total_static_energy_usage)
 		terminal?.add_load(grid_used)
@@ -602,10 +613,6 @@
 			malfai.malf_picker.processing_time += 1
 
 
-
-	if(malfai && COOLDOWN_FINISHED(src, malf_ai_pt_generation) && cell.use(60 KILO JOULES) > 0 && malfai.malf_picker.processing_time < MALF_MAX_PP) // Over time generation of malf points for the ai controlling it, costs a bit of power
-		COOLDOWN_START(src, malf_ai_pt_generation, 30 SECONDS)
-		malfai.malf_picker.processing_time += 1
 
 	if(malfai && COOLDOWN_FINISHED(src, malf_ai_pt_generation) && cell.use(60 KILO JOULES) > 0 && malfai.malf_picker.processing_time < MALF_MAX_PP) // Over time generation of malf points for the ai controlling it, costs a bit of power
 		COOLDOWN_START(src, malf_ai_pt_generation, 30 SECONDS)

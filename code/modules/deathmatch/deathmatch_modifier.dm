@@ -252,13 +252,6 @@
 	bonus_spread_values[MIN_BONUS_SPREAD_INDEX] += 10
 	bonus_spread_values[MAX_BONUS_SPREAD_INDEX] += 35
 
-/datum/deathmatch_modifier/four_hands
-	name = "Four Hands"
-	description = "When one pair isn't enough..."
-
-/datum/deathmatch_modifier/four_hands/apply(mob/living/carbon/player, datum/deathmatch_lobby/lobby)
-	player.change_number_of_hands(4)
-
 /datum/deathmatch_modifier/paraplegic
 	name = "Paraplegic"
 	description = "Wheelchairs. For. Everyone."
@@ -526,9 +519,8 @@
 	///Pick global modifiers at random.
 	for(var/iteration in 1 to rand(3, 5))
 		var/datum/deathmatch_modifier/modifier = GLOB.deathmatch_game.modifiers[pick_n_take(modifiers_pool)]
-		modifier.on_select(lobby)
+		lobby.select_modifier(modifier)
 		modifier.on_start_game(lobby)
-		lobby.modifiers += modifier.type
 		modifiers_pool -= modifier.blacklisted_modifiers
 		if(!length(modifiers_pool))
 			return

@@ -46,6 +46,11 @@
 		return FALSE
 
 	return . == FALSE ? FALSE : TRUE //. can be null, true, or false. There's a difference between null and false here
+// OCULIS EDIT ADDITION START -- Remove this when borer abilities get reworked in nova
+/datum/action/cooldown/borer/Activate(atom/target)
+	..()
+	return TRUE
+// OCULIS EDIT ADDITION END
 
 //inject chemicals into your host
 /datum/action/cooldown/borer/inject_chemical
@@ -80,6 +85,7 @@
 	data["borerTransferAmounts"] = cortical_owner.injection_rates_unlocked
 	data["onCooldown"] = !COOLDOWN_FINISHED(cortical_owner, injection_cooldown)
 	data["notEnoughChemicals"] = ((cortical_owner.injection_rate_current * CHEMICALS_PER_UNIT) > cortical_owner.chemical_storage) ? TRUE : FALSE
+	data["reagent_holder"] = (cortical_owner.reagent_holder)
 
 	var/chemicals[0]
 	for(var/reagent in cortical_owner.known_chemicals)
@@ -125,6 +131,10 @@
 			cortical_owner.log_message(logging_text, LOG_GAME)
 			cortical_owner.human_host.log_message(logging_text, LOG_GAME)
 			. = TRUE
+		if("reaction_lookup")
+			if(!iscorticalborer(usr))
+				return
+			cortical_owner.reagent_holder.reagents.ui_interact(cortical_owner)
 
 /datum/action/cooldown/borer/inject_chemical/ui_state(mob/user)
 	return GLOB.always_state
@@ -617,7 +627,7 @@
 	var/obj/item/organ/brain/victim_brain = cortical_owner.human_host.get_organ_slot(ORGAN_SLOT_BRAIN)
 	if(victim_brain)
 		cortical_owner.human_host.adjust_organ_loss(ORGAN_SLOT_BRAIN, 2 * cortical_owner.host_harm_multiplier)
-	cortical_host.say(message = borer_message, forced = TRUE)
+	cortical_host.say(message = borer_message, sanitize = FALSE, forced = TRUE) // OCULIS EDIT - fix double-encode, as we already sanitize the message - ORIGINAL: cortical_host.say(message = borer_message, forced = TRUE)
 	var/turf/human_turf = get_turf(cortical_owner.human_host)
 	var/logging_text = "[key_name(cortical_owner)] forced [key_name(cortical_owner.human_host)] to say [borer_message] at [loc_name(human_turf)]"
 	cortical_owner.log_message(logging_text, LOG_GAME)
@@ -668,7 +678,7 @@
 
 /datum/action/cooldown/borer/produce_offspring/proc/no_host_egg()
 	var/mob/living/basic/cortical_borer/cortical_owner = owner
-	cortical_owner.health = max(cortical_owner.health, 1, cortical_owner.health -= OUT_OF_HOST_EGG_COST)
+	cortical_owner.apply_damage(min(OUT_OF_HOST_EGG_COST, cortical_owner.health - 1), BRUTE)
 	produce_egg()
 	var/turf/borer_turf = get_turf(cortical_owner)
 	var/obj/effect/decal/cleanable/blood/splatter/new_splatter = new /obj/effect/decal/cleanable/blood/splatter(borer_turf)

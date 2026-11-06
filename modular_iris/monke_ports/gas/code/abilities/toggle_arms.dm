@@ -85,7 +85,7 @@
 
 	if(force)
 		nabber.Stun(5 SECONDS)
-		for(var/obj/item/held in nabber.held_items)
+		for(var/obj/item/held in nabber.get_held_items())
 			var/obj/item/melee/nabber_blade/held_temp = held
 			if(held_temp.icon_type_off)
 				nabber.modify_accessory_overlay(held_temp.icon_type_off)
@@ -105,7 +105,7 @@
 	playsound(nabber, 'modular_iris/monke_ports/gas/sounds/nabberscream.ogg', 70)
 	if(blade_type)
 		UnregisterSignal(nabber, COMSIG_ATOM_EXAMINE, PROC_REF(examined))
-	for(var/obj/item/held in nabber.held_items)
+	for(var/obj/item/held in nabber.get_held_items())
 		var/obj/item/melee/nabber_blade/held_temp = held
 		if(held_temp.icon_type_off)
 			nabber.modify_accessory_overlay(held_temp.icon_type_off)
@@ -129,7 +129,7 @@
 	nabber.Stun(5 SECONDS)
 	if(blade_type)
 		UnregisterSignal(nabber, COMSIG_ATOM_EXAMINE, PROC_REF(examined))
-	for(var/obj/item/held in nabber.held_items)
+	for(var/obj/item/held in nabber.get_held_items())
 		var/obj/item/melee/nabber_blade/held_temp = held
 		if(held_temp.icon_type_off)
 			nabber.modify_accessory_overlay(held_temp.icon_type_off)

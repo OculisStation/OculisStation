@@ -40,7 +40,7 @@
 
 	owner.AddComponent(/datum/component/debris_bleeder, \
 		list(/obj/effect/spawner/random/glass_shards = 20, /obj/effect/spawner/random/glass_debris = 0), \
-		BRUTE, SFX_SHATTER, sound_threshold = 20)
+		BRUTE, /datum/sound_effect/shatter, sound_threshold = 20)
 
 	RegisterSignal(owner, COMSIG_CARBON_ATTACH_LIMB, PROC_REF(texture_limb)) //also catch new limbs being attached
 	RegisterSignal(owner, COMSIG_CARBON_REMOVE_LIMB, PROC_REF(untexture_limb)) //and remove it from limbs if they go away
@@ -48,9 +48,7 @@
 	for(var/obj/item/bodypart as anything in owner.get_bodyparts())
 		texture_limb(owner, bodypart)
 
-	if(ishuman(owner))
-		var/mob/living/carbon/human/human = owner
-		human.physiology.brute_mod *= brute_mod
+	MODIFY_PHYSIOLOGY(owner, BRUTE, brute_mod)
 
 	//your underwear is belong to us
 	if(ishuman(owner))
@@ -71,9 +69,7 @@
 	qdel(owner.GetComponent(/datum/component/planet_allergy))
 	qdel(owner.GetComponent(/datum/component/debris_bleeder))
 
-	if(ishuman(owner))
-		var/mob/living/carbon/human/human = owner
-		human.physiology.brute_mod /= brute_mod
+	MODIFY_PHYSIOLOGY(owner, BRUTE, 1 / brute_mod)
 
 	for(var/obj/item/bodypart/bodypart as anything in owner.get_bodyparts())
 		untexture_limb(owner, bodypart)

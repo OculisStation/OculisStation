@@ -1,6 +1,5 @@
 /// Sound effect datums for randomized phone sounds
 /datum/sound_effect/phone_rtb_handset
-	key = SFX_PHONE_RTB_HANDSET
 	file_paths = list(
 		'modular_iris/modules/phone/sound/rtb_handset_1.ogg',
 		'modular_iris/modules/phone/sound/rtb_handset_2.ogg',

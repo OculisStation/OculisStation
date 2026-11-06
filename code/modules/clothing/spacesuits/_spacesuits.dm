@@ -32,8 +32,8 @@
 	equip_sound = 'sound/items/handling/helmet/helmet_equip1.ogg'
 	pickup_sound = 'sound/items/handling/helmet/helmet_pickup1.ogg'
 	drop_sound = 'sound/items/handling/helmet/helmet_drop1.ogg'
-	visor_toggle_up_sound = SFX_VISOR_UP
-	visor_toggle_down_sound = SFX_VISOR_DOWN
+	visor_toggle_up_sound = /datum/sound_effect/visor_up
+	visor_toggle_down_sound = /datum/sound_effect/visor_down
 	actions_types = list(/datum/action/item_action/adjust_visor)
 	toggle_message = "You pull your helmet's visor down."
 	alt_toggle_message = "You pull your helmet's visor up."
@@ -51,6 +51,7 @@
 	if(fishing_modifier)
 		AddElement(/datum/element/adjust_fishing_difficulty, fishing_modifier)
 	add_stabilizer()
+	AddElement(/datum/element/equipment_bodypart_texture, BODY_ZONE_HEAD, /datum/bodypart_texture/mesh/space)
 
 /obj/item/clothing/head/helmet/space/proc/add_stabilizer(loose_hat = TRUE)
 	AddComponent(/datum/component/hat_stabilizer, loose_hat = loose_hat)
@@ -97,6 +98,7 @@
 	slowdown = 1
 	armor_type = /datum/armor/suit_space
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDESEXTOY|HIDETAIL|HIDETAUR //NOVA EDIT CHANGE - ADDED HIDETAIL, HIDETAUR. ADDED HIDESEXTOY TO PREVENT VISUAL BUGS.
+	cerulean_flipper_palette = FLIPPERS
 	cold_protection = CHEST | GROIN | LEGS | FEET | ARMS | HANDS
 	min_cold_protection_temperature = SPACE_SUIT_MIN_TEMP_PROTECT_OFF
 	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
@@ -131,6 +133,7 @@
 
 	if(fishing_modifier)
 		AddElement(/datum/element/adjust_fishing_difficulty, fishing_modifier)
+	AddElement(/datum/element/equipment_bodypart_texture, BODY_ZONE_CHEST, /datum/bodypart_texture/mesh/space)
 
 /obj/item/clothing/suit/space/on_outfit_equip(mob/living/carbon/human/outfit_wearer, visuals_only, item_slot)
 	. = ..()
@@ -180,7 +183,7 @@
 
 	// If we got here, it means thermals are on, the cell is in and the cell has
 	// just had enough charge subtracted from it to power the thermal regulator
-	user.adjust_bodytemperature(get_temp_change_amount((temperature_setting - user.bodytemperature), 0.08 * seconds_per_tick))
+	user.adjust_bodytemperature(get_temp_change_amount((temperature_setting - user.bodytemperature), BODYTEMP_SUIT_CHANGE_RATE * seconds_per_tick))
 	update_hud_icon(user)
 
 // Clean up the cell on destroy
@@ -332,7 +335,7 @@
 	if (user)
 		balloon_alert(user, "thermal regulator restrictions overridden")
 		user.log_message("emagged [src], overwriting thermal regulator restrictions.", LOG_GAME)
-	playsound(src, SFX_SPARKS, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
+	playsound(src, /datum/sound_effect/sparks, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 	return TRUE
 
 // update the HUD icon

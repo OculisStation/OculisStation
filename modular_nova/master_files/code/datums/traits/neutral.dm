@@ -38,7 +38,7 @@
 
 /// Adds the DNR HUD element if src has TRAIT_DNR. Removes it otherwise.
 /mob/living/proc/update_dnr_hud()
-	set_hud_image_state(DNR_HUD, "hud_dnr")
+	set_hud_image_state(DNR_HUD, hud_state = "hud_dnr")
 	if(HAS_TRAIT(src, TRAIT_DNR))
 		set_hud_image_active(DNR_HUD)
 	else
@@ -199,14 +199,13 @@
 	mob_trait = TRAIT_FELINE
 	icon = FA_ICON_CAT
 
-//IRIS EDIT: Added HATED_BY_DOGS and CATLIKE_GRACE to bring this quirk in-line with the other feline-based species
+//IRIS EDIT: Added HATED_BY_DOGS to bring this quirk in-line with the other feline-based species
 /datum/quirk/feline_aspect/add_unique(client/client_source)
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	var/obj/item/organ/tongue/cat/new_tongue = new(get_turf(human_holder))
 
 	ADD_TRAIT(human_holder, TRAIT_WATER_HATER, QUIRK_TRAIT)
 	ADD_TRAIT(human_holder, TRAIT_HATED_BY_DOGS, SPECIES_TRAIT)
-	ADD_TRAIT(human_holder, TRAIT_CATLIKE_GRACE, SPECIES_TRAIT)
 
 	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE), human_holder)
 	new_tongue.Insert(human_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)
@@ -217,7 +216,6 @@
 
 	REMOVE_TRAIT(human_holder, TRAIT_WATER_HATER, QUIRK_TRAIT)
 	REMOVE_TRAIT(human_holder, TRAIT_HATED_BY_DOGS, SPECIES_TRAIT)
-	REMOVE_TRAIT(human_holder, TRAIT_CATLIKE_GRACE, SPECIES_TRAIT)
 
 	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE), human_holder)
 	new_tongue.Insert(human_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)

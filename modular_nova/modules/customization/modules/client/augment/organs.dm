@@ -187,6 +187,11 @@
 	cost = 4
 	path = /obj/item/organ/eyes/robotic/binoculars
 
+// OCULIS EDIT ADDITION START
+/datum/augment_item/organ/eyes/moth
+	name = "Moth eyes"
+	path = /obj/item/organ/eyes/moth
+// OCULIS EDIT ADDITION END
 
 //MOUTH IMPLANTS
 /datum/augment_item/organ/mouth

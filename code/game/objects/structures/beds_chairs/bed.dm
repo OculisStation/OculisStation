@@ -126,8 +126,8 @@
 	build_stack_type = /obj/item/stack/sheet/mineral/titanium
 	build_stack_amount = 1
 	elevation = 0
-	buckle_sound = SFX_SEATBELT_BUCKLE
-	unbuckle_sound = SFX_SEATBELT_UNBUCKLE
+	buckle_sound = /datum/sound_effect/seatbelt_buckle
+	unbuckle_sound = /datum/sound_effect/seatbelt_unbuckle
 	custom_materials = list(/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 2.7, /datum/material/plastic = SHEET_MATERIAL_AMOUNT * 1.7)
 	/// The item it spawns when it's folded up.
 	var/foldable_type
@@ -402,3 +402,17 @@
 	if(target == goldilocks)
 		target.pixel_y -= 6
 		goldilocks = null
+
+//yoga mat
+
+/obj/structure/bed/yoga
+	name = "mat"
+	desc = "For exercising."
+	icon_state = "mat"
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/mats.dmi'
+	anchored = TRUE
+	can_buckle = TRUE
+	buckle_lying = 270
+	resistance_flags = FLAMMABLE
+	custom_materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 2)
+	elevation = 2

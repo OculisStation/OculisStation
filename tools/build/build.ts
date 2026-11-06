@@ -44,6 +44,21 @@ function getCutterPath() {
 
 const cutter_path = getCutterPath();
 
+const define_params_file = 'data/last_define_params.json'
+
+// Have compilation defines changed since last build?
+async function defineParametersChanged(defines: string[]): Promise<boolean> {
+  const defines_string = JSON.stringify(defines);
+  const params_file = Bun.file(define_params_file);
+  if(!await params_file.exists()) {
+    await params_file.write(defines_string);
+    return true;
+  }
+  const last_params = await params_file.text();
+  await params_file.write(defines_string);
+  return last_params !== defines_string;
+}
+
 export const DefineParameter = new Juke.Parameter({
   type: 'string[]',
   alias: 'D',
@@ -184,25 +199,25 @@ export const DmMapsIncludeTarget = new Juke.Target({
     foldersNova.push(...Juke.glob('_maps/nova/**/*.dmm'));
     // NOVA EDIT ADDITION END
 
-    // IRIS EDIT ADDITION START
-    const isIrisTemplate = (file: string) =>
-      file.startsWith('_maps/iris/') ||
-      file.startsWith('_maps/RandomRuins/SpaceRuins/iris/') ||
-      file.startsWith('_maps/RandomRuins/IceRuins/iris/') ||
-      file.startsWith('_maps/RandomRuins/LavaRuins/iris/') ||
-      file.startsWith('_maps/shuttles/iris/');
+    // OCULIS EDIT ADDITION START
+    const isOculisTemplate = (file: string) =>
+      file.startsWith('_maps/oculis/') ||
+      file.startsWith('_maps/RandomRuins/SpaceRuins/oculis/') ||
+      file.startsWith('_maps/RandomRuins/IceRuins/oculis/') ||
+      file.startsWith('_maps/RandomRuins/LavaRuins/oculis/') ||
+      file.startsWith('_maps/shuttles/oculis/');
 
-    const foldersIris = [];
+    const foldersOculis = [];
     for (let i = folders.length - 1; i >= 0; i--) {
       const file = folders[i];
-      if (isIrisTemplate(file)) {
-        foldersIris.push(file);
+      if (isOculisTemplate(file)) {
+        foldersOculis.push(file);
         folders.splice(i, 1); // remove from folders
       }
     }
 
-    foldersIris.push(...Juke.glob('_maps/iris/**/*.dmm'));
-    // IRIS EDIT ADDITION END
+    foldersOculis.push(...Juke.glob('_maps/oculis/**/*.dmm'));
+    // OCULIS EDIT ADDITION END
 
     const content = `${folders
       .map((file) => file.replace('_maps/', ''))
@@ -216,21 +231,25 @@ export const DmMapsIncludeTarget = new Juke.Target({
       .join('\n')}\n`;
     fs.writeFileSync('_maps/templates_nova.dm', contentNova);
     // NOVA EDIT ADDITION END
-    // IRIS EDIT ADDITION START
-    const contentIris = `${foldersIris
+    // OCULIS EDIT ADDITION START
+    const contentOculis = `${foldersOculis
       .map((file) => file.replace('_maps/', ''))
       .map((file) => `#include "${file}"`)
       .join('\n')}\n`;
-    fs.writeFileSync('_maps/templates_iris.dm', contentIris);
-    // IRIS EDIT ADDITION END
+    fs.writeFileSync('_maps/templates_oculis.dm', contentOculis);
+    // OCULIS EDIT ADDITION END
   },
 });
 
 export const BehaviorTreeCompilerTarget = new Juke.Target({
-  inputs: ['code/**/*.bt.json', 'code/__DEFINES/**/*.dm'],
+  inputs: [
+    'code/**/*.bt.json',
+    'code/__DEFINES/**/*.dm',
+    'tools/build_bt.py',
+  ],
   outputs: () => {
     return Juke.glob('code/**/*.bt.json').map((file) => {
-      const rel = file.replace(/^code\//, '').replace(/\.bt\.json$/, '');
+      const rel = file.replace(/\.bt\.json$/, '');
       return `build/behavior_trees/${rel}.bt.compiled.json`;
     });
   },
@@ -251,7 +270,7 @@ export const DmTarget = new Juke.Target({
   dependsOn: ({ get }) => [
     get(DefineParameter).includes('ALL_TEMPLATES') && DmMapsIncludeTarget,
     get(DefineParameter).includes('NOVA_TEMPLATES') && DmMapsIncludeTarget, // NOVA EDIT ADDITION
-    get(DefineParameter).includes('IRIS_TEMPLATES') && DmMapsIncludeTarget, // IRIS EDIT ADDITION
+    get(DefineParameter).includes('OCULIS_TEMPLATES') && DmMapsIncludeTarget, // OCULIS EDIT ADDITION
     !get(SkipIconCutter) && IconCutterTarget,
     BehaviorTreeCompilerTarget,
   ],
@@ -270,9 +289,9 @@ export const DmTarget = new Juke.Target({
     `${DME_NAME}.dme`,
     NamedVersionFile,
   ],
-  outputs: ({ get }) => {
-    if (get(DmVersionParameter) || get(DefineParameter).length > 0) {
-      // Always rebuild when a dm version or explicit CLI defines are provided to ensure juke re-runs
+  outputs: async ({ get }) => {
+    if (get(DmVersionParameter) || await defineParametersChanged(get(DefineParameter))) {
+      // Always rebuild when a dm version is provided or CLI defines have changed from last run
       return [];
     }
     return [`${DME_NAME}.dmb`, `${DME_NAME}.rsc`];
@@ -339,7 +358,7 @@ export const AutowikiTarget = new Juke.Target({
   ],
   dependsOn: ({ get }) => [
     get(DefineParameter).includes('NOVA_TEMPLATES') && DmMapsIncludeTarget, // NOVA EDIT ADDITION
-    get(DefineParameter).includes('IRIS_TEMPLATES') && DmMapsIncludeTarget, // IRIS EDIT ADDITION
+    get(DefineParameter).includes('OCULIS_TEMPLATES') && DmMapsIncludeTarget, // OCULIS EDIT ADDITION
     IconCutterTarget,
   ],
   outputs: ['data/autowiki_edits.txt'],
@@ -394,7 +413,7 @@ export const BiomeInstallTarget = new Juke.Target({
 export const TgFontTarget = new Juke.Target({
   dependsOn: [BunTarget],
   inputs: [
-    'tgui/packages/tgfont/**/*.+(js|mjs|svg)',
+    'tgui/packages/tgfont/**/*.+(js|ts|svg)',
     'tgui/packages/tgfont/package.json',
   ],
   outputs: [

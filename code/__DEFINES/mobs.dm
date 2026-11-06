@@ -29,30 +29,11 @@
 /// Determines the rate at which humans lose blood when they have the blood deficiency quirk. The default is BLOOD_REGEN_FACTOR + BLOOD_DEFICIENCY_MODIFIER.
 #define BLOOD_DEFICIENCY_MODIFIER 0.025
 
+/// Determines how high saline can bring up your blood volume
+#define SALINE_DILUTION_CAP BLOOD_VOLUME_NORMAL
+
 /// Temperature at which blood loss and regen stops. [/mob/living/carbon/human/proc/handle_blood]
 #define BLOOD_STOP_TEMP 225
-
-// Bloodtype defines
-#define BLOOD_TYPE_A_MINUS "A-"
-#define BLOOD_TYPE_A_PLUS "A+"
-#define BLOOD_TYPE_B_MINUS "B-"
-#define BLOOD_TYPE_B_PLUS "B+"
-#define BLOOD_TYPE_AB_MINUS "AB-"
-#define BLOOD_TYPE_AB_PLUS "AB+"
-#define BLOOD_TYPE_O_MINUS "O-"
-#define BLOOD_TYPE_O_PLUS "O+"
-#define BLOOD_TYPE_UNIVERSAL "U"
-#define BLOOD_TYPE_LIZARD "L"
-#define BLOOD_TYPE_VAMPIRE "V"
-#define BLOOD_TYPE_ANIMAL "Y-"
-#define BLOOD_TYPE_ETHEREAL "LE"
-#define BLOOD_TYPE_TOX "TOX"
-#define BLOOD_TYPE_OIL "Oil"
-#define BLOOD_TYPE_MEAT "MT-"
-#define BLOOD_TYPE_CLOWN "C"
-#define BLOOD_TYPE_XENO "X*"
-#define BLOOD_TYPE_H2O "H2O"
-#define BLOOD_TYPE_SNAIL "S"
 
 // Blood exposure behavior flag defines
 /// Add our DNA to turfs/mobs/items, does not correlate with adding decals/overlays
@@ -147,10 +128,6 @@
 	"skeletal", \
 )
 
-//Lung respiration type flags
-#define RESPIRATION_OXYGEN (1 << 0)
-#define RESPIRATION_N2 (1 << 1)
-#define RESPIRATION_PLASMA (1 << 2)
 #define DEFAULT_BODYPART_ICON_ORGANIC 'icons/mob/human/bodyparts_greyscale.dmi'
 
 //Bodytype defines for surgery, and other misc things.
@@ -192,6 +169,8 @@
 #define BODYSHAPE_SNOUTED (1<<3)
 /// Golem's wacky rocky limbs
 #define BODYSHAPE_GOLEM (1<<4)
+///The limb has a Cerulean (large fish) tail
+#define BODYSHAPE_CERULEAN (1<<5)
 // NOVA EDIT ADDITION START
 ///The limb fits a modular custom shape
 #define BODYSHAPE_CUSTOM (1<<15)
@@ -222,6 +201,7 @@
 	!(bodypart.bodytype & (BODYTYPE_ROBOTIC | BODYTYPE_LARVA_PLACEHOLDER | BODYTYPE_GOLEM | BODYTYPE_PEG | BODYTYPE_GHOUL)) /* NOVA EDIT CHANGE - ORIGINAL: !(bodypart.bodytype & (BODYTYPE_ROBOTIC | BODYTYPE_LARVA_PLACEHOLDER | BODYTYPE_GOLEM | BODYTYPE_PEG)) \ */ \
 	&& !(bodypart.flags_1 & HOLOGRAM_1) \
 	&& !(bodypart.bodypart_flags & BODYPART_STUMP) \
+	&& !(bodypart.bodypart_flags & BODYPART_ABSTRACT) \
 )
 
 // Defines for Species IDs. Used to refer to the name of a species, for things like bodypart names or species preferences.
@@ -244,6 +224,7 @@
 #define SPECIES_LIZARD_ASH "ashwalker"
 #define SPECIES_LIZARD_SILVER "silverscale"
 #define SPECIES_NIGHTMARE "nightmare"
+#define SPECIES_CERULEAN "cerulean"
 #define SPECIES_MONKEY "monkey"
 #define SPECIES_MOTH "moth"
 #define SPECIES_MUSHROOM "mush"
@@ -254,9 +235,6 @@
 #define SPECIES_SNAIL "snail"
 #define SPECIES_VAMPIRE "vampire"
 #define SPECIES_ZOMBIE "zombie"
-#define SPECIES_ZOMBIE_INFECTIOUS "memezombie"
-#define SPECIES_ZOMBIE_INFECTIOUS_MINDLESS "mindless_memezombie"
-#define SPECIES_ZOMBIE_KROKODIL "krokodil_zombie"
 #define SPECIES_VOIDWALKER "voidwalker"
 
 // Like species IDs, but not specifically attached a species.
@@ -320,6 +298,8 @@
 #define COLD_GAS_DAMAGE_LEVEL_1 0.5 //Amount of damage applied when the current breath's temperature just passes the 260.15k safety point
 #define COLD_GAS_DAMAGE_LEVEL_2 1.5 //Amount of damage applied when the current breath's temperature passes the 200K point
 #define COLD_GAS_DAMAGE_LEVEL_3 3 //Amount of damage applied when the current breath's temperature passes the 120K point
+
+#define TEMPERATURE_LUNG_DAMAGE 3 //Amount of damage applied when lungs are breathing air (LEVEL_3) that is too hot or cold
 
 /// These are for the default lungs
 #define COLD_LEVEL_1_THRESHOLD 260
@@ -410,6 +390,13 @@
 #define CRYSTALIZE_STAGE_ENCROACHING 300 //In switches
 #define CRYSTALIZE_STAGE_SMALL 600 //Because they're not static
 
+///Max growth for a xeno larva to evolve into a regular xeno. This is used as % based.
+#define XENOMORPH_MAX_GROWTH 100
+
+// Strings used by modsuit mob sprite generation for Ceruleans/mobs with a big fish tail
+#define FLIPPERS "flippers"
+#define NO_FLIPPERS "no_flippers"
+
 //Slime evolution threshold. Controls how fast slimes can split/grow
 #define SLIME_EVOLUTION_THRESHOLD 10
 
@@ -478,6 +465,8 @@
 #define SLIPPERY_WHEN_LYING_DOWN (1<<6)
 ///Like sliding, but it's short, it doesn't knockdown, it doesn't stun, it just staggers a bit.
 #define WEAK_SLIDE (1<<7)
+/// You can even slip if you're experiencing nograv or flying
+#define SLIP_IN_NOGRAV (1<<8)
 
 #define MAX_CHICKENS 50
 
@@ -577,6 +566,14 @@
 #define EAR_PROTECTION_HEAVY 2
 #define EAR_PROTECTION_VACUUM 3
 #define EAR_PROTECTION_FULL INFINITY
+
+/**
+ * EMP protection
+ * These values are additive to determine your overall emp protection
+ */
+#define EMP_PROTECTION_NONE 0
+#define EMP_PROTECTION_MODERATE 1
+#define EMP_PROTECTION_HIGH 2
 
 /**
  * Soundbang defines
@@ -913,6 +910,10 @@ GLOBAL_ALIST_INIT(human_heights_to_offsets, alist(
 	// NOVA EDIT ADDITION START
 	#define UNDER_UNIFORM_SOCKS_LAYER 19.101
 	// NOVA EDIT ADDITION END
+	/// Gauze specifically
+	#define GAUZE_LAYER 19.85 // NOVA EDIT CHANGE -- Original #define GAUZE_LAYER 19.8
+	/// Damage indicators with overlays
+	#define DAMAGE_OVERLAY_LAYER 19.9
 /// Damage indicators (cuts and burns)
 #define DAMAGE_LAYER 20
 	/// Mutations that should appear above everything else (e.g. laser eyes)
@@ -1156,6 +1157,8 @@ GLOBAL_ALIST_INIT(human_heights_to_offsets, alist(
 /// Distance which you can see someone's ID card
 /// Short enough that you can inspect over tables (bartender checking age)
 #define ID_EXAMINE_DISTANCE 3
+/// Distance which you can get the href to remove embeds or similar from someone
+#define CARBON_EXAMINE_EMBEDDING_MAX_DIST 4
 
 GLOBAL_LIST_INIT(regal_rat_minion_commands, list(
 	/datum/pet_command/idle,

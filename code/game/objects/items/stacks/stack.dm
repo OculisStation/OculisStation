@@ -68,7 +68,10 @@
 /obj/item/stack/Initialize(mapload, new_amount = amount, merge = TRUE, list/mat_override = null, mat_amt = 1)
 	amount = new_amount
 	if(amount <= 0)
-		stack_trace("invalid amount [amount]!")
+		stack_trace("[sanitize(name)] generated with an invalid amount ([amount]) of sheets!")
+		return INITIALIZE_HINT_QDEL
+	if(isnan(amount))
+		stack_trace("[sanitize(name)] generated with NaN sheets!")
 		return INITIALIZE_HINT_QDEL
 	while(amount > max_amount)
 		amount -= max_amount
@@ -99,13 +102,19 @@
 	update_appearance()
 
 	if(is_path_in_list(merge_type, GLOB.golem_stack_food_directory))
-		AddComponent(/datum/component/golem_food, golem_food_key = merge_type)
+		var/processing_bonus = 1
+		if(ispath(merge_type, /obj/item/stack/sheet))
+			processing_bonus = GOLEMFOOD_PREPARED_MEAL
+		AddComponent(/datum/component/golem_food, golem_food_key = merge_type, food_multiplier = processing_bonus)
 
 /obj/item/stack/LateInitialize()
 	merge_with_loc()
 
 /obj/item/stack/Destroy()
 	mats_per_unit = null
+	if(source)
+		LAZYREMOVE(source.linked_modules, src)
+		source = null
 	return ..()
 
 /obj/item/stack/update_name(updates)
@@ -588,7 +597,9 @@
 		return FALSE
 	if(is_cyborg)
 		if(source.use_charge(used * cost))
-			update_appearance(UPDATE_NAME)
+			//this will include us
+			for(var/obj/item/stack/modules as anything in source.linked_modules)
+				modules.update_appearance(UPDATE_NAME)
 			return TRUE
 		return FALSE
 	if (amount < used)
@@ -719,7 +730,8 @@
 		return
 
 	if(pulledby && is_zero_amount(delete_if_zero = FALSE))
-		pulledby.start_pulling(target_stack)
+		// Annoyingly this makes dreamchecker throw a hissy fit. Might cause bugs, who knows really
+		INVOKE_ASYNC(pulledby, TYPE_PROC_REF(/atom/movable, start_pulling), target_stack)
 
 	target_stack.copy_evidences(src)
 	use(transfer, transfer = TRUE, check = FALSE)

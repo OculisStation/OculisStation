@@ -104,6 +104,10 @@
 		var/obj/machinery/computer/computer = target
 		computer.authenticated = TRUE
 		computer.balloon_alert(source, "unlocked")
+	else if(istype(target, /obj/machinery/turretid))
+		var/obj/machinery/turretid/turretcontrol = target
+		turretcontrol.locked = FALSE
+		turretcontrol.balloon_alert(source, "unlocked")
 
 	var/turf/target_turf = get_turf(target)
 	SEND_SIGNAL(target_turf, COMSIG_ATOM_MAGICALLY_UNLOCKED, src, source)
@@ -224,6 +228,12 @@
 	path_recharge_amount = 0.66
 	holywater_drain_amount = 0.33
 	notice = "&bull; Cannot be used near living sentient beings.<br>&bull; Cancelled if you are hit with an anti-magic item."
+
+/datum/heretic_knowledge/spell/caretaker_refuge/has_charges(mob/living/user)
+	return user.has_status_effect(/datum/status_effect/caretaker_refuge) || ..()
+
+/datum/heretic_knowledge/spell/caretaker_refuge/should_deduct_charge(mob/living/user)
+	return !user.has_status_effect(/datum/status_effect/caretaker_refuge)
 
 /datum/heretic_knowledge/ultimate/lock_final
 	name = "Unlock the Labyrinth"

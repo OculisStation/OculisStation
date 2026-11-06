@@ -1,7 +1,7 @@
 /// Causes a fake "zap" to the hallucinator.
 /datum/hallucination/shock
 	random_hallucination_weight = 1 // really low weight, as it also has a snowflake check to trigger when bumping airlocks
-	hallucination_tier = HALLUCINATION_TIER_COMMON
+	hallucination_tier = HALLUCINATION_TIER_UNCOMMON // OCULIS EDIT, ORIGINAL: hallucination_tier = HALLUCINATION_TIER_COMMON
 
 	var/electrocution_icon = 'icons/mob/human/human.dmi'
 	var/electrocution_icon_state = "electrocuted_base"
@@ -42,7 +42,7 @@
 	hallucinator.client?.images |= shock_image
 	hallucinator.client?.images |= electrocution_skeleton_anim
 
-	hallucinator.playsound_local(get_turf(src), SFX_SPARKS, 100, TRUE)
+	hallucinator.playsound_local(get_turf(src), /datum/sound_effect/sparks, 100, TRUE)
 	hallucinator.adjust_stamina_loss(50)
 	hallucinator.Stun(4 SECONDS)
 	hallucinator.do_jitter_animation(300) // Maximum jitter

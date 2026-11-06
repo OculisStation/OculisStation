@@ -14,6 +14,12 @@
 	liked_foodtypes = RAW | GORE | GRAIN
 	disliked_foodtypes = CLOTH | FRIED | TOXIC
 	toxic_foodtypes = DAIRY
+	emote_sounds = list(
+		/datum/emote/living/scream::key = 'modular_iris/monke_ports/gas/sounds/nabberscream.ogg',
+		/datum/emote/living/laugh::key = 'modular_iris/monke_ports/gas/sounds/nabberlaugh.ogg',
+		/datum/emote/living/cough::key = 'modular_iris/monke_ports/gas/sounds/nabbercough.ogg',
+		/datum/emote/living/sneeze::key = 'modular_iris/monke_ports/gas/sounds/nabbersneeze.ogg',
+	)
 
 /obj/item/organ/ears/nabber
 	name = "nabber ears"

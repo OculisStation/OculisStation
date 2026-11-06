@@ -51,18 +51,10 @@
 			balloon_alert(src, "can't eat slime!")
 		return FALSE
 
-	if(isanimal(meal))
-		var/mob/living/simple_animal/simple_meal = meal
-		if(simple_meal.damage_coeff[TOX] <= 0 && simple_meal.damage_coeff[BRUTE] <= 0) //The creature wouldn't take any damage, it must be too weird even for us.
-			if(!silent)
-				balloon_alert(src, "not food!")
-			return FALSE
-	else if(isbasicmob(meal))
-		var/mob/living/basic/basic_meal = meal
-		if(basic_meal.damage_coeff[TOX] <= 0 && basic_meal.damage_coeff[BRUTE] <= 0)
-			if (!silent)
-				balloon_alert(src, "not food!")
-			return FALSE
+	if(GET_PHYSIOLOGY(meal, BRUTE) <= 0 && GET_PHYSIOLOGY(meal, TOX) <= 0) //The creature wouldn't take any damage, it must be too weird even for us.
+		if(!silent)
+			balloon_alert(src, "not food!")
+		return FALSE
 
 	return TRUE
 
@@ -70,11 +62,18 @@
 
 ///The slime will start feeding on the target
 /mob/living/basic/slime/proc/start_feeding(mob/living/target_mob)
+	// OCULIS EDIT ADDITION START - SLIME_RANCHER
+	// buckle_mob() tries to unbuckle us from our seat first, but not forcefully, so that does nothing for a slime
+	hop_off_stack()
+	// OCULIS EDIT ADDITION END
 	target_mob.unbuckle_all_mobs(force = TRUE) //Slimes rip other mobs (eg: shoulder parrots) off (Slimes Vs Slimes is already handled in can_feed_on())
 	if(target_mob.buckle_mob(src, force = TRUE))
 		add_offsets(FEEDING_OFFSET, y_add = target_mob.mob_size <= MOB_SIZE_SMALL ? 0 : 3)
 		layer = MOB_ABOVE_PIGGYBACK_LAYER //appear above the target mob
 		target_mob.apply_status_effect(/datum/status_effect/slime_leech, src)
+		// OCULIS EDIT ADDITION START - SLIME_RANCHER - mark the meal here, so letting go early doesn't undo it
+		ADD_TRAIT(target_mob, TRAIT_WAS_SLIME_FOOD, TRAIT_GENERIC)
+		// OCULIS EDIT ADDITION END
 		target_mob.visible_message(
 			span_danger("[name] latches onto [target_mob]!"),
 			span_userdanger("[name] latches onto [target_mob]!"),
@@ -87,7 +86,12 @@
 
 ///The slime will stop feeding
 /mob/living/basic/slime/proc/stop_feeding(silent = FALSE)
-	if(!buckled)
+	// OCULIS EDIT ADDITION START - SLIME_RANCHER
+	if(isslime(buckled))
+		hop_off_stack()
+		return
+	// OCULIS EDIT ADDITION END
+	if(!isliving(buckled)) // OCULIS EDIT CHANGE - SLIME_RANCHER - don't "let go of" a chair - ORIGINAL: if(!buckled)
 		return
 
 	if(!silent)

@@ -57,6 +57,8 @@ SUBSYSTEM_DEF(economy)
 
 	/// Number of mail items generated.
 	var/mail_waiting = 0
+	/// Total quantity of mail that's been opened this shift. Displayed at round-end and blackbox'd.
+	var/mail_opened = 0
 	/// Mail Holiday: AKA does mail arrive today? Always blocked on Sundays.
 	var/mail_blocked = FALSE
 	/// List used to track partially completed processing steps
@@ -69,12 +71,16 @@ SUBSYSTEM_DEF(economy)
 	var/temporary_total = 0
 	/// Determines how many ticks it takes to restock mail
 	var/ticks_per_mail = 2
+	/// Currently boosted exports
+	var/list/boosted_exports = list()
 
 /datum/controller/subsystem/economy/Initialize()
 	//removes cargo from the split
 	var/budget_to_hand_out = round(budget_pool / department_accounts.len -1)
+	/* // OCULIS EDIT REMOVAL START
 	if(time2text(world.timeofday, "DDD") == SUNDAY)
 		mail_blocked = TRUE
+	*/ // OCULIS EDIT REMOVAL END
 	for(var/dep_id in department_accounts)
 		if(dep_id == ACCOUNT_CAR) //cargo starts with NOTHING
 			new /datum/bank_account/department(dep_id, 0, player_account = FALSE)
@@ -116,6 +122,7 @@ SUBSYSTEM_DEF(economy)
 		station_target = max(round(temporary_total / max(bank_accounts_by_id.len * 2, 1)) + station_target_buffer, 1)
 
 	if(processing_part == ECON_PRICE_UPDATE_STEP)
+		update_boosted_exports()
 		if(!HAS_TRAIT(SSeconomy, TRAIT_MARKET_CRASHING) && !price_update())
 			return
 
@@ -132,6 +139,16 @@ SUBSYSTEM_DEF(economy)
 	for(var/datum/bank_account/department/D in departmental_accounts)
 		if(D.department_id == dep_id)
 			return D
+
+/// Pick X amount of random exports to boost in price for the tick
+/datum/controller/subsystem/economy/proc/update_boosted_exports()
+	boosted_exports.Cut()
+	// Don't randomize export values during unit tests or we'll get flakies
+#ifndef UNIT_TESTS
+	var/list/valid_exports = valid_typesof(/datum/export)
+	for (var/i in 1 to rand(EXPORT_BOOST_MIN_AMOUNT, EXPORT_BOOST_MAX_AMOUNT))
+		boosted_exports += pick_n_take(valid_exports)
+#endif
 
 /**
  * Departmental income payments are kept static and linear for every department, and paid out once every 5 minutes, as determined by MAX_GRANT_DPT.

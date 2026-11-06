@@ -400,7 +400,7 @@
 	paper.name = "paper - Bounties"
 
 	var/list/printout_text = list()
-	printout_text += "<h2>Nanotrasen Cargo Bounties</h2></br>"
+	printout_text += "<center><h2>Nanotrasen Cargo Bounties</h2></center>"
 
 	for(var/datum/bounty/current_bounty in GLOB.shared_crew_bounties)
 		if(current_bounty.claimed)
@@ -411,7 +411,7 @@
 			<li>Reward: <b>[current_bounty.get_bounty_reward()]</b> cr.</li>
 			<li>Cut: <b>[round(BOUNTY_CUT_STANDARD * current_bounty.get_bounty_reward())]</b> cr.</li>
 			</ul>"}
-	paper.add_raw_text(printout_text.Join("<br />"))
+	paper.add_raw_text(printout_text.Join(""))
 	paper.update_appearance()
 
 	playsound(src, 'sound/machines/printer.ogg', 100, TRUE)
@@ -431,7 +431,7 @@
 	addtimer(CALLBACK(src, PROC_REF(launch_payload)), 1 SECONDS)
 
 /obj/item/civ_bounty_beacon/proc/launch_payload()
-	playsound(src, SFX_SPARKS, 80, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
+	playsound(src, /datum/sound_effect/sparks, 80, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 	switch(uses)
 		if(2)
 			new /obj/machinery/piratepad/civilian(drop_location())

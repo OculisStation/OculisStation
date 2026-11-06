@@ -28,8 +28,8 @@
 		"a \"great investment\" into \"non-fungible tokens\" by a \"moron\"",\
 		"a number of raids from Tiger Cooperative agents",\
 		"supply chain shortages",\
-		"the \"Irisgram\" social media network's untimely downfall",  /*IRIS EDIT*/\
-		"the \"Irisgram\" social media network's unfortunate success",  /*IRIS EDIT*/\
+		"the \"Oculisgram\" social media network's untimely downfall",  /* OCULIS EDIT*/\
+		"the \"Oculisgram\" social media network's unfortunate success",  /* OCULIS EDIT*/\
 		"uhh, bad luck, we guess"
 	)
 	var/reason = pick(poss_reasons)

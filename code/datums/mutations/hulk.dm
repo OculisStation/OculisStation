@@ -44,6 +44,7 @@
 	RegisterSignal(owner, COMSIG_CARBON_ATTACH_LIMB, PROC_REF(texture_limb))
 	RegisterSignal(owner, COMSIG_CARBON_REMOVE_LIMB, PROC_REF(untexture_limb))
 	owner.add_movespeed_mod_immunities("hulk", /datum/movespeed_modifier/damage_slowdown)
+	MODIFY_PHYSIOLOGY(owner, PHYS_COEFF_COLD, 2) //hulks are vulnerable to cold temperatures for some reason, idk low body fat?
 
 /datum/mutation/hulk/proc/on_attack_hand(mob/living/carbon/human/source, atom/target, proximity, modifiers)
 	SIGNAL_HANDLER
@@ -82,6 +83,7 @@
 	UnregisterSignal(owner, COMSIG_LIVING_EARLY_UNARMED_ATTACK)
 	UnregisterSignal(owner, COMSIG_MOB_CLICKON)
 	owner.remove_movespeed_mod_immunities("hulk", /datum/movespeed_modifier/damage_slowdown)
+	MODIFY_PHYSIOLOGY(owner, PHYS_COEFF_COLD, 0.5)
 
 /datum/mutation/hulk/proc/texture_limb(atom/source, obj/item/bodypart/limb)
 	SIGNAL_HANDLER
@@ -240,7 +242,7 @@
 	yeeted_person.visible_message(span_danger("[the_hulk] throws [yeeted_person]!"), \
 					span_userdanger("You're thrown by [the_hulk]!"), span_hear("You hear aggressive shuffling and a loud thud!"), null, the_hulk)
 	to_chat(the_hulk, span_danger("You throw [yeeted_person]!"))
-	playsound(the_hulk.loc, SFX_SWING_HIT, 50, TRUE)
+	playsound(the_hulk.loc, /datum/sound_effect/swing_hit, 50, TRUE)
 	var/turf/T = get_edge_target_turf(the_hulk, the_hulk.dir)
 	if(!isturf(T))
 		return

@@ -314,11 +314,10 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		if ("open_food")
 			GLOB.food_prefs_menu.ui_interact(usr)
 			return TRUE
-		// NOVA EDIT ADDITION START: Background Selection
+
 		if("update_background")
 			update_preference(GLOB.preference_entries[/datum/preference/choiced/background_state], params["new_background"])
 			return TRUE
-		// NOVA EDIT ADDITION END
 
 		if ("set_tricolor_preference")
 			var/requested_preference_key = params["preference"]
@@ -357,7 +356,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		// For the quirks in the prefs menu.
 		if ("get_quirks_balance")
 			return TRUE
-		//NOVA EDIT ADDITION END
+		// NOVA EDIT ADDITION END
 
 	for (var/datum/preference_middleware/preference_middleware as anything in middleware)
 		var/delegation = preference_middleware.action_delegations[action]
@@ -546,6 +545,10 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		job_preferences -= job.title
 	else
 		job_preferences[job.title] = level
+
+	if(isnewplayer(parent?.mob))
+		var/mob/dead/new_player/lobbyguy = parent.mob
+		lobbyguy.update_ready_report()
 
 	return TRUE
 

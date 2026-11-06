@@ -521,6 +521,7 @@
 	supervisors = SUPERVISOR_RD
 	exp_granted_type = EXP_TYPE_CREW
 	config_tag = "SCIENCE_GUARD"
+	tgui_icon = FA_ICON_SHIELD_HEART
 
 	outfit = /datum/outfit/job/science_guard
 	plasmaman_outfit = /datum/outfit/plasmaman/science
@@ -556,7 +557,7 @@
 	head =  /obj/item/clothing/head/helmet/blueshirt/nova
 	suit = /obj/item/clothing/suit/armor/vest/blueshirt/nova
 	r_pocket = /obj/item/flashlight
-	l_pocket = /obj/item/modular_computer/pda/science
+	l_pocket = /obj/item/modular_computer/pda/crew/science
 
 	backpack = /obj/item/storage/backpack/science
 	satchel = /obj/item/storage/backpack/satchel/science
@@ -620,6 +621,7 @@
 	supervisors = SUPERVISOR_CMO
 	exp_granted_type = EXP_TYPE_CREW
 	config_tag = "ORDERLY"
+	tgui_icon = FA_ICON_SHIELD_HEART
 
 	outfit = /datum/outfit/job/orderly
 	plasmaman_outfit = /datum/outfit/plasmaman/medical
@@ -656,7 +658,7 @@
 	head =  /obj/item/clothing/head/helmet/blueshirt/nova/guard
 	suit = /obj/item/clothing/suit/armor/vest/blueshirt/nova/orderly
 	r_pocket = /obj/item/flashlight
-	l_pocket = /obj/item/modular_computer/pda/medical
+	l_pocket = /obj/item/modular_computer/pda/crew/medical
 
 	backpack = /obj/item/storage/backpack/medic
 	satchel = /obj/item/storage/backpack/satchel/med
@@ -715,6 +717,7 @@
 	supervisors = SUPERVISOR_CE
 	exp_granted_type = EXP_TYPE_CREW
 	config_tag = "ENGINEERING_GUARD"
+	tgui_icon = FA_ICON_SHIELD_HEART
 
 	outfit = /datum/outfit/job/engineering_guard
 	plasmaman_outfit = /datum/outfit/plasmaman/engineering
@@ -750,7 +753,7 @@
 	head =  /obj/item/clothing/head/helmet/blueshirt/nova/guard
 	suit = /obj/item/clothing/suit/armor/vest/blueshirt/nova/engineering_guard
 	r_pocket = /obj/item/flashlight
-	l_pocket = /obj/item/modular_computer/pda/engineering
+	l_pocket = /obj/item/modular_computer/pda/crew/engineering
 
 	backpack = /obj/item/storage/backpack/industrial
 	satchel = /obj/item/storage/backpack/satchel/eng
@@ -815,6 +818,7 @@
 	supervisors = SUPERVISOR_QM
 	exp_granted_type = EXP_TYPE_CREW
 	config_tag = "CUSTOMS_AGENT"
+	tgui_icon = FA_ICON_SHIELD_HEART
 
 	outfit = /datum/outfit/job/customs_agent
 	plasmaman_outfit = /datum/outfit/plasmaman/cargo
@@ -851,7 +855,7 @@
 	suit = /obj/item/clothing/suit/armor/vest/blueshirt/nova/customs_agent
 	glasses = /obj/item/clothing/glasses/hud/gun_permit
 	r_pocket = /obj/item/flashlight
-	l_pocket = /obj/item/modular_computer/pda/cargo
+	l_pocket = /obj/item/modular_computer/pda/crew/cargo
 
 	backpack = /obj/item/storage/backpack
 	satchel = /obj/item/storage/backpack/satchel
@@ -907,6 +911,7 @@
 	supervisors = SUPERVISOR_HOP
 	exp_granted_type = EXP_TYPE_CREW
 	config_tag = "BOUNCER"
+	tgui_icon = FA_ICON_SHIELD_HEART
 
 	outfit = /datum/outfit/job/bouncer
 	plasmaman_outfit = /datum/outfit/plasmaman/party_bouncer
@@ -941,7 +946,7 @@
 	shoes = /obj/item/clothing/shoes/sneakers/black
 	head =  /obj/item/clothing/head/helmet/blueshirt/nova/guard
 	suit = /obj/item/clothing/suit/armor/vest/blueshirt/nova/guard
-	l_pocket = /obj/item/modular_computer/pda/bar
+	l_pocket = /obj/item/modular_computer/pda/crew/bar
 	r_pocket = /obj/item/flashlight
 	glasses = /obj/item/clothing/glasses/sunglasses
 
@@ -1022,7 +1027,7 @@
 					span_warning("[user] prods you with [src]. Luckily, it shut off due to being in the wrong area."))
 				turn_off()
 				balloon_alert(user, "wrong department")
-				playsound(src, SFX_SPARKS, 75, TRUE, -1)
+				playsound(src, /datum/sound_effect/sparks, 75, TRUE, -1)
 				update_appearance()
 				return FALSE
 	return ..()
@@ -1044,7 +1049,7 @@
 							span_warning("You scramble [src]'s departmental lock, allowing it to be used freely!"),
 							span_hear("You hear a faint electrical spark."))
 		balloon_alert(user, "emagged")
-		playsound(src, SFX_SPARKS, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
+		playsound(src, /datum/sound_effect/sparks, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 		obj_flags |= EMAGGED
 		emagged = TRUE
 		return TRUE

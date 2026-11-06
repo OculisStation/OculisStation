@@ -6,7 +6,7 @@
 	type_to_generate = /datum/loadout_item/toys
 	tab_order = /datum/loadout_category/weapons::tab_order + 1
 	/// How many toys are allowed at maximum.
-	VAR_PRIVATE/max_allowed = 3
+	// VAR_PRIVATE/max_allowed = 3 // OCULIS EDIT REMOVAL
 
 /datum/loadout_category/toys/New()
 	. = ..()

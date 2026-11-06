@@ -95,7 +95,7 @@ GLOBAL_LIST_EMPTY(anchors)
 		if(user)
 			user.log_message("emagged [src].", LOG_ATTACK, color="red")
 			balloon_alert(user, "system overloaded")
-		playsound(src, SFX_SPARKS, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
+		playsound(src, /datum/sound_effect/sparks, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 		var/obj/machinery/dive_anchor/target_anchor = GLOB.anchors[target_designation]
 		//emagging one anchor zaps mobs in an area around the other
 		for(var/mob/living/mob in circle_range(target_anchor, 7))

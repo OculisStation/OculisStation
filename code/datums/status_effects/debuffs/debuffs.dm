@@ -268,7 +268,7 @@ GLOBAL_LIST_EMPTY(unconscious_appearances)
 					sleep_quality = -0.2
 
 		var/turf/rest_turf = get_turf(owner)
-		var/is_sleeping_in_darkness = rest_turf.get_lumcount() <= LIGHTING_TILE_IS_DARK
+		var/is_sleeping_in_darkness = !rest_turf.check_lumcount_above(LIGHTING_TILE_IS_DARK)
 
 		// sleeping with a blindfold or in the dark helps us rest
 		if(owner.is_blind_from(EYES_COVERED) || is_sleeping_in_darkness)
@@ -290,6 +290,10 @@ GLOBAL_LIST_EMPTY(unconscious_appearances)
 
 		// you forgot the pillow
 		if(locate(/obj/item/pillow) in owner.loc)
+			sleep_quality += 0.1
+
+		// A nice drink before sleep is always nice
+		if(HAS_TRAIT(owner, TRAIT_HAD_SLEEPY_DRINK))
 			sleep_quality += 0.1
 
 		var/need_mob_update = FALSE
@@ -363,14 +367,11 @@ GLOBAL_LIST_EMPTY(unconscious_appearances)
 	. = ..()
 	if(!.)
 		return
-	owner.add_traits(list(TRAIT_IMMOBILIZED, TRAIT_HANDS_BLOCKED, TRAIT_STASIS, TRAIT_TUMOR_SUPPRESSED, TRAIT_ANALGESIA), TRAIT_STATUS_EFFECT(id)) // NOVA EDIT CHANGE - ORIGINAL: owner.add_traits(list(TRAIT_IMMOBILIZED, TRAIT_HANDS_BLOCKED, TRAIT_STASIS, TRAIT_TUMOR_SUPPRESSED), TRAIT_STATUS_EFFECT(id))
+	owner.add_traits(list(TRAIT_IMMOBILIZED, TRAIT_HANDS_BLOCKED, TRAIT_STASIS, TRAIT_ANALGESIA), TRAIT_STATUS_EFFECT(id)) // NOVA EDIT CHANGE - ORIGINAL: owner.add_traits(list(TRAIT_IMMOBILIZED, TRAIT_HANDS_BLOCKED, TRAIT_STASIS), TRAIT_STATUS_EFFECT(id))
 	owner.add_filter("stasis_status_ripple", 2, list("type" = "ripple", "flags" = WAVE_BOUNDED, "radius" = 0, "size" = 2))
 	var/filter = owner.get_filter("stasis_status_ripple")
 	animate(filter, radius = 0, time = 0.2 SECONDS, size = 2, easing = JUMP_EASING, loop = -1, flags = ANIMATION_PARALLEL)
 	animate(radius = 32, time = 1.5 SECONDS, size = 0)
-	if(iscarbon(owner))
-		var/mob/living/carbon/carbon_owner = owner
-		carbon_owner.update_bodypart_bleed_overlays()
 
 /datum/status_effect/grouped/stasis/tick(seconds_between_ticks)
 	update_time_of_death()
@@ -380,12 +381,9 @@ GLOBAL_LIST_EMPTY(unconscious_appearances)
 	//NOVA EDIT ADDITION END
 
 /datum/status_effect/grouped/stasis/on_remove()
-	owner.remove_traits(list(TRAIT_IMMOBILIZED, TRAIT_HANDS_BLOCKED, TRAIT_STASIS, TRAIT_TUMOR_SUPPRESSED, TRAIT_ANALGESIA), TRAIT_STATUS_EFFECT(id)) // NOVA EDIT CHANGE - ORIGINAL: owner.remove_traits(list(TRAIT_IMMOBILIZED, TRAIT_HANDS_BLOCKED, TRAIT_STASIS, TRAIT_TUMOR_SUPPRESSED), TRAIT_STATUS_EFFECT(id))
+	owner.remove_traits(list(TRAIT_IMMOBILIZED, TRAIT_HANDS_BLOCKED, TRAIT_STASIS, TRAIT_ANALGESIA), TRAIT_STATUS_EFFECT(id)) // NOVA EDIT CHANGE - ORIGINAL: owner.remove_traits(list(TRAIT_IMMOBILIZED, TRAIT_HANDS_BLOCKED, TRAIT_STASIS), TRAIT_STATUS_EFFECT(id))
 	owner.remove_filter("stasis_status_ripple")
 	update_time_of_death()
-	if(iscarbon(owner))
-		var/mob/living/carbon/carbon_owner = owner
-		carbon_owner.update_bodypart_bleed_overlays()
 	return ..()
 
 /atom/movable/screen/alert/status_effect/stasis
@@ -413,7 +411,7 @@ GLOBAL_LIST_EMPTY(unconscious_appearances)
 	alerttooltipstyle = "hisgrace"
 
 /datum/status_effect/his_wrath/tick(seconds_between_ticks)
-	for(var/obj/item/his_grace/HG in owner.held_items)
+	if(owner.is_holding_item_of_type(/obj/item/his_grace))
 		qdel(src)
 		return
 	var/need_mob_update
@@ -541,11 +539,11 @@ GLOBAL_LIST_EMPTY(unconscious_appearances)
 	new /obj/effect/temp_visual/bleed(get_turf(owner))
 
 /datum/status_effect/stacking/saw_bleed/threshold_cross_effect()
-	owner.adjust_brute_loss(bleed_damage)
 	new /obj/effect/temp_visual/bleed/explode(get_turf(owner))
+	playsound(owner, /datum/sound_effect/desecration, 100, TRUE, -1)
 	for(var/splatter_dir in GLOB.alldirs)
 		owner.create_splatter(splatter_dir)
-	playsound(owner, SFX_DESECRATION, 100, TRUE, -1)
+	owner.adjust_brute_loss(bleed_damage)
 
 /datum/status_effect/stacking/saw_bleed/bloodletting
 	id = "bloodletting"
@@ -586,7 +584,7 @@ GLOBAL_LIST_EMPTY(unconscious_appearances)
 	if(prob(10))
 		owner.emote(pick("gasp", "gag", "choke"))
 
-/datum/status_effect/neck_slice/get_examine_text()
+/datum/status_effect/neck_slice/get_examine_text(mob/examiner)
 	return span_warning("[owner.p_Their()] neck is cut and is bleeding profusely!")
 
 /// Applies a curse with various possible effects
@@ -727,7 +725,7 @@ GLOBAL_LIST_EMPTY(unconscious_appearances)
 	owner.remove_client_colour(REF(src))
 	to_chat(owner, span_warning("You snap out of your trance!"))
 
-/datum/status_effect/trance/get_examine_text()
+/datum/status_effect/trance/get_examine_text(mob/examiner)
 	return span_warning("[owner.p_They()] seem[owner.p_s()] slow and unfocused.")
 
 /datum/status_effect/trance/proc/hypnotize(datum/source, list/hearing_args)
@@ -1017,7 +1015,7 @@ GLOBAL_LIST_EMPTY(unconscious_appearances)
 	if(owner.remove_status_effect(/datum/status_effect/ants))
 		return COMPONENT_CLEANED|COMPONENT_CLEANED_GAIN_XP
 
-/datum/status_effect/ants/get_examine_text()
+/datum/status_effect/ants/get_examine_text(mob/examiner)
 	return span_warning("[owner.p_They()] [owner.p_are()] covered in ants!")
 
 /datum/status_effect/ants/tick(seconds_between_ticks)
@@ -1276,6 +1274,31 @@ GLOBAL_LIST_EMPTY(unconscious_appearances)
 	QDEL_NULL(mob_flare)
 	owner.remove_filter("designated_target")
 	REMOVE_TRAIT(owner, TRAIT_DESIGNATED_TARGET, id)
+
+/datum/status_effect/shadowspeak
+	id = "forced_shadowspeak"
+	alert_type = null
+	remove_on_fullheal = FALSE //Ideally, the fullheal will remove whatever's causing the status effect in the first place.
+	var/shadowspeak_chance
+
+/datum/status_effect/shadowspeak/on_creation(mob/living/new_owner, shadowspeak_chance)
+	src.shadowspeak_chance = shadowspeak_chance
+	return ..()
+
+/datum/status_effect/shadowspeak/on_apply()
+	. = ..()
+	RegisterSignal(owner, COMSIG_MOB_SAY, PROC_REF(on_spoken))
+
+/datum/status_effect/shadowspeak/on_remove()
+	. = ..()
+	UnregisterSignal(owner, COMSIG_MOB_SAY)
+
+/// When the mob speaks, sometimes put it in a different language
+/datum/status_effect/shadowspeak/proc/on_spoken(mob/living/new_owner, list/speech_args)
+	SIGNAL_HANDLER
+	if (new_owner.has_reagent(/datum/reagent/water/holywater) || prob(shadowspeak_chance))
+		return
+	speech_args[SPEECH_LANGUAGE] = /datum/language/shadowtongue
 
 #undef HEALING_SLEEP_DEFAULT
 #undef HEALING_SLEEP_ORGAN_MULTIPLIER

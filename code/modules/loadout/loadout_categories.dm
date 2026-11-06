@@ -16,9 +16,11 @@
 	var/type_to_generate
 	/// List of all loadout items in this category
 	VAR_FINAL/list/datum/loadout_item/associated_items
+	VAR_PRIVATE/max_allowed = 8 // OCULIS EDIT ADDITION
 
 /datum/loadout_category/New()
 	. = ..()
+	category_info = "([max_allowed] allowed)" // OCULIS EDIT ADDITION
 	associated_items = get_items()
 	for(var/datum/loadout_item/item as anything in associated_items)
 		GLOB.all_loadout_datums[item.item_path] = item
@@ -95,6 +97,7 @@
  * Return TRUE if it's okay to continue with adding the incoming item,
  * or return FALSE to stop the new item from being added
  */
+/* // OCULIS EDIT REMOVAL START
 /datum/loadout_category/proc/handle_duplicate_entires(
 	datum/preference_middleware/loadout/manager,
 	datum/loadout_item/conflicting_item,
@@ -103,3 +106,22 @@
 )
 	manager.deselect_item(conflicting_item)
 	return TRUE
+*/ // OCULIS EDIT REMOVAL END
+// OCULIS EDIT ADDITION START
+/datum/loadout_category/proc/handle_duplicate_entires(
+	datum/preference_middleware/loadout/manager,
+	datum/loadout_item/conflicting_item,
+	datum/loadout_item/added_item,
+	list/datum/loadout_item/all_loadout_items,
+)
+	var/list/datum/loadout_item/loudout_list = list()
+	for(var/datum/loadout_item/loadout_thing in all_loadout_items)
+		if(loadout_thing.category == added_item.category)
+			loudout_list += loadout_thing
+
+	if(length(loudout_list) >= max_allowed)
+		// We only need to deselect something if we're above the limit
+		// (And if we are we prioritize the first item found, FIFO)
+		manager.deselect_item(loudout_list[1])
+	return TRUE
+// OCULIS EDIT ADDITION END

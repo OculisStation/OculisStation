@@ -366,8 +366,7 @@ GLOBAL_VAR_INIT(last_maptick_time, 0)
 	return
 	#else
 	if(check_hard_reboot())
-		log_world("World hard rebooted at [server_timestamp()]")
-		SSplexora.notify_shutdown(PLEXORA_SHUTDOWN_KILLDD) // OCULIS ADDITION
+		("World hard rebooted at [server_timestamp()]")
 		shutdown_logging() // See comment below.
 		QDEL_NULL(Tracy)
 		QDEL_NULL(Debugger)
@@ -375,7 +374,6 @@ GLOBAL_VAR_INIT(last_maptick_time, 0)
 		return ..()
 
 	log_world("World rebooted at [server_timestamp()]")
-	SSplexora.notify_shutdown() // OCULIS ADDITION
 
 	shutdown_logging() // Past this point, no logging procs can be used, at risk of data loss.
 	QDEL_NULL(Tracy)

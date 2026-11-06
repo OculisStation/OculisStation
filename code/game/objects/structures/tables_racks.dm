@@ -577,7 +577,7 @@
 	visible_message(span_warning("[src] breaks!"),
 		span_danger("You hear breaking glass."))
 
-	playsound(loc, SFX_SHATTER, 50, TRUE)
+	playsound(loc, /datum/sound_effect/shatter, 50, TRUE)
 
 	new frame(loc)
 
@@ -593,7 +593,7 @@
 		return
 	else
 		var/turf/T = get_turf(src)
-		playsound(T, SFX_SHATTER, 50, TRUE)
+		playsound(T, /datum/sound_effect/shatter, 50, TRUE)
 
 		new frame(loc)
 		new glass_shard_type(loc)
@@ -632,7 +632,7 @@
 	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT)
 
 /obj/structure/table/wood/after_smash(mob/living/smashed_onto)
-	if(QDELETED(src) || prob(66))
+	if(QDELETED(src) || QDELETED(smashed_onto) || prob(66))
 		return
 	visible_message(
 		span_warning("[src] smashes into bits!"),

@@ -11,7 +11,7 @@
 	mob_biotypes = MOB_SPECIAL
 	maxHealth = 150
 	health = 150
-	damage_coeff = list(BRUTE = 1, BURN = 0.66, TOX = 1, STAMINA = 1, OXY = 0)
+	physiology = list(BURN = 0.66, OXY = 0)
 
 	pressure_resistance = 200
 	combat_mode = TRUE
@@ -103,7 +103,7 @@
 
 	AddComponent(/datum/component/debris_bleeder, \
 		list(/obj/effect/spawner/random/glass_shards = 20, /obj/effect/spawner/random/glass_debris = 0), \
-		BRUTE, SFX_SHATTER, sound_threshold = 20)
+		BRUTE, /datum/sound_effect/shatter, sound_threshold = 20)
 
 	charge = new charge(src)
 	charge.Grant(src)
@@ -205,7 +205,7 @@
 	var/turf/spawn_loc = get_turf(src)
 	new /obj/effect/spawner/random/glass_shards(spawn_loc)
 	new /obj/item/clothing/head/helmet/skull/cosmic(spawn_loc)
-	playsound(get_turf(src), SFX_SHATTER, 100)
+	playsound(get_turf(src), /datum/sound_effect/shatter, 100)
 
 	return ..()
 

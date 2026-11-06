@@ -32,8 +32,8 @@
 	shell_capacity = SHELL_CAPACITY_SMALL
 	action_slots = ALL
 	sound_vary = TRUE
-	pickup_sound = SFX_GENERIC_DEVICE_PICKUP
-	drop_sound = SFX_GENERIC_DEVICE_DROP
+	pickup_sound = /datum/sound_effect/generic_device_pickup
+	drop_sound = /datum/sound_effect/generic_device_drop
 
 	///The item currently inserted into the PDA, starts with a pen.
 	var/obj/item/inserted_item = /obj/item/pen
@@ -177,6 +177,14 @@
 /obj/item/modular_computer/pda/item_ctrl_click(mob/user)
 	remove_pen(user)
 	return CLICK_ACTION_SUCCESS
+
+// OCULIS EDIT ADDITION START - Allows you to change ID honorifics when equipped to PDA
+
+/obj/item/modular_computer/pda/click_ctrl_shift(mob/user)
+	if(stored_id)
+		stored_id.click_ctrl_shift(user)
+
+// OCULIS EDIT ADDITION END
 
 ///Finds how hard it is to send a virus to this tablet, checking all programs downloaded.
 /obj/item/modular_computer/pda/proc/get_detomatix_difficulty()

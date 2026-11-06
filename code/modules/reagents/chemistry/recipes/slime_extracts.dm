@@ -45,7 +45,7 @@
 
 /datum/chemical_reaction/slime/slimemonkey/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
 	for(var/i in 1 to 3)
-		new /obj/item/food/monkeycube(get_turf(holder.my_atom))
+		new /obj/item/stack/biomass(get_turf(holder.my_atom)) // OCULIS EDIT CHANGE - SLIME RANCHER - ORIGINAL: new /obj/item/food/monkeycube(get_turf(holder.my_atom))
 	..()
 
 //Green
@@ -76,7 +76,7 @@
 
 /datum/chemical_reaction/slime/slimeethereal
 	results = list(/datum/reagent/mutationtoxin/ethereal = 1)
-	required_reagents = list(/datum/reagent/consumable/liquidelectricity/enriched = 1)
+	required_reagents = list(/datum/reagent/consumable/liquidelectricity = 1)
 	required_container = /obj/item/slime_extract/green
 
 //Metal

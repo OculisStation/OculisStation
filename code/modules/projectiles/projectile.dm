@@ -286,6 +286,7 @@
 		generate_hitscan_tracers()
 	STOP_PROCESSING(SSprojectiles, src)
 	firer = null
+	fired_from = null
 	original = null
 	QDEL_NULL(embed_data)
 	if (movement_vector)
@@ -472,7 +473,7 @@
 			unlucky_sob = potential_target
 
 	if(unlucky_sob)
-		set_angle(get_angle(src, unlucky_sob.loc))
+		set_angle(get_angle(loc, unlucky_sob.loc)) // OCULIS EDIT, ORIGINAL: set_angle(get_angle(src, unlucky_sob.loc))
 		original = unlucky_sob
 
 /obj/projectile/Bump(atom/bumped_atom)
@@ -1356,7 +1357,7 @@
 
 	var/ox = round(screenview[1] * 0.5) - user.client.pixel_x //"origin" x
 	var/oy = round(screenview[2] * 0.5) - user.client.pixel_y //"origin" y
-	angle = ATAN2(tx - oy, ty - ox)
+	angle = ATAN2(ty - oy, tx - ox)
 	return list(angle, p_x, p_y)
 
 /obj/projectile/experience_pressure_difference()

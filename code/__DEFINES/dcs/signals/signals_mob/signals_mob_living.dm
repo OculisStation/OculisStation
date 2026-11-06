@@ -16,6 +16,8 @@
 #define COMSIG_ORGAN_SURGICALLY_INSERTED "organ_surgically_inserted"
 /// Called when an organ finishes inserting into a bodypart (obj/item/bodypart/limb, movement_flags)
 #define COMSIG_ORGAN_BODYPART_INSERTED "organ_bodypart_inserted"
+/// Called when an organ finishes removing from a bodypart (obj/item/bodypart/limb, movement_flags)
+#define COMSIG_ORGAN_BODYPART_REMOVED "organ_bodypart_removed"
 /// Called when a organ's damage is adjusted apply_organ_damage (damage_amount, maximum, required_organ_flag)
 #define COMSIG_ORGAN_ADJUST_DAMAGE "organ_adjust_damage"
 
@@ -27,6 +29,13 @@
 
 ///from base of mob/update_transform()
 #define COMSIG_LIVING_POST_UPDATE_TRANSFORM "living_post_update_transform"
+
+/// called when a typing or thinking bubble appears or goes away
+#define COMSIG_LIVING_CHAT_INDICATOR_UPDATED "living_chat_indicator_updated"
+/// called when the typing bubble appears or goes away
+#define COMSIG_LIVING_TYPING_INDICATOR_UPDATED "living_typing_indicator_updated"
+/// called when the thinking bubble appears or goes away
+#define COMSIG_LIVING_THINKING_INDICATOR_UPDATED "living_thinking_indicator_updated"
 
 /// from /datum/status_effect/incapacitating/stamcrit/on_apply()
 #define COMSIG_LIVING_ENTER_STAMCRIT "living_enter_stamcrit"
@@ -396,3 +405,6 @@
 
 /// From /mob/living/changeNext_move() : (next_move, delay)
 #define COMSIG_LIVING_CHANGENEXT_MOVE "living_changenext_move"
+
+/// From /mob/living/proc/cause_hallucination(): (datum/hallucination)
+#define COMSIG_LIVING_HALLUCINATING "living_hallucinating"
