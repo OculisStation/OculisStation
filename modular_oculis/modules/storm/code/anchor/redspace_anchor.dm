@@ -15,7 +15,7 @@
 	* and this is purelly done so that the code is readable without pulling out a calculator
 	* to make sure these values are right.
 	*/
-	use_power = IDLE_POWER_USE
+	use_power = NO_POWER_USE
 	idle_power_usage = (100 KILO WATTS)
 	active_power_usage = (6 MEGA WATTS) // Lotta fucking power to keep the storm at bay.
 
@@ -84,7 +84,7 @@
 /obj/machinery/redspace_anchor/zap_act(power, zap_flags)
 	. = ..()
 	if(zap_flags & ZAP_MACHINE_EXPLOSIVE)
-		qdel(src) //like the singulo, tesla deletes it. stops it from exploding over and over
+		atom_break()
 
 // You aren't allowed to move.
 /obj/machinery/redspace_anchor/Move()
@@ -101,10 +101,10 @@
 
 /obj/machinery/redspace_anchor/update_icon_state()
 	. = ..()
-	if(machine_stat & BROKEN)
+	if(machine_stat & (NOPOWER|BROKEN))
 		icon_state = "[base_icon_state]_broken"
 		return
-	if(activated)
+	if(activated && online)
 		icon_state = "[base_icon_state]_on"
 	else if(online)
 		icon_state = "[base_icon_state]_standby"
@@ -113,12 +113,12 @@
 
 /obj/machinery/redspace_anchor/update_overlays()
 	. = ..()
-	if((machine_stat & (BROKEN)))
+	if(machine_stat & (NOPOWER|BROKEN))
 		return
 
-	if(activated) // Are we activated or on standby?
+	if(activated && online) // Are we activated or on standby?
 		. += emissive_appearance(icon, "emissive_on", src)
-	else
+	else if(online)
 		. += emissive_appearance(icon, "emissive_standby", src)
 
 /obj/machinery/redspace_anchor/screwdriver_act(mob/living/user, obj/item/tool)
@@ -161,12 +161,14 @@
 		new_state = TRUE
 
 	charging_state = new_state ? POWER_UP : POWER_DOWN // Startup sequence animation.
+	use_power = new_state ? active_power_usage : NO_POWER_USE
 	if(SSticker.current_state == GAME_STATE_PLAYING)
 		investigate_log("is now [charging_state == POWER_UP ? "charging" : "discharging"].", INVESTIGATE_ENGINE)
 	update_appearance()
 
 /obj/machinery/redspace_anchor/proc/enable()
 	charging_state = POWER_IDLE
+	use_power = idle_power_usage
 	online = TRUE
 
 	//soundloop.start()
@@ -179,6 +181,7 @@
 
 /obj/machinery/redspace_anchor/proc/disable()
 	charging_state = POWER_IDLE
+	use_power = NO_POWER_USE
 	online = FALSE
 
 	//soundloop.stop()
@@ -220,7 +223,7 @@
 				if((charge_count <= 50) && (charging_state == POWER_DOWN) && prob(5))
 					to_chat(mobs, span_bolddanger("You feel a foreign presence encroaching around you."))
 
-/// Shake everyone on the z level to let them know that the anchor was enagaged/disengaged.
+/// Shake everyone on the z level to let them know that the anchor was turned on into standby mode or off.
 /obj/machinery/redspace_anchor/proc/shake_everyone()
 	var/turf/T = get_turf(src)
 	var/sound/alert_sound = sound('sound/effects/alert.ogg')
@@ -241,6 +244,10 @@
 		priority_announce("Redspace Anchor enabled and awaiting activation codes.", "Redspace Anchor", color_override = "green")
 	else
 		priority_announce("Warning: Redspace Anchor has been disabled.", "Redspace Anchor", color_override = "red")
+
+/// Throw everyone on the z level to let them know that the anchor was activated/deactivated. Used when it enters active mode.
+/obj/machinery/redspace_anchor/proc/throw_everyone()
+
 
 /obj/machinery/redspace_anchor/proc/tick(intensity)
 	if((charging_state != POWER_IDLE) || !online)
