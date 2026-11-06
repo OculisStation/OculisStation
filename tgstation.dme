@@ -10458,6 +10458,8 @@
 #include "modular_oculis\modules\cybernetics\code\augments_mouth.dm"
 #include "modular_oculis\modules\cybernetics\code\experiments.dm"
 #include "modular_oculis\modules\debug_sad\code\debug_sad.dm"
+#include "modular_oculis\modules\deep_storage\code\deep_storage_console.dm"
+#include "modular_oculis\modules\deep_storage\code\supply_lift.dm"
 #include "modular_oculis\modules\do_emotes\code\do_verbs.dm"
 #include "modular_oculis\modules\drinks\code\drinks.dm"
 #include "modular_oculis\modules\drinks\code\status_effects.dm"
