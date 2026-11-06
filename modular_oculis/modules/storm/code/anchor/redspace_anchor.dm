@@ -32,7 +32,7 @@
 	/// Whether the redspace anchor is currently online.
 	var/online = TRUE
 	/// Whether the redpsace anchor is active. Only used during black alert.
-	var/activated = FALSE
+	VAR_PRIVATE/activated = FALSE
 	/// If the main breaker is on/off, to enable/disable the anchor.
 	var/breaker = TRUE
 	/// If the power cable is cut or not.
@@ -57,9 +57,15 @@
 /obj/machinery/redspace_anchor/Initialize(mapload)
 	. = ..()
 	SSeidolon_storm.register_anchor(src)
+	SSeidolon_storm.redspace_anchors += src
 	set_wires(new /datum/wires/redspace_anchor(src))
 	soundloop = new(src, start_immediately = FALSE)
 	update_appearance()
+
+/obj/machinery/redspace_anchor/Destroy(force)
+	QDEL_NULL(soundloop)
+	SSeidolon_storm.redspace_anchors -= src
+	return ..()
 
 /obj/machinery/redspace_anchor/examine(mob/user)
 	if(HAS_TRAIT(user, TRAIT_MINDSHIELD))
@@ -278,6 +284,16 @@
 		has_important_message = TRUE,
 	)
 	SSevents.spawnEvent()
+
+// For the start of a storm.
+/obj/machinery/redspace_anchor/proc/activate()
+	activated = TRUE
+	throw_everyone()
+
+// For after a storm.
+/obj/machinery/redspace_anchor/proc/deactivate()
+	activated = FALSE
+	throw_everyone()
 
 #undef POWER_IDLE
 #undef POWER_UP

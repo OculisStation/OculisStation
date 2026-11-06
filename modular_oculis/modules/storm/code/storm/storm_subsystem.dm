@@ -10,6 +10,8 @@ PROCESSING_SUBSYSTEM_DEF(eidolon_storm)
 	var/datum/storm_ruleset/chosen_storm_ruleset = /datum/storm_ruleset
 	/// The station's redspace anchor. We shouldn't care for any other anchors in the game.
 	var/obj/machinery/redspace_anchor/station_anchor = null
+	// List of all anchors.
+	var/list/redspace_anchors = list()
 
 /datum/controller/subsystem/processing/eidolon_storm/Recover()
 	chosen_storm_ruleset = SSeconomy.chosen_storm_ruleset

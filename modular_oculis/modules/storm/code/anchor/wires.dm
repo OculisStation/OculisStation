@@ -64,6 +64,6 @@
 			anchor.can_discharge = mend
 
 /datum/wires/redspace_anchor/can_reveal_wires(mob/user)
-	if(HAS_TRAIT(user, TRAIT_KNOW_ENGI_WIRES))
+	if(HAS_TRAIT(user, TRAIT_KNOW_CE_WIRES))
 		return TRUE
 	return ..()
