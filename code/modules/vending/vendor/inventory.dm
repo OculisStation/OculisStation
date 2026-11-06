@@ -172,6 +172,13 @@
 		if(isliving(user))
 			living_user = user
 			card_used = living_user.get_idcard(TRUE)
+		// OCULIS EDIT ADDITION START
+		if(issilicon(user))
+			// Silicons use the cargo budget when buying items from vending machines.
+			for(var/obj/item/card/id/departmental_budget/id_card as anything in SSeconomy.dep_cards)
+				if(id_card.department_ID == ACCOUNT_CAR)
+					card_used = id_card
+		// OCULIS EDIT ADDITION END
 		if(QDELETED(card_used))
 			speak("You do not possess an ID to purchase [item_record.name].")
 			return
