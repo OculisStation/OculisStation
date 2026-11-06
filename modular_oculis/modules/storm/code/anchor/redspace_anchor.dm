@@ -260,6 +260,7 @@
 		sound = SSstation.announcer.get_rand_alert_sound(),
 		has_important_message = TRUE,
 	)
+	SSevents.spawnEvent()
 
 /obj/machinery/redspace_anchor/proc/trigger_safe_discharge()
 	violetspace_energy = 0
@@ -269,6 +270,7 @@
 		sound = SSstation.announcer.get_rand_alert_sound(),
 		has_important_message = TRUE,
 	)
+	SSevents.spawnEvent()
 
 #undef POWER_IDLE
 #undef POWER_UP

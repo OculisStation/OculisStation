@@ -11,6 +11,10 @@ PROCESSING_SUBSYSTEM_DEF(eidolon_storm)
 	/// The station's redspace anchor. We shouldn't care for any other anchors in the game.
 	var/obj/machinery/redspace_anchor/station_anchor = null
 
+/datum/controller/subsystem/processing/eidolon_storm/Recover()
+	chosen_storm_ruleset = SSeconomy.chosen_storm_ruleset
+	station_anchor = SSeconomy.station_anchor
+
 /datum/controller/subsystem/processing/eidolon_storm/proc/register_anchor(obj/machinery/redspace_anchor/anchor)
 	if(!SSmapping.level_has_any_trait(anchor.z, ZTRAIT_STATION)) // So that we can have decorative anchors on other z levels, like on castor.
 		return
@@ -19,23 +23,28 @@ PROCESSING_SUBSYSTEM_DEF(eidolon_storm)
 	station_anchor = anchor
 
 /datum/controller/subsystem/processing/eidolon_storm/proc/initialize_storm_intensity()
-	var/list/player_candidates = list()
+	var/player_candidates = 0
 	for(var/mob/dead/new_player/player as anything in GLOB.new_player_list - SSjob.unassigned)
 		if(player.ready == PLAYER_READY_TO_PLAY && player.mind)
-			player_candidates += player
-	var/roundstart_population = length(player_candidates)
+			player_candidates += 1
+
+	for(var/mob/dead/new_player/player as anything in GLOB.new_player_list)
+		if(player.ready == PLAYER_NOT_READY)
+			player_candidates += 0.5
+
+	player_candidates = round(player_candidates, 1)
 
 	var/list/possible_rulesets = list()
 	for(var/storm_ruleset in subtypesof(/datum/storm_ruleset))
 		var/datum/storm_ruleset/intensity_datum = new storm_ruleset()
-		if(roundstart_population < intensity_datum.min_pop)
+		if(player_candidates < intensity_datum.min_pop)
 			qdel(intensity_datum)
 			continue
 		possible_rulesets += intensity_datum
 	chosen_storm_ruleset = pick(possible_rulesets)
 
 	log_dynamic("Selected intensity: [chosen_storm_ruleset.intensity]")
-	log_dynamic("- Roundstart population: [roundstart_population]")
+	log_dynamic("- Roundstart population: [player_candidates]")
 	SSblackbox.record_feedback(
 		"associative",
 		"storm_intensity",
@@ -43,7 +52,7 @@ PROCESSING_SUBSYSTEM_DEF(eidolon_storm)
 		list(
 			"server_name" = CONFIG_GET(string/serversqlname),
 			"intensity" = chosen_storm_ruleset.intensity,
-			"player_count" = roundstart_population,
+			"player_count" = player_candidates,
 		),
 	)
 

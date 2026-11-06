@@ -685,7 +685,7 @@ SUBSYSTEM_DEF(ticker)
 		switch (current_state)
 			if(GAME_STATE_SETTING_UP)
 				Master.SetRunLevel(RUNLEVEL_SETUP)
-				SSevents.reschedule() // NOVA EDIT ADDITION
+				// SSevents.reschedule() // OCULIS EDIT REMOVAL // NOVA EDIT ADDITION
 			if(GAME_STATE_PLAYING)
 				Master.SetRunLevel(RUNLEVEL_GAME)
 			if(GAME_STATE_FINISHED)
