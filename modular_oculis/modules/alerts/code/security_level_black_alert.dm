@@ -32,6 +32,7 @@
 
 	if(new_level == SEC_LEVEL_BLACK)
 		deactivate_shuttles()
+		for()
 	else
 		reactivate_shuttles()
 
