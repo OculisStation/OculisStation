@@ -10517,6 +10517,7 @@
 #include "modular_oculis\modules\quirks\code\_conceals.dm"
 #include "modular_oculis\modules\quirks\code\affluent.dm"
 #include "modular_oculis\modules\quirks\code\headbrain_quirk.dm"
+#include "modular_oculis\modules\quirks\code\multiple_arms.dm"
 #include "modular_oculis\modules\quirks\code\no_bones.dm"
 #include "modular_oculis\modules\quirks\code\no_mail.dm"
 #include "modular_oculis\modules\quirks\code\quantumanxiety.dm"
