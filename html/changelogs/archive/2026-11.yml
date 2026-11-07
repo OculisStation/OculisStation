@@ -12,3 +12,6 @@
   - balance: Heavyset characters no longer have a slowdown when dragging other heavyset
       characters.
   - bugfix: Fixed laying down not playing the appropriate SFX.
+2026-11-07:
+  XeonMations, Cupa:
+  - rscadd: Added black alert.
