@@ -22,7 +22,7 @@
 	src.data = data || list()
 
 /**
- * Handles creating a new subspace signal that's a hard copy of this one, linked
+ * Handles creating a new subspace signal that's a /hard copy of this one, linked
  * to this current signal via the `original` value, so that it can be traced back.
  */
 /datum/signal/subspace/proc/copy()
@@ -94,7 +94,7 @@
 		"spans" = spans,
 		"mods" = message_mods,
 	)
-	levels = !isnull(lvls) ? lvls : get_telecomms_levels(get_turf(source)) // OCULIS EDIT - ORIGINAL: levels = SSmapping.get_connected_levels(get_turf(source))
+	levels = SSmapping.get_connected_levels(get_turf(source))
 
 #undef COMPRESSION_VOCAL_SIGNAL_MIN
 #undef COMPRESSION_VOCAL_SIGNAL_MAX
