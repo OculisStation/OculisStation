@@ -1426,10 +1426,6 @@
 "atX" = (
 /obj/machinery/airalarm/directional/south,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden,
-/obj/machinery/computer/telecomms/traffic{
-	network = "tcommsat";
-	dir = 1
-	},
 /turf/open/floor/engine,
 /area/station/tcommsat/computer)
 "aub" = (

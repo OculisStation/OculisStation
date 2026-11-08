@@ -173,11 +173,9 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	var/freqpart = radio_freq ? "\[[get_radio_name(radio_freq, radio_freq_name)]\] " : ""
 	//Speaker name
 	var/namepart = message_mods[MODE_SPEAKER_NAME_OVERRIDE] || speaker.get_message_voice(visible_name)
-	var/realnamepart = "[speaker.get_voice(TRUE)]" // IRIS EDIT -- NTSL
 
 	//End name span.
-	//var/endspanpart = "</span>" // IRIS EDIT OLD -- NTSL
-	var/endspanpart = "</span></a>" // IRIS EDIT NEW
+	var/endspanpart = "</span>"
 
 	// Language icon.
 	var/languageicon = ""
@@ -425,7 +423,6 @@ INITIALIZE_IMMEDIATE(/atom/movable/virtualspeaker)
 	source = M
 	if(istype(M))
 		name = radio?.anonymize ? "Unknown" : M.get_voice(add_id_name = TRUE)
-		realvoice = name // IRIS ADDITION -- NTSL
 		gender = M.gender
 		verb_say = M.get_default_say_verb()
 		verb_ask = M.verb_ask
