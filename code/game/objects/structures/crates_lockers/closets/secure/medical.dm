@@ -59,9 +59,7 @@
 	..()
 	new /obj/item/storage/backpack/medic(src)
 	new /obj/item/clipboard(src)
-	new /obj/item/clothing/suit/jacket/straight_jacket(src)
 	new /obj/item/clothing/ears/earmuffs(src)
-	new /obj/item/clothing/mask/muzzle(src)
 	new /obj/item/clothing/glasses/blindfold(src)
 	new /obj/item/storage/bag/garment/psychologist(src)
 
