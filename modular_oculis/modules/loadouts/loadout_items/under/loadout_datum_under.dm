@@ -12,6 +12,6 @@
 
 
 /datum/loadout_item/under/costume/singer/yellow
-	name = "Performer's Outfit -  Yellow"
+	name = "Performer's Outfit - Yellow"
 	item_path = /obj/item/clothing/under/costume/singer/yellow
 	group = "Costumes"
