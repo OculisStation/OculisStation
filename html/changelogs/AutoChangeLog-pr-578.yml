@@ -1,0 +1,4 @@
+author: "xn-zn8h"
+delete-after: True
+changes:
+  - rscdel: "Removed NTSL module"
