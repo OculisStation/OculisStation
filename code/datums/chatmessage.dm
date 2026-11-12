@@ -341,11 +341,6 @@
 		speaker = runechat_anchor || virtual_speaker.source
 		classes |= "virtual-speaker"
 
-	// IRIS EDIT START -- NTSL -- NTSL doesn't pass a speaker when you do broadcast() since technically nothing is actually speaking. (or so it says where we're porting from)
-	if(!speaker)
-		return
-	// IRIS EDIT END
-
 	// Ignore virtual speaker (most often radio messages) from ourselves
 	if (original_speaker != src && speaker == src)
 		return

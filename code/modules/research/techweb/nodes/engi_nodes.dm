@@ -102,7 +102,6 @@
 		/datum/design/hyperwave_filter,
 		/datum/design/subspace_transmitter,
 		/datum/design/subspace_treatment,
-		/datum/design/board/traffic,  // OCULIS EDIT ADDITION, NTSL - The board to actually program in NTSL
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_5_POINTS)
 
