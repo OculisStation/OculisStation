@@ -1,6 +1,11 @@
-#define POWER_IDLE 0
+#define POWER_NOMINAL 0
 #define POWER_UP 1
 #define POWER_DOWN 2
+
+#define POWER_STATE_OFFLINE 0
+#define POWER_STATE_CHARGING 1
+#define POWER_STATE_PASSIVE 2
+#define POWER_STATE_ACTIVE 3
 
 /obj/machinery/redspace_anchor
 	name = "redspace anchor"
@@ -29,10 +34,8 @@
 	density = TRUE
 	move_resist = INFINITY
 
-	/// Whether the redspace anchor is currently online.
-	var/online = TRUE
-	/// Whether the redpsace anchor is active. Only used during black alert.
-	VAR_PRIVATE/activated = FALSE
+	/// Current state of the redspace anchor.
+	var/current_state = POWER_STATE_OFFLINE
 	/// If the main breaker is on/off, to enable/disable the anchor.
 	var/breaker = TRUE
 	/// If the power cable is cut or not.
@@ -43,16 +46,16 @@
 	var/alarm_disabled = FALSE
 	/// If the anchor can safely discharge its redspace energy.
 	var/can_discharge = TRUE
-	/// If the generator is idle, charging, or down.
-	var/charging_state = POWER_IDLE
+	/// If the generator is charging, or down.
+	var/charging_state = POWER_UP
 	/// How much charge the redspace anchor has, goes down when breaker is shut, and shuts down at 0.
 	var/charge_count = 100
+	/// How much excess violetspace energy the redspace anchor has, which can cause it to fail once it reaches 100.
+	var/violetspace_energy = 0
 
 	/// Audio for when the redspace anchor is on
 	var/datum/looping_sound/redspace_anchor/soundloop
 
-	/// How much excess violetspace energy the redspace anchor has, which can cause it to fail once it reaches 100.
-	var/violetspace_energy = 0
 
 /obj/machinery/redspace_anchor/Initialize(mapload)
 	. = ..()
@@ -110,22 +113,25 @@
 	if(machine_stat & (NOPOWER|BROKEN))
 		icon_state = "[base_icon_state]_broken"
 		return
-	if(activated && online)
-		icon_state = "[base_icon_state]_on"
-	else if(online)
-		icon_state = "[base_icon_state]_standby"
-	else
-		icon_state = "[base_icon_state]_off"
+
+	switch(current_state)
+		if(POWER_STATE_ACTIVE)
+			icon_state = "[base_icon_state]_on"
+		if(POWER_STATE_PASSIVE)
+			icon_state = "[base_icon_state]_standby"
+		else
+			icon_state = "[base_icon_state]_off"
 
 /obj/machinery/redspace_anchor/update_overlays()
 	. = ..()
 	if(machine_stat & (NOPOWER|BROKEN))
 		return
 
-	if(activated && online) // Are we activated or on standby?
-		. += emissive_appearance(icon, "emissive_on", src)
-	else if(online)
-		. += emissive_appearance(icon, "emissive_standby", src)
+	switch(current_state)
+		if(POWER_STATE_ACTIVE) // Are we activated or on standby?
+			. += emissive_appearance(icon, "emissive_on", src)
+		if(POWER_STATE_PASSIVE)
+			. += emissive_appearance(icon, "emissive_standby", src)
 
 /obj/machinery/redspace_anchor/screwdriver_act(mob/living/user, obj/item/tool)
 	if(machine_stat & BROKEN)
@@ -171,11 +177,12 @@
 	if(SSticker.current_state == GAME_STATE_PLAYING)
 		investigate_log("is now [charging_state == POWER_UP ? "charging" : "discharging"].", INVESTIGATE_ENGINE)
 	update_appearance()
+	START_PROCESSING(SSprocessing, src)
 
 /obj/machinery/redspace_anchor/proc/enable()
-	charging_state = POWER_IDLE
 	use_power = idle_power_usage
-	online = TRUE
+	current_state = POWER_STATE_PASSIVE
+	charging_state = POWER_NOMINAL
 
 	//soundloop.start()
 	update_appearance()
@@ -184,11 +191,12 @@
 		investigate_log("was brought online.", INVESTIGATE_ENGINE)
 		message_admins("The redspace anchor was brought online [ADMIN_VERBOSEJMP(src)]")
 	shake_everyone()
+	STOP_PROCESSING(SSprocessing, src)
 
 /obj/machinery/redspace_anchor/proc/disable()
-	charging_state = POWER_IDLE
 	use_power = NO_POWER_USE
-	online = FALSE
+	current_state = POWER_STATE_OFFLINE
+	charging_state = POWER_NOMINAL
 
 	//soundloop.stop()
 	update_appearance()
@@ -197,12 +205,14 @@
 		investigate_log("was brought offline.", INVESTIGATE_ENGINE)
 		message_admins("The redspace anchor was brought offline. [ADMIN_VERBOSEJMP(src)]")
 	shake_everyone()
+	STOP_PROCESSING(SSprocessing, src)
 
 // Charge/Discharge and turn on/off when you reach 0/100 percent.
 /obj/machinery/redspace_anchor/process()
 	if(machine_stat & BROKEN)
 		return
-	if(charging_state == POWER_IDLE)
+	if(charging_state == POWER_NOMINAL)
+		STOP_PROCESSING(SSprocessing, src)
 		return
 	if((charging_state == POWER_UP) && (charge_count >= 100))
 		enable()
@@ -244,24 +254,31 @@
 			mobs.playsound_local(T, null, 100, 1, 0.5, sound_to_use = alert_sound)
 	if(!SSmapping.level_has_any_trait(z, ZTRAIT_STATION))
 		return
-	if(online && activated)
-		priority_announce("Redspace Anchor activated during ongoing storm.", "Redspace Anchor", color_override = "purple")
-	else if(online)
-		priority_announce("Redspace Anchor enabled and awaiting activation codes.", "Redspace Anchor", color_override = "green")
-	else
-		priority_announce("Warning: Redspace Anchor has been disabled.", "Redspace Anchor", color_override = "red")
+	switch(current_state)
+		if(POWER_STATE_ACTIVE)
+			priority_announce("Redspace Anchor activated during ongoing storm.", "Redspace Anchor", color_override = "purple")
+		if(POWER_STATE_PASSIVE)
+			priority_announce("Redspace Anchor enabled and awaiting activation codes.", "Redspace Anchor", color_override = "green")
+		if(POWER_STATE_OFFLINE)
+			priority_announce("Warning: Redspace Anchor has been disabled.", "Redspace Anchor", color_override = "red")
 
 /// Throw everyone on the z level to let them know that the anchor was activated/deactivated. Used when it enters active mode.
 /obj/machinery/redspace_anchor/proc/throw_everyone()
 
 
 /obj/machinery/redspace_anchor/proc/tick(intensity)
-	if((charging_state != POWER_IDLE) || !online)
-		use_energy(active_power_usage)
-		return
-	violetspace_energy += (rand(1,5) * intensity)
-	if(violetspace_energy >= 100)
-		trigger_unsafe_discharge()
+	switch(current_state)
+		if(POWER_STATE_OFFLINE)
+			return FALSE
+		if(POWER_STATE_CHARGING)
+			use_energy(active_power_usage)
+			return FALSE
+		if(POWER_STATE_PASSIVE) // WTF what are we doing ticking if we aren't activated? Fuck fuck fuck power ourselves up already!
+			activate()
+		if(POWER_STATE_ACTIVE)
+			violetspace_energy += (rand(1,5) * intensity)
+			if(violetspace_energy >= 100)
+				trigger_unsafe_discharge()
 
 /obj/machinery/redspace_anchor/proc/trigger_unsafe_discharge()
 	violetspace_energy = 0
@@ -287,14 +304,19 @@
 
 // For the start of a storm.
 /obj/machinery/redspace_anchor/proc/activate()
-	activated = TRUE
+	current_state = POWER_STATE_ACTIVE
 	throw_everyone()
+	update_appearance()
 
 // For after a storm.
 /obj/machinery/redspace_anchor/proc/deactivate()
-	activated = FALSE
+	current_state = POWER_STATE_PASSIVE
 	throw_everyone()
+	update_appearance()
 
-#undef POWER_IDLE
 #undef POWER_UP
 #undef POWER_DOWN
+#undef POWER_STATE_OFFLINE
+#undef POWER_STATE_CHARGING
+#undef POWER_STATE_PASSIVE
+#undef POWER_STATE_ACTIVE

@@ -16,7 +16,7 @@
 /datum/storm_ruleset/calm
 	intensity = STORM_INTENSITY_CALM
 	min_pop = 0
-	storm_cooldown = 10 MINUTES
+	storm_cooldown = 15 MINUTES
 
 /datum/storm_ruleset/drizzle
 	intensity = STORM_INTENSITY_DRIZZLE

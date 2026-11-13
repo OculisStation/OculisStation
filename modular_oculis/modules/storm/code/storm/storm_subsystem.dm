@@ -5,8 +5,11 @@ PROCESSING_SUBSYSTEM_DEF(eidolon_storm)
 	runlevels = RUNLEVEL_GAME
 	wait = 1 MINUTES
 
+	/// Cooldown for ticking the redspace anchor on station.
 	COOLDOWN_DECLARE(eidolon_storm_cooldown)
-	/// Currently selected storem intensity. See defines for values.
+	/// Cooldown for how often we should spawn events while the anchor is in an invalid state.
+	COOLDOWN_DECLARE(eidolon_event_cooldown)
+	/// Currently selected storm intensity. See defines for values.
 	var/datum/storm_ruleset/chosen_storm_ruleset = /datum/storm_ruleset
 	/// The station's redspace anchor. We shouldn't care for any other anchors in the game.
 	var/obj/machinery/redspace_anchor/station_anchor = null
@@ -14,8 +17,8 @@ PROCESSING_SUBSYSTEM_DEF(eidolon_storm)
 	var/list/redspace_anchors = list()
 
 /datum/controller/subsystem/processing/eidolon_storm/Recover()
-	chosen_storm_ruleset = SSeconomy.chosen_storm_ruleset
-	station_anchor = SSeconomy.station_anchor
+	chosen_storm_ruleset = SSeidolon_storm.chosen_storm_ruleset
+	station_anchor = SSeidolon_storm.station_anchor
 
 /datum/controller/subsystem/processing/eidolon_storm/proc/register_anchor(obj/machinery/redspace_anchor/anchor)
 	if(!SSmapping.level_has_any_trait(anchor.z, ZTRAIT_STATION)) // So that we can have decorative anchors on other z levels, like on castor.
@@ -62,4 +65,8 @@ PROCESSING_SUBSYSTEM_DEF(eidolon_storm)
 	if(!COOLDOWN_FINISHED(src, eidolon_storm_cooldown))
 		return
 	COOLDOWN_START(src, eidolon_storm_cooldown, (chosen_storm_ruleset.storm_cooldown))
-	station_anchor?.tick(chosen_storm_ruleset.intensity)
+	if(station_anchor?.tick(chosen_storm_ruleset.intensity)) // Attempt to tick the anchor
+		if(!COOLDOWN_FINISHED(src, eidolon_event_cooldown))
+			return
+		SSevents.spawnEvent() // Oops! Your anchor has turned off or is in an invalid state to protect you! Chaos Time!
+		COOLDOWN_START(src, eidolon_event_cooldown, 5 MINUTES)

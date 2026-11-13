@@ -27,14 +27,17 @@
 	RegisterSignal(SSsecurity_level, COMSIG_SECURITY_LEVEL_CHANGED, PROC_REF(on_sec_level_change))
 	. = ..()
 
-/datum/controller/subsystem/shuttle/proc/on_sec_level_change(datum/source, new_level)
+/datum/controller/subsystem/shuttle/proc/on_sec_level_change(datum/source, new_level, old_level)
 	SIGNAL_HANDLER
 
 	if(new_level == SEC_LEVEL_BLACK)
 		deactivate_shuttles()
-		for()
-	else
+		for(var/obj/machinery/redspace_anchor/redspace_anchor as anything in SSeidolon_storm.redspace_anchors)
+			redspace_anchor.activate()
+	else if(old_level == SEC_LEVEL_BLACK)
 		reactivate_shuttles()
+		for(var/obj/machinery/redspace_anchor/redspace_anchor as anything in SSeidolon_storm.redspace_anchors)
+			redspace_anchor.deactivate()
 
 /datum/controller/subsystem/shuttle/proc/deactivate_shuttles()
 	SSshuttle.emergency_no_escape = TRUE
