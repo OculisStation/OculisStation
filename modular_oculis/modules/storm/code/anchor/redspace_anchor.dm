@@ -63,7 +63,7 @@
 	SSeidolon_storm.redspace_anchors += src
 	set_wires(new /datum/wires/redspace_anchor(src))
 	soundloop = new(src, start_immediately = FALSE)
-	enable()
+	update_appearance()
 
 /obj/machinery/redspace_anchor/Destroy(force)
 	QDEL_NULL(soundloop)
