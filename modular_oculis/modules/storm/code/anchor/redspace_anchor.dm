@@ -26,11 +26,9 @@
 
 	// 3x3 offset by one row
 	pixel_x = -32
-	pixel_y = -32
 	bound_height = 96
 	bound_width = 96
 	bound_x = -32
-	bound_y = -32
 	density = TRUE
 	move_resist = INFINITY
 
@@ -143,6 +141,18 @@
 	to_chat(user, span_notice("The wires have been [panel_open ? "exposed" : "unexposed"]."))
 	update_appearance()
 	return TRUE
+
+/obj/machinery/redspace_anchor/on_set_panel_open(old_value)
+	. = ..()
+	if(panel_open)
+		set_machine_stat(machine_stat | MAINT)
+	else
+		set_machine_stat(machine_stat & ~MAINT)
+
+/obj/machinery/redspace_anchor/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if((machine_stat & MAINT) && is_wire_tool(tool))
+		wires.interact(user)
+		return ITEM_INTERACT_SUCCESS
 
 // Wire interactions
 /obj/machinery/redspace_anchor/proc/reset(wire)
