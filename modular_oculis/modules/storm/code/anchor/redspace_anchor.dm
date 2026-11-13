@@ -63,7 +63,7 @@
 	SSeidolon_storm.redspace_anchors += src
 	set_wires(new /datum/wires/redspace_anchor(src))
 	soundloop = new(src, start_immediately = FALSE)
-	update_appearance()
+	enable()
 
 /obj/machinery/redspace_anchor/Destroy(force)
 	QDEL_NULL(soundloop)
@@ -187,14 +187,14 @@
 		new_state = TRUE
 
 	charging_state = new_state ? POWER_UP : POWER_DOWN // Startup sequence animation.
-	use_power = new_state ? active_power_usage : NO_POWER_USE
+	update_use_power(new_state ? active_power_usage : NO_POWER_USE)
 	if(SSticker.current_state == GAME_STATE_PLAYING)
 		investigate_log("is now [charging_state == POWER_UP ? "charging" : "discharging"].", INVESTIGATE_ENGINE)
 	update_appearance()
 	START_PROCESSING(SSmachines, src)
 
 /obj/machinery/redspace_anchor/proc/enable()
-	use_power = idle_power_usage
+	update_use_power(idle_power_usage)
 	current_state = POWER_STATE_PASSIVE
 	charging_state = POWER_NOMINAL
 
@@ -205,10 +205,10 @@
 		investigate_log("was brought online.", INVESTIGATE_ENGINE)
 		message_admins("The redspace anchor was brought online [ADMIN_VERBOSEJMP(src)]")
 	shake_everyone()
-	STOP_PROCESSING(SSprocessing, src)
+	STOP_PROCESSING(SSmachines, src)
 
 /obj/machinery/redspace_anchor/proc/disable()
-	use_power = NO_POWER_USE
+	update_use_power(NO_POWER_USE)
 	current_state = POWER_STATE_OFFLINE
 	charging_state = POWER_NOMINAL
 
@@ -219,14 +219,14 @@
 		investigate_log("was brought offline.", INVESTIGATE_ENGINE)
 		message_admins("The redspace anchor was brought offline. [ADMIN_VERBOSEJMP(src)]")
 	shake_everyone()
-	STOP_PROCESSING(SSprocessing, src)
+	STOP_PROCESSING(SSmachines, src)
 
 // Charge/Discharge and turn on/off when you reach 0/100 percent.
 /obj/machinery/redspace_anchor/process()
 	if(!COOLDOWN_FINISHED(src, anchor_charging_cooldown))
 		return
 	if(machine_stat & BROKEN || charging_state == POWER_NOMINAL)
-		STOP_PROCESSING(SSprocessing, src)
+		STOP_PROCESSING(SSmachines, src)
 		return
 	COOLDOWN_START(src, anchor_charging_cooldown, 2 SECONDS)
 	if((charging_state == POWER_UP) && (charge_count >= 100))

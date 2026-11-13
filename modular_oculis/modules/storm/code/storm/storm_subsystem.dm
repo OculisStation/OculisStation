@@ -66,7 +66,8 @@ PROCESSING_SUBSYSTEM_DEF(eidolon_storm)
 		return
 	COOLDOWN_START(src, eidolon_storm_cooldown, (chosen_storm_ruleset.storm_cooldown))
 	if(station_anchor?.tick(chosen_storm_ruleset.intensity)) // Attempt to tick the anchor
-		if(!COOLDOWN_FINISHED(src, eidolon_event_cooldown))
-			return
-		SSevents.spawnEvent() // Oops! Your anchor has turned off or is in an invalid state to protect you! Chaos Time!
-		COOLDOWN_START(src, eidolon_event_cooldown, 5 MINUTES)
+		return
+	if(!COOLDOWN_FINISHED(src, eidolon_event_cooldown))
+		return
+	SSevents.spawnEvent() // Oops! Your anchor has turned off or is in an invalid state to protect you! Chaos Time!
+	COOLDOWN_START(src, eidolon_event_cooldown, 5 MINUTES)
