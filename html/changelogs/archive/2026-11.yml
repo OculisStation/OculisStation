@@ -20,3 +20,8 @@
   - rscdel: Removed straightjacket and muzzle from the psychologist's locker
   Skies-Of-Blue:
   - rscdel: drake armor no longer has an ugly mesh over your mutant parts
+2026-11-13:
+  Skies-Of-Blue:
+  - rscadd: the red performer's outfit is now available in loadout
+  xn-zn8h:
+  - rscdel: Removed NTSL module
