@@ -124,6 +124,8 @@
 
 /obj/machinery/redspace_anchor/update_overlays()
 	. = ..()
+	if(panel_open)
+		. += "anchor_panel_open"
 	if(machine_stat & (NOPOWER|BROKEN))
 		return
 
