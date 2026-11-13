@@ -12,3 +12,16 @@
   - balance: Heavyset characters no longer have a slowdown when dragging other heavyset
       characters.
   - bugfix: Fixed laying down not playing the appropriate SFX.
+2026-11-07:
+  XeonMations, Cupa:
+  - rscadd: Added black alert.
+2026-11-11:
+  Laiko44:
+  - rscdel: Removed straightjacket and muzzle from the psychologist's locker
+  Skies-Of-Blue:
+  - rscdel: drake armor no longer has an ugly mesh over your mutant parts
+2026-11-13:
+  Skies-Of-Blue:
+  - rscadd: the red performer's outfit is now available in loadout
+  xn-zn8h:
+  - rscdel: Removed NTSL module
