@@ -52,6 +52,8 @@
 	var/charge_count = 100
 	/// How much excess violetspace energy the redspace anchor has, which can cause it to fail once it reaches 100.
 	var/violetspace_energy = 0
+	/// Cooldown for the processing of the anchor's shutdown and startup sequence.
+	COOLDOWN_DECLARE(anchor_charging_cooldown)
 
 	/// Audio for when the redspace anchor is on
 	var/datum/looping_sound/redspace_anchor/soundloop
@@ -177,7 +179,7 @@
 	if(SSticker.current_state == GAME_STATE_PLAYING)
 		investigate_log("is now [charging_state == POWER_UP ? "charging" : "discharging"].", INVESTIGATE_ENGINE)
 	update_appearance()
-	START_PROCESSING(SSprocessing, src)
+	START_PROCESSING(SSmachines, src)
 
 /obj/machinery/redspace_anchor/proc/enable()
 	use_power = idle_power_usage
@@ -209,11 +211,12 @@
 
 // Charge/Discharge and turn on/off when you reach 0/100 percent.
 /obj/machinery/redspace_anchor/process()
-	if(machine_stat & BROKEN)
+	if(!COOLDOWN_FINISHED(src, anchor_charging_cooldown))
 		return
-	if(charging_state == POWER_NOMINAL)
+	if(machine_stat & BROKEN || charging_state == POWER_NOMINAL)
 		STOP_PROCESSING(SSprocessing, src)
 		return
+	COOLDOWN_START(src, anchor_charging_cooldown, 2 SECONDS)
 	if((charging_state == POWER_UP) && (charge_count >= 100))
 		enable()
 	else if((charging_state == POWER_DOWN) && (charge_count <= 0))
@@ -236,8 +239,6 @@
 						mobs.playsound_local(mob_turf, 'sound/effects/magic/cosmic_expansion.ogg', 100, TRUE)
 					else
 						mobs.playsound_local(mob_turf, 'sound/effects/magic/swap.ogg', 100, TRUE)
-				if((charge_count <= 50) && (charging_state == POWER_DOWN) && prob(5))
-					to_chat(mobs, span_bolddanger("You feel a foreign presence encroaching around you."))
 
 /// Shake everyone on the z level to let them know that the anchor was turned on into standby mode or off.
 /obj/machinery/redspace_anchor/proc/shake_everyone()
