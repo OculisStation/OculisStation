@@ -277,7 +277,19 @@
 
 /// Throw everyone on the z level to let them know that the anchor was activated/deactivated. Used when it enters active mode.
 /obj/machinery/redspace_anchor/proc/throw_everyone()
-
+	var/turf/T = get_turf(src)
+	var/sound/alert_sound = sound('sound/effects/alert.ogg')
+	for(var/mob/mobs as anything in GLOB.mob_list)
+		var/turf/mob_turf = get_turf(mobs)
+		if(!istype(mob_turf))
+			continue
+		if(!is_valid_z_level(T, mob_turf))
+			continue
+		if(mobs.client)
+			shake_camera(mobs, 15, 1)
+			mobs.playsound_local(T, null, 100, 1, 0.5, sound_to_use = alert_sound)
+	if(!SSmapping.level_has_any_trait(z, ZTRAIT_STATION))
+		return
 
 /obj/machinery/redspace_anchor/proc/tick(intensity)
 	switch(current_state)
@@ -327,6 +339,7 @@
 	throw_everyone()
 	update_appearance()
 
+#undef POWER_NOMINAL
 #undef POWER_UP
 #undef POWER_DOWN
 #undef POWER_STATE_OFFLINE
