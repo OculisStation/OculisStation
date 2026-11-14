@@ -246,6 +246,7 @@ SUBSYSTEM_DEF(ticker)
 	//Configure mode and assign player to antagonists
 	var/can_continue = FALSE
 	can_continue = SSdynamic.select_roundstart_antagonists() //Choose antagonists
+	SSeidolon_storm.initialize_storm_intensity() // OCULIS EDIT ADDITION - EIDOLON_STORM
 	CHECK_TICK
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_PRE_JOBS_ASSIGNED, src)
 	can_continue = can_continue && SSjob.divide_occupations() //Distribute jobs
@@ -684,7 +685,7 @@ SUBSYSTEM_DEF(ticker)
 		switch (current_state)
 			if(GAME_STATE_SETTING_UP)
 				Master.SetRunLevel(RUNLEVEL_SETUP)
-				SSevents.reschedule() // NOVA EDIT ADDITION
+				// SSevents.reschedule() // OCULIS EDIT REMOVAL // NOVA EDIT ADDITION
 			if(GAME_STATE_PLAYING)
 				Master.SetRunLevel(RUNLEVEL_GAME)
 			if(GAME_STATE_FINISHED)
