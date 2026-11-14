@@ -1,3 +1,4 @@
+/* // OCULIS EDIT REMOVAL START - ADDED OUR OWN
 /obj/item/melee/breaching_hammer
 	name = "D-4 tactical hammer"
 	desc = "A metallic-plastic composite breaching hammer, looks like a whack with this would severly harm or tire someone. Won't do much when alone."
@@ -108,4 +109,4 @@
 		breaching_loop(user, target)
 		return TRUE
 	remove_track(user)
-
+*/ // OCULIS EDIT REMOVAL END
