@@ -473,3 +473,13 @@
 	desc = "A trendy hiphop track by F'norkiz Gamma, 'Groovepad'. Requires a boombox to play."
 	cost = PAYCHECK_CREW * 4
 	contains = list(/obj/item/music_tape/hiphop)
+
+//Oculis Changes start here
+
+/datum/supply_pack/goody/firstaidsurgery_single
+	name = "Surgical Medkit Single-Pack"
+	desc = "A single large, surgical medkit. Good for re-equipping doctors that might've had a lava bath, or conscripting hapless assistants."
+	cost = PAYCHECK_CREW * 6
+	contains = list(/obj/item/storage/medkit/surgery)
+
+//end Oculis changes
