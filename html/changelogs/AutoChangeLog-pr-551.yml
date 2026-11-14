@@ -1,0 +1,4 @@
+author: "throwawayuseless"
+delete-after: True
+changes:
+  - qol: "Aggressive raptors (That is, black and red) do not target other raptors when attacking nearby targets. Hopefully no more raptor mass-casualty events in the raptor pen."
