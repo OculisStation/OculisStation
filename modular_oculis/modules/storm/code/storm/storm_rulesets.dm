@@ -36,7 +36,7 @@
 /datum/storm_ruleset/admin
 	intensity = STORM_INTENSITY_ADMIN
 	min_pop = 999
-	storm_cooldown = 10 MINUTES
+	storm_cooldown = 9999 MINUTES
 
 #undef STORM_INTENSITY_NONE
 #undef STORM_INTENSITY_CALM
