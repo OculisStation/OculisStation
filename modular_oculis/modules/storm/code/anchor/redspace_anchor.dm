@@ -63,6 +63,7 @@
 	SSeidolon_storm.redspace_anchors += src
 	set_wires(new /datum/wires/redspace_anchor(src))
 	soundloop = new(src, start_immediately = FALSE)
+	AddElement(/datum/element/manufacturer_examine, COMPANY_CYBERSUN)
 	update_appearance()
 
 /obj/machinery/redspace_anchor/Destroy(force)
@@ -221,7 +222,7 @@
 	STOP_PROCESSING(SSmachines, src)
 
 // Charge/Discharge and turn on/off when you reach 0/100 percent.
-/obj/machinery/redspace_anchor/process()
+/obj/machinery/redspace_anchor/process(seconds_per_tick)
 	if(!COOLDOWN_FINISHED(src, anchor_charging_cooldown))
 		return
 	if(machine_stat & BROKEN || charging_state == POWER_NOMINAL)
