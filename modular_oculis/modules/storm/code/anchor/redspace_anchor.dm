@@ -268,11 +268,11 @@
 		return
 	switch(current_state)
 		if(POWER_STATE_ACTIVE)
-			priority_announce("Redspace Anchor activated during ongoing storm.", "Redspace Anchor", color_override = "purple")
+			priority_announce("Redspace Anchor activated during ongoing storm.", "Redspace Anchor", color_override = "purple", sender_override = "Automatic Internal Systems")
 		if(POWER_STATE_PASSIVE)
-			priority_announce("Redspace Anchor enabled and awaiting activation codes.", "Redspace Anchor", color_override = "green")
+			priority_announce("Redspace Anchor enabled and awaiting activation codes.", "Redspace Anchor", color_override = "green", sender_override = "Automatic Internal Systems")
 		if(POWER_STATE_OFFLINE)
-			priority_announce("Warning: Redspace Anchor has been disabled.", "Redspace Anchor", color_override = "red")
+			priority_announce("Warning: Redspace Anchor has been disabled.", "Redspace Anchor", color_override = "red", sender_override = "Automatic Internal Systems")
 
 /obj/machinery/redspace_anchor/proc/tick(intensity)
 	if(current_state >= POWER_STATE_PASSIVE)
@@ -291,6 +291,7 @@
 		title = "Redspace Anchor",
 		sound = SSstation.announcer.get_rand_alert_sound(),
 		has_important_message = TRUE,
+		sender_override = "Automatic Internal Systems"
 	)
 	SSevents.spawnEvent()
 
@@ -301,6 +302,7 @@
 		title = "Redspace Anchor",
 		sound = SSstation.announcer.get_rand_alert_sound(),
 		has_important_message = TRUE,
+		sender_override = "Automatic Internal Systems"
 	)
 	SSevents.spawnEvent()
 
