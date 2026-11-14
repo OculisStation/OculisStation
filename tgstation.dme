@@ -10566,6 +10566,7 @@
 #include "modular_oculis\modules\storm\code\anchor\redspace_anchor.dm"
 #include "modular_oculis\modules\storm\code\anchor\redspace_anchor_soundloop.dm"
 #include "modular_oculis\modules\storm\code\anchor\wires.dm"
+#include "modular_oculis\modules\storm\code\storm\admin_verbs.dm"
 #include "modular_oculis\modules\storm\code\storm\storm_rulesets.dm"
 #include "modular_oculis\modules\storm\code\storm\storm_subsystem.dm"
 #include "modular_oculis\modules\syndicate\headsets.dm"
