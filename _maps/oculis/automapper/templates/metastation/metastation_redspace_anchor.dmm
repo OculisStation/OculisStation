@@ -39,7 +39,7 @@
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/east,
 /turf/open/floor/circuit/red/alt/anim,
-/area/station/command)
+/area/station/redspace_anchor)
 "g" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
 /obj/machinery/meter/layer4,
@@ -49,7 +49,7 @@
 "h" = (
 /obj/structure/cable,
 /turf/open/floor/circuit/red,
-/area/station/command)
+/area/station/redspace_anchor)
 "i" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -71,14 +71,14 @@
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/carpet/kinaris/black/whitetrim,
-/area/station/command)
+/area/station/redspace_anchor)
 "l" = (
 /obj/structure/lattice,
 /turf/open/space/basic,
 /area/space/nearstation)
 "n" = (
 /turf/open/floor/circuit/red/alt/anim,
-/area/station/command)
+/area/station/redspace_anchor)
 "p" = (
 /obj/machinery/power/smes/full,
 /obj/structure/cable,
@@ -86,15 +86,15 @@
 	dir = 6
 	},
 /turf/open/floor/carpet/kinaris/black/whitetrim,
-/area/station/command)
+/area/station/redspace_anchor)
 "q" = (
 /obj/structure/lattice,
 /turf/closed/wall/r_wall,
-/area/station/command)
+/area/station/redspace_anchor)
 "r" = (
 /obj/structure/lattice/catwalk,
 /turf/closed/wall/r_wall,
-/area/station/command)
+/area/station/redspace_anchor)
 "s" = (
 /turf/open/space/basic,
 /area/space)
@@ -125,7 +125,7 @@
 	dir = 1
 	},
 /turf/open/floor/carpet/kinaris/black/whitetrim,
-/area/station/command)
+/area/station/redspace_anchor)
 "x" = (
 /obj/machinery/door/airlock/external,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
@@ -152,10 +152,10 @@
 "A" = (
 /obj/structure/cable,
 /turf/open/floor/circuit/red/alt/anim,
-/area/station/command)
+/area/station/redspace_anchor)
 "B" = (
 /turf/closed/wall/r_wall,
-/area/station/command)
+/area/station/redspace_anchor)
 "C" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -167,14 +167,14 @@
 	dir = 9
 	},
 /turf/open/floor/carpet/kinaris/black/whitetrim,
-/area/station/command)
+/area/station/redspace_anchor)
 "E" = (
 /obj/machinery/computer/redspace_anchor_computer,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
 /turf/open/floor/carpet/kinaris/black/whitetrim,
-/area/station/command)
+/area/station/redspace_anchor)
 "F" = (
 /obj/structure/sign/warning/vacuum/external/directional/east,
 /obj/effect/decal/cleanable/cobweb/cobweb2,
@@ -196,7 +196,7 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/structure/cable,
 /turf/open/floor/plating,
-/area/station/command)
+/area/station/redspace_anchor)
 "I" = (
 /obj/machinery/power/smes/full,
 /obj/structure/cable,
@@ -204,10 +204,10 @@
 	dir = 10
 	},
 /turf/open/floor/carpet/kinaris/black/whitetrim,
-/area/station/command)
+/area/station/redspace_anchor)
 "J" = (
 /turf/open/floor/circuit/red,
-/area/station/command)
+/area/station/redspace_anchor)
 "K" = (
 /turf/closed/wall,
 /area/station/maintenance/starboard/fore)
@@ -240,7 +240,7 @@
 /obj/machinery/redspace_anchor,
 /obj/structure/cable,
 /turf/open/floor/circuit/red,
-/area/station/command)
+/area/station/redspace_anchor)
 "R" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -263,7 +263,7 @@
 	dir = 1
 	},
 /turf/open/floor/carpet/kinaris/black/whitetrim,
-/area/station/command)
+/area/station/redspace_anchor)
 "T" = (
 /obj/structure/closet/emcloset,
 /turf/open/floor/plating,
@@ -272,7 +272,7 @@
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/carpet/kinaris/black/whitetrim,
-/area/station/command)
+/area/station/redspace_anchor)
 "V" = (
 /obj/machinery/atmospherics/components/tank/air/layer4,
 /turf/open/floor/plating,
@@ -284,7 +284,7 @@
 	dir = 5
 	},
 /turf/open/floor/carpet/kinaris/black/whitetrim,
-/area/station/command)
+/area/station/redspace_anchor)
 "X" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
@@ -299,7 +299,7 @@
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/carpet/kinaris/black/whitetrim,
-/area/station/command)
+/area/station/redspace_anchor)
 "Z" = (
 /obj/structure/sign/warning/electric_shock,
 /turf/closed/wall/r_wall,
