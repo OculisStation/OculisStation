@@ -84,4 +84,8 @@ PROCESSING_SUBSYSTEM_DEF(eidolon_storm)
 			if(!is_valid_z_level(get_turf(unanchored_atom), atom_turf))
 				continue
 			var/throwtarget = get_edge_target_turf(unanchored_atom, rand(1,8))
-			unanchored_atom.throw_at(throwtarget, 5, 2)
+			unanchored_atom.throw_at(throwtarget, 5, 3)
+			if(isliving(unanchored_atom))
+				var/mob/living/unanchored_living_mob = unanchored_atom
+				unanchored_living_mob.Immobilize(5 SECONDS)
+				unanchored_living_mob.Paralyze(5 SECONDS)

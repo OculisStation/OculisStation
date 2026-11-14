@@ -2,11 +2,6 @@
 #define POWER_UP 1
 #define POWER_DOWN 2
 
-#define POWER_STATE_OFFLINE 0
-#define POWER_STATE_CHARGING 1
-#define POWER_STATE_PASSIVE 2
-#define POWER_STATE_ACTIVE 3
-
 /obj/machinery/redspace_anchor
 	name = "redspace anchor"
 	icon = 'modular_oculis/modules/storm/icons/redspace_anchor.dmi'
@@ -174,10 +169,13 @@
 			update_appearance()
 
 /obj/machinery/redspace_anchor/power_change()
+	var/update_power = FALSE
+	if(machine_stat != appearance_power_state)
+		update_power = TRUE
 	. = ..()
-	if(SSticker.current_state == GAME_STATE_PLAYING)
+	if(update_power && (SSticker.current_state == GAME_STATE_PLAYING))
 		investigate_log("has [machine_stat & NOPOWER ? "lost" : "regained"] power.", INVESTIGATE_ENGINE)
-	set_power()
+		set_power()
 
 // Set the charging state based on power/breaker.
 /obj/machinery/redspace_anchor/proc/set_power()
@@ -277,7 +275,7 @@
 			priority_announce("Warning: Redspace Anchor has been disabled.", "Redspace Anchor", color_override = "red")
 
 /obj/machinery/redspace_anchor/proc/tick(intensity)
-	if(current_state == POWER_STATE_ACTIVE)
+	if(current_state >= POWER_STATE_PASSIVE)
 		violetspace_energy += (rand(1,5) * intensity)
 		if(violetspace_energy >= 100)
 			trigger_unsafe_discharge()
@@ -309,19 +307,13 @@
 // For the start of a storm.
 /obj/machinery/redspace_anchor/proc/activate()
 	current_state = POWER_STATE_ACTIVE
-	SSeidolon_storm.throw_everyone()
 	update_appearance()
 
 // For after a storm.
 /obj/machinery/redspace_anchor/proc/deactivate()
 	current_state = POWER_STATE_PASSIVE
-	SSeidolon_storm.throw_everyone()
 	update_appearance()
 
 #undef POWER_NOMINAL
 #undef POWER_UP
 #undef POWER_DOWN
-#undef POWER_STATE_OFFLINE
-#undef POWER_STATE_CHARGING
-#undef POWER_STATE_PASSIVE
-#undef POWER_STATE_ACTIVE

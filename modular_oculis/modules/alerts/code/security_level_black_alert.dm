@@ -34,10 +34,17 @@
 		deactivate_shuttles()
 		for(var/obj/machinery/redspace_anchor/redspace_anchor as anything in SSeidolon_storm.redspace_anchors)
 			redspace_anchor.activate()
+		if(SSeidolon_storm.station_anchor.current_state == POWER_STATE_ACTIVE)
+			SSeidolon_storm.throw_everyone()
 	else if(old_level == SEC_LEVEL_BLACK)
 		reactivate_shuttles()
+		var/throwing_people = FALSE
+		if(SSeidolon_storm.station_anchor.current_state == POWER_STATE_ACTIVE)
+			throwing_people = TRUE
 		for(var/obj/machinery/redspace_anchor/redspace_anchor as anything in SSeidolon_storm.redspace_anchors)
 			redspace_anchor.deactivate()
+		if(throwing_people)
+			SSeidolon_storm.throw_everyone()
 
 /datum/controller/subsystem/shuttle/proc/deactivate_shuttles()
 	SSshuttle.emergency_no_escape = TRUE

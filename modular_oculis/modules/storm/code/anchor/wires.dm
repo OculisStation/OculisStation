@@ -45,7 +45,6 @@
 			if(!anchor.alarm_disabled)
 				anchor.alarm_disabled = TRUE
 			addtimer(CALLBACK(anchor, TYPE_PROC_REF(/obj/machinery/redspace_anchor, reset), wire), 10 SECONDS)
-			anchor.update_appearance()
 		if(WIRE_DISCHARGE)
 			if(anchor.can_discharge && anchor.violetspace_energy)
 				anchor.trigger_safe_discharge()
