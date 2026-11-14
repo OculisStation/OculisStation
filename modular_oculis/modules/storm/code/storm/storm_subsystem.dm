@@ -71,3 +71,17 @@ PROCESSING_SUBSYSTEM_DEF(eidolon_storm)
 		return
 	SSevents.spawnEvent() // Oops! Your anchor has turned off or is in an invalid state to protect you! Chaos Time!
 	COOLDOWN_START(src, eidolon_event_cooldown, 5 MINUTES)
+
+/// Throw everyone to let them know that the anchor was activated/deactivated. Used when it enters active mode.
+/datum/controller/subsystem/processing/eidolon_storm/proc/throw_everyone()
+	for(var/turf/open/floor/targeted_turf in GLOB.station_turfs)
+		for(var/atom/movable/unanchored_atom as anything in targeted_turf)
+			if(unanchored_atom.anchored)
+				continue
+			var/turf/atom_turf = get_turf(unanchored_atom)
+			if(!istype(atom_turf))
+				continue
+			if(!is_valid_z_level(get_turf(src), atom_turf))
+				continue
+			var/throwtarget = get_edge_target_turf(unanchored_atom, rand(1,8))
+			unanchored_atom.throw_at(throwtarget, 5, 2)

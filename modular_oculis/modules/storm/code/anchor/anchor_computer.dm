@@ -22,11 +22,11 @@
 	return ..()
 
 /obj/machinery/computer/redspace_anchor_computer/update_overlays()
-	. = ..()
 	if(connected_anchor?.breaker)
 		icon_screen = "comm"
 	else
 		icon_screen = "syndishuttle"
+	return ..()
 
 /obj/machinery/computer/redspace_anchor_computer/ui_status(mob/user, datum/ui_state/state)
 	if(HAS_SILICON_ACCESS(user) && connected_anchor.ai_disabled)

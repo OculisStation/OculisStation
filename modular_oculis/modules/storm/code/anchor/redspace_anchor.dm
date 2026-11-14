@@ -20,7 +20,7 @@
 	* and this is purelly done so that the code is readable without pulling out a calculator
 	* to make sure these values are right.
 	*/
-	use_power = NO_POWER_USE
+	use_power = IDLE_POWER_USE
 	idle_power_usage = (100 KILO WATTS)
 	active_power_usage = (6 MEGA WATTS) // Lotta fucking power to keep the storm at bay.
 
@@ -110,7 +110,7 @@
 
 /obj/machinery/redspace_anchor/update_icon_state()
 	. = ..()
-	if(machine_stat & (NOPOWER|BROKEN))
+	if(machine_stat & BROKEN)
 		icon_state = "[base_icon_state]_broken"
 		return
 
@@ -187,14 +187,14 @@
 		new_state = TRUE
 
 	charging_state = new_state ? POWER_UP : POWER_DOWN // Startup sequence animation.
-	update_use_power(new_state ? active_power_usage : NO_POWER_USE)
+	update_use_power(new_state ? ACTIVE_POWER_USE : NO_POWER_USE)
 	if(SSticker.current_state == GAME_STATE_PLAYING)
 		investigate_log("is now [charging_state == POWER_UP ? "charging" : "discharging"].", INVESTIGATE_ENGINE)
 	update_appearance()
 	START_PROCESSING(SSmachines, src)
 
 /obj/machinery/redspace_anchor/proc/enable()
-	update_use_power(idle_power_usage)
+	update_use_power(IDLE_POWER_USE)
 	current_state = POWER_STATE_PASSIVE
 	charging_state = POWER_NOMINAL
 
@@ -275,22 +275,6 @@
 		if(POWER_STATE_OFFLINE)
 			priority_announce("Warning: Redspace Anchor has been disabled.", "Redspace Anchor", color_override = "red")
 
-/// Throw everyone on the z level to let them know that the anchor was activated/deactivated. Used when it enters active mode.
-/obj/machinery/redspace_anchor/proc/throw_everyone()
-	var/turf/T = get_turf(src)
-	var/sound/alert_sound = sound('sound/effects/alert.ogg')
-	for(var/mob/mobs as anything in GLOB.mob_list)
-		var/turf/mob_turf = get_turf(mobs)
-		if(!istype(mob_turf))
-			continue
-		if(!is_valid_z_level(T, mob_turf))
-			continue
-		if(mobs.client)
-			shake_camera(mobs, 15, 1)
-			mobs.playsound_local(T, null, 100, 1, 0.5, sound_to_use = alert_sound)
-	if(!SSmapping.level_has_any_trait(z, ZTRAIT_STATION))
-		return
-
 /obj/machinery/redspace_anchor/proc/tick(intensity)
 	switch(current_state)
 		if(POWER_STATE_OFFLINE)
@@ -330,13 +314,13 @@
 // For the start of a storm.
 /obj/machinery/redspace_anchor/proc/activate()
 	current_state = POWER_STATE_ACTIVE
-	throw_everyone()
+	SSeidolon_storm.throw_everyone()
 	update_appearance()
 
 // For after a storm.
 /obj/machinery/redspace_anchor/proc/deactivate()
 	current_state = POWER_STATE_PASSIVE
-	throw_everyone()
+	SSeidolon_storm.throw_everyone()
 	update_appearance()
 
 #undef POWER_NOMINAL
