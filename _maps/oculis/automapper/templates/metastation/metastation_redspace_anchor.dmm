@@ -1,12 +1,48 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"a" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+"bF" = (
+/obj/item/stack/sheet/cardboard,
+/obj/effect/decal/cleanable/cobweb/cobweb2,
+/obj/effect/spawner/random/maintenance,
+/obj/effect/spawner/random/engineering/flashlight,
+/turf/open/floor/plating,
+/area/station/maintenance/starboard/fore)
+"bI" = (
+/obj/machinery/door/airlock/external,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer5,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/station/maintenance/starboard/fore)
+"dK" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
+/obj/machinery/meter/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/plating,
+/area/station/maintenance/starboard/fore)
+"dL" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/fore)
-"b" = (
+"ew" = (
+/obj/machinery/power/terminal{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+"eK" = (
+/obj/item/clothing/mask/gas,
+/obj/effect/spawner/random/structure/table_or_rack,
+/obj/effect/spawner/random/maintenance,
+/turf/open/floor/plating,
+/area/station/maintenance/starboard/fore)
+"eU" = (
 /obj/machinery/atmospherics/components/unary/airlock_pump/unbolt_only,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -15,14 +51,135 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/fore)
-"c" = (
-/obj/machinery/atmospherics/pipe/layer_manifold/cyan/hidden{
-	dir = 8
+"gk" = (
+/turf/closed/wall/r_wall,
+/area/station/maintenance/starboard/fore)
+"jb" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/closed/wall,
+/area/station/maintenance/starboard/fore)
+"kB" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/station/maintenance/solars/starboard/fore)
+"lS" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/fore)
-"d" = (
+"mw" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+"mE" = (
+/obj/machinery/power/terminal,
+/obj/machinery/light/small/directional/east,
+/obj/item/radio/intercom/directional/east,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/station/maintenance/solars/starboard/fore)
+"oo" = (
+/obj/machinery/power/terminal{
+	dir = 8
+	},
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+"pu" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer5,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/station/maintenance/starboard/fore)
+"qG" = (
+/obj/structure/closet/emcloset,
+/turf/open/floor/plating,
+/area/station/maintenance/starboard/fore)
+"rd" = (
+/obj/structure/cable,
+/obj/machinery/light/directional/west,
+/turf/open/floor/circuit/red/alt/anim,
+/area/station/redspace_anchor)
+"tz" = (
+/obj/machinery/power/smes/full,
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+"uu" = (
+/obj/machinery/power/smes,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/station/maintenance/solars/starboard/fore)
+"uD" = (
+/turf/open/floor/circuit/red,
+/area/station/redspace_anchor)
+"vm" = (
+/obj/machinery/power/smes/full{
+	output_level = 0
+	},
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+"vX" = (
+/turf/closed/wall/r_wall,
+/area/station/redspace_anchor)
+"vZ" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/station/maintenance/starboard/fore)
+"wy" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/station/maintenance/starboard/fore)
+"xT" = (
+/turf/closed/wall,
+/area/station/maintenance/starboard/fore)
+"yA" = (
+/obj/machinery/power/smes/full{
+	output_level = 55000
+	},
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+"zA" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
+/obj/item/assembly/mousetrap,
+/obj/item/food/deadmouse,
+/turf/open/floor/plating,
+/area/station/maintenance/starboard/fore)
+"zH" = (
+/obj/structure/cable,
+/turf/open/floor/circuit/red/alt/anim,
+/area/station/redspace_anchor)
+"zM" = (
+/obj/structure/sign/warning/vacuum/external/directional/east,
+/obj/effect/decal/cleanable/cobweb/cobweb2,
+/obj/structure/cable,
+/obj/machinery/atmospherics/components/tank/air/layer4{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/station/maintenance/solars/starboard/fore)
+"AD" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
@@ -32,216 +189,82 @@
 /obj/structure/sign/warning/vacuum/external/directional/south,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/fore)
-"e" = (
-/turf/closed/wall/r_wall,
-/area/station/maintenance/solars/starboard/fore)
-"f" = (
-/obj/structure/cable,
-/obj/machinery/power/apc/auto_name/directional/east,
-/turf/open/floor/circuit/red/alt/anim,
-/area/station/redspace_anchor)
-"g" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
-/obj/machinery/meter/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/plating,
-/area/station/maintenance/starboard/fore)
-"h" = (
-/obj/structure/cable,
-/turf/open/floor/circuit/red,
-/area/station/redspace_anchor)
-"i" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/plating,
-/area/station/maintenance/starboard/fore)
-"j" = (
-/obj/machinery/door/airlock/external,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 4
-	},
-/turf/open/floor/plating,
-/area/station/maintenance/starboard/fore)
-"k" = (
-/obj/machinery/power/terminal{
-	dir = 8
-	},
-/obj/structure/cable,
-/obj/effect/turf_decal/stripes/line,
-/turf/open/floor/carpet/kinaris/black/whitetrim,
-/area/station/redspace_anchor)
-"l" = (
-/obj/structure/lattice,
-/turf/open/space/basic,
-/area/space/nearstation)
-"n" = (
-/turf/open/floor/circuit/red/alt/anim,
-/area/station/redspace_anchor)
-"p" = (
-/obj/machinery/power/smes/full,
-/obj/structure/cable,
-/obj/effect/turf_decal/stripes/line{
-	dir = 6
-	},
-/turf/open/floor/carpet/kinaris/black/whitetrim,
-/area/station/redspace_anchor)
-"q" = (
-/obj/structure/lattice,
-/turf/closed/wall/r_wall,
-/area/station/redspace_anchor)
-"r" = (
+"Bi" = (
 /obj/structure/lattice/catwalk,
 /turf/closed/wall/r_wall,
 /area/station/redspace_anchor)
-"s" = (
-/turf/open/space/basic,
-/area/space)
-"t" = (
-/obj/machinery/power/terminal,
-/obj/machinery/light/small/directional/east,
-/obj/item/radio/intercom/directional/east,
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/station/maintenance/solars/starboard/fore)
-"u" = (
-/obj/machinery/door/airlock/external,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+"BN" = (
+/obj/structure/sign/warning/electric_shock,
+/turf/closed/wall/r_wall,
+/area/station/maintenance/starboard/fore)
+"BU" = (
+/obj/machinery/atmospherics/pipe/layer_manifold/cyan/hidden{
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/fore)
-"v" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
+"Cg" = (
+/turf/closed/wall/r_wall,
 /area/station/maintenance/solars/starboard/fore)
-"w" = (
-/obj/machinery/power/terminal{
-	dir = 4
-	},
+"DA" = (
 /obj/structure/cable,
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/turf/open/floor/carpet/kinaris/black/whitetrim,
+/turf/open/floor/circuit/red,
 /area/station/redspace_anchor)
-"x" = (
-/obj/machinery/door/airlock/external,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+"EG" = (
 /obj/structure/cable,
-/turf/open/floor/plating,
-/area/station/maintenance/starboard/fore)
-"y" = (
-/obj/item/stack/sheet/cardboard,
-/obj/effect/decal/cleanable/cobweb/cobweb2,
-/obj/effect/spawner/random/maintenance,
-/obj/effect/spawner/random/engineering/flashlight,
-/turf/open/floor/plating,
-/area/station/maintenance/starboard/fore)
-"z" = (
-/obj/item/clothing/mask/gas,
-/obj/effect/spawner/random/structure/table_or_rack,
-/obj/effect/spawner/random/maintenance,
-/turf/open/floor/plating,
-/area/station/maintenance/starboard/fore)
-"A" = (
-/obj/structure/cable,
+/obj/machinery/light/directional/east,
 /turf/open/floor/circuit/red/alt/anim,
 /area/station/redspace_anchor)
-"B" = (
-/turf/closed/wall/r_wall,
+"Ga" = (
+/turf/open/floor/circuit/red/alt/anim,
 /area/station/redspace_anchor)
-"C" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
-/area/station/maintenance/starboard/fore)
-"D" = (
-/obj/machinery/power/smes/full,
+"GB" = (
+/obj/machinery/power/terminal{
+	dir = 8
+	},
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/line{
-	dir = 9
+	dir = 1
 	},
 /turf/open/floor/carpet/kinaris/black/whitetrim,
 /area/station/redspace_anchor)
-"E" = (
+"Ii" = (
 /obj/machinery/computer/redspace_anchor_computer,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
 /turf/open/floor/carpet/kinaris/black/whitetrim,
 /area/station/redspace_anchor)
-"F" = (
-/obj/structure/sign/warning/vacuum/external/directional/east,
-/obj/effect/decal/cleanable/cobweb/cobweb2,
-/obj/structure/cable,
-/obj/machinery/atmospherics/components/tank/air/layer4{
-	dir = 8
+"Ij" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 1
 	},
-/turf/open/floor/plating,
-/area/station/maintenance/solars/starboard/fore)
-"G" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer5,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/fore)
-"H" = (
-/obj/machinery/door/airlock/external,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper,
-/obj/structure/cable,
+"Iy" = (
+/obj/machinery/atmospherics/components/tank/air/layer4,
 /turf/open/floor/plating,
+/area/station/maintenance/starboard/fore)
+"KA" = (
+/obj/structure/lattice,
+/turf/closed/wall/r_wall,
 /area/station/redspace_anchor)
-"I" = (
-/obj/machinery/power/smes/full,
+"Mb" = (
+/obj/machinery/power/smes/full{
+	output_level = 0
+	},
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
 	},
 /turf/open/floor/carpet/kinaris/black/whitetrim,
 /area/station/redspace_anchor)
-"J" = (
-/turf/open/floor/circuit/red,
-/area/station/redspace_anchor)
-"K" = (
-/turf/closed/wall,
-/area/station/maintenance/starboard/fore)
-"L" = (
-/obj/machinery/power/smes,
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/station/maintenance/solars/starboard/fore)
-"M" = (
-/turf/closed/wall/r_wall,
-/area/station/maintenance/starboard/fore)
-"N" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
-/obj/effect/turf_decal/stripes/line{
-	dir = 5
-	},
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/station/maintenance/starboard/fore)
-"O" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/station/maintenance/starboard/fore)
-"P" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/closed/wall,
-/area/station/maintenance/starboard/fore)
-"Q" = (
-/obj/machinery/redspace_anchor,
-/obj/structure/cable,
-/turf/open/floor/circuit/red,
-/area/station/redspace_anchor)
-"R" = (
+"Mu" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/components/binary/pump/on/layer4{
@@ -254,197 +277,196 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/fore)
-"S" = (
-/obj/machinery/power/terminal{
-	dir = 8
-	},
-/obj/structure/cable,
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/turf/open/floor/carpet/kinaris/black/whitetrim,
-/area/station/redspace_anchor)
-"T" = (
-/obj/structure/closet/emcloset,
-/turf/open/floor/plating,
-/area/station/maintenance/starboard/fore)
-"U" = (
-/obj/structure/cable,
-/obj/effect/turf_decal/stripes/line,
-/turf/open/floor/carpet/kinaris/black/whitetrim,
-/area/station/redspace_anchor)
-"V" = (
-/obj/machinery/atmospherics/components/tank/air/layer4,
-/turf/open/floor/plating,
-/area/station/maintenance/starboard/fore)
-"W" = (
+"Nw" = (
 /obj/machinery/power/smes/full,
-/obj/structure/cable,
-/obj/effect/turf_decal/stripes/line{
-	dir = 5
-	},
-/turf/open/floor/carpet/kinaris/black/whitetrim,
-/area/station/redspace_anchor)
-"X" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
-/obj/item/assembly/mousetrap,
-/obj/item/food/deadmouse,
-/turf/open/floor/plating,
-/area/station/maintenance/starboard/fore)
-"Y" = (
+/turf/open/space/basic,
+/area/space)
+"PY" = (
 /obj/machinery/power/terminal{
 	dir = 4
 	},
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/line,
+/obj/effect/mapping_helpers/turn_off_lights_with_lightswitch,
+/obj/machinery/light_switch/directional/south,
 /turf/open/floor/carpet/kinaris/black/whitetrim,
 /area/station/redspace_anchor)
-"Z" = (
-/obj/structure/sign/warning/electric_shock,
-/turf/closed/wall/r_wall,
+"Qw" = (
+/obj/structure/lattice,
+/turf/open/space/basic,
+/area/space/nearstation)
+"RM" = (
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/east,
+/turf/open/floor/circuit/red/alt/anim,
+/area/station/redspace_anchor)
+"RW" = (
+/turf/open/space/basic,
+/area/space)
+"UZ" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer5,
+/obj/structure/cable,
+/turf/open/floor/plating,
 /area/station/maintenance/starboard/fore)
+"Vk" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/plating,
+/area/station/maintenance/starboard/fore)
+"XZ" = (
+/obj/machinery/redspace_anchor,
+/obj/structure/cable,
+/turf/open/floor/circuit/red,
+/area/station/redspace_anchor)
+"YJ" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/station/redspace_anchor)
 
 (1,1,1) = {"
-s
-v
-v
-v
-v
-F
-t
-L
-Z
-y
-a
+RW
+kB
+kB
+kB
+kB
+zM
+mE
+uu
+BN
+bF
+pu
 "}
 (2,1,1) = {"
-s
-s
-l
-s
-v
-e
-e
-e
-M
-K
-a
+RW
+RW
+Qw
+RW
+kB
+Cg
+Cg
+Cg
+gk
+xT
+pu
 "}
 (3,1,1) = {"
-s
-s
-l
-s
-s
-s
-l
-K
-T
-z
-R
+RW
+RW
+Qw
+RW
+RW
+Nw
+Qw
+xT
+qG
+eK
+Mu
 "}
 (4,1,1) = {"
-s
-B
-B
-B
-B
-B
-B
-B
-V
-i
-G
+RW
+vX
+vX
+vX
+vX
+vX
+vX
+vX
+Iy
+Vk
+UZ
 "}
 (5,1,1) = {"
-B
-B
-n
-A
-A
-D
-I
-B
-V
-g
-c
+vX
+vX
+Ga
+rd
+zH
+vm
+Mb
+vX
+Iy
+dK
+BU
 "}
 (6,1,1) = {"
-B
-J
-J
-h
-n
-S
-k
-B
-K
-P
-O
+vX
+uD
+uD
+DA
+Ga
+GB
+oo
+vX
+xT
+jb
+dL
 "}
 (7,1,1) = {"
-B
-J
-J
-Q
-n
-E
-U
-H
-b
-x
-N
+vX
+uD
+uD
+XZ
+Ga
+Ii
+mw
+YJ
+eU
+Ij
+lS
 "}
 (8,1,1) = {"
-B
-J
-J
-h
-n
-w
-Y
-B
-C
-P
-j
+vX
+uD
+uD
+DA
+Ga
+ew
+PY
+vX
+wy
+jb
+bI
 "}
 (9,1,1) = {"
-B
-B
-n
-A
-f
-W
-p
-q
-s
-C
-X
+vX
+vX
+Ga
+EG
+RM
+yA
+tz
+KA
+RW
+wy
+zA
 "}
 (10,1,1) = {"
-s
-B
-B
-B
-B
-B
-B
-r
-l
-C
-d
+RW
+vX
+vX
+vX
+vX
+vX
+vX
+Bi
+Qw
+wy
+AD
 "}
 (11,1,1) = {"
-s
-s
-s
-s
-s
-s
-s
-s
-s
-K
-u
+RW
+RW
+RW
+RW
+RW
+RW
+RW
+RW
+RW
+xT
+vZ
 "}

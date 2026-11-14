@@ -45,7 +45,7 @@
 	/// If the anchor can safely discharge its redspace energy.
 	var/can_discharge = TRUE
 	/// If the generator is charging, or down.
-	var/charging_state = POWER_UP
+	var/charging_state = POWER_NOMINAL
 	/// How much charge the redspace anchor has, goes down when breaker is shut, and shuts down at 0.
 	var/charge_count = 100
 	/// How much excess violetspace energy the redspace anchor has, which can cause it to fail once it reaches 100.
@@ -187,7 +187,6 @@
 		new_state = TRUE
 
 	charging_state = new_state ? POWER_UP : POWER_DOWN // Startup sequence animation.
-	update_use_power(new_state ? ACTIVE_POWER_USE : NO_POWER_USE)
 	if(SSticker.current_state == GAME_STATE_PLAYING)
 		investigate_log("is now [charging_state == POWER_UP ? "charging" : "discharging"].", INVESTIGATE_ENGINE)
 	update_appearance()
@@ -236,6 +235,7 @@
 	else
 		if(charging_state == POWER_UP)
 			charge_count += 2
+			use_energy(active_power_usage)
 		else if(charging_state == POWER_DOWN)
 			charge_count -= 2
 
@@ -276,18 +276,12 @@
 			priority_announce("Warning: Redspace Anchor has been disabled.", "Redspace Anchor", color_override = "red")
 
 /obj/machinery/redspace_anchor/proc/tick(intensity)
-	switch(current_state)
-		if(POWER_STATE_OFFLINE)
-			return FALSE
-		if(POWER_STATE_CHARGING)
-			use_energy(active_power_usage)
-			return FALSE
-		if(POWER_STATE_PASSIVE) // WTF what are we doing ticking if we aren't activated? Fuck fuck fuck power ourselves up already!
-			activate()
-		if(POWER_STATE_ACTIVE)
-			violetspace_energy += (rand(1,5) * intensity)
-			if(violetspace_energy >= 100)
-				trigger_unsafe_discharge()
+	if(current_state == POWER_STATE_ACTIVE)
+		violetspace_energy += (rand(1,5) * intensity)
+		if(violetspace_energy >= 100)
+			trigger_unsafe_discharge()
+		return TRUE
+	return FALSE
 
 /obj/machinery/redspace_anchor/proc/trigger_unsafe_discharge()
 	violetspace_energy = 0
