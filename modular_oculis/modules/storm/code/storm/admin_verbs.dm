@@ -1,7 +1,8 @@
 ADMIN_VERB(change_storm_intensity, R_ADMIN, "Change Storm Intensity", "Change the Eidolon Storm's Intensity", ADMIN_CATEGORY_EVENTS)
 	var/list/possible_options = list()
 	for(var/storm_ruleset in subtypesof(/datum/storm_ruleset))
-		possible_options[storm_ruleset.name] = storm_ruleset
+		var/datum/storm_ruleset/storm_ruleset_datum = new storm_ruleset()
+		possible_options[storm_ruleset_datum.name] = storm_ruleset
 
 	var/picked_ruleset = tgui_input_list(user, "Choose a Storm Ruleset", "Storm Rulesets", sort_list(possible_options))
 	if(isnull(picked_ruleset))

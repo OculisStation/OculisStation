@@ -196,7 +196,7 @@
 	current_state = POWER_STATE_PASSIVE
 	charging_state = POWER_NOMINAL
 
-	//soundloop.start()
+	soundloop.start()
 	update_appearance()
 
 	if(SSticker.current_state == GAME_STATE_PLAYING)
@@ -210,7 +210,7 @@
 	current_state = POWER_STATE_OFFLINE
 	charging_state = POWER_NOMINAL
 
-	//soundloop.stop()
+	soundloop.stop()
 	update_appearance()
 
 	if(SSticker.current_state == GAME_STATE_PLAYING)
