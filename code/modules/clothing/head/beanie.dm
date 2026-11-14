@@ -15,6 +15,7 @@
 	greyscale_config_worn = /datum/greyscale_config/beanie/worn
 	greyscale_colors = "#EEEEEE#EEEEEE"
 	flags_1 = IS_PLAYER_COLORABLE_1
+	item_flags = CAN_BE_OVERSLOT
 // IRIS EDIT START, adds cold protection
 	cold_protection = HEAD
 	min_cold_protection_temperature = FIRE_HELM_MIN_TEMP_PROTECT

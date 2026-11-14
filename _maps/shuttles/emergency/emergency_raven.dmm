@@ -468,16 +468,6 @@
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /turf/open/floor/plating,
 /area/shuttle/escape)
-"bs" = (
-/obj/effect/turf_decal/bot_white,
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/shieldgen{
-	anchored = 1
-	},
-/turf/open/floor/mineral/plastitanium/red{
-	icon_state = "darkfull"
-	},
-/area/shuttle/escape/brig)
 "bt" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
@@ -1461,15 +1451,6 @@
 /obj/machinery/power/shuttle_engine/large,
 /turf/open/floor/plating/airless,
 /area/shuttle/escape)
-"eo" = (
-/obj/machinery/door/airlock/external/ruin{
-	name = "Emergency Shuttle External Airlock"
-	},
-/obj/docking_port/mobile/emergency{
-	name = "SectCom Raven Cruiser"
-	},
-/turf/open/floor/plating,
-/area/shuttle/escape)
 "ep" = (
 /obj/machinery/turretid{
 	desc = "Used to the Raven's automated defenses.";
@@ -1482,6 +1463,15 @@
 	dir = 1
 	},
 /turf/open/floor/iron/dark,
+/area/shuttle/escape)
+"eW" = (
+/obj/machinery/door/airlock/external/ruin{
+	name = "Emergency Shuttle External Airlock"
+	},
+/obj/docking_port/mobile/emergency{
+	name = "SectCom Raven Cruiser"
+	},
+/turf/open/floor/plating,
 /area/shuttle/escape)
 "fc" = (
 /obj/structure/window/reinforced/spawner/directional/south,
@@ -1670,6 +1660,14 @@
 /obj/machinery/light/floor,
 /turf/open/floor/iron/dark,
 /area/shuttle/escape)
+"Ye" = (
+/obj/effect/turf_decal/bot_white,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/shieldgen{
+	anchored = 1
+	},
+/turf/open/floor/mineral/plastitanium/red/dark,
+/area/shuttle/escape/brig)
 "ZA" = (
 /obj/effect/turf_decal/stripes/white/line,
 /obj/effect/turf_decal/stripes/white/line{
@@ -1701,7 +1699,7 @@ aO
 ax
 cd
 co
-eo
+eW
 ax
 aO
 aa
@@ -1763,7 +1761,7 @@ aa
 aO
 ax
 ax
-bs
+Ye
 ax
 ax
 bV

@@ -170,7 +170,6 @@
 		/obj/item/wirecutters,
 		/obj/item/wrench,
 		/obj/item/wormhole_jaunter,
-		/obj/item/skeleton_key,
 		/obj/item/crusher_trophy,
 		/obj/item/storage/box/kinetic, // OCULIS EDIT ADDITION START - ADDS THE WASTELAND GUN AMMOS TO THE EXPLORER WEBBING
 		/obj/item/ammo_box/magazine/pksmgmag,

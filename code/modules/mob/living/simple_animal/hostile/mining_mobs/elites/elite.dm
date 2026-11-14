@@ -336,12 +336,23 @@ While using this makes the system rely on OnFire, it still gives options for tim
 	visible_message(span_boldwarning("[src] begins to convulse violently before beginning to dissipate."))
 	visible_message(span_boldwarning("As [src] closes, something is forced up from down below."))
 	var/obj/structure/closet/crate/necropolis/tendril/lootbox = new /obj/structure/closet/crate/necropolis/tendril(loc)
+/*
+// OCULIS EDIT START: Rebalances elite fauna to drop their trophy unless boosted, in which case they drop the intended boosted loot
+// ORIGINAL:
 	if(boosted)
 		if(mychild.loot_drop != null && prob(50))
 			new mychild.loot_drop(lootbox)
 		else
 			new /obj/item/tumor_shard(lootbox)
 	qdel(src)
+*/
+	if(!boosted)
+		if(mychild.loot_drop != null)
+			new mychild.loot_drop(lootbox)
+	else
+		new /obj/item/tumor_shard(lootbox)
+	qdel(src)
+// OCULIS EDIT END
 
 /obj/structure/elite_tumor/proc/onEliteWon()
 	activity = TUMOR_PASSIVE

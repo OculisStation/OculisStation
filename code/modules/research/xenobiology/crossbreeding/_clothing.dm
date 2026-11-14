@@ -12,7 +12,7 @@ Slimecrossing Armor
 	inhand_icon_state = "b_mask"
 	body_parts_covered = NONE
 	w_class = WEIGHT_CLASS_SMALL
-	clothing_traits = list(TRAIT_NOBREATH)
+	// clothing_traits = list(TRAIT_NOBREATH) // OCULIS EDIT REMOVAL - SLIME_RANCHER - the rebreather element hands out TRAIT_NOBREATH now
 	armor_type = /datum/armor/mask_nobreath
 	flags_cover = MASKCOVERSMOUTH
 	resistance_flags = NONE
@@ -21,6 +21,7 @@ Slimecrossing Armor
 /datum/armor/mask_nobreath
 	bio = 50
 
+/* // OCULIS EDIT REMOVAL START - SLIME_RANCHER - moved into /datum/element/rebreather
 /obj/item/clothing/mask/nobreath/equipped(mob/living/carbon/human/user, slot)
 	. = ..()
 	if(slot & ITEM_SLOT_MASK)
@@ -31,6 +32,7 @@ Slimecrossing Armor
 /obj/item/clothing/mask/nobreath/dropped(mob/living/carbon/human/user)
 	..()
 	user.remove_status_effect(/datum/status_effect/rebreathing)
+*/ // OCULIS EDIT REMOVAL END
 
 /obj/item/clothing/glasses/prism_glasses
 	name = "prism glasses"
@@ -135,7 +137,7 @@ Slimecrossing Armor
 
 /obj/item/clothing/suit/armor/heavy/adamantine/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/item_equipped_movement_rustle, SFX_PLATE_ARMOR_RUSTLE, 8)
+	AddComponent(/datum/component/item_equipped_movement_rustle, /datum/sound_effect/assoc/plate_armor_rustle, 8)
 
 /obj/item/clothing/suit/armor/heavy/adamantine/IsReflect(def_zone)
 	if((def_zone in list(BODY_ZONE_CHEST, BODY_ZONE_R_ARM, BODY_ZONE_L_ARM, BODY_ZONE_R_LEG, BODY_ZONE_L_LEG)) && prob(hit_reflect_chance))

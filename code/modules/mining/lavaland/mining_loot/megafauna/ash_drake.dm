@@ -43,7 +43,7 @@
 
 /obj/item/clothing/suit/hooded/cloak/drake/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/equipment_bodypart_texture, BODY_ZONE_CHEST, /datum/bodypart_texture/mesh/drake)
+// OCULIS EDIT REMOVAL - AddElement(/datum/element/equipment_bodypart_texture, BODY_ZONE_CHEST, /datum/bodypart_texture/mesh/drake)
 	allowed = GLOB.mining_suit_allowed
 
 /obj/item/clothing/head/hooded/cloakhood/drake
@@ -60,9 +60,13 @@
 	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 
+// OCULIS EDIT REMOVAL START
+/*
 /obj/item/clothing/head/hooded/cloakhood/drake/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/equipment_bodypart_texture, BODY_ZONE_HEAD, /datum/bodypart_texture/mesh/drake)
+*/
+// OCULIS EDIT REMOVAL END
 
 // Spectral blade
 

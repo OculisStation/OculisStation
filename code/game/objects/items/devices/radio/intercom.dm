@@ -145,7 +145,7 @@
 /obj/item/radio/intercom/can_receive(freq, list/levels)
 	if(levels != RADIO_NO_Z_LEVEL_RESTRICTION)
 		var/turf/position = get_turf(src)
-		if(isnull(position) || !(position.z in levels))
+		if(isnull(position) || !((position.z in levels) || warped_room_in_levels(position, levels))) // OCULIS EDIT CHANGE - SLIME_RANCHER - ORIGINAL: if(isnull(position) || !(position.z in levels))
 			return FALSE
 
 	if(freq == FREQ_SYNDICATE)
@@ -191,7 +191,7 @@
 		return .
 
 	balloon_alert(user, "[message] broken")
-	playsound(src, SFX_SPARKS, 75, TRUE, SILENCED_SOUND_EXTRARANGE)
+	playsound(src, /datum/sound_effect/sparks, 75, TRUE, SILENCED_SOUND_EXTRARANGE)
 	if(freqlock == RADIO_FREQENCY_EMAGGABLE_LOCK)
 		freqlock = RADIO_FREQENCY_UNLOCKED
 	if(keylock == RADIO_KEYSLOT_EMAGGABLE_LOCK)

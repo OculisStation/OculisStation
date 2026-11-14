@@ -60,14 +60,14 @@
 #define ACCESS_MAINT_TUNNELS "maint_tunnels"
 /// Access to get into APCs, engineering equipment lockers, typically mapped in for key power rooms across the station, engineering vending machines, emitters, and some other stuff.
 #define ACCESS_ENGINE_EQUIP "engine_equip"
+/// Access to get into air alarms, atmos equipment lockers, potentially atmos storage rooms (like the gas storage room).
+#define ACCESS_ATMOS_EQUIP "atmos_equip"
 /// Access to "construction" areas of the station. However, in mapping, it's used to get access to the front door and lathe room of the engineering department.
 #define ACCESS_CONSTRUCTION "construction"
 /// Access to the technical storage room (contains all the boards and other miscellaneous engineering gear).
 #define ACCESS_TECH_STORAGE "tech_storage"
 /// Access to the telecomms satellite, machinery, and tablets.
 #define ACCESS_TCOMMS "tcomms"
-/// IRIS EDIT - Access to the NTSL console.
-#define ACCESS_TCOMMS_ADMIN "tcomms_admin"
 /// Access to the Auxiliary Base Room, as well as the ability over launching it.
 #define ACCESS_AUX_BASE "aux_base"
 /// Access to all external "space facing" airlocks on the station. Used such that people don't easily "jump ship", or restict free ingress/egress to only a few points on the station.
@@ -297,6 +297,7 @@
 /// Departmental/general/common area accesses. Do not use direct, access via SSid_access.get_flag_access_list(ACCESS_FLAG_COMMON)
 #define COMMON_ACCESS list( \
 	ACCESS_ATMOSPHERICS, \
+	ACCESS_ATMOS_EQUIP, \
 	ACCESS_AUX_BASE, \
 	ACCESS_BAR, \
 	ACCESS_BIT_DEN, \
@@ -367,10 +368,9 @@
 	ACCESS_MINISAT, \
 	ACCESS_RC_ANNOUNCE, \
 	ACCESS_TCOMMS, \
-	ACCESS_TCOMMS_ADMIN, \
 	ACCESS_TELEPORTER, \
 	ACCESS_VAULT, \
-) // IRIS EDIT - Added ACCESS_TCOMMS_ADMIN
+)
 
 /// Private head of staff offices, usually only granted to most cards by trimming. Do not use direct, access via SSid_access.get_flag_access_list(ACCESS_FLAG_PRV_COMMAND)
 #define PRIVATE_COMMAND_ACCESS list( \
@@ -507,6 +507,7 @@
 /// Used to seed the accesses_by_region list in SSid_access. A list of all engineering regional accesses that are overseen by the CE.
 #define REGION_ACCESS_ENGINEERING list( \
 	ACCESS_ATMOSPHERICS, \
+	ACCESS_ATMOS_EQUIP, \
 	ACCESS_AUX_BASE, \
 	ACCESS_BUDGET, \
 	ACCESS_CE, \
@@ -518,9 +519,8 @@
 	ACCESS_MECH_ENGINE, \
 	ACCESS_MINISAT, \
 	ACCESS_TCOMMS, \
-	ACCESS_TCOMMS_ADMIN, \
 	ACCESS_TECH_STORAGE, \
-) // IRIS EDIT - added ACCESS_TCOMMS_ADMIN
+)
 /// Name for the Supply region.
 #define REGION_SUPPLY "Supply"
 /// Used to seed the accesses_by_region list in SSid_access. A list of all cargo regional accesses that are overseen by the HoP.

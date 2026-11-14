@@ -39,7 +39,7 @@
 
 /datum/bt_node/decorator/slime_wants_to_eat/check_condition(datum/ai_controller/controller)
 	var/mob/living/basic/slime/slime_pawn = controller.pawn
-	if(!istype(slime_pawn) || slime_pawn.buckled)
+	if(!istype(slime_pawn) || slime_pawn.is_latched()) // OCULIS EDIT CHANGE - SLIME_RANCHER - ORIGINAL: if(!istype(slime_pawn) || slime_pawn.buckled)
 		return FALSE
 	if(controller.blackboard[BB_SLIME_HUNGER_LEVEL] != SLIME_HUNGER_NONE)
 		return TRUE

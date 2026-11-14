@@ -115,18 +115,6 @@
 "cX" = (
 /turf/open/floor/iron/dark/smooth_large,
 /area/misc/condo)
-"dj" = (
-/obj/structure/table/reinforced/plastitaniumglass,
-/obj/item/choice_beacon/ingredient{
-	pixel_y = 4
-	},
-/obj/item/choice_beacon/ingredient{
-	pixel_y = 11
-	},
-/turf/open/floor/iron/kitchen{
-	dir = 4
-	},
-/area/misc/condo)
 "ds" = (
 /obj/machinery/door/airlock/survival_pod{
 	name = "Restroom";
@@ -407,6 +395,18 @@
 "it" = (
 /turf/closed/wall/mineral/titanium/shuttle_wall/window/evac{
 	icon_state = "15,11"
+	},
+/area/misc/condo)
+"iJ" = (
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/item/pizzavoucher{
+	pixel_y = 4
+	},
+/obj/item/pizzavoucher{
+	pixel_y = 11
+	},
+/turf/open/floor/iron/kitchen{
+	dir = 4
 	},
 /area/misc/condo)
 "iM" = (
@@ -769,6 +769,10 @@
 /obj/effect/turf_decal/siding/wideplating_new/dark/corner,
 /turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/misc/condo)
+"qt" = (
+/obj/structure/marker_beacon/purple,
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/condo)
 "qv" = (
 /obj/effect/turf_decal/siding/wideplating_new{
 	color = "#454545";
@@ -972,10 +976,6 @@
 	dir = 5
 	},
 /turf/open/floor/iron/shuttle/exploration/blanktile,
-/area/misc/condo)
-"sA" = (
-/obj/structure/marker_beacon/purple,
-/turf/open/floor/iron/dark/smooth_large,
 /area/misc/condo)
 "sY" = (
 /obj/structure/table/reinforced/plastitaniumglass,
@@ -2715,7 +2715,7 @@ en
 en
 en
 en
-dj
+iJ
 sa
 qU
 eu
@@ -3052,7 +3052,7 @@ mj
 mj
 sa
 yQ
-sA
+qt
 sa
 RL
 xF
