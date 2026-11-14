@@ -679,6 +679,14 @@ required_map = "KiloStation.dmm"
 coordinates = [117, 108, 1]
 trait_name = "Station"
 
+# Oculis - Kilostation Explorer Spawns
+[templates.kilostation_explorer_spawns]
+map_files = ["kilostation_explorer_spawns.dmm"]
+directory = "_maps/oculis/automapper/templates/kilostation/"
+required_map = "KiloStation.dmm"
+coordinates = [174, 108, 1]
+trait_name = "Station"
+
 # Iris - VoidRaptor Medbay Cold Room
 [templates.VoidRaptor_medbay_cold_room]
 map_files = ["voidraptor_medbay_cold_room.dmm"]
@@ -845,6 +853,14 @@ map_files = ["metastation_robotics_medical_records.dmm"]
 directory = "_maps/oculis/automapper/templates/metastation/"
 required_map = "MetaStation.dmm"
 coordinates = [111, 98, 1]
+trait_name = "Station"
+
+# Oculis - Metastation Robotics Medical Records
+[templates.metastation_redspace_anchor]
+map_files = ["metastation_redspace_anchor.dmm"]
+directory = "_maps/oculis/automapper/templates/metastation/"
+required_map = "MetaStation.dmm"
+coordinates = [174, 167, 1]
 trait_name = "Station"
 
 # Oculis - Oceanpubby Explorer Spawns
@@ -1062,12 +1078,3 @@ directory = "_maps/oculis/automapper/templates/wawastation/"
 required_map = "wawastation.dmm"
 coordinates = [133, 106, 1]
 trait_name = "Station"
-
-# Oculis - Kilostation Explorer Spawns
-[templates.kilostation_explorer_spawns]
-map_files = ["kilostation_explorer_spawns.dmm"]
-directory = "_maps/oculis/automapper/templates/kilostation/"
-required_map = "KiloStation.dmm"
-coordinates = [174, 108, 1]
-trait_name = "Station"
-

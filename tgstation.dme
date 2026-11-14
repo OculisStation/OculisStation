@@ -10561,6 +10561,7 @@
 #include "modular_oculis\modules\stickers\code\boxes.dm"
 #include "modular_oculis\modules\stickers\code\stickers.dm"
 #include "modular_oculis\modules\storm\code\anchor\anchor_computer.dm"
+#include "modular_oculis\modules\storm\code\anchor\area.dm"
 #include "modular_oculis\modules\storm\code\anchor\redspace_anchor.dm"
 #include "modular_oculis\modules\storm\code\anchor\redspace_anchor_soundloop.dm"
 #include "modular_oculis\modules\storm\code\anchor\wires.dm"
