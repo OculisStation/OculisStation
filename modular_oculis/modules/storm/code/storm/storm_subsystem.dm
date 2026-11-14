@@ -81,7 +81,7 @@ PROCESSING_SUBSYSTEM_DEF(eidolon_storm)
 			var/turf/atom_turf = get_turf(unanchored_atom)
 			if(!istype(atom_turf))
 				continue
-			if(!is_valid_z_level(get_turf(src), atom_turf))
+			if(!is_valid_z_level(get_turf(unanchored_atom), atom_turf))
 				continue
 			var/throwtarget = get_edge_target_turf(unanchored_atom, rand(1,8))
 			unanchored_atom.throw_at(throwtarget, 5, 2)

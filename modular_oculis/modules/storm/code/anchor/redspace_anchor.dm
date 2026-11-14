@@ -33,7 +33,7 @@
 	move_resist = INFINITY
 
 	/// Current state of the redspace anchor.
-	var/current_state = POWER_STATE_OFFLINE
+	var/current_state = POWER_STATE_PASSIVE
 	/// If the main breaker is on/off, to enable/disable the anchor.
 	var/breaker = TRUE
 	/// If the power cable is cut or not.
@@ -186,8 +186,8 @@
 	else if(breaker)
 		new_state = TRUE
 
-	charging_state = new_state ? POWER_UP : POWER_DOWN // Startup sequence animation.
 	if(SSticker.current_state == GAME_STATE_PLAYING)
+		charging_state = new_state ? POWER_UP : POWER_DOWN // Startup sequence animation.
 		investigate_log("is now [charging_state == POWER_UP ? "charging" : "discharging"].", INVESTIGATE_ENGINE)
 	update_appearance()
 	START_PROCESSING(SSmachines, src)

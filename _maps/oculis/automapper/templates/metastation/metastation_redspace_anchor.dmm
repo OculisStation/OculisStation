@@ -120,7 +120,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/solars/starboard/fore)
 "uD" = (
-/turf/open/floor/circuit/red,
+/turf/open/floor/circuit/red/off,
 /area/station/redspace_anchor)
 "vm" = (
 /obj/machinery/power/smes/full{
@@ -209,7 +209,7 @@
 /area/station/maintenance/solars/starboard/fore)
 "DA" = (
 /obj/structure/cable,
-/turf/open/floor/circuit/red,
+/turf/open/floor/circuit/red/off,
 /area/station/redspace_anchor)
 "EG" = (
 /obj/structure/cable,
@@ -318,7 +318,7 @@
 "XZ" = (
 /obj/machinery/redspace_anchor,
 /obj/structure/cable,
-/turf/open/floor/circuit/red,
+/turf/open/floor/circuit/red/off,
 /area/station/redspace_anchor)
 "YJ" = (
 /obj/machinery/door/airlock/external,
