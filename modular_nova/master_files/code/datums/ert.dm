@@ -20,7 +20,7 @@
 	opendoors = FALSE
 	ert_template = /datum/map_template/shuttle/ert/solfed/official
 
-	rename_team = "SolGov Officials"
+	rename_team = "SolFed Officials"
 	teamsize = 5
 	code = "FEDERAL"
 	mission = "Audit the station, write reports, and look for any violations of Federal regulations."
@@ -33,7 +33,7 @@
 	ert_template = /datum/map_template/shuttle/ert/solfed
 
 	notify_players = TRUE
-	rename_team = "SolGov Espatier Detachment"
+	rename_team = "SolFed Espatier Detachment"
 	teamsize = 6
 	code = "FEDERAL"
 	mission = "Rescue survivors, and bring order to chaos. Glory to the Federation."
@@ -97,7 +97,7 @@ GRAND RESPONSE VARIANTS OF ESPATIERS, USE ONLY IF SOMEONE ROYALLY FUCKED UP
 	ert_template = /datum/map_template/shuttle/ert/solfed
 
 	notify_players = TRUE
-	rename_team = "SolGov Espatier Detachment"
+	rename_team = "SolFed Espatier Detachment"
 	teamsize = 6
 	code = "FEDERAL"
 	mission = "Rescue survivors, and bring order to chaos. Glory to the Federation."

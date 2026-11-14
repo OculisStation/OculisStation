@@ -3,7 +3,7 @@
 	name = "Ancient Military Simulator"
 	announce_to_ghosts = TRUE
 	cost = BITRUNNER_COST_HIGH
-	desc = "Recreate the events of the Border War's 'hot' part-long-gone as a Solarian strike team sweeping CIN compounds; sponsored by the SolGov recreation enthusiasts. \
+	desc = "Recreate the events of the Border War's 'hot' part-long-gone as a Solarian strike team sweeping CIN compounds; sponsored by the SolFed recreation enthusiasts. \
 	Multiplayer playthrough and proper preparation highly recommended."
 	completion_loot = list(/obj/item/stack/spacecash/c200 = 3) //Sponsored
 	difficulty = BITRUNNER_DIFFICULTY_HIGH

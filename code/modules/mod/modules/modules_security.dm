@@ -3,7 +3,7 @@
 ///Magnetic Harness - Automatically puts guns in your suit storage when you drop them.
 /obj/item/mod/module/magnetic_harness
 	name = "\improper MOD magnetic harness module"
-	desc = "Based off old SolGov harness kits, this magnetic harness automatically attaches dropped guns back to the wearer." // OCULIS EDIT
+	desc = "Based off old SolFed harness kits, this magnetic harness automatically attaches dropped guns back to the wearer." // OCULIS EDIT
 	icon_state = "mag_harness"
 	complexity = 2
 	use_energy_cost = DEFAULT_CHARGE_DRAIN

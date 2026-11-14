@@ -33,7 +33,7 @@
 	spread = 7.5
 
 	lore_blurb = "The Sindano submachinegun was originally produced for a military contract.<br><br>\
-		Thanks to that, they could be found in the hands of any SolGov second-line force, \
+		Thanks to that, they could be found in the hands of any SolFed second-line force, \
 		such as, but not limited to, medics, ship techs, and logistics officers. \
 		Funnily enough, shuttle pilots often had several just to show off.<br><br>\
 		Due to SolFed's quest to extend the lifespans of their logistics officers and quartermasters, \

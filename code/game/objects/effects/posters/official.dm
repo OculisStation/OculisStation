@@ -316,20 +316,20 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/official/periodic_table, 
 /obj/structure/sign/poster/official/plasma_effects/examine_more(mob/user)
 	. = ..()
 	. += span_notice("<i>You browse some of the poster's information...</i>")
-	. += "\t[span_info("Plasma (scientific name Amenthium) is classified by SolGov as a Grade 1 Health Hazard, and has significant risks to health associated with chronic exposure.")]"
+	. += "\t[span_info("Plasma (scientific name Amenthium) is classified by SolFed as a Grade 1 Health Hazard, and has significant risks to health associated with chronic exposure.")]"
 	. += "\t[span_info("Plasma is known to cross the blood/brain barrier and bioaccumulate in brain tissue, where it begins to result in degradation of brain function. The mechanism for attack is not yet fully known, and as such no concrete preventative advice is available barring proper use of PPE (gloves + protective jumpsuit + respirator).")]"
 	. += "\t[span_info("In small doses, plasma induces confusion, short-term amnesia, and heightened aggression. These effects persist with continual exposure.")]"
 	. += "\t[span_info("In individuals with chronic exposure, severe effects have been noted. Further heightened aggression, long-term amnesia, Alzheimer's symptoms, schizophrenia, macular degeneration, aneurysms, heightened risk of stroke, and Parkinsons symptoms have all been noted.")]"
 	. += "\t[span_info("It is recommended that all individuals in unprotected contact with raw plasma regularly check with company health officials.")]"
-	. += "\t[span_info("For more information, please check with SolGov's extranet site on Amenthium: www.sol.gov/health_and_safety/amenthium/, or our internal risk-assessment documents (document numbers #47582-b (Plasma safety data sheets) and #64210 through #64225 (PPE regulations for working with Plasma), available via NanoDoc to all employees).")]"
+	. += "\t[span_info("For more information, please check with SolFed's extranet site on Amenthium: www.sol.gov/health_and_safety/amenthium/, or our internal risk-assessment documents (document numbers #47582-b (Plasma safety data sheets) and #64210 through #64225 (PPE regulations for working with Plasma), available via NanoDoc to all employees).")]"
 	. += "\t[span_info("Nanotrasen: Always looking after your health.")]"
 	return .
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/official/plasma_effects, 32)
 
 /obj/structure/sign/poster/official/terragov
-	name = "SolGov: United for Humanity"
-	desc = "A poster depicting SolGov's logo and motto, reminding viewers of who's looking out for humankind."
+	name = "SolFed: United for Humanity"
+	desc = "A poster depicting SolFed's logo and motto, reminding viewers of who's looking out for humankind."
 	icon_state = "terragov"
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/official/terragov, 32)

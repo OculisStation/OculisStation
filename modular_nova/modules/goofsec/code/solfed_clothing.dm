@@ -2,7 +2,7 @@
 /obj/item/clothing/under/sol_peacekeeper
 	name = "sol peacekeeper uniform"
 	desc = "A military-grade uniform with military grade comfort (none at all), often seen on \
-		SolGov's various peacekeeping forces, and usually alongside a blue helmet."
+		SolFed's various peacekeeping forces, and usually alongside a blue helmet."
 	icon = 'modular_nova/modules/goofsec/icons/obj/uniforms.dmi'
 	icon_state = "peacekeeper"
 	worn_icon = 'modular_nova/modules/goofsec/icons/mob/uniforms.dmi'
@@ -16,7 +16,7 @@
 // EMT jumpsuit
 /obj/item/clothing/under/sol_emt
 	name = "sol emergency medical uniform"
-	desc = "A copy of SolGov's peacekeeping uniform, recolored and re-built with paramedics in mind."
+	desc = "A copy of SolFed's peacekeeping uniform, recolored and re-built with paramedics in mind."
 	icon = 'modular_nova/modules/goofsec/icons/obj/uniforms.dmi'
 	icon_state = "emt"
 	worn_icon = 'modular_nova/modules/goofsec/icons/mob/uniforms.dmi'
@@ -27,10 +27,10 @@
 	has_sensor = HAS_SENSORS
 	random_sensor = FALSE
 
-// SolGov 911 Marshal Uniform
+// SolFed 911 Marshal Uniform
 /obj/item/clothing/under/solfed
-	name = "\improper SolGov marshal's uniform"
-	desc = "A modernization of the SolGov's peacekeeping uniform, modernized and refurbished to feel fashionable yet functional in its new modern setting, tailored for federal personnel."
+	name = "\improper SolFed marshal's uniform"
+	desc = "A modernization of the SolFed's peacekeeping uniform, modernized and refurbished to feel fashionable yet functional in its new modern setting, tailored for federal personnel."
 	icon = 'modular_nova/modules/goofsec/icons/obj/uniforms.dmi'
 	icon_state = "solpolice"
 	worn_icon = 'modular_nova/modules/goofsec/icons/mob/uniforms.dmi'
@@ -40,40 +40,40 @@
 	has_sensor = HAS_SENSORS
 	random_sensor = FALSE
 
-// SolGov 911 Atmos Uniform
+// SolFed 911 Atmos Uniform
 /obj/item/clothing/under/solfed/emergencyfire
-	name = "\improper SolGov emergency atmospherics uniform"
+	name = "\improper SolFed emergency atmospherics uniform"
 	desc = "An official Sol Goverment emergency response uniform, denoting members of their Station Breach Control teams and protecting them from atmospheric or fire hazards."
 	icon_state = "atmosrescue"
 	armor_type = /datum/armor/clothing_under/atmos_adv
 
-// SolGov 911 EMT Uniform
+// SolFed 911 EMT Uniform
 /obj/item/clothing/under/solfed/emergencymed
-	name = "\improper SolGov emergency paramedic uniform"
+	name = "\improper SolFed emergency paramedic uniform"
 	desc = "An official Sol Goverment emergency response uniform, denoting members of their paramedical Trauma Teams and protecting them from viral or chemical hazards."
 	icon_state = "medrescue"
 
 // Federation Officer (Official)
 /obj/item/clothing/under/solfed/officer
-	name = "\improper SolGov high-ranking official uniform"
+	name = "\improper SolFed high-ranking official uniform"
 	desc = "A uniform worn by high ranking officials of the Sol Goverment Armed Forces."
 	icon_state = "solfed_official"
 
 // Federation Enlisted (Non Marine | Official)
 /obj/item/clothing/under/solfed/officer_lowrnk
-	name = "\improper SolGov low-ranking official uniform"
+	name = "\improper SolFed low-ranking official uniform"
 	desc = "A uniform worn by low ranking officials of the Sol Goverment Armed Forces."
 	icon_state = "solfed_enl"
 
 // Federation Civil Services Official
 /obj/item/clothing/under/solfed/official_civil
-	name = "\improper SolGov civil services uniform"
+	name = "\improper SolFed civil services uniform"
 	desc = "A uniform worn by officials of the Sol Goverment's Civil Services Division."
 	icon_state = "solfed_civil"
 
 // Federation Social Services Official
 /obj/item/clothing/under/solfed/official_social
-	name = "\improper SolGov social services uniform"
+	name = "\improper SolFed social services uniform"
 	desc = "A uniform worn by officials of the Sol Goverment's Social Services Division."
 	icon_state = "solfed_social"
 
@@ -109,7 +109,7 @@ SOLFED ARMOR VALUES!
 
 // Sol Goverment Combat Helmet
 /obj/item/clothing/head/helmet/solfed
-	name = "\improper SolGov MK I Combat helmet"
+	name = "\improper SolFed MK I Combat helmet"
 	desc = "A robust Sol Goverment helmet designed with an integrated light to provide vision to the brave marines on the front line, and annoyingly no strap. It feels cheep \
 	it feels mass produced, its perfect for missions that are of lower grade threats."
 	icon_state = "icons/map_icons/clothing/head/_head"
@@ -136,7 +136,7 @@ SOLFED ARMOR VALUES!
 	dog_fashion = null
 
 /obj/item/clothing/head/helmet/solfed/mk2
-	name = "\improper SolGov MK II Combat helmet"
+	name = "\improper SolFed MK II Combat helmet"
 	desc = "A much more robust Sol Goverment helmet than the MK I, coming with its signature integrated light from its older counterpart but also with more heavier protection. \
 	this time with a strap!"
 	icon_state = "icons/map_icons/clothing/head/_head"
@@ -163,10 +163,10 @@ SOLFED ARMOR VALUES!
 /obj/item/clothing/head/helmet/solfed/attack_self(mob/living/user)
 	toggle_helmet_light(user)
 
-// SolGov flak jacket, for marshals
+// SolFed flak jacket, for marshals
 /obj/item/clothing/suit/armor/vest/sol
 	name = "'Gordyn' flak vest"
-	desc = "A light armored jacket common on SolGov personnel who need armor, but find a full vest \
+	desc = "A light armored jacket common on SolFed personnel who need armor, but find a full vest \
 		too impractical or unneeded."
 	icon = 'modular_nova/modules/goofsec/icons/obj/uniforms.dmi'
 	icon_state = "flak"
@@ -174,7 +174,7 @@ SOLFED ARMOR VALUES!
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	dog_fashion = null
 
-// SolGov Heavy Armor for Marines
+// SolFed Heavy Armor for Marines
 /obj/item/clothing/suit/armor/vest/sol/marine
 	name = "\improper 'Hephaestus' light armor"
 	desc = "Through space, snow, oceans, painful hills and terrain, the 'Hephaestus' light armor is one of the Sol Goverment's most unique combat vests, \
@@ -213,7 +213,7 @@ SOLFED ARMOR VALUES!
 	if(!isinhands)
 		. += emissive_appearance(icon_file, "[icon_state]-emissive", src, alpha = src.alpha)
 
-/// SolGov Goggles
+/// SolFed Goggles
 /obj/item/clothing/glasses/sunglasses/solfed
 	name = "robust military goggles"
 	desc = "A strangely old technology modernized to be much more robust in the modern day."
@@ -224,10 +224,10 @@ SOLFED ARMOR VALUES!
 	greyscale_colors = "#4d4d4d"
 	glass_colour_type = /datum/client_colour/glass_colour/gray
 
-// SolGov Espatier Standard
+// SolFed Espatier Standard
 /obj/item/clothing/under/solfed/marines
-	name = "\improper SolGov Espatier uniform"
-	desc = "A camouflage uniform for members of the SolGov Espatier Corps, typically serving as Starfleet (SFSF) and Space Guard (SFSG) shipboard security. \
+	name = "\improper SolFed Espatier uniform"
+	desc = "A camouflage uniform for members of the SolFed Espatier Corps, typically serving as Starfleet (SFSF) and Space Guard (SFSG) shipboard security. \
 		They additionally fill the role of simple space-borne infantry, earning the nickname of \"Space Marines\" from many spacers."
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
 	icon_state = "/obj/item/clothing/under/solfed/marines"
@@ -240,9 +240,9 @@ SOLFED ARMOR VALUES!
 	greyscale_colors = "#4d4d4d#333333#292929"
 	can_adjust = FALSE
 
-/// SolGov Accessories
+/// SolFed Accessories
 /obj/item/clothing/accessory/nova/solfedribbon
-	name = "\improper SolGov rank ribbon"
+	name = "\improper SolFed rank ribbon"
 	desc = "An average military ribbon."
 	icon = 'icons/map_icons/clothing/accessory.dmi'
 	icon_state = "/obj/item/clothing/accessory/nova/solfedribbon"
@@ -301,7 +301,7 @@ SOLFED ARMOR VALUES!
 	post_init_icon_state = "sw_ribbon_3"
 
 /obj/item/clothing/accessory/nova/acc_medal/neckpin/solfed/official
-	name = "\improper SolGov Official neckpin"
+	name = "\improper SolFed Official neckpin"
 	desc = "A special golden neckpin to show true loyalty to the Federation."
 	greyscale_colors = "#ffff66#0099ff"
 
@@ -352,13 +352,13 @@ SOLFED ARMOR VALUES!
 	)
 
 /obj/item/radio/headset/headset_solfed/officials
-	name = "\improper SolGov Officials Headset"
+	name = "\improper SolFed Officials Headset"
 	icon_state = "com_headset"
 	worn_icon_state = "com_headset"
 	keyslot = /obj/item/encryptionkey/headset_solfed/squadleader
 
 /obj/item/radio/headset/headset_solfed/espatier
-	name = "\improper SolGov Espatier headset"
+	name = "\improper SolFed Espatier headset"
 	desc = "A headset used by the Solar Federation espatiers."
 	icon_state = "com_headset_alt"
 	worn_icon_state = "com_headset_alt"
@@ -382,7 +382,7 @@ SOLFED ARMOR VALUES!
 	keyslot = /obj/item/encryptionkey/headset_solfed/squadleader
 
 /obj/item/encryptionkey/headset_solfed/squadleader
-	name = "\improper SolGov grand encryption key"
+	name = "\improper SolFed grand encryption key"
 	special_channels = RADIO_SPECIAL_CENTCOM
 	channels = list(RADIO_CHANNEL_SOLFED = 1, RADIO_CHANNEL_ENGINEERING = 1, RADIO_CHANNEL_MEDICAL = 1, RADIO_CHANNEL_SECURITY = 1, RADIO_CHANNEL_COMMAND = 1)
 	icon_state = "/obj/item/encryptionkey/headset_solfed/squadleader"
