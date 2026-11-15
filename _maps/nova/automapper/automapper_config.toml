@@ -381,6 +381,14 @@ required_map = "IceBoxStation.dmm"
 coordinates = [118, 147, 2]
 trait_name = "Station"
 
+# Oculis - Icebox Redspace Anchor
+[templates.icebox_redspace_anchor]
+map_files = ["icebox_redspace_anchor.dmm"]
+directory = "_maps/oculis/automapper/templates/icebox/"
+required_map = "IceBoxStation.dmm"
+coordinates = [122, 110, 1]
+trait_name = "Station"
+
 # TRAMSTATION MAP EDITS
 # Tramstation Arrivals
 [templates.tramstation_arrivals]
