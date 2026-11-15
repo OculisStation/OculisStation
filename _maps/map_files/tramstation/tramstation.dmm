@@ -41433,6 +41433,16 @@
 	},
 /turf/open/floor/plating/airless,
 /area/station/solars/port/asteriod)
+"ndp" = (
+/obj/machinery/power/smes/engineering,
+/obj/structure/cable,
+/obj/machinery/camera/emp_proof{
+	dir = 10;
+	network = list("ss13","engineering");
+	c_tag = "Engineering - SMES"
+	},
+/turf/open/floor/iron/smooth_large,
+/area/station/engineering/engine_smes)
 "ndt" = (
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/window/reinforced/spawner/directional/north,
@@ -46613,11 +46623,6 @@
 "oVK" = (
 /obj/machinery/power/smes/engineering,
 /obj/structure/sign/warning/electric_shock/directional/west,
-/obj/machinery/camera/emp_proof{
-	dir = 10;
-	network = list("ss13","engineering");
-	c_tag = "Engineering - SMES"
-	},
 /obj/structure/cable,
 /obj/machinery/light/warm/directional/west,
 /turf/open/floor/iron/smooth_large,
@@ -101938,7 +101943,7 @@ lgP
 pkp
 gvR
 anH
-lLt
+ndp
 oVK
 lLt
 uYH
