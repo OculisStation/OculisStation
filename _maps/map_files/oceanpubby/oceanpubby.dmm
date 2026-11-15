@@ -115,14 +115,6 @@
 /obj/structure/cable,
 /turf/open/floor/grass,
 /area/station/science/genetics)
-"aaj" = (
-/obj/structure/window/reinforced/spawner/directional/north,
-/obj/structure/window/reinforced/spawner/directional/east,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 1
-	},
-/turf/open/floor/grass,
-/area/station/science/genetics)
 "aak" = (
 /obj/machinery/airalarm/directional/north,
 /turf/open/floor/engine,
@@ -149,6 +141,15 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/engine,
 /area/station/science/lab)
+"aao" = (
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
+	},
+/mob/living/carbon/human/species/monkey,
+/turf/open/floor/grass,
+/area/station/science/genetics)
 "aaq" = (
 /obj/machinery/atmospherics/components/unary/outlet_injector/on,
 /obj/effect/turf_decal/stripes/line,
@@ -104584,7 +104585,7 @@ jiD
 kaz
 dwD
 sPL
-aaj
+aao
 sBL
 jiD
 bHp
