@@ -1,0 +1,329 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/machinery/airalarm/directional/west,
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+"c" = (
+/turf/closed/wall/r_wall,
+/area/station/security/prison/garden)
+"h" = (
+/obj/machinery/camera/directional/north,
+/obj/structure/cable,
+/turf/open/floor/circuit/red/alt/anim,
+/area/station/redspace_anchor)
+"i" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/circuit/red,
+/area/station/redspace_anchor)
+"k" = (
+/obj/effect/mapping_helpers/airlock/cyclelink_helper,
+/obj/effect/mapping_helpers/airlock/access/any/engineering/external,
+/obj/machinery/door/airlock/external/glass{
+	name = "External Access";
+	space_dir = 1
+	},
+/obj/effect/mapping_helpers/airlock/access/all/engineering/ce,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/catwalk_floor,
+/area/station/redspace_anchor)
+"l" = (
+/turf/open/floor/circuit/red/off,
+/area/station/redspace_anchor)
+"n" = (
+/obj/machinery/power/port_gen/pacman,
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+"p" = (
+/turf/open/floor/circuit/red/alt/anim,
+/area/station/redspace_anchor)
+"q" = (
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/mapping_helpers/airlock/access/any/engineering/external,
+/obj/machinery/door/airlock/external/glass{
+	name = "External Access";
+	space_dir = 1
+	},
+/obj/effect/mapping_helpers/airlock/access/all/engineering/ce,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/catwalk_floor,
+/area/station/redspace_anchor)
+"r" = (
+/obj/machinery/power/smes/full{
+	output_level = 30000
+	},
+/obj/structure/cable,
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+"s" = (
+/obj/machinery/biogenerator,
+/obj/item/reagent_containers/cup/beaker{
+	pixel_x = 8;
+	pixel_y = 2
+	},
+/obj/item/reagent_containers/cup/beaker/large,
+/obj/item/reagent_containers/cup/beaker/large,
+/obj/effect/turf_decal/bot,
+/turf/open/floor/iron/dark/small,
+/area/station/security/prison/garden)
+"t" = (
+/obj/machinery/redspace_anchor,
+/obj/structure/cable,
+/turf/open/floor/circuit/red/off,
+/area/station/redspace_anchor)
+"u" = (
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+"v" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+"x" = (
+/obj/structure/closet/crate,
+/obj/item/stack/sheet/mineral/plasma{
+	amount = 20
+	},
+/obj/item/stack/sheet/mineral/plasma{
+	amount = 20
+	},
+/obj/machinery/turretid{
+	control_area = "/area/station/redspace_anchor";
+	name = "Redspace Anchor Turret Control";
+	pixel_y = -28
+	},
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+"z" = (
+/obj/structure/cable,
+/turf/open/floor/circuit/red/off,
+/area/station/redspace_anchor)
+"A" = (
+/obj/machinery/light/small/directional/west,
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/turretid{
+	control_area = "/area/station/redspace_anchor";
+	name = "Redspace Anchor Turret Control";
+	pixel_x = 28
+	},
+/turf/open/floor/iron/smooth_large,
+/area/station/redspace_anchor)
+"B" = (
+/turf/open/space/basic,
+/area/space)
+"D" = (
+/obj/structure/bookcase/random/reference,
+/obj/machinery/light/warm/directional/north,
+/turf/open/floor/wood,
+/area/station/security/prison/garden)
+"E" = (
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/north,
+/turf/open/floor/circuit/red,
+/area/station/redspace_anchor)
+"F" = (
+/obj/machinery/computer/redspace_anchor_computer{
+	dir = 8
+	},
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+"H" = (
+/turf/closed/wall,
+/area/station/redspace_anchor)
+"J" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+"M" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/turf/open/floor/circuit/red,
+/area/station/redspace_anchor)
+"N" = (
+/obj/machinery/power/smes/full{
+	output_level = 40000
+	},
+/obj/structure/cable,
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+"O" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
+	},
+/turf/open/floor/circuit/red,
+/area/station/redspace_anchor)
+"P" = (
+/obj/effect/spawner/structure/window,
+/obj/structure/curtain/cloth/fancy/mechanical{
+	icon_state = "bounty-open";
+	icon_type = "bounty";
+	id = "prisonlibrarycurtain";
+	name = "curtain"
+	},
+/turf/open/floor/plating,
+/area/station/security/prison/garden)
+"Q" = (
+/turf/closed/wall/r_wall,
+/area/station/redspace_anchor)
+"S" = (
+/obj/machinery/newscaster/directional/south,
+/turf/open/floor/circuit/red/alt/anim,
+/area/station/redspace_anchor)
+"T" = (
+/obj/machinery/power/terminal{
+	dir = 1
+	},
+/obj/structure/cable,
+/obj/machinery/camera/directional/west,
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+"U" = (
+/obj/structure/chair/comfy/black,
+/obj/machinery/camera/directional/north{
+	c_tag = "Prison - Library";
+	network = list("ss13","prison")
+	},
+/obj/item/radio/intercom/directional/north,
+/obj/effect/landmark/start/prisoner,
+/turf/open/floor/wood,
+/area/station/security/prison/garden)
+"V" = (
+/obj/machinery/porta_turret/ai,
+/turf/open/floor/circuit/red/alt/anim,
+/area/station/redspace_anchor)
+"W" = (
+/obj/machinery/power/terminal{
+	dir = 1
+	},
+/obj/structure/cable,
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+"X" = (
+/obj/structure/sign/warning/secure_area/directional/east,
+/turf/open/floor/circuit/red/off,
+/area/station/redspace_anchor)
+"Y" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/circuit/red,
+/area/station/redspace_anchor)
+"Z" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/extinguisher_cabinet/directional/west,
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+
+(1,1,1) = {"
+Q
+Q
+Q
+Q
+Q
+H
+H
+H
+"}
+(2,1,1) = {"
+Q
+N
+T
+Z
+J
+k
+A
+q
+"}
+(3,1,1) = {"
+Q
+r
+W
+v
+F
+H
+Q
+Q
+"}
+(4,1,1) = {"
+Q
+r
+W
+v
+u
+a
+x
+Q
+"}
+(5,1,1) = {"
+Q
+E
+M
+Y
+i
+O
+n
+Q
+"}
+(6,1,1) = {"
+Q
+h
+z
+z
+z
+S
+Q
+Q
+"}
+(7,1,1) = {"
+Q
+p
+l
+l
+t
+p
+Q
+D
+"}
+(8,1,1) = {"
+Q
+V
+X
+l
+X
+V
+Q
+U
+"}
+(9,1,1) = {"
+Q
+Q
+Q
+Q
+Q
+Q
+Q
+P
+"}
+(10,1,1) = {"
+B
+B
+B
+B
+B
+B
+c
+s
+"}
