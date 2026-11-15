@@ -108,10 +108,6 @@
 	},
 /turf/open/floor/circuit/red,
 /area/station/redspace_anchor)
-"C" = (
-/obj/structure/lattice,
-/turf/closed/wall/r_wall,
-/area/station/redspace_anchor)
 "D" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -119,11 +115,6 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/hatch,
 /obj/effect/mapping_helpers/airlock/access/all/engineering/ce,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/redspace_anchor)
 "E" = (
@@ -232,7 +223,7 @@ x
 p
 "}
 (3,1,1) = {"
-C
+X
 X
 X
 D
@@ -243,7 +234,7 @@ x
 p
 "}
 (4,1,1) = {"
-C
+X
 J
 E
 j
@@ -254,7 +245,7 @@ x
 p
 "}
 (5,1,1) = {"
-C
+X
 Y
 r
 g
@@ -265,7 +256,7 @@ x
 p
 "}
 (6,1,1) = {"
-C
+X
 S
 a
 A
@@ -276,7 +267,7 @@ x
 p
 "}
 (7,1,1) = {"
-C
+X
 N
 v
 v
@@ -287,7 +278,7 @@ x
 p
 "}
 (8,1,1) = {"
-C
+X
 i
 y
 y
@@ -298,7 +289,7 @@ x
 p
 "}
 (9,1,1) = {"
-C
+X
 l
 y
 y
