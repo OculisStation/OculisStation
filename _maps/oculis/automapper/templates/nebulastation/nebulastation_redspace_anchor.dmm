@@ -12,6 +12,14 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/redspace_anchor)
+"d" = (
+/obj/machinery/power/smes/full{
+	output_level = 20000
+	},
+/obj/structure/cable,
+/obj/machinery/newscaster/directional/south,
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
 "e" = (
 /turf/closed/wall/r_wall,
 /area/station/redspace_anchor)
@@ -28,6 +36,10 @@
 	name = "Redspace Anchor Turret Control";
 	pixel_x = 28
 	},
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+"h" = (
+/obj/structure/extinguisher_cabinet/directional/north,
 /turf/open/floor/carpet/kinaris/black/whitetrim,
 /area/station/redspace_anchor)
 "l" = (
@@ -87,6 +99,10 @@
 /obj/effect/turf_decal/stripes/corner,
 /turf/open/floor/plating,
 /area/station/engineering/main)
+"C" = (
+/obj/machinery/airalarm/directional/north,
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
 "G" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -211,7 +227,7 @@ e
 f
 f
 e
-Q
+h
 N
 O
 e
@@ -220,7 +236,7 @@ e
 f
 f
 e
-Q
+C
 N
 l
 e
@@ -240,7 +256,7 @@ G
 x
 u
 N
-l
+d
 e
 "}
 (11,1,1) = {"
