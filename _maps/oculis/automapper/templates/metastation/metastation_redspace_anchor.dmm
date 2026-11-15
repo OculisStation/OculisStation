@@ -36,6 +36,10 @@
 	},
 /turf/open/floor/carpet/kinaris/black/whitetrim,
 /area/station/redspace_anchor)
+"eI" = (
+/obj/machinery/newscaster/directional/west,
+/turf/open/floor/circuit/red/alt/anim,
+/area/station/redspace_anchor)
 "eK" = (
 /obj/item/clothing/mask/gas,
 /obj/effect/spawner/random/structure/table_or_rack,
@@ -43,12 +47,12 @@
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/fore)
 "eU" = (
-/obj/machinery/atmospherics/components/unary/airlock_pump/unbolt_only,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/obj/structure/sign/warning/vacuum/external/directional/west,
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/fore)
 "gk" = (
@@ -56,7 +60,7 @@
 /area/station/maintenance/starboard/fore)
 "jb" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/closed/wall,
+/turf/closed/wall/r_wall,
 /area/station/maintenance/starboard/fore)
 "kB" = (
 /obj/effect/spawner/structure/window/reinforced,
@@ -73,6 +77,8 @@
 "mw" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/line,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/carpet/kinaris/black/whitetrim,
 /area/station/redspace_anchor)
 "mE" = (
@@ -88,6 +94,7 @@
 	},
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/line,
+/obj/machinery/firealarm/directional/south,
 /turf/open/floor/carpet/kinaris/black/whitetrim,
 /area/station/redspace_anchor)
 "pu" = (
@@ -106,8 +113,14 @@
 /obj/machinery/light/directional/west,
 /turf/open/floor/circuit/red/alt/anim,
 /area/station/redspace_anchor)
+"sz" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
+/turf/open/floor/circuit/red/alt/anim,
+/area/station/redspace_anchor)
 "tz" = (
-/obj/machinery/power/smes/full,
+/obj/machinery/power/smes/full{
+	output_level = 20000
+	},
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
@@ -123,12 +136,12 @@
 /turf/open/floor/circuit/red/off,
 /area/station/redspace_anchor)
 "vm" = (
-/obj/machinery/power/smes/full{
-	output_level = 0
-	},
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
+	},
+/obj/machinery/power/smes/full{
+	output_level = 30000
 	},
 /turf/open/floor/carpet/kinaris/black/whitetrim,
 /area/station/redspace_anchor)
@@ -151,7 +164,7 @@
 /area/station/maintenance/starboard/fore)
 "yA" = (
 /obj/machinery/power/smes/full{
-	output_level = 55000
+	output_level = 20000
 	},
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/line{
@@ -168,6 +181,10 @@
 /area/station/maintenance/starboard/fore)
 "zH" = (
 /obj/structure/cable,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 4
+	},
+/obj/structure/extinguisher_cabinet/directional/west,
 /turf/open/floor/circuit/red/alt/anim,
 /area/station/redspace_anchor)
 "zM" = (
@@ -179,6 +196,10 @@
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/solars/starboard/fore)
+"zR" = (
+/obj/machinery/airalarm/directional/north,
+/turf/open/floor/circuit/red/alt/anim,
+/area/station/redspace_anchor)
 "AD" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -189,10 +210,6 @@
 /obj/structure/sign/warning/vacuum/external/directional/south,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/fore)
-"Bi" = (
-/obj/structure/lattice/catwalk,
-/turf/closed/wall/r_wall,
-/area/station/redspace_anchor)
 "BN" = (
 /obj/structure/sign/warning/electric_shock,
 /turf/closed/wall/r_wall,
@@ -217,6 +234,7 @@
 /turf/open/floor/circuit/red/alt/anim,
 /area/station/redspace_anchor)
 "Ga" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/circuit/red/alt/anim,
 /area/station/redspace_anchor)
 "GB" = (
@@ -234,33 +252,30 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/carpet/kinaris/black/whitetrim,
 /area/station/redspace_anchor)
 "Ij" = (
 /obj/machinery/door/airlock/external,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
+/obj/effect/mapping_helpers/airlock/access/all/engineering/ce,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/fore)
 "Iy" = (
 /obj/machinery/atmospherics/components/tank/air/layer4,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/fore)
-"KA" = (
-/obj/structure/lattice,
-/turf/closed/wall/r_wall,
-/area/station/redspace_anchor)
 "Mb" = (
-/obj/machinery/power/smes/full{
-	output_level = 0
-	},
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
+	},
+/obj/machinery/power/smes/full{
+	output_level = 30000
 	},
 /turf/open/floor/carpet/kinaris/black/whitetrim,
 /area/station/redspace_anchor)
@@ -277,10 +292,11 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/fore)
-"Nw" = (
-/obj/machinery/power/smes/full,
-/turf/open/space/basic,
-/area/space)
+"Pd" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/circuit/red/alt/anim,
+/area/station/redspace_anchor)
 "PY" = (
 /obj/machinery/power/terminal{
 	dir = 4
@@ -298,6 +314,9 @@
 "RM" = (
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/east,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
 /turf/open/floor/circuit/red/alt/anim,
 /area/station/redspace_anchor)
 "RW" = (
@@ -322,8 +341,11 @@
 /area/station/redspace_anchor)
 "YJ" = (
 /obj/machinery/door/airlock/external,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/structure/cable,
+/obj/effect/mapping_helpers/airlock/access/all/engineering/ce,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/station/redspace_anchor)
 
@@ -359,7 +381,7 @@ RW
 Qw
 RW
 RW
-Nw
+RW
 Qw
 xT
 qG
@@ -382,7 +404,7 @@ UZ
 (5,1,1) = {"
 vX
 vX
-Ga
+eI
 rd
 zH
 vm
@@ -401,7 +423,7 @@ Ga
 GB
 oo
 vX
-xT
+gk
 jb
 dL
 "}
@@ -410,7 +432,7 @@ vX
 uD
 uD
 XZ
-Ga
+Pd
 Ii
 mw
 YJ
@@ -423,23 +445,23 @@ vX
 uD
 uD
 DA
-Ga
+sz
 ew
 PY
 vX
-wy
+gk
 jb
 bI
 "}
 (9,1,1) = {"
 vX
 vX
-Ga
+zR
 EG
 RM
 yA
 tz
-KA
+vX
 RW
 wy
 zA
@@ -452,7 +474,7 @@ vX
 vX
 vX
 vX
-Bi
+vX
 Qw
 wy
 AD
