@@ -35,7 +35,6 @@
 "eI" = (
 /obj/machinery/newscaster/directional/west,
 /obj/machinery/camera/directional/north,
-/obj/machinery/porta_turret/ai,
 /turf/open/floor/circuit/red/alt/anim,
 /area/station/redspace_anchor)
 "eK" = (
@@ -121,11 +120,17 @@
 /area/station/maintenance/starboard/fore)
 "rd" = (
 /obj/structure/cable,
+/turf/open/floor/circuit/red/alt/anim,
+/area/station/redspace_anchor)
+"rn" = (
+/obj/structure/cable,
 /obj/machinery/light/directional/west,
+/obj/machinery/porta_turret/ai,
 /turf/open/floor/circuit/red/alt/anim,
 /area/station/redspace_anchor)
 "sz" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/porta_turret/ai,
 /turf/open/floor/circuit/red,
 /area/station/redspace_anchor)
 "tz" = (
@@ -183,12 +188,14 @@
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/fore)
 "zH" = (
-/obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
-/obj/structure/extinguisher_cabinet/directional/west,
 /turf/open/floor/circuit/red,
+/area/station/redspace_anchor)
+"zJ" = (
+/obj/structure/lattice,
+/turf/closed/wall/r_wall,
 /area/station/redspace_anchor)
 "zM" = (
 /obj/structure/sign/warning/vacuum/external/directional/east,
@@ -201,7 +208,7 @@
 /area/station/maintenance/solars/starboard/fore)
 "zR" = (
 /obj/machinery/airalarm/directional/north,
-/obj/machinery/porta_turret/ai,
+/obj/machinery/camera/directional/north,
 /turf/open/floor/circuit/red/alt/anim,
 /area/station/redspace_anchor)
 "AD" = (
@@ -231,18 +238,26 @@
 /obj/structure/cable,
 /turf/open/floor/circuit/red/off,
 /area/station/redspace_anchor)
-"EG" = (
-/obj/structure/cable,
-/obj/machinery/light/directional/east,
-/obj/machinery/turretid{
-	control_area = "/area/station/redspace_anchor";
-	name = "Redspace Anchor Turret Control";
-	pixel_x = 28
+"DL" = (
+/obj/machinery/power/terminal{
+	dir = 4
 	},
-/turf/open/floor/circuit/red/alt/anim,
+/obj/structure/cable,
+/obj/machinery/camera/directional/south,
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+"DX" = (
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/east,
+/turf/open/floor/circuit/red,
+/area/station/redspace_anchor)
+"Fm" = (
+/obj/structure/cable,
+/turf/open/floor/carpet/kinaris/black/whitetrim,
 /area/station/redspace_anchor)
 "Ga" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/porta_turret/ai,
 /turf/open/floor/circuit/red,
 /area/station/redspace_anchor)
 "GB" = (
@@ -252,8 +267,18 @@
 /obj/structure/cable,
 /turf/open/floor/carpet/kinaris/black/whitetrim,
 /area/station/redspace_anchor)
+"Hh" = (
+/obj/structure/cable,
+/obj/machinery/light/directional/east,
+/obj/machinery/turretid{
+	control_area = "/area/station/redspace_anchor";
+	name = "Redspace Anchor Turret Control";
+	pixel_x = 28
+	},
+/obj/machinery/porta_turret/ai,
+/turf/open/floor/circuit/red/alt/anim,
+/area/station/redspace_anchor)
 "Ii" = (
-/obj/machinery/computer/redspace_anchor_computer,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/carpet/kinaris/black/whitetrim,
@@ -266,10 +291,10 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
-/obj/machinery/door/airlock/hatch,
 /obj/machinery/atmospherics/pipe/bridge_pipe/cyan/visible/layer4{
 	dir = 4
 	},
+/obj/machinery/door/airlock/vault,
 /turf/open/floor/plating,
 /area/station/redspace_anchor)
 "Iy" = (
@@ -284,6 +309,9 @@
 /obj/structure/sign/warning/secure_area/directional/south,
 /turf/open/floor/carpet/kinaris/black/whitetrim,
 /area/station/redspace_anchor)
+"Mj" = (
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
 "Mu" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -295,16 +323,13 @@
 "Pd" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/computer/redspace_anchor_computer,
 /turf/open/floor/circuit/red,
 /area/station/redspace_anchor)
 "PY" = (
-/obj/machinery/power/terminal{
-	dir = 4
-	},
 /obj/structure/cable,
-/obj/effect/mapping_helpers/turn_off_lights_with_lightswitch,
 /obj/machinery/light_switch/directional/south,
-/obj/machinery/camera/directional/south,
+/obj/effect/mapping_helpers/turn_off_lights_with_lightswitch,
 /turf/open/floor/carpet/kinaris/black/whitetrim,
 /area/station/redspace_anchor)
 "Qw" = (
@@ -312,8 +337,6 @@
 /turf/open/space/basic,
 /area/space/nearstation)
 "RM" = (
-/obj/structure/cable,
-/obj/machinery/power/apc/auto_name/directional/east,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
@@ -334,6 +357,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer5,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/fore)
+"We" = (
+/obj/structure/cable,
+/obj/structure/extinguisher_cabinet/directional/west,
+/turf/open/floor/circuit/red,
+/area/station/redspace_anchor)
 "XZ" = (
 /obj/machinery/redspace_anchor,
 /obj/structure/cable,
@@ -345,8 +373,8 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/door/firedoor,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
-/obj/machinery/door/airlock/hatch,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/airlock/vault,
 /turf/open/floor/plating,
 /area/station/redspace_anchor)
 
@@ -379,12 +407,12 @@ pu
 (3,1,1) = {"
 RW
 RW
-Qw
-RW
-RW
-RW
-Qw
-xT
+vX
+vX
+vX
+vX
+zJ
+vX
 qG
 eK
 Mu
@@ -393,10 +421,10 @@ Mu
 RW
 vX
 vX
-vX
-vX
-vX
-vX
+rn
+We
+vm
+Mb
 vX
 Iy
 Vk
@@ -408,8 +436,8 @@ vX
 eI
 rd
 zH
-vm
-Mb
+GB
+oo
 vX
 Iy
 dK
@@ -421,8 +449,8 @@ uD
 uD
 DA
 Ga
-GB
-oo
+Mj
+Fm
 vX
 vX
 jb
@@ -447,7 +475,7 @@ uD
 uD
 DA
 sz
-ew
+Mj
 PY
 vX
 vX
@@ -458,10 +486,10 @@ bI
 vX
 vX
 zR
-EG
+rd
 RM
-yA
-tz
+ew
+DL
 vX
 RW
 hM
@@ -471,10 +499,10 @@ zA
 RW
 vX
 vX
-vX
-vX
-vX
-vX
+Hh
+DX
+yA
+tz
 vX
 Qw
 wy
@@ -483,12 +511,12 @@ AD
 (11,1,1) = {"
 RW
 RW
-RW
-RW
-RW
-RW
-RW
-RW
+vX
+vX
+vX
+vX
+vX
+vX
 RW
 xT
 vZ
