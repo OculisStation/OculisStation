@@ -38,6 +38,8 @@
 /area/station/redspace_anchor)
 "eI" = (
 /obj/machinery/newscaster/directional/west,
+/obj/machinery/camera/directional/north,
+/obj/machinery/porta_turret/ai,
 /turf/open/floor/circuit/red/alt/anim,
 /area/station/redspace_anchor)
 "eK" = (
@@ -53,15 +55,20 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/turretid{
+	control_area = "/area/station/redspace_anchor";
+	name = "Redspace Anchor Turret Control";
+	pixel_x = 28
+	},
 /turf/open/floor/plating,
-/area/station/maintenance/starboard/fore)
+/area/station/redspace_anchor)
 "gk" = (
 /turf/closed/wall/r_wall,
 /area/station/maintenance/starboard/fore)
 "jb" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/closed/wall/r_wall,
-/area/station/maintenance/starboard/fore)
+/area/station/redspace_anchor)
 "kB" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -198,6 +205,7 @@
 /area/station/maintenance/solars/starboard/fore)
 "zR" = (
 /obj/machinery/airalarm/directional/north,
+/obj/machinery/porta_turret/ai,
 /turf/open/floor/circuit/red/alt/anim,
 /area/station/redspace_anchor)
 "AD" = (
@@ -231,6 +239,11 @@
 "EG" = (
 /obj/structure/cable,
 /obj/machinery/light/directional/east,
+/obj/machinery/turretid{
+	control_area = "/area/station/redspace_anchor";
+	name = "Redspace Anchor Turret Control";
+	pixel_x = 28
+	},
 /turf/open/floor/circuit/red/alt/anim,
 /area/station/redspace_anchor)
 "Ga" = (
@@ -264,7 +277,7 @@
 /obj/effect/mapping_helpers/airlock/access/all/engineering/ce,
 /obj/machinery/door/firedoor,
 /turf/open/floor/plating,
-/area/station/maintenance/starboard/fore)
+/area/station/redspace_anchor)
 "Iy" = (
 /obj/machinery/atmospherics/components/tank/air/layer4,
 /turf/open/floor/plating,
@@ -305,6 +318,7 @@
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/mapping_helpers/turn_off_lights_with_lightswitch,
 /obj/machinery/light_switch/directional/south,
+/obj/machinery/camera/directional/south,
 /turf/open/floor/carpet/kinaris/black/whitetrim,
 /area/station/redspace_anchor)
 "Qw" = (
@@ -423,7 +437,7 @@ Ga
 GB
 oo
 vX
-gk
+vX
 jb
 dL
 "}
@@ -449,7 +463,7 @@ sz
 ew
 PY
 vX
-gk
+vX
 jb
 bI
 "}
