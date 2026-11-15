@@ -1,20 +1,20 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
 /turf/open/floor/circuit/red/off,
-/area/space)
+/area/station/redspace_anchor)
 "b" = (
 /obj/machinery/redspace_anchor,
 /obj/structure/cable,
 /turf/open/floor/circuit/red/off,
-/area/space)
+/area/station/redspace_anchor)
 "c" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
 /turf/open/floor/plating,
-/area/station/engineering/main)
+/area/station/redspace_anchor)
 "e" = (
 /turf/closed/wall/r_wall,
-/area/space)
+/area/station/redspace_anchor)
 "f" = (
 /turf/template_noop,
 /area/template_noop)
@@ -29,17 +29,14 @@
 	pixel_x = 28
 	},
 /turf/open/floor/carpet/kinaris/black/whitetrim,
-/area/space)
-"k" = (
-/turf/closed/wall/r_wall,
-/area/station/engineering/circuit_workshop)
+/area/station/redspace_anchor)
 "l" = (
 /obj/machinery/power/smes/full{
 	output_level = 20000
 	},
 /obj/structure/cable,
 /turf/open/floor/carpet/kinaris/black/whitetrim,
-/area/space)
+/area/station/redspace_anchor)
 "m" = (
 /obj/structure/chair/sofa/bench/solo{
 	dir = 8
@@ -56,25 +53,22 @@
 	},
 /turf/open/floor/plating,
 /area/station/engineering/main)
-"n" = (
-/turf/open/floor/carpet/kinaris/black/whitetrim,
-/area/space/nearstation)
 "o" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
 /turf/open/floor/carpet/kinaris/black/whitetrim,
-/area/space)
+/area/station/redspace_anchor)
 "q" = (
 /obj/structure/cable,
 /turf/open/floor/circuit/red/off,
-/area/space)
+/area/station/redspace_anchor)
 "u" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
 /turf/open/floor/carpet/kinaris/black/whitetrim,
-/area/space/nearstation)
+/area/station/redspace_anchor)
 "x" = (
 /obj/machinery/door/airlock/external{
 	name = "Engineering External Access"
@@ -87,7 +81,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
 /turf/open/floor/plating,
-/area/station/engineering/main)
+/area/station/redspace_anchor)
 "A" = (
 /obj/structure/closet/emcloset/anchored,
 /obj/effect/turf_decal/stripes/corner,
@@ -107,10 +101,10 @@
 /obj/machinery/porta_turret/ai,
 /obj/structure/cable,
 /turf/open/floor/circuit/red,
-/area/space)
+/area/station/redspace_anchor)
 "K" = (
 /turf/open/floor/circuit/red,
-/area/space)
+/area/station/redspace_anchor)
 "M" = (
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/south,
@@ -118,20 +112,20 @@
 	dir = 1
 	},
 /turf/open/floor/carpet/kinaris/black/whitetrim,
-/area/space)
+/area/station/redspace_anchor)
 "N" = (
 /obj/machinery/power/terminal,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/carpet/kinaris/black/whitetrim,
-/area/space)
+/area/station/redspace_anchor)
 "O" = (
 /obj/machinery/power/smes/full{
 	output_level = 30000
 	},
 /obj/structure/cable,
 /turf/open/floor/carpet/kinaris/black/whitetrim,
-/area/space)
+/area/station/redspace_anchor)
 "P" = (
 /obj/machinery/door/airlock/external{
 	name = "Engineering External Access"
@@ -145,29 +139,24 @@
 /area/station/engineering/main)
 "Q" = (
 /turf/open/floor/carpet/kinaris/black/whitetrim,
-/area/space)
+/area/station/redspace_anchor)
 "S" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
 /obj/machinery/camera/directional/north,
 /turf/open/floor/carpet/kinaris/black/whitetrim,
-/area/space/nearstation)
+/area/station/redspace_anchor)
 "V" = (
 /obj/machinery/power/terminal,
 /obj/structure/cable,
 /turf/open/floor/carpet/kinaris/black/whitetrim,
-/area/space)
-"Y" = (
-/obj/effect/spawner/structure/window/reinforced,
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/station/engineering/circuit_workshop)
+/area/station/redspace_anchor)
 
 (1,1,1) = {"
 f
 f
-k
+e
 e
 e
 e
@@ -176,7 +165,7 @@ e
 (2,1,1) = {"
 f
 f
-k
+e
 a
 a
 a
@@ -185,7 +174,7 @@ e
 (3,1,1) = {"
 f
 f
-k
+e
 a
 a
 b
@@ -194,7 +183,7 @@ e
 (4,1,1) = {"
 f
 f
-Y
+c
 a
 a
 q
@@ -203,7 +192,7 @@ e
 (5,1,1) = {"
 f
 f
-Y
+c
 K
 K
 J
@@ -212,7 +201,7 @@ e
 (6,1,1) = {"
 f
 f
-Y
+c
 Q
 o
 M
@@ -221,7 +210,7 @@ e
 (7,1,1) = {"
 f
 f
-k
+e
 Q
 N
 O
@@ -230,7 +219,7 @@ e
 (8,1,1) = {"
 f
 f
-k
+e
 Q
 N
 l
@@ -239,7 +228,7 @@ e
 (9,1,1) = {"
 I
 A
-I
+e
 S
 N
 l
@@ -257,8 +246,8 @@ e
 (11,1,1) = {"
 I
 m
-I
-n
+e
+Q
 V
 g
 e
@@ -266,9 +255,9 @@ e
 (12,1,1) = {"
 f
 f
-I
+e
 c
 c
-I
-I
+e
+e
 "}
