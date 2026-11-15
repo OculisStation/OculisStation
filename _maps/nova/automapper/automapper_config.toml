@@ -855,6 +855,14 @@ required_map = "NebulaStation.dmm"
 coordinates = [179, 130, 1]
 trait_name = "Station"
 
+# Oculis - Nebulastation Redspace Anchor
+[templates.nebulastation_redspace_anchor]
+map_files = ["nebulastation_redspace_anchor.dmm"]
+directory = "_maps/oculis/automapper/templates/nebulastation/"
+required_map = "NebulaStation.dmm"
+coordinates = [90, 96, 1]
+trait_name = "Station"
+
 # Oculis - Serenitystation Bouncer Office
 [templates.serenitystation_bouncer_office]
 map_files = ["serenitystation_bouncer_office.dmm"]
