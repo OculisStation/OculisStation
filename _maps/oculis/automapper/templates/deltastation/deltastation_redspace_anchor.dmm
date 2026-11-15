@@ -131,8 +131,8 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/porta_turret/ai,
 /obj/machinery/light_switch/directional/west,
-/obj/structure/cable/multilayer,
 /obj/machinery/camera/directional/west,
+/obj/structure/cable/multilayer/connected,
 /turf/open/floor/carpet/kinaris/black/whitetrim,
 /area/station/redspace_anchor)
 "A" = (
@@ -159,7 +159,7 @@
 /area/station/maintenance/port/fore)
 "F" = (
 /obj/machinery/power/port_gen/pacman,
-/obj/structure/cable/multilayer,
+/obj/structure/cable/multilayer/connected,
 /turf/open/floor/carpet/kinaris/black/whitetrim,
 /area/station/redspace_anchor)
 "H" = (
