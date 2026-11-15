@@ -1,7 +1,4 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"aa" = (
-/turf/template_noop,
-/area/station/maintenance/department/science/central)
 "ab" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment{
@@ -24,9 +21,6 @@
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/department/science/central)
-"ae" = (
-/turf/template_noop,
-/area/ocean)
 "am" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing{
@@ -1090,8 +1084,8 @@ yW
 "}
 (7,1,1) = {"
 yW
-aa
-aa
+yW
+yW
 ab
 WT
 WT
@@ -1119,8 +1113,8 @@ yW
 "}
 (8,1,1) = {"
 yW
-aa
-aa
+yW
+yW
 ac
 qq
 Tt
@@ -1147,9 +1141,9 @@ vM
 yW
 "}
 (9,1,1) = {"
-aa
-aa
-aa
+yW
+yW
+yW
 ac
 qq
 vb
@@ -1176,9 +1170,9 @@ vM
 yW
 "}
 (10,1,1) = {"
-aa
-aa
-aa
+yW
+yW
+yW
 ac
 qq
 qR
@@ -1205,9 +1199,9 @@ AL
 yW
 "}
 (11,1,1) = {"
-aa
-aa
-aa
+yW
+yW
+yW
 UR
 qq
 AV
@@ -1234,9 +1228,9 @@ Wx
 yW
 "}
 (12,1,1) = {"
-aa
-aa
-aa
+yW
+yW
+yW
 UR
 qq
 EF
@@ -1263,9 +1257,9 @@ vM
 yW
 "}
 (13,1,1) = {"
-aa
-aa
-aa
+yW
+yW
+yW
 UR
 qq
 Wj
@@ -1292,9 +1286,9 @@ vM
 yW
 "}
 (14,1,1) = {"
-aa
-ae
-aa
+yW
+yW
+yW
 UR
 qq
 Wj
@@ -1321,9 +1315,9 @@ vM
 yW
 "}
 (15,1,1) = {"
-aa
-ae
-aa
+yW
+yW
+yW
 dd
 qq
 Rm
@@ -1350,9 +1344,9 @@ vM
 yW
 "}
 (16,1,1) = {"
-aa
-ae
-aa
+yW
+yW
+yW
 UR
 qq
 Wv
@@ -1379,9 +1373,9 @@ vM
 yW
 "}
 (17,1,1) = {"
-aa
-aa
-aa
+yW
+yW
+yW
 UR
 qq
 JI
@@ -1408,9 +1402,9 @@ vM
 yW
 "}
 (18,1,1) = {"
-aa
-aa
-aa
+yW
+yW
+yW
 UR
 qq
 QV
@@ -1438,8 +1432,8 @@ yW
 "}
 (19,1,1) = {"
 yW
-aa
-aa
+yW
+yW
 ad
 qq
 eg
@@ -1467,9 +1461,9 @@ yW
 "}
 (20,1,1) = {"
 yW
-aa
-aa
-aa
+yW
+yW
+yW
 qq
 WT
 WT
@@ -1496,12 +1490,12 @@ yW
 "}
 (21,1,1) = {"
 yW
-aa
-aa
-aa
-aa
-aa
-aa
+yW
+yW
+yW
+yW
+yW
+yW
 yW
 yW
 yW
@@ -1526,11 +1520,11 @@ vM
 (22,1,1) = {"
 yW
 yW
-aa
-aa
-aa
-aa
-aa
+yW
+yW
+yW
+yW
+yW
 yW
 yW
 yW
