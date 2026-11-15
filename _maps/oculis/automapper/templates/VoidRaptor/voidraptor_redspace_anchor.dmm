@@ -37,6 +37,10 @@
 /obj/effect/mapping_helpers/airlock/access/all/engineering/ce,
 /turf/open/floor/iron/dark,
 /area/station/engineering/supermatter/room)
+"fH" = (
+/obj/structure/cable/multilayer/connected,
+/turf/closed/wall/r_wall,
+/area/station/redspace_anchor)
 "hQ" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
@@ -369,7 +373,7 @@ Bx
 za
 "}
 (3,1,1) = {"
-lw
+fH
 TY
 TY
 TY
