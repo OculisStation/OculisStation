@@ -12,8 +12,11 @@
 
 /obj/machinery/computer/redspace_anchor_computer/Initialize(mapload, obj/item/circuitboard/C)
 	. = ..()
-	reconnect_anchor()
 	update_appearance()
+
+/obj/machinery/computer/redspace_anchor_computer/post_machine_initialize()
+	. = ..()
+	reconnect_anchor()
 
 /obj/machinery/computer/redspace_anchor_computer/Destroy(force)
 	connected_anchor = null
