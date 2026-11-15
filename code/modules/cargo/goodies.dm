@@ -480,4 +480,5 @@
 	cost = PAYCHECK_CREW * 6
 	contains = list(/obj/item/storage/medkit/surgery)
 
-//end Oculis changes
+// OCULIS EDIT ADDITION END
+
