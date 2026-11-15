@@ -59,6 +59,8 @@
 	set_wires(new /datum/wires/redspace_anchor(src))
 	soundloop = new(src, start_immediately = TRUE)
 	AddElement(/datum/element/manufacturer_examine, COMPANY_CYBERSUN)
+	RegisterSignal(src, COMSIG_MACHINERY_POWER_RESTORED, PROC_REF(on_power_restored))
+	RegisterSignal(src, COMSIG_MACHINERY_POWER_LOST, PROC_REF(on_power_lost))
 	update_appearance()
 
 /obj/machinery/redspace_anchor/Destroy(force)
@@ -168,14 +170,17 @@
 		if(WIRE_DISCHARGE)
 			update_appearance()
 
-/obj/machinery/redspace_anchor/power_change()
-	var/update_power = FALSE
-	if(machine_stat != appearance_power_state)
-		update_power = TRUE
-	. = ..()
-	if(update_power && (SSticker.current_state == GAME_STATE_PLAYING))
-		investigate_log("has [machine_stat & NOPOWER ? "lost" : "regained"] power.", INVESTIGATE_ENGINE)
-		set_power()
+/obj/machinery/redspace_anchor/proc/on_power_lost()
+	SIGNAL_HANDLER
+
+	investigate_log("has lost power.", INVESTIGATE_ENGINE)
+	set_power()
+
+/obj/machinery/redspace_anchor/proc/on_power_restored()
+	SIGNAL_HANDLER
+
+	investigate_log("has regained power.", INVESTIGATE_ENGINE)
+	set_power()
 
 // Set the charging state based on power/breaker.
 /obj/machinery/redspace_anchor/proc/set_power()
@@ -209,6 +214,7 @@
 	update_use_power(NO_POWER_USE)
 	current_state = POWER_STATE_OFFLINE
 	charging_state = POWER_NOMINAL
+	breaker = FALSE
 
 	soundloop.stop()
 	update_appearance()
@@ -284,7 +290,6 @@
 
 /obj/machinery/redspace_anchor/proc/trigger_unsafe_discharge()
 	violetspace_energy = 0
-	breaker = FALSE
 	set_power()
 	priority_announce(
 		text = "Redspace Anchor failure! Unsafe shutdown in progress!",
