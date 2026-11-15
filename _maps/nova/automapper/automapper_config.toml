@@ -991,6 +991,14 @@ required_map = "snowglobe.dmm"
 coordinates = [165, 123, 3]
 trait_name = "Station"
 
+# Oculis - Snowglobe Redspace Anchor
+[templates.snowglobe_redspace_anchor]
+map_files = ["snowglobe_redspace_anchor.dmm"]
+directory = "_maps/oculis/automapper/templates/snowglobe/"
+required_map = "snowglobe.dmm"
+coordinates = [117, 84, 2]
+trait_name = "Station"
+
 # Oculis - Deltastation Explorer Spawns
 [templates.deltastation_explorer_spawns]
 map_files = ["deltastation_explorer_spawns.dmm"]

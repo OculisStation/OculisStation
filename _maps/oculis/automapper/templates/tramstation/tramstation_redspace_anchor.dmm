@@ -136,6 +136,10 @@
 	},
 /turf/open/floor/iron,
 /area/station/engineering/engine_smes)
+"u" = (
+/obj/machinery/light/directional/west,
+/turf/open/floor/circuit/red/alt/anim,
+/area/station/redspace_anchor)
 "v" = (
 /turf/open/floor/circuit/red/off,
 /area/station/redspace_anchor)
@@ -156,6 +160,14 @@
 	},
 /turf/open/floor/iron,
 /area/station/engineering/engine_smes)
+"y" = (
+/obj/machinery/power/smes/full{
+	output_level = 20000
+	},
+/obj/structure/cable,
+/obj/machinery/light/directional/south,
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
 "A" = (
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plating,
@@ -277,7 +289,7 @@ a
 a
 i
 g
-g
+u
 g
 K
 U
@@ -325,7 +337,7 @@ g
 m
 E
 f
-D
+y
 "}
 (8,1,1) = {"
 W

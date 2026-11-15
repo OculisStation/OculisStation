@@ -18,6 +18,7 @@
 	},
 /obj/structure/cable,
 /obj/machinery/newscaster/directional/south,
+/obj/machinery/light/directional/south,
 /turf/open/floor/carpet/kinaris/black/whitetrim,
 /area/station/redspace_anchor)
 "e" = (
@@ -116,6 +117,7 @@
 "J" = (
 /obj/machinery/porta_turret/ai,
 /obj/structure/cable,
+/obj/machinery/light/directional/south,
 /turf/open/floor/circuit/red,
 /area/station/redspace_anchor)
 "K" = (

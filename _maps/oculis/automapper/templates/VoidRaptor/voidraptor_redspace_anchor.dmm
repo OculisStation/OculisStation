@@ -176,6 +176,7 @@
 /area/station/engineering/supermatter/room)
 "zq" = (
 /obj/structure/extinguisher_cabinet/directional/east,
+/obj/machinery/light/directional/east,
 /turf/open/floor/circuit/red/alt/anim,
 /area/station/redspace_anchor)
 "zr" = (
@@ -283,6 +284,7 @@
 /area/station/redspace_anchor)
 "PB" = (
 /obj/structure/cable/multilayer/connected,
+/obj/machinery/light/directional/west,
 /turf/open/floor/circuit/red/alt/anim,
 /area/station/redspace_anchor)
 "Qw" = (
