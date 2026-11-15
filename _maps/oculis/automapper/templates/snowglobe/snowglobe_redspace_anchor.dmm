@@ -201,6 +201,9 @@
 	name = "Redspace Anchor Turret Control";
 	pixel_y = 28
 	},
+/obj/machinery/power/terminal{
+	dir = 4
+	},
 /turf/open/floor/carpet/kinaris/black/whitetrim,
 /area/station/redspace_anchor)
 "CK" = (
@@ -257,6 +260,9 @@
 /area/station/redspace_anchor)
 "Ks" = (
 /obj/structure/cable,
+/obj/machinery/power/terminal{
+	dir = 4
+	},
 /turf/open/floor/carpet/kinaris/black/whitetrim,
 /area/station/redspace_anchor)
 "KQ" = (
