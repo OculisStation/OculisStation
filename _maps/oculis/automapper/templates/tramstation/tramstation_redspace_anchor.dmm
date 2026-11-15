@@ -92,9 +92,6 @@
 /area/station/redspace_anchor)
 "q" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 8
-	},
 /obj/effect/mapping_helpers/airlock/access/all/engineering/engine_equipment,
 /obj/structure/disposalpipe/segment{
 	dir = 4
