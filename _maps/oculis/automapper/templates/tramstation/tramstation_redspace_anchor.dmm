@@ -245,6 +245,13 @@
 "X" = (
 /turf/closed/wall/r_wall,
 /area/station/engineering/engine_smes)
+"Y" = (
+/obj/structure/cable,
+/obj/machinery/power/smes/full{
+	output_level = 30000
+	},
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
 
 (1,1,1) = {"
 a
@@ -310,7 +317,7 @@ v
 v
 J
 o
-D
+Y
 "}
 (7,1,1) = {"
 T

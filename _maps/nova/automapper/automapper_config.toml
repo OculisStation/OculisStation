@@ -879,6 +879,14 @@ required_map = "SerenityStation.dmm"
 coordinates = [116, 171, 2]
 trait_name = "Station"
 
+# Oculis - Serenitystation Redspace Anchor
+[templates.serenitystation_redspace_anchor]
+map_files = ["serenitystation_redspace_anchor.dmm"]
+directory = "_maps/oculis/automapper/templates/serenitystation/"
+required_map = "SerenityStation.dmm"
+coordinates = [173, 90, 1]
+trait_name = "Station"
+
 # Oculis - Metastation Robotics Medical Records
 [templates.metastation_robotics_medical_records]
 map_files = ["metastation_robotics_medical_records.dmm"]

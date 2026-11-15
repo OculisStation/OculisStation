@@ -168,6 +168,13 @@
 /obj/structure/cable,
 /turf/open/floor/carpet/kinaris/black/whitetrim,
 /area/station/redspace_anchor)
+"Y" = (
+/obj/structure/cable,
+/obj/machinery/power/smes/full{
+	output_level = 30000
+	},
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
 
 (1,1,1) = {"
 f
@@ -238,7 +245,7 @@ f
 e
 C
 N
-l
+Y
 e
 "}
 (9,1,1) = {"

@@ -208,7 +208,7 @@
 /obj/structure/cable,
 /obj/machinery/newscaster/directional/north,
 /obj/machinery/power/smes/full{
-	output_level = 20000
+	output_level = 30000
 	},
 /turf/open/floor/carpet/kinaris/black/whitetrim,
 /area/station/redspace_anchor)

@@ -181,11 +181,11 @@
 /turf/open/floor/carpet/kinaris/black/whitetrim,
 /area/station/redspace_anchor)
 "T" = (
-/obj/machinery/power/smes/full{
-	output_level = 20000
-	},
 /obj/structure/cable,
 /obj/structure/sign/warning/secure_area/directional/south,
+/obj/machinery/power/smes/full{
+	output_level = 30000
+	},
 /turf/open/floor/carpet/kinaris/black/whitetrim,
 /area/station/redspace_anchor)
 "U" = (

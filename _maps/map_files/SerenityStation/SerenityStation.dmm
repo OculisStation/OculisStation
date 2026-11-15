@@ -916,6 +916,7 @@
 	req_access = list("atmospherics");
 	pixel_x = 5
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark/smooth_edge,
 /area/station/engineering/atmos)
 "anp" = (
@@ -15082,9 +15083,8 @@
 /obj/structure/cable,
 /obj/structure/sign/warning/radiation/rad_area/directional/south,
 /obj/effect/turf_decal/stripes/line,
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark/smooth_edge,
 /area/station/engineering/atmos)
 "etT" = (
@@ -15298,6 +15298,13 @@
 /obj/item/food/grown/flower/poppy/geranium/fraxinella,
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/station/maintenance/department/security/upper)
+"exw" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/smooth_edge,
+/area/station/engineering/atmos)
 "exx" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/ore_box,
@@ -15884,6 +15891,7 @@
 /obj/structure/cable,
 /obj/structure/sign/warning/fire/directional/south,
 /obj/effect/turf_decal/stripes/line,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark/smooth_edge,
 /area/station/engineering/atmos)
 "eGt" = (
@@ -23108,6 +23116,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/station/hallway/primary/central/fore)
+"gFE" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron/dark,
+/area/station/engineering/atmos)
 "gFJ" = (
 /obj/structure/table,
 /obj/item/reagent_containers/condiment/soysauce,
@@ -54990,6 +55004,13 @@
 	},
 /turf/open/floor/iron,
 /area/station/science/research)
+"pXj" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/line,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron/dark/smooth_edge,
+/area/station/engineering/atmos)
 "pXl" = (
 /obj/effect/turf_decal/siding/dark,
 /obj/effect/landmark/start/hangover,
@@ -71165,6 +71186,15 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark,
 /area/station/maintenance/port/aft)
+"uGk" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron/dark,
+/area/station/engineering/atmos)
 "uGo" = (
 /obj/structure/cable,
 /obj/machinery/light/directional/south,
@@ -73176,6 +73206,7 @@
 "vkb" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/line,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark/smooth_edge,
 /area/station/engineering/atmos)
 "vke" = (
@@ -128011,7 +128042,7 @@ iMY
 dUW
 pCZ
 udV
-iSc
+exw
 hlM
 wvG
 ttt
@@ -128523,9 +128554,9 @@ iMY
 iMY
 iMY
 dUW
-dOs
-udV
-vkb
+uGk
+gFE
+pXj
 lgu
 irR
 lOT
