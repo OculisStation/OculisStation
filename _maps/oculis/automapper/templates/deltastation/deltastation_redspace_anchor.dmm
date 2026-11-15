@@ -1,0 +1,404 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/closed/wall/r_wall,
+/area/station/redspace_anchor)
+"b" = (
+/obj/structure/cable,
+/obj/machinery/power/port_gen/pacman,
+/obj/machinery/light/directional/north,
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+"d" = (
+/obj/machinery/power/smes/full{
+	output_level = 20000
+	},
+/obj/structure/cable,
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+"g" = (
+/obj/machinery/airalarm/directional/east,
+/turf/open/floor/circuit/red,
+/area/station/redspace_anchor)
+"h" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
+	},
+/turf/open/floor/circuit/red/alt/anim,
+/area/station/redspace_anchor)
+"i" = (
+/turf/open/floor/circuit/red,
+/area/station/redspace_anchor)
+"j" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/station/maintenance/port/fore)
+"k" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/circuit/red/alt/anim,
+/area/station/redspace_anchor)
+"l" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+"m" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+"n" = (
+/obj/machinery/computer/redspace_anchor_computer{
+	dir = 4
+	},
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+"o" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/tile/neutral/opposingcorners,
+/turf/open/floor/iron,
+/area/station/maintenance/port/fore)
+"p" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+"q" = (
+/obj/structure/extinguisher_cabinet/directional/west,
+/obj/machinery/light/directional/west,
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+"r" = (
+/turf/open/floor/circuit/red/off,
+/area/station/redspace_anchor)
+"s" = (
+/obj/effect/spawner/random/structure/closet_maintenance,
+/turf/open/floor/plating,
+/area/station/maintenance/port/fore)
+"t" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+"u" = (
+/obj/structure/closet/radiation,
+/obj/effect/turf_decal/trimline/yellow/filled/line{
+	dir = 6
+	},
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/bot,
+/turf/open/floor/iron,
+/area/station/engineering/atmos)
+"v" = (
+/obj/structure/sign/warning/secure_area/directional/east,
+/turf/open/floor/circuit/red/alt/anim,
+/area/station/redspace_anchor)
+"w" = (
+/obj/structure/cable,
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+"x" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/mapping_helpers/burnt_floor,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/station/maintenance/port/fore)
+"y" = (
+/obj/machinery/porta_turret/ai,
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+"z" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/porta_turret/ai,
+/obj/machinery/light_switch/directional/west,
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+"A" = (
+/turf/open/floor/plating,
+/area/station/maintenance/port/fore)
+"B" = (
+/obj/structure/cable,
+/obj/structure/sign/warning/secure_area/directional/south,
+/turf/open/floor/circuit/red/off,
+/area/station/redspace_anchor)
+"C" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/power/apc/auto_name/directional/west,
+/turf/open/floor/circuit/red,
+/area/station/redspace_anchor)
+"D" = (
+/obj/machinery/redspace_anchor,
+/obj/structure/cable,
+/turf/open/floor/circuit/red/off,
+/area/station/redspace_anchor)
+"E" = (
+/turf/closed/wall/r_wall,
+/area/station/maintenance/port/fore)
+"F" = (
+/obj/machinery/power/port_gen/pacman,
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+"H" = (
+/obj/effect/spawner/random/engineering/atmospherics_portable,
+/obj/effect/turf_decal/trimline/yellow/filled/line{
+	dir = 5
+	},
+/obj/effect/turf_decal/bot,
+/obj/machinery/firealarm/directional/east,
+/turf/open/floor/iron,
+/area/station/engineering/atmos)
+"I" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/structure/grille/broken,
+/turf/open/floor/plating,
+/area/station/maintenance/port/fore)
+"K" = (
+/obj/effect/mapping_helpers/broken_floor,
+/obj/effect/spawner/random/structure/grille,
+/turf/open/floor/plating,
+/area/station/maintenance/port/fore)
+"L" = (
+/obj/structure/disposalpipe/segment{
+	dir = 5
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/plating,
+/area/station/maintenance/port/fore)
+"M" = (
+/obj/structure/cable,
+/obj/structure/closet/crate,
+/obj/item/stack/sheet/mineral/plasma{
+	amount = 20
+	},
+/obj/item/stack/sheet/mineral/plasma{
+	amount = 20
+	},
+/obj/machinery/newscaster/directional/north,
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+"N" = (
+/obj/machinery/light/directional/east,
+/obj/effect/turf_decal/trimline/yellow/filled/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/corner,
+/obj/machinery/turretid{
+	control_area = "/area/station/redspace_anchor";
+	name = "Redspace Anchor Turret Control";
+	pixel_x = 28
+	},
+/turf/open/floor/iron,
+/area/station/engineering/atmos)
+"O" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/machinery/door/airlock/hatch,
+/obj/effect/mapping_helpers/airlock/access/all/engineering/ce,
+/turf/open/floor/iron,
+/area/station/redspace_anchor)
+"P" = (
+/obj/machinery/light/directional/east,
+/turf/open/floor/circuit/red/alt/anim,
+/area/station/redspace_anchor)
+"Q" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/trimline/yellow/filled/warning{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/station/engineering/atmos)
+"R" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/plating,
+/area/station/maintenance/port/fore)
+"T" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/airlock/hatch,
+/obj/effect/mapping_helpers/airlock/access/all/engineering/ce,
+/turf/open/floor/plating,
+/area/station/redspace_anchor)
+"V" = (
+/obj/structure/sign/warning/secure_area/directional/south,
+/turf/open/floor/circuit/red/off,
+/area/station/redspace_anchor)
+"W" = (
+/turf/closed/wall,
+/area/station/maintenance/port/fore)
+"X" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/station/maintenance/port/fore)
+"Y" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/turretid{
+	control_area = "/area/station/redspace_anchor";
+	name = "Redspace Anchor Turret Control";
+	pixel_y = -28
+	},
+/turf/open/floor/iron,
+/area/station/redspace_anchor)
+"Z" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
+	},
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+
+(1,1,1) = {"
+H
+N
+Q
+u
+a
+a
+a
+a
+a
+"}
+(2,1,1) = {"
+a
+a
+O
+a
+a
+n
+q
+y
+a
+"}
+(3,1,1) = {"
+a
+F
+p
+z
+C
+k
+k
+h
+a
+"}
+(4,1,1) = {"
+a
+M
+l
+w
+i
+r
+r
+B
+a
+"}
+(5,1,1) = {"
+a
+b
+t
+Z
+i
+r
+r
+D
+a
+"}
+(6,1,1) = {"
+a
+d
+m
+d
+i
+r
+r
+V
+a
+"}
+(7,1,1) = {"
+a
+d
+m
+d
+g
+v
+P
+v
+a
+"}
+(8,1,1) = {"
+a
+d
+Y
+a
+a
+a
+a
+a
+a
+"}
+(9,1,1) = {"
+a
+a
+T
+a
+s
+A
+K
+E
+E
+"}
+(10,1,1) = {"
+E
+I
+X
+X
+X
+X
+j
+x
+j
+"}
+(11,1,1) = {"
+R
+L
+W
+W
+W
+W
+o
+W
+W
+"}

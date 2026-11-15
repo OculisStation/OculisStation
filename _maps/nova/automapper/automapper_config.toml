@@ -967,6 +967,14 @@ required_map = "DeltaStation2.dmm"
 coordinates = [122, 110, 1]
 trait_name = "Station"
 
+# Oculis - Deltastation Redspace Anchor
+[templates.deltastation_redspace_anchor]
+map_files = ["deltastation_redspace_anchor.dmm"]
+directory = "_maps/oculis/automapper/templates/deltastation/"
+required_map = "DeltaStation2.dmm"
+coordinates = [122, 110, 1]
+trait_name = "Station"
+
 # Oculis - Tramstation Robotics Medical Records
 [templates.tramstation_robotics_medical_records]
 map_files = ["tramstation_robotics_medical_records.dmm"]

@@ -31,9 +31,6 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
 /turf/open/floor/carpet/kinaris/black/whitetrim,
 /area/station/redspace_anchor)
 "eI" = (
@@ -83,7 +80,6 @@
 /area/station/maintenance/starboard/fore)
 "mw" = (
 /obj/structure/cable,
-/obj/effect/turf_decal/stripes/line,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/carpet/kinaris/black/whitetrim,
@@ -100,7 +96,6 @@
 	dir = 8
 	},
 /obj/structure/cable,
-/obj/effect/turf_decal/stripes/line,
 /obj/machinery/firealarm/directional/south,
 /turf/open/floor/carpet/kinaris/black/whitetrim,
 /area/station/redspace_anchor)
@@ -122,16 +117,14 @@
 /area/station/redspace_anchor)
 "sz" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
-/turf/open/floor/circuit/red/alt/anim,
+/turf/open/floor/circuit/red,
 /area/station/redspace_anchor)
 "tz" = (
 /obj/machinery/power/smes/full{
 	output_level = 20000
 	},
 /obj/structure/cable,
-/obj/effect/turf_decal/stripes/line{
-	dir = 6
-	},
+/obj/structure/sign/warning/secure_area/directional/south,
 /turf/open/floor/carpet/kinaris/black/whitetrim,
 /area/station/redspace_anchor)
 "uu" = (
@@ -142,11 +135,11 @@
 "uD" = (
 /turf/open/floor/circuit/red/off,
 /area/station/redspace_anchor)
+"uM" = (
+/turf/open/space/basic,
+/area/station/redspace_anchor)
 "vm" = (
 /obj/structure/cable,
-/obj/effect/turf_decal/stripes/line{
-	dir = 9
-	},
 /obj/machinery/power/smes/full{
 	output_level = 30000
 	},
@@ -174,9 +167,6 @@
 	output_level = 20000
 	},
 /obj/structure/cable,
-/obj/effect/turf_decal/stripes/line{
-	dir = 5
-	},
 /turf/open/floor/carpet/kinaris/black/whitetrim,
 /area/station/redspace_anchor)
 "zA" = (
@@ -192,7 +182,7 @@
 	dir = 4
 	},
 /obj/structure/extinguisher_cabinet/directional/west,
-/turf/open/floor/circuit/red/alt/anim,
+/turf/open/floor/circuit/red,
 /area/station/redspace_anchor)
 "zM" = (
 /obj/structure/sign/warning/vacuum/external/directional/east,
@@ -248,29 +238,22 @@
 /area/station/redspace_anchor)
 "Ga" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/circuit/red/alt/anim,
+/turf/open/floor/circuit/red,
 /area/station/redspace_anchor)
 "GB" = (
 /obj/machinery/power/terminal{
 	dir = 8
 	},
 /obj/structure/cable,
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
 /turf/open/floor/carpet/kinaris/black/whitetrim,
 /area/station/redspace_anchor)
 "Ii" = (
 /obj/machinery/computer/redspace_anchor_computer,
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/carpet/kinaris/black/whitetrim,
 /area/station/redspace_anchor)
 "Ij" = (
-/obj/machinery/door/airlock/external,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
@@ -279,6 +262,7 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
+/obj/machinery/door/airlock/hatch,
 /turf/open/floor/plating,
 /area/station/redspace_anchor)
 "Iy" = (
@@ -287,12 +271,10 @@
 /area/station/maintenance/starboard/fore)
 "Mb" = (
 /obj/structure/cable,
-/obj/effect/turf_decal/stripes/line{
-	dir = 10
-	},
 /obj/machinery/power/smes/full{
 	output_level = 30000
 	},
+/obj/structure/sign/warning/secure_area/directional/south,
 /turf/open/floor/carpet/kinaris/black/whitetrim,
 /area/station/redspace_anchor)
 "Mu" = (
@@ -311,14 +293,13 @@
 "Pd" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/circuit/red/alt/anim,
+/turf/open/floor/circuit/red,
 /area/station/redspace_anchor)
 "PY" = (
 /obj/machinery/power/terminal{
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/effect/turf_decal/stripes/line,
 /obj/effect/mapping_helpers/turn_off_lights_with_lightswitch,
 /obj/machinery/light_switch/directional/south,
 /obj/machinery/camera/directional/south,
@@ -334,7 +315,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
-/turf/open/floor/circuit/red/alt/anim,
+/turf/open/floor/circuit/red,
 /area/station/redspace_anchor)
 "RW" = (
 /turf/open/space/basic,
@@ -357,13 +338,13 @@
 /turf/open/floor/circuit/red/off,
 /area/station/redspace_anchor)
 "YJ" = (
-/obj/machinery/door/airlock/external,
 /obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/access/all/engineering/ce,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/door/firedoor,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
+/obj/machinery/door/airlock/hatch,
 /turf/open/floor/plating,
 /area/station/redspace_anchor)
 
@@ -479,7 +460,7 @@ EG
 RM
 yA
 tz
-vX
+uM
 RW
 wy
 zA
