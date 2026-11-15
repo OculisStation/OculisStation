@@ -823,6 +823,14 @@ required_map = "tramstation.dmm"
 coordinates = [85, 136, 2]
 trait_name = "Station"
 
+# Oculis - Tramstation Redspace Anchor
+[templates.tramstation_redspace_anchor]
+map_files = ["tramstation_redspace_anchor.dmm"]
+directory = "_maps/oculis/automapper/templates/tramstation/"
+required_map = "tramstation.dmm"
+coordinates = [100, 93, 1]
+trait_name = "Station"
+
 # Iris - Lavaland W Hermit
 [templates.lavaland_hermit_oculis]
 map_files = ["lavaland_hermit_oculis.dmm"]
