@@ -1,0 +1,4 @@
+author: "RDS88-beeman"
+delete-after: True
+changes:
+  - rscadd: "New goodie bag. You can now order the surgical medkits that doctors spawn with in a single-pack from cargo, in case yours gets destroyed by something or other."
