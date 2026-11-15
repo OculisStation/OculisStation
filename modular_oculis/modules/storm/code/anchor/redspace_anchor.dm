@@ -57,7 +57,7 @@
 	SSeidolon_storm.register_anchor(src)
 	SSeidolon_storm.redspace_anchors += src
 	set_wires(new /datum/wires/redspace_anchor(src))
-	soundloop = new(src, start_immediately = FALSE)
+	soundloop = new(src, start_immediately = TRUE)
 	AddElement(/datum/element/manufacturer_examine, COMPANY_CYBERSUN)
 	update_appearance()
 
