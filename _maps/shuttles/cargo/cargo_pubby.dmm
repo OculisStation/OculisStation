@@ -35,11 +35,6 @@
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/supply)
-"h" = (
-/obj/machinery/light/floor,
-/obj/machinery/light/floor,
-/turf/open/floor/mineral/plastitanium,
-/area/shuttle/supply)
 "i" = (
 /obj/machinery/door/poddoor{
 	id = "QMLoaddoor";
@@ -185,7 +180,7 @@ a
 r
 s
 f
-h
+b
 f
 f
 f
