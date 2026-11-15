@@ -2,6 +2,10 @@
 "a" = (
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/supply)
+"b" = (
+/obj/machinery/light/floor,
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/supply)
 "c" = (
 /obj/machinery/power/shuttle_engine/propulsion/burst/left,
 /turf/open/floor/plating/airless,
@@ -29,6 +33,11 @@
 	dir = 4;
 	id = "QMUnload"
 	},
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/supply)
+"h" = (
+/obj/machinery/light/floor,
+/obj/machinery/light/floor,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/supply)
 "i" = (
@@ -148,12 +157,12 @@ c
 r
 s
 f
+b
 f
 f
 f
 f
-f
-f
+b
 f
 s
 a
@@ -176,12 +185,12 @@ a
 r
 s
 f
+h
 f
 f
 f
 f
-f
-f
+b
 f
 s
 a
