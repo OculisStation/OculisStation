@@ -386,7 +386,7 @@ trait_name = "Station"
 map_files = ["icebox_redspace_anchor.dmm"]
 directory = "_maps/oculis/automapper/templates/icebox/"
 required_map = "IceBoxStation.dmm"
-coordinates = [122, 110, 1]
+coordinates = [119, 92, 2]
 trait_name = "Station"
 
 # TRAMSTATION MAP EDITS
@@ -988,7 +988,7 @@ trait_name = "Station"
 map_files = ["deltastation_redspace_anchor.dmm"]
 directory = "_maps/oculis/automapper/templates/deltastation/"
 required_map = "DeltaStation2.dmm"
-coordinates = [122, 110, 1]
+coordinates = [101, 160, 1]
 trait_name = "Station"
 
 # Oculis - Tramstation Robotics Medical Records
