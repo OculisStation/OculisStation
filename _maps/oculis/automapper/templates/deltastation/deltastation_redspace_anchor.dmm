@@ -132,6 +132,7 @@
 /obj/machinery/porta_turret/ai,
 /obj/machinery/light_switch/directional/west,
 /obj/structure/cable/multilayer,
+/obj/machinery/camera/directional/west,
 /turf/open/floor/carpet/kinaris/black/whitetrim,
 /area/station/redspace_anchor)
 "A" = (
@@ -185,6 +186,7 @@
 /obj/item/stack/sheet/mineral/plasma{
 	amount = 20
 	},
+/obj/machinery/camera/directional/east,
 /turf/open/floor/carpet/kinaris/black/whitetrim,
 /area/station/redspace_anchor)
 "K" = (
