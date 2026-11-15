@@ -193,10 +193,6 @@
 	},
 /turf/open/floor/circuit/red,
 /area/station/redspace_anchor)
-"zJ" = (
-/obj/structure/lattice,
-/turf/closed/wall/r_wall,
-/area/station/redspace_anchor)
 "zM" = (
 /obj/structure/sign/warning/vacuum/external/directional/east,
 /obj/effect/decal/cleanable/cobweb/cobweb2,
@@ -411,7 +407,7 @@ vX
 vX
 vX
 vX
-zJ
+vX
 vX
 qG
 eK
