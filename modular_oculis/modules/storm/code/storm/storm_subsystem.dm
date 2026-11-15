@@ -89,3 +89,10 @@ PROCESSING_SUBSYSTEM_DEF(eidolon_storm)
 				var/mob/living/unanchored_living_mob = unanchored_atom
 				unanchored_living_mob.Immobilize(5 SECONDS)
 				unanchored_living_mob.Paralyze(5 SECONDS)
+
+/datum/controller/subsystem/processing/eidolon_storm/proc/get_storm_report()
+	var/output_text = "\
+		<center>Storm Intensity: <b>[chosen_storm_ruleset.name]</b></center><br>\
+		Please be mindful of redspace phenomena on station premises.<br>\
+		All anomaly incidents are to be catalogued and reported to sectorial command."
+	return output_text
