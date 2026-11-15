@@ -12,9 +12,7 @@
 
 /obj/machinery/computer/redspace_anchor_computer/Initialize(mapload, obj/item/circuitboard/C)
 	. = ..()
-	for(var/obj/machinery/redspace_anchor/anchor as anything in SSmachines.get_machines_by_type(/obj/machinery/redspace_anchor))
-		if(anchor.z == z)
-			connected_anchor = anchor
+	reconnect_anchor()
 	update_appearance()
 
 /obj/machinery/computer/redspace_anchor_computer/Destroy(force)
@@ -31,12 +29,14 @@
 /obj/machinery/computer/redspace_anchor_computer/ui_status(mob/user, datum/ui_state/state)
 	if(HAS_SILICON_ACCESS(user) && connected_anchor.ai_disabled)
 		to_chat(user, span_info("AI control has been disabled."))
-	else if(!connected_anchor.shorted)
+	else if(!connected_anchor?.shorted)
 		return ..()
 	return UI_CLOSE
 
 /obj/machinery/computer/redspace_anchor_computer/ui_interact(mob/user, datum/tgui/ui)
 	. = ..()
+	if(!connected_anchor)
+		reconnect_anchor()
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "RedspaceAnchor", name)
@@ -72,3 +72,8 @@
 				investigate_log("has discharged violetspace energy by [key_name(usr)].", INVESTIGATE_ENGINE)
 				connected_anchor.trigger_safe_discharge()
 				. = TRUE
+
+/obj/machinery/computer/redspace_anchor_computer/proc/reconnect_anchor()
+	for(var/obj/machinery/redspace_anchor/anchor as anything in SSmachines.get_machines_by_type(/obj/machinery/redspace_anchor))
+		if(anchor.z == z)
+			connected_anchor = anchor
