@@ -135,9 +135,6 @@
 "uD" = (
 /turf/open/floor/circuit/red/off,
 /area/station/redspace_anchor)
-"uM" = (
-/turf/open/space/basic,
-/area/station/redspace_anchor)
 "vm" = (
 /obj/structure/cable,
 /obj/machinery/power/smes/full{
@@ -460,7 +457,7 @@ EG
 RM
 yA
 tz
-uM
+vX
 RW
 wy
 zA

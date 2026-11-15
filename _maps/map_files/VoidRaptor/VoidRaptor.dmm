@@ -1322,6 +1322,7 @@
 	id = "engielock";
 	name = "Engineering Lockdown Blast Door"
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/station/maintenance/department/engine)
 "asM" = (
@@ -44233,6 +44234,12 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/security/prison)
+"mss" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/station/engineering/supermatter/room)
 "msv" = (
 /obj/effect/turf_decal/trimline/dark_red/filled/warning{
 	dir = 8
@@ -44941,6 +44948,14 @@
 	dir = 8
 	},
 /area/station/hallway/primary/fore)
+"mDz" = (
+/obj/machinery/atmospherics/pipe/heat_exchanging/simple{
+	dir = 10
+	},
+/obj/structure/lattice/catwalk,
+/obj/machinery/computer/redspace_anchor_computer,
+/turf/open/space/basic,
+/area/space/nearstation)
 "mDE" = (
 /obj/structure/chair/office/light{
 	dir = 4
@@ -64962,6 +64977,7 @@
 "saF" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating,
 /area/station/engineering/supermatter/room)
 "saR" = (
@@ -119122,7 +119138,7 @@ kaU
 pBQ
 kaU
 pBQ
-kaU
+mDz
 pBQ
 odJ
 jSm
@@ -120414,8 +120430,8 @@ cmr
 sRa
 ejY
 fey
-fey
 gXe
+mss
 saF
 asv
 num

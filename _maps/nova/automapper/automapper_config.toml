@@ -724,7 +724,7 @@ trait_name = "Station"
 map_files = ["voidraptor_redspace_anchor.dmm"]
 directory = "_maps/oculis/automapper/templates/VoidRaptor/"
 required_map = "VoidRaptor.dmm"
-coordinates = [175, 189, 1]
+coordinates = [111, 53, 1]
 trait_name = "Station"
 
 # Iris - SerenityStation Bridge Fax
