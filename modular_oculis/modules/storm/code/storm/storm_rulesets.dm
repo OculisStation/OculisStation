@@ -37,7 +37,7 @@
 	name = "Monsoon"
 	intensity = STORM_INTENSITY_MONSOON
 	min_pop = 25
-	storm_cooldown = 5 MINUTES
+	storm_cooldown = 2 MINUTES
 
 #undef STORM_INTENSITY_NONE
 #undef STORM_INTENSITY_CALM
