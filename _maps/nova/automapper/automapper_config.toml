@@ -916,7 +916,7 @@ trait_name = "Station"
 map_files = ["oceanpubby_redspace_anchor.dmm"]
 directory = "_maps/oculis/automapper/templates/oceanpubby/"
 required_map = "oceanpubby.dmm"
-coordinates = [135, 77, 1]
+coordinates = [106, 98, 1]
 trait_name = "Station"
 
 # Oculis - Oceanpubby Robotics Medical Records
