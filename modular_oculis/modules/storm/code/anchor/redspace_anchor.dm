@@ -324,8 +324,6 @@
 /obj/machinery/redspace_anchor/multitool_act(mob/living/user, obj/item/tool)
 	. = ..()
 	var/obj/item/multitool/multitool = tool
-	if(multitool.buffer && istype(multitool.buffer, /obj/machinery/redspace_anchor))
-		var/obj/machinery/redspace_anchor/buffered_anchor = multitool.buffer
 	multitool.set_buffer(src)
 	balloon_alert(user, "anchor saved to multitool buffer")
 	return ITEM_INTERACT_SUCCESS
