@@ -3,6 +3,17 @@
 	greyscale_colors = CIRCUIT_COLOR_COMMAND
 	build_path = /obj/machinery/computer/redspace_anchor_computer
 
+/datum/design/redspace_anchor_computer
+	name = "Redspace Anchor Controller"
+	desc = "Can be used to toggle and discharge connected redspace anchors."
+	build_type = PROTOLATHE | AWAY_LATHE
+	materials = list(/datum/material/glass =HALF_SHEET_MATERIAL_AMOUNT, /datum/material/gold =SMALL_MATERIAL_AMOUNT * 2)
+	build_path = /obj/item/circuitboard/computer/redspace_anchor_control
+	category = list(
+		RND_SUBCATEGORY_MACHINE_ENGINEERING
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING
+
 /obj/machinery/computer/redspace_anchor_computer
 	name = "redspace anchor control computer"
 	desc = "Used to control the redspace anchor."
@@ -13,10 +24,8 @@
 /obj/machinery/computer/redspace_anchor_computer/Initialize(mapload, obj/item/circuitboard/C)
 	. = ..()
 	update_appearance()
-
-/obj/machinery/computer/redspace_anchor_computer/post_machine_initialize()
-	. = ..()
-	reconnect_anchor()
+	if(mapload)
+		connect_to_anchor()
 
 /obj/machinery/computer/redspace_anchor_computer/Destroy(force)
 	connected_anchor = null
@@ -30,7 +39,7 @@
 	return ..()
 
 /obj/machinery/computer/redspace_anchor_computer/ui_status(mob/user, datum/ui_state/state)
-	if(HAS_SILICON_ACCESS(user) && connected_anchor.ai_disabled)
+	if(HAS_SILICON_ACCESS(user) && connected_anchor?.ai_disabled)
 		to_chat(user, span_info("AI control has been disabled."))
 	else if(!connected_anchor?.shorted)
 		return ..()
@@ -38,8 +47,6 @@
 
 /obj/machinery/computer/redspace_anchor_computer/ui_interact(mob/user, datum/tgui/ui)
 	. = ..()
-	if(!connected_anchor)
-		reconnect_anchor()
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "RedspaceAnchor", name)
@@ -47,6 +54,9 @@
 
 /obj/machinery/computer/redspace_anchor_computer/ui_data(mob/user)
 	var/list/data = list()
+	if(!connected_anchor)
+		data["no_anchor"] = TRUE
+		return data
 	data["breaker"] = connected_anchor.breaker
 	data["charge_count"] = connected_anchor.charge_count
 	data["charging_state"] = connected_anchor.charging_state
@@ -76,7 +86,20 @@
 				connected_anchor.trigger_safe_discharge()
 				. = TRUE
 
-/obj/machinery/computer/redspace_anchor_computer/proc/reconnect_anchor()
+/obj/machinery/computer/redspace_anchor_computer/proc/connect_to_anchor()
 	for(var/obj/machinery/redspace_anchor/anchor as anything in SSmachines.get_machines_by_type(/obj/machinery/redspace_anchor))
 		if(anchor.z == z)
 			connected_anchor = anchor
+
+/obj/machinery/computer/redspace_anchor_computer/multitool_act(mob/living/user, obj/item/tool)
+	. = ..()
+	var/obj/item/multitool/multitool = tool
+	if(!(multitool.buffer))
+		balloon_alert(user, "buffer is empty")
+		return ITEM_INTERACT_BLOCKING
+	if(!(istype(multitool.buffer, /obj/machinery/redspace_anchor)))
+		balloon_alert(user, "buffered machine data is incompatible")
+		return ITEM_INTERACT_BLOCKING
+	connected_anchor = multitool.buffer
+	balloon_alert(user, "anchor linked successfully")
+	return ITEM_INTERACT_SUCCESS
