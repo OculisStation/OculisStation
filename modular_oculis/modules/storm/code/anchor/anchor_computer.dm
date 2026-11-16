@@ -10,7 +10,7 @@
 	materials = list(/datum/material/glass =HALF_SHEET_MATERIAL_AMOUNT, /datum/material/gold =SMALL_MATERIAL_AMOUNT * 2)
 	build_path = /obj/item/circuitboard/computer/redspace_anchor_control
 	category = list(
-		RND_SUBCATEGORY_MACHINE_ENGINEERING
+		RND_SUBCATEGORY_COMPUTER_ENGINEERING
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING
 
