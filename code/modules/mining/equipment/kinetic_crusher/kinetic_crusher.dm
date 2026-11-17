@@ -17,7 +17,7 @@
 	icon_angle = -45
 	lefthand_file = 'icons/mob/inhands/weapons/hammers_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/hammers_righthand.dmi'
-	resistance_flags = FIRE_PROOF
+	resistance_flags = FIRE_PROOF | LAVA_PROOF // OCULIS EDIT ADDITION - adds LAVA_PROOF tag
 	force = 0 //You can't hit stuff unless wielded
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_BACK
