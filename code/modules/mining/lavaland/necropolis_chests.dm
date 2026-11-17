@@ -29,7 +29,7 @@
 	name = "dragon chest"
 
 /obj/structure/closet/crate/necropolis/dragon/PopulateContents()
-	var/loot = rand(1,4)
+	var/loot = rand(2,4) // OCULIS EDIT - Commenting out 1 as our server lacks the ghost population to support, and it is functionally a dead item
 	switch(loot)
 		if(1)
 			new /obj/item/melee/ghost_sword(src)
@@ -58,12 +58,16 @@
 
 /obj/structure/closet/crate/necropolis/bubblegum/PopulateContents()
 	new /obj/item/clothing/suit/hooded/hostile_environment(src)
-	var/loot = rand(1,2)
+	new /obj/item/bloodcrawl_bottle(src)
+	new /obj/item/soulscythe(src)
+	// OCULIS EDIT - Removes RNG in favor of guaranteeing loot, much like colossus. Only one of these are guaranteed to spawn a map, after all.
+
+/*	var/loot = rand(1,2)
 	switch(loot)
 		if(1)
 			new /obj/item/bloodcrawl_bottle(src) //NOVA EDIT CHANGE - ORIGINAL : new /obj/item/mayhem(src)
 		if(2)
-			new /obj/item/soulscythe(src)
+			new /obj/item/soulscythe(src) */
 
 /obj/structure/closet/crate/necropolis/bubblegum/crusher
 	name = "bloody bubblegum chest"

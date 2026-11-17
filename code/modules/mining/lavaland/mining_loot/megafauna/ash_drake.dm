@@ -176,7 +176,7 @@
 		return
 
 	var/mob/living/carbon/human/consumer = user
-	var/random = rand(2,4) //NOVA EDIT - Commenting out #1 because it makes people invisible.
+	var/random = rand(3,4) //NOVA EDIT - Commenting out #1 because it makes people invisible. // OCULIS EDIT - Commented out #2
 
 	switch(random)
 		if(1)
