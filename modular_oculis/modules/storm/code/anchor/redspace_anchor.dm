@@ -192,6 +192,7 @@
 
 	if(SSticker.current_state == GAME_STATE_PLAYING)
 		charging_state = new_state ? POWER_UP : POWER_DOWN // Startup sequence animation.
+		update_use_power(new_state ? ACTIVE_POWER_USE : NO_POWER_USE)
 		investigate_log("is now [charging_state == POWER_UP ? "charging" : "discharging"].", INVESTIGATE_ENGINE)
 	update_appearance()
 	START_PROCESSING(SSmachines, src)
@@ -240,10 +241,8 @@
 	else
 		if(charging_state == POWER_UP)
 			charge_count += 2
-			update_use_power(ACTIVE_POWER_USE)
 		else if(charging_state == POWER_DOWN)
 			charge_count -= 2
-			update_use_power(NO_POWER_USE)
 
 		for(var/mob/mobs as anything in GLOB.mob_list)
 			var/turf/mob_turf = get_turf(mobs)
