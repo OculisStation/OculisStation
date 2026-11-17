@@ -42,7 +42,7 @@
 	reqs = list(
 		/obj/item/stack/sheet/bone = 2,
 		/obj/item/stack/sheet/sinew/wolf = 1,
-		/obj/item/stack/sheet/animalhide/bear = 1,
+		/obj/item/stack/sheet/animalhide/goliath_hide/polar_bear_hide = 1, // OCULIS EDIT - makes the damn flute actually craftable - ORIGINAL: /obj/item/stack/sheet/animalhide/bear = 1,
 		/obj/item/knife/scrimshaw_knife = 1
 	)
 
