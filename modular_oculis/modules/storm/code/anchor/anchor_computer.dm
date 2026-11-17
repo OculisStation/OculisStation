@@ -2,6 +2,7 @@
 	name = "Redspace Anchor Control"
 	greyscale_colors = CIRCUIT_COLOR_COMMAND
 	build_path = /obj/machinery/computer/redspace_anchor_computer
+	custom_materials = list(/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/gold = SMALL_MATERIAL_AMOUNT * 2)
 
 /datum/design/redspace_anchor_computer
 	name = "Redspace Anchor Controller"
