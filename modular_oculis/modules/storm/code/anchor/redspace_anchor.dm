@@ -240,9 +240,10 @@
 	else
 		if(charging_state == POWER_UP)
 			charge_count += 2
-			use_energy(active_power_usage)
+			update_use_power(ACTIVE_POWER_USE)
 		else if(charging_state == POWER_DOWN)
 			charge_count -= 2
+			update_use_power(NO_POWER_USE)
 
 		for(var/mob/mobs as anything in GLOB.mob_list)
 			var/turf/mob_turf = get_turf(mobs)
