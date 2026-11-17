@@ -19,19 +19,13 @@
 /turf/open/floor/carpet/kinaris/black/whitetrim,
 /area/station/redspace_anchor)
 "i" = (
-/obj/structure/cable,
 /obj/machinery/light/directional/west,
 /turf/open/floor/circuit/red/alt/anim,
-/area/station/redspace_anchor)
-"k" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/computer/redspace_anchor_computer,
-/turf/open/floor/carpet/kinaris/black/whitetrim,
 /area/station/redspace_anchor)
 "l" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/porta_turret/ai,
 /turf/open/floor/circuit/red,
 /area/station/redspace_anchor)
 "m" = (
@@ -46,7 +40,6 @@
 "r" = (
 /obj/machinery/newscaster/directional/west,
 /obj/machinery/camera/directional/north,
-/obj/machinery/porta_turret/ai,
 /turf/open/floor/circuit/red/alt/anim,
 /area/station/redspace_anchor)
 "t" = (
@@ -56,7 +49,6 @@
 /obj/structure/cable,
 /obj/effect/mapping_helpers/turn_off_lights_with_lightswitch,
 /obj/machinery/light_switch/directional/south,
-/obj/machinery/camera/directional/south,
 /turf/open/floor/carpet/kinaris/black/whitetrim,
 /area/station/redspace_anchor)
 "u" = (
@@ -74,25 +66,22 @@
 /area/station/redspace_anchor)
 "x" = (
 /obj/machinery/airalarm/directional/north,
-/obj/machinery/porta_turret/ai,
 /turf/open/floor/circuit/red/alt/anim,
 /area/station/redspace_anchor)
 "y" = (
 /turf/open/floor/carpet/kinaris/black/whitetrim,
 /area/station/redspace_anchor)
-"A" = (
-/obj/structure/cable,
-/turf/open/floor/circuit/red/off,
-/area/station/redspace_anchor)
 "B" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
+/obj/machinery/porta_turret/ai,
 /turf/open/floor/circuit/red,
 /area/station/redspace_anchor)
 "D" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/computer/redspace_anchor_computer,
 /turf/open/floor/circuit/red,
 /area/station/redspace_anchor)
 "H" = (
@@ -120,14 +109,13 @@
 	},
 /turf/open/floor/circuit/red,
 /area/station/redspace_anchor)
-"O" = (
+"L" = (
 /obj/structure/cable,
+/obj/machinery/firealarm/directional/west,
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+"O" = (
 /obj/machinery/light/directional/east,
-/obj/machinery/turretid{
-	control_area = "/area/station/redspace_anchor";
-	name = "Redspace Anchor Turret Control";
-	pixel_x = 28
-	},
 /turf/open/floor/circuit/red/alt/anim,
 /area/station/redspace_anchor)
 "R" = (
@@ -135,7 +123,11 @@
 	dir = 8
 	},
 /obj/structure/cable,
-/obj/machinery/firealarm/directional/south,
+/obj/machinery/turretid{
+	control_area = "/area/station/redspace_anchor";
+	name = "Redspace Anchor Turret Control";
+	pixel_y = -28
+	},
 /turf/open/floor/carpet/kinaris/black/whitetrim,
 /area/station/redspace_anchor)
 "T" = (
@@ -181,7 +173,7 @@ a
 r
 i
 H
-c
+L
 Y
 v
 a
@@ -190,7 +182,7 @@ a
 a
 m
 m
-A
+m
 B
 y
 g
@@ -203,7 +195,7 @@ m
 m
 d
 D
-k
+u
 u
 o
 I
@@ -212,7 +204,7 @@ I
 a
 m
 m
-A
+m
 l
 y
 Z
