@@ -69,6 +69,7 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	//IRIS EDIT ADDITION END
 	//OCULIS EDIT ADDITION START
 	list(/datum/quirk/affluent, /datum/quirk/indebted),
+	list(/datum/quirk/multiple_arms, /datum/quirk/handedness),
 	//OCULIS EDIT ADDITION END
 ))
 
