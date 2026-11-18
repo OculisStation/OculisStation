@@ -175,7 +175,7 @@
 /area/station/maintenance/starboard/fore)
 "yA" = (
 /obj/machinery/power/smes/full{
-	output_level = 20000
+	output_level = 30000
 	},
 /obj/structure/cable,
 /turf/open/floor/carpet/kinaris/black/whitetrim,
