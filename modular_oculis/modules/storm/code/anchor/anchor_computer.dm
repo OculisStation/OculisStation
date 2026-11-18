@@ -25,7 +25,9 @@
 /obj/machinery/computer/redspace_anchor_computer/Initialize(mapload, obj/item/circuitboard/C)
 	. = ..()
 	update_appearance()
-	if(mapload)
+
+/obj/machinery/computer/redspace_anchor_computer/post_machine_initialize()
+	if(SSticker.current_state <= GAME_STATE_SETTING_UP)
 		connect_to_anchor()
 
 /obj/machinery/computer/redspace_anchor_computer/Destroy(force)
