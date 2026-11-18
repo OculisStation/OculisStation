@@ -172,38 +172,40 @@
 		if(WIRE_POWER)
 			if(!wires.is_cut(WIRE_POWER))
 				shorted = FALSE
-			set_power()
 		if(WIRE_AI)
 			if(!wires.is_cut(WIRE_AI))
 				ai_disabled = FALSE
 		if(WIRE_ALARM)
 			if(!wires.is_cut(WIRE_ALARM))
 				alarm_disabled = FALSE
-		if(WIRE_DISCHARGE)
-			update_appearance()
 
 /obj/machinery/redspace_anchor/proc/on_power_lost()
 	SIGNAL_HANDLER
 
 	investigate_log("has lost power.", INVESTIGATE_ENGINE)
-	set_power()
+	if(has_power())
+		return
+	breaker_toggle(FALSE)
 
 /obj/machinery/redspace_anchor/proc/on_power_restored()
 	SIGNAL_HANDLER
 
 	investigate_log("has regained power.", INVESTIGATE_ENGINE)
-	set_power()
 
-// Set the charging state based on power/breaker.
-/obj/machinery/redspace_anchor/proc/set_power()
-	var/new_state = FALSE
-	if(machine_stat & (NOPOWER|BROKEN) || !breaker || shorted)
+// Set the charging state based on power.
+/obj/machinery/redspace_anchor/proc/has_power()
+	var/new_state = TRUE
+	if(machine_stat & (NOPOWER|BROKEN) || shorted)
 		new_state = FALSE
-	else if(breaker)
-		new_state = TRUE
+	return new_state
 
+// What is our breaker being set to?
+/obj/machinery/redspace_anchor/proc/breaker_toggle(new_state)
+	if(!has_power())
+		new_state = FALSE
+	breaker = new_state
 	if(SSticker.current_state == GAME_STATE_PLAYING)
-		charging_state = new_state ? POWER_UP : POWER_DOWN // Startup sequence animation.
+		charging_state = breaker ? POWER_UP : POWER_DOWN // Startup sequence animation.
 		investigate_log("is now [charging_state == POWER_UP ? "charging" : "discharging"].", INVESTIGATE_ENGINE)
 	update_appearance()
 	START_PROCESSING(SSmachines, src)
@@ -223,7 +225,7 @@
 	STOP_PROCESSING(SSmachines, src)
 
 /obj/machinery/redspace_anchor/proc/disable()
-	update_use_power(NO_POWER_USE)
+	update_use_power(IDLE_POWER_USE)
 	current_state = POWER_STATE_OFFLINE
 	charging_state = POWER_NOMINAL
 	breaker = FALSE
@@ -255,7 +257,7 @@
 			update_use_power(ACTIVE_POWER_USE)
 		else if(charging_state == POWER_DOWN)
 			charge_count -= 2
-			update_use_power(NO_POWER_USE)
+			update_use_power(IDLE_POWER_USE)
 
 		for(var/mob/mobs as anything in GLOB.mob_list)
 			var/turf/mob_turf = get_turf(mobs)
@@ -308,7 +310,7 @@
 
 /obj/machinery/redspace_anchor/proc/trigger_unsafe_discharge()
 	violetspace_energy = 0
-	set_power()
+	breaker_toggle(FALSE)
 	priority_announce(
 		text = "Redspace Anchor failure! Unsafe shutdown in progress!",
 		title = "Redspace Anchor",

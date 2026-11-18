@@ -76,12 +76,11 @@
 
 	switch(action)
 		if("gentoggle")
-			connected_anchor.breaker = !connected_anchor.breaker
 			investigate_log("was toggled [connected_anchor.breaker ? "<font color='green'>ON</font>" : "<font color='red'>OFF</font>"] by [key_name(usr)].", INVESTIGATE_ENGINE)
+			connected_anchor.breaker_toggle(!connected_anchor.breaker)
 			if(connected_anchor.violetspace_energy)
 				connected_anchor.trigger_unsafe_discharge()
 				investigate_log("was overloaded by remaining violetspace energy.", INVESTIGATE_ENGINE)
-			connected_anchor.set_power()
 			update_appearance()
 			. = TRUE
 		if("discharge_violetspace")

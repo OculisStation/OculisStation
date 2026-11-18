@@ -4,11 +4,11 @@
 
 /datum/wires/redspace_anchor/New(atom/holder)
 	wires = list(
-		WIRE_POWER,
-		WIRE_POWER,
-		WIRE_POWER,
-		WIRE_POWER,
-		WIRE_POWER,
+		WIRE_POWER1,
+		WIRE_POWER2,
+		WIRE_POWER3,
+		WIRE_POWER4,
+		WIRE_POWER5,
 		WIRE_AI,
 		WIRE_ALARM,
 		WIRE_DISCHARGE,
@@ -39,6 +39,7 @@
 		if(WIRE_POWER) // Short out for a long time.
 			if(!anchor.shorted)
 				anchor.shorted = TRUE
+				anchor.breaker_toggle(FALSE)
 				anchor.update_appearance()
 			addtimer(CALLBACK(anchor, TYPE_PROC_REF(/obj/machinery/redspace_anchor, reset), wire), 2 MINUTES)
 		if(WIRE_AI) // Disable AI control for a while.

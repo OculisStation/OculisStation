@@ -105,6 +105,9 @@
 #define WIRE_ACTIVATION1 "Activation"
 #define WIRE_ACTIVATION2 "Activation"
 #define WIRE_ACTIVATION3 "Activation"
+#define WIRE_POWER3 "Main Power 3"
+#define WIRE_POWER4 "Main Power 4"
+#define WIRE_POWER5 "Main Power 5"
 // OCULIS EDIT ADDITION END
 
 // Wire states for the AI
