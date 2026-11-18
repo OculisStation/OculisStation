@@ -1,5 +1,5 @@
 /// Maximum an Hemophage will drain, they will drain less if they hit their cap.
-#define HEMOPHAGE_DRAIN_AMOUNT 50
+#define HEMOPHAGE_DRAIN_AMOUNT 20 // OCULIS EDIT, ORIGINAL: #define HEMOPHAGE_DRAIN_AMOUNT 50
 /// The multiplier for blood received by Hemophages out of humans with ckeys.
 #define BLOOD_DRAIN_MULTIPLIER_CKEY 1.15
 
@@ -67,8 +67,8 @@
 		hemophage.balloon_alert(hemophage, "needs a living victim!")
 		return FALSE
 
-	if(!victim.get_blood_volume() || (victim.dna && ((HAS_TRAIT(victim, TRAIT_NOBLOOD)) || (victim.get_blood_reagent() != hemophage.get_blood_reagent()))))
-		hemophage.balloon_alert(hemophage, "[victim] doesn't have suitable blood!")
+	if(!victim.get_blood_volume() || (victim.dna && ((HAS_TRAIT(victim, TRAIT_NOBLOOD))))) // OCULIS EDIT, ORIGINAL: if(!victim.get_blood_volume() || (victim.dna && ((HAS_TRAIT(victim, TRAIT_NOBLOOD)) || (victim.get_blood_reagent() != hemophage.get_blood_reagent()))))
+		hemophage.balloon_alert(hemophage, "[victim] doesn't have blood!") // OCULIS EDIT, ORIGINAL: hemophage.balloon_alert(hemophage, "[victim] doesn't have suitable blood!")
 		return FALSE
 
 	if(victim.can_block_magic(MAGIC_RESISTANCE_HOLY, charge_cost = 0))
@@ -125,7 +125,7 @@
 
 	var/drained_blood = min(victim.get_blood_volume(), HEMOPHAGE_DRAIN_AMOUNT, blood_volume_difference)
 	// if you drained from a human with a client, congrats
-	var/drained_multiplier = (is_target_human_with_client ? BLOOD_DRAIN_MULTIPLIER_CKEY : 1)
+	// var/drained_multiplier = (is_target_human_with_client ? BLOOD_DRAIN_MULTIPLIER_CKEY : 1) // OCULIS EDIT REMOVAL
 
 	// Drain the victim's blood volume
 	// Tries to transfer blood to the user's stomach, otherwise adjusts volume directly
@@ -135,7 +135,7 @@
 	else if(!victim.transfer_blood_to(stomach_reference, drained_blood, ignore_low_blood = TRUE))
 		victim.adjust_blood_volume(-drained_blood, 0, BLOOD_VOLUME_MAXIMUM)
 	// Increase the user's blood volume
-	hemophage.adjust_blood_volume(drained_blood * drained_multiplier, 0, BLOOD_VOLUME_MAXIMUM)
+	// hemophage.adjust_blood_volume(drained_blood * drained_multiplier, 0, BLOOD_VOLUME_MAXIMUM) // OCULIS EDIT REMOVAL
 
 	log_combat(hemophage, victim, "drained [drained_blood]u of blood from", addition = " (NEW BLOOD VOLUME: [victim.get_blood_volume()] cL)")
 	victim.show_message(span_danger("[hemophage] drains some of your blood!"))
