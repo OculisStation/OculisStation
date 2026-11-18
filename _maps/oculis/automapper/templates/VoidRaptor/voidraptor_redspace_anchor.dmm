@@ -1,7 +1,5 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "ag" = (
-/obj/structure/cable,
-/obj/machinery/power/apc/auto_name/directional/west,
 /turf/open/floor/circuit/red/alt/anim,
 /area/station/redspace_anchor)
 "bt" = (
@@ -17,10 +15,11 @@
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "bQ" = (
+/obj/machinery/camera/directional/south,
+/obj/structure/cable,
 /obj/machinery/power/smes/full{
 	output_level = 30000
 	},
-/obj/machinery/camera/directional/south,
 /turf/open/floor/carpet/kinaris/black/whitetrim,
 /area/station/redspace_anchor)
 "bS" = (
@@ -57,8 +56,6 @@
 /turf/open/space/basic,
 /area/space/nearstation)
 "iG" = (
-/obj/structure/cable,
-/obj/machinery/power/terminal,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
@@ -87,12 +84,12 @@
 /turf/closed/wall/r_wall,
 /area/station/redspace_anchor)
 "og" = (
-/obj/structure/cable,
 /obj/machinery/power/terminal,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
 /turf/open/floor/circuit/red,
 /area/station/redspace_anchor)
 "ok" = (
@@ -121,15 +118,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/station/engineering/supermatter/room)
-"qg" = (
-/obj/machinery/porta_turret/ai,
-/obj/machinery/turretid{
-	control_area = "/area/station/redspace_anchor";
-	name = "Redspace Anchor Turret Control";
-	pixel_x = 28
-	},
-/turf/open/floor/circuit/red/alt/anim,
-/area/station/redspace_anchor)
 "qi" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
@@ -144,9 +132,9 @@
 /turf/open/floor/iron/smooth,
 /area/station/maintenance/department/engine)
 "uB" = (
-/obj/structure/cable,
 /obj/machinery/power/terminal,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
 /turf/open/floor/circuit/red,
 /area/station/redspace_anchor)
 "wZ" = (
@@ -156,6 +144,16 @@
 	},
 /turf/open/space/basic,
 /area/space/nearstation)
+"xs" = (
+/obj/machinery/door/airlock/hatch,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/access/all/engineering/ce,
+/obj/structure/cable,
+/turf/open/floor/iron/dark,
+/area/station/redspace_anchor)
 "yh" = (
 /obj/structure/sign/warning/radiation/rad_area,
 /turf/closed/wall/r_wall,
@@ -175,8 +173,9 @@
 /turf/open/floor/plating,
 /area/station/engineering/supermatter/room)
 "zq" = (
-/obj/structure/extinguisher_cabinet/directional/east,
 /obj/machinery/light/directional/east,
+/obj/machinery/porta_turret/ai,
+/obj/machinery/newscaster/directional/east,
 /turf/open/floor/circuit/red/alt/anim,
 /area/station/redspace_anchor)
 "zr" = (
@@ -186,10 +185,17 @@
 	},
 /turf/open/space/basic,
 /area/space/nearstation)
+"Aa" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/closed/wall/r_wall,
+/area/station/maintenance/department/engine)
 "Bx" = (
 /obj/machinery/firealarm/directional/south,
-/obj/machinery/porta_turret/ai,
-/obj/structure/cable/multilayer/connected,
+/obj/structure/cable,
+/obj/machinery/airalarm/directional/west,
+/obj/machinery/computer/redspace_anchor_computer{
+	dir = 1
+	},
 /turf/open/floor/carpet/kinaris/black/whitetrim,
 /area/station/redspace_anchor)
 "Dz" = (
@@ -206,19 +212,22 @@
 /area/station/maintenance/department/engine)
 "DO" = (
 /obj/structure/lattice/catwalk,
-/obj/machinery/atmospherics/pipe/heat_exchanging/simple{
-	dir = 5
-	},
+/turf/closed/wall/r_wall,
+/area/station/redspace_anchor)
+"FE" = (
+/obj/structure/lattice,
 /obj/structure/window/reinforced/plasma/spawner/directional/south,
 /turf/open/space/basic,
 /area/space/nearstation)
-"Fj" = (
-/obj/machinery/computer/redspace_anchor_computer,
-/turf/open/floor/circuit/red/alt/anim,
-/area/station/redspace_anchor)
 "GG" = (
-/obj/machinery/power/smes/full{
-	output_level = 20000
+/obj/structure/cable,
+/obj/structure/extinguisher_cabinet/directional/south,
+/obj/machinery/power/port_gen/pacman,
+/obj/item/stack/sheet/mineral/plasma{
+	amount = 30
+	},
+/obj/item/stack/sheet/mineral/plasma{
+	amount = 30
 	},
 /turf/open/floor/carpet/kinaris/black/whitetrim,
 /area/station/redspace_anchor)
@@ -262,7 +271,11 @@
 /turf/open/floor/iron/smooth,
 /area/station/maintenance/department/engine)
 "Le" = (
-/obj/machinery/newscaster/directional/east,
+/obj/machinery/turretid{
+	control_area = "/area/station/redspace_anchor";
+	name = "Redspace Anchor Turret Control";
+	pixel_x = 28
+	},
 /turf/open/floor/circuit/red/alt/anim,
 /area/station/redspace_anchor)
 "Lp" = (
@@ -277,14 +290,15 @@
 /turf/open/space/basic,
 /area/space/nearstation)
 "OF" = (
+/obj/structure/cable,
 /obj/machinery/power/smes/full{
 	output_level = 30000
 	},
 /turf/open/floor/carpet/kinaris/black/whitetrim,
 /area/station/redspace_anchor)
 "PB" = (
-/obj/structure/cable/multilayer/connected,
 /obj/machinery/light/directional/west,
+/obj/machinery/porta_turret/ai,
 /turf/open/floor/circuit/red/alt/anim,
 /area/station/redspace_anchor)
 "Qw" = (
@@ -292,18 +306,16 @@
 /obj/effect/spawner/random/trash/moisture_trap,
 /turf/open/floor/iron/smooth,
 /area/station/maintenance/department/engine)
-"So" = (
-/obj/machinery/door/airlock/hatch,
+"Sb" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/power/terminal,
 /obj/structure/cable,
-/obj/machinery/door/firedoor,
-/obj/effect/mapping_helpers/airlock/access/all/engineering/ce,
-/turf/open/floor/iron/dark,
+/turf/open/floor/circuit/red,
 /area/station/redspace_anchor)
 "Su" = (
-/obj/structure/cable/layer3,
-/obj/machinery/airalarm/directional/west,
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/west,
 /turf/open/floor/circuit/red,
 /area/station/redspace_anchor)
 "SE" = (
@@ -349,6 +361,13 @@
 "TY" = (
 /turf/open/floor/circuit/red/off,
 /area/station/redspace_anchor)
+"Vy" = (
+/obj/structure/cable,
+/obj/machinery/power/smes/full{
+	output_level = 20000
+	},
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
 "XK" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible,
 /obj/effect/turf_decal/stripes/line,
@@ -367,7 +386,7 @@ lw
 "}
 (2,1,1) = {"
 lw
-Fj
+ag
 ag
 PB
 Su
@@ -403,10 +422,10 @@ lw
 "}
 (6,1,1) = {"
 lw
-qg
+ag
 Le
 zq
-la
+Sb
 OF
 za
 "}
@@ -415,25 +434,25 @@ lw
 lw
 lw
 lw
-So
-lw
+la
+Vy
 lw
 "}
 (8,1,1) = {"
 zr
 wZ
-Tm
+zr
 DO
-GK
-Lp
-yL
+xs
+lw
+Aa
 "}
 (9,1,1) = {"
 qi
 qi
-hQ
-Mt
-zo
+qi
+FE
+GK
 Lp
 yL
 "}
