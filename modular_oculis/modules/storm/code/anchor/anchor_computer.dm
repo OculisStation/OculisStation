@@ -27,6 +27,7 @@
 	update_appearance()
 
 /obj/machinery/computer/redspace_anchor_computer/post_machine_initialize()
+	. = ..()
 	if(SSticker.current_state <= GAME_STATE_SETTING_UP)
 		connect_to_anchor()
 
