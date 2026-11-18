@@ -51,6 +51,10 @@
 	/// Audio for when the redspace anchor is on
 	var/datum/looping_sound/redspace_anchor/soundloop
 
+	///Our internal radio
+	var/obj/item/radio/radio
+	///The key our internal radio uses
+	var/radio_key = /obj/item/encryptionkey/headset_eng
 
 /obj/machinery/redspace_anchor/Initialize(mapload)
 	. = ..()
@@ -58,6 +62,12 @@
 	SSeidolon_storm.redspace_anchors += src
 	set_wires(new /datum/wires/redspace_anchor(src))
 	soundloop = new(src, start_immediately = TRUE)
+
+	radio = new(src)
+	radio.keyslot = new radio_key
+	radio.set_listening(FALSE)
+	radio.recalculateChannels()
+
 	AddElement(/datum/element/manufacturer_examine, COMPANY_CYBERSUN)
 	RegisterSignal(src, COMSIG_MACHINERY_POWER_RESTORED, PROC_REF(on_power_restored))
 	RegisterSignal(src, COMSIG_MACHINERY_POWER_LOST, PROC_REF(on_power_lost))
@@ -284,8 +294,13 @@
 /obj/machinery/redspace_anchor/proc/tick(intensity)
 	if(current_state >= POWER_STATE_PASSIVE)
 		violetspace_energy += (rand(1,5) * intensity)
-		if(violetspace_energy >= 100)
-			trigger_unsafe_discharge()
+		switch(violetspace_energy)
+			if(80 to 89)
+				radio.talk_into(src, "Warning! Violetspace energy approaching critical limits!", "Engineering")
+			if(90 to 99)
+				radio.talk_into(src, "Warning! Violetspace energy approaching maximums!", null)
+			if(violetspace_energy >= 100)
+				trigger_unsafe_discharge()
 		return TRUE
 	return FALSE
 
