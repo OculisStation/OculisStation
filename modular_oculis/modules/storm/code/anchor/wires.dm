@@ -12,8 +12,11 @@
 		WIRE_AI,
 		WIRE_ALARM,
 		WIRE_DISCHARGE,
+		WIRE_ACTIVATION1,
+		WIRE_ACTIVATION2,
+		WIRE_ACTIVATION3,
 	)
-	add_duds(9) // It's a complicated machine. It's gonna have lots of wires.
+	add_duds(6) // It's a complicated machine. It's gonna have lots of wires.
 	..()
 
 /datum/wires/redspace_anchor/interactable(mob/user)
@@ -22,11 +25,12 @@
 	return TRUE
 
 /datum/wires/redspace_anchor/get_status()
-	var/obj/machinery/redspace_anchor/A = holder
+	var/obj/machinery/redspace_anchor/anchor = holder
 	var/list/status = list()
-	status += "The short indicator is [A.shorted ? "lit" : "off"]."
-	status += "The AI connection light is [!A.ai_disabled ? "on" : "off"]."
-	status += "The alarm light is [!A.alarm_disabled ? "on" : "off"]."
+	status += "The short indicator is [anchor.shorted ? "lit" : "off"]."
+	status += "The AI connection light is [!anchor.ai_disabled ? "on" : "off"]."
+	status += "The alarm light is [!anchor.alarm_disabled ? "on" : "off"]."
+	status += "There [anchor.activation_codes == 1 ? "is" : "are"] [anchor.activation_codes] activation [anchor.activation_codes == 1 ? "light" : "lights"] active."
 	return status
 
 /datum/wires/redspace_anchor/on_pulse(wire)
@@ -48,6 +52,24 @@
 		if(WIRE_DISCHARGE)
 			if(anchor.can_discharge && anchor.violetspace_energy)
 				anchor.trigger_safe_discharge()
+		// Give the hacker a little puzzle to solve to make everyone get violently flung.
+		if(WIRE_ACTIVATION1)
+			if(anchor.activation_codes == 0)
+				anchor.activation_codes = 1
+			else
+				anchor.activation_codes = 0
+		if(WIRE_ACTIVATION2)
+			if(anchor.activation_codes == 1)
+				anchor.activation_codes = 2
+			else
+				anchor.activation_codes = 0
+		if(WIRE_ACTIVATION3)
+			if(anchor.activation_codes == 2)
+				if(anchor.current_state == POWER_STATE_ACTIVE)
+					anchor.deactivate()
+				else if(anchor.current_state == POWER_STATE_PASSIVE)
+					anchor.activate()
+			anchor.activation_codes = 0
 
 /datum/wires/redspace_anchor/on_cut(wire, mend, source)
 	var/obj/machinery/redspace_anchor/anchor = holder

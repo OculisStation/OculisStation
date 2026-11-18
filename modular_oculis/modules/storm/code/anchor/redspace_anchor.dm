@@ -47,6 +47,8 @@
 	var/violetspace_energy = 0
 	/// Cooldown for the processing of the anchor's shutdown and startup sequence.
 	COOLDOWN_DECLARE(anchor_charging_cooldown)
+	/// 0-3, used for how close the hacker is to activating the anchor manually. Once it hits 3, it resets to 0.
+	var/activation_codes = 0
 
 	/// Audio for when the redspace anchor is on
 	var/datum/looping_sound/redspace_anchor/soundloop
