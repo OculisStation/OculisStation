@@ -292,17 +292,17 @@
 			priority_announce("Warning: Redspace Anchor has been disabled.", "Redspace Anchor", color_override = "red", sender_override = "Automatic Internal Systems")
 
 /obj/machinery/redspace_anchor/proc/tick(intensity)
-	if(current_state >= POWER_STATE_PASSIVE)
-		violetspace_energy += (rand(1,5) * intensity)
-		switch(violetspace_energy)
-			if(80 to 89)
-				radio.talk_into(src, "Warning! Violetspace energy approaching critical limits!", "Engineering")
-			if(90 to 99)
-				radio.talk_into(src, "Warning! Violetspace energy approaching maximums!", null)
-			if(violetspace_energy >= 100)
-				trigger_unsafe_discharge()
-		return TRUE
-	return FALSE
+	if(current_state < POWER_STATE_PASSIVE)
+		return FALSE
+	violetspace_energy += (rand(1,5) * intensity)
+	switch(violetspace_energy)
+		if(80 to 89)
+			radio.talk_into(src, "Warning! Violetspace energy approaching upper limits!", "Engineering")
+		if(90 to 99)
+			radio.talk_into(src, "Warning! Violetspace energy approaching maximums!", null)
+		if(100 to INFINITY)
+			trigger_unsafe_discharge()
+	return TRUE
 
 /obj/machinery/redspace_anchor/proc/trigger_unsafe_discharge()
 	violetspace_energy = 0
