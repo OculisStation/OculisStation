@@ -2,7 +2,7 @@
 
 /obj/item/gun/ballistic/automatic/pistol/sol
 	name = "\improper Guêpe Pistol"
-	desc = "The standard issue service pistol of SolGov's various military branches. Uses .35 Sol, and comes with an attached light."
+	desc = "The standard issue service pistol of SolFed's various military branches. Uses .35 Sol, and comes with an attached light."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/trappiste_fabriek/guns32x.dmi'
 	icon_state = "wespe"
@@ -21,7 +21,7 @@
 
 	lore_blurb = "The Guêpe is an evolution of an older pistol which has seen use for over a century, with incremental \
 		improvements keeping it up to date.<br><br>\
-		The first models proved incredibly popular with law enforcement throughout SolGov, \
+		The first models proved incredibly popular with law enforcement throughout SolFed, \
 		due to their ease of use, maintainability, and its low-caliber bullets heavily reducing the chance of collateral damage. \
 		As the decades passed, the proven design was steadily adopted into various militaries as well; most notably, by the \
 		Sol Goverment Armed Forces, who took it on as their first service pistol, just after their founding in 2492, \

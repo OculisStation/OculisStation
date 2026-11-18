@@ -478,7 +478,7 @@
       the server.
   - bugfix: Fixed traitor uplinks not letting you buy items that aren't restricted.
   - bugfix: Some diagonal cameras are back to being placed on walls, instead of floating.
-  SolGov Engineering Safety Association (SESA):
+  SolFed Engineering Safety Association (SESA):
   - rscadd: Various colored hardhats/weldhats are back in the EngiDrobe, and spare
       Construction Pouches in the EngiVend!
   - bugfix: The EngiDrobe can now properly vend Hazard Jumpsuits again
@@ -734,7 +734,7 @@
   OrionTheFox:
   - bugfix: Fixed modular posters mucking up the new TG posters
   - bugfix: After several months of complaints, NanoTrasen has finally updated their
-      HUD databases, properly representing their newer jobs, SolGov, and more to come!
+      HUD databases, properly representing their newer jobs, SolFed, and more to come!
   - bugfix: Departmental Guards' ID Trims will now properly appear
   - rscadd: The Ranger Poncho (brown cowboy poncho) is now Greyscale-able! (The default
       values are the same as the old sprite, so you dont NEED to customize it)
@@ -885,7 +885,7 @@
   - balance: The HoS, warden and officers no longer spawn with a stunbaton in their
       bags.
   - bugfix: Fixed comms console not acknowledging admin rejects.
-  SolGov Engineering Safety Association (SESA):
+  SolFed Engineering Safety Association (SESA):
   - rscadd: Congratulations, Nanotrasen Space Station! Your engineering crew has passed
       safety inspections with a grade of "C-", clearing you for use of spectroscopy/infrared
       based Atmospheric Analyzers! These Ranged Analyzers should be a large improvement
