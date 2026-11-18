@@ -49,6 +49,8 @@
 	COOLDOWN_DECLARE(anchor_charging_cooldown)
 	/// 0-3, used for how close the hacker is to activating the anchor manually. Once it hits 3, it resets to 0.
 	var/activation_codes = 0
+	/// Are we even able to activate?
+	var/can_activate = TRUE
 
 	/// Audio for when the redspace anchor is on
 	var/datum/looping_sound/redspace_anchor/soundloop
@@ -287,11 +289,18 @@
 			mobs.playsound_local(T, null, 100, 1, 0.5, sound_to_use = alert_sound)
 	if(!SSmapping.level_has_any_trait(z, ZTRAIT_STATION))
 		return
+	var/current_alert_level = SSsecurity_level.get_current_level_as_number()
 	switch(current_state)
 		if(POWER_STATE_ACTIVE)
-			priority_announce("Redspace Anchor activated during ongoing storm.", "Redspace Anchor", color_override = "purple", sender_override = "Automatic Internal Systems")
+			if(current_alert_level == SEC_LEVEL_BLACK)
+				priority_announce("Redspace Anchor activated during ongoing storm.", "Redspace Anchor", color_override = "purple", sender_override = "Automatic Internal Systems")
+			else
+				priority_announce("Unscheduled activation codes received. Redspace Anchor activated.", "Redspace Anchor", color_override = "green", sender_override = "Automatic Internal Systems")
 		if(POWER_STATE_PASSIVE)
-			priority_announce("Redspace Anchor enabled and awaiting activation codes.", "Redspace Anchor", color_override = "green", sender_override = "Automatic Internal Systems")
+			if(current_alert_level == SEC_LEVEL_BLACK)
+				priority_announce("Redspace Anchor deactivated during ongoing storm.", "Redspace Anchor", color_override = "purple", sender_override = "Automatic Internal Systems")
+			else
+				priority_announce("Redspace Anchor enabled and awaiting activation codes.", "Redspace Anchor", color_override = "green", sender_override = "Automatic Internal Systems")
 		if(POWER_STATE_OFFLINE)
 			priority_announce("Warning: Redspace Anchor has been disabled.", "Redspace Anchor", color_override = "red", sender_override = "Automatic Internal Systems")
 
@@ -333,12 +342,20 @@
 
 // For the start of a storm.
 /obj/machinery/redspace_anchor/proc/activate()
+	if(!can_activate)
+		return
 	current_state = POWER_STATE_ACTIVE
+	shake_everyone()
+	INVOKE_ASYNC(SSeidolon_storm, TYPE_PROC_REF(/datum/controller/subsystem/processing/eidolon_storm, throw_everyone))
 	update_appearance()
 
 // For after a storm.
 /obj/machinery/redspace_anchor/proc/deactivate()
+	if(!can_activate)
+		return
 	current_state = POWER_STATE_PASSIVE
+	shake_everyone()
+	addtimer(CALLBACK(SSeidolon_storm, TYPE_PROC_REF(/datum/controller/subsystem/processing/eidolon_storm, throw_everyone)), 13.52 SECONDS)
 	update_appearance()
 
 /obj/machinery/redspace_anchor/multitool_act(mob/living/user, obj/item/tool)

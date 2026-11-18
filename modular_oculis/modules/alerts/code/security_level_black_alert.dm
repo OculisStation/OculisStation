@@ -34,17 +34,10 @@
 		deactivate_shuttles()
 		for(var/obj/machinery/redspace_anchor/redspace_anchor as anything in SSeidolon_storm.redspace_anchors)
 			redspace_anchor.activate()
-		if(SSeidolon_storm.station_anchor.current_state == POWER_STATE_ACTIVE)
-			INVOKE_ASYNC(SSeidolon_storm, TYPE_PROC_REF(/datum/controller/subsystem/processing/eidolon_storm, throw_everyone))
 	else if(old_level == SEC_LEVEL_BLACK)
 		reactivate_shuttles()
-		var/throwing_people = FALSE
-		if(SSeidolon_storm.station_anchor.current_state == POWER_STATE_ACTIVE)
-			throwing_people = TRUE
 		for(var/obj/machinery/redspace_anchor/redspace_anchor as anything in SSeidolon_storm.redspace_anchors)
 			redspace_anchor.deactivate()
-		if(throwing_people)
-			addtimer(CALLBACK(SSeidolon_storm, TYPE_PROC_REF(/datum/controller/subsystem/processing/eidolon_storm, throw_everyone)), 13.52 SECONDS)
 
 /datum/controller/subsystem/shuttle/proc/deactivate_shuttles()
 	SSshuttle.emergency_no_escape = TRUE

@@ -36,7 +36,7 @@
 /datum/wires/redspace_anchor/on_pulse(wire)
 	var/obj/machinery/redspace_anchor/anchor = holder
 	switch(wire)
-		if(WIRE_POWER) // Short out for a long time.
+		if(WIRE_POWER1, WIRE_POWER2, WIRE_POWER3, WIRE_POWER4, WIRE_POWER5) // Short out for a long time.
 			if(!anchor.shorted)
 				anchor.shorted = TRUE
 				anchor.breaker_toggle(FALSE)
@@ -75,15 +75,18 @@
 /datum/wires/redspace_anchor/on_cut(wire, mend, source)
 	var/obj/machinery/redspace_anchor/anchor = holder
 	switch(wire)
-		if(WIRE_POWER)
+		if(WIRE_POWER1, WIRE_POWER2, WIRE_POWER3, WIRE_POWER4, WIRE_POWER5)
 			anchor.shorted = !mend
-			anchor.update_appearance()
+			if(anchor.shorted)
+				anchor.on_power_lost()
 		if(WIRE_AI)
-			anchor.ai_disabled = mend // Enable/disable AI control.
+			anchor.ai_disabled = !mend // Enable/disable AI control.
 		if(WIRE_ALARM)
-			anchor.alarm_disabled = mend
+			anchor.alarm_disabled = !mend
 		if(WIRE_DISCHARGE)
 			anchor.can_discharge = mend
+		if(WIRE_ACTIVATION1, WIRE_ACTIVATION2, WIRE_ACTIVATION3)
+			anchor.can_activate = mend
 
 /datum/wires/redspace_anchor/can_reveal_wires(mob/user)
 	if(HAS_TRAIT(user, TRAIT_KNOW_CE_WIRES))
