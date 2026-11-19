@@ -18,6 +18,7 @@
 	hitsound = 'sound/items/weapons/bladeslice.ogg'
 	w_class = WEIGHT_CLASS_SMALL
 	sharpness = SHARP_EDGED
+	light_system = OVERLAY_LIGHT // OCULIS EDIT ADDITION
 	light_range = 3
 	light_power = 2
 	light_color = "#3db9db"
