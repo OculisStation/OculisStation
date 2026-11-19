@@ -8,6 +8,16 @@
 	name = "Crystal Corruption"
 	icon_state = "crys_2"
 
+/datum/sprite_accessory/horns/l_crys_1f
+	icon = 'modular_oculis/modules/extra_customization/icons/horns.dmi'
+	name = "Crystal Affliction Flip"
+	icon_state = "crys_1f"
+
+/datum/sprite_accessory/horns/l_crys_2f
+	icon = 'modular_oculis/modules/extra_customization/icons/horns.dmi'
+	name = "Crystal Corruption Flip"
+	icon_state = "crys_2f"
+
 /datum/sprite_accessory/horns/l_splay
 	icon = 'modular_oculis/modules/extra_customization/icons/horns.dmi'
 	name = "Splayed"
