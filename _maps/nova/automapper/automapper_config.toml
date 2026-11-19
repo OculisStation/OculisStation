@@ -441,7 +441,7 @@ trait_name = "Station"
 # Lavaland NE Ashwalker Fortress
 [templates.lavaland_ashwalker_fortress]
 map_files = ["lavaland_ashwalker_fortress.dmm"]
-directory = "_maps/nova/automapper/templates/mining/"
+directory = "_maps/oculis/automapper/templates/mining/"
 required_map = "Lavaland.dmm"
 coordinates = [203, 223, 1]
 trait_name = "Mining"
