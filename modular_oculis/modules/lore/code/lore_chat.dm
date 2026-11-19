@@ -25,7 +25,9 @@ GAME_VERB_PROC_DESC(/client, cmd_lore_say, "LSay", "Send a message to other lore
 	var/asay_color = prefs.read_preference(/datum/preference/color/asay_color)
 	var/custom_asay_color = (CONFIG_GET(flag/allow_admin_asaycolor) && asay_color) ? "<font color=[asay_color]>" : "<font color='[DEFAULT_ASAY_COLOR]'>"
 	message = "[span_hierophant("[span_prefix("LORE:")] <EM>[key_name_admin(src)]</EM> [ADMIN_FLW(mob)]: [custom_asay_color]<span class='message linkify'>[message]")]</span>[custom_asay_color ? "</font>":null]"
-	for(var/client/admin as anything in GLOB.admins || GLOB.loremasters)
+	var/list/client_list = GLOB.admins
+	client_list += GLOB.loremasters
+	for(var/client/admin as anything in client_list)
 		to_chat(admin,
 			type = MESSAGE_TYPE_LORE,
 			html = message,

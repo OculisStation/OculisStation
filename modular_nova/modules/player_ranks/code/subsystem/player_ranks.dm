@@ -203,6 +203,11 @@ SUBSYSTEM_DEF(player_ranks)
 	if(rank_title == mentor_controller.rank_title)
 		return mentor_controller
 
+	// OCULIS EDIT ADDITION START
+	if(rank_title == loremaster_controller.rank_title)
+		return loremaster_controller
+	// OCULIS EDIT ADDITION END
+
 	CRASH("Invalid player_rank_controller \"[rank_title || "*null*"]\" used in get_controller_for_group()!")
 
 
