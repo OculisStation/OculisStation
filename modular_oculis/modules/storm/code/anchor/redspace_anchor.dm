@@ -73,8 +73,6 @@
 	radio.recalculateChannels()
 
 	AddElement(/datum/element/manufacturer_examine, COMPANY_CYBERSUN)
-	RegisterSignal(src, COMSIG_MACHINERY_POWER_RESTORED, PROC_REF(on_power_restored))
-	RegisterSignal(src, COMSIG_MACHINERY_POWER_LOST, PROC_REF(on_power_lost))
 	update_appearance()
 
 /obj/machinery/redspace_anchor/Destroy(force)
@@ -180,19 +178,6 @@
 		if(WIRE_ALARM)
 			if(!wires.is_cut(WIRE_ALARM))
 				alarm_disabled = FALSE
-
-/obj/machinery/redspace_anchor/proc/on_power_lost()
-	SIGNAL_HANDLER
-
-	investigate_log("has lost power.", INVESTIGATE_ENGINE)
-	if(has_power())
-		return
-	breaker_toggle(FALSE)
-
-/obj/machinery/redspace_anchor/proc/on_power_restored()
-	SIGNAL_HANDLER
-
-	investigate_log("has regained power.", INVESTIGATE_ENGINE)
 
 // Set the charging state based on power.
 /obj/machinery/redspace_anchor/proc/has_power()

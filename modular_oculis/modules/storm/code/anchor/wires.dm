@@ -78,7 +78,7 @@
 		if(WIRE_POWER1, WIRE_POWER2, WIRE_POWER3, WIRE_POWER4, WIRE_POWER5)
 			anchor.shorted = !mend
 			if(anchor.shorted)
-				anchor.on_power_lost()
+				anchor.breaker_toggle(FALSE)
 		if(WIRE_AI)
 			anchor.ai_disabled = !mend // Enable/disable AI control.
 		if(WIRE_ALARM)
