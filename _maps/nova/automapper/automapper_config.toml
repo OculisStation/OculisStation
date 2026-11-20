@@ -1071,3 +1071,290 @@ required_map = "KiloStation.dmm"
 coordinates = [174, 108, 1]
 trait_name = "Station"
 
+# Oculis - Metastation Engineering Desk Bell
+[templates.metastation_engineering_desk_bell]
+map_files = ["metastation_engineering_desk_bell.dmm"]
+directory = "_maps/oculis/automapper/templates/metastation/"
+required_map = "MetaStation.dmm"
+coordinates = [158, 133, 1]
+trait_name = "Station"
+
+# Oculis - Metastation Medical Desk Bell
+[templates.metastation_medical_desk_bell]
+map_files = ["metastation_medical_desk_bell.dmm"]
+directory = "_maps/oculis/automapper/templates/metastation/"
+required_map = "MetaStation.dmm"
+coordinates = [103, 107, 1]
+trait_name = "Station"
+
+# Oculis - Metastation Science Desk Bell
+[templates.metastation_science_desk_bell]
+map_files = ["metastation_science_desk_bell.dmm"]
+directory = "_maps/oculis/automapper/templates/metastation/"
+required_map = "MetaStation.dmm"
+coordinates = [119, 110, 1]
+trait_name = "Station"
+
+# Oculis - Metastation Security Desk Bell
+[templates.metastation_security_desk_bell]
+map_files = ["metastation_security_desk_bell.dmm"]
+directory = "_maps/oculis/automapper/templates/metastation/"
+required_map = "MetaStation.dmm"
+coordinates = [107, 161, 1]
+trait_name = "Station"
+
+# Oculis - Metastation Service Desk Bell
+[templates.metastation_service_desk_bell]
+map_files = ["metastation_service_desk_bell.dmm"]
+directory = "_maps/oculis/automapper/templates/metastation/"
+required_map = "MetaStation.dmm"
+coordinates = [129, 115, 1]
+trait_name = "Station"
+
+# Oculis - Metastation Supply Desk Bell
+[templates.metastation_supply_desk_bell]
+map_files = ["metastation_supply_desk_bell.dmm"]
+directory = "_maps/oculis/automapper/templates/metastation/"
+required_map = "MetaStation.dmm"
+coordinates = [80, 143, 1]
+trait_name = "Station"
+
+# Oculis - Deltastation Engineering Desk Bell
+[templates.deltastation_engineering_desk_bell]
+map_files = ["deltastation_engineering_desk_bell.dmm"]
+directory = "_maps/oculis/automapper/templates/deltastation/"
+required_map = "Deltastation2.dmm"
+coordinates = [104, 139, 1]
+trait_name = "Station"
+
+# Oculis - Deltastation Medical Desk Bell
+[templates.deltastation_medical_desk_bell]
+map_files = ["deltastation_medical_desk_bell.dmm"]
+directory = "_maps/oculis/automapper/templates/deltastation/"
+required_map = "Deltastation2.dmm"
+coordinates = [164, 97, 1]
+trait_name = "Station"
+
+# Oculis - Deltastation Science Desk Bell
+[templates.deltastation_science_desk_bell]
+map_files = ["deltastation_science_desk_bell.dmm"]
+directory = "_maps/oculis/automapper/templates/deltastation/"
+required_map = "Deltastation2.dmm"
+coordinates = [135, 98, 1]
+trait_name = "Station"
+
+# Oculis - Deltastation Security Desk Bell
+[templates.deltastation_security_desk_bell]
+map_files = ["deltastation_security_desk_bell.dmm"]
+directory = "_maps/oculis/automapper/templates/deltastation/"
+required_map = "Deltastation2.dmm"
+coordinates = [193, 127, 1]
+trait_name = "Station"
+
+# Oculis - Deltastation Service Desk Bell
+[templates.deltastation_service_desk_bell]
+map_files = ["deltastation_service_desk_bell.dmm"]
+directory = "_maps/oculis/automapper/templates/deltastation/"
+required_map = "Deltastation2.dmm"
+coordinates = [129, 176, 1]
+trait_name = "Station"
+
+# Oculis - Deltastation Supply Desk Bell
+[templates.deltastation_supply_desk_bell]
+map_files = ["deltastation_supply_desk_bell.dmm"]
+directory = "_maps/oculis/automapper/templates/deltastation/"
+required_map = "Deltastation2.dmm"
+coordinates = [162, 157, 1]
+trait_name = "Station"
+
+# Oculis - Icebox Engineering Desk Bell
+[templates.icebox_engineering_desk_bell]
+map_files = ["icebox_engineering_desk_bell.dmm"]
+directory = "_maps/oculis/automapper/templates/icebox/"
+required_map = "IceBoxStation.dmm"
+coordinates = [115, 89, 3]
+trait_name = "Station"
+
+# Oculis - Icebox Medical Desk Bell
+[templates.icebox_medical_desk_bell]
+map_files = ["icebox_medical_desk_bell.dmm"]
+directory = "_maps/oculis/automapper/templates/icebox/"
+required_map = "IceBoxStation.dmm"
+coordinates = [142, 125, 3]
+trait_name = "Station"
+
+# Oculis - Icebox Science Desk Bell
+[templates.icebox_science_desk_bell]
+map_files = ["icebox_science_desk_bell.dmm"]
+directory = "_maps/oculis/automapper/templates/icebox/"
+required_map = "IceBoxStation.dmm"
+coordinates = [186, 121, 3]
+trait_name = "Station"
+
+# Oculis - Icebox Security Desk Bell
+[templates.icebox_security_desk_bell]
+map_files = ["icebox_security_desk_bell.dmm"]
+directory = "_maps/oculis/automapper/templates/icebox/"
+required_map = "IceBoxStation.dmm"
+coordinates = [111, 157, 3]
+trait_name = "Station"
+
+# Oculis - Icebox Service Desk Bell
+[templates.icebox_service_desk_bell]
+map_files = ["icebox_service_desk_bell.dmm"]
+directory = "_maps/oculis/automapper/templates/icebox/"
+required_map = "IceBoxStation.dmm"
+coordinates = [134, 132, 3]
+trait_name = "Station"
+
+# Oculis - Icebox Supply Desk Bell
+[templates.icebox_supply_desk_bell]
+map_files = ["icebox_supply_desk_bell.dmm"]
+directory = "_maps/oculis/automapper/templates/icebox/"
+required_map = "IceBoxStation.dmm"
+coordinates = [90, 120, 3]
+trait_name = "Station"
+
+# Oculis - Tramstation Engineering Desk Bell
+[templates.tramstation_engineering_desk_bell]
+map_files = ["tramstation_engineering_desk_bell.dmm"]
+directory = "_maps/oculis/automapper/templates/tramstation/"
+required_map = "tramstation.dmm"
+coordinates = [126, 104, 1]
+trait_name = "Station"
+
+# Oculis - Tramstation Medical Desk Bell
+[templates.tramstation_medical_desk_bell]
+map_files = ["tramstation_medical_desk_bell.dmm"]
+directory = "_maps/oculis/automapper/templates/tramstation/"
+required_map = "tramstation.dmm"
+coordinates = [117, 106, 2]
+trait_name = "Station"
+
+# Oculis - Tramstation Science Desk Bell
+[templates.tramstation_science_desk_bell]
+map_files = ["tramstation_science_desk_bell.dmm"]
+directory = "_maps/oculis/automapper/templates/tramstation/"
+required_map = "tramstation.dmm"
+coordinates = [178, 107, 2]
+trait_name = "Station"
+
+# Oculis - Tramstation Security Desk Bell
+[templates.tramstation_security_desk_bell]
+map_files = ["tramstation_security_desk_bell.dmm"]
+directory = "_maps/oculis/automapper/templates/tramstation/"
+required_map = "tramstation.dmm"
+coordinates = [77, 144, 2]
+trait_name = "Station"
+
+# Oculis - Tramstation Service Desk Bell
+[templates.tramstation_service_desk_bell]
+map_files = ["tramstation_service_desk_bell.dmm"]
+directory = "_maps/oculis/automapper/templates/tramstation/"
+required_map = "tramstation.dmm"
+coordinates = [130, 150, 1]
+trait_name = "Station"
+
+# Oculis - Tramstation Supply Desk Bell
+[templates.tramstation_supply_desk_bell]
+map_files = ["tramstation_supply_desk_bell.dmm"]
+directory = "_maps/oculis/automapper/templates/tramstation/"
+required_map = "tramstation.dmm"
+coordinates = [180, 130, 2]
+trait_name = "Station"
+
+# Oculis - Nebulastation Engineering Desk Bell
+[templates.nebulastation_engineering_desk_bell]
+map_files = ["nebulastation_engineering_desk_bell.dmm"]
+directory = "_maps/oculis/automapper/templates/nebulastation/"
+required_map = "NebulaStation.dmm"
+coordinates = [127, 99, 2]
+trait_name = "Station"
+
+# Oculis - Nebulastation Medical Desk Bell
+[templates.nebulastation_medical_desk_bell]
+map_files = ["nebulastation_medical_desk_bell.dmm"]
+directory = "_maps/oculis/automapper/templates/nebulastation/"
+required_map = "NebulaStation.dmm"
+coordinates = [115, 162, 2]
+trait_name = "Station"
+
+# Oculis - Nebulastation Science Desk Bell
+[templates.nebulastation_science_desk_bell]
+map_files = ["nebulastation_science_desk_bell.dmm"]
+directory = "_maps/oculis/automapper/templates/nebulastation/"
+required_map = "NebulaStation.dmm"
+coordinates = [145, 162, 2]
+trait_name = "Station"
+
+# Oculis - Nebulastation Security Desk Bell
+[templates.nebulastation_security_desk_bell]
+map_files = ["nebulastation_security_desk_bell.dmm"]
+directory = "_maps/oculis/automapper/templates/nebulastation/"
+required_map = "NebulaStation.dmm"
+coordinates = [158, 126, 2]
+trait_name = "Station"
+
+# Oculis - Nebulastation Service Desk Bell
+[templates.nebulastation_service_desk_bell]
+map_files = ["nebulastation_service_desk_bell.dmm"]
+directory = "_maps/oculis/automapper/templates/nebulastation/"
+required_map = "NebulaStation.dmm"
+coordinates = [65, 139, 2]
+trait_name = "Station"
+
+# Oculis - Nebulastation Supply Desk Bell
+[templates.nebulastation_supply_desk_bell]
+map_files = ["nebulastation_supply_desk_bell.dmm"]
+directory = "_maps/oculis/automapper/templates/nebulastation/"
+required_map = "NebulaStation.dmm"
+coordinates = [123, 183, 2]
+trait_name = "Station"
+
+# Oculis - VoidRaptor Engineering Desk Bell
+[templates.voidraptor_engineering_desk_bell]
+map_files = ["voidraptor_engineering_desk_bell.dmm"]
+directory = "_maps/oculis/automapper/templates/VoidRaptor/"
+required_map = "VoidRaptor.dmm"
+coordinates = [136, 87, 1]
+trait_name = "Station"
+
+# Oculis - VoidRaptor Medical Desk Bell
+[templates.voidraptor_medical_desk_bell]
+map_files = ["voidraptor_medical_desk_bell.dmm"]
+directory = "_maps/oculis/automapper/templates/VoidRaptor/"
+required_map = "VoidRaptor.dmm"
+coordinates = [120, 124, 1]
+trait_name = "Station"
+
+# Oculis - VoidRaptor Science Desk Bell
+[templates.voidraptor_science_desk_bell]
+map_files = ["voidraptor_science_desk_bell.dmm"]
+directory = "_maps/oculis/automapper/templates/VoidRaptor/"
+required_map = "VoidRaptor.dmm"
+coordinates = [125, 179, 1]
+trait_name = "Station"
+
+# Oculis - VoidRaptor Security Desk Bell
+[templates.voidraptor_security_desk_bell]
+map_files = ["voidraptor_security_desk_bell.dmm"]
+directory = "_maps/oculis/automapper/templates/VoidRaptor/"
+required_map = "VoidRaptor.dmm"
+coordinates = [148, 162, 1]
+trait_name = "Station"
+
+# Oculis - VoidRaptor Service Desk Bell
+[templates.voidraptor_service_desk_bell]
+map_files = ["voidraptor_service_desk_bell.dmm"]
+directory = "_maps/oculis/automapper/templates/VoidRaptor/"
+required_map = "VoidRaptor.dmm"
+coordinates = [137, 147, 1]
+trait_name = "Station"
+
+# Oculis - VoidRaptor Supply Desk Bell
+[templates.voidraptor_supply_desk_bell]
+map_files = ["voidraptor_supply_desk_bell.dmm"]
+directory = "_maps/oculis/automapper/templates/VoidRaptor/"
+required_map = "VoidRaptor.dmm"
+coordinates = [151, 87, 1]
+trait_name = "Station"

@@ -1,0 +1,24 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/machinery/door/firedoor,
+/obj/structure/table/reinforced,
+/obj/item/paper/guides/jobs/hydroponics{
+	pixel_x = -7
+	},
+/obj/item/pen{
+	pixel_x = -7
+	},
+/obj/machinery/door/window/right/directional/north{
+	name = "Hydroponics Desk";
+	req_access = list("hydroponics")
+	},
+/obj/structure/desk_bell/department/service{
+	pixel_x = 5;
+	pixel_y = 2
+	},
+/turf/open/floor/iron/dark/herringbone,
+/area/station/service/hydroponics)
+
+(1,1,1) = {"
+a
+"}
