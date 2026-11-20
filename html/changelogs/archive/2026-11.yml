@@ -1,9 +1,95 @@
+2026-11-01:
+  ATHATH:
+  - balance: Added a flash to the captain's locker for consistency with the other
+      heads of staff.
+  ArcaneMusic:
+  - admin: Admins may now use the "create black market item" verb to sell a marked
+      object on the black market.
+  CabinetOnFire:
+  - bugfix: Fixes edge-case where AI could get stuck in behaviors (due to decorators
+      not aborting correctly)
+  FeudeyTF:
+  - bugfix: 'fixed ''Input: Enable TGUI'' option for text inputs'
+  JohnFulpWillard:
+  - rscadd: Plaques are now more customizable, and in the loadout menu.
+  MacaroniCritter:
+  - qol: The loadout menu now relies on skins to select different colors of the fedora,
+      cowboy boots, and soft cap
+  Melbert:
+  - bugfix: Fixes head revolutionary not getting codewords
+  - bugfix: Fix chat message when removing embedded objects from yourself
+  - bugfix: Fix Crimson Cleaver Curse being droppable in late stages
+  - bugfix: Fix riot armor using brown mesh (now black, matching the armor)
+  - bugfix: Fix changeling void adaptation and darkness adaptation speeding up chemical
+      regen, rather than slowing it down
+  - bugfix: Fix modsuit deploy canceling from movement
+  - bugfix: Ceruleans picking up special shoes (like noslips) no longer permanently
+      breaks the shoes
+  - code_imp: Cleaned up clothing rendering very slightly, particularly relating to
+      inhand sprites, report anything weird with it
+  - code_imp: Cleaned up Cerulean shoe code, report anything weird with it
+  - bugfix: Fix latejoin revolution never gaining new headrevs
+  - bugfix: Stealthy actions (like spy stealing's cog icon) are hidden again
+  - bugfix: (Should) fix issues where progress bars flash red or flash complete at
+      inappropriate times
+  - bugfix: Fixes ninja draining power directly from a cell only working if they fail
+      to drain power
+  - code_imp: Cleaned up cancel interactions hotkey to be less jank, report anything
+      weird
+  - bugfix: Fix some forms of zombification being uncurable
+  - bugfix: Pirate, syndicate, and whiteship shuttles - among some other places -
+      now properly spawn with their AI interaction wires cut on their APCs and Airlocks,
+      preventing the AI and Cyborgs for messing with them unless mended.
+  - bugfix: Traitors can actually get hijack objectives
+  - bugfix: Smoke from things like smoke grenades or the chaplain's smoke spell once
+      again have a negative effect when exposed to it (coughing, minor oxygen damage,
+      dropping items)
+  - bugfix: Fixes airborne disease spread. Sneezing, coughing, and breathing will
+      now spread diseases if you are UNMASKED, rather than if you are masked.
+  PapaMichael:
+  - bugfix: You can once again give items with the keybind
+  - bugfix: Basic night vision (like from the genetics mutation) works again
+  TheSS13Melon:
+  - rscadd: Adds 4 areas for the halloween events.
+  necromanceranne:
+  - balance: Pulse projectiles now have high armor penetration. They also move extremely
+      quickly.
+  - balance: Pulse slugs do 40 damage and have an AP of 30.
+  - balance: X-ray lasers now do 20 damage instead of 15.
+  - balance: Smoothbore disablers no longer are inaccurate, and do 45 damage and move
+      twice as fast. They still struggle to harm anything with armor.
+  san7890:
+  - bugfix: Halloweeners rejoice, some ancient Dullahan bugs have been patched. This
+      includes their speech, how they interact as a changeling, and how they percieve
+      the world.
+  vinylspiders:
+  - qol: examining an unsecured welder now tells you its fuel tank is open and can
+      be screwed shut, and trying to light one tells you to screw the tank shut first.
+  - bugfix: camera coverage no longer breaks when looking down through glass at the
+      bottom of a multilevel area
+  - admin: overflayer once again shows the base plane and offset for unregistered
+      planes it can decode.
+  - bugfix: the potential manifest in the pre-game lobby updates when someone unreadies.
 2026-11-02:
   TheSS13Melon:
   - rscadd: Adds 4 areas for the halloween events.
 2026-11-03:
   XeonMations:
   - qol: You can now select gauntlets in loadouts without being in security.
+  Ruslanllll:
+  - bugfix: kill once objective now considered to be completed after target died from
+      *any* cause, rather than forcing traitors to kill their target permanently.
+  SmArtKar:
+  - bugfix: Fixed a sleeping proc in lobstrocity charge
+  cacogen:
+  - rscadd: Added the ability to alt right-click the gas analyzer to get it to point
+      to the nearest air alarm in the current area.
+  - qol: Added on mouseover hotkey hints to the multitool and the gas analyzer
+  sohpeach:
+  - bugfix: Pressure tanks now keep the correct amount of gas when deconstructed or
+      merged into groups
+  sqnztb:
+  - qol: away maps should no longer have their decals colored by holiday effects.
 2026-11-05:
   XeonMations:
   - rscadd: 'Added a new emote for humans: *slowclap'
@@ -15,6 +101,107 @@
 2026-11-07:
   XeonMations, Cupa:
   - rscadd: Added black alert.
+  CabinetOnFire and Yobrocharlie:
+  - rscadd: You can now use a claw hammer to detonate 40mm and naval cannon shells.
+      You can also do this to someone holding one by targeting their mouth on non-combat
+      mode.
+  Fghj240:
+  - rscadd: Added burn and blunt wounds for robotic bodyparts
+  - rscadd: Added a new reagent, a coolant for robotic burns.
+  - map: Added chilled coolant spray (for robotic burn wounds) to robotics
+  - code_imp: removed magic strings from bone repair surgery required states text
+  Hardly, Absolucy, Siro, Nerev4r:
+  - spellcheck: Adds the wiki's slime lore into their in-game lore description
+  - balance: As soon as slimes are wet they'll start losing slime jelly and regeneration
+      rather than having to be wet enough to trigger them
+  - balance: Splashing water into slimes directly damages their jelly (blood) now
+  - qol: Turns the wet/dry slime debuffs into a status effect, making it clearer on
+      whenever you (the slime) are losing jelly or not
+  - code_imp: Slime Action backgrounds were changed to be consistent
+  - balance: Wet/Dry slimes will lose slime jelly a bit faster, from 2 units to 3
+      units per tick
+  - code_imp: Healing particle uses the slime's mutant color
+  - code_imp: New say verbs for slimes
+  - bugfix: Getting (shuttle)gibbed or chasmed no longer means round removal for slimes,
+      your core should always drop on death (except cremation or admin abuse)
+  - bugfix: Slimes can now get fished out of the chasm, easier with a rescue hook
+  - balance: Slime cores will remain inside legions and vileworms until the mob is
+      dealt with
+  - balance: Slime cores now keeps the items inside them on death rather than dropping
+      them all
+  - qol: Slimes have their core's GPS turned on by default
+  - rscadd: Dead slimes now have the ability to murmur for help
+  - qol: Added screentips for the slime core
+  - code_imp: If you're evil, clicking on a slime core now lets you take all the items.
+      Right clicking on a slime core lets you take their GPS off
+  - balance: Halves the time it takes to steal the core's goodies or turn the GPS
+      off from 30 seconds to 15 seconds
+  - qol: Revival policy shows up for slimes on revival
+  - spellcheck: New descriptions for slime cores that should be clearer than before
+  - bugfix: Slime Changelings will die normally instead of turning into a slime core,
+      which would previously round remove them
+  - code_imp: Hydrophobia slime ability dries the user
+  - refactor: Slime Cleaning code is now cleaner, and with that, they can also clean
+      things by crawling onto them!
+  - balance: Slime hydrophobia halts passive regeneration
+  - balance: Slime hydrophobia prevents you from regenerating your limbs
+  - bugfix: Slimes no longer turn into a core in bitrunning/deathmatch, preventing
+      unintended behavior
+  Melbert:
+  - code_imp: Cleaned up chip bag pop code - report anything weird with that extremely
+      niche thing I guess
+  - bugfix: An EMP hitting a camera no longer permanently detaches it from all networks
+      (just temporarily)
+  - bugfix: AIs using "Jump to Network" no longer permanently detaches cameras from
+      some networks
+  - qol: Updated "Jump to Network" slightly, showing more networks that may be useful
+      to you.
+  - qol: Vendors accept returned items over their product cap again
+  - bugfix: Night lighting actually goes away when it ends
+  Neocloudy:
+  - refactor: '[NOVA] Ceruleans are now playable. The new fish species recently added
+      upstream. They''re very cool. You should play a Cerulean. You should report
+      issues with the species (to the Nova repository in particular, unless you''re
+      extremely confident it''s not a Nova specific issue).'
+  - code_imp: Updated a lot of Nova-specific undersuits so they actually crop for
+      Cerulean tails
+  - refactor: Deleted the Nova-specific hydro-vaporizer, replacing it with the TG
+      hydro-vaporizer (the one that uses charge from a cell). This will probably require
+      you to re-add it to any loadouts that use it. It also does not attach to undersuits.
+      Put it in your pocket or on your belt instead.
+  - rscadd: Akula-like species (Akula, Akula (Generic), Ceruleans) now understand
+      their own language by default, plus Carptongue. This should be save-compatible,
+      your Akulae hopefully won't get their languages wiped.
+  PapaMichael:
+  - balance: Blood worm hatchlings can see mobs while ventcrawling
+  Richard Blonski:
+  - rscadd: Unstaffed departments 5 minutes after shift start will receive emergency
+      access until those departments get staffed.
+  SmArtKar:
+  - bugfix: Fixed a harddel in goliath tentacle code
+  cacogen:
+  - qol: Pride pins are now named after their skin instead of just generic "pride
+      pin"
+  - qol: Adds hotkeys to the portable air scrubber and portable air pump. These allow
+      you to toggle them on/off, remove their holding tanks and in the case of the
+      air pump maximise its output pressure.
+  desertmote:
+  - rscadd: Changes the rat infusion into a mouse infusion, updating its appearance
+      flavor and adding two visual organs
+  - image: Adds mouse ears and a mouse tail sprite, the latter can wag
+  - code_imp: Inner-ear rendering for cat ears uses a list for layer rendering instead
+      of one specific layer
+  moocowswag:
+  - qol: Ventcrawling critters will now be able to tell if the vent they are entering
+      is uncomfortable temperature.
+  san7890:
+  - balance: Telekinetic users can no longer open up a UI on a given object, allow
+      it to exit their site, and be able to edit it unceasingly.
+  thegrb93:
+  - balance: Tirizene prevents stamina regen
+  vinylspiders:
+  - bugfix: switched off lights no longer count as light for shadow walking and other
+      darkness checks, and lights that move around count where they actually are
 2026-11-11:
   Laiko44:
   - rscdel: Removed straightjacket and muzzle from the psychologist's locker
@@ -35,6 +222,71 @@
   - rscadd: New goodie bag. You can now order the surgical medkits that doctors spawn
       with in a single-pack from cargo, in case yours gets destroyed by something
       or other.
+  Fghj240:
+  - bugfix: fixed mutated regeneration threshold text
+  - spellcheck: mutated regeneration fluff text changes to "quickly" instead of "slowly"
+      if you stack it high enough
+  Maia-J:
+  - bugfix: Limb growers no longer prevent printing when they have been upgraded and
+      have enough reagents if they wouldn't have had enough reagents were they not
+      upgraded.
+  Melbert:
+  - code_imp: Vents should perform better, note any issues with vents (especially
+      when overclocked)
+  - code_imp: Cleaned up code for mobs being burned while tied to heat exhange pipes.
+      Report anything weird if it doesn't work the next time you get the opportunity
+      to try it in like 8 months
+  - code_imp: Cleaned up code for updating your hand UI slots, report anything weird
+      with that
+  - code_imp: Cleaned up code for updating your sprite with your held items, report
+      anything weird with that
+  - code_imp: Cleaned up code pertaining to closing storage items you can't reach,
+      report if you are able to reach things you probably shouldn't be able to
+  - balance: '"Throwing Arm" quirk cost reduced (7 -> 5)'
+  - balance: Reduced chance of obtaining several quirk's related mail items moderately,
+      with the exception of the Gamer quirk (which is now twice as likely, intead)
+  - rscadd: Added quirk "Eccentric Correspondent", which adds more randomness to your
+      mail item pool
+  - rscadd: Added quirk "Well Connected", which offers discounts on cargo or black
+      market orders.
+  - rscadd: Added quirk "Shock Reflex", which reduces the chance of being shocked
+      when failing hacks or the like.
+  - rscdel: Removed organ transport box from mail pool of Prosthetic Organ and Tin
+      Man quirks
+  - balance: Electrodisruptive emitter beams heal the SM considerably more per hit,
+      but begin to experience diminishing returns after a number of hits, resetting
+      after not being hit with a healing emitter for some time.
+  Neocloudy:
+  - config: The roundstart emergency access system is gated behind a configuration
+      flag that is disabled by default.
+  - bugfix: Virology, Genetics, and all departmental guard posts are now ignored by
+      the roundstart emergency access system.
+  - bugfix: '[NOVA] Ceruleans can no longer take leg augments to have invisible but
+      still usable legs.'
+  PapaMichael:
+  - bugfix: MULEbots' autoreturn toggle now works
+  - bugfix: EMP protection works more robustly
+  - bugfix: Changeling transformations and experimental cloners now properly copy
+      the TTS pitch of the target
+  The-Tyrant:
+  - bugfix: Organic limbs can no longer get T1 robotic blunt wounds (loosened screws)
+  Y0SH1M4S73R:
+  - admin: datum instantiation from lua scripts can no longer be used to bypass admin
+      proc call protections
+  headband0536:
+  - rscadd: Throwable sledgehammer
+  - rscadd: Telescreens and status displays are now breakable
+  - image: Sledgehammer sprites by Simpleton
+  san7890:
+  - bugfix: Telekinetic users should be able to use UIs even when inside machinery,
+      as long as their client is expected to be able to have it in their sight (in
+      one way or another).
+  sohpeach:
+  - bugfix: ntos file manager can no longer be used to print carp plushies (and similar
+      things)
+  thegrb93:
+  - bugfix: Missing large painting frame craft recipe added
+  - bugfix: ooc chat button missing from ooc tab
 2026-11-18:
   Shroopy:
   - balance: Reverted welders flashing people near you.
@@ -48,3 +300,116 @@
   - balance: removes the chance to become a skeleton upon drinking Dragon's Blood,
       making it now a 50/50 split between becoming lava immune or granting you a lesser
       drake polymorph.
+2026-11-19:
+  AitorLogedo:
+  - bugfix: Dead bodies wearing insulating clothes cool down after burning instead
+      of staying hot and husking.
+  ArrisFairburne:
+  - code_imp: Improved ranged trooper AI to ignore destroying objects they can shoot
+      through
+  CabinetOnFire:
+  - bugfix: mulebots now use stairs and ladders wow
+  - balance: Monkeys are less tough to fight
+  - bugfix: Monkeys stop throwing things through (solid) windows
+  - bugfix: fixes inversion that made tamed monkeys steal shit instead of untamed
+      ones
+  - refactor: Pathfinding now makes use of a more optimized rust-g A* algorithm
+  - bugfix: Bots now should reliably be summonable
+  FalloutFalcon:
+  - bugfix: Stacking machines not linked to a silo works
+  Fghj240:
+  - spellcheck: corrected gibber meat production examine text
+  - code_imp: improved gibber code formatting
+  Imaginos16 , mrmelbert , ben10omnitrix:
+  - rscadd: fox tails and ears are now available as customization options for felinids.
+  - rscadd: adds fox tails to fox infusion
+  Maia-J:
+  - bugfix: The Grey Tide spear illusions attack their target again.
+  - bugfix: Mirage grenades spawn mirages again.
+  Melbert:
+  - rscadd: If you have someone aggressively grabbed, you can click on a lit stove
+      or hot griddle to place their hand onto it.
+  - bugfix: Drone chat works again.
+  - bugfix: Monkeys spawned from cubes no longer attack other monkeys.
+  - bugfix: NPC flesh spiders attack randomly.
+  - bugfix: The meteor heart uses its abilities correctly.
+  - bugfix: Stabilized pink extracts correctly pacify nearby mobs.
+  - bugfix: Stickmen summoned from the paper mache robes don't attack the caster.
+  - bugfix: Rats spawned from toilet bongs are friendly as expected.
+  - bugfix: Killer tomatos and seedlings are immune to kudzu.
+  - bugfix: Voice is properly passed to crew records
+  - bugfix: Fixes several mobs taking damage from damage types they are intended to
+      be immune to
+  - bugfix: Fix crawl/drag sounds being played while fireman carrying
+  - map: Removed excess waste filters from the Supermatter Engine across all maps
+  - map: Standardizes waste output of the Supermatter Engine across all maps
+  - bugfix: Fixes a bug where you could magically gain an ID card's accesses if the
+      ID card was placed within literally anything (briefcases, backpacks, whatever)
+      being held. A few items have kept this properly (obviously, wallets and PDAs...
+      but a few other special items might have kept it too...)
+  - bugfix: Stamina damage is properly refreshed by taking more stamina damage - in
+      other words. if you baton someone who is in stamcrit. it properly extends stamcrit.
+  - qol: Projectiles should freeze less (more processing time has been allocated to
+      them - so if something else starts to freeze feel free to file a report)
+  - bugfix: You can turn while buckled again
+  - balance: The Knock spell will open safes and briefcases
+  - bugfix: You can no longer start to metabolize chems without a liver
+  - bugfix: Digital clocks should report more accurate times in the hours position
+      (before, it mirrored one of the minute's times)
+  - code_imp: Cleaned up digital clock code a bit, report if they seem to be reporting
+      weird numbers
+  - code_imp: Changed the code that determines if you're protected from pressure damage
+      or not, report anything weird with your ghetto spacesuit setups (like if they
+      suddenly stop working)
+  - code_imp: Tweaked bluespace interference code slightly to make it less laggy,
+      report any weird teleports you experience
+  - bugfix: Dynamic has a significantly higher chance of spawning antags if there
+      are no antags alive
+  - bugfix: Dynamic no longer counts dead people as alive for the purpose of antag
+      spawn chance
+  - qol: Dynamic math changed slightly. Fewer antags are spawned if a significant
+      amount of the crew is dead, and observers who were never part of the crew no
+      longer reduce the chance of spawning antags.
+  - qol: Dynamic rulesets that a require ghosts cannot be picked if there are no ghosts.
+      This means midround rulesets like Traitors / Mass Traitors will be significantly
+      more common when there are no observers.
+  - bugfix: The Reticence, Gygax, Clarke, Phazon, and Odysseus all mistakenly drained
+      10x less power to move than intended; this has been fixed
+  - bugfix: Some mecha equipment (Mounted sleeper, syringe gun, beam gun, wormhole
+      generator, teleporter, repair droid, punch-face, and paddy clamp) mistakenly
+      drained 10x less power on usage than intended; this has been fixed
+  PapaMichael:
+  - bugfix: Supply Pod "Launch Turf Ordered" and "Launch Random Turf" modes now work
+      again
+  - bugfix: The Kilostation Sci Security outpost now has a security science locker
+  - qol: Ambient game tracks will no longer play over admin web music
+  Pumpkinoe:
+  - balance: Nutimov is slightly more dangerous to use now, if you don't treat the
+      AI right
+  Xander3359:
+  - bugfix: Fixed misplaced wallet runtiming on maps with no closets
+  btcbuster:
+  - rscadd: Putrid dumpsters that spawn corpses now spawn morgue corpses instead of
+      an intact human corpse, leading to other species and damage on the corpses.
+      Cost decreased.
+  - balance: You no longer lose ore when smelting it.
+  grungussuss:
+  - sound: added new handling sfx to bowls, fruits, vegetables, rags, griddles.
+  necromanceranne:
+  - balance: Cyborgs require two flashes to stun them once again.
+  - balance: You can now punch borgs to death. But you do need to have a decent punch
+      to even hurt them.
+  - balance: Lizardpeople are now so strong. They could bend steel. You could grate
+      cheese on those abdominals. It will get caught in their scales though, which
+      means they might get scalerot, so please don't actually do that. Just admire
+      them from a comfortable, although perhaps uncomfortable for the subject of admiration,
+      distance.
+  san7890:
+  - rscdel: CatwalkStation has been removed from the game.
+  scolastico:
+  - bugfix: Pressing "Force Reconnect" in the chat panel's websocket settings no longer
+      breaks the websock
+  sqnztb:
+  - bugfix: Security department orders should show the weapon requisition kits again.
+  thegrb93:
+  - bugfix: Fix cyborg medical omni-tool from not having drapes at first.

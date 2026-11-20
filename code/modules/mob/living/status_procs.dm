@@ -523,6 +523,8 @@
 		if(candidate.hidden)
 			continue
 		// OCULIS EDIT ADDITION END
+		if(medical && (candidate.quirk_flags & QUIRK_NO_RECORD))
+			continue
 		switch(category)
 			if(CAT_QUIRK_MAJOR_DISABILITY)
 				if(candidate.value >= -4)

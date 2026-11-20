@@ -575,8 +575,8 @@
 	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	can_adjust = FALSE
 	female_sprite_flags = NO_FEMALE_UNIFORM
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
-	bodyshapes_with_variations = NONE
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON | CLOTHING_CERULEAN_MASK_LEGS
+	bodyshapes_with_variations = BODYSHAPE_CERULEAN
 
 // Donation reward for TheOOZ
 /obj/item/clothing/mask/animal/wolf
@@ -638,7 +638,7 @@
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
 	icon_state = "blutigen_undergarment"
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
-	supports_variations_flags = NONE
+	supports_variations_flags = CLOTHING_CERULEAN_MASK_LEGS
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 
 // Donation reward for SlippyJoe
@@ -677,7 +677,7 @@
 	icon_state = "silver_dress"
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
 	worn_icon_digi = null
-	supports_variations_flags = NONE
+	supports_variations_flags = CLOTHING_CERULEAN_MASK_LEGS
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 
 // Donation reward for NetraKyram
@@ -852,7 +852,7 @@
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
 	icon_state = "lannese"
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
-	supports_variations_flags = NONE
+	supports_variations_flags = CLOTHING_CERULEAN_MASK_LEGS
 	inhand_icon_state = "firefighter"
 	can_adjust = TRUE
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
@@ -1111,8 +1111,8 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/security.dmi'
 	worn_icon_digi = 'modular_nova/master_files/icons/donator/mob/clothing/uniform_digi.dmi'
 	icon_state = "hos_black"
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-	bodyshapes_with_variations = NONE
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_CERULEAN_MASK_LEGS
+	bodyshapes_with_variations = BODYSHAPE_CERULEAN
 
 // Donation reward for DeltaTri
 /obj/item/clothing/suit/jacket/delta
@@ -1305,6 +1305,8 @@
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
 	icon_state = "CCofficer"
+	supports_variations_flags = CLOTHING_CERULEAN_MASK_LEGS
+	bodyshapes_with_variations = BODYSHAPE_CERULEAN
 
 // Donation reward for Cherno_00
 /obj/item/clothing/head/costume/ushanka/frosty
@@ -1344,7 +1346,7 @@
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
 	icon_state = "occultoutfit"
-	supports_variations_flags = NONE
+	supports_variations_flags = CLOTHING_CERULEAN_MASK_LEGS
 
 // Donation reward for gamerguy14948
 /obj/item/clothing/head/hooded/occult
@@ -2273,7 +2275,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	icon_state = "shendyt"
 	inhand_icon_state = "labcoat"
 	can_adjust = FALSE
-	supports_variations_flags = NONE
+	supports_variations_flags = CLOTHING_CERULEAN_MASK_LEGS
 	body_parts_covered = CHEST|GROIN
 
 /obj/item/clothing/under/costume/shendyt/Initialize(mapload)

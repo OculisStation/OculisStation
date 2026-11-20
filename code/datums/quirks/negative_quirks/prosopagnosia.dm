@@ -5,6 +5,7 @@
 	value = -4
 	medical_record_text = "Patient suffers from prosopagnosia and cannot recognize faces."
 	hardcore_value = 5
+	mail_weight = 2
 	mail_goodies = list(/obj/item/skillchip/appraiser) // bad at recognizing faces but good at recognizing IDs
 
 /datum/quirk/prosopagnosia/add(client/client_source)
