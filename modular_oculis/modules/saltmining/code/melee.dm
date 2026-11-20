@@ -278,9 +278,8 @@
 	. += span_notice("SCREAMING EAGLES!!! You have the strangest feeling it might randomly 'crit' against anything you hit... the numbers 1 in [critchance] resonate in your head... whatever the fuck all that means.")
 
 /obj/item/shovel/gardener/attack(mob/living/target, mob/living/carbon/human/user)
-	var/targetfaction = target.get_faction()
 	var/crit = rand(1,critchance)
-	if(faction_check(targetfaction, list(FACTION_MINING, FACTION_BOSS)))
+	if(target.has_faction(list(FACTION_MINING, FACTION_BOSS)))
 		force += lavafauna_bonus
 		if(crit == 1) //RANDOM CRIT!!!
 			force += random_crit_damage
@@ -291,7 +290,7 @@
 		playsound(target, 'modular_oculis/modules/saltmining/sound/randomcrit.ogg', 100, TRUE)
 		target.balloon_alert_to_viewers("<font color='green'>CRITICAL HIT!</font>")
 	. = ..()
-	if(faction_check(targetfaction, list(FACTION_MINING, FACTION_BOSS))) //we then run through again and fix the damage
+	if(target.has_faction(list(FACTION_MINING, FACTION_BOSS))) //we then run through again and fix the damage
 		force -= lavafauna_bonus
 		if(crit == 1) //undo random crit damage
 			force -= random_crit_damage

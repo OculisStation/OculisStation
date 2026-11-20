@@ -224,7 +224,7 @@
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_PRIDE | RACE_SWAP | ERT_SPAWN | SLIME_EXTRACT
 	mutanteyes = /obj/item/organ/eyes
 	var/datum/action/innate/split_body/slime_split
-	/* var/list/mob/living/carbon/bodies */ // OCULIS EDIT REMOVAL
+	var/list/mob/living/carbon/bodies
 	var/datum/action/innate/swap_body/swap_body
 
 	bodypart_overrides = list(
@@ -246,11 +246,9 @@
 		slime_split.Remove(C)
 	if(swap_body)
 		swap_body.Remove(C)
-	/* // OCULIS EDIT REMOVAL BEGIN
 	bodies -= C // This means that the other bodies maintain a link
 	// so if someone mindswapped into them, they'd still be shared.
 	bodies = null
-	*/ // OCULIS EDIT REMOVAL END
 	C.set_blood_volume(C.get_blood_volume(), maximum = BLOOD_VOLUME_NORMAL)
 	UnregisterSignal(C, list(
 		COMSIG_LIVING_DEATH,
@@ -266,17 +264,14 @@
 		swap_body = new
 		swap_body.Grant(C)
 
-		/* // OCULIS EDIT REMOVAL BEGIN
 		if(!bodies || !length(bodies))
 			bodies = list(C)
 		else
 			bodies |= C
-		*/ // oculis edit removal end
 
 	RegisterSignal(C, COMSIG_LIVING_DEATH, PROC_REF(on_death_move_body))
 	// RegisterSignal(C, COMSIG_LIVING_LIFE, PROC_REF(on_life)) // NOVA EDIT REMOVAL - Handled by the base type
 
-/* // OCULIS EDIT REMOVAL BEGIN - MOVED TO modular_oculis/modules/oozelings/code/slimepeople/slimeperson.dm
 /datum/species/jelly/slime/proc/on_death_move_body(mob/living/carbon/human/source, gibbed)
 	SIGNAL_HANDLER
 
@@ -298,8 +293,6 @@
 //If you're cloned you get your body pool back
 /datum/species/jelly/slime/copy_properties_from(datum/species/jelly/slime/old_species)
 	bodies = old_species.bodies
-
-*/ // OCULIS EDIT REMOVAL END
 
 /datum/species/jelly/slime/on_life(mob/living/carbon/human/source, seconds_per_tick) // NOVA EDIT CHANGE - Original: /datum/species/jelly/slime/proc/on_life(mob/living/carbon/human/source, seconds_per_tick) - Remove /proc to make this an override
 	. = ..() // NOVA EDIT CHANGE - ORIGINAL: SIGNAL_HANDLER
@@ -370,21 +363,10 @@
 	REMOVE_TRAIT(H, TRAIT_NO_TRANSFORM, REF(src))
 
 	var/datum/species/jelly/slime/origin_datum = H.dna.species
-	origin_datum.manager.add_body(spare) // OCULIS EDIT CHANGE - ORIGINAL: origin_datum.bodies |= spare
+	origin_datum.bodies |= spare
 
-	/* // OCULIS EDIT REMOVAL BEGIN
 	var/datum/species/jelly/slime/spare_datum = spare.dna.species
 	spare_datum.bodies = origin_datum.bodies
-	*/ // OCULIS EDIT REMOVAL END
-
-	// OCULIS EDIT ADDITION BEGIN
-	if(H.blooper_id)
-		spare.set_blooper(H.blooper_id)
-		spare.blooper_pitch = H.blooper_pitch
-		spare.blooper_pitch_range = H.blooper_pitch_range
-		spare.blooper_volume = H.blooper_volume
-		spare.blooper_speed = H.blooper_speed
-	// OCULIS EDIT ADDITION END
 
 	// NOVA EDIT ADDITION BEGIN
 	if(H.blooper_id)
@@ -402,7 +384,6 @@
 	)
 
 
-/* // OCULIS EDIT REMOVAL START
 /datum/action/innate/swap_body
 	name = "Swap Body"
 	check_flags = NONE
@@ -543,7 +524,7 @@
 	M.current.transfer_quirk_datums(dupe)
 	M.transfer_to(dupe)
 	dupe.visible_message(span_notice("[dupe] blinks and looks around."), span_notice("...and move this one instead."))
-*/ // OCULIS EDIT REMOVAL END
+
 
 ///////////////////////////////////LUMINESCENTS//////////////////////////////////////////
 

@@ -1,6 +1,6 @@
 /datum/ai_movement/basic_avoidance/adaptive
 	/// What we swap to when walking straight gets us stuck
-	var/datum/ai_movement/astar/adaptive/fallback_type = /datum/ai_movement/astar/adaptive
+	var/datum/ai_movement/navmap_astar/fallback_type = /datum/ai_movement/navmap_astar
 
 // walking straight never gets anyone up the stairs, it just parks us under them, so another floor means A* right away
 /datum/ai_movement/basic_avoidance/adaptive/start_moving_towards(datum/ai_controller/controller, atom/current_movement_target, min_distance, delay_override)
@@ -70,15 +70,15 @@
 		if(moving_controllers[controller] == source && !on_same_floor(controller.pawn, source))
 			swap_to_astar(controller, source, controller.blackboard[BB_CURRENT_MIN_MOVE_DISTANCE])
 
-/datum/ai_movement/astar/adaptive
+/datum/ai_movement/navmap_astar
 	/// What we swap back to once we've caught up
 	var/datum/ai_movement/basic_avoidance/adaptive/walk_type = /datum/ai_movement/basic_avoidance/adaptive
 
-/datum/ai_movement/astar/adaptive/post_move(datum/move_loop/source, succeeded)
+/datum/ai_movement/navmap_astar/post_move(datum/move_loop/source, succeeded)
 	. = ..()
 	if (succeeded != MOVELOOP_SUCCESS)
 		return
-	var/datum/move_loop/has_target/jps/astar/loop = source
+	var/datum/move_loop/has_target/navmap_astar/loop = source
 	if(length(loop.movement_path))
 		return
 	var/datum/ai_controller/controller = source.extra_info
@@ -90,8 +90,8 @@
 
 /// Following a friend can mean a long trip across floors, so the A* half gets a much longer leash than a chase does
 /datum/ai_movement/basic_avoidance/adaptive/follow
-	fallback_type = /datum/ai_movement/astar/adaptive/follow
+	fallback_type = /datum/ai_movement/navmap_astar/follow
 
-/datum/ai_movement/astar/adaptive/follow
+/datum/ai_movement/navmap_astar/follow
 	maximum_length = SLIME_SEEK_PATH_LENGTH
 	walk_type = /datum/ai_movement/basic_avoidance/adaptive/follow

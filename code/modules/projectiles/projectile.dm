@@ -408,8 +408,7 @@
 		reagent_note = "REAGENTS: [pretty_string_from_reagent_list(reagents.reagent_list)]"
 
 	//OCULIS EDIT START - Essentially multiplies damage by fauna mod if its a lavaland fauna
-	var/targetfaction = living_target.get_faction()
-	if(faction_check(targetfaction, list(FACTION_MINING, FACTION_BOSS)))
+	if(living_target.has_faction(list(FACTION_MINING, FACTION_BOSS)))
 		damage *= lavafauna_mod
 	//OCULIS EDIT END - Used to allow wasteland guns to do damage to fauna without obliterating people
 

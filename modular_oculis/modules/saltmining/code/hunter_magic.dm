@@ -129,8 +129,7 @@
 	alpha = 200 //visible for you and others, because its not like fauna are going to avoid stepping on them (elites are excluded but im sure you could still bait one to step in them)
 
 /obj/structure/trap/damage/hunter/trap_effect(mob/living/victim)
-	var/targetfaction = victim.get_faction()
-	if(faction_check(targetfaction, list(FACTION_MINING, FACTION_BOSS)))
+	if(victim.has_faction(list(FACTION_MINING, FACTION_BOSS)))
 		victim.adjust_brute_loss(175) //enough to kill a goliath in two, but one shot watchers
 	else
 		to_chat(victim, span_bolddanger("You stumble as the ground beneath you churns, but doesn't quite erupt like you expect.")) //People are barely affected by it
@@ -161,13 +160,12 @@
 	var/failure_message = "The power of the Necropolis is too weak to gather into a meaningful strike here!"
 
 /datum/action/cooldown/spell/touch/smite/hunter/cast_on_hand_hit(obj/item/melee/touch_attack/hand, mob/living/victim, mob/living/carbon/caster)
-	var/targetfaction = victim.get_faction()
-	if(faction_check(targetfaction, list(FACTION_BOSS))) //we check this first because while all lavaland fauna are FACTION_MINING not all lavaland fauna is FACTION_BOSS, and we dont want to be gibbing bosses (not that they can be usually)
+	if(victim.has_faction(FACTION_BOSS)) //we check this first because while all lavaland fauna are FACTION_MINING not all lavaland fauna is FACTION_BOSS, and we dont want to be gibbing bosses (not that they can be usually)
 		new /obj/effect/temp_visual/explosion/fast(get_turf(victim))
 		to_chat(caster, span_bolddanger("The volatile energy of the Necropolis flies from your hand and into your foe, however it manages to contain the energy, though is clearly heavily injured by doing so!"))
 		victim.adjust_brute_loss(500)
 		return TRUE
-	if(faction_check(targetfaction, list(FACTION_MINING))) //this is checked second, so essentially if the boss tag isnt found, then we resort to checking if mining is, then we gib
+	if(victim.has_faction(FACTION_BOSS)) //this is checked second, so essentially if the boss tag isnt found, then we resort to checking if mining is, then we gib
 		new /obj/effect/gibspawner(get_turf(victim))
 		new /obj/effect/temp_visual/explosion/fast(get_turf(victim))
 		to_chat(caster, span_bolddanger("The volatile energy of the Necropolis flies from your hand and into your foe, whos body ripples violently before exploding in a shower of gore!"))
@@ -205,8 +203,7 @@
 	hand_path = /obj/item/melee/touch_attack/smite/hunter/siphon
 
 /datum/action/cooldown/spell/touch/smite/hunter/siphon/cast_on_hand_hit(obj/item/melee/touch_attack/hand, mob/living/victim, mob/living/carbon/caster)
-	var/targetfaction = victim.get_faction()
-	if(faction_check(targetfaction, list(FACTION_BOSS, FACTION_MINING))) //this works on bosses and regular mining fauna the same, unlike hunter smite
+	if(victim.has_faction(list(FACTION_MINING, FACTION_BOSS))) //this works on bosses and regular mining fauna the same, unlike hunter smite
 		new /obj/effect/temp_visual/cleave(get_turf(victim))
 		playsound(caster, 'sound/effects/wounds/pierce3.ogg', 100, TRUE)
 		to_chat(caster, span_bolddanger("The leeching energy of the Necropolis flies into your foe, causing blood to spray out of them and onto you, which quickly absorbs into you. You feel alot better!"))

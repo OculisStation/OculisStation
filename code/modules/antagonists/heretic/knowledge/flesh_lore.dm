@@ -163,7 +163,7 @@
 	// OCULIS EDIT ADDITION START
 	var/obj/item/organ/brain/slime/slime_core = locate() in atoms
 	if(slime_core)
-		var/mob/living/carbon/human/new_slime_body = slime_core.rebuild_body(nugget = FALSE)
+		var/mob/living/carbon/human/new_slime_body = slime_core.rebuild_body()
 		if(!QDELETED(new_slime_body))
 			// ELSE THE CORE GETS DELETED AND WEIRD SHIT HAPPENS
 			atoms -= slime_core
