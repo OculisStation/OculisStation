@@ -1,4 +1,12 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/machinery/power/terminal{
+	dir = 1
+	},
+/obj/structure/cable,
+/obj/machinery/light_switch/directional/east,
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
 "b" = (
 /obj/machinery/power/smes/full{
 	output_level = 20000
@@ -10,6 +18,7 @@
 "g" = (
 /obj/structure/cable,
 /obj/machinery/porta_turret/ai,
+/obj/machinery/light/directional/south,
 /turf/open/floor/circuit/red,
 /area/station/redspace_anchor)
 "i" = (
@@ -65,6 +74,12 @@
 "v" = (
 /obj/structure/cable,
 /turf/open/floor/circuit/red/off,
+/area/station/redspace_anchor)
+"w" = (
+/obj/structure/cable,
+/obj/machinery/porta_turret/ai,
+/obj/machinery/light/directional/north,
+/turf/open/floor/circuit/red,
 /area/station/redspace_anchor)
 "x" = (
 /obj/machinery/power/smes/full{
@@ -174,7 +189,7 @@ X
 "}
 (5,1,1) = {"
 X
-g
+w
 Y
 J
 Y
@@ -211,7 +226,7 @@ X
 (9,1,1) = {"
 X
 n
-r
+a
 l
 j
 n
