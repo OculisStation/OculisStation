@@ -16666,6 +16666,8 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/smooth,
 /area/station/engineering/lobby)
 "eEs" = (
@@ -55070,6 +55072,8 @@
 "pnF" = (
 /obj/effect/landmark/start/hangover,
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/smooth,
 /area/station/engineering/lobby)
 "pnR" = (
@@ -72832,6 +72836,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/station/hallway/primary/central)
+"uop" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/smooth,
+/area/station/engineering/lobby)
 "uow" = (
 /obj/structure/railing,
 /obj/structure/table,
@@ -183644,7 +183654,7 @@ thA
 ppY
 bID
 xrL
-jJI
+uop
 tiJ
 uSA
 vdt
@@ -183901,7 +183911,7 @@ thA
 iDt
 bID
 mCF
-jJI
+uop
 eEn
 bCy
 iub

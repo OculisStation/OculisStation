@@ -24,11 +24,13 @@
 
 /// Gassy background with a few random colors
 /atom/movable/screen/parallax_layer/random/space_gas
+	/* // OCULIS EDIT REMOVAL START
 	//IRIS EDIT START
 	icon = 'modular_iris/master_files/icons/effects/electrobox.dmi'
 	icon_state = "lightning"
 	speed = 0.5
 	//IRIS EDIT END
+	*/ // OCULIS EDIT REMOVAL END
 
 	/// The colors we can be
 	var/possible_colors = list(COLOR_STRONG_VIOLET, COLOR_VIOLET, COLOR_LIGHT_PINK, COLOR_MOSTLY_PURE_PINK, COLOR_AMETHYST, COLOR_OCULIS_LOGO, COLOR_PURPLE) //OCULIS EDIT
