@@ -2,7 +2,7 @@
 #define ACCOUNT_CMD_NAME "Command Budget"
 
 // Relevant budget for DS-2
-#define ACCOUNT_DS2 "DS2"
+#define ACCOUNT_DS2 "OCT" // OCULIS EDIT, ORIGINAL: #define ACCOUNT_DS2 "DS2"
 #define ACCOUNT_DS2_NAME "Syndicate Budget"
 
 // Relevant budget for Interdyne!
