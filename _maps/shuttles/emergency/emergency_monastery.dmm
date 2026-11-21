@@ -32,20 +32,6 @@
 /obj/structure/grille/broken,
 /turf/open/space/basic,
 /area/shuttle/escape)
-"aO" = (
-/obj/structure/sign/plaques/kiddie{
-	desc = "It reads: PRIVATE EXHIBIT -  Please inquire with library staff for guided tours.";
-	name = "\improper Private Section Notice";
-	pixel_y = 32
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 8
-	},
-/turf/open/floor/iron/dark,
-/area/shuttle/escape)
 "bb" = (
 /obj/machinery/power/apc/auto_name/directional/east,
 /obj/structure/cable,
@@ -94,6 +80,13 @@
 	dir = 9
 	},
 /turf/open/floor/plating,
+/area/shuttle/escape)
+"bs" = (
+/obj/structure/dresser,
+/obj/structure/sign/picture_frame/portrait{
+	pixel_y = 28
+	},
+/turf/open/floor/carpet/grimey,
 /area/shuttle/escape)
 "bu" = (
 /obj/structure/sign/painting/library_secure{
@@ -151,6 +144,12 @@
 "cC" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
+/area/shuttle/escape)
+"cO" = (
+/obj/structure/table/wood,
+/obj/machinery/light/small/directional/west,
+/obj/item/instrument/violin,
+/turf/open/floor/carpet/grimey,
 /area/shuttle/escape)
 "cT" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
@@ -234,21 +233,9 @@
 /obj/machinery/airalarm/directional/south,
 /turf/open/floor/grass,
 /area/shuttle/escape)
-"ez" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 8
-	},
-/turf/open/floor/carpet/grimey,
-/area/shuttle/escape)
 "eA" = (
 /obj/structure/closet/crate/bin,
 /turf/open/floor/carpet,
-/area/shuttle/escape)
-"eF" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 4
-	},
-/turf/open/floor/carpet/grimey,
 /area/shuttle/escape)
 "eG" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -328,6 +315,15 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/shuttle/escape)
+"fs" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
+	},
+/turf/open/floor/carpet/grimey,
+/area/shuttle/escape)
 "fv" = (
 /obj/structure/bookcase/random/religion,
 /obj/effect/decal/cleanable/cobweb/cobweb2,
@@ -365,6 +361,12 @@
 	},
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
+/area/shuttle/escape)
+"gx" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/turf/open/floor/carpet/grimey,
 /area/shuttle/escape)
 "gO" = (
 /obj/structure/flora/bush/leavy/style_random,
@@ -710,6 +712,12 @@
 "lX" = (
 /turf/open/floor/carpet/black,
 /area/shuttle/escape)
+"mc" = (
+/obj/machinery/door/airlock{
+	name = "Bathroom"
+	},
+/turf/open/floor/carpet/grimey,
+/area/shuttle/escape)
 "me" = (
 /obj/structure/table/wood/fancy,
 /turf/open/floor/carpet,
@@ -820,6 +828,19 @@
 	pixel_x = 24
 	},
 /turf/open/floor/iron/dark,
+/area/shuttle/escape)
+"nq" = (
+/obj/machinery/door/airlock{
+	id_tag = "Cell2";
+	name = "Cell 2"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/turf/open/floor/carpet/grimey,
 /area/shuttle/escape)
 "nr" = (
 /turf/closed/wall,
@@ -945,11 +966,6 @@
 /obj/structure/window/reinforced/spawner/directional/north,
 /turf/open/floor/plating,
 /area/shuttle/escape)
-"pt" = (
-/obj/structure/table/wood,
-/obj/item/food/grown/flower/poppy,
-/turf/open/floor/iron/dark,
-/area/shuttle/escape)
 "pv" = (
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/carpet/black,
@@ -1055,6 +1071,12 @@
 	},
 /turf/open/floor/iron/dark,
 /area/shuttle/escape)
+"qK" = (
+/obj/structure/table/wood,
+/obj/machinery/light/small/directional/west,
+/obj/item/storage/crayons,
+/turf/open/floor/carpet/grimey,
+/area/shuttle/escape)
 "qT" = (
 /obj/structure/bookcase/random/nonfiction,
 /turf/open/floor/iron/dark,
@@ -1124,12 +1146,6 @@
 	},
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
-/area/shuttle/escape)
-"rS" = (
-/obj/structure/chair/wood{
-	dir = 8
-	},
-/turf/open/floor/carpet/grimey,
 /area/shuttle/escape)
 "rX" = (
 /obj/effect/turf_decal/tile/yellow{
@@ -1228,20 +1244,6 @@
 /obj/effect/turf_decal/tile/red/fourcorners,
 /turf/open/floor/iron/dark,
 /area/shuttle/escape)
-"sS" = (
-/obj/structure/closet/cabinet,
-/obj/item/clothing/suit/chaplainsuit/holidaypriest,
-/obj/item/clothing/suit/chaplainsuit/nun,
-/obj/item/clothing/head/chaplain/nun_hood,
-/obj/machinery/button/door{
-	id = "Cell1";
-	name = "Cell Bolt Control";
-	normaldoorcontrol = 1;
-	pixel_x = -25;
-	specialfunctions = 4
-	},
-/turf/open/floor/carpet/grimey,
-/area/shuttle/escape)
 "sT" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/turf_decal/tile/red/anticorner/contrasted{
@@ -1272,12 +1274,6 @@
 /obj/item/storage/fancy/candle_box,
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/iron/dark,
-/area/shuttle/escape)
-"tQ" = (
-/obj/machinery/door/airlock{
-	name = "Bathroom"
-	},
-/turf/open/floor/carpet/grimey,
 /area/shuttle/escape)
 "tR" = (
 /obj/structure/table/wood,
@@ -1323,11 +1319,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/shuttle/escape)
-"uH" = (
-/obj/structure/bed,
-/obj/item/bedsheet/green,
-/turf/open/floor/carpet/grimey,
-/area/shuttle/escape)
 "uO" = (
 /obj/structure/chair/wood{
 	dir = 4
@@ -1352,6 +1343,12 @@
 	},
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
+/area/shuttle/escape)
+"vf" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/turf/open/floor/carpet/grimey,
 /area/shuttle/escape)
 "vj" = (
 /obj/item/kirbyplants/organic/plant21,
@@ -1495,15 +1492,6 @@
 /obj/machinery/vending/wardrobe/chap_wardrobe,
 /turf/open/floor/carpet,
 /area/shuttle/escape)
-"xE" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 4
-	},
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 8
-	},
-/turf/open/floor/carpet/grimey,
-/area/shuttle/escape)
 "xZ" = (
 /obj/structure/cable,
 /obj/structure/extinguisher_cabinet/directional/west,
@@ -1616,12 +1604,6 @@
 /obj/effect/turf_decal/tile/yellow,
 /turf/open/floor/iron/dark,
 /area/shuttle/escape)
-"zd" = (
-/obj/machinery/light/small/directional/east,
-/obj/structure/easel,
-/obj/item/canvas/twentythree_nineteen,
-/turf/open/floor/carpet/grimey,
-/area/shuttle/escape)
 "zh" = (
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /obj/item/stack/sheet/glass/fifty,
@@ -1662,19 +1644,6 @@
 "zE" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
-/area/shuttle/escape)
-"zL" = (
-/obj/machinery/door/airlock{
-	id_tag = "Cell2";
-	name = "Cell 2"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 8
-	},
-/turf/open/floor/carpet/grimey,
 /area/shuttle/escape)
 "zP" = (
 /obj/structure/table/wood,
@@ -1735,6 +1704,25 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
+/turf/open/floor/iron/dark,
+/area/shuttle/escape)
+"AD" = (
+/obj/structure/plaque/kiddie/developer{
+	desc = "It reads: PRIVATE EXHIBIT -  Please inquire with library staff for guided tours.";
+	name = "\improper Private Section Notice";
+	pixel_y = 32
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/turf/open/floor/iron/dark,
+/area/shuttle/escape)
+"AF" = (
+/obj/structure/table/wood,
+/obj/item/food/grown/flower/harebell,
 /turf/open/floor/iron/dark,
 /area/shuttle/escape)
 "AG" = (
@@ -1803,6 +1791,24 @@
 	},
 /obj/effect/turf_decal/tile/red/fourcorners,
 /turf/open/floor/iron/dark,
+/area/shuttle/escape)
+"Bv" = (
+/obj/machinery/door/airlock{
+	id_tag = "Cell1";
+	name = "Cell 1"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/turf/open/floor/carpet/grimey,
+/area/shuttle/escape)
+"By" = (
+/obj/structure/bed,
+/obj/item/bedsheet/yellow,
+/turf/open/floor/carpet/grimey,
 /area/shuttle/escape)
 "BA" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -2058,6 +2064,20 @@
 /obj/machinery/light/small/directional/east,
 /turf/open/floor/grass,
 /area/shuttle/escape)
+"Fi" = (
+/obj/structure/closet/cabinet,
+/obj/item/clothing/suit/chaplainsuit/holidaypriest,
+/obj/item/clothing/suit/chaplainsuit/nun,
+/obj/item/clothing/head/chaplain/nun_hood,
+/obj/machinery/button/door{
+	id = "Cell2";
+	name = "Cell Bolt Control";
+	normaldoorcontrol = 1;
+	pixel_x = -25;
+	specialfunctions = 4
+	},
+/turf/open/floor/carpet/grimey,
+/area/shuttle/escape)
 "Fm" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/cup/glass/bottle/holywater{
@@ -2089,11 +2109,6 @@
 /obj/structure/bodycontainer/crematorium{
 	id = "foo"
 	},
-/turf/open/floor/iron/dark,
-/area/shuttle/escape)
-"FC" = (
-/obj/structure/table/wood,
-/obj/item/food/grown/flower/harebell,
 /turf/open/floor/iron/dark,
 /area/shuttle/escape)
 "FF" = (
@@ -2195,13 +2210,6 @@
 /obj/machinery/hydroponics/soil,
 /obj/item/seeds/poppy,
 /turf/open/floor/grass,
-/area/shuttle/escape)
-"HM" = (
-/obj/structure/dresser,
-/obj/structure/sign/picture_frame/portrait{
-	pixel_y = 28
-	},
-/turf/open/floor/carpet/grimey,
 /area/shuttle/escape)
 "HS" = (
 /obj/structure/flora/bush/sparsegrass/style_random,
@@ -2380,12 +2388,6 @@
 /obj/structure/sink/directional/west,
 /turf/open/floor/iron,
 /area/shuttle/escape)
-"JY" = (
-/obj/structure/table/wood,
-/obj/machinery/light/small/directional/west,
-/obj/item/storage/crayons,
-/turf/open/floor/carpet/grimey,
-/area/shuttle/escape)
 "JZ" = (
 /obj/docking_port/mobile/emergency{
 	movement_force = list("KNOCKDOWN"=3,"THROW"=6);
@@ -2540,13 +2542,13 @@
 	},
 /turf/open/floor/iron/dark,
 /area/shuttle/escape)
-"Mg" = (
+"Mm" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/suit/chaplainsuit/holidaypriest,
 /obj/item/clothing/suit/chaplainsuit/nun,
 /obj/item/clothing/head/chaplain/nun_hood,
 /obj/machinery/button/door{
-	id = "Cell2";
+	id = "Cell1";
 	name = "Cell Bolt Control";
 	normaldoorcontrol = 1;
 	pixel_x = -25;
@@ -2637,10 +2639,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark,
 /area/shuttle/escape)
-"NF" = (
+"Ny" = (
 /obj/structure/table/wood,
-/obj/machinery/light/small/directional/west,
-/obj/item/instrument/violin,
+/obj/effect/decal/cleanable/cobweb/cobweb2,
+/obj/machinery/light/small/directional/east,
+/obj/item/flashlight/lantern,
 /turf/open/floor/carpet/grimey,
 /area/shuttle/escape)
 "NG" = (
@@ -2705,6 +2708,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark,
 /area/shuttle/escape)
+"Of" = (
+/obj/machinery/light/small/directional/east,
+/obj/structure/easel,
+/obj/item/canvas/twentythree_nineteen,
+/turf/open/floor/carpet/grimey,
+/area/shuttle/escape)
 "Og" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -2726,6 +2735,12 @@
 /obj/structure/table/wood/fancy,
 /obj/item/storage/fancy/candle_box,
 /turf/open/floor/carpet,
+/area/shuttle/escape)
+"On" = (
+/obj/structure/chair/wood{
+	dir = 8
+	},
+/turf/open/floor/carpet/grimey,
 /area/shuttle/escape)
 "Or" = (
 /obj/structure/chair/wood,
@@ -2787,6 +2802,11 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/shuttle/escape)
+"Pt" = (
+/obj/structure/bed,
+/obj/item/bedsheet/green,
+/turf/open/floor/carpet/grimey,
+/area/shuttle/escape)
 "Pu" = (
 /obj/machinery/seed_extractor,
 /turf/open/floor/iron,
@@ -2823,6 +2843,11 @@
 	},
 /turf/open/floor/iron/dark,
 /area/shuttle/escape)
+"PD" = (
+/obj/structure/table/wood,
+/obj/item/food/grown/flower/poppy,
+/turf/open/floor/iron/dark,
+/area/shuttle/escape)
 "PJ" = (
 /obj/structure/table/wood,
 /obj/item/clothing/head/costume/pharaoh,
@@ -2838,19 +2863,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark,
-/area/shuttle/escape)
-"PV" = (
-/obj/machinery/door/airlock{
-	id_tag = "Cell1";
-	name = "Cell 1"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 8
-	},
-/turf/open/floor/carpet/grimey,
 /area/shuttle/escape)
 "PY" = (
 /obj/structure/filingcabinet,
@@ -3033,6 +3045,12 @@
 /obj/machinery/light/dim/directional/east,
 /turf/open/floor/iron/dark,
 /area/shuttle/escape)
+"Sc" = (
+/obj/structure/table/wood,
+/obj/item/food/grown/flower/poppy,
+/obj/item/food/grown/flower/harebell,
+/turf/open/floor/iron/dark,
+/area/shuttle/escape)
 "Se" = (
 /obj/machinery/door/airlock/grunge{
 	name = "Chapel Office"
@@ -3147,12 +3165,6 @@
 	dir = 8
 	},
 /turf/open/floor/carpet,
-/area/shuttle/escape)
-"SW" = (
-/obj/structure/table/wood,
-/obj/item/food/grown/flower/poppy,
-/obj/item/food/grown/flower/harebell,
-/turf/open/floor/iron/dark,
 /area/shuttle/escape)
 "SX" = (
 /obj/machinery/light/small/directional/north,
@@ -3350,11 +3362,6 @@
 /area/shuttle/escape)
 "Vi" = (
 /turf/open/floor/grass,
-/area/shuttle/escape)
-"Vk" = (
-/obj/structure/bed,
-/obj/item/bedsheet/yellow,
-/turf/open/floor/carpet/grimey,
 /area/shuttle/escape)
 "Vl" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
@@ -3609,13 +3616,6 @@
 	pixel_y = 1
 	},
 /turf/open/space/basic,
-/area/shuttle/escape)
-"Yn" = (
-/obj/structure/table/wood,
-/obj/effect/decal/cleanable/cobweb/cobweb2,
-/obj/machinery/light/small/directional/east,
-/obj/item/flashlight/lantern,
-/turf/open/floor/carpet/grimey,
 /area/shuttle/escape)
 "YC" = (
 /obj/machinery/light/small/directional/west,
@@ -4337,7 +4337,7 @@ nr
 Wh
 nr
 Qv
-SW
+Sc
 nr
 zE
 zE
@@ -6035,8 +6035,8 @@ jc
 jc
 nr
 nr
-FC
-pt
+AF
+PD
 nr
 oV
 SR
@@ -6294,11 +6294,11 @@ yc
 lc
 yc
 yc
-PV
+Bv
 yc
 yc
 yc
-zL
+nq
 yc
 yc
 yc
@@ -6375,13 +6375,13 @@ nr
 WF
 Zf
 yc
-sS
-xE
-NF
+Mm
+fs
+cO
 yc
-Mg
-xE
-JY
+Fi
+fs
+qK
 yc
 KE
 hY
@@ -6457,13 +6457,13 @@ nr
 nr
 ko
 yc
-HM
-eF
-rS
+bs
+gx
+On
 yc
-HM
-eF
-rS
+bs
+gx
+On
 yc
 Pw
 ZM
@@ -6539,13 +6539,13 @@ Ad
 jc
 qj
 yc
-Yn
-ez
-uH
+Ny
+vf
+Pt
 yc
-zd
-ez
-Vk
+Of
+vf
+By
 yc
 Il
 hY
@@ -6622,11 +6622,11 @@ jc
 ka
 yc
 yc
-tQ
+mc
 yc
 yc
 yc
-tQ
+mc
 yc
 yc
 eL
@@ -6879,7 +6879,7 @@ La
 xw
 Qs
 yc
-aO
+AD
 KK
 WO
 KK

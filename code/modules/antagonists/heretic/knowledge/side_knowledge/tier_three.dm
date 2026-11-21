@@ -110,7 +110,7 @@
 		else if(!slime_core.brainmob?.client && !slime_core.brainmob?.get_ghost(ghosts_with_clients = TRUE))
 			to_chat(user, span_hierophant_warning("[slime_core] is soulless and cannot be made into a ghoul."))
 		else
-			var/mob/living/carbon/human/new_slime_body = slime_core.rebuild_body(nugget = FALSE)
+			var/mob/living/carbon/human/new_slime_body = slime_core.rebuild_body()
 			if(!QDELETED(new_slime_body))
 				// ELSE THE CORE GETS DELETED AND WEIRD SHIT HAPPENS
 				atoms -= slime_core

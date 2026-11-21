@@ -1,6 +1,6 @@
 /datum/ai_movement/basic_avoidance/adaptive
 	/// What we swap to when walking straight gets us stuck
-	var/datum/ai_movement/astar/adaptive/fallback_type = /datum/ai_movement/astar/adaptive
+	var/datum/ai_movement/navmap_astar/fallback_type = /datum/ai_movement/navmap_astar
 
 // walking straight never gets anyone up the stairs, it just parks us under them, so another floor means A* right away
 /datum/ai_movement/basic_avoidance/adaptive/start_moving_towards(datum/ai_controller/controller, atom/current_movement_target, min_distance, delay_override)
@@ -70,15 +70,15 @@
 		if(moving_controllers[controller] == source && !on_same_floor(controller.pawn, source))
 			swap_to_astar(controller, source, controller.blackboard[BB_CURRENT_MIN_MOVE_DISTANCE])
 
-/datum/ai_movement/astar/adaptive
+/datum/ai_movement/navmap_astar
 	/// What we swap back to once we've caught up
 	var/datum/ai_movement/basic_avoidance/adaptive/walk_type = /datum/ai_movement/basic_avoidance/adaptive
 
-/datum/ai_movement/astar/adaptive/post_move(datum/move_loop/source, succeeded)
+/datum/ai_movement/navmap_astar/post_move(datum/move_loop/source, succeeded)
 	. = ..()
 	if (succeeded != MOVELOOP_SUCCESS)
 		return
-	var/datum/move_loop/has_target/jps/astar/loop = source
+	var/datum/move_loop/has_target/navmap_astar/loop = source
 	if(length(loop.movement_path))
 		return
 	var/datum/ai_controller/controller = source.extra_info
@@ -90,8 +90,59 @@
 
 /// Following a friend can mean a long trip across floors, so the A* half gets a much longer leash than a chase does
 /datum/ai_movement/basic_avoidance/adaptive/follow
-	fallback_type = /datum/ai_movement/astar/adaptive/follow
+	fallback_type = /datum/ai_movement/navmap_astar/follow
 
-/datum/ai_movement/astar/adaptive/follow
+/datum/ai_movement/navmap_astar/follow
 	maximum_length = SLIME_SEEK_PATH_LENGTH
 	walk_type = /datum/ai_movement/basic_avoidance/adaptive/follow
+
+/**
+ * Smart-pathing that can change z-levels, by stairs and by dropping through open space
+ */
+/datum/ai_movement/navmap_astar/start_moving_towards(datum/ai_controller/controller, atom/current_movement_target, min_distance, delay_override)
+	. = ..()
+	if(!.)
+		return FALSE
+	var/atom/movable/moving = controller.pawn
+	var/delay = delay_override || controller.movement_delay
+	var/list/found_path = controller.blackboard[BB_ASTAR_PATH_TO_USE]
+	controller.clear_blackboard_key(BB_ASTAR_PATH_TO_USE)
+	if(LAZYACCESS(found_path, length(found_path)) != get_turf(current_movement_target))
+		found_path = null
+
+	var/datum/move_loop/has_target/navmap_astar/loop = GLOB.move_manager.navmap_astar_move(moving,
+		current_movement_target,
+		delay,
+		repath_delay = 0.5 SECONDS,
+		max_path_length = maximum_length,
+		minimum_distance = min_distance,
+		access = controller.get_access(),
+		initial_path = found_path,
+		subsystem = SSai_movement,
+		extra_info = controller,
+	)
+
+	RegisterSignal(loop, COMSIG_MOVELOOP_PREPROCESS_CHECK, PROC_REF(pre_move))
+	RegisterSignal(loop, COMSIG_MOVELOOP_POSTPROCESS, PROC_REF(post_move))
+
+	return loop
+
+/datum/ai_movement/navmap_astar/update_movement_target(datum/ai_controller/controller, atom/new_target)
+	. = ..()
+	var/datum/move_loop/has_target/navmap_astar/loop = GLOB.move_manager.processing_on(controller.pawn, SSai_movement)
+	if(loop)
+		INVOKE_ASYNC(loop, TYPE_PROC_REF(/datum/move_loop/has_target/navmap_astar, recalculate_path))
+
+/// move_to_target that only counts as arrived on the target's own floor.
+/// get_dist() calls a tile one floor up 1 away, so without the z check we'd "arrive" on the top step and never climb
+/datum/bt_node/ai_behavior/move_to_target/same_z
+
+/datum/bt_node/ai_behavior/move_to_target/same_z/perform(seconds_per_tick, datum/ai_controller/controller)
+	. = ..()
+	if(!(. & AI_BEHAVIOR_SUCCEEDED))
+		return .
+	var/turf/pawn_turf = get_turf(controller.pawn)
+	var/turf/target_turf = get_turf(controller.blackboard[target_key])
+	if(pawn_turf?.z == target_turf?.z)
+		return .
+	return AI_BEHAVIOR_INSTANT

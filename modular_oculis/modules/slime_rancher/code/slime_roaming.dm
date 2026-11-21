@@ -2,9 +2,6 @@
 	COOLDOWN_DECLARE(player_seek_cooldown)
 	COOLDOWN_DECLARE(player_seek_timeout)
 
-/datum/ai_movement/astar/slime
-	maximum_length = SLIME_SEEK_PATH_LENGTH
-
 /// Cleaners with no mess in reach go wander somewhere else to look for one
 /datum/bt_node/decorator/slime_should_roam
 
@@ -44,7 +41,7 @@
 /datum/bt_node/ai_behavior/find_slime_roam_spot/perform_async(datum/ai_controller/basic_controller/slime/controller)
 	var/turf/spot = picked_spot
 	picked_spot = null
-	var/list/path = get_astar_path_to(controller.pawn, spot, max_distance = SLIME_SEEK_PATH_LENGTH, access = controller.get_access())
+	var/list/path = get_swarm_path_to(controller.pawn, spot, max_distance = SLIME_SEEK_PATH_LENGTH, access = controller.get_access())
 	if(!async_still_valid())
 		return
 	if(!length(path))

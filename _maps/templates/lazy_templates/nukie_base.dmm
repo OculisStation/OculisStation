@@ -44,6 +44,10 @@
 /obj/structure/table/reinforced/plastitaniumglass,
 /turf/open/floor/iron/dark/textured_large,
 /area/centcom/syndicate_mothership/control)
+"aU" = (
+/obj/machinery/processor/slime/fullupgrade,
+/turf/closed/indestructible/opsglass,
+/area/centcom/syndicate_mothership/control)
 "aX" = (
 /obj/machinery/shower/directional/south,
 /turf/open/floor/iron/freezer,
@@ -1091,6 +1095,19 @@
 	},
 /turf/open/floor/mineral/titanium/tiled/yellow,
 /area/centcom/syndicate_mothership/expansion_bombthreat)
+"lP" = (
+/obj/structure/plaque/kiddie/badger{
+	desc = "A list of names is engraved on this plaque. 'May their heroic sacrifices inspire your bravery' is carved at the bottom.";
+	name = "\improper Operative Remembrance Plaque";
+	pixel_y = 27
+	},
+/obj/structure/bed/dogbed/cayenne,
+/mob/living/basic/carp/pet/cayenne,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/orange/hidden/layer5,
+/turf/open/floor/iron/smooth,
+/area/centcom/syndicate_mothership/control)
 "lQ" = (
 /obj/structure/chair/sofa/left/brown{
 	dir = 4
@@ -1580,19 +1597,6 @@
 /obj/item/reagent_containers/condiment/soymilk,
 /turf/open/floor/mineral/titanium,
 /area/centcom/syndicate_mothership/control)
-"rm" = (
-/obj/structure/sign/plaques/kiddie/badger{
-	desc = "A list of names is engraved on this plaque. 'May their heroic sacrifices inspire your bravery' is carved at the bottom.";
-	name = "\improper Operative Remembrance Plaque";
-	pixel_y = 27
-	},
-/obj/structure/bed/dogbed/cayenne,
-/mob/living/basic/carp/pet/cayenne,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/orange/hidden/layer5,
-/turf/open/floor/iron/smooth,
-/area/centcom/syndicate_mothership/control)
 "rA" = (
 /obj/effect/turf_decal/siding/purple{
 	dir = 1
@@ -1779,30 +1783,6 @@
 /obj/structure/flora/grass/both/style_random,
 /turf/open/misc/asteroid/snow/airless,
 /area/centcom/syndicate_mothership)
-"th" = (
-/obj/effect/turf_decal/siding/thinplating_new/dark{
-	dir = 9
-	},
-/obj/structure/table/glass/plasmaglass,
-/obj/machinery/reagentgrinder{
-	pixel_x = -5;
-	pixel_y = 12
-	},
-/obj/item/reagent_containers/cup/beaker/large{
-	pixel_x = -7;
-	pixel_y = -8
-	},
-/obj/item/reagent_containers/cup/beaker/cryoxadone{
-	pixel_x = 9;
-	pixel_y = -7
-	},
-/obj/structure/sign/poster/contraband/kudzu/directional/north,
-/obj/item/reagent_containers/spray/plantbgone{
-	pixel_x = 10;
-	pixel_y = 5
-	},
-/turf/open/floor/mineral/plastitanium/red,
-/area/centcom/syndicate_mothership/expansion_bioterrorism)
 "ti" = (
 /obj/structure/flora/rock/pile/style_random,
 /obj/structure/railing{
@@ -2009,43 +1989,6 @@
 	},
 /turf/open/misc/asteroid/snow/airless,
 /area/centcom/syndicate_mothership)
-"vY" = (
-/obj/machinery/light/small/directional/east,
-/obj/structure/closet/crate/freezer{
-	name = "fruits and veggies freezer"
-	},
-/obj/item/food/grown/potato,
-/obj/item/food/grown/potato,
-/obj/item/food/grown/tomato,
-/obj/item/food/grown/tomato,
-/obj/item/food/grown/pineapple,
-/obj/item/food/grown/pineapple,
-/obj/item/food/grown/cherries,
-/obj/item/food/grown/cherries,
-/obj/item/food/grown/citrus/orange,
-/obj/item/food/grown/citrus/orange,
-/obj/item/food/grown/bell_pepper,
-/obj/item/food/grown/bell_pepper,
-/obj/item/food/grown/chili,
-/obj/item/food/grown/chili,
-/obj/item/food/grown/carrotlike/parsnip,
-/obj/item/food/grown/carrotlike/parsnip,
-/obj/item/food/grown/redbeet,
-/obj/item/food/grown/redbeet,
-/obj/item/food/grown/melonlike/watermelon,
-/obj/item/food/grown/melonlike/watermelon,
-/obj/item/food/grown/peas,
-/obj/item/food/grown/peas,
-/obj/item/food/grown/onion,
-/obj/item/food/grown/onion,
-/obj/item/food/grown/eggplant,
-/obj/item/food/grown/eggplant,
-/obj/item/food/grown/banana,
-/obj/item/food/grown/banana,
-/obj/item/food/grown/apple,
-/obj/item/food/grown/apple,
-/turf/open/floor/plastic,
-/area/centcom/syndicate_mothership/expansion_fridgerummage)
 "wb" = (
 /obj/structure/filingcabinet/medical,
 /turf/open/floor/carpet,
@@ -2964,6 +2907,43 @@
 	},
 /turf/open/lava/plasma/ice_moon,
 /area/centcom/syndicate_mothership/control)
+"Gz" = (
+/obj/machinery/light/small/directional/east,
+/obj/structure/closet/crate/freezer{
+	name = "fruits and veggies freezer"
+	},
+/obj/item/food/grown/potato,
+/obj/item/food/grown/potato,
+/obj/item/food/grown/tomato,
+/obj/item/food/grown/tomato,
+/obj/item/food/grown/pineapple,
+/obj/item/food/grown/pineapple,
+/obj/item/food/grown/cherries,
+/obj/item/food/grown/cherries,
+/obj/item/food/grown/citrus/orange,
+/obj/item/food/grown/citrus/orange,
+/obj/item/food/grown/bell_pepper,
+/obj/item/food/grown/bell_pepper,
+/obj/item/food/grown/chili,
+/obj/item/food/grown/chili,
+/obj/item/food/grown/carrotlike/parsnip,
+/obj/item/food/grown/carrotlike/parsnip,
+/obj/item/food/grown/redbeet,
+/obj/item/food/grown/redbeet,
+/obj/item/food/grown/melonlike/watermelon,
+/obj/item/food/grown/melonlike/watermelon,
+/obj/item/food/grown/peas,
+/obj/item/food/grown/peas,
+/obj/item/food/grown/onion,
+/obj/item/food/grown/onion,
+/obj/item/food/grown/eggplant,
+/obj/item/food/grown/eggplant,
+/obj/item/food/grown/banana,
+/obj/item/food/grown/banana,
+/obj/item/food/grown/apple,
+/obj/item/food/grown/apple,
+/turf/open/floor/plastic,
+/area/centcom/syndicate_mothership/expansion_fridgerummage)
 "GA" = (
 /obj/structure/flora/tree/pine/style_random,
 /obj/structure/flora/grass/both/style_random,
@@ -3170,6 +3150,32 @@
 	},
 /turf/open/floor/plating,
 /area/centcom/syndicate_mothership/control)
+"Id" = (
+/obj/structure/closet/crate/freezer{
+	name = "meat freezer"
+	},
+/obj/item/food/meat/slab/bear,
+/obj/item/food/meat/slab/bear,
+/obj/item/food/meat/slab/bear,
+/obj/item/food/meat/slab/bear,
+/obj/item/food/meat/slab/gondola,
+/obj/item/food/meat/slab/xeno,
+/obj/item/food/meat/slab/xeno,
+/obj/item/food/meat/slab/xeno,
+/obj/item/food/meat/slab/killertomato,
+/obj/item/food/meat/slab/killertomato,
+/obj/item/food/meat/slab/killertomato,
+/obj/item/food/meat/slab/spider,
+/obj/item/food/meat/slab/penguin,
+/obj/item/food/meat/slab/rawcrab,
+/obj/item/food/grown/carrotlike/carrot,
+/obj/item/food/grown/carrotlike/carrot,
+/obj/item/food/grown/garlic,
+/obj/item/food/grown/garlic,
+/obj/item/food/grown/tomato,
+/obj/item/food/grown/tomato,
+/turf/open/floor/plastic,
+/area/centcom/syndicate_mothership/expansion_fridgerummage)
 "If" = (
 /obj/machinery/atmospherics/pipe/smart/simple/general/visible{
 	dir = 10
@@ -3505,32 +3511,6 @@
 	},
 /turf/open/floor/mineral/titanium/tiled/yellow,
 /area/centcom/syndicate_mothership/expansion_bombthreat)
-"LL" = (
-/obj/structure/closet/crate/freezer{
-	name = "meat freezer"
-	},
-/obj/item/food/meat/slab/bear,
-/obj/item/food/meat/slab/bear,
-/obj/item/food/meat/slab/bear,
-/obj/item/food/meat/slab/bear,
-/obj/item/food/meat/slab/gondola,
-/obj/item/food/meat/slab/xeno,
-/obj/item/food/meat/slab/xeno,
-/obj/item/food/meat/slab/xeno,
-/obj/item/food/meat/slab/killertomato,
-/obj/item/food/meat/slab/killertomato,
-/obj/item/food/meat/slab/killertomato,
-/obj/item/food/meat/slab/spider,
-/obj/item/food/meat/slab/penguin,
-/obj/item/food/meat/slab/rawcrab,
-/obj/item/food/grown/carrotlike/carrot,
-/obj/item/food/grown/carrotlike/carrot,
-/obj/item/food/grown/garlic,
-/obj/item/food/grown/garlic,
-/obj/item/food/grown/tomato,
-/obj/item/food/grown/tomato,
-/turf/open/floor/plastic,
-/area/centcom/syndicate_mothership/expansion_fridgerummage)
 "LM" = (
 /obj/machinery/atmospherics/components/unary/passive_vent{
 	dir = 8
@@ -3800,10 +3780,6 @@
 /obj/structure/sign/clock/directional/north,
 /turf/open/floor/mineral/plastitanium,
 /area/centcom/syndicate_mothership)
-"On" = (
-/obj/machinery/processor/slime/fullupgrade,
-/turf/closed/indestructible/opsglass,
-/area/centcom/syndicate_mothership/control)
 "Ov" = (
 /turf/open/floor/mineral/plastitanium,
 /area/centcom/syndicate_mothership/control)
@@ -3984,6 +3960,30 @@
 /obj/structure/sign/poster/contraband/got_wood/directional/east,
 /turf/open/floor/iron/freezer,
 /area/centcom/syndicate_mothership/control)
+"Qj" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 9
+	},
+/obj/structure/table/glass/plasmaglass,
+/obj/machinery/reagentgrinder{
+	pixel_x = -5;
+	pixel_y = 12
+	},
+/obj/item/reagent_containers/cup/beaker/large{
+	pixel_x = -7;
+	pixel_y = -8
+	},
+/obj/item/reagent_containers/cup/beaker/cryoxadone{
+	pixel_x = 9;
+	pixel_y = -7
+	},
+/obj/structure/sign/poster/contraband/kudzu/directional/north,
+/obj/item/reagent_containers/spray/plantbgone{
+	pixel_x = 10;
+	pixel_y = 5
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/centcom/syndicate_mothership/expansion_bioterrorism)
 "Qk" = (
 /obj/structure/lattice/catwalk,
 /obj/effect/turf_decal/stripes/line{
@@ -5413,7 +5413,7 @@ ei
 ei
 ei
 xu
-th
+Qj
 HD
 oi
 MH
@@ -7039,7 +7039,7 @@ HE
 uX
 Jc
 ek
-LL
+Id
 ek
 ZE
 Yx
@@ -7141,7 +7141,7 @@ Js
 Qy
 is
 ek
-vY
+Gz
 ek
 DZ
 GF
@@ -7450,7 +7450,7 @@ SM
 rG
 Wp
 ks
-rm
+lP
 px
 uU
 Yz
@@ -8054,7 +8054,7 @@ uT
 VK
 VK
 DZ
-On
+aU
 VK
 VK
 VK

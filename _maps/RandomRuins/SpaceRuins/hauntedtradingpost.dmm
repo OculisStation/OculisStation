@@ -137,21 +137,6 @@
 	},
 /turf/open/floor/carpet/orange,
 /area/ruin/space/has_grav/hauntedtradingpost/public/corridor)
-"bq" = (
-/obj/structure/cable/layer1,
-/obj/machinery/vending/sovietsoda{
-	all_products_free = 0
-	},
-/obj/structure/sign/poster/contraband/clown/directional/east,
-/obj/machinery/duct,
-/obj/effect/mapping_helpers/broken_machine,
-/obj/machinery/camera/autoname/directional/east{
-	camera_construction_state = 1;
-	camera_enabled = 0;
-	network = list("donk")
-	},
-/turf/open/floor/catwalk_floor/iron_smooth,
-/area/ruin/space/has_grav/hauntedtradingpost/public/corridor)
 "br" = (
 /obj/structure/table/wood/fancy/orange,
 /obj/machinery/recharger{
@@ -160,6 +145,23 @@
 	},
 /turf/open/floor/carpet/donk,
 /area/ruin/space/has_grav/hauntedtradingpost/office)
+"bs" = (
+/obj/structure/table/wood,
+/obj/item/storage/dice{
+	pixel_y = 10;
+	pixel_x = 6
+	},
+/obj/item/dice/d100{
+	pixel_y = 12;
+	pixel_x = -9
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/item/paper/fluff/ruins/hauntedtradingpost/rpgrules{
+	pixel_y = -2;
+	pixel_x = -8
+	},
+/turf/open/floor/carpet/donk,
+/area/ruin/space/has_grav/hauntedtradingpost/employees/breakroom)
 "bt" = (
 /obj/structure/cable/layer1,
 /obj/effect/decal/cleanable/blood/splatter/oil{
@@ -728,6 +730,21 @@
 /obj/structure/cable/layer1,
 /turf/open/floor/carpet/orange,
 /area/ruin/space/has_grav/hauntedtradingpost/public/corridor)
+"gy" = (
+/obj/structure/table/wood,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
+/obj/machinery/duct,
+/obj/item/storage/wallet/money{
+	pixel_y = -5;
+	desc = "It can hold a few small and personal things. This one is monogrammed 'S.C.'."
+	},
+/obj/machinery/camera/autoname/directional/west{
+	camera_construction_state = 1;
+	camera_enabled = 0;
+	network = list("donk")
+	},
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/ruin/space/has_grav/hauntedtradingpost/employees)
 "gz" = (
 /turf/closed/wall/r_wall,
 /area/ruin/space/has_grav/hauntedtradingpost/maint/disposals)
@@ -810,19 +827,6 @@
 	},
 /turf/open/floor/wood/large,
 /area/ruin/space/has_grav/hauntedtradingpost/employees/corridor)
-"hf" = (
-/obj/structure/cable/layer1,
-/obj/structure/sign/poster/contraband/syndicate_pistol/directional/west,
-/mob/living/basic/bot/secbot{
-	faction = list("Syndicate");
-	bot_access_flags = 4;
-	baton_type = /obj/item/melee/baton/security/cattleprod;
-	name = "\improper Syndicate Securitron";
-	desc = "A little security robot, reprogrammed by the syndicate. He looks downright surly.";
-	security_mode_flags = 11
-	},
-/turf/open/floor/carpet/donk,
-/area/ruin/space/has_grav/hauntedtradingpost/employees/breakroom)
 "hi" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /mob/living/basic/viscerator,
@@ -856,23 +860,6 @@
 	},
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/space/has_grav/hauntedtradingpost/employees/corridor)
-"hE" = (
-/obj/structure/table/wood,
-/obj/item/storage/dice{
-	pixel_y = 10;
-	pixel_x = 6
-	},
-/obj/item/dice/d100{
-	pixel_y = 12;
-	pixel_x = -9
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/item/paper/fluff/ruins/hauntedtradingpost/rpgrules{
-	pixel_y = -2;
-	pixel_x = -8
-	},
-/turf/open/floor/carpet/donk,
-/area/ruin/space/has_grav/hauntedtradingpost/employees/breakroom)
 "hF" = (
 /obj/machinery/door/airlock/maintenance_hatch{
 	desc = "It's labelled STORAGE E - EMPLOYEES ONLY."
@@ -1126,16 +1113,6 @@
 "je" = (
 /obj/effect/mine/shrapnel/sting,
 /turf/open/floor/mineral/plastitanium,
-/area/ruin/space/has_grav/hauntedtradingpost/aicore)
-"jg" = (
-/obj/structure/cable/layer1,
-/obj/structure/table/reinforced/plastitaniumglass,
-/obj/item/ai_module/law/supplied/protect_station{
-	pixel_x = 2;
-	pixel_y = 5
-	},
-/obj/machinery/light/red/dim/directional/east,
-/turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/space/has_grav/hauntedtradingpost/aicore)
 "jk" = (
 /obj/structure/cable/layer1,
@@ -1705,26 +1682,19 @@
 /obj/machinery/light/warm/directional/south,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/hauntedtradingpost/office/meetingroom)
-"oF" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/wood/large,
-/area/ruin/space/has_grav/hauntedtradingpost/employees/corridor)
-"oJ" = (
-/obj/structure/table/wood,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/obj/machinery/duct,
-/obj/item/storage/wallet/money{
-	pixel_y = -5;
-	desc = "It can hold a few small and personal things. This one is monogrammed 'S.C.'."
-	},
+"oE" = (
 /obj/machinery/camera/autoname/directional/west{
 	camera_construction_state = 1;
 	camera_enabled = 0;
 	network = list("donk")
 	},
-/turf/open/floor/catwalk_floor/iron_dark,
-/area/ruin/space/has_grav/hauntedtradingpost/employees)
+/turf/open/floor/wood,
+/area/ruin/space/has_grav/hauntedtradingpost/public)
+"oF" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/wood/large,
+/area/ruin/space/has_grav/hauntedtradingpost/employees/corridor)
 "oN" = (
 /obj/effect/spawner/random/trash/deluxe_garbage,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
@@ -1862,20 +1832,6 @@
 	},
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/ruin/space/has_grav/hauntedtradingpost/public/corridor)
-"pV" = (
-/obj/structure/cable/multilayer,
-/obj/structure/cable/layer1,
-/obj/structure/safe/floor,
-/obj/item/sticker/syndicate/apc,
-/obj/item/grenade/empgrenade,
-/obj/item/book/granter/crafting_recipe/donk_secret_recipe,
-/obj/item/ai_module/law/core/full/cybersun,
-/obj/item/reagent_containers/condiment/donksauce,
-/mob/living/basic/cybersun_ai_core{
-	donk_ai_master = 1
-	},
-/turf/open/floor/plating/reinforced,
-/area/ruin/space/has_grav/hauntedtradingpost/aicore)
 "pX" = (
 /obj/structure/cable/layer1,
 /obj/structure/rack,
@@ -2552,6 +2508,20 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/wood/large,
 /area/ruin/space/has_grav/hauntedtradingpost/employees/corridor)
+"vP" = (
+/obj/structure/cable/multilayer,
+/obj/structure/cable/layer1,
+/obj/structure/safe/floor,
+/obj/item/sticker/syndicate/apc,
+/obj/item/grenade/empgrenade,
+/obj/item/book/granter/crafting_recipe/donk_secret_recipe,
+/obj/item/ai_module/law/core/full/cybersun,
+/obj/item/reagent_containers/condiment/donksauce,
+/mob/living/basic/cybersun_ai_core{
+	donk_ai_master = 1
+	},
+/turf/open/floor/plating/reinforced,
+/area/ruin/space/has_grav/hauntedtradingpost/aicore)
 "vY" = (
 /obj/structure/extinguisher_cabinet/directional/east,
 /obj/machinery/light/warm/directional/east,
@@ -3018,6 +2988,29 @@
 /obj/structure/cable/layer1,
 /turf/open/floor/carpet/donk,
 /area/ruin/space/has_grav/hauntedtradingpost/employees/corridor)
+"Ap" = (
+/obj/structure/table/wood,
+/obj/item/food/chips/corn{
+	pixel_x = -6;
+	pixel_y = 10
+	},
+/obj/item/food/chocolatebar{
+	pixel_y = 6;
+	pixel_x = 5
+	},
+/obj/item/toy/figure/ian{
+	name = "\improper Dire-Corgi action figure";
+	pixel_x = 2;
+	pixel_y = -13;
+	toysay = "ARF!!!"
+	},
+/obj/item/reagent_containers/cup/glass/mug/tea{
+	pixel_y = -2;
+	pixel_x = -8
+	},
+/obj/machinery/duct,
+/turf/open/floor/carpet/donk,
+/area/ruin/space/has_grav/hauntedtradingpost/employees/breakroom)
 "Aq" = (
 /obj/structure/table/wood,
 /obj/item/food/ready_donk/mac_n_cheese{
@@ -3078,22 +3071,6 @@
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/space/has_grav/hauntedtradingpost/aicore)
-"AQ" = (
-/obj/structure/frame/machine/secured,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/obj/item/circuitboard/machine/vendor,
-/obj/machinery/duct,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
-	pipe_color = "#FF7B00";
-	color = "#FF7B00"
-	},
-/obj/machinery/camera/autoname/directional/south{
-	camera_construction_state = 1;
-	camera_enabled = 0;
-	network = list("donk")
-	},
-/turf/open/floor/catwalk_floor/iron_smooth,
-/area/ruin/space/has_grav/hauntedtradingpost/public/corridor)
 "AU" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
@@ -3253,6 +3230,19 @@
 	},
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/hauntedtradingpost/public)
+"CP" = (
+/obj/structure/cable/layer1,
+/obj/structure/sign/poster/contraband/syndicate_pistol/directional/west,
+/mob/living/basic/bot/secbot{
+	faction = list("Syndicate");
+	bot_access_flags = 4;
+	baton_type = /obj/item/melee/baton/security/cattleprod;
+	name = "\improper Syndicate Securitron";
+	desc = "A little security robot, reprogrammed by the syndicate. He looks downright surly.";
+	security_mode_flags = 11
+	},
+/turf/open/floor/carpet/donk,
+/area/ruin/space/has_grav/hauntedtradingpost/employees/breakroom)
 "CR" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/wood/large,
@@ -3999,6 +3989,19 @@
 	},
 /turf/open/floor/carpet/donk,
 /area/ruin/space/has_grav/hauntedtradingpost/employees)
+"IE" = (
+/obj/structure/cable/layer1,
+/obj/machinery/vending/donksnack{
+	all_products_free = 0
+	},
+/obj/machinery/duct,
+/obj/machinery/camera/autoname/directional/west{
+	camera_construction_state = 1;
+	camera_enabled = 0;
+	network = list("donk")
+	},
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/ruin/space/has_grav/hauntedtradingpost/public/corridor)
 "IL" = (
 /obj/structure/cable/layer1,
 /obj/machinery/light/red/dim/directional/west,
@@ -4088,19 +4091,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/carpet/donk,
 /area/ruin/space/has_grav/hauntedtradingpost/employees/breakroom)
-"Jx" = (
-/obj/structure/cable/layer1,
-/obj/structure/frame/machine/secured,
-/obj/structure/sign/poster/ripped/directional/east,
-/obj/machinery/duct,
-/obj/item/shard,
-/obj/machinery/camera/autoname/directional/east{
-	camera_construction_state = 1;
-	camera_enabled = 0;
-	network = list("donk")
-	},
-/turf/open/floor/catwalk_floor/iron_smooth,
-/area/ruin/space/has_grav/hauntedtradingpost/public/corridor)
 "JE" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
 	dir = 4
@@ -4183,19 +4173,6 @@
 /obj/item/toy/gun,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/hauntedtradingpost/maint/toystorage)
-"KH" = (
-/obj/structure/cable/layer1,
-/obj/machinery/vending/donksnack{
-	all_products_free = 0
-	},
-/obj/machinery/duct,
-/obj/machinery/camera/autoname/directional/west{
-	camera_construction_state = 1;
-	camera_enabled = 0;
-	network = list("donk")
-	},
-/turf/open/floor/catwalk_floor/iron_smooth,
-/area/ruin/space/has_grav/hauntedtradingpost/public/corridor)
 "KI" = (
 /obj/structure/grille/broken,
 /obj/effect/decal/cleanable/glass,
@@ -4431,14 +4408,6 @@
 /obj/item/card/id/away/donk,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/hauntedtradingpost/public)
-"Mr" = (
-/obj/machinery/camera/autoname/directional/west{
-	camera_construction_state = 1;
-	camera_enabled = 0;
-	network = list("donk")
-	},
-/turf/open/floor/wood,
-/area/ruin/space/has_grav/hauntedtradingpost/public)
 "Mu" = (
 /obj/effect/mapping_helpers/bombable_wall,
 /turf/closed/wall/r_wall,
@@ -4570,6 +4539,16 @@
 /obj/structure/cable/layer1,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/hauntedtradingpost/public)
+"NL" = (
+/obj/structure/cable/layer1,
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/item/ai_module/law/supplied/protect_station{
+	pixel_x = 2;
+	pixel_y = 5
+	},
+/obj/machinery/light/red/dim/directional/east,
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/ruin/space/has_grav/hauntedtradingpost/aicore)
 "NM" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/splatter,
@@ -5409,29 +5388,6 @@
 /obj/effect/spawner/random/entertainment/musical_instrument,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/space/has_grav/hauntedtradingpost/employees/breakroom)
-"Vj" = (
-/obj/structure/table/wood,
-/obj/item/food/cornchips{
-	pixel_x = -6;
-	pixel_y = 10
-	},
-/obj/item/food/chocolatebar{
-	pixel_y = 6;
-	pixel_x = 5
-	},
-/obj/item/toy/figure/ian{
-	name = "\improper Dire-Corgi action figure";
-	pixel_x = 2;
-	pixel_y = -13;
-	toysay = "ARF!!!"
-	},
-/obj/item/reagent_containers/cup/glass/mug/tea{
-	pixel_y = -2;
-	pixel_x = -8
-	},
-/obj/machinery/duct,
-/turf/open/floor/carpet/donk,
-/area/ruin/space/has_grav/hauntedtradingpost/employees/breakroom)
 "Vl" = (
 /obj/structure/table/wood,
 /obj/item/toy/figure/wizard/special{
@@ -5494,6 +5450,22 @@
 	},
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/space/has_grav/hauntedtradingpost/office)
+"VN" = (
+/obj/structure/frame/machine/secured,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
+/obj/item/circuitboard/machine/vendor,
+/obj/machinery/duct,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
+	pipe_color = "#FF7B00";
+	color = "#FF7B00"
+	},
+/obj/machinery/camera/autoname/directional/south{
+	camera_construction_state = 1;
+	camera_enabled = 0;
+	network = list("donk")
+	},
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/ruin/space/has_grav/hauntedtradingpost/public/corridor)
 "VP" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/navbeacon{
@@ -5692,6 +5664,19 @@
 /obj/effect/spawner/random/bureaucracy/briefcase,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/hauntedtradingpost/office/meetingroom)
+"Xq" = (
+/obj/structure/cable/layer1,
+/obj/structure/frame/machine/secured,
+/obj/structure/sign/poster/ripped/directional/east,
+/obj/machinery/duct,
+/obj/item/shard,
+/obj/machinery/camera/autoname/directional/east{
+	camera_construction_state = 1;
+	camera_enabled = 0;
+	network = list("donk")
+	},
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/ruin/space/has_grav/hauntedtradingpost/public/corridor)
 "Xu" = (
 /obj/item/ammo_casing/foam_dart{
 	pixel_x = 10;
@@ -5755,6 +5740,14 @@
 	},
 /turf/open/floor/carpet/orange,
 /area/ruin/space/has_grav/hauntedtradingpost/public/corridor)
+"XF" = (
+/obj/machinery/camera/autoname/directional/east{
+	camera_construction_state = 1;
+	camera_enabled = 0;
+	network = list("donk")
+	},
+/turf/open/floor/wood,
+/area/ruin/space/has_grav/hauntedtradingpost/public)
 "XJ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /obj/effect/decal/cleanable/wrapping,
@@ -5816,6 +5809,21 @@
 	},
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/hauntedtradingpost/office)
+"Yc" = (
+/obj/structure/cable/layer1,
+/obj/machinery/vending/sovietsoda{
+	all_products_free = 0
+	},
+/obj/structure/sign/poster/contraband/clown/directional/east,
+/obj/machinery/duct,
+/obj/effect/mapping_helpers/broken_machine,
+/obj/machinery/camera/autoname/directional/east{
+	camera_construction_state = 1;
+	camera_enabled = 0;
+	network = list("donk")
+	},
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/ruin/space/has_grav/hauntedtradingpost/public/corridor)
 "Ye" = (
 /obj/structure/cable/layer1,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
@@ -6012,14 +6020,6 @@
 "ZU" = (
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/space/has_grav/hauntedtradingpost/maint/toolstorage)
-"ZZ" = (
-/obj/machinery/camera/autoname/directional/east{
-	camera_construction_state = 1;
-	camera_enabled = 0;
-	network = list("donk")
-	},
-/turf/open/floor/wood,
-/area/ruin/space/has_grav/hauntedtradingpost/public)
 
 (1,1,1) = {"
 qR
@@ -6401,7 +6401,7 @@ DR
 rI
 iW
 rg
-oJ
+gy
 ad
 zq
 lW
@@ -6500,12 +6500,12 @@ tl
 Kr
 Md
 oO
-bq
+Yc
 UW
 LC
 Yg
 ip
-Jx
+Xq
 NY
 gn
 gv
@@ -6592,7 +6592,7 @@ db
 ix
 nG
 LO
-Mr
+oE
 uT
 dt
 UO
@@ -6758,7 +6758,7 @@ iv
 iv
 ot
 XW
-pV
+vP
 MR
 tl
 YR
@@ -6779,7 +6779,7 @@ uZ
 Vm
 bC
 OP
-AQ
+VN
 yi
 Qy
 kx
@@ -6984,7 +6984,7 @@ je
 Nw
 Db
 ca
-hf
+CP
 JX
 co
 nZ
@@ -6997,7 +6997,7 @@ iC
 Ry
 sN
 dD
-ZZ
+XF
 dD
 HR
 rN
@@ -7020,7 +7020,7 @@ hV
 vx
 tm
 Gg
-jg
+NL
 bu
 cv
 gb
@@ -7030,7 +7030,7 @@ du
 Li
 fg
 Jw
-hE
+bs
 rr
 Hu
 ka
@@ -7075,7 +7075,7 @@ pz
 pz
 YB
 Ep
-Vj
+Ap
 Vl
 fu
 YI
@@ -7090,7 +7090,7 @@ Pk
 LD
 Yg
 Wu
-KH
+IE
 lT
 pg
 gv
