@@ -124,7 +124,6 @@
 
 	RegisterSignal(loop, COMSIG_MOVELOOP_PREPROCESS_CHECK, PROC_REF(pre_move))
 	RegisterSignal(loop, COMSIG_MOVELOOP_POSTPROCESS, PROC_REF(post_move))
-	RegisterSignal(loop, COMSIG_MOVELOOP_JPS_REPATH, PROC_REF(repath_incoming))
 
 	return loop
 
@@ -133,12 +132,6 @@
 	var/datum/move_loop/has_target/navmap_astar/loop = GLOB.move_manager.processing_on(controller.pawn, SSai_movement)
 	if(loop)
 		INVOKE_ASYNC(loop, TYPE_PROC_REF(/datum/move_loop/has_target/navmap_astar, recalculate_path))
-
-/datum/ai_movement/navmap_astar/proc/repath_incoming(datum/move_loop/has_target/navmap_astar/source)
-	SIGNAL_HANDLER
-	var/datum/ai_controller/controller = source.extra_info
-
-	source.access = controller.get_access()
 
 /// move_to_target that only counts as arrived on the target's own floor.
 /// get_dist() calls a tile one floor up 1 away, so without the z check we'd "arrive" on the top step and never climb
