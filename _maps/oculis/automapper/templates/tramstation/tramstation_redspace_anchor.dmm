@@ -19,7 +19,7 @@
 /area/station/redspace_anchor)
 "e" = (
 /turf/open/floor/plating,
-/area/template_noop)
+/area/station/asteroid)
 "f" = (
 /obj/machinery/power/terminal,
 /obj/structure/cable,
@@ -57,7 +57,7 @@
 /area/station/engineering/engine_smes)
 "k" = (
 /turf/template_noop,
-/area/template_noop)
+/area/station/asteroid)
 "l" = (
 /obj/machinery/suit_storage_unit/engine,
 /obj/effect/turf_decal/bot{
