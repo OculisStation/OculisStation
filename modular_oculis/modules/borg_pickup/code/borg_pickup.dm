@@ -28,6 +28,7 @@
 	borg.held_w_class = WEIGHT_CLASS_TINY
 	borg.worn_slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_BACK
 	borg.AddElement(/datum/element/can_be_held)
+	ADD_TRAIT(borg, TRAIT_BORG_AGGRO_GRABBABLE, "weight_reducer_upgrade")
 
 /obj/item/borg/upgrade/weight_reducer/deactivate(mob/living/silicon/robot/borg, mob/living/user = usr)
 	. = ..()
@@ -38,3 +39,4 @@
 	borg.held_w_class = initial(borg.held_w_class)
 	borg.worn_slot_flags = initial(borg.worn_slot_flags)
 	borg.RemoveElement(/datum/element/can_be_held)
+	REMOVE_TRAIT(borg, TRAIT_BORG_AGGRO_GRABBABLE, "weight_reducer_upgrade")
