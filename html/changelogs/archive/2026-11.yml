@@ -25,3 +25,26 @@
   - rscadd: the red performer's outfit is now available in loadout
   xn-zn8h:
   - rscdel: Removed NTSL module
+2026-11-15:
+  throwawayuseless:
+  - qol: Aggressive raptors (That is, black and red) do not target other raptors when
+      attacking nearby targets. Hopefully no more raptor mass-casualty events in the
+      raptor pen.
+2026-11-16:
+  RDS88-beeman:
+  - rscadd: New goodie bag. You can now order the surgical medkits that doctors spawn
+      with in a single-pack from cargo, in case yours gets destroyed by something
+      or other.
+2026-11-18:
+  Shroopy:
+  - balance: Reverted welders flashing people near you.
+  Skies-Of-Blue:
+  - bugfix: icemoon megafauna flutes are now craftable!
+  - balance: proto-kinetic crushers are now lavaproof
+  - bugfix: icemoon's unique megafauna are once again guaranteed to spawn
+  - balance: tweaks the drop pool of Ash Drakes, removing the spectral blade from
+      the available items.
+  - balance: tweaks the drop pool of Bubblegum, now guaranteeing all available drops
+  - balance: removes the chance to become a skeleton upon drinking Dragon's Blood,
+      making it now a 50/50 split between becoming lava immune or granting you a lesser
+      drake polymorph.
