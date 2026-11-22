@@ -17,6 +17,9 @@
 /obj/structure/cable,
 /turf/open/floor/carpet/kinaris/black/whitetrim,
 /area/station/redspace_anchor)
+"e" = (
+/turf/open/floor/plating,
+/area/template_noop)
 "f" = (
 /obj/machinery/power/terminal,
 /obj/structure/cable,
@@ -52,6 +55,9 @@
 /obj/effect/turf_decal/tile/neutral/full,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/engineering/engine_smes)
+"k" = (
+/turf/template_noop,
+/area/template_noop)
 "l" = (
 /obj/machinery/suit_storage_unit/engine,
 /obj/effect/turf_decal/bot{
@@ -382,4 +388,126 @@ W
 w
 h
 s
+"}
+
+(1,1,2) = {"
+k
+k
+k
+k
+k
+e
+e
+e
+e
+"}
+(2,1,2) = {"
+k
+k
+e
+e
+e
+e
+e
+e
+e
+"}
+(3,1,2) = {"
+k
+k
+e
+e
+e
+e
+e
+e
+e
+"}
+(4,1,2) = {"
+k
+k
+e
+e
+e
+e
+e
+e
+e
+"}
+(5,1,2) = {"
+k
+k
+e
+e
+e
+e
+e
+e
+e
+"}
+(6,1,2) = {"
+k
+k
+e
+e
+e
+e
+e
+e
+e
+"}
+(7,1,2) = {"
+k
+k
+e
+e
+e
+e
+e
+e
+e
+"}
+(8,1,2) = {"
+k
+k
+e
+e
+e
+e
+e
+e
+e
+"}
+(9,1,2) = {"
+k
+k
+k
+k
+k
+e
+e
+e
+e
+"}
+(10,1,2) = {"
+k
+k
+k
+k
+k
+e
+e
+e
+e
+"}
+(11,1,2) = {"
+k
+k
+k
+k
+k
+k
+k
+k
+k
 "}
