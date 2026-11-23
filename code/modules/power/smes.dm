@@ -150,7 +150,7 @@
 		if(clevel > 0)
 			. += "smes-og[clevel]"
 
-		. += emissive_appearance(icon, light_mask, src, alpha = src.alpha)
+		// . += emissive_appearance(icon, light_mask, src, alpha = src.alpha) // OCULIS EDIT REMOVAL
 
 /obj/machinery/power/smes/get_save_vars()
 	. = ..()

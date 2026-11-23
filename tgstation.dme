@@ -7689,6 +7689,7 @@
 #include "modular_iris\paradise_ports\aesthetics\code\modules\fishing\fishing_equipment.dm"
 #include "modular_iris\paradise_ports\aesthetics\code\modules\mapfluff\ruins\spaceruin_code\hauntedtradingpost.dm"
 #include "modular_iris\paradise_ports\aesthetics\code\modules\paperwork\paperwork.dm"
+#include "modular_iris\paradise_ports\aesthetics\code\modules\power\smes.dm"
 #include "modular_iris\paradise_ports\aesthetics\code\modules\power\smes_portable.dm"
 #include "modular_iris\paradise_ports\aesthetics\code\modules\windows\code\windows.dm"
 #include "modular_iris\paradise_ports\code\game\objects\structures\billboard.dm"
