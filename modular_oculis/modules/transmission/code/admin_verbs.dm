@@ -27,7 +27,7 @@ ADMIN_VERB(cmd_admin_broadcast_transmission, R_ADMIN, "Broadcast Transmission", 
 /client/proc/do_transmission(message, name_choice, color_choice)
 	var/list/message_contents = splittext(message, "\n")
 	mob.hud_used.transmission_text.alpha = 0
-	for(var/line_text as anything in message_contents)
+	for(var/line_text in message_contents)
 		display_text(mob.hud_used, line_text, name_choice, color_choice)
 		sleep(1.1 SECONDS * length(splittext(line_text, " ")))
 	end_transmission()
