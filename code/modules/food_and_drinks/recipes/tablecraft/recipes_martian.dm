@@ -858,7 +858,7 @@
 		/datum/reagent/consumable/sugar = 5,
 	)
 	result = /obj/item/food/boh_loh_yah
-	added_foodtypes = PINEAPPLE // someone thought it's funny to give it this foodtype smh
+	added_foodtypes = DAIRY | GRAIN | SUGAR // OCULIS EDIT, ORIGINAL: added_foodtypes = PINEAPPLE 
 	cuisine_category = CUISINE_MARTIAN
 	dish_category = DISH_COOKIE
 	meal_category = MEAL_DESSERT

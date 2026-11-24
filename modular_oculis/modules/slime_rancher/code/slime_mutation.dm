@@ -1,3 +1,4 @@
+/// What a slime must eat or drain to mutate into another type.
 /datum/slime_mutation
 	abstract_type = /datum/slime_mutation
 	/// The slime type we pass on if we succeed
@@ -9,6 +10,7 @@
 	var/alist/latch_needed
 	/// If TRUE, then you can't get this color from a random mutator syringe
 	var/syringe_blocked = FALSE
+	/// The slime working through this mutation.
 	var/mob/living/basic/slime/our_slime
 	/// The full item list from before the slime ate any of it - scanners need it to show what's already done
 	var/list/total_items
@@ -27,9 +29,11 @@
 	our_slime = null
 	return ..()
 
+/// TRUE once the slime has eaten and drained everything this needs.
 /datum/slime_mutation/proc/is_satisfied()
 	return !length(needed_items) && !length(latch_needed)
 
+/// Whether the slime has already eaten or drained anything toward this.
 /datum/slime_mutation/proc/has_progress()
 	if(length(needed_items) < length(total_items) || length(latch_needed) < length(latch_totals))
 		return TRUE

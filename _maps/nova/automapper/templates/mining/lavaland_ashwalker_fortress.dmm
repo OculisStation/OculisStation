@@ -387,6 +387,9 @@
 /obj/item/reagent_containers/cup/soup_pot,
 /obj/item/plate/oven_tray,
 /obj/effect/mapping_helpers/no_lava,
+/obj/item/plate/oven_tray,
+/obj/item/plate/oven_tray,
+/obj/item/plate/oven_tray,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "fe" = (
@@ -2170,6 +2173,7 @@
 /obj/item/seeds/reishi,
 /obj/item/seeds/cannabis,
 /obj/effect/mapping_helpers/no_lava,
+/obj/item/seeds/grape,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "Ew" = (
@@ -2364,6 +2368,7 @@
 /obj/item/seeds/tobacco,
 /obj/item/seeds/cannabis,
 /obj/effect/mapping_helpers/no_lava,
+/obj/item/seeds/grape,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "Ic" = (

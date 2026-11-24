@@ -16,6 +16,8 @@ specific areas and tiles, i.e preferring to go through hallways rather than main
 - `code/__HELPERS/paths/path.dm`
   - new var: `/datum/can_pass_info/multiz_checks`
   - `/datum/can_pass_info/New`: added `multiz_checks` argument
+- `code/__HELPERS/paths/jps.dm`
+  - `/datum/pathfind/jps/found_turfs` is an `alist`
 
 ### Modular Overrides:
 

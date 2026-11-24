@@ -115,6 +115,7 @@
 		/datum/computer_file/program/borg_monitor,
 		/datum/computer_file/program/scipaper_program,
 		/datum/computer_file/program/signal_commander,
+		/datum/computer_file/program/slimepedia, // OCULIS EDIT ADDITION - SLIME_RANCHER
 	)
 
 /obj/item/modular_computer/pda/crew/heads/quartermaster
@@ -211,6 +212,7 @@
 		/datum/computer_file/program/science,
 		/datum/computer_file/program/scipaper_program,
 		/datum/computer_file/program/signal_commander,
+		/datum/computer_file/program/slimepedia, // OCULIS EDIT ADDITION - SLIME_RANCHER
 	)
 
 /obj/item/modular_computer/pda/crew/roboticist

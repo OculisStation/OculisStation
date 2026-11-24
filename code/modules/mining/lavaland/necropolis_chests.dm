@@ -11,33 +11,13 @@
 	can_weld_shut = FALSE
 
 /obj/structure/closet/crate/necropolis/tendril
-	desc = "It's watching you suspiciously. You need a skeleton key to open it."
+	desc = "It's watching you suspiciously."
 	integrity_failure = 0 //prevents bust_open from firing
-	/// var to check if it got opened by a key
-	var/spawned_loot = FALSE
 	/// What random loot spawner our chest uses
 	var/loot_to_spawn = /obj/effect/spawner/random/mining_loot
 
-/obj/structure/closet/crate/necropolis/tendril/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
-	if(!istype(tool, /obj/item/skeleton_key) || spawned_loot)
-		return ..()
+/obj/structure/closet/crate/necropolis/tendril/PopulateContents()
 	new loot_to_spawn(src)
-
-	spawned_loot = TRUE
-	qdel(tool)
-	to_chat(user, span_notice("You disable the magic lock, revealing the loot."))
-	return ITEM_INTERACT_SUCCESS
-
-/obj/structure/closet/crate/necropolis/tendril/before_open(mob/living/user, force)
-	. = ..()
-	if(!.)
-		return FALSE
-
-	if(!broken && !force && !spawned_loot)
-		balloon_alert(user, "its locked!")
-		return FALSE
-
-	return TRUE
 
 //Megafauna chests
 
@@ -49,7 +29,7 @@
 	name = "dragon chest"
 
 /obj/structure/closet/crate/necropolis/dragon/PopulateContents()
-	var/loot = rand(1,4)
+	var/loot = rand(2,4) // OCULIS EDIT - Commenting out 1 as our server lacks the ghost population to support, and it is functionally a dead item
 	switch(loot)
 		if(1)
 			new /obj/item/melee/ghost_sword(src)
@@ -78,12 +58,16 @@
 
 /obj/structure/closet/crate/necropolis/bubblegum/PopulateContents()
 	new /obj/item/clothing/suit/hooded/hostile_environment(src)
-	var/loot = rand(1,2)
+	new /obj/item/bloodcrawl_bottle(src)
+	new /obj/item/soulscythe(src)
+	// OCULIS EDIT - Removes RNG in favor of guaranteeing loot, much like colossus. Only one of these are guaranteed to spawn a map, after all.
+
+/*	var/loot = rand(1,2)
 	switch(loot)
 		if(1)
 			new /obj/item/bloodcrawl_bottle(src) //NOVA EDIT CHANGE - ORIGINAL : new /obj/item/mayhem(src)
 		if(2)
-			new /obj/item/soulscythe(src)
+			new /obj/item/soulscythe(src) */
 
 /obj/structure/closet/crate/necropolis/bubblegum/crusher
 	name = "bloody bubblegum chest"
@@ -128,11 +112,3 @@
 			new /obj/item/wisp_lantern(src)
 		if(3)
 			new /obj/item/prisoncube(src)
-
-/obj/item/skeleton_key
-	name = "skeleton key"
-	desc = "An artifact usually found in the hands of the natives of lavaland, which NT now holds a monopoly on."
-	icon = 'icons/obj/mining_zones/artefacts.dmi'
-	icon_state = "skeleton_key"
-	w_class = WEIGHT_CLASS_SMALL
-	custom_materials = list(/datum/material/bone = SHEET_MATERIAL_AMOUNT * 5)

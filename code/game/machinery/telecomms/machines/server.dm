@@ -41,8 +41,6 @@
 	if (log_entries.len >= MAX_LOG_ENTRIES)
 		log_entries.Cut(1, 2)
 
-	signal.data["server"] = src; // IRIS EDIT -- NTSL
-
 	// Don't create a log if the frequency is banned from being logged
 	if(!(signal.frequency in banned_frequencies))
 		var/datum/comm_log_entry/log = new
@@ -65,11 +63,6 @@
 		var/identifier = num2text(rand(-1000, 1000) + world.time)
 		log.name = "data packet ([md5(identifier)])"
 		log_entries.Add(log)
-
-	// IRIS EDIT START -- NTSL -- Run the damn NTSL code
-	if(Compiler && autoruncode)
-		Compiler.Run(signal)
-	// IRIS EDIT END
 
 	var/can_send = relay_information(signal, /obj/machinery/telecomms/hub)
 	if(!can_send)

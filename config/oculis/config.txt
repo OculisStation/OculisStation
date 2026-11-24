@@ -3,3 +3,6 @@
 
 ## Uncomment to enable the chance of a Lone Operative spawning if the Nuclear Authentication Disk is left unmoved for too long
 #NAD_CAN_SPAWN_LONE_OP
+
+ALERT_BLACK_UPTO A sector wide Storm-Surge event is in progress. All stations are to engage lockdown protocols. All extravehicular activity is to be immediately halted. Communications and shuttle usage have been disabled by the ongoing event. Security may have weapons unholstered at all times. Random searches are allowed and advised.
+ALERT_BLACK_DOWNTO A sector wide Storm-Surge event is still in progress. All stations are to remain in lockdown protocols. All extravehicular activity is still halted. Communications and shuttle usage are still disabled by the ongoing event. Security may have weapons unholstered at all times. Random searches are allowed and advised.

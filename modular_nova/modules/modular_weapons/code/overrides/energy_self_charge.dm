@@ -1,3 +1,5 @@
+/* // OCULIS EDIT REMOVAL START
+
 // This is where we put all the overrides for energy recharge. At the moment of this change, TG default charge_delay is 8. With this they recharge 10% per what charge_delay says
 
 #define SLOW_CHARGE_MESSAGE "Equipped with a drip-charge microcell. Regains a couple of shots after a while without external power, maybe. Remember - switching to another gun is <b>definitely</b> faster than waiting for this to recharge."
@@ -130,3 +132,5 @@
 #undef CHARGE_MESSAGE
 #undef SUPER_CHARGE_MESSAGE
 #undef HYPER_CHARGE_MESSAGE
+
+*/ // OCULIS EDIT REMOVAL END

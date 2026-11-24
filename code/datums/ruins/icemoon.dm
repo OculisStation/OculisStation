@@ -30,6 +30,7 @@
 	id = "asteroidsite"
 	description = "Surprised to see us here?"
 	suffix = "icemoon_surface_asteroid.dmm"
+	always_place = TRUE // OCULIS EDIT ADDITION
 
 /datum/map_template/ruin/icemoon/engioutpost
 	name = "Ice-Ruin Engineer Outpost"
@@ -173,6 +174,7 @@
 	id = "wendigocave"
 	description = "Into the jaws of the beast."
 	suffix = "icemoon_underground_wendigo_cave.dmm"
+	always_place = TRUE // OCULIS EDIT ADDITION
 
 /datum/map_template/ruin/icemoon/underground/free_golem
 	name = "Ice-Ruin Free Golem Ship"
@@ -219,6 +221,7 @@
 	id = "o31"
 	description = "Suspiciously dead silent. May or may not contain megafauna"
 	suffix = "icemoon_underground_outpost31.dmm"
+	always_place = TRUE // OCULIS EDIT ADDITION
 
 //TODO: Bottom-Level ONLY Spawns after Refactoring Related Code
 /datum/map_template/ruin/icemoon/underground/plasma_facility

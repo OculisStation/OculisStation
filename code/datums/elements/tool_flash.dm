@@ -1,7 +1,7 @@
 /**
  * Tool flash bespoke element
  *
- * Flashes the user when using this tool
+ * Flashes the user (and nearby mobs) when using this tool
  */
 /datum/element/tool_flash
 	element_flags = ELEMENT_BESPOKE
@@ -28,10 +28,22 @@
 
 	if(prob(90))
 		return
+
 	flash(source, user)
 
 /datum/element/tool_flash/proc/flash(datum/source, mob/living/user)
 	SIGNAL_HANDLER
 
+	/* // OCULIS EDIT REMOVAL START
+	if(flash_strength <= 0)
+		return
+
+	var/turf/weld_location = get_turf(source)
+	for(var/mob/living/victim in viewers(1, weld_location))
+		var/flash_strength_for_victim = max(flash_strength - get_dist(victim, weld_location), 0)
+		victim.flash_act(flash_strength_for_victim)
+	*/ // OCULIS EDIT REMOVAL END
+	// OCULIS EDIT ADDITION START - don't flash people near you anymore
 	if(user && flash_strength > 0 && get_dist(get_turf(source), get_turf(user)) <= 1)
 		user.flash_act(max(flash_strength,1))
+	// OCULIS EDIT ADDITION END

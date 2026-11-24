@@ -141,8 +141,6 @@
 
 /obj/item/card/id/fake_card/alt_click_can_use_id(mob/living/user)
 	return FALSE //no accounts on fake cards
-/obj/item/card/id/fake_card/try_project_paystand(mob/user, turf/target)
-	return FALSE //no paystands on fake cards
 
 /obj/item/card/id/fake_card/examine(mob/user)
 	. = ..()
