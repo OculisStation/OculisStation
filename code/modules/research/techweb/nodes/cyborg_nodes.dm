@@ -105,7 +105,7 @@
 		/datum/design/borg_upgrade_selfrepair,
 		/datum/design/borg_upgrade_thrusters,
 		/datum/design/borg_upgrade_trashofholding,
-		/datum/design/borg_upgrade_weight_reducer // OCULIS EDIT ADDITION
+		/datum/design/borg_upgrade_weight_reducer, // OCULIS EDIT ADDITION
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_3_POINTS)
 	announce_channels = list(RADIO_CHANNEL_SCIENCE)
