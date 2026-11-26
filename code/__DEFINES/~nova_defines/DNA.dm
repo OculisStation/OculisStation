@@ -46,6 +46,7 @@
 #define ORGAN_SLOT_EXTERNAL_CAP "cap"
 #define ORGAN_SLOT_EXTERNAL_EARS "ears_external"
 #define ORGAN_SLOT_EXTERNAL_FLUFF "fluff"
+#define ORGAN_SLOT_EXTERNAL_HALO "halo" // OCULIS EDIT ADDITION
 #define ORGAN_SLOT_EXTERNAL_HEAD_ACCESSORY "head_accessory"
 #define ORGAN_SLOT_EXTERNAL_MOTH_MARKINGS FEATURE_MOTH_MARKINGS
 #define ORGAN_SLOT_EXTERNAL_NECK_ACCESSORY "neck_accessory"
@@ -78,6 +79,7 @@
 #define FEATURE_XENOHEAD "xenohead"
 #define FEATURE_SKRELL_HAIR "skrell_hair"
 #define FEATURE_FLUFF "fluff"
+#define FEATURE_HALO "halo"
 #define FEATURE_HEAD_ACCESSORY "head_acc"
 #define FEATURE_NECK_ACCESSORY "neck_acc"
 #define FEATURE_GHOUL_COLOR "ghoulcolor"

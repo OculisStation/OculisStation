@@ -64,6 +64,8 @@
 	name = "Moogle Pom (Large, Back)"
 	icon_state = "mpom3alt"
 
+// OCULIS EDIT REMOVAL START - relocated these to modular_oculis/modules/customization/modules/halos/sprite_accessories/halos.dm
+/*
 /datum/sprite_accessory/head_accessory/halo
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/halo.dmi'
 	color_src = USE_ONE_COLOR
@@ -87,3 +89,5 @@
 /datum/sprite_accessory/head_accessory/halo/halo_double/no_animation
 	name = "Double Halo (Static)"
 	icon_state = "halo_double_static"
+*/
+// OCULIS EDIT REMOVAL END
