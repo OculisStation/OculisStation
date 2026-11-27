@@ -48,3 +48,6 @@
   - balance: removes the chance to become a skeleton upon drinking Dragon's Blood,
       making it now a 50/50 split between becoming lava immune or granting you a lesser
       drake polymorph.
+2026-11-27:
+  Shroopy:
+  - rscadd: Restored Paradise SMES sprites, and gave them emissives too.
