@@ -1,0 +1,4 @@
+author: "Meunahlux"
+delete-after: True
+changes:
+  - bugfix: "restored engineering guard access to atmos alarms and such"
