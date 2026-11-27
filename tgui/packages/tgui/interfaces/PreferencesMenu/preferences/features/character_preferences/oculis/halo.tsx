@@ -1,4 +1,4 @@
-// THIS IS A NOVA SECTOR UI FILE
+// THIS IS AN OCULIS SECTOR UI FILE
 import {
   CheckboxInput,
   type Feature,
