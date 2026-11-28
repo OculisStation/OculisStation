@@ -2,6 +2,10 @@
 "a" = (
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/supply)
+"b" = (
+/obj/machinery/light/floor,
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/supply)
 "c" = (
 /obj/machinery/power/shuttle_engine/propulsion/burst/left,
 /turf/open/floor/plating/airless,
@@ -148,12 +152,12 @@ c
 r
 s
 f
+b
 f
 f
 f
 f
-f
-f
+b
 f
 s
 a
@@ -176,12 +180,12 @@ a
 r
 s
 f
+b
 f
 f
 f
 f
-f
-f
+b
 f
 s
 a
