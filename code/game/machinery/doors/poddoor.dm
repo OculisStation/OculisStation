@@ -275,6 +275,12 @@
 	else
 		return ..()
 
+// OCULIS EDIT ADDITION START
+/obj/machinery/door/poddoor/interact(mob/user)
+	if(isAI(user) || iscyborg(user))
+		try_to_activate_door(user, access_bypass = TRUE, bumped = TRUE)
+// OCULIS EDIT ADDITION END
+
 /obj/machinery/door/poddoor/preopen
 	icon_state = "open"
 	density = FALSE

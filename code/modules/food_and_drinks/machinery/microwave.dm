@@ -519,10 +519,13 @@
 		return
 
 	if(!length(ingredients))
+		/* // OCULIS EDIT REMOVAL START
 		if(HAS_AI_ACCESS(user))
 			user.examinate(src)
 		else
 			balloon_alert(user, "it's empty!")
+		*/ // OCULIS EDIT REMOVAL END
+		balloon_alert(user, "it's empty!") // OCULIS EDIT ADDITION
 		return
 
 	var/choice = show_radial_menu(user, src, HAS_AI_ACCESS(user) ? ai_radial_options : radial_options, require_near = !HAS_SILICON_ACCESS(user))
