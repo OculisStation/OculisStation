@@ -51,3 +51,6 @@
 2026-11-27:
   Shroopy:
   - rscadd: Restored Paradise SMES sprites, and gave them emissives too.
+2026-11-28:
+  Meunahlux:
+  - bugfix: restored engineering guard access to atmos alarms and such
