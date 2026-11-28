@@ -1,0 +1,4 @@
+author: "Skies-Of-Blue"
+delete-after: True
+changes:
+  - bugfix: "cain & abel's lighting now works as intended"
