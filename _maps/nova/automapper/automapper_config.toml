@@ -381,6 +381,14 @@ required_map = "IceBoxStation.dmm"
 coordinates = [118, 147, 2]
 trait_name = "Station"
 
+# Oculis - Icebox Redspace Anchor
+[templates.icebox_redspace_anchor]
+map_files = ["icebox_redspace_anchor.dmm"]
+directory = "_maps/oculis/automapper/templates/icebox/"
+required_map = "IceBoxStation.dmm"
+coordinates = [119, 92, 2]
+trait_name = "Station"
+
 # TRAMSTATION MAP EDITS
 # Tramstation Arrivals
 [templates.tramstation_arrivals]
@@ -679,6 +687,14 @@ required_map = "KiloStation.dmm"
 coordinates = [117, 108, 1]
 trait_name = "Station"
 
+# Oculis - Kilostation Explorer Spawns
+[templates.kilostation_explorer_spawns]
+map_files = ["kilostation_explorer_spawns.dmm"]
+directory = "_maps/oculis/automapper/templates/kilostation/"
+required_map = "KiloStation.dmm"
+coordinates = [174, 108, 1]
+trait_name = "Station"
+
 # Iris - VoidRaptor Medbay Cold Room
 [templates.VoidRaptor_medbay_cold_room]
 map_files = ["voidraptor_medbay_cold_room.dmm"]
@@ -701,6 +717,14 @@ map_files = ["voidraptor_captain_phone.dmm"]
 directory = "_maps/oculis/automapper/templates/VoidRaptor/"
 required_map = "VoidRaptor.dmm"
 coordinates = [109, 200, 1]
+trait_name = "Station"
+
+# Oculis - VoidRaptor Redspace Anchor
+[templates.voidraptor_redspace_anchor]
+map_files = ["voidraptor_redspace_anchor.dmm"]
+directory = "_maps/oculis/automapper/templates/VoidRaptor/"
+required_map = "VoidRaptor.dmm"
+coordinates = [111, 53, 1]
 trait_name = "Station"
 
 # Iris - SerenityStation Bridge Fax
@@ -799,6 +823,14 @@ required_map = "tramstation.dmm"
 coordinates = [85, 136, 2]
 trait_name = "Station"
 
+# Oculis - Tramstation Redspace Anchor
+[templates.tramstation_redspace_anchor]
+map_files = ["tramstation_redspace_anchor.dmm"]
+directory = "_maps/oculis/automapper/templates/tramstation/"
+required_map = "tramstation.dmm"
+coordinates = [100, 93, 1]
+trait_name = "Station"
+
 # Iris - Lavaland W Hermit
 [templates.lavaland_hermit_oculis]
 map_files = ["lavaland_hermit_oculis.dmm"]
@@ -823,6 +855,14 @@ required_map = "NebulaStation.dmm"
 coordinates = [179, 130, 1]
 trait_name = "Station"
 
+# Oculis - Nebulastation Redspace Anchor
+[templates.nebulastation_redspace_anchor]
+map_files = ["nebulastation_redspace_anchor.dmm"]
+directory = "_maps/oculis/automapper/templates/nebulastation/"
+required_map = "NebulaStation.dmm"
+coordinates = [90, 96, 1]
+trait_name = "Station"
+
 # Oculis - Serenitystation Bouncer Office
 [templates.serenitystation_bouncer_office]
 map_files = ["serenitystation_bouncer_office.dmm"]
@@ -839,6 +879,14 @@ required_map = "SerenityStation.dmm"
 coordinates = [116, 171, 2]
 trait_name = "Station"
 
+# Oculis - Serenitystation Redspace Anchor
+[templates.serenitystation_redspace_anchor]
+map_files = ["serenitystation_redspace_anchor.dmm"]
+directory = "_maps/oculis/automapper/templates/serenitystation/"
+required_map = "SerenityStation.dmm"
+coordinates = [173, 90, 1]
+trait_name = "Station"
+
 # Oculis - Metastation Robotics Medical Records
 [templates.metastation_robotics_medical_records]
 map_files = ["metastation_robotics_medical_records.dmm"]
@@ -847,12 +895,28 @@ required_map = "MetaStation.dmm"
 coordinates = [111, 98, 1]
 trait_name = "Station"
 
+# Oculis - Metastation Robotics Medical Records
+[templates.metastation_redspace_anchor]
+map_files = ["metastation_redspace_anchor.dmm"]
+directory = "_maps/oculis/automapper/templates/metastation/"
+required_map = "MetaStation.dmm"
+coordinates = [174, 167, 1]
+trait_name = "Station"
+
 # Oculis - Oceanpubby Explorer Spawns
 [templates.oceanpubby_explorer_spawns]
 map_files = ["oceanpubby_explorer_spawns.dmm"]
 directory = "_maps/oculis/automapper/templates/oceanpubby/"
 required_map = "oceanpubby.dmm"
 coordinates = [142, 173, 1]
+trait_name = "Station"
+
+# Oculis - Oceanpubby Redspace Anchor
+[templates.oceanpubby_redspace_anchor]
+map_files = ["oceanpubby_redspace_anchor.dmm"]
+directory = "_maps/oculis/automapper/templates/oceanpubby/"
+required_map = "oceanpubby.dmm"
+coordinates = [106, 98, 1]
 trait_name = "Station"
 
 # Oculis - Oceanpubby Robotics Medical Records
@@ -935,6 +999,14 @@ required_map = "snowglobe.dmm"
 coordinates = [165, 123, 3]
 trait_name = "Station"
 
+# Oculis - Snowglobe Redspace Anchor
+[templates.snowglobe_redspace_anchor]
+map_files = ["snowglobe_redspace_anchor.dmm"]
+directory = "_maps/oculis/automapper/templates/snowglobe/"
+required_map = "snowglobe.dmm"
+coordinates = [117, 84, 2]
+trait_name = "Station"
+
 # Oculis - Deltastation Explorer Spawns
 [templates.deltastation_explorer_spawns]
 map_files = ["deltastation_explorer_spawns.dmm"]
@@ -949,6 +1021,14 @@ map_files = ["deltastation_robotics_medical_records.dmm"]
 directory = "_maps/oculis/automapper/templates/deltastation/"
 required_map = "DeltaStation2.dmm"
 coordinates = [122, 110, 1]
+trait_name = "Station"
+
+# Oculis - Deltastation Redspace Anchor
+[templates.deltastation_redspace_anchor]
+map_files = ["deltastation_redspace_anchor.dmm"]
+directory = "_maps/oculis/automapper/templates/deltastation/"
+required_map = "DeltaStation2.dmm"
+coordinates = [101, 160, 1]
 trait_name = "Station"
 
 # Oculis - Tramstation Robotics Medical Records
@@ -1062,12 +1142,3 @@ directory = "_maps/oculis/automapper/templates/wawastation/"
 required_map = "wawastation.dmm"
 coordinates = [133, 106, 1]
 trait_name = "Station"
-
-# Oculis - Kilostation Explorer Spawns
-[templates.kilostation_explorer_spawns]
-map_files = ["kilostation_explorer_spawns.dmm"]
-directory = "_maps/oculis/automapper/templates/kilostation/"
-required_map = "KiloStation.dmm"
-coordinates = [174, 108, 1]
-trait_name = "Station"
-

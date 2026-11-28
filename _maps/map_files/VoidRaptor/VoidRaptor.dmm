@@ -1322,6 +1322,7 @@
 	id = "engielock";
 	name = "Engineering Lockdown Blast Door"
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/station/maintenance/department/engine)
 "asM" = (
@@ -13921,8 +13922,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "Cell5Privacy";
-	name = "curtain"
+	id = "Cell5Privacy"
 	},
 /turf/open/floor/plating,
 /area/station/security/prison)
@@ -14427,8 +14427,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "Cell4Privacy";
-	name = "curtain"
+	id = "Cell4Privacy"
 	},
 /turf/open/floor/plating,
 /area/station/security/prison)
@@ -29634,8 +29633,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "blueshield";
-	name = "curtain"
+	id = "blueshield"
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -29737,8 +29735,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "hoscurtain";
-	name = "curtain"
+	id = "hoscurtain"
 	},
 /obj/structure/cable,
 /turf/open/floor/grass,
@@ -31638,8 +31635,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "blueshield";
-	name = "curtain"
+	id = "blueshield"
 	},
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
@@ -32906,8 +32902,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "Cell3Privacy";
-	name = "curtain"
+	id = "Cell3Privacy"
 	},
 /turf/open/floor/plating,
 /area/station/security/prison)
@@ -38388,8 +38383,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "prisonlibrarycurtain";
-	name = "curtain"
+	id = "prisonlibrarycurtain"
 	},
 /turf/open/floor/plating,
 /area/station/security/prison/garden)
@@ -41987,8 +41981,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "Cell2Privacy";
-	name = "curtain"
+	id = "Cell2Privacy"
 	},
 /turf/open/floor/plating,
 /area/station/security/prison)
@@ -44233,6 +44226,12 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/security/prison)
+"mss" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/station/engineering/supermatter/room)
 "msv" = (
 /obj/effect/turf_decal/trimline/dark_red/filled/warning{
 	dir = 8
@@ -52171,8 +52170,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "hoscurtain";
-	name = "curtain"
+	id = "hoscurtain"
 	},
 /obj/structure/cable,
 /turf/open/floor/grass,
@@ -53591,8 +53589,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "consultant";
-	name = "curtain"
+	id = "consultant"
 	},
 /turf/open/floor/grass,
 /area/station/command/heads_quarters/nt_rep)
@@ -54501,8 +54498,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "hoscurtain";
-	name = "curtain"
+	id = "hoscurtain"
 	},
 /obj/structure/cable,
 /turf/open/floor/grass,
@@ -61245,8 +61241,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "Cell6Privacy";
-	name = "curtain"
+	id = "Cell6Privacy"
 	},
 /turf/open/floor/plating,
 /area/station/security/prison)
@@ -64962,6 +64957,7 @@
 "saF" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating,
 /area/station/engineering/supermatter/room)
 "saR" = (
@@ -65991,8 +65987,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "consultant";
-	name = "curtain"
+	id = "consultant"
 	},
 /turf/open/floor/grass,
 /area/station/command/heads_quarters/nt_rep)
@@ -67503,8 +67498,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "consultant";
-	name = "curtain"
+	id = "consultant"
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -78388,8 +78382,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "consultant";
-	name = "curtain"
+	id = "consultant"
 	},
 /turf/open/floor/grass,
 /area/station/command/heads_quarters/nt_rep)
@@ -85973,8 +85966,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "Cell1Privacy";
-	name = "curtain"
+	id = "Cell1Privacy"
 	},
 /turf/open/floor/plating,
 /area/station/security/prison)
@@ -120414,8 +120406,8 @@ cmr
 sRa
 ejY
 fey
-fey
 gXe
+mss
 saF
 asv
 num

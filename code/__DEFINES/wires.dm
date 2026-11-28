@@ -100,6 +100,15 @@
 #define WIRE_FIRE_DETECT "Automatic Detection"
 #define WIRE_FIRE_TRIGGER "Alarm Trigger"
 #define WIRE_FIRE_RESET "Alarm Reset"
+// OCULIS EDIT ADDITION START
+#define WIRE_DISCHARGE "Discharge"
+#define WIRE_ACTIVATION1 "Activation 1"
+#define WIRE_ACTIVATION2 "Activation 2"
+#define WIRE_ACTIVATION3 "Activation 3"
+#define WIRE_POWER3 "Main Power 3"
+#define WIRE_POWER4 "Main Power 4"
+#define WIRE_POWER5 "Main Power 5"
+// OCULIS EDIT ADDITION END
 
 // Wire states for the AI
 #define AI_WIRE_NORMAL 0

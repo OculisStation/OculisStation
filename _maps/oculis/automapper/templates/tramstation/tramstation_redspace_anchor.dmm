@@ -1,0 +1,510 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/turf/closed/mineral/random/stationside/asteroid/porus,
+/area/station/asteroid)
+"ab" = (
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/south,
+/obj/machinery/computer/redspace_anchor_computer{
+	dir = 1
+	},
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+"ad" = (
+/obj/machinery/power/smes/full{
+	output_level = 30000
+	},
+/obj/structure/cable,
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+"af" = (
+/obj/machinery/power/terminal,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+"ag" = (
+/turf/open/floor/circuit/red/alt/anim,
+/area/station/redspace_anchor)
+"ah" = (
+/obj/effect/turf_decal/trimline/yellow/filled/line,
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/turf/open/floor/iron,
+/area/station/maintenance/central/lesser)
+"ai" = (
+/turf/closed/wall/r_wall,
+/area/station/redspace_anchor)
+"aj" = (
+/obj/structure/rack,
+/obj/item/mod/module/plasma_stabilizer,
+/obj/item/mod/module/signlang_radio,
+/obj/item/mod/module/thermal_regulator,
+/obj/item/mod/module/saddle,
+/obj/effect/turf_decal/bot{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral/full,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/engineering/engine_smes)
+"al" = (
+/obj/machinery/suit_storage_unit/engine,
+/obj/effect/turf_decal/bot{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral/full,
+/turf/open/floor/iron/dark/textured_large,
+/area/station/engineering/engine_smes)
+"am" = (
+/obj/machinery/turretid{
+	control_area = "/area/station/redspace_anchor";
+	name = "Redspace Anchor Turret Control";
+	pixel_x = 28
+	},
+/turf/open/floor/circuit/red/alt/anim,
+/area/station/redspace_anchor)
+"an" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/power/terminal,
+/obj/structure/cable,
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+"ao" = (
+/obj/machinery/power/terminal,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+"ap" = (
+/obj/machinery/airalarm/directional/north,
+/obj/machinery/porta_turret/ai,
+/obj/machinery/turretid{
+	control_area = "/area/station/redspace_anchor";
+	name = "Redspace Anchor Turret Control";
+	pixel_x = 28
+	},
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+"aq" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/mapping_helpers/airlock/access/all/engineering/engine_equipment,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/machinery/door/airlock/maintenance_hatch{
+	name = "Engineering Maintenance Hatch"
+	},
+/turf/open/floor/catwalk_floor,
+/area/station/redspace_anchor)
+"ar" = (
+/obj/item/clothing/gloves/color/yellow,
+/obj/item/clothing/gloves/color/yellow,
+/obj/item/clothing/gloves/color/yellow,
+/obj/item/clothing/gloves/color/yellow,
+/obj/item/clothing/gloves/color/yellow,
+/obj/machinery/camera/emp_proof{
+	dir = 10;
+	network = list("ss13","engineering");
+	c_tag = "Engineering - SMES Misc"
+	},
+/obj/machinery/light/small/directional/west,
+/obj/structure/rack,
+/obj/effect/turf_decal/bot{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral/full,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/engineering/engine_smes)
+"as" = (
+/obj/effect/turf_decal/bot{
+	dir = 1
+	},
+/obj/effect/spawner/random/vending/snackvend,
+/turf/open/floor/iron/dark,
+/area/station/maintenance/central/lesser)
+"at" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
+/turf/open/floor/iron,
+/area/station/engineering/engine_smes)
+"au" = (
+/obj/machinery/light/directional/west,
+/turf/open/floor/circuit/red/alt/anim,
+/area/station/redspace_anchor)
+"av" = (
+/turf/open/floor/circuit/red/off,
+/area/station/redspace_anchor)
+"aw" = (
+/obj/machinery/turretid{
+	control_area = "/area/station/redspace_anchor";
+	name = "Redspace Anchor Turret Control";
+	pixel_x = -28
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/station/maintenance/central/lesser)
+"ax" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/turf/open/floor/iron,
+/area/station/engineering/engine_smes)
+"ay" = (
+/obj/machinery/power/smes/full{
+	output_level = 20000
+	},
+/obj/structure/cable,
+/obj/machinery/light/directional/south,
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+"az" = (
+/turf/template_noop,
+/area/template_noop)
+"aA" = (
+/obj/effect/turf_decal/delivery,
+/turf/open/floor/plating,
+/area/station/engineering/engine_smes)
+"aD" = (
+/obj/machinery/power/smes/full{
+	output_level = 20000
+	},
+/obj/structure/cable,
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+"aE" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/turf/open/floor/circuit/red,
+/area/station/redspace_anchor)
+"aG" = (
+/obj/structure/rack,
+/obj/item/storage/box/lights/mixed,
+/obj/item/stock_parts/power_store/cell/emproof,
+/obj/item/stock_parts/power_store/cell/emproof,
+/obj/effect/turf_decal/bot{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral/full,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/engineering/engine_smes)
+"aH" = (
+/obj/machinery/porta_turret/ai,
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+"aI" = (
+/obj/machinery/newscaster/directional/south,
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+"aJ" = (
+/turf/open/floor/circuit/red,
+/area/station/redspace_anchor)
+"aK" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/turf/open/floor/circuit/red,
+/area/station/redspace_anchor)
+"aL" = (
+/obj/structure/extinguisher_cabinet/directional/west,
+/obj/structure/closet/crate,
+/obj/item/stack/sheet/mineral/plasma{
+	amount = 20
+	},
+/obj/item/stack/sheet/mineral/plasma{
+	amount = 20
+	},
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+"aM" = (
+/obj/machinery/redspace_anchor,
+/turf/open/floor/circuit/red/off,
+/area/station/redspace_anchor)
+"aN" = (
+/obj/machinery/camera/directional/north,
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+"aR" = (
+/obj/machinery/power/port_gen/pacman,
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+"aT" = (
+/turf/open/misc/asteroid,
+/area/station/asteroid)
+"aU" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+"aV" = (
+/obj/structure/tank_dispenser,
+/obj/effect/turf_decal/bot{
+	dir = 1
+	},
+/obj/machinery/light/small/directional/west,
+/obj/effect/turf_decal/tile/neutral/full,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/engineering/engine_smes)
+"aW" = (
+/turf/closed/wall/r_wall,
+/area/station/maintenance/central/lesser)
+"aX" = (
+/turf/closed/wall/r_wall,
+/area/station/engineering/engine_smes)
+"aY" = (
+/obj/structure/cable,
+/obj/machinery/power/smes/full{
+	output_level = 30000
+	},
+/turf/open/floor/carpet/kinaris/black/whitetrim,
+/area/station/redspace_anchor)
+
+(1,1,1) = {"
+aa
+aa
+aa
+aa
+aT
+ai
+ai
+ai
+ai
+"}
+(2,1,1) = {"
+aa
+aa
+ai
+ai
+ai
+ai
+aH
+aL
+aR
+"}
+(3,1,1) = {"
+aa
+aa
+ai
+ag
+au
+ag
+aK
+aU
+aI
+"}
+(4,1,1) = {"
+aa
+aa
+ai
+av
+av
+av
+aJ
+aU
+ab
+"}
+(5,1,1) = {"
+aa
+aa
+ai
+av
+av
+aM
+aJ
+an
+ad
+"}
+(6,1,1) = {"
+aT
+aT
+ai
+av
+av
+av
+aJ
+ao
+aY
+"}
+(7,1,1) = {"
+aT
+aT
+ai
+ag
+ag
+am
+aE
+af
+ay
+"}
+(8,1,1) = {"
+aW
+aW
+ai
+ai
+ai
+ai
+aN
+af
+aD
+"}
+(9,1,1) = {"
+aW
+aV
+al
+al
+ar
+ai
+ap
+af
+aD
+"}
+(10,1,1) = {"
+aW
+aj
+ax
+at
+aG
+ai
+ai
+aq
+ai
+"}
+(11,1,1) = {"
+aW
+aX
+aA
+aA
+aX
+aW
+aw
+ah
+as
+"}
+
+(1,1,2) = {"
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+"}
+(2,1,2) = {"
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+"}
+(3,1,2) = {"
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+"}
+(4,1,2) = {"
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+"}
+(5,1,2) = {"
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+"}
+(6,1,2) = {"
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+"}
+(7,1,2) = {"
+az
+az
+az
+az
+az
+az
+az
+az
+aT
+"}
+(8,1,2) = {"
+az
+az
+az
+az
+az
+az
+az
+az
+aT
+"}
+(9,1,2) = {"
+az
+az
+az
+az
+az
+az
+az
+az
+aT
+"}
+(10,1,2) = {"
+az
+az
+az
+az
+az
+az
+az
+az
+aT
+"}
+(11,1,2) = {"
+az
+az
+az
+az
+az
+az
+az
+az
+az
+"}

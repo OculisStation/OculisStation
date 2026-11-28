@@ -834,8 +834,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "NightclubBack";
-	name = "curtain"
+	id = "NightclubBack"
 	},
 /obj/effect/turf_decal/siding/dark{
 	dir = 8
@@ -916,6 +915,7 @@
 	req_access = list("atmospherics");
 	pixel_x = 5
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark/smooth_edge,
 /area/station/engineering/atmos)
 "anp" = (
@@ -3292,8 +3292,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "consultant";
-	name = "curtain"
+	id = "consultant"
 	},
 /obj/structure/flora/grass/jungle,
 /turf/open/floor/grass,
@@ -3440,8 +3439,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "blueshield";
-	name = "curtain"
+	id = "blueshield"
 	},
 /turf/open/floor/grass,
 /area/station/command/heads_quarters/blueshield)
@@ -6191,8 +6189,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "ClownRoom";
-	name = "curtain"
+	id = "ClownRoom"
 	},
 /obj/machinery/disposal/bin,
 /obj/structure/disposalpipe/trunk,
@@ -7539,6 +7536,11 @@
 	dir = 5
 	},
 /obj/machinery/light/small/directional/north,
+/obj/machinery/turretid{
+	control_area = "/area/station/redspace_anchor";
+	name = "Redspace Anchor Turret Control";
+	pixel_y = 28
+	},
 /turf/open/floor/iron/dark,
 /area/station/engineering/atmos)
 "chh" = (
@@ -8010,8 +8012,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "CORoom";
-	name = "curtain"
+	id = "CORoom"
 	},
 /obj/structure/cable,
 /turf/open/floor/iron/stairs/medium,
@@ -8850,8 +8851,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "CORoom";
-	name = "curtain"
+	id = "CORoom"
 	},
 /turf/open/floor/plating,
 /area/station/security/corrections_officer)
@@ -15082,9 +15082,8 @@
 /obj/structure/cable,
 /obj/structure/sign/warning/radiation/rad_area/directional/south,
 /obj/effect/turf_decal/stripes/line,
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark/smooth_edge,
 /area/station/engineering/atmos)
 "etT" = (
@@ -15298,6 +15297,13 @@
 /obj/item/food/grown/flower/poppy/geranium/fraxinella,
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/station/maintenance/department/security/upper)
+"exw" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/smooth_edge,
+/area/station/engineering/atmos)
 "exx" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/ore_box,
@@ -15884,6 +15890,7 @@
 /obj/structure/cable,
 /obj/structure/sign/warning/fire/directional/south,
 /obj/effect/turf_decal/stripes/line,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark/smooth_edge,
 /area/station/engineering/atmos)
 "eGt" = (
@@ -17051,8 +17058,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "BoothLibrary";
-	name = "curtain"
+	id = "BoothLibrary"
 	},
 /turf/open/floor/grass,
 /area/station/service/library/lounge)
@@ -17902,8 +17908,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "rdcurtain";
-	name = "curtain"
+	id = "rdcurtain"
 	},
 /turf/open/floor/plating,
 /area/station/command/heads_quarters/rd)
@@ -19912,8 +19917,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "CORoom";
-	name = "curtain"
+	id = "CORoom"
 	},
 /obj/structure/cable,
 /turf/open/floor/iron/stairs/medium,
@@ -23108,6 +23112,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/station/hallway/primary/central/fore)
+"gFE" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron/dark,
+/area/station/engineering/atmos)
 "gFJ" = (
 /obj/structure/table,
 /obj/item/reagent_containers/condiment/soysauce,
@@ -29084,8 +29094,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "consultant";
-	name = "curtain"
+	id = "consultant"
 	},
 /obj/structure/flora/grass/jungle,
 /turf/open/floor/grass,
@@ -30027,8 +30036,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "NightclubBack";
-	name = "curtain"
+	id = "NightclubBack"
 	},
 /obj/effect/turf_decal/siding/dark{
 	dir = 8
@@ -32501,8 +32509,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "BoothBar";
-	name = "curtain"
+	id = "BoothBar"
 	},
 /obj/effect/turf_decal/siding/dark,
 /turf/open/floor/iron/dark/small,
@@ -35124,8 +35131,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "borgcurtainb";
-	name = "curtain"
+	id = "borgcurtainb"
 	},
 /turf/open/floor/plating,
 /area/station/commons/dorms/cyborgB)
@@ -38604,8 +38610,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "Nightclub";
-	name = "curtain"
+	id = "Nightclub"
 	},
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/iron/dark/small,
@@ -46438,8 +46443,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "Cell2Privacy";
-	name = "curtain"
+	id = "Cell2Privacy"
 	},
 /turf/open/floor/grass,
 /area/station/security/prison/safe)
@@ -49153,8 +49157,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "bitrunnercurtain";
-	name = "curtain"
+	id = "bitrunnercurtain"
 	},
 /turf/open/floor/plating,
 /area/station/cargo/bitrunning/den)
@@ -49466,8 +49469,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "SciBreak";
-	name = "curtain"
+	id = "SciBreak"
 	},
 /turf/open/floor/grass,
 /area/station/security/breakroom)
@@ -53434,8 +53436,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "ClownRoom";
-	name = "curtain"
+	id = "ClownRoom"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/stairs/medium,
@@ -54990,6 +54991,13 @@
 	},
 /turf/open/floor/iron,
 /area/station/science/research)
+"pXj" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/line,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron/dark/smooth_edge,
+/area/station/engineering/atmos)
 "pXl" = (
 /obj/effect/turf_decal/siding/dark,
 /obj/effect/landmark/start/hangover,
@@ -55163,8 +55171,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "lawyer";
-	name = "curtain"
+	id = "lawyer"
 	},
 /turf/open/floor/grass,
 /area/station/service/lawoffice)
@@ -55770,8 +55777,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "blueshield";
-	name = "curtain"
+	id = "blueshield"
 	},
 /turf/open/floor/grass,
 /area/station/command/heads_quarters/blueshield)
@@ -58409,8 +58415,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "ClownRoom";
-	name = "curtain"
+	id = "ClownRoom"
 	},
 /obj/structure/railing{
 	dir = 5
@@ -60003,8 +60008,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "Cell3Privacy";
-	name = "curtain"
+	id = "Cell3Privacy"
 	},
 /turf/open/floor/grass,
 /area/station/security/prison/safe)
@@ -61740,8 +61744,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "MaintCabin";
-	name = "curtain"
+	id = "MaintCabin"
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/port/upper)
@@ -65399,8 +65402,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "rdcurtain";
-	name = "curtain"
+	id = "rdcurtain"
 	},
 /turf/open/floor/grass,
 /area/station/command/heads_quarters/rd)
@@ -68582,8 +68584,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "Nightclub";
-	name = "curtain"
+	id = "Nightclub"
 	},
 /turf/open/floor/iron/dark/small,
 /area/station/service/bar)
@@ -69797,8 +69798,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "Cell4Privacy";
-	name = "curtain"
+	id = "Cell4Privacy"
 	},
 /turf/open/floor/grass,
 /area/station/security/prison/safe)
@@ -71165,6 +71165,15 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark,
 /area/station/maintenance/port/aft)
+"uGk" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron/dark,
+/area/station/engineering/atmos)
 "uGo" = (
 /obj/structure/cable,
 /obj/machinery/light/directional/south,
@@ -72808,8 +72817,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "Cell1Privacy";
-	name = "curtain"
+	id = "Cell1Privacy"
 	},
 /turf/open/floor/grass,
 /area/station/security/prison/safe)
@@ -73176,6 +73184,7 @@
 "vkb" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/line,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark/smooth_edge,
 /area/station/engineering/atmos)
 "vke" = (
@@ -74575,8 +74584,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "SciBreak";
-	name = "curtain"
+	id = "SciBreak"
 	},
 /turf/open/floor/grass,
 /area/station/science/breakroom)
@@ -75023,8 +75031,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "deluxecurtain";
-	name = "curtain"
+	id = "deluxecurtain"
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/department/science/lower)
@@ -75765,8 +75772,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "SciBreak";
-	name = "curtain"
+	id = "SciBreak"
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -128011,7 +128017,7 @@ iMY
 dUW
 pCZ
 udV
-iSc
+exw
 hlM
 wvG
 ttt
@@ -128523,9 +128529,9 @@ iMY
 iMY
 iMY
 dUW
-dOs
-udV
-vkb
+uGk
+gFE
+pXj
 lgu
 irR
 lOT

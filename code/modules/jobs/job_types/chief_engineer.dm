@@ -84,7 +84,7 @@
 
 	box = /obj/item/storage/box/survival/engineer
 	chameleon_extras = /obj/item/stamp/head/ce
-	skillchips = list(/obj/item/skillchip/job/engineer)
+	skillchips = list(/obj/item/skillchip/job/engineer/ce) // OCULIS EDIT, ORIGINAL: skillchips = list(/obj/item/skillchip/job/engineer)
 	pda_slot = ITEM_SLOT_LPOCKET
 
 	wintercoat = /obj/item/clothing/suit/hooded/wintercoat/engineering/ce

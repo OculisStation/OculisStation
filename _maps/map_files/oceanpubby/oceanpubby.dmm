@@ -17265,6 +17265,7 @@
 /obj/machinery/light/directional/north,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible,
 /obj/structure/sign/warning/radiation/rad_area/directional/north,
+/obj/structure/cable,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "cfl" = (
@@ -31769,7 +31770,6 @@
 /turf/open/floor/plating,
 /area/station/tcommsat/computer)
 "hQU" = (
-/obj/structure/sign/warning/radiation/rad_area/directional/west,
 /obj/effect/turf_decal/stripes/corner{
 	dir = 1
 	},
@@ -38774,6 +38774,7 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/engineering/supermatter/room)
 "kXl" = (
@@ -41197,6 +41198,7 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/engineering/supermatter/room)
 "lXp" = (
@@ -43872,7 +43874,7 @@
 /area/station/maintenance/department/science/xenobiology)
 "ndP" = (
 /obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/layer_manifold,
+/obj/machinery/atmospherics/pipe/layer_manifold/orange/visible,
 /turf/open/water/beach/planet_surface,
 /area/ocean)
 "net" = (
@@ -59478,6 +59480,7 @@
 /area/station/hallway/primary/aft)
 "tJe" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/engineering/supermatter/room)
 "tJg" = (
@@ -63476,7 +63479,6 @@
 /turf/open/floor/wood/wood_5,
 /area/station/medical/psychology)
 "vsv" = (
-/obj/structure/sign/warning/radiation/rad_area/directional/west,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
@@ -63486,6 +63488,11 @@
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/corner{
 	dir = 8
+	},
+/obj/machinery/turretid{
+	control_area = "/area/station/redspace_anchor";
+	name = "Redspace Anchor Turret Control";
+	pixel_x = -28
 	},
 /turf/open/floor/iron/dark,
 /area/station/engineering/storage/tech)
@@ -70443,6 +70450,7 @@
 "ydm" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible,
 /obj/structure/lattice/catwalk,
+/obj/structure/cable,
 /turf/open/water/beach/planet_surface,
 /area/ocean)
 "ydu" = (

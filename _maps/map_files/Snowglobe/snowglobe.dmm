@@ -3701,6 +3701,8 @@
 "aVv" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/structure/closet/emcloset,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/station/maintenance/department/engine/atmos/lesser)
 "aVz" = (
@@ -15345,6 +15347,12 @@
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible,
 /turf/open/floor/iron/dark/small,
 /area/station/maintenance/disposal/incinerator)
+"dZr" = (
+/obj/effect/mapping_helpers/broken_floor,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/plating,
+/area/station/maintenance/department/engine/atmos/lesser)
 "dZs" = (
 /obj/structure/table/wood,
 /obj/item/radio/intercom/directional/south,
@@ -23608,6 +23616,8 @@
 "gjK" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/structure/sign/warning/cold_temp/directional/south,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/station/maintenance/department/engine/atmos/lesser)
 "gjM" = (
@@ -23724,6 +23734,7 @@
 "gmx" = (
 /obj/effect/spawner/random/trash/mess,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating,
 /area/station/maintenance/department/engine/atmos/lesser)
 "gmH" = (
@@ -49543,6 +49554,12 @@
 /obj/structure/closet,
 /turf/open/floor/plating,
 /area/station/maintenance/department/medical)
+"mWS" = (
+/obj/effect/decal/cleanable/glass,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/plating,
+/area/station/maintenance/department/engine/atmos/lesser)
 "mXb" = (
 /obj/structure/flora/bush/flowers_yw/style_random,
 /turf/open/floor/grass,
@@ -52261,13 +52278,6 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/station/common/shipyardlobby)
-"nJQ" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/plating,
-/area/station/maintenance/department/engine/atmos/lesser)
 "nJR" = (
 /obj/machinery/computer/pod/old/mass_driver_controller/ordnancedriver{
 	pixel_y = 28
@@ -69826,6 +69836,11 @@
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/engineering/storage_shared)
+"sxB" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/closed/wall,
+/area/station/maintenance/department/engine/atmos/lesser)
 "sxO" = (
 /obj/effect/turf_decal/trimline/dark_blue/filled/line,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -72569,6 +72584,8 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/station/maintenance/department/engine/atmos/lesser)
 "thb" = (
@@ -72993,6 +73010,9 @@
 /area/station/commons/storage/primary)
 "tmk" = (
 /obj/effect/mapping_helpers/broken_floor,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
+	},
 /turf/open/floor/iron,
 /area/station/maintenance/department/engine/atmos/lesser)
 "tmt" = (
@@ -188055,7 +188075,7 @@ tvW
 cqS
 uZa
 otR
-xnz
+vLi
 uMQ
 xnz
 jYJ
@@ -188569,7 +188589,7 @@ iPX
 iPX
 iPX
 eMk
-cgu
+mJj
 jdO
 vBO
 vBO
@@ -188826,7 +188846,7 @@ moG
 wek
 jdX
 cpU
-cgu
+mJj
 jdO
 vBO
 vBO
@@ -189083,7 +189103,7 @@ xOW
 rOU
 jdX
 cpU
-cgu
+mJj
 jdO
 vBO
 occ
@@ -189340,7 +189360,7 @@ xOW
 dvS
 jdX
 qxO
-cgu
+mJj
 jdO
 tPn
 tPn
@@ -189597,7 +189617,7 @@ xOW
 xwO
 jdX
 xWZ
-xBp
+tpY
 jdO
 tPn
 tPn
@@ -189854,7 +189874,7 @@ xOW
 gOr
 jdX
 alb
-hSh
+dZr
 jdO
 jdO
 jdO
@@ -190111,7 +190131,7 @@ xOW
 rAE
 jdX
 sCo
-cgu
+mJj
 cgu
 hSh
 cgu
@@ -190368,10 +190388,10 @@ xOW
 kNi
 jdX
 tsJ
-cgu
-kNr
-cwr
-xBp
+mJj
+gPr
+mWS
+tpY
 cgu
 jdO
 tPn
@@ -190628,7 +190648,7 @@ jdX
 jdX
 jdX
 jdX
-cgu
+mJj
 hSh
 jdO
 tPn
@@ -190885,7 +190905,7 @@ bUM
 cdm
 cdm
 jdX
-kNr
+gPr
 cgu
 jdO
 tPn
@@ -191142,7 +191162,7 @@ kFB
 eWg
 cdm
 jdX
-aGL
+sxB
 qKb
 jdO
 tPn
@@ -192170,7 +192190,7 @@ kQx
 hzM
 hJr
 jdX
-nJQ
+lIt
 cgu
 jdO
 tPn

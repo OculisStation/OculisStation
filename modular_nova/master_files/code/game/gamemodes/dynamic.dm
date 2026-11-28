@@ -2,10 +2,13 @@
 /datum/communciations_controller/proc/send_trait_report(greenshift)
 	. = "<b><i>Sectorial Command Status Summary</i></b><hr>" // OCULIS EDIT, SectCommening 2, ORIGINAL: . = "<b><i>Central Command Status Summary</i></b><hr>"
 
-	var/dynamic_report = SSdynamic.get_advisory_report()
+	// var/dynamic_report = SSdynamic.get_advisory_report() // OCULIS EDIT REMOVAL
+	/* // OCULIS EDIT REMOVAL START
 	if(isnull(greenshift)) // if we're not forced to be greenshift or not - check if we are an actual greenshift
 		greenshift = SSdynamic.current_tier.tier == 0 && dynamic_report == /datum/dynamic_tier/greenshift::advisory_report
 	SSstation.generate_station_goals(greenshift ? INFINITY : CONFIG_GET(number/station_goal_budget))
+	*/ // OCULIS EDIT REMOVAL END
+	SSstation.generate_station_goals(CONFIG_GET(number/station_goal_budget)) // OCULIS EDIT ADDITION
 
 	if(!length(SSstation.get_station_goals()))
 		. = "<hr><b>No assigned goals.</b><BR>"

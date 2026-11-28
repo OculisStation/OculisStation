@@ -94,29 +94,33 @@ GLOBAL_DATUM_INIT(communications_controller, /datum/communciations_controller, n
 		if(isnull(greenshift))
 			greenshift = SSdynamic.current_tier.tier == 0
 	else
-		var/dynamic_report = SSdynamic.get_advisory_report()
+		var/dynamic_report = SSeidolon_storm.get_storm_report() // OCULIS EDIT, ORIGINAL: var/dynamic_report = SSdynamic.get_advisory_report()
 		if(isnull(greenshift)) // if we're not forced to be greenshift or not - check if we are an actual greenshift
 			greenshift = SSdynamic.current_tier.tier == 0 && dynamic_report == /datum/dynamic_tier/greenshift::advisory_report
 
 		// . += "<hr><h3>Nanotrasen Department of Intelligence Threat Advisory, Spinward Sector:</h3>" // OCULIS EDIT REMOVAL
 		// OCULIS EDIT ADDITION START
-		. += "<hr><h3>Castor Station Communications Threat Advisory, Eidolon Sector</h3>"
+		. += "<hr><h3>Castor Station Communications STORMWATCH Advisory, Eidolon Sector</h3>"
 		. += "<hr><h3>TCD [time2text(world.timeofday, "DDD, MMM DD")], [CURRENT_STATION_YEAR]:</h3>"
 		// OCULIS EDIT ADDITION END
 		. += dynamic_report
 
-	SSstation.generate_station_goals(greenshift ? INFINITY : CONFIG_GET(number/station_goal_budget))
+	SSstation.generate_station_goals(CONFIG_GET(number/station_goal_budget)) // OCULIS EDIT, ORIGINAL: SSstation.generate_station_goals(greenshift ? INFINITY : CONFIG_GET(number/station_goal_budget))
 
 	var/list/station_goal_strings = list()
+	/* // OCULIS EDIT REMOVAL STARt
 	if(greenshift)
 		station_goal_strings += "All special orders have been authorized for the shift. \
 			Feel free to pick one your crew wishes to specialize in - you are not expected to complete them all."
 		announced_greenshift = TRUE
 
 	else
-		for(var/datum/station_goal/station_goal as anything in SSstation.get_station_goals())
-			station_goal.on_report()
-			station_goal_strings += station_goal.get_report()
+	*/ // OCULIS EDIT REMOVAL END
+	// OCULIS EDIT START
+	for(var/datum/station_goal/station_goal as anything in SSstation.get_station_goals())
+		station_goal.on_report()
+		station_goal_strings += station_goal.get_report()
+	// OCULIS EDIT END
 
 	if(length(station_goal_strings) > 0) // if we have any special orders to report, add them in
 		. += "<hr><h4>Special Orders for [station_name()]:</h4>"
@@ -142,6 +146,7 @@ GLOBAL_DATUM_INIT(communications_controller, /datum/communciations_controller, n
 
 #ifndef MAP_TEST
 	print_command_report(., "[command_name()] Status Summary", announce = FALSE, contains_advanced_html = TRUE)
+	/* // OCULIS EDIT REMOVAL START
 	if(greenshift)
 		priority_announce(
 			"Thanks to the tireless efforts of our security and intelligence divisions, \
@@ -152,6 +157,8 @@ GLOBAL_DATUM_INIT(communications_controller, /datum/communciations_controller, n
 			color_override = "green",
 		)
 	else if(CONFIG_GET(flag/roundstart_blue_alert))
+	*/ // OCULIS EDIT REMOVAL END
+	if(CONFIG_GET(flag/roundstart_blue_alert)) // OCULIS EDIT ADDITION
 		if(SSsecurity_level.get_current_level_as_number() < SEC_LEVEL_BLUE)
 			SSsecurity_level.set_level(SEC_LEVEL_BLUE, announce = FALSE)
 		priority_announce(

@@ -78,6 +78,7 @@
 		/datum/design/anomaly_neutralizer,
 		/datum/design/reactive_armour,
 		/datum/design/space_furnace,
+		/datum/design/redspace_anchor_computer, // OCULIS EDIT ADDITION
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_3_POINTS)
 	announce_channels = list(RADIO_CHANNEL_SCIENCE)

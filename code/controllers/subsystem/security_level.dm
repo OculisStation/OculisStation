@@ -34,10 +34,19 @@ SUBSYSTEM_DEF(security_level)
  */
 /datum/controller/subsystem/security_level/proc/set_level(new_level, announce = TRUE)
 	new_level = istext(new_level) ? new_level : number_level_to_text(new_level)
+	/* // OCULIS EDIT REMOVAL START
 	if(new_level == current_security_level.name) // If we are already at the desired level, do nothing
 		return
+	*/ // OCULIS EDIT REMOVAL END
 
 	var/datum/security_level/selected_level = available_levels[new_level]
+
+	// OCULIS EDIT ADDITION START
+	SEND_SIGNAL(src, COMSIG_SECURITY_LEVEL_CHANGED, selected_level.number_level, current_security_level.number_level)
+	SSblackbox.record_feedback("tally", "security_level_changes", 1, selected_level.name)
+	if(new_level == current_security_level.name) // If we are already at the desired level, do nothing
+		return
+	// OCULIS EDIT ADDITION END
 
 	if(!selected_level)
 		CRASH("set_level was called with an invalid security level([new_level])")
@@ -53,8 +62,10 @@ SUBSYSTEM_DEF(security_level)
 	else
 		can_fire = FALSE
 
+	/* // OCULIS EDIT REMOVAL START
 	SEND_SIGNAL(src, COMSIG_SECURITY_LEVEL_CHANGED, selected_level.number_level)
 	SSblackbox.record_feedback("tally", "security_level_changes", 1, selected_level.name)
+	*/ // OCULIS EDIT REMOVAL END
 
 /**
  * Returns the current security level as a number
