@@ -18,9 +18,9 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flag/nanotrasen, 32)
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flag/ssc, 32)
 
-/obj/structure/sign/flag/terragov //IRIS EDIT
-	name = "flag of SolGov"
-	desc = "The flag of SolGov. It's a symbol of humanity no matter where they go, or how much they wish it wasn't."
+/obj/structure/sign/flag/terragov
+	name = "flag of SolFed" // OCULIS EDIT, ORIGINAL: name = "SolGov: United for Humanity"
+	desc = "The flag of SolFed. It's a symbol of humanity no matter where they go, or how much they wish it wasn't." // OCULIS EDIT, ORIGINAL: desc = "A poster depicting SolGov's logo and motto, reminding viewers of who's looking out for humankind."
 	icon_state = "flag_terragov"
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flag/terragov, 32)

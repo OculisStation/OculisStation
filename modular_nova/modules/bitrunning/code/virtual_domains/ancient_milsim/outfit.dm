@@ -1,5 +1,5 @@
 /datum/outfit/solfed_bitrun
-	name = "Bitrunning SolGov Marine"
+	name = "Bitrunning SolFed Marine"
 
 	uniform = /obj/item/clothing/under/sol_peacekeeper
 	head = null
@@ -27,7 +27,7 @@
 
 /datum/id_trim/solfed_bitrun
 	trim_icon = 'modular_nova/master_files/icons/obj/card.dmi'
-	assignment = "SolGov Marine"
+	assignment = "SolFed Marine"
 	trim_state = "trim_solfed"
 	department_color = COLOR_SOLFED_GOLD
 	subdepartment_color = COLOR_SOLFED_GOLD
