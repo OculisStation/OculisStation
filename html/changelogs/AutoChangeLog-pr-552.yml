@@ -1,0 +1,5 @@
+author: "XeonMations"
+delete-after: True
+changes:
+  - rscdel: "Removed old breaching hammer"
+  - rscadd: "Added new breaching hammer"

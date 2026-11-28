@@ -126,6 +126,13 @@
 			balloon_alert(src, "not adult!")
 		return
 
+	// OCULIS EDIT ADDITION START - SLIME_RANCHER
+	if(blocks_reproduction)
+		if(feedback)
+			balloon_alert(src, "can't split!")
+		return FALSE
+	// OCULIS EDIT ADDITION END
+
 	if(amount_grown < SLIME_EVOLUTION_THRESHOLD)
 		if(feedback) // OCULIS EDIT ADDITION - SLIME_RANCHER
 			balloon_alert(src, "need growth!")
@@ -187,9 +194,7 @@
 	var/our_faction = get_faction()
 
 	// OCULIS EDIT ADDITION
-	var/split_amount = 1
-	if(transformative_effect == SLIME_TYPE_GREY)
-		split_amount = 2
+	var/split_amount = 1 + extra_babies
 
 	for(var/i in 1 to split_amount)
 	// OCULIS EDIT NEW END
@@ -200,20 +205,8 @@
 			baby.befriend(slime_friend)
 
 		// OCULIS ADDITION START
-		if(transformative_effect)
-			baby.transformative_effect = transformative_effect
-			baby.transform_effect()
-			if(baby.spawner)
-				baby.master = master
-				baby.spawner.important_text = "Assist [master] at all costs."
-
-			if(transformative_effect == SLIME_TYPE_CERULEAN)
-				baby.set_life_stage(SLIME_LIFE_STAGE_ADULT)
-				baby.update_name()
-				baby.regenerate_icons()
-				baby.set_nutrition(new_nutrition)
-
 		baby.cores = max(cores, baby.cores) // hopefully won't cause issues
+		SEND_SIGNAL(src, COMSIG_SLIME_SPLIT, baby)
 		// OCULIS ADDITION END
 		SSblackbox.record_feedback("tally", "slime_babies_born", 1, baby.slime_type.colour)
 		step_away(baby, src)
@@ -232,7 +225,7 @@
 
 //	set_life_stage(SLIME_LIFE_STAGE_BABY) // IRIS EDIT OLD -- Unique slimes
 	// IRIS EDIT NEW START
-	if(transformative_effect != SLIME_TYPE_CERULEAN)
+	if(!keeps_parent_adult)
 		set_life_stage(SLIME_LIFE_STAGE_BABY)
 		update_name()
 		regenerate_icons()

@@ -1,0 +1,6 @@
+author: "Laiko44"
+delete-after: True
+changes:
+  - rscadd: "10 hairstyles with 2 alternates"
+  - rscadd: "6 beards"
+  - rscadd: "6 horn styles with 2 alternates"

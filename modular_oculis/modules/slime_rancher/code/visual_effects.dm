@@ -29,6 +29,7 @@
 	icon_state = "spacey"
 	alpha = 255
 
+/// Sticks a visual effect in our vis_contents
 /atom/movable/proc/add_visual_effect(effect_type)
 	if(!ispath(effect_type, /obj/effect/abstract/visual_effect))
 		CRASH("tried to pass invalid type ([effect_type]) to add_visual_effect!")

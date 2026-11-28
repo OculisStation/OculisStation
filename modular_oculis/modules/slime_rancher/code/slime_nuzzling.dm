@@ -1,9 +1,11 @@
+/// Each nuzzle picks its wait between MIN and MAX.
 #define SLIME_NUZZLE_COOLDOWN_MIN (45 SECONDS)
 #define SLIME_NUZZLE_COOLDOWN_MAX (90 SECONDS)
 
 /mob/living/basic/slime
 	COOLDOWN_DECLARE(nuzzle_cooldown)
 
+/// Nuzzles a friend, which cheers them up and starts our cooldown.
 /mob/living/basic/slime/proc/nuzzle(mob/living/friend)
 	COOLDOWN_START(src, nuzzle_cooldown, rand(SLIME_NUZZLE_COOLDOWN_MIN, SLIME_NUZZLE_COOLDOWN_MAX))
 	set_temporary_mood(SLIME_MOOD_CAT)
@@ -33,7 +35,11 @@
 	if(!.)
 		return FALSE
 	var/mob/living/candidate = target
-	return isliving(candidate) && candidate.client && !candidate.incapacitated
+	if(!isliving(candidate) || !candidate.client || candidate.incapacitated)
+		return FALSE
+	// roaming cleaners have a station to clean, they only say hi in passing
+	var/mob/living/basic/slime/slime_pawn = living_mob
+	return !(slime_pawn.cleaner_slime && isnull(slime_pawn.pen) && get_dist(slime_pawn, candidate) > 1)
 
 /datum/target_source/from_bb_list/slime_friends
 	list_key = BB_FRIENDS_LIST
@@ -42,7 +48,7 @@
 
 /datum/bt_node/decorator/slime_wants_to_nuzzle/check_condition(datum/ai_controller/controller)
 	var/mob/living/basic/slime/slime_pawn = controller.pawn
-	if(!istype(slime_pawn) || slime_pawn.buckled || IS_UNCONSCIOUS_OR_CRIT(slime_pawn))
+	if(!istype(slime_pawn) || slime_pawn.is_latched() || IS_UNCONSCIOUS_OR_CRIT(slime_pawn))
 		return FALSE
 	if(!COOLDOWN_FINISHED(slime_pawn, nuzzle_cooldown))
 		return FALSE

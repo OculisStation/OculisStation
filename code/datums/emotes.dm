@@ -52,8 +52,6 @@
 	/// Trait that is required to use this emote.
 	var/trait_required
 	/// In which state can you use this emote? (Check stat.dm for a full list of them)
-	var/stat_allowed = STABLE
-
 	var/can_use_flags = NONE
 	/// A single, default sound to play if nothing else overrides this
 	var/sound
@@ -641,6 +639,9 @@
 
 	for(var/mob/living/silicon/ai/AI as anything in GLOB.ai_list)
 		if(!AI?.client)
+			continue
+
+		if(user.invisibility > AI.see_invisible)
 			continue
 
 		// NOVA EDIT ADDITION START - Emote pref checks

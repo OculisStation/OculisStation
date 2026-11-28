@@ -8,8 +8,8 @@
 	throwforce = 0
 	icon = 'modular_oculis/modules/arachnids/icons/stack/silk_stack.dmi'
 	icon_state = "silk"
-	drop_sound = SFX_CLOTH_DROP
-	pickup_sound = SFX_CLOTH_PICKUP
+	drop_sound = /datum/sound_effect/cloth_drop
+	pickup_sound = /datum/sound_effect/cloth_pickup
 	mats_per_unit = list(/datum/material/silk = SHEET_MATERIAL_AMOUNT)
 	table_type = /obj/structure/table/silk
 	walltype = /turf/closed/wall/material/silk

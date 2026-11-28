@@ -109,6 +109,14 @@
 		card_used = living_user.get_idcard(TRUE)
 		held_cash = living_user.tally_physical_credits()
 
+	// OCULIS EDIT ADDITION START
+	if(issilicon(user))
+		// Silicons use the cargo budget when buying items from vending machines.
+		for(var/obj/item/card/id/departmental_budget/id_card as anything in SSeconomy.dep_cards)
+			if(id_card.department_ID == ACCOUNT_CAR)
+				card_used = id_card
+	// OCULIS EDIT ADDITION END
+
 	var/list/user_data = null
 	if(card_used?.registered_account)
 		user_data = list()

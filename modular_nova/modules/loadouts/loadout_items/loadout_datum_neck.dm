@@ -614,13 +614,13 @@
 /datum/loadout_item/neck/security_gauntlet
 	name = "Guard Gauntlet"
 	item_path = /obj/item/clothing/neck/security_cape/armplate
-	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)
+	//restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD) // OCULIS EDIT REMOVAL
 	group = "Guard"
 
 /datum/loadout_item/neck/security_caped_gauntlet
 	name = "Guard Caped Gauntlet (Colorable)"
 	item_path = /obj/item/clothing/neck/security_cape/armplate_caped
-	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)
+	//restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD) // OCULIS EDIT REMOVAL
 	group = "Guard"
 
 /datum/loadout_item/neck/security_cape

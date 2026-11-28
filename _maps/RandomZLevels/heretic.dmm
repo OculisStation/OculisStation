@@ -3157,10 +3157,6 @@
 /obj/structure/flora/grass/jungle/a/style_random,
 /turf/open/misc/grass/jungle/station,
 /area/awaymission/beach/heretic)
-"qr" = (
-/obj/effect/mapping_helpers/airlock/access/all/supply,
-/turf/open/floor/plating,
-/area/awaymission/caves/heretic_laboratory)
 "qt" = (
 /obj/structure/cable,
 /obj/machinery/power/port_gen/pacman/pre_loaded,
@@ -7003,15 +6999,6 @@
 /obj/effect/mapping_helpers/blessing/invisible,
 /turf/open/floor/iron/dark,
 /area/awaymission/caves/heretic_laboratory)
-"JS" = (
-/obj/structure/table/reinforced,
-/obj/structure/displaycase/forsale/kitchen{
-	pixel_y = 8
-	},
-/obj/effect/turf_decal/tile/bar/opposingcorners,
-/obj/machinery/light/directional/east,
-/turf/open/floor/iron,
-/area/awaymission/caves/heretic_laboratory)
 "JT" = (
 /obj/machinery/conveyor/auto{
 	dir = 4
@@ -7208,12 +7195,6 @@
 /area/awaymission/beach/heretic)
 "KT" = (
 /turf/open/floor/wood,
-/area/awaymission/caves/heretic_laboratory_clean)
-"KX" = (
-/obj/structure/table,
-/obj/machinery/light/floor,
-/obj/item/gun/energy/recharge/shrink_ray/one_shot,
-/turf/open/floor/iron/large,
 /area/awaymission/caves/heretic_laboratory_clean)
 "La" = (
 /obj/effect/baseturf_helper/beach/sand,
@@ -8174,6 +8155,12 @@
 	dir = 8
 	},
 /turf/open/floor/wood,
+/area/awaymission/caves/heretic_laboratory_clean)
+"Qz" = (
+/obj/structure/table,
+/obj/machinery/light/floor,
+/obj/item/gun/energy/recharge/shrink_ray/one_shot,
+/turf/open/floor/iron/large,
 /area/awaymission/caves/heretic_laboratory_clean)
 "QA" = (
 /mob/living/basic/heretic_summon/stalker,
@@ -9698,6 +9685,13 @@
 	},
 /turf/open/floor/iron/large,
 /area/awaymission/caves/heretic_laboratory_clean)
+"Yz" = (
+/obj/structure/table/reinforced,
+/obj/structure/tipjar/prefilled,
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/machinery/light/directional/east,
+/turf/open/floor/iron,
+/area/awaymission/caves/heretic_laboratory)
 "YA" = (
 /obj/structure/table,
 /obj/item/storage/medkit/regular{
@@ -23997,7 +23991,7 @@ Sv
 KB
 JW
 WY
-JS
+Yz
 Xv
 Xv
 Xv
@@ -25286,7 +25280,7 @@ fW
 fW
 fW
 fW
-qr
+ay
 hp
 bq
 wC
@@ -28353,7 +28347,7 @@ Jf
 ob
 KB
 IP
-KX
+Qz
 IP
 KB
 IP

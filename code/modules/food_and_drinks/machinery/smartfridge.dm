@@ -263,7 +263,7 @@
 			playsound(src.loc, 'sound/items/tools/welder.ogg', 100, TRUE)
 
 /obj/machinery/smartfridge/atom_break(damage_flag)
-	playsound(src, SFX_SHATTER, 50, TRUE)
+	playsound(src, /datum/sound_effect/shatter, 50, TRUE)
 	return ..()
 
 /obj/machinery/smartfridge/proc/can_load_item(obj/item/loadable)
@@ -398,7 +398,7 @@
 
 /obj/machinery/smartfridge/ui_act(action, params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
-	if(. || !ui.user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
+	if(. || !ui.user.can_perform_action(src, FORBID_TELEKINESIS_REACH | ALLOW_SILICON_REACH)) // OCULIS EDIT, ORIGINAL: if(. || !ui.user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
 		return
 
 	var/mob/living_mob = ui.user
@@ -410,9 +410,11 @@
 				return TRUE
 			var/dispensed_amount = 0
 
+			/* // OCULIS EDIT REMOVAL START
 			if(isAI(living_mob))
 				to_chat(living_mob, span_warning("[src] does not respect your authority!"))
 				return TRUE
+			*/ // OCULIS EDIT REMOVAL END
 
 			for(var/obj/item/dispensed_item in contents)
 				if(amount <= 0)

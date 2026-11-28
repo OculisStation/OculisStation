@@ -1,0 +1,10 @@
+author: "XeonMations"
+delete-after: True
+changes:
+  - rscadd: "AIs can now buy people things from vendors."
+  - rscadd: "AIs can now brew people coffee from coffeemakers."
+  - rscadd: "AIs can now unlock lockers for people without a shell."
+  - rscadd: "AIs can now use microwaves."
+  - rscadd: "AIs can now manually open and close shutters."
+  - rscadd: "AIs can now toggle autogrow on botany trays."
+  - rscadd: "AIs can now remove items from smart storages."

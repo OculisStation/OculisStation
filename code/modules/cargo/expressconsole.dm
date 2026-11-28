@@ -82,6 +82,7 @@
 	var/obj/item/circuitboard/computer/cargo/board = circuit
 	board.obj_flags |= EMAGGED
 	board.contraband = TRUE
+	update_static_data_for_all_viewers()
 	return TRUE
 
 /obj/machinery/computer/cargo/express/ui_data(mob/user)
@@ -146,6 +147,12 @@
 			if(TIMER_COOLDOWN_RUNNING(src, COOLDOWN_EXPRESSPOD_CONSOLE))
 				say("Railgun recalibrating. Stand by.")
 				return
+			// OCULIS EIDT ADDITION START
+			var/current_alert_level = SSsecurity_level.get_current_level_as_number()
+			if(current_alert_level == SEC_LEVEL_BLACK)
+				say("Unable to comply; Storm surge in progress.")
+				return
+			// OCULIS EDIT ADDITION END
 			var/id = params["id"]
 			id = text2path(id) || id
 			var/datum/supply_pack/pack = SSshuttle.supply_packs[id]

@@ -215,7 +215,7 @@
 	icon_state = "tentacle"
 	taur_mode = BODYSHAPE_TAUR_SNAKE
 	color_src = USE_ONE_COLOR
-	organ_type = /obj/item/organ/taur_body/tentacle
+	organ_type = /obj/item/organ/taur_body/serpentine/tentacle // OCULIS EDIT, ORIGINAL: organ_type = /obj/item/organ/taur_body/tentacle
 
 /datum/sprite_accessory/taur/tentacle/alt
 	name = "Tentacle, Alt"
@@ -242,14 +242,14 @@
 	icon_state = "goop"
 	taur_mode = BODYSHAPE_TAUR_SNAKE
 	color_src = USE_ONE_COLOR
-	organ_type = /obj/item/organ/taur_body/blob
+	organ_type = /obj/item/organ/taur_body/serpentine/blob // OCULIS EDIT, ORIGINAL: organ_type = /obj/item/organ/taur_body/blob
 
 /datum/sprite_accessory/taur/slime
 	name = "Slime"
 	icon_state = "slime"
 	taur_mode = BODYSHAPE_TAUR_SNAKE
 	color_src = USE_ONE_COLOR
-	organ_type = /obj/item/organ/taur_body/blob
+	organ_type = /obj/item/organ/taur_body/serpentine/blob // OCULIS EDIT, ORIGINAL: organ_type = /obj/item/organ/taur_body/blob
 
 /datum/sprite_accessory/taur/biglegs
 	name = "Big Legs"
