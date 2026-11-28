@@ -1,0 +1,5 @@
+author: "XeonMations"
+delete-after: True
+changes:
+  - rscadd: "Added a solfed jacket"
+  - rscadd: "Solfed Shuttle"
