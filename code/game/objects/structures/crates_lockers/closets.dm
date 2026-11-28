@@ -1058,6 +1058,12 @@ GLOBAL_LIST_EMPTY(roundstart_station_closets)
 	togglelock(user)
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
+// OCULIS EDIT ADDITION START
+/obj/structure/closet/attack_ai_secondary(mob/user, list/modifiers)
+	togglelock(user)
+	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+// OCULIS EDIT ADDITION END
+
 // tk grab then use on self
 /obj/structure/closet/attack_self_tk(mob/user)
 	if(attack_hand(user))

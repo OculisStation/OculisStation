@@ -1,0 +1,6 @@
+author: "XeonMations"
+delete-after: True
+changes:
+  - balance: "Hemophages now drink 20 units of blood instead of the previous 50."
+  - bugfix: "Fixed hemophages not processing blood reagents."
+  - rscdel: "Removed hemophage direct blood increase from drinking victims."

@@ -142,14 +142,14 @@
 /datum/element/footstep/proc/play_humanstep(mob/living/carbon/human/source, atom/oldloc, direction, forced, list/old_locs, momentum_change)
 	SIGNAL_HANDLER
 
-	if(forced || SHOULD_ATOM_DISABLE_FOOTSTEPS(source) || !momentum_change)
+	if(forced || SHOULD_MOB_DISABLE_FOOTSTEPS(source) || !momentum_change) // OCULIS EDIT, ORIGINAL: if(forced || SHOULD_ATOM_DISABLE_FOOTSTEPS(source) || !momentum_change)
 		return
 
 	if(source.body_position == LYING_DOWN)
 		play_craw_step(source)
 		return
 
-	if(HAS_TRAIT(source, TRAIT_SILENT_FOOTSTEPS) || SHOULD_MOB_DISABLE_FOOTSTEPS(source))
+	if(HAS_TRAIT(source, TRAIT_SILENT_FOOTSTEPS) || SHOULD_ATOM_DISABLE_FOOTSTEPS(source)) // OCULIS EDIT, ORIGINAL: if(HAS_TRAIT(source, TRAIT_SILENT_FOOTSTEPS) || SHOULD_MOB_DISABLE_FOOTSTEPS(source))
 		return
 
 	var/list/prepared_steps = prepare_step(source)

@@ -54043,10 +54043,6 @@
 /turf/open/floor/wood/large,
 /area/station/service/theater)
 "sxY" = (
-/obj/machinery/computer/telecomms/traffic{
-	dir = 4;
-	network = "tcommsat"
-	},
 /turf/open/floor/carpet/grimey,
 /area/station/tcommsat/computer)
 "syh" = (

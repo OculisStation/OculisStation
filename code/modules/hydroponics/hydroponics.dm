@@ -1177,6 +1177,12 @@
 		if(user)
 			user.examinate(src)
 
+// OCULIS EDIT ADDITION START
+/obj/machinery/hydroponics/AICtrlClick(mob/living/silicon/ai/user)
+	. = ..()
+	return click_ctrl(user)
+// OCULIS EDIT ADDITION END
+
 /obj/machinery/hydroponics/click_ctrl(mob/user)
 	if(!anchored)
 		return NONE

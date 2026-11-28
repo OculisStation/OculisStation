@@ -173,11 +173,9 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	var/freqpart = radio_freq ? "\[[get_radio_name(radio_freq, radio_freq_name)]\] " : ""
 	//Speaker name
 	var/namepart = message_mods[MODE_SPEAKER_NAME_OVERRIDE] || speaker.get_message_voice(visible_name)
-	var/realnamepart = "[speaker.get_voice(TRUE)]" // IRIS EDIT -- NTSL
 
 	//End name span.
-	//var/endspanpart = "</span>" // IRIS EDIT OLD -- NTSL
-	var/endspanpart = "</span></a>" // IRIS EDIT NEW
+	var/endspanpart = "</span>"
 
 	// Language icon.
 	var/languageicon = ""
@@ -195,7 +193,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 
 	var/speaker_voice_description = message_mods[MODE_SPEAKER_GENDER_OVERRIDE] || speaker.get_voice_description()
 
-	return "[spanpart1][spanpart2][freqpart][languageicon][compose_track_href(speaker, realnamepart)][span_tooltip_subtle(speaker_voice_description, namepart)][compose_job(speaker, message_language, raw_message, radio_freq)][endspanpart][messagepart]" // OCULIS EDIT, ORIGINAL:  return "[spanpart1][spanpart2][freqpart][languageicon][compose_track_href(speaker, namepart)][span_tooltip_subtle(speaker_voice_description, namepart)][compose_job(speaker, message_language, raw_message, radio_freq)][endspanpart][messagepart]"
+	return "[spanpart1][spanpart2][freqpart][languageicon][compose_track_href(speaker, namepart)][span_tooltip_subtle(speaker_voice_description, namepart)][compose_job(speaker, message_language, raw_message, radio_freq)][endspanpart][messagepart]"
 
 
 /atom/movable/proc/compose_track_href(atom/movable/speaker, message_langs, raw_message, radio_freq)
@@ -425,7 +423,6 @@ INITIALIZE_IMMEDIATE(/atom/movable/virtualspeaker)
 	source = M
 	if(istype(M))
 		name = radio?.anonymize ? "Unknown" : M.get_voice(add_id_name = TRUE)
-		realvoice = name // IRIS ADDITION -- NTSL
 		gender = M.gender
 		verb_say = M.get_default_say_verb()
 		verb_ask = M.verb_ask
