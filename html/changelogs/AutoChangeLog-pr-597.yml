@@ -1,0 +1,5 @@
+author: "XeonMations"
+delete-after: True
+changes:
+  - rscadd: "Added a new cyborg upgrade that lets you pick up a borg."
+  - balance: "Cyborgs can now be aggro grabbed, as well as thrown."
