@@ -393,7 +393,7 @@
 		user.start_pulling(src, supress_message = supress_message)
 		return
 
-	if(!(status_flags & CANPUSH) || HAS_TRAIT(src, TRAIT_PUSHIMMUNE))
+	if(!(status_flags & CANPUSH) || (HAS_TRAIT(src, TRAIT_PUSHIMMUNE) && !(HAS_TRAIT(src, TRAIT_BORG_AGGRO_GRABBABLE)))) // OCULIS EDIT, ORIGINAL: if(!(status_flags & CANPUSH) || HAS_TRAIT(src, TRAIT_PUSHIMMUNE))
 		to_chat(user, span_warning("[src] can't be grabbed more aggressively!"))
 		return FALSE
 

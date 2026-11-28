@@ -27,4 +27,7 @@
 /// Mask carrying the rebreather element
 #define TRAIT_SLIME_REBREATHER "slime_rebreather"
 
+/// Used for if you can aggro grab a borg to pick them up.
+#define TRAIT_BORG_AGGRO_GRABBABLE "borg_aggro_grabbable"
+
 // END TRAIT DEFINES

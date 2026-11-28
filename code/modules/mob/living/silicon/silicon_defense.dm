@@ -1,6 +1,7 @@
-
+/* // OCULIS EDIT REMOVAL START
 /mob/living/silicon/grippedby(mob/living/carbon/user, instant = FALSE)
 	return //can't upgrade a simple pull into a more aggressive grab.
+*/ // OCULIS EDIT REMOVAL END
 
 /mob/living/silicon/get_ear_protection(ignore_deafness = FALSE)
 	return ..() + EAR_PROTECTION_HEAVY //no ears
